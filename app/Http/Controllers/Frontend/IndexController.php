@@ -127,10 +127,44 @@ class IndexController extends Controller
             $disk = Storage::disk('s3');
             $bucket = 'mysecretmap';
             $upload_file = $request->file('img');
+
+            // STOCKAGE IMAGE ORIGINALE
+
             $height = Image::make($upload_file)->height();
             $width = Image::make($upload_file)->width();
+            $canvas = Image::canvas($width, $height);
 
-            dd($width);
+
+
+
+            $imagefinale  = Image::make($file)->resize(
+                $width,
+                null,
+                function ($constraint) {
+                    $constraint->aspectRatio();
+                }
+            );
+
+            $canvas->insert($imagefinale, 'center');
+            $canvas->encode($extension);
+
+            $disk->put('/large/large-' . $imgname, (string) $canvas, 'public');
+            $largename = $disk->url('large/large-' . $imgname);
+
+            // STOCKAGE IMAGE MEDIUM
+
+            // STOCKAGE IMAGE SMALL
+
+
+            // MEMORISATION BD
+
+            $picture = new Pictures();
+            $picture->fichier = $imgname;
+            $picture->bucket = $bucket;
+            $picture->large = $largename;
+            $picture->created_at = Carbon::now();
+            $picture->updated_at = Carbon::now();
+            $picture->save();
         }
 
         $spot = Spots::where('id', '=', $spotid)->first();
