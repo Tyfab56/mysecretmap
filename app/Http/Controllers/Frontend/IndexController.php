@@ -12,6 +12,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Carbon;
 use Intervention\Image\Facades\Image;
 
 
@@ -114,6 +115,8 @@ class IndexController extends Controller
 
         $iduser = Auth::id();
         $spotid = $request->spotid;
+        $spot = Spots::where('id', '=', $spotid)->first();
+        $paysid = $spot->pays_id;
         $file = $request->file('img');
         if ($file == null) {
             // pas de nouvelle image
@@ -151,6 +154,7 @@ class IndexController extends Controller
             $disk->put('/large/large-' . $imgname, (string) $canvas, 'public');
             $largename = $disk->url('large/large-' . $imgname);
 
+
             // STOCKAGE IMAGE MEDIUM
 
             // STOCKAGE IMAGE SMALL
@@ -160,14 +164,19 @@ class IndexController extends Controller
 
             $picture = new Pictures();
             $picture->fichier = $imgname;
+            $picture->user_id = $iduser;
+            $picture->spot_id = $spotid;
+            $picture->pays_id = $paysid;
             $picture->bucket = $bucket;
             $picture->large = $largename;
+            $picture->medium = 'coucou';
+            $picture->small =  'coucou';
             $picture->created_at = Carbon::now();
             $picture->updated_at = Carbon::now();
             $picture->save();
         }
 
-        $spot = Spots::where('id', '=', $spotid)->first();
+
         return view('frontend/addimagespot', compact('spot'));
     }
 
