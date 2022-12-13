@@ -208,7 +208,7 @@ class SpotsController extends Controller
             if ($typeaction == "edit") {
                 if ($spotinfo->imgpanosmall) {
                     $bucket = $spotinfo->bucket;
-                    $disk = Storage::disk($bucket);
+                    $disk = Storage::disk('wasabi');
                     $filesmall = parse_url($spotinfo->imgpanosmall);
                     $filemedium = parse_url($spotinfo->imgpanomedium);
                     $filelarge = parse_url($spotinfo->imgpanolarge);
@@ -400,7 +400,7 @@ class SpotsController extends Controller
             if ($typeaction == "edit") {
                 if ($spotinfo->imgregionlarge) {
                     $bucket = $spotinfo->bucket;
-                    $disk = Storage::disk($bucket);
+                    $disk = Storage::disk('wasabi');
 
                     $filemedium = parse_url($spotinfo->imgregionmedium);
                     $filelarge = parse_url($spotinfo->imgregionlarge);
@@ -481,7 +481,7 @@ class SpotsController extends Controller
             if ($typeaction == "edit") {
                 if ($spotinfo->imgmaplarge) {
                     $bucket = $spotinfo->bucket;
-                    $disk = Storage::disk($bucket);
+                    $disk = Storage::disk('wasabi');
 
                     $filemedium = parse_url($spotinfo->imgmapmedium);
                     $filelarge = parse_url($spotinfo->imgmaplarge);
@@ -571,7 +571,7 @@ class SpotsController extends Controller
 
         // si nouvelle image mettre à jour les images
         if ($imagestatus == 1) {
-            $spot->bucket = $bucket;
+
             $spot->fichier = $imgpanoname;
             $spot->bucket = $bucket;
             $spot->imgpanosmall = $smallname;
