@@ -1,6 +1,13 @@
 @extends('frontend.main_master')
 @section('css')
-<link rel="stylesheet" href="{{ asset('frontend/assets/css/grid.css')}}" /
+<link rel="stylesheet" href="{{ asset('frontend/assets/css/driveway.css')}}" />
+
+@endsection
+@section('fullscripts')
+
+@endsection
+@section('scripts')
+
 @endsection
 @section('content')
 <section id="ts-features" class="ts-features">
@@ -22,6 +29,9 @@
                     <span class="text-danger"> {{ $message }}</span>
                     @enderror
                 </div>
+                <div class="progress">
+                  <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
+              </div>
             </div>
             <div class=" text-xs-right">
               <input type="submit" name="file" class="btn btn-rounded btn-primary mb-5" value="Validation">
@@ -34,17 +44,20 @@
            <p><b>Nombre d'images :</b> {{ $spottotalcount }}</p>
           </div>
           <div class="col-lg-9">
-            <ul class="grid">
+            <div class="dw">
+             
             @foreach($pictures as $picture)
-          
-              <li>
-                <figure>
-                  <img width="{{ $picture->width }}" height="{{ $picture->height}}" src="{{ $picture->medium }}" alt="">
-                </figure>
-              </li>
+            
+              <div class="dw-panel">
+                 <img  src="{{ $picture->medium }}" class="dw-panel__content" alt="">
+              </div>
+             
+      
+                 
+            
               
             @endforeach
-            </ul>
+            </div>
           </div>
         </div>
 @endsection

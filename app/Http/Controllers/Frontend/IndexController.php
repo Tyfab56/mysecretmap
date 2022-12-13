@@ -253,8 +253,8 @@ class IndexController extends Controller
         $spot = Spots::where('id', '=', $spotid)->first();
         // comptage des images total pour ce spot
         $spottotalcount = Pictures::where('spot_id', '=', $spotid)->where('actif', '=', 1)->where('user_id', '=', auth()->user()->id)->count();
-        $pictures = Pictures::where('user_id', '=', auth()->user()->id)->count();
-        return view('frontend/addimagespot', compact('spot', 'spottotalcount', 'Pictures'));
+        $pictures = Pictures::where('user_id', '=', auth()->user()->id)->paginate(20);
+        return view('frontend/addimagespot', compact('spot', 'spottotalcount', 'pictures'));
     }
 
     public function whatsnext()
