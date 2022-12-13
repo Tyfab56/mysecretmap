@@ -67,7 +67,7 @@ class SpotsController extends Controller
         // Suppression de infos sur ce point
         // Suppression des images
         $bucket = $spot->bucket;
-        $disk = Storage::disk($bucket);
+        $disk = Storage::disk('wasabi');
         $filesmall = parse_url($spot->imgpanosmall);
         $filemedium = parse_url($spot->imgpanomedium);
         $filelarge = parse_url($spot->imgpanolarge);
@@ -316,8 +316,8 @@ class SpotsController extends Controller
             $imgsquarename = uniqid() . "_" . $id . "_" . $request->payslist . "_" . $imgsquarename;
 
 
-            $disk = Storage::disk('mysecretmap');
-            $bucket = $disk->getDriver()->getAdapter()->getbucket();
+            $disk = Storage::disk('wasabi');
+            $bucket = 'mysecretmap';
 
             // LARGE
             // Stockage d'une image large 1100 x 366
@@ -417,8 +417,8 @@ class SpotsController extends Controller
             $imgregionname = uniqid() . "_" . $id . "_" . $request->payslist . "_" . $imgregionname;
 
 
-            $disk = Storage::disk('mysecretmap');
-            $bucket = $disk->getDriver()->getAdapter()->getbucket();
+            $disk = Storage::disk('wasabi');
+            $bucket = 'mysecretmap';
 
             // LARGE
             // Stockage d'une image large 1100 x 366
@@ -498,8 +498,8 @@ class SpotsController extends Controller
             $imgmapname = uniqid() . "_" . $id . "_" . $request->payslist . "_" . $imgmapname;
 
 
-            $disk = Storage::disk('mysecretmap');
-            $bucket = $disk->getDriver()->getAdapter()->getbucket();
+            $disk = Storage::disk('wasabi');
+            $bucket = 'mysecretmap';
 
             // LARGE
             // Stockage d'une image large 
