@@ -127,7 +127,7 @@ class IndexController extends Controller
             $imgname = str_replace(' ', '-', $imgname);
             $imgname = uniqid() . "_" . $iduser . "_" . $request->payslist . "_" . $imgname;
 
-            $disk = Storage::disk('s3');
+            $disk = Storage::disk('wasabi');
             $bucket = 'mysecretmap';
             $upload_file = $request->file('img');
 
@@ -151,14 +151,78 @@ class IndexController extends Controller
             $canvas->insert($imagefinale, 'center');
             $canvas->encode($extension);
 
+
+
+
             $disk->put('/large/large-' . $imgname, (string) $canvas, 'public');
             $largename = $disk->url('large/large-' . $imgname);
 
 
+
             // STOCKAGE IMAGE MEDIUM
+            $mh = $height;
+            $mw = $width;
+
+            if ($mw > $mh) {
+                $height = 600;
+                $width = round((600 * $mw) / $mh);
+            } else {
+                $width = 600;
+                $height = round((600 * $mh) / $mw);
+            }
+
+            $canvas = Image::canvas($width, $height);
+
+
+
+
+            $imagefinale  = Image::make($file)->resize(
+                $width,
+                null,
+                function ($constraint) {
+                    $constraint->aspectRatio();
+                }
+            );
+
+            $canvas->insert($imagefinale, 'center');
+            $canvas->encode($extension);
+
+
+
+
+            $disk->put('/medium/medium-' . $imgname, (string) $canvas, 'public');
+            $mediumname = $disk->url('medium/medium-' . $imgname);
 
             // STOCKAGE IMAGE SMALL
+            if ($mw > $mh) {
+                $height = 130;
+                $width = round((130 * $mw) / $mh);
+            } else {
+                $width = 130;
+                $height = round((130 * $mh) / $mw);
+            }
 
+            $canvas = Image::canvas($width, $height);
+
+
+
+
+            $imagefinale  = Image::make($file)->resize(
+                $width,
+                null,
+                function ($constraint) {
+                    $constraint->aspectRatio();
+                }
+            );
+
+            $canvas->insert($imagefinale, 'center');
+            $canvas->encode($extension);
+
+
+
+
+            $disk->put('/small/small-' . $imgname, (string) $canvas, 'public');
+            $smallname = $disk->url('small/small-' . $imgname);
 
             // MEMORISATION BD
 
@@ -168,16 +232,19 @@ class IndexController extends Controller
             $picture->spot_id = $spotid;
             $picture->pays_id = $paysid;
             $picture->bucket = $bucket;
+            $picture->width = $mw;
+            $picture->height = $mh;
+            $picture->actif = 2;
             $picture->large = $largename;
-            $picture->medium = 'coucou';
-            $picture->small =  'coucou';
+            $picture->medium = $mediumname;
+            $picture->small =  $smallname;
             $picture->created_at = Carbon::now();
             $picture->updated_at = Carbon::now();
             $picture->save();
         }
 
 
-        return view('frontend/addimagespot', compact('spot'));
+        return \Redirect::route('addimagespot', $spotid);
     }
 
     public function addimagespot($spotid)
@@ -186,7 +253,8 @@ class IndexController extends Controller
         $spot = Spots::where('id', '=', $spotid)->first();
         // comptage des images total pour ce spot
         $spottotalcount = Pictures::where('spot_id', '=', $spotid)->where('actif', '=', 1)->where('user_id', '=', auth()->user()->id)->count();
-        return view('frontend/addimagespot', compact('spot', 'spottotalcount'));
+        $pictures = Pictures::where('user_id', '=', auth()->user()->id)->count();
+        return view('frontend/addimagespot', compact('spot', 'spottotalcount', 'Pictures'));
     }
 
     public function whatsnext()

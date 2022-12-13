@@ -41,13 +41,13 @@ return [
             'url' => env('APP_URL') . '/storage',
             'visibility' => 'public',
         ],
-        'mysecretmap' => [
+        'wasabi' => [
             'driver' => 's3',
             'key' => env('WASABI_ACCESS_KEY_ID'),
             'secret' => env('WASABI_SECRET_ACCESS_KEY'),
             'region' => env('WASABI_DEFAULT_REGION', 'eu-central-1'),
             'bucket' => env('WASABI_BUCKET'),
-            'root' => env('WASABI_ROOT', '/'),
+            'endpoint' => env('WASABI_ENDPOINT', 'https://s3.eu-central-1.wasabisys.com/'),
         ],
 
         's3' => [
@@ -57,7 +57,7 @@ return [
             'region' => env('AWS_DEFAULT_REGION'),
             'bucket' => env('AWS_BUCKET'),
             'url' => env('AWS_URL'),
-            'endpoint' => env('AWS_ENDPOINT'),
+            'endpoint' => 'https://s3.wasabisys.com'
         ],
 
     ],

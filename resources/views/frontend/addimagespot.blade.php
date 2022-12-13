@@ -1,4 +1,7 @@
 @extends('frontend.main_master')
+@section('css')
+<link rel="stylesheet" href="{{ asset('frontend/assets/css/grid.css')}}" /
+@endsection
 @section('content')
 <section id="ts-features" class="ts-features">
     <div class="container">
@@ -30,6 +33,18 @@
           <div class="col-lg-3 bgregbox">
            <p><b>Nombre d'images :</b> {{ $spottotalcount }}</p>
           </div>
-          <div class="col-lg-9">Images</div>
+          <div class="col-lg-9">
+            <ul class="grid">
+            @foreach($pictures as $picture)
+          
+              <li>
+                <figure>
+                  <img width="{{ $picture->width }}" height="{{ $picture->height}}" src="{{ $picture->medium }}" alt="">
+                </figure>
+              </li>
+              
+            @endforeach
+            </ul>
+          </div>
         </div>
 @endsection
