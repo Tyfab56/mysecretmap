@@ -232,7 +232,7 @@
                       <li class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Admin <i class="fa fa-angle-down"></i></a>
                         <ul class="dropdown-menu" role="menu">
-                             <li><a class="dropdown-item" href="{{ route('admin.spots') }}"> Table Spots</a></li>
+                             <li><a class="dropdown-item" href="{{ route('admin.listspots') }}"> Table Spots</a></li>
                         </ul>
                     </li>
                       @endif

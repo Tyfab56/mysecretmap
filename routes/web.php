@@ -3,7 +3,8 @@
 use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\LanguageController;
-use App\Http\Controllers\AdminController;
+use App\Http\Controllers\SpotsController;
+use App\Http\Controllers\PaysController;
 use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\Frontend\DestinationController;
 use Illuminate\Support\Facades\Route;
@@ -39,8 +40,6 @@ Route::get('/listmarkers/{idpays}/{nelat}/{nelng}/{swlat}/{swlng}', [Destination
 Route::get('/destination/{id}/{spotid?}', [DestinationController::class, 'index'])->name('destination');
 
 
-Route::get('spots', [AdminController::class, 'spots'])->name('admin.spots');
-
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -59,4 +58,13 @@ Route::get('language/{locale}', function ($locale) {
 Route::get('lang/{lang}', [LanguageController::class, 'switchLang'])->name('lang.switch');
 
 
+Route::get('/admin/listspots', [SpotsController::class, 'index'])->name('admin.listspots');
+Route::get('/admin/addspot', [SpotsController::class, 'addspot'])->name('admin.addspot');
+Route::get('/admin/spot/edit/{id}/{lang?}', [SpotsController::class, 'edit'])->name('admin.spot.edit');
+Route::get('/admin/spot/delete/{id}', [SpotsController::class, 'delete'])->name('admin.spot.delete');
+Route::get('/admin/spot/latlng/{id}/{lat}/{lng}/', [SpotsController::class, 'latlng'])->name('admin.latlng.store');
+Route::get('/admin/social/{id}', [SpotsController::class, 'social'])->name('admin.social');
+Route::post('/admin/spot/store', [SpotsController::class, 'spotStore'])->name('admin.spot.store');
+Route::post('/admin/spot/textstore', [SpotsController::class, 'spotTextStore'])->name('admin.spot.textstore');
+Route::get('/admin/detailpays/{id}', [PaysController::class, 'detail'])->name('admin.detailpays');
 require __DIR__ . '/auth.php';
