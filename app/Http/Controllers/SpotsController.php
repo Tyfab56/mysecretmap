@@ -299,7 +299,7 @@ class SpotsController extends Controller
             if ($typeaction == "edit") {
                 if ($spotinfo->imgsquaresmall) {
                     $bucket = $spotinfo->bucket;
-                    $disk = Storage::disk($bucket);
+                    $disk = Storage::disk('wasabi');
                     $filesmall = parse_url($spotinfo->imgsquaresmall);
                     $filemedium = parse_url($spotinfo->imgsquaremedium);
                     $filelarge = parse_url($spotinfo->imgsquarelarge);
