@@ -16,7 +16,7 @@
           <div class="col-lg-12"><img  class="w100" src="{{$spot->imgpanolarge??''}}"></div>
         </div>
         <div class="col-12">
-          <form method="post" action="{{ route('addimagespot.store') }}" enctype="multipart/form-data">
+          <form  id="fileUploadForm" method="post" action="{{ route('addimagespot.store') }}" enctype="multipart/form-data">
               @csrf
               <input type="hidden" id="spotid" name="spotid" value="{{$spot->id}}">
               <div class="form-group">
@@ -60,4 +60,25 @@
             </div>
           </div>
         </div>
+
+        <script>
+          $(function () {
+              $(document).ready(function () {
+                  $('#fileUploadForm').ajaxForm({
+                      beforeSend: function () {
+                          var percentage = '0';
+                      },
+                      uploadProgress: function (event, position, total, percentComplete) {
+                          var percentage = percentComplete;
+                          $('.progress .progress-bar').css("width", percentage+'%', function() {
+                            return $(this).attr("aria-valuenow", percentage) + "%";
+                          })
+                      },
+                      complete: function (xhr) {
+                          console.log('File has uploaded');
+                      }
+                  });
+              });
+          });
+      </script>
 @endsection
