@@ -86,7 +86,7 @@
             <form method="post" action="{{ route ('godestination') }}">
                 @csrf
                 <div class="form-group">
-                    <select class="form-control" id="idpays" name="idpays" onChange="this.form.submit()">
+                    <select class="form-control ml15" id="idpays" name="idpays" onChange="this.form.submit()">
                     <option value="">{{__('destination.selectdest')}}</option>
                  
                     @foreach($payslist as $pay)
