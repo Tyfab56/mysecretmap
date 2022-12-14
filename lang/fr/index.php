@@ -23,5 +23,6 @@ return [
     'Topbanner2' => "Choisissez les plus beaux spots, nous créons votre circuit",
     'Topbanner1' => "CREEZ VOTRE VOYAGE IDEAL",
     'Topbanner3' => "Choisissez votre destination",
+    'NoAccess' => "Accès à cette section non autorisé",
 
 ];

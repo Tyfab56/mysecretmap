@@ -19,4 +19,5 @@ return [
     'SpotExceed' => 'Please Zoom',
     'SpotEmpty' => 'No Spot on Map',
 
+
 ];

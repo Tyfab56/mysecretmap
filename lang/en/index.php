@@ -23,6 +23,8 @@ return [
     'Topbanner2' => "Choose the most beautiful spots, we create your tour",
     'Topbanner1' => "create your ideal trip",
     'Topbanner3' => "VIEW MAP",
+    'NoAccess' => "You have no accesss here",
+
 
 
 

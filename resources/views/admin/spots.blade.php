@@ -12,6 +12,8 @@
 @endsection
 
 @section('content')
+@auth
+@if (auth()->user()->isAdmin())
 <section id="news" class="news">
   <div class="container">
     <div class="row text-center">
@@ -97,7 +99,25 @@
               </div>
   </section>
 </div>
-
+@else
+<section id="news" class="news">
+  <div class="container">
+    <div class="row text-center">
+      {{ __('index.NoAccess') }}
+    </div>
+  </div>
+</section>
+@endif
+@endauth
+@guest
+<section id="news" class="news">
+  <div class="container">
+    <div class="row text-center">
+      {{ __('index.NoAccess') }}
+    </div>
+  </div>
+</section>
+@endguest
 
 
 @endsection
