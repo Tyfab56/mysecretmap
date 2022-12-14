@@ -583,7 +583,7 @@ class SpotsController extends Controller
             // VIDEO
             // Stockage d'une video
 
-            $disk->put('/large/large-' . $videomapname, file_get_contents($filemap), 'public');
+            $disk->put('/large/large-' . $videomapname, file_get_contents($videomap), 'public');
             $videomapname = $disk->url('large/large-' . $videomapname);
         }
 
