@@ -18,4 +18,6 @@ return [
     'SpotArea' => 'Vue aérienne de la région',
     'SpotExceed' => 'Zoomer SVP',
     'SpotEmpty' => 'Pas de spot',
+    "TousSpots" => 'TOUS LES SPOTS',
+    "VoirAllSpots" => "Voir tous les spots"
 ];

@@ -63,4 +63,12 @@ class DestinationController extends Controller
 
         return response($markers, 200);
     }
+
+    public function thewall($idpays)
+    {
+        $spots = Spots::select('id', 'name', 'imgsquaresmall')
+            ->where('pays_id', $idpays)->where('actif', 1)->get();
+
+        return view('frontend/thewall', compact('spots', 'idpays'));
+    }
 }

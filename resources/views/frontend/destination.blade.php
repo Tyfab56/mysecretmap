@@ -24,7 +24,7 @@
                 <div class="row">
                     <div class="col-lg-9"><img class="max50" src="{{asset('frontend/assets/images')}}/{{ Config::get('app.locale') }}/clubpatreon.jpg">
                     <br>Pour bénéficier des nombreux Bonus et faire grandir cette carte</div>
-                    <div class="col-lg-3">Boutons</div>
+                    <div class="col-lg-3"> <a class="btn btn-primary" href="{{ url('thewall') }}/{{ $idpays}}"">THE WALL</a></div>
                 </div>    
                 <div class="leaflet-map">
                     <div class="row">

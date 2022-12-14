@@ -3594,7 +3594,61 @@ max-width: 133px;
 }
 .videomap
 {
-  width: 100%;
-  
+  width: 100%!Important ;
+
 }
 
+.imgwall
+{
+  margin : 5px;
+}
+
+.centerdiv
+{
+  margin-left: auto;
+    margin-right: auto;
+}
+
+.img-relative
+{
+  position: relative;
+ 
+}
+
+.img-wall
+{
+  display: block;
+  height: auto;
+  opacity: 1;
+}
+
+.img-relative:hover .img-walloverlay {
+  opacity:1;
+}
+.img-walloverlay 
+ {
+  bottom: 0;
+    border-radius: 5px;
+    position: absolute;
+    margin-left: 5px;
+    background: rgb(230, 140, 6);
+    background: rgba(0, 0, 0, 0.5);
+    color: #f1f1f1;
+    width: 93%;
+    transition: .5s ease;
+    opacity: 0;
+    color: white;
+    font-size: 10px;
+    text-align: center;
+    margin-bottom: 5px;
+ }
+
+ .indexbtn
+ {
+
+      max-height: 40px;
+
+      margin-left: 20px;
+      margin-top: 3px;
+      margin-bottom: 3px;
+ }

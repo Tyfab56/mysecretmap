@@ -1,5 +1,5 @@
 <div class="img-container">
-    dd($spot->videomap);
+
     @isset($spot->videomap)
         <video  class="videomap br5" src="{{$spot->videomap}}" autoplay loop muted nocontrols></video>
     @else

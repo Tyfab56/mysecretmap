@@ -95,7 +95,9 @@
                     </select>
                 </div>
               </form>
+              <a class="btn btn-primary indexbtn" href="{{ url('thewall') }}/{{ $idpays}}"">{{ __('destination.VoirAllSpots') }}</a>
         </div>
+        
       <div class="row">
         <div class="col-lg-9 ">
             <div class="leaflet-map">

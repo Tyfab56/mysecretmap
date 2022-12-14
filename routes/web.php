@@ -38,7 +38,7 @@ Route::post('addimagespot/store', [IndexController::class, 'addimagespotstore'])
 Route::get('/listmarkers/{idpays}/{nelat}/{nelng}/{swlat}/{swlng}', [DestinationController::class, 'listmarkers'])->name('listmarkers');
 
 Route::get('/destination/{id}/{spotid?}', [DestinationController::class, 'index'])->name('destination');
-
+Route::get('/thewall/{idpays}', [DestinationController::class, 'thewall'])->name('thewall');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

@@ -18,6 +18,8 @@ return [
     'SpotArea' => 'Aerial view from the area',
     'SpotExceed' => 'Please Zoom',
     'SpotEmpty' => 'No Spot on Map',
+    "TousSpots" => 'ALL SPOTS',
+    "VoirAllSpots" => "See all spots"
 
 
 ];
