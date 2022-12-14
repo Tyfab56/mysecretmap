@@ -571,10 +571,10 @@ class SpotsController extends Controller
 
             // nouvelle image
             $videomapstatus = 1;
-            $extension = $filemap->getClientOriginalExtension();
+
             $videomapname =  $request->file('videomap')->getClientOriginalName();;
-            $videomapname = str_replace(' ', '-', $imgmapname);
-            $videomapname = uniqid() . "_" . $id . "_" . $request->payslist . "_" . $imgmapname;
+            $videomapname = str_replace(' ', '-', $videomapname);
+            $videomapname = uniqid() . "_" . $id . "_" . $request->payslist . "_" . $videomapname;
 
 
             $disk = Storage::disk('wasabi');
