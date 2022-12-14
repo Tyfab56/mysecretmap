@@ -3592,4 +3592,9 @@ max-width: 133px;
 .leaflet-tooltip-pane {
   text-align: center;
 }
+.videomap
+{
+  width: 100%;
+  
+}
 

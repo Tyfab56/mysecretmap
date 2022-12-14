@@ -22,7 +22,7 @@ class ShowMapGlobale extends Component
 
     public function render()
     {
-        $this->spot = spots::select('id', 'imgmapmedium')->where('id', '=', $this->idspot)->first();
+        $this->spot = spots::select('id', 'imgmapmedium', 'videomap')->where('id', '=', $this->idspot)->first();
         return view('livewire.show-map-globale');
     }
 }
