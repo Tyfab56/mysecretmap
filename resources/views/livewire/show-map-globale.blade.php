@@ -1,4 +1,7 @@
 <div class="img-container">
+    @isset($spot->videomap)
+        <video  src="{{$spot->videomap}}" autoplay muted controls></video>
+    @else
     @isset ($spot->imgmapmedium)
             @empty($spot->imgmapmedium) 
             <img class="br5 img-image" src="{{asset('frontend/assets/images/nopic.jpg')}}">
@@ -12,5 +15,5 @@
            <div class="img-overlay">{{ __('destination.SpotClick') }}</div>
 
     @endif 
-  
+  @endif
 </div>

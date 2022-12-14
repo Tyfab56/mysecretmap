@@ -143,13 +143,9 @@
                                 </div>
                             </div>
                             <div class=" text-xs-right  pb-2">
-                                @if ({{ spot->videomap }})
-                               {
+                                
                                   <video  src="{{$spot->videomap}}" autoplay muted controls></video>
-                               }                                   
-                                @else
-                                   <img src="{{$spot->imgmapmedium}}"> 
-                                @endif
+                               
                             </div>
                             <div class=" text-xs-right">
                                 <input type="submit" name="file" class="btn btn-rounded btn-primary mb-5" value="Mise à jour">

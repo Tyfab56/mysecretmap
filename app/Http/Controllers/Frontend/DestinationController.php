@@ -25,6 +25,7 @@ class DestinationController extends Controller
         } else {
             $spot = null;
         }
+
         $idpays = $id;
         Session::put('lastPays', $idpays);
         $pays = Pays::where('pays_id', '=', $idpays)->first();
