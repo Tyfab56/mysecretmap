@@ -58,8 +58,8 @@ Route::get('language/{locale}', function ($locale) {
 Route::get('lang/{lang}', [LanguageController::class, 'switchLang'])->name('lang.switch');
 
 
-Route::get('/admin/listspots', [SpotsController::class, 'index'])->name('admin.listspots');
-Route::get('/admin/addspot', [SpotsController::class, 'addspot'])->name('admin.addspot');
+Route::get('/admin/listspots', [SpotsController::class, 'index'])->name('admin.listspots')->middleware('App\Http\Middleware\CheckAdmin');;
+Route::get('/admin/addspot', [SpotsController::class, 'addspot'])->name('admin.addspot')->middleware('App\Http\Middleware\CheckAdmin');
 Route::get('/admin/spot/edit/{id}/{lang?}', [SpotsController::class, 'edit'])->name('admin.spot.edit');
 Route::get('/admin/spot/delete/{id}', [SpotsController::class, 'delete'])->name('admin.spot.delete');
 Route::get('/admin/spot/latlng/{id}/{lat}/{lng}/', [SpotsController::class, 'latlng'])->name('admin.latlng.store');
