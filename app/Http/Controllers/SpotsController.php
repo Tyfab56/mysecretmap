@@ -197,6 +197,7 @@ class SpotsController extends Controller
         $filesquare = $request->file('imgsquare');
         $fileregion = $request->file('imgregion');
         $filemap = $request->file('imgmap');
+        $videomap = $request->file('videomap');
 
         // Traitement image panoramique
         if ($file == null) {
@@ -549,6 +550,43 @@ class SpotsController extends Controller
             $mediummapname = $disk->url('medium/medium-' . $imgmapname);
         }
 
+        // traitement image carte globale
+        if ($videomap == null) {
+            // pas de nouvelle image
+            $videomapstatus = 0;
+        } else {
+
+            // Recherche si ancienne image et suppression des images coorespondantes
+
+            if ($typeaction == "edit") {
+                if ($spotinfo->videomap) {
+                    $bucket = $spotinfo->bucket;
+                    $disk = Storage::disk('wasabi');
+
+                    $videomap = parse_url($spotinfo->videomap);
+                    $disk->delete($videomap);
+                }
+            }
+
+
+            // nouvelle image
+            $videomapstatus = 1;
+            $extension = $filemap->getClientOriginalExtension();
+            $videomapname =  $request->file('videomap')->getClientOriginalName();;
+            $videomapname = str_replace(' ', '-', $imgmapname);
+            $videomapname = uniqid() . "_" . $id . "_" . $request->payslist . "_" . $imgmapname;
+
+
+            $disk = Storage::disk('wasabi');
+            $bucket = 'mysecretmap';
+
+            // VIDEO
+            // Stockage d'une video
+
+            $disk->put('/large/large-' . $videomapname, file_get_contents($filemap), 'public');
+            $videomapname = $disk->url('large/large-' . $videomapname);
+        }
+
 
         if ($spotid == 0) {
             $spot = new Spots();
@@ -599,6 +637,10 @@ class SpotsController extends Controller
             $spot->fichiermap = $imgmapname;
             $spot->imgmapmedium = $mediummapname;
             $spot->imgmaplarge = $largemapname;
+        }
+        if ($videomapstatus == 1) {
+            $spot->bucket = $bucket;
+            $spot->videomap = $videomapname;
         }
         // Fin mise à jour image
 

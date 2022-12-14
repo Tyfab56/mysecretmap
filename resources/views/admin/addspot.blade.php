@@ -131,6 +131,21 @@
                             <div class=" text-xs-right  pb-2">
                                 <img src="{{$spot->imgmapmedium}}">
                             </div>
+                            <div class="form-group">
+                                <label class="info-title" for="videomap">Animation carte<span class="text-danger">*</span></label>
+                                <div class="controls">
+                                    <input type="file" name="videomap" class="form-control" id="videomap">
+
+                                    <div class="help-block"></div>
+                                    @error('videomap')
+                                    <span class="text-danger"> {{ $message }}</span>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class=" text-xs-right  pb-2">
+                                <img src="{{$spot->imgmapmedium}}">
+                                <video  src="{{$spot->videomap}}" controls></video>
+                            </div>
                             <div class=" text-xs-right">
                                 <input type="submit" name="file" class="btn btn-rounded btn-primary mb-5" value="Mise à jour">
                                 <input name="retour" class="btn btn-rounded btn-secondary mb-5" onclick="javascript:history.go(-1)" value="Retour à la Liste">
