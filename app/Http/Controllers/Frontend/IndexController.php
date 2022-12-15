@@ -35,7 +35,8 @@ class IndexController extends Controller
             $idpays = $lastPays;
         }
 
-
+        // Liste des dernier spots
+        $lastspots = Spots::orderBy('created_at', 'desc')->where('actif', '=', 1)->take(18)->get();
 
         $pays = Pays::where('pays_id', '=', $idpays)->first();
 
@@ -67,7 +68,7 @@ class IndexController extends Controller
 
 
 
-        return view('frontend/index', compact('lastPays', 'idpays', 'markers', 'pays', 'payslist', 'payslng', 'payslat', 'payszoom', 'paysoffset', 'spot'));
+        return view('frontend/index', compact('lastPays', 'idpays', 'markers', 'pays', 'payslist', 'payslng', 'payslat', 'payszoom', 'paysoffset', 'spot', 'lastspots'));
     }
 
 

@@ -24,5 +24,6 @@ return [
     'Topbanner1' => "CREEZ VOTRE VOYAGE IDEAL",
     'Topbanner3' => "Choisissez votre destination",
     'NoAccess' => "Accès à cette section non autorisé",
+    'LastSpots' => "Nouveaux Spots",
 
 ];

@@ -7,6 +7,7 @@
 <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.3.0/dist/MarkerCluster.Default.css" />
 <link rel="stylesheet" href="{{ asset('frontend/assets/css/Control.FullScreen.css')}}" />
 <link rel="stylesheet" href="{{ asset('frontend/assets/css/leaflet.extra-markers.min.css')}}" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
 @endsection
 
 @section('content')
@@ -113,6 +114,31 @@
         </div>
       </div>
     </div>   
+  </section>
+  <section id="ts-features" class="ts-features">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="ts-intro">
+              <h2 class="into-title">{{ __('index.LastSpots') }}</h2>
+          </div>
+        </div> 
+
+      </div>
+
+      <div class="swiper">
+        <div class="swiper-wrapper">
+        @foreach($lastspots as $spot)
+        <div class="swiper-slide">
+          <img class="imgbox" onClick="" src="{{ $spot->imgsquaremedium }}">
+            <div class="bottom-center">
+              <span class="textbox"><b>{{ $spot->name }}</b></span>
+           </div>
+        </div>
+        @endforeach
+      </div>
+
+    </div>
   </section>
 
   <section id="ts-features" class="ts-features">
@@ -245,7 +271,7 @@
   <script src="https://unpkg.com/leaflet.markercluster@1.3.0/dist/leaflet.markercluster.js"></script>
   <script src="{{asset('frontend/assets/js/leaflet.extra-markers.min.js')}}"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/suncalc/1.9.0/suncalc.min.js"></script>
-  <script type="text/javascript" src="{{asset('frontend/assets/js/map.js')}}"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
 @endsection
 
 @section('scripts')

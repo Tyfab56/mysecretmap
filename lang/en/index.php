@@ -24,6 +24,7 @@ return [
     'Topbanner1' => "create your ideal trip",
     'Topbanner3' => "VIEW MAP",
     'NoAccess' => "You have no accesss here",
+    'LastSpots' => "Last Spots",
 
 
 

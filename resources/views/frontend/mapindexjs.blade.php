@@ -16,3 +16,13 @@ minWidth : 130
 @endforeach
 
 });
+
+const swiper = new Swiper('.swiper', {
+           
+    slidesPerView: "auto",
+    freeMode: true,
+    spaceBetween: 3,
+
+
+    
+  });
