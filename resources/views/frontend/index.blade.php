@@ -120,7 +120,8 @@
       <div class="row">
         <div class="col-lg-12">
           <div class="ts-intro">
-              <h2 class="into-title">{{ __('index.LastSpots') }}</h2>
+            <h3 class="into-sub-title">{{ __('index.LastSpots') }}</h3>
+              
           </div>
         </div> 
 
@@ -146,11 +147,9 @@
       <div class="row">
           <div class="col-lg-6">
             <div class="ts-intro">
-                <h2 class="into-title">About Us</h2>
-                <h3 class="into-sub-title">We deliver landmark projects</h3>
-                <p>We are rethoric question ran over her cheek When she reached the first hills of the Italic Mountains,
-                  she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village
-                  and the subline of her own road, the Line Lane.</p>
+         
+                <h3 class="into-sub-title">{{ __('index.BonusClub') }}</h3>
+                <p>{{ __('index.BonusClubDesc') }}.</p>
             </div><!-- Intro box end -->
   
             <div class="gap-20"></div>
@@ -213,14 +212,14 @@
                   <div class="card-header p-0 bg-transparent" id="headingOne">
                       <h2 class="mb-0">
                         <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                            Safety
+                          {{ __('index.Patron') }}
                         </button>
                       </h2>
                   </div>
                 
                   <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#our-values-accordion">
                       <div class="card-body">
-                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidata
+                        {{ __('index.PatronDesc') }}
                       </div>
                   </div>
                 </div>
