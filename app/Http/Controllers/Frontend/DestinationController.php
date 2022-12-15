@@ -67,8 +67,11 @@ class DestinationController extends Controller
     public function thewall($idpays)
     {
         $spots = Spots::select('id', 'name', 'imgsquaresmall')
-            ->where('pays_id', $idpays)->where('actif', 1)->get();
+            ->where('pays_id', $idpays)->inRandomOrder()->where('actif', 1)->get();
 
-        return view('frontend/thewall', compact('spots', 'idpays'));
+
+        $pays = Pays::where('pays_id', $idpays)->first();
+
+        return view('frontend/thewall', compact('spots', 'idpays', 'pays'));
     }
 }

@@ -19,5 +19,6 @@ return [
     'SpotExceed' => 'Zoomer SVP',
     'SpotEmpty' => 'Pas de spot',
     "TousSpots" => 'TOUS LES SPOTS',
-    "VoirAllSpots" => "Voir tous les spots"
+    "VoirAllSpots" => "Voir tous les spots",
+    "RandomSpots" => "Ces vignettes sont présentés en ordre aléatoire",
 ];
