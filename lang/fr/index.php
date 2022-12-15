@@ -29,6 +29,6 @@ return [
     'BonusClubDesc' => "Développer un tel site demande beaucoup d'investissement. Pour ouvrir de nouvelles destinations, Fabrice H et son équipe ont créé une version améliorée du site pour les membres du club 'My Secret Map'. Vous pouvez rejoindre le club et bénéficier de nombreux bonus.",
     "Patron" => "Devenir Mécène",
     "PatronDesc" => "Le site Patreon vous permet de choisir votre niveau de parrainage et en retour de suivre notre équipe au plus près à chaque étape de notre démarche. Vous découvrirez notre travail sur site et comment nous documentons les spots, vous bénéficierez de conseils exclusifs, de contenus inédits et pourrez même participer à nos missions en tant qu'assistants.",
-
+    "PatronD" => ""
 
 ];

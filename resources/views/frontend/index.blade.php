@@ -131,7 +131,7 @@
         <div class="swiper-wrapper">
         @foreach($lastspots as $spot)
         <div class="swiper-slide">
-          <img class="imgbox" onClick="" src="{{ $spot->imgsquaremedium }}">
+          <a href="{{ url('destination') }}/{{$spot->pays_id }}/{{ $spot->id }}"> <img class="imgbox" onClick="" src="{{ $spot->imgsquaremedium }}"></a>
             <div class="bottom-center">
               <span class="textbox"><b>{{ $spot->name }}</b></span>
            </div>
