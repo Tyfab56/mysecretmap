@@ -22,7 +22,7 @@ class ShowImgRegion extends Component
 
     public function render()
     {
-        $this->spot = spots::select('id', 'imgvueregionmedium')->where('id', '=', $this->idspot)->first();
+        $this->spot = spots::select('id', 'imgvueregionmedium', 'imgvueregionlarge')->where('id', '=', $this->idspot)->first();
 
 
         return view('livewire.show-img-region');
