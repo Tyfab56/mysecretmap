@@ -20,5 +20,5 @@ return [
     'SpotEmpty' => 'Pas de spot',
     "TousSpots" => 'TOUS LES SPOTS',
     "VoirAllSpots" => "Voir tous les spots",
-    "RandomSpots" => "Ces vignettes sont présentés en ordre aléatoire",
+    "RandomSpots" => "Ces vignettes sont présentées en ordre aléatoire",
 ];

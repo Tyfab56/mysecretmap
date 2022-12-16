@@ -56,7 +56,7 @@
                             <a title="Twitter" href="https://twitter.com/themefisher.com">
                                 <span class="social-icon"><i class="fab fa-twitter"></i></span>
                             </a>
-                            <a title="Instagram" href="https://instagram.com/themefisher.com">
+                            <a title="Instagram" href="https://www.instagram.com/my_secret_map/">
                                 <span class="social-icon"><i class="fab fa-instagram"></i></span>
                             </a>
                             <a title="Linkdin" href="https://github.com/themefisher.com">
@@ -266,7 +266,7 @@
         <div class="row justify-content-between">
           <div class="col-lg-4 col-md-6 footer-widget footer-about">
             <h3 class="widget-title">About Us</h3>
-            <img loading="lazy" width="200px" class="footer-logo" src="{{  asset('frontend/assets/images/footer-logo.png') }}" alt="Constra">
+            <img loading="lazy" width="200px" class="footer-logo" src="{{  asset('frontend/assets/images/logoh55w.png') }}" alt="Constra">
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor inci done idunt ut
               labore et dolore magna aliqua.</p>
             <div class="footer-social">
@@ -275,7 +275,7 @@
                       class="fab fa-facebook-f"></i></a></li>
                 <li><a href="https://twitter.com/themefisher" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
                 </li>
-                <li><a href="https://instagram.com/themefisher" aria-label="Instagram"><i
+                <li><a href="https://www.instagram.com/my_secret_map/" aria-label="Instagram"><i
                       class="fab fa-instagram"></i></a></li>
                 <li><a href="https://github.com/themefisher" aria-label="Github"><i class="fab fa-github"></i></a></li>
               </ul>
@@ -314,7 +314,7 @@
             <div class="copyright-info">
               <span>Copyright &copy; <script>
                   document.write(new Date().getFullYear())
-                </script>, Designed &amp; Developed by <a href="https://themefisher.com">Themefisher</a></span>
+                </script>, Designed &amp; Developed by <a href="https://my-lovely-planet.com">My Lovely Planet</a></span>
             </div>
           </div>
 
