@@ -108,6 +108,9 @@ class IndexController extends Controller
 
     public function addimagespotstore(Request $request)
     {
+
+
+
         $validatedData = $request->validate(
             [
                 'img' => 'image|mimes:jpeg,jpg|max:20048',
@@ -119,6 +122,7 @@ class IndexController extends Controller
         $spot = Spots::where('id', '=', $spotid)->first();
         $paysid = $spot->pays_id;
         $file = $request->file('img');
+
         if ($file == null) {
             // pas de nouvelle image
             $imagestatus = 0;
@@ -134,8 +138,8 @@ class IndexController extends Controller
 
             // STOCKAGE IMAGE ORIGINALE
 
-            $height = Image::make($upload_file)->height();
-            $width = Image::make($upload_file)->width();
+
+            [$width, $height] = getimagesize($file);
             $canvas = Image::canvas($width, $height);
 
 
@@ -184,6 +188,7 @@ class IndexController extends Controller
                     $constraint->aspectRatio();
                 }
             );
+
 
             $canvas->insert($imagefinale, 'center');
             $canvas->encode($extension);
