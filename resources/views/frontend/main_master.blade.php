@@ -267,8 +267,7 @@
           <div class="col-lg-4 col-md-6 footer-widget footer-about">
             <h3 class="widget-title">About Us</h3>
             <img loading="lazy" width="200px" class="footer-logo" src="{{  asset('frontend/assets/images/logoh55w.png') }}" alt="Constra">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor inci done idunt ut
-              labore et dolore magna aliqua.</p>
+            <p>{{ __('index.Aboutme') }}</p>
             <div class="footer-social">
               <ul>
                 <li><a href="https://facebook.com/themefisher" aria-label="Facebook"><i
@@ -283,7 +282,7 @@
           </div><!-- Col end -->
 
           <div class="col-lg-4 col-md-6 footer-widget mt-5 mt-md-0">
-            <h3 class="widget-title">Working Hours</h3>
+            <h3 class="widget-title">{{ __('index.OT') }}</h3>
             <div class="working-hours">
               We work 7 days a week, every day excluding major holidays. Contact us if you have an emergency, with our
               Hotline and Contact form.

@@ -29,6 +29,16 @@ return [
     'BonusClubDesc' => "Développer un tel site demande beaucoup d'investissement. Pour ouvrir de nouvelles destinations, Fabrice H et son équipe ont créé une version améliorée du site pour les membres du club 'My Secret Map'. Vous pouvez rejoindre le club et bénéficier de nombreux bonus.",
     "Patron" => "Devenir Mécène",
     "PatronDesc" => "Le site Patreon vous permet de choisir votre niveau de parrainage et en retour de suivre notre équipe au plus près à chaque étape de notre démarche. Vous découvrirez notre travail sur site et comment nous documentons les spots, vous bénéficierez de conseils exclusifs, de contenus inédits et pourrez même participer à nos missions en tant qu'assistants.",
-    "PatronD" => ""
+    "BonusInedit" => "Des contenus Inédits",
+    "BonusMakingof" => "Des vidéos 'Making Of'",
+    "BonusTeam" => "Integrer notre équipe",
+    "Aboutme" => "Hello, je suis le créateur de My Secret Map et depuis 2021, je partage -entouré d'une équipe d'incroyables photographes - nos meilleurs spots touristiques et  conseils photos pour vous aider à construire vos plus beaux voyages",
+    "OT" => "Offices du Tourisme",
+    "NousSoutenir" => "Nous Soutenir",
+    "NousSoutenirDesc" => "Pour vous investir et ouvrir de nouveaux spots :",
+    "ShareSpots" => "Partagez nos spots",
+    "ShareSpotsDesc" => "En partageant nos spots sur vos réseaux sociaux, vous permettez à notre site d'obtenir une audience plus large. Vous pouvez également partager vos circuit et demander l'avis à vos amis sur les spots choisis.",
+    "JoinTeam" => "Rejoignez nos équipes",
+    "JoinTeamDesc" => "Nous vous offrons la possibilité aux membres du club de nous accompagner sur le terrain pour l'exploration de nouvelles destinations. Nous proposons également aux photographes professionnels de travailler pour le site en créant de nouveau spots",
 
 ];
