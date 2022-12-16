@@ -243,7 +243,7 @@ class IndexController extends Controller
             $picture->bucket = $bucket;
             $picture->width = $mw;
             $picture->height = $mh;
-            $picture->actif = 2;
+            $picture->actif = 1;
             $picture->large = $largename;
             $picture->medium = $mediumname;
             $picture->small =  $smallname;
@@ -262,7 +262,7 @@ class IndexController extends Controller
         $spot = Spots::where('id', '=', $spotid)->first();
         // comptage des images total pour ce spot
         $spottotalcount = Pictures::where('spot_id', '=', $spotid)->where('actif', '=', 1)->where('user_id', '=', auth()->user()->id)->count();
-        $pictures = Pictures::where('user_id', '=', auth()->user()->id)->where('spot_id', '=', $spotid)->paginate(20);
+        $pictures = Pictures::where('user_id', '=', auth()->user()->id)->where('spot_id', '=', $spotid)->where('actif', '=', 1)->paginate(20);
         return view('frontend/addimagespot', compact('spot', 'spottotalcount', 'pictures'));
     }
 
