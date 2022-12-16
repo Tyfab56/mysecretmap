@@ -4,6 +4,17 @@ Livewire.emit('InfoSpot',e.sourceTarget.options.id);
 
 }
 
+
+window.addEventListener('load', function () {
+  // Raffraichir la carte
+  map.invalidateSize();
+  // Initialisation du curseur
+  Livewire.emit('InfoDestination',currentMarker,null,null);
+  
+  
+ 
+  })
+
 map.whenReady(function(){
 @foreach($markers as $marker)
 

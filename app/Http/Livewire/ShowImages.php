@@ -23,7 +23,8 @@ class ShowImages extends Component
     public function render()
     {
 
-        $this->pictures = pictures::select('id', 'spot_id', 'medium')->where('spot_id', '=', $this->idspot)->where('actif', 1)->first();
+        $this->pictures = Pictures::select('id', 'spot_id', 'medium')->where('spot_id', '=', $this->idspot)->where('actif', '=', 1)->get();
+
         return view('livewire.show-images');
     }
 }

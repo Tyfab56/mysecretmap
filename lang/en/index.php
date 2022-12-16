@@ -27,6 +27,7 @@ return [
     'LastSpots' => "Last Spots",
     'BonusClub' => "BONUS CLUB 'MY SECRET MAP'",
     "BonusClubDesc" => "Developing such a site requires a lot of investment. To open up new destinations, Fabrice H and his team have created an enhanced version of the site for members of the 'My Secret Map' club. You can join the club and benefit from many bonuses.",
+    "BonusSubText" => 'Find out more on our page <a href=":url"><b>Patreon My secret Map</b> </a>',
     "Patron" => "Become a patron",
     "PatronDesc" => "The Patreon site allows you to choose your level of sponsorship and in return follow our team closely every step of the way. You will learn about our work on site and how we document the spots, you will benefit from exclusive advice, unpublished content and can even participate in our missions as assistants.",
     "BonusInedit" => "Unpublished contents",

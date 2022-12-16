@@ -200,29 +200,7 @@ function fn(text, count){
 return text.slice(0, count) + (text.length > count ? "..." : "");
 }
 
-window.addEventListener('load', function () {
-    // Raffraichir la carte
-    map.invalidateSize();
-    // Initialisation du curseur
-    Livewire.emit('InfoDestination',currentMarker,null,null);
-    Livewire.emit('ImgRegion',currentMarker);
-    Livewire.emit('ImgMap',currentMarker);
-    var myDate = new Date();
-    var dayInYear = Math.floor((myDate - new Date(myDate.getFullYear(), 0, 0)) / (1000 * 60 * 60 * 24));
-    document.getElementById("dayofyear").value = dayInYear ;
-    currentDate = myDate;
-    currentTime = 12;
-    const DateTime = luxon.DateTime;
-    displayDate = DateTime.fromJSDate(currentDate).setLocale("{{app()->getLocale()}}");
-    document.getElementById('theday').innerHTML = displayDate.toLocaleString({ month: 'long', day: 'numeric' });
-    document.getElementById('thehour').innerHTML = currentTime;
-    // Premier point
 
-    popimage('',currentMarker,currentLat,currentLng);
-    //map.fire('moveend');
-    drawSolar();
-   
-    })
 
     var getDateFromDayNum = function(dayNum, year){
 

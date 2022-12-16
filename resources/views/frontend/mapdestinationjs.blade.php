@@ -3,6 +3,7 @@ function onmapClick(e) {
 Livewire.emit('InfoDestination',e.sourceTarget.options.id,null,null);
 Livewire.emit('ImgRegion',e.sourceTarget.options.id);
 Livewire.emit('ImgMap',e.sourceTarget.options.id);
+Livewire.emit('Pictures',e.sourceTarget.options.id);
 currentMarker = e.sourceTarget.options.id;
 
   currentTitle = e.sourceTarget.options.title; 
@@ -32,6 +33,32 @@ minWidth : 130
 
 });
 
+window.addEventListener('load', function () {
+  // Raffraichir la carte
+  map.invalidateSize();
+  // Initialisation du curseur
+  Livewire.emit('InfoDestination',currentMarker,null,null);
+  Livewire.emit('ImgRegion',currentMarker);
+  Livewire.emit('ImgMap',currentMarker);
+  Livewire.emit('Pictures',currentMarker);
+  
+  var myDate = new Date();
+  var dayInYear = Math.floor((myDate - new Date(myDate.getFullYear(), 0, 0)) / (1000 * 60 * 60 * 24));
+  document.getElementById("dayofyear").value = dayInYear ;
+  currentDate = myDate;
+  currentTime = 12;
+  const DateTime = luxon.DateTime;
+  displayDate = DateTime.fromJSDate(currentDate).setLocale("{{app()->getLocale()}}");
+  document.getElementById('theday').innerHTML = displayDate.toLocaleString({ month: 'long', day: 'numeric' });
+  document.getElementById('thehour').innerHTML = currentTime;
+  // Premier point
+
+  popimage('',currentMarker,currentLat,currentLng);
+  //map.fire('moveend');
+  drawSolar();
+ 
+  })
+
 
 function goImage()
 {
@@ -49,6 +76,7 @@ function popimage(name,e,lat,lng) {
   Livewire.emit('InfoDestination',e,null,null);
   Livewire.emit('ImgRegion',e);
   Livewire.emit('ImgMap',e);
+  Livewire.emit('Pictures',e);
   var bounds = L.latLng(lat,lng).toBounds(6000)
   map.fitBounds(bounds);
   drawSolar();
