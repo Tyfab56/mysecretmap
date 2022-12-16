@@ -30,6 +30,7 @@ return [
     "Patron" => "Become a patron",
     "PatronDesc" => "The Patreon site allows you to choose your level of sponsorship and in return follow our team closely every step of the way. You will learn about our work on site and how we document the spots, you will benefit from exclusive advice, unpublished content and can even participate in our missions as assistants.",
     "BonusInedit" => "Unpublished contents",
+    "BonusFunction" => "Bonus features",
     "BonusMakingof" => "Making Of videos",
     "BonusTeam" => "Integrating our team",
     "Aboutme" => "Hello, I'm the creator of My Secret Map and since 2021, I've been sharing - together with a team of incredible photographers - our best tourist spots and photo tips to help you build your most beautiful trips",

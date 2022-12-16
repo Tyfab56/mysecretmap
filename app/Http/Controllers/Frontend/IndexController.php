@@ -110,7 +110,7 @@ class IndexController extends Controller
     {
         $validatedData = $request->validate(
             [
-                'img' => 'image|mimes:jpeg,jpg|max:10048',
+                'img' => 'image|mimes:jpeg,jpg|max:20048',
             ]
         );
 

@@ -185,7 +185,7 @@
                         <i class="fas fa-thumbs-up"></i>
                       </span>
                       <div class="ts-service-box-content">
-                        <h3 class="service-box-title">Guided by Commitment</h3>
+                        <h3 class="service-box-title">{{ __('index.BonusFunction') }}</h3>
                       </div>
                   </div><!-- Service 1 end -->
                 </div><!-- col end -->
@@ -201,6 +201,12 @@
                   </div><!-- Service 2 end -->
                 </div><!-- col end -->
             </div><!-- Content row 1 end -->
+            <div class="row">
+              <div class="col-md-6">
+                <p>{!! trans('index.BonusSubText', array('url' => "/patreon")) !!}
+                  
+              </div>
+            </div>
           </div><!-- Col end -->
   
           <div class="col-lg-6 mt-4 mt-lg-0">

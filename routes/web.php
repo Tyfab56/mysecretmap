@@ -29,6 +29,7 @@ Route::get('benefits', [IndexController::class, 'benefits'])->name('benefits');
 Route::get('tourism', [IndexController::class, 'tourism'])->name('tourism');
 Route::get('photographers', [IndexController::class, 'photographers'])->name('photographers');
 Route::get('contact', [IndexController::class, 'contact'])->name('contact');
+Route::get('patreon', [IndexController::class, 'contact'])->name('patreon');
 Route::get('aboutus', [IndexController::class, 'aboutus'])->name('aboutus');
 Route::get('medias', [IndexController::class, 'medias'])->name('medias');
 Route::get('myaccount', [IndexController::class, 'myaccount'])->name('myaccount');
