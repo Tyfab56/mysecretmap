@@ -10,6 +10,8 @@
 
 @endsection
 @section('content')
+@auth
+@if (auth()->user()->isPhotographer())
 <section id="ts-features" class="ts-features">
     <div class="container">
         <div class="row">
@@ -106,4 +108,8 @@
             });
             }
       </script>
+ @else
+ Uniquement pour les photographes
+ @endif
+@endauth
 @endsection
