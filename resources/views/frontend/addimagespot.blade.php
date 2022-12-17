@@ -35,6 +35,7 @@
             </div>
             <div class=" text-xs-right">
               <input type="submit" name="file" class="btn btn-rounded btn-primary mb-5" value="Validation">
+              <a class="btn btn-secondary mb-5" href="/destination/{{ $spot->pays_id }}/{{ $spot->id }}">RETOUR PAGE PRECEDENTE</a>
             
           </div>
           </form>
@@ -49,7 +50,10 @@
             @foreach($pictures as $picture)
             
               <div class="dw-panel">
-                 <img  src="{{ $picture->medium }}" class="dw-panel__content" alt="">
+                
+                 <div>
+                  <img  src="{{ $picture->medium }}" class="dw-panel__content" alt="">
+                 </div>
                  <div class="top-right"><img class="addit" src="{{asset('frontend/assets/images/addpic.png')}}" onClick=""></div>
               </div>
              

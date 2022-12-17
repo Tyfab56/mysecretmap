@@ -176,7 +176,7 @@ class IndexController extends Controller
                 $width = round((600 * $mw) / $mh);
             } else {
                 $width = 600;
-                $height = round((600 * $mh) / $mw);
+                $width = round((600 * $mh) / $mw);
             }
 
             $canvas = Image::canvas($width, $height);
