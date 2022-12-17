@@ -54,7 +54,7 @@
                  <div>
                   <img  src="{{ $picture->medium }}" class="dw-panel__content" alt="">
                  </div>
-                 <div><a href="{}"><img class="addit" src="{{asset('frontend/assets/images/delete.png')}}"></a></div>
+                 <div><a href="/delimagespot/{{ $picture->id }}"><img class="addit" src="{{asset('frontend/assets/images/delete.png')}}"></a></div>
               </div>
              
       

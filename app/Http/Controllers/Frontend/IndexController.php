@@ -266,6 +266,29 @@ class IndexController extends Controller
         return view('frontend/addimagespot', compact('spot', 'spottotalcount', 'pictures'));
     }
 
+    public function delimagespot($id)
+    {
+        $picture = Pictures::where('id', '=', $id)->first();
+
+        // Suppression des images
+        $bucket = $picture->bucket;
+        $disk = Storage::disk('wasabi');
+        $filesmall = parse_url($picture->small);
+        $filemedium = parse_url($picture->imgpanomedium);
+        $filelarge = parse_url($picture->imgpanolarge);
+
+        //return $file_path['path'];
+
+
+        $disk->delete($filesmall);
+        $disk->delete($filemedium);
+        $disk->delete($filelarge);
+
+
+        Pictures::where('id', $id)->delete();
+        return back()->with('message', 'Image supprimée');
+    }
+
     public function whatsnext()
     {
         return view('frontend/whatsnext');

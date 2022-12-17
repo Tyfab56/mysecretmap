@@ -34,6 +34,7 @@ Route::get('aboutus', [IndexController::class, 'aboutus'])->name('aboutus');
 Route::get('medias', [IndexController::class, 'medias'])->name('medias');
 Route::get('myaccount', [IndexController::class, 'myaccount'])->name('myaccount');
 Route::get('addimagespot/{spotid}', [IndexController::class, 'addimagespot'])->name('addimagespot');
+Route::get('delimagespot/{id}', [IndexController::class, 'delimagespot'])->name('delimagespot');
 Route::post('addimagespot/store', [IndexController::class, 'addimagespotstore'])->name('addimagespot.store');
 
 Route::get('/listmarkers/{idpays}/{nelat}/{nelng}/{swlat}/{swlng}', [DestinationController::class, 'listmarkers'])->name('listmarkers');
