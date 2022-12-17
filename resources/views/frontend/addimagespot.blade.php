@@ -54,7 +54,7 @@
                  <div>
                   <img  src="{{ $picture->medium }}" class="dw-panel__content" alt="">
                  </div>
-                 <div><a href="/delimagespot/{{ $picture->id }}"><img class="addit" src="{{asset('frontend/assets/images/delete.png')}}"></a></div>
+                 <div><a href="javascript:delPicture({{ $picture->id }})"><img class="addit" src="{{asset('frontend/assets/images/delete.png')}}"></a></div>
               </div>
              
       
@@ -85,5 +85,25 @@
                   });
               });
           });
+
+          function delPicture (id)
+            {
+            let url = '{{route('delimagespot', ['Id'])}}';
+            url = url.replace('Id', id);
+
+            Swal.fire({
+            title: 'Confirmer la suppression?',
+            text: "Suppression definitive",
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Oui, supprimer'
+            }).then((result) => {
+            if (result.value) {
+            window.location.href = url;
+            }
+            });
+            }
       </script>
 @endsection
