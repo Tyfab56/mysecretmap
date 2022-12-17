@@ -149,7 +149,6 @@ class IndexController extends Controller
             $canvas->encode($extension);
 
             $disk->put('/large/large-' . $imgname, (string) $canvas, 'public');
-            dd('fin');
             $largename = $disk->url('large/large-' . $imgname);
 
             // STOCKAGE IMAGE MEDIUM
