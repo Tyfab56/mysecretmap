@@ -163,14 +163,14 @@ class IndexController extends Controller
                 $width = round((600 * $mw) / $mh);
             }
             $canvas = Image::canvas($width, $height);
-            $imagefinale  = Image::make($file)->resize(
+            $imagemediumfinale  = Image::make($file)->resize(
                 $width,
                 $height,
                 function ($constraint) {
                     $constraint->aspectRatio();
                 }
             );
-            $canvas->insert($imagefinale, 'center');
+            $canvas->insert($imagemediumfinale, 'center');
             $canvas->encode($extension);
             $disk->put('/medium/medium-' . $imgname, (string) $canvas, 'public');
             $mediumname = $disk->url('medium/medium-' . $imgname);
@@ -185,14 +185,14 @@ class IndexController extends Controller
             }
 
             $canvas = Image::canvas($width, $height);
-            $imagefinale  = Image::make($file)->resize(
+            $imagesmallfinale  = Image::make($file)->resize(
                 $width,
                 $height,
                 function ($constraint) {
                     $constraint->aspectRatio();
                 }
             );
-            $canvas->insert($imagefinale, 'center');
+            $canvas->insert($imagesmallfinale, 'center');
             $canvas->encode($extension);
             $disk->put('/small/small-' . $imgname, (string) $canvas, 'public');
             $smallname = $disk->url('small/small-' . $imgname);
