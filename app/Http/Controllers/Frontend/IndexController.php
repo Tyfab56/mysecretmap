@@ -137,99 +137,63 @@ class IndexController extends Controller
 
             $disk = Storage::disk('wasabi');
             $bucket = 'mysecretmap';
-            $upload_file = $request->file('img');
 
             // STOCKAGE IMAGE ORIGINALE
 
 
             [$width, $height] = getimagesize($file);
             $canvas = Image::canvas($width, $height);
-
-
-
-
-            $imagefinale  = Image::make($file)->resize(
-                $width,
-                null,
-                function ($constraint) {
-                    $constraint->aspectRatio();
-                }
-            );
+            $imagefinale  = Image::make($file);
 
             $canvas->insert($imagefinale, 'center');
             $canvas->encode($extension);
 
-
-
-
             $disk->put('/large/large-' . $imgname, (string) $canvas, 'public');
             $largename = $disk->url('large/large-' . $imgname);
-
-
 
             // STOCKAGE IMAGE MEDIUM
             $mh = $height;
             $mw = $width;
 
             if ($mw > $mh) {
+                $width = 600;
+                $height = round((600 * $mh) / $mw);
+            } else {
                 $height = 600;
                 $width = round((600 * $mw) / $mh);
-            } else {
-                $width = 600;
-                $width = round((600 * $mh) / $mw);
             }
-
             $canvas = Image::canvas($width, $height);
-
-
-
-
             $imagefinale  = Image::make($file)->resize(
                 $width,
-                null,
+                $height,
                 function ($constraint) {
                     $constraint->aspectRatio();
                 }
             );
-
-
             $canvas->insert($imagefinale, 'center');
             $canvas->encode($extension);
-
-
-
-
             $disk->put('/medium/medium-' . $imgname, (string) $canvas, 'public');
             $mediumname = $disk->url('medium/medium-' . $imgname);
 
             // STOCKAGE IMAGE SMALL
             if ($mw > $mh) {
-                $height = 130;
-                $width = round((130 * $mw) / $mh);
-            } else {
                 $width = 130;
                 $height = round((130 * $mh) / $mw);
+            } else {
+                $height = 130;
+                $width = round((130 * $mw) / $mh);
             }
 
             $canvas = Image::canvas($width, $height);
-
-
-
-
             $imagefinale  = Image::make($file)->resize(
                 $width,
-                null,
+                $height,
                 function ($constraint) {
                     $constraint->aspectRatio();
                 }
             );
-
             $canvas->insert($imagefinale, 'center');
             $canvas->encode($extension);
-
-
-
-
             $disk->put('/small/small-' . $imgname, (string) $canvas, 'public');
             $smallname = $disk->url('small/small-' . $imgname);
 
