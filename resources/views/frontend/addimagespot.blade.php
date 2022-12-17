@@ -54,7 +54,7 @@
                  <div>
                   <img  src="{{ $picture->medium }}" class="dw-panel__content" alt="">
                  </div>
-                 <div class="top-right"><img class="addit" src="{{asset('frontend/assets/images/addpic.png')}}" onClick=""></div>
+                 <div><img class="addit" src="{{asset('frontend/assets/images/delete.png')}}" onClick=""></div>
               </div>
              
       
