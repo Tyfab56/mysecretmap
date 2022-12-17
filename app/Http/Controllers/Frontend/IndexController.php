@@ -238,8 +238,8 @@ class IndexController extends Controller
         $bucket = $picture->bucket;
         $disk = Storage::disk('wasabi');
         $filesmall = parse_url($picture->small);
-        $filemedium = parse_url($picture->imgpanomedium);
-        $filelarge = parse_url($picture->imgpanolarge);
+        $filemedium = parse_url($picture->medium);
+        $filelarge = parse_url($picture->large);
 
         //return $file_path['path'];
 
