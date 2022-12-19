@@ -21,7 +21,7 @@ class IndexController extends Controller
 {
     public function index($id = null, $spotid = null)
     {
-        dd(Circuits::where('id', '=', 2)->first()->details);
+
 
         if (Session::get('lastPays')) {
             $lastPays = Session::get('lastPays');
