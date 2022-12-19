@@ -23,7 +23,19 @@
           <div class="col-5">
             <h2 class="section-title">Découvrez nos Circuits</h2>
             <h3 class="section-sub-title"> Ou Créez le votre ....</h3> 
-             
+            <form method="post" action="">
+              @csrf
+              <div class="form-group">
+                  <select class="form-control ml15" id="idcircuit" name="idcircuit" onChange="this.form.submit()">
+                  <option value="">{{__('destination.SelectCircuit')}}</option>
+                 
+                  @foreach($circuits as $circuit)
+                  console.log($circuit)
+            <option value="{{$circuit->id}}">{{$circuit->circuit->titre}}</option>
+            @endforeach
+          </select>
+        </div>
+      </form>
           </div>
       </div>
       <!--/ Title row end -->
@@ -93,7 +105,7 @@
                 @csrf
                 <div class="form-group">
                     <select class="form-control ml15" id="idpays" name="idpays" onChange="this.form.submit()">
-                    <option value="">{{__('destination.selectdest')}}</option>
+                    <option value="">{{__('destination.SelectDest')}}</option>
                  
                     @foreach($payslist as $pay)
                     <option value="{{$pay->pays_id}}" {{($idpays == $pay->pays_id) ? 'selected' : ''}}>{{$pay->pays}} ({{$pay->nbpic}})</option>

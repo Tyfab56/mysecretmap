@@ -11,7 +11,7 @@ return [
     'choicehour' => "Choose a time",
     'RedLine' => "Red Line = Sunrise",
     'OrangeLine' => "Orange Line = Sunset",
-    'selectdest' => 'Select the destination',
+    'SelectDest' => 'Select the destination',
     'SpotGlobal' => 'Spot on the main map',
     'SpotClick' => 'Choose a spot on the map',
     'ImageMissing' => 'This picture is missing, please tell us',
@@ -21,6 +21,7 @@ return [
     "TousSpots" => 'ALL SPOTS',
     "VoirAllSpots" => "See all spots",
     "RandomSpots" => "These vignettes are presented in random order",
+    'SelectCircuit' => 'Select a tour',
 
 
 ];

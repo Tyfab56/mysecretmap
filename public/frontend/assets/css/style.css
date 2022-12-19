@@ -301,7 +301,7 @@ a:focus {
   font-weight: 900;
   font-size: 36px;
   line-height: 46px;
-  margin: 0 0 60px;
+  margin: 0 0 10px;
   color: #212121;
 }
 @media (max-width: 575px) {

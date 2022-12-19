@@ -75,6 +75,9 @@ class IndexController extends Controller
 
 
 
+
+
+
         return view('frontend/index', compact('lastPays', 'idpays', 'markers', 'pays', 'payslist', 'payslng', 'payslat', 'payszoom', 'paysoffset', 'spot', 'lastspots', 'circuits'));
     }
 

@@ -11,7 +11,7 @@ return [
     'choicehour' => "Choisir une heure",
     'RedLine' => "Ligne rouge = Lever de soleil",
     'OrangeLine' => "Ligne orange = coucher de soleil",
-    'selectdest' => 'Selectionnez la destination',
+    'SelectDest' => 'Selectionnez la destination',
     'SpotGlobal' => 'Spot sur la carte globale',
     'SpotClick' => 'Choisir un spot sur la carte',
     'ImageMissing' => 'Cette image est manquante, merci de nous prévenir',
@@ -21,4 +21,5 @@ return [
     "TousSpots" => 'TOUS LES SPOTS',
     "VoirAllSpots" => "Voir tous les spots",
     "RandomSpots" => "Ces vignettes sont présentées en ordre aléatoire",
+    'SelectCircuit' => 'Selectionnez un circuit',
 ];
