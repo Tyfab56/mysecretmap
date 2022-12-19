@@ -16,9 +16,14 @@
 <section id="news" class="news">
     <div class="container">
       <div class="row text-center">
-          <div class="col-12">
+          <div class="col-7">
             <h2 class="section-title">Photographes, vous allez aimer</h2>
             <h3 class="section-sub-title">Vos prochains voyages</h3>
+          </div>
+          <div class="col-5">
+            <h2 class="section-title">Découvrez nos Circuits</h2>
+            <h3 class="section-sub-title"> Ou Créez le votre ....</h3> 
+             
           </div>
       </div>
       <!--/ Title row end -->

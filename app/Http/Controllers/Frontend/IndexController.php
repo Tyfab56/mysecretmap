@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\Spots;
 use App\Models\Pictures;
 use App\Models\Circuits;
+use App\Models\Noscircuits;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -53,6 +54,9 @@ class IndexController extends Controller
         $markers = Spots::select('id', 'name', 'lng', 'lat', 'imgpanosmall', 'imgsquaresmall', 'typepoint_id')
             ->where('pays_id', $idpays)->where('actif', 1)->get();
 
+        // récupération des circuits pour ce pays par defaut
+        $circuits = NosCircuits::where('pays_id', $idpays)->orderBy('rang')->get();
+
         $payslist = Pays::where('actif', '=', 1)->orderBy('pays', 'asc')->get();
 
 
@@ -71,7 +75,7 @@ class IndexController extends Controller
 
 
 
-        return view('frontend/index', compact('lastPays', 'idpays', 'markers', 'pays', 'payslist', 'payslng', 'payslat', 'payszoom', 'paysoffset', 'spot', 'lastspots'));
+        return view('frontend/index', compact('lastPays', 'idpays', 'markers', 'pays', 'payslist', 'payslng', 'payslat', 'payszoom', 'paysoffset', 'spot', 'lastspots', 'circuits'));
     }
 
 
