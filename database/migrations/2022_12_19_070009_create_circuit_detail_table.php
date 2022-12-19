@@ -13,10 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('spots_types', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('nom');
+        Schema::create('circuit_detail', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('circuit_id');
+            $table->integer('rang');
+            $table->foreignId('spot_id');
             $table->timestamps();
+
+            $table->foreign('circuit_id')->references('id')->on('circuits');
+            $table->foreign('spot_id')->references('id')->on('spots');
         });
     }
 
@@ -27,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('spots_types');
+        Schema::dropIfExists('circuit_detail');
     }
 };

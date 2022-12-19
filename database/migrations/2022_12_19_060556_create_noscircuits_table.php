@@ -13,14 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('spot_type_translations', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('spot_id')->unsigned();
-            $table->string('locale')->index();
-            $table->string('title');
-            $table->text('content');
+        Schema::create('noscircuits', function (Blueprint $table) {
+            $table->id();
+            $table->string('pays_id', 2);
+            $table->integer('rang');
+            $table->timestamps();
 
-            $table->unique(['spot_id', 'locale']);
+            $table->foreign('id')->references('id')->on('circuits');
         });
     }
 
@@ -31,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('spot_type_translations');
+        Schema::dropIfExists('noscircuits');
     }
 };
