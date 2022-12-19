@@ -5,12 +5,18 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Circuits_detail extends Model
+class Circuits_details extends Model
 {
     use HasFactory;
+
     protected $fillable = [
         'circuit_id',
         'rang',
         'spot_id'
     ];
+
+    public function Circuit()
+    {
+        return $this->belongsTo(Circuits::class, 'circuit_id', 'id');
+    }
 }

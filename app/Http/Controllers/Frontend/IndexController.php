@@ -6,9 +6,10 @@ use App\Models\Pays;
 use App\Models\User;
 use App\Models\Spots;
 use App\Models\Pictures;
-use App\Models\Features;
+use App\Models\Circuits;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
@@ -20,6 +21,8 @@ class IndexController extends Controller
 {
     public function index($id = null, $spotid = null)
     {
+        dd(Circuits::where('id', '=', 2)->first()->details);
+
         if (Session::get('lastPays')) {
             $lastPays = Session::get('lastPays');
             Session::forget('lastPays');
