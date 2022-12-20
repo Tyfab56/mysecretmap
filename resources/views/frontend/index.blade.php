@@ -17,12 +17,12 @@
     <div class="container">
       <div class="row text-center">
           <div class="col-7">
-            <h2 class="section-title">Photographes, vous allez aimer</h2>
-            <h3 class="section-sub-title">Vos prochains voyages</h3>
+            <h3 class="section-sub-title">{{__('index.Top1line1')}}</h3>
+            <h3 class="section-sub-title">{{__('index.Top1line2')}}</h3>
           </div>
           <div class="col-5">
-            <h2 class="section-title">Découvrez nos Circuits</h2>
-            <h3 class="section-sub-title"> Ou Créez le votre ....</h3> 
+            <h2 class="section-title">{{__('index.Top2line1')}}</h2>
+            <h3 class="section-sub-title">{{__('index.Top2line2')}}</h3> 
             <form method="post" action="">
               @csrf
               <div class="form-group">
