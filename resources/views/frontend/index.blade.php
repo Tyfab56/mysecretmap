@@ -16,12 +16,12 @@
 <section id="news" class="news">
     <div class="container">
       <div class="row text-center">
-          <div class="col-7">
+          <div class="col-lg-7 col-md-12">
             <h3 class="section-sub-title">{{__('index.Top1Line1')}}</h3>
             <h3 class="section-sub-title">{{__('index.Top1Line2')}}</h3>
             <h6 >{{__('index.Top1Line3')}}</h6>
           </div>
-          <div class="col-5 bgbox p5">
+          <div class="col-lg-5 cold-md-12 bgbox p5">
             <h2 class="section-title white">{{__('index.Top2Line1')}}</h2>
             <h3 class="section-sub-title white">{{__('index.Top2Line2')}}</h3> 
             <form method="post" action="">
@@ -103,23 +103,27 @@
     <div class="container">
         <div class="row">
            
+          <div class="col-lg-3">
             <form method="post" action="{{ route ('godestination') }}">
                 @csrf
                 <div class="form-group">
                     <select class="form-control ml15" id="idpays" name="idpays" onChange="this.form.submit()">
-                    <option value="">{{__('destination.SelectDest')}}</option>
-                 
-                    @foreach($payslist as $pay)
-                    <option value="{{$pay->pays_id}}" {{($idpays == $pay->pays_id) ? 'selected' : ''}}>{{$pay->pays}} ({{$pay->nbpic}})</option>
-                    @endforeach
+                        <option value="">{{__('destination.SelectDest')}}</option>
+                    
+                        @foreach($payslist as $pay)
+                        <option value="{{$pay->pays_id}}" {{($idpays == $pay->pays_id) ? 'selected' : ''}}>{{$pay->pays}} ({{$pay->nbpic}})</option>
+                        @endforeach
                     </select>
                 </div>
               </form>
+              
+            </div>
+            <div class="col-lg-3">
               <a class="btn btn-primary indexbtn" href="{{ url('thewall') }}/{{ $idpays}}"">{{ __('destination.VoirAllSpots') }}</a>
-        </div>
-        
+            </div>
+       </div>
       <div class="row">
-        <div class="col-lg-9 ">
+        <div class="col-lg-9 col-md-12 ">
             <div class="leaflet-map">
                 <div id="map">
                     <a href="https://www.maptiler.com" style="position:absolute;left:10px;bottom:10px;z-index:999;"><img style="width: 130px;" src="https://api.maptiler.com/resources/logo.svg" alt="MapTiler logo"></a>
@@ -127,13 +131,14 @@
                 <p></p>
             </div>
         </div>  
-        <div class="col-lg-3 mb-5 bgbox">
+        <div class="col-lg-3 col-md-12 mb-5 bgbox">
              <livewire:show-head-spot />
             
         </div>
       </div>
     </div>   
   </section>
+  
   <section id="ts-features" class="ts-features">
     <div class="container">
       <div class="row">

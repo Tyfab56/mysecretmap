@@ -34,6 +34,8 @@ return [
     "Sub3Line2" => "GOOD ORGANISATION",
     "PourCommencer" => "TO START WITH?",
     "ConnectezVous" => "CONNECT FOR FREE TO BENEFIT FROM OUR TOOLS",
+    "ChoixPoint" => "CHOOSE A POINT ON THE MAP",
+    "ChoixPointDesc" => "TO DISCOVER THE FIRST INFORMATION, THEN CLICK ON 'EXPLORE THE SPOT'.",
     'NoAccess' => "You have no accesss here",
     'LastSpots' => "Last Spots",
     "LastSpotsDesc" => "Scroll through the thumbnails or click directly on the image to open the page for this spot",

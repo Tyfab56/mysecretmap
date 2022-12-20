@@ -3457,6 +3457,10 @@ a.red:hover
 {
   padding-top: 5px ;
 }
+.pr15
+{
+  padding-right: 15px ;
+}
 .center 
 {
   text-align: center;
@@ -3678,4 +3682,18 @@ max-width: 133px;
  a.linkorange:hover {
   color: rgb(244, 182, 11);
   cursor: pointer;
+}
+.vertical-center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+@media (max-width:992px) {
+  .vertical-center {
+    
+    position: relative;
+    
+  }
 }

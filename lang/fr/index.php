@@ -34,6 +34,8 @@ return [
     "Sub3Line2" => "UNE BONNE ORGANISATION",
     "PourCommencer" => "POUR COMMENCER ?",
     "ConnectezVous" => "CONNECTEZ VOUS GRATUITEMENT POUR BÉNÉFICIER DE NOS OUTILS",
+    "ChoixPoint" => "CHOISISSEZ UN POINT SUR LA CARTE",
+    "ChoixPointDesc" => "POUR DECOUVRIR LES PREMIERES INFORMATIONS, PUIS CLIQUEZ SUR 'EXPLORER LE SPOT'",
 
     'NoAccess' => "Accès à cette section non autorisé",
     'LastSpots' => "Nouveaux Spots",
