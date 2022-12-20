@@ -1,5 +1,5 @@
 <div class="f13 white">
-    <div class="mt-3 white"><img src="{{$spot->imgpanomedium??''}}" class="max100 responsive intense" ></div>
+    <div class="mt-3 white"><img src="{{$spot->imgpanomedium??''}}" class="max100 mb5 responsive intense" ></div>
     <b class="white">{{ __('index.Spot') }} : <span class="orange">{{$titre}}</span></b><br>
         <div class="mt-3"><b>{{ __('index.Description') }}</b> : <span  style="color:white"> {{$traduction->description?? ''}}</span></div>
         <div class="mt-3"><b>{{ __('index.Accessibilite') }}</b> : <span  style="color:white">{{$traduction->accessibilite?? ''}}</span></div>

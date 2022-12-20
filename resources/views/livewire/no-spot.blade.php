@@ -1,5 +1,5 @@
 <div>
-    <h1>{{ __('index.NoSpot') }}</h1>
+    <h1 class="white">{{ __('index.NoSpot') }}</h1>
         
        
     </div>

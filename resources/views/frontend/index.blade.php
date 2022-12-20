@@ -17,16 +17,16 @@
     <div class="container">
       <div class="row text-center">
           <div class="col-7">
-            <h3 class="section-sub-title">{{__('index.Top1line1')}}</h3>
-            <h3 class="section-sub-title">{{__('index.Top1line2')}}</h3>
+            <h3 class="section-sub-title">{{__('index.Top1Line1')}}</h3>
+            <h3 class="section-sub-title">{{__('index.Top1Line2')}}</h3>
           </div>
-          <div class="col-5">
-            <h2 class="section-title">{{__('index.Top2line1')}}</h2>
-            <h3 class="section-sub-title">{{__('index.Top2line2')}}</h3> 
+          <div class="col-5 bgbox p5">
+            <h2 class="section-title white">{{__('index.Top2Line1')}}</h2>
+            <h3 class="section-sub-title white">{{__('index.Top2Line2')}}</h3> 
             <form method="post" action="">
               @csrf
               <div class="form-group">
-                  <select class="form-control ml15" id="idcircuit" name="idcircuit" onChange="this.form.submit()">
+                  <select class="form-control ml15 mw350 mauto" id="idcircuit" name="idcircuit" onChange="this.form.submit()">
                   <option value="">{{__('destination.SelectCircuit')}}</option>
                  
                   @foreach($circuits as $circuit)
@@ -46,7 +46,7 @@
                 
                 <div class="post-body">
                   <h4 class="post-title">
-                      <a href="news-single.html" class="d-inline-block">Des cartes interactives pour preparer vos voyages photos</a>
+                      <a href="#" class="d-inline-block">Des cartes interactives pour preparer vos voyages photos</a>
                   </h4>
                   <div class="latest-post-meta">
                       <span class="post-item-date">
@@ -62,7 +62,7 @@
                
                 <div class="post-body">
                   <h4 class="post-title">
-                      <a href="news-single.html" class="d-inline-block">Un simulateur de lumière pour choisir le bon lieu au bon moment</a>
+                      <a href="#" class="d-inline-block">Un simulateur de lumière pour choisir le bon lieu au bon moment</a>
                   </h4>
                   <div class="latest-post-meta">
                       <span class="post-item-date">
@@ -78,7 +78,7 @@
                 
                 <div class="post-body">
                   <h4 class="post-title">
-                      <a href="news-single.html" class="d-inline-block">Un générateur de circuit pour optimiser vos déplacements</a>
+                      <a href="#" class="d-inline-block">Un générateur de circuit pour optimiser vos déplacements</a>
                   </h4>
                   <div class="latest-post-meta">
                       <span class="post-item-date">
@@ -125,7 +125,7 @@
                 <p></p>
             </div>
         </div>  
-        <div class="col-lg-3 mb-5 bg-grey">
+        <div class="col-lg-3 mb-5 bgbox">
              <livewire:show-head-spot />
             
         </div>
