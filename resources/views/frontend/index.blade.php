@@ -46,11 +46,11 @@
                 
                 <div class="post-body">
                   <h4 class="post-title">
-                      <a href="#" class="d-inline-block">Des cartes interactives pour preparer vos voyages photos</a>
+                      <a href="#" class="d-inline-block"> {{__('index.Sub1Line1')}}</a>
                   </h4>
                   <div class="latest-post-meta">
                       <span class="post-item-date">
-                        <i class="fa-solid fa-camera orange"></i> Les plus beaux spots
+                        <i class="fa-solid fa-camera orange"></i> {{__('index.Sub1Line2')}}
                       </span>
                   </div>
                 </div>
@@ -62,11 +62,11 @@
                
                 <div class="post-body">
                   <h4 class="post-title">
-                      <a href="#" class="d-inline-block">Un simulateur de lumière pour choisir le bon lieu au bon moment</a>
+                      <a href="#" class="d-inline-block"> {{__('index.Sub2Line1')}}</a>
                   </h4>
                   <div class="latest-post-meta">
                       <span class="post-item-date">
-                        <i class="fa-solid fa-sun orange"></i> LE BON ECLAIRAGE
+                        <i class="fa-solid fa-sun orange"></i> {{__('index.Sub2Line2')}}
                       </span>
                   </div>
                 </div>
@@ -78,11 +78,11 @@
                 
                 <div class="post-body">
                   <h4 class="post-title">
-                      <a href="#" class="d-inline-block">Un générateur de circuit pour optimiser vos déplacements</a>
+                      <a href="#" class="d-inline-block">{{__('index.Sub2Line1')}}</a>
                   </h4>
                   <div class="latest-post-meta">
                       <span class="post-item-date">
-                        <i class="fa-solid fa-map-location-dot orange"></i> UNE BONNE ORGANISATION
+                        <i class="fa-solid fa-map-location-dot orange"></i> {{__('index.Sub3Line2')}}
                       </span>
                   </div>
                 </div>
