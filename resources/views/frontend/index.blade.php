@@ -34,6 +34,7 @@
             <option value="{{$circuit->id}}">{{$circuit->circuit->titre}}</option>
             @endforeach
           </select>
+          <a class="linkorange white"><p class="pt5">{{__('index.Top2Line3')}}</p></a> 
         </div>
       </form>
           </div>
@@ -138,7 +139,7 @@
         <div class="col-lg-12">
           <div class="ts-intro">
             <h3 class="into-sub-title">{{ __('index.LastSpots') }}</h3>
-              
+             <p>{{ __('index.LastSpotsDesc') }}</p> 
           </div>
         </div> 
 

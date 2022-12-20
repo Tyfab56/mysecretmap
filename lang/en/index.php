@@ -24,14 +24,18 @@ return [
     'Top1Line2' => "YOUR NEXT TRIPS",
     "Top2Line1" => "DISCOVER OUR TOURS",
     "Top2Line2" => "OR CREATE YOUR OWN ...",
+    "Top2Line3" => "I create my tour",
     "Sub1Line1" => "INTERACTIVE MAPS TO PLAN YOUR PHOTO TRIPS",
     "Sub1Line2" => "THE MOST BEAUTIFUL SPOTS",
     "Sub2Line1" => "A light simulator to choose the right place at the right time",
     "Sub2Line2" => "THE RIGHT LIGHTING",
     "Sub3Line1" => "A circuit generator to optimise your trips",
     "Sub3Line2" => "GOOD ORGANISATION",
+    "PourCommencer" => "TO START WITH?",
+    "ConnectezVous" => "CONNECT FOR FREE TO BENEFIT FROM OUR TOOLS",
     'NoAccess' => "You have no accesss here",
     'LastSpots' => "Last Spots",
+    "LastSpotsDesc" => "Scroll through the thumbnails or click directly on the image to open the page for this spot",
     'BonusClub' => "BONUS CLUB 'MY SECRET MAP'",
     "BonusClubDesc" => "Developing such a site requires a lot of investment. To open up new destinations, Fabrice H and his team have created an enhanced version of the site for members of the 'My Secret Map' club. You can join the club and benefit from many bonuses.",
     "BonusSubText" => 'Find out more on our page <a href=":url"><b>Patreon My secret Map</b> </a>',
@@ -49,6 +53,7 @@ return [
     "ShareSpotsDesc" => "By sharing our spots on your social networks, you allow our site to get a wider audience. You can also share your tours and ask your friends for feedback on your chosen spots.",
     "JoinTeam" => "Join our teams",
     "JoinTeamDesc" => "We offer you the possibility for club members to accompany us in the field to explore new destinations. We also offer professional photographers the opportunity to work for the site by creating new spots",
+    ""
 
 
 
