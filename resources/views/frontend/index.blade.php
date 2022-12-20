@@ -19,6 +19,7 @@
           <div class="col-7">
             <h3 class="section-sub-title">{{__('index.Top1Line1')}}</h3>
             <h3 class="section-sub-title">{{__('index.Top1Line2')}}</h3>
+            <h6 >{{__('index.Top1Line3')}}</h6>
           </div>
           <div class="col-5 bgbox p5">
             <h2 class="section-title white">{{__('index.Top2Line1')}}</h2>
@@ -41,13 +42,13 @@
       </div>
       <!--/ Title row end -->
   
-      <div class="row">
+      <div class="row pt5">
           <div class="col-lg-4 col-md-6 mb-4">
             <div class="latest-post">
                 
                 <div class="post-body">
                   <h4 class="post-title">
-                      <a href="#" class="d-inline-block"> {{__('index.Sub1Line1')}}</a>
+                       {{__('index.Sub1Line1')}}
                   </h4>
                   <div class="latest-post-meta">
                       <span class="post-item-date">
@@ -63,7 +64,7 @@
                
                 <div class="post-body">
                   <h4 class="post-title">
-                      <a href="#" class="d-inline-block"> {{__('index.Sub2Line1')}}</a>
+                     {{__('index.Sub2Line1')}}
                   </h4>
                   <div class="latest-post-meta">
                       <span class="post-item-date">
@@ -79,7 +80,7 @@
                 
                 <div class="post-body">
                   <h4 class="post-title">
-                      <a href="#" class="d-inline-block">{{__('index.Sub2Line1')}}</a>
+                      {{__('index.Sub2Line1')}}
                   </h4>
                   <div class="latest-post-meta">
                       <span class="post-item-date">

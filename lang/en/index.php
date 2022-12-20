@@ -22,6 +22,7 @@ return [
     'Sunrise' => "Sunrise",
     'Top1Line1' => "PHOTOGRAPHERS, YOU WILL LOVE",
     'Top1Line2' => "YOUR NEXT TRIPS",
+    'Top1Line3' => "Iceland, Seychelles, Rodrigues, Reunion Island...the choice is yours",
     "Top2Line1" => "DISCOVER OUR TOURS",
     "Top2Line2" => "OR CREATE YOUR OWN ...",
     "Top2Line3" => "I create my tour",
