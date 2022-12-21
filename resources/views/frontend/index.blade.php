@@ -24,6 +24,7 @@
           <div class="col-lg-5 cold-md-12 bgbox p5">
             <h2 class="section-title white">{{__('index.Top2Line1')}}</h2>
             <h3 class="section-sub-title white">{{__('index.Top2Line2')}}</h3> 
+            @if isset($circuits)
             <form method="post" action="">
               @csrf
               <div class="form-group">
@@ -35,6 +36,7 @@
             <option value="{{$circuit->id}}">{{$circuit->circuit->titre}}</option>
             @endforeach
           </select>
+          @endif
           <a class="linkorange white"><p class="pt5">{{__('index.Top2Line3')}}</p></a> 
         </div>
       </form>
@@ -138,7 +140,7 @@
       </div>
     </div>   
   </section>
-  
+
   <section id="ts-features" class="ts-features">
     <div class="container">
       <div class="row">
