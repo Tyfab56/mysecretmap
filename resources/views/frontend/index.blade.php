@@ -24,7 +24,7 @@
           <div class="col-lg-5 cold-md-12 bgbox p5">
             <h2 class="section-title white">{{__('index.Top2Line1')}}</h2>
             <h3 class="section-sub-title white">{{__('index.Top2Line2')}}</h3> 
-            @if isset($circuits)
+            @if (isset($circuits))
             <form method="post" action="">
               @csrf
               <div class="form-group">
@@ -167,6 +167,7 @@
 
     </div>
   </section>
+
 
   <section id="ts-features" class="ts-features">
     <div class="container">
