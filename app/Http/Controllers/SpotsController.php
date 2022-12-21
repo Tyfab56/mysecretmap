@@ -6,6 +6,7 @@ use App\Models\Pays;
 use App\Models\User;
 use App\Models\Langs;
 use App\Models\Spots;
+use App\Models\Maps;
 
 use App\Models\Typepoints;
 use Illuminate\Http\Request;
@@ -19,15 +20,22 @@ use function GuzzleHttp\Promise\exception_for;
 
 class SpotsController extends Controller
 {
-    public function index()
+    public function index($maps = null)
     {
+
+        if (is_null($maps)) {
+            $maps = 1;
+        }
         // Liste les spots
         $pays = Pays::where('actif', '=', 1)->orderBy('pays', 'asc')->get();
 
         $users = User::where('admin', '=', 1)->get();
-        $spots = Spots::orderBy('id', 'desc')->paginate(15);
+        $spots = Spots::orderBy('id', 'desc')->where('maps_id', '=', $maps)->paginate(15);
 
-        return view('admin.spots', compact('pays', 'users', 'spots'));
+        // Liste les type de maps
+        $maps = Maps::get();
+
+        return view('admin.spots', compact('pays', 'users', 'spots', 'maps'));
     }
 
     public function edit($id, $lang = null)
@@ -52,7 +60,12 @@ class SpotsController extends Controller
             $spotlang = app()->getLocale();
         }
 
-        return view('admin.addspot', compact('spot', 'langs', 'pays', 'typepoints', 'timeonsite', 'randotime', 'spotlang', 'previousspot', 'nextspot'));
+        // Liste les type de maps
+        $maps = Maps::get();
+
+
+
+        return view('admin.addspot', compact('spot', 'langs', 'pays', 'typepoints', 'timeonsite', 'randotime', 'spotlang', 'previousspot', 'nextspot', 'maps'));
     }
     public function social($id)
     {
@@ -113,7 +126,11 @@ class SpotsController extends Controller
             $spotlang = app()->getLocale();
         }
         // Liste 
-        return view('admin.addspot', compact('spot', 'pays', 'typepoints', 'timeonsite', 'randotime', 'langs', 'spotlang'));
+
+        // Liste les type de maps
+        $maps = Maps::get();
+
+        return view('admin.addspot', compact('spot', 'pays', 'typepoints', 'timeonsite', 'randotime', 'langs', 'spotlang', 'maps'));
     }
 
 

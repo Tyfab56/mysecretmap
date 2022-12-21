@@ -41,6 +41,18 @@
                                     @endforeach
                                 </select>
                             </div>
+
+                            <div class="form-group">
+                                <label class="info-title" for="typespotlist">Style de carte<span class="text-danger">*</span></label>
+                                <select class="form-control" id="maplist" name="maplist">
+                                    <option value="">Selectionner le type de carte</option>
+                                    @foreach($maps as $map)
+
+                                    <option value="{{$map->id}}" {{($spot->maps_id == $map->id) ? 'selected' : ''}}>{{$map->memo}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+
                             <div class="form-group">
                                 <label class="info-title" for="typespotlist">Type du spot<span class="text-danger">*</span></label>
                                 <select class="form-control" id="typespotlist" name="typespotlist">

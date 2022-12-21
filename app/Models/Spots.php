@@ -18,7 +18,7 @@ class Spots extends Model implements TranslatableContract
     ];
     protected $fillable = [
         'name',
-        'pays',
+        'pays_id',
         'lat',
         'lng',
         'fichier',
@@ -30,6 +30,7 @@ class Spots extends Model implements TranslatableContract
         'imgpanomedium',
         'imgpanolarge',
         'actif',
+        'maps_id',
         'imgsquaresmall',
         'imgsquaremedium',
         'imgsquarelarge',
@@ -48,5 +49,10 @@ class Spots extends Model implements TranslatableContract
     public function user()
     {
         return $this->belongsTo(User::class, 'userid', 'id');
+    }
+
+    public function map()
+    {
+        return $this->belongsTo(Maps::class, 'maps_id', 'id');
     }
 }
