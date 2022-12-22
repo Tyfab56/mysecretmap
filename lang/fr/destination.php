@@ -21,5 +21,6 @@ return [
     "TousSpots" => 'TOUS LES SPOTS',
     "VoirAllSpots" => "Voir tous les spots",
     "RandomSpots" => "Ces vignettes sont présentées en ordre aléatoire",
-    'SelectCircuit' => 'Selectionnez un circuit',
+    "SelectCircuit" => 'Selectionnez un circuit',
+    "CircuitLogin" => "Pour créer un circuit, vous devez d'abord vous connecter",
 ];

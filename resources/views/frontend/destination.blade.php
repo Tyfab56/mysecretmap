@@ -54,9 +54,9 @@
           <div class="col-lg-6 center"><livewire:show-map-globale /></div>
           <div class="col-lg-6 center"><livewire:show-img-region /></div>
         </div>
-        <div class="row">  
-          <div class="col-lg-6">Chemin Accès</div>
-          <div class="col-lg-6">Montagne Environnentes</div>
+        <div class="row min100">  
+          <div class="col-lg-6 col-md-12">Chemin Accès</div>
+          <div class="col-lg-6 col-md-12">Montagne Environnentes</div>
         </div>
         @auth
         @if (auth()->user()->isPhotographer())
@@ -68,7 +68,25 @@
         @endif  
         @endauth
         <div class="row">      
-          <div class="col-lg-3">Circuit</div>
+          <div class="col-lg-3 col-md-12  bgbox selection:">
+            @auth
+           
+                  <div class="form-group">
+                    <select class="form-control ml15 mw350 mauto" id="idcircuit" name="idcircuit">
+                    <option value="">{{__('destination.SelectCircuit')}}</option>
+                  
+                        @foreach($circuits as $circuit)                    
+                          <option value="{{$circuit->id}}">{{$circuit->titre}}</option>
+                        @endforeach
+                   </select>
+                  </div>
+            @endauth
+            @guest
+
+              <p ><h3 class="white">{{__('destination.CircuitLogin')}}</h3></p>
+              <a class="btn btn-primary mb5" href="{{ route('login') }}">{{__('menu.Connexion')}}</a>
+            @endguest
+          </div>
           <div class="col-lg-9">
             <livewire:show-images/>
           </div>

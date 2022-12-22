@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Models\Pays;
 use App\Models\Spots;
+use App\Models\Circuits;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
@@ -41,12 +43,22 @@ class DestinationController extends Controller
             ->where('pays_id', $idpays)->where('actif', 1)->get();
 
         $payslist = Pays::where('actif', '=', 1)->orderBy('pays', 'asc')->get();
-        // Chargement un maximum de 1000 points // Rechargement sur zoom uniquement si ce chiffre est atteint
-        // Choix du mode
 
-        // Chargement des photos de la carte
-        // Chargement des images par page
-        return view('frontend/destination', compact('idpays', 'markers', 'pays', 'payslist', 'payslng', 'payslat', 'payszoom', 'paysoffset', 'spot'));
+        // Un user est t'il connecté
+        $userid = Auth::user();
+
+
+        if ($userid) {
+            //  Chargement des circuit de cet user pour ce pays
+            $circuits = Circuits::where('user_id', '=', $userid->id)->where('pays_id', '=', $idpays)->get();
+        } else {
+            $circuits = null;
+        }
+
+
+
+
+        return view('frontend/destination', compact('idpays', 'markers', 'pays', 'payslist', 'payslng', 'payslat', 'payszoom', 'paysoffset', 'spot', 'circuits'));
     }
 
     public function listmarkers($idpays, $nelat, $nelng, $swlat, $swlng)

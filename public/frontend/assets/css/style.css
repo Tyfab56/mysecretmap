@@ -3444,6 +3444,10 @@ a.red:hover
 {
   max-width : 100%;
 }
+.min100
+{
+  min-width: 100%;
+}
 .max50
 {
   max-width : 50%;

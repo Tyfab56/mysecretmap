@@ -32,7 +32,7 @@
                   <option value="">{{__('destination.SelectCircuit')}}</option>
                  
                   @foreach($circuits as $circuit)
-                  console.log($circuit)
+                 
             <option value="{{$circuit->id}}">{{$circuit->circuit->titre}}</option>
             @endforeach
           </select>

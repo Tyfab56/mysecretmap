@@ -21,7 +21,8 @@ return [
     "TousSpots" => 'ALL SPOTS',
     "VoirAllSpots" => "See all spots",
     "RandomSpots" => "These vignettes are presented in random order",
-    'SelectCircuit' => 'Select a tour',
+    "SelectCircuit" => 'Select a tour',
+    "CircuitLogin" => "To create a tour, you must first log in",
 
 
 ];
