@@ -13,7 +13,7 @@ return [
     'Drone' => "Drone",
     'Lumiere' => "Lumière",
     'Secretspot' => "Conseil",
-    'Newsletter' => "Rejoignez le club",
+    'Newsletter' => "Rejoignez le Glub",
     'TitleNewsletter' => "Gardez le contact !",
     'SubNewsletter' => "Abonnez-vous à la newsletter",
     'BtnNewsletter' => "Souscrire",
