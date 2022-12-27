@@ -57,5 +57,9 @@ return [
     "ShareSpotsDesc" => "En partageant nos spots sur vos réseaux sociaux, vous permettez à notre site d'obtenir une audience plus large. Vous pouvez également partager vos circuit et demander l'avis à vos amis sur les spots choisis.",
     "JoinTeam" => "Rejoignez nos équipes",
     "JoinTeamDesc" => "Nous vous offrons la possibilité aux membres du club de nous accompagner sur le terrain pour l'exploration de nouvelles destinations. Nous proposons également aux photographes professionnels de travailler pour le site en créant de nouveau spots",
+    "WallSort1" => "Aléatoire",
+    "WallSort2" => "Ordre Alphabet",
+    "WallSort3" => "Nouveaux spots",
+    
 
 ];

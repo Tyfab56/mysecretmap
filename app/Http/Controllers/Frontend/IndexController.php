@@ -96,9 +96,13 @@ class IndexController extends Controller
 
         $markers = Spots::select('id', 'name', 'lng', 'lat', 'imgpanosmall', 'imgsquaresmall', 'typepoint_id')
             ->where('pays_id', $idpays)->where('actif', 1)->get();
+
         $payslist = Pays::where('actif', '=', 1)->orderBy('pays', 'asc')->get();
 
-        return view('frontend/index', compact('lastPays', 'idpays', 'markers', 'payslist', 'pays', 'payslng', 'payslat', 'payszoom', 'paysoffset', 'spot'));
+        // Liste des dernier spots
+        $lastspots = Spots::orderBy('created_at', 'desc')->where('actif', '=', 1)->take(18)->get();
+
+        return view('frontend/index', compact('lastPays', 'idpays', 'markers', 'payslist', 'pays', 'payslng', 'payslat', 'payszoom', 'paysoffset', 'spot','lastspots'));
     }
 
     public function nextdestinations()

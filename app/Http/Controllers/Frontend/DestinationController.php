@@ -76,10 +76,40 @@ class DestinationController extends Controller
         return response($markers, 200);
     }
 
-    public function thewall($idpays)
+    public function thewall($idpays,$tri = null,$size= null)
     {
-        $spots = Spots::select('id', 'name', 'imgsquaresmall')
+
+
+        if (is_null($size))
+        {
+            $imagesize = 'imgsquaresmall';
+        }
+        else
+        {
+            $imagesize = 'imgpanosmall';
+        }
+
+        if (is_null($tri))
+        {
+            $tri = 1;
+        }
+
+        if ($tri == 1)
+        {
+            $spots = Spots::select('id', 'name', $imagesize)
             ->where('pays_id', $idpays)->inRandomOrder()->where('actif', 1)->get();
+        }
+        elseif ($tri == 2)
+        {
+            $spots = Spots::select('id', 'name', $imagesize)
+            ->where('pays_id', $idpays)->orderBy('name','asc')->where('actif', 1)->get(); 
+        }
+        elseif ($tri == 3)
+        {
+            $spots = Spots::select('id', 'name', $imagesize)
+            ->where('pays_id', $idpays)->orderBy('created_at','desc')->where('actif', 1)->get();
+        }
+        
 
 
         $pays = Pays::where('pays_id', $idpays)->first();

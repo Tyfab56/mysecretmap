@@ -5,6 +5,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\SpotsController;
 use App\Http\Controllers\CircuitsController;
+use App\Http\Controllers\DistanceController;
 use App\Http\Controllers\PaysController;
 use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\Frontend\DestinationController;
@@ -42,6 +43,9 @@ Route::get('/listmarkers/{idpays}/{nelat}/{nelng}/{swlat}/{swlng}', [Destination
 
 Route::get('/destination/{id}/{spotid?}', [DestinationController::class, 'index'])->name('destination');
 Route::get('/thewall/{idpays}', [DestinationController::class, 'thewall'])->name('thewall');
+Route::get('/thewall/{idpays}/{tri?}/{size?}', [DestinationController::class, 'thewall']);
+Route::get('/distance/{idspot}', [DistanceController::class, 'index'])->name('distance');
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');

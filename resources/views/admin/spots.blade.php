@@ -49,7 +49,7 @@
                                           <td>{{$spot->pays->pays}}</td>
                                           <td>{{$spot->name}}</td>
                                           <td><img src="{{$spot->imgpanosmall}}"></td>
-                                          <td style="min-width:160px"><a class="btn btn-sm btn-success" onclick="editMarker({{$spot->id}});">Mise à jour</a> <a class="btn btn-sm btn-warning" onclick="delMarker({{$spot->id}});">Suppr</a><a class="btn btn-sm btn-warning" onclick="social({{$spot->id}});">Social</a></td>
+                                          <td style="min-width:160px"><a class="btn btn-sm btn-success" onclick="editMarker({{$spot->id}});">Mise à jour</a> <a class="btn btn-sm btn-warning" onclick="delMarker({{$spot->id}});">Suppr</a><a class="btn btn-sm btn-warning" onclick="social({{$spot->id}});">MAJ infos</a></td>
                                       </tr>
                                       @endforeach
 
@@ -173,10 +173,10 @@ url = url.replace('Id', currentid).replace('Latspot', lat).replace('Lngspot', ln
 window.location.href = url;
 }
 
-function social()
+function social(id)
 {
-let url = '{{route('admin.social', ['Id'])}}';
-url = url.replace('Id', currentid);
+let url = '{{route('distance', ['Id'])}}';
+url = url.replace('Id',id);
 
 window.location.href = url;
 }
