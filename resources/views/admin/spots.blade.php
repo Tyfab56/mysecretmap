@@ -45,7 +45,7 @@
                                       @foreach ($spots as $spot)
 
                                       <tr onclick="updateMap({{$spot->id}},{{$spot->lat}},{{$spot->lng}})">
-                                          <th scope="row">{{$spot->id}}</th>
+                                          <th scope="row">{{$spot->id}}({{$spot->nbdistance}})</th>
                                           <td>{{$spot->pays->pays}}</td>
                                           <td>{{$spot->name}}</td>
                                           <td><img src="{{$spot->imgpanosmall}}"></td>

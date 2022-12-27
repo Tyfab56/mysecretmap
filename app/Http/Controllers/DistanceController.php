@@ -54,7 +54,10 @@ class DistanceController extends Controller
                  $dist->save();
              }
 
-
+        // mise à jour de nbdistance dans la table
+        $count = Distances::where('spot_origine','=',$spot->id)->count();
+        $spot->nbdistance = $count;
+        $spot->save();
 
         }
 
