@@ -20,7 +20,7 @@ return [
     'SpotEmpty' => 'No Spot on Map',
     "TousSpots" => 'ALL SPOTS',
     "VoirAllSpots" => "See all spots",
-    "RandomSpots" => "These vignettes are presented in random order",
+    "RandomSpots" => "You can chage the sort order",
     "SelectCircuit" => 'Select a tour',
     "CircuitLogin" => "To create a tour, you must first log in",
 

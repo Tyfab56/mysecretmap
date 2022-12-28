@@ -114,7 +114,10 @@ class IndexController extends Controller
 
     public function myaccount()
     {
-        return view('frontend/myaccount');
+        // Information sur cet user
+        $user = Auth::user();
+      
+        return view('frontend/myaccount',compact('user'));
     }
 
     public function addimagespotstore(Request $request)

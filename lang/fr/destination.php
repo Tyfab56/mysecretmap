@@ -20,7 +20,7 @@ return [
     'SpotEmpty' => 'Pas de spot',
     "TousSpots" => 'TOUS LES SPOTS',
     "VoirAllSpots" => "Voir tous les spots",
-    "RandomSpots" => "Ces vignettes sont présentées en ordre aléatoire",
+    "RandomSpots" => "Vous pouvez changer l'ordre du tri",
     "SelectCircuit" => 'Selectionnez un circuit',
     "CircuitLogin" => "Pour créer un circuit, vous devez d'abord vous connecter",
 ];

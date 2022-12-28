@@ -6,7 +6,7 @@
   
       <div class="row">
         <div class="col-lg-8">
-          <h3 class="border-title border-left mar-t0">{{ __('compte.Moncompte') }}</h3>
+          <h3 class="border-title border-left mar-t0">{{ __('compte.MonCompte') }}</h3>
   
           <div class="accordion accordion-group accordion-classic" id="construction-accordion">
             <div class="card">
@@ -14,7 +14,7 @@
                 <h2 class="mb-0">
                   <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne"
                     aria-expanded="true" aria-controls="collapseOne">
-                    Does the law require head protection on construction sites?
+                    {{ __('compte.MesInfos') }}
                   </button>
                 </h2>
               </div>
@@ -22,8 +22,18 @@
               <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
                 data-parent="#construction-accordion">
                 <div class="card-body">
-                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf
-                  moon officia aute, non cupidata
+                  <div class="input-w">
+                    <label for="name"><p><b>{{ __('compte.Name') }} :</b></p> </label>
+                    <input type="text" name= "name" id="name" value="{{$user->name}}"/>
+                </div>
+                <div class="input-w">
+                    <label for="pseudo"><p><b>{{ __('compte.Pseudo') }} :</b></p> </label>
+                    <input type="text" name="pseudo" id="pseudo" value="{{$user->pseudo}}"/>
+                </div>
+                  <p><b>{{ __('compte.Email') }} : </b> {{$user->email}}</p>
+               
+
+
                 </div>
               </div>
             </div>
@@ -32,16 +42,27 @@
                 <h2 class="mb-0">
                   <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse"
                     data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                    What are the first aid requirements for sites?
+                    {{ __('compte.MesReseaux') }}
                   </button>
                 </h2>
               </div>
               <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#construction-accordion">
                 <div class="card-body">
-                  Anemi nim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea com modo consequat.
-                  Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                  Excepteur sint occaecat cupid henderit in voluptate velit esse cillu oris nisi ut aliquip ex ea com
-                  matat.
+                  
+                  <div class="input-w">
+                    <label for="internet"><p><b>{{ __('compte.Web') }} :</b></p> </label>
+                    <input class="w400p" type="text" name="internet" id="internet" value="{{$user->internet}}"/>
+                </div>
+                <div class="input-w">
+                    <label for="pseudo"><p><b>{{ __('compte.Facebook') }} :</b></p> </label>
+                    <input class="w400p" type="text" name="facebook" id="facebook" value="{{$user->facebook}}"/>
+                </div>
+                <div class="input-w">
+                    <label for="instagram"><p><b>{{ __('compte.Instagram') }} :</b></p> </label>
+                    <input class="w400p" type="text" name="instagram" id="instagram" value="{{$user->instagram}}"/>
+                </div>
+
+                  
                 </div>
               </div>
             </div>
@@ -50,7 +71,7 @@
                 <h2 class="mb-0">
                   <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse"
                     data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                    What is an appointed person?
+                    {{ __('compte.MesCircuits') }}
                   </button>
                 </h2>
               </div>
