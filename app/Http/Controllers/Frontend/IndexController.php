@@ -51,8 +51,10 @@ class IndexController extends Controller
         $paysoffset = $pays->offset;
 
         // Chargement des markers de la carte
-        $markers = Spots::select('id', 'name', 'lng', 'lat', 'imgpanosmall', 'imgsquaresmall', 'typepoint_id')
-            ->where('pays_id', $idpays)->where('actif', 1)->get();
+        //$markers = Spots::select('id', 'name', 'lng', 'lat', 'imgpanosmall', 'imgsquaresmall', 'typepoint_id')
+        //    ->where('pays_id', $idpays)->where('actif', 1)->get();
+
+        $markerspays = Pays::where('actif', 1)->get();
 
         // récupération des circuits pour ce pays par defaut
         $circuits = NosCircuits::where('pays_id', $idpays)->orderBy('rang')->get();
@@ -73,7 +75,7 @@ class IndexController extends Controller
             $spot = null;
         }
 
-        return view('frontend/index', compact('lastPays', 'idpays', 'markers', 'pays', 'payslist', 'payslng', 'payslat', 'payszoom', 'paysoffset', 'spot', 'lastspots', 'circuits'));
+        return view('frontend/index', compact('lastPays', 'idpays', 'pays', 'payslist', 'payslng', 'payslat', 'payszoom', 'paysoffset', 'spot', 'lastspots', 'circuits','markerspays'));
     }
 
 

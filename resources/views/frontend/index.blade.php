@@ -104,7 +104,7 @@
   <section id="ts-features" class="ts-features">
     <div class="container">
         <div class="row">
-           
+          <!--/ Choix des destinations --> 
           <div class="col-lg-3">
             <form method="post" action="{{ route ('godestination') }}">
                 @csrf
@@ -124,16 +124,17 @@
               <a class="btn btn-primary indexbtn" href="{{ url('thewall') }}/{{ $idpays}}"">{{ __('destination.VoirAllSpots') }}</a>
             </div>
        </div>
+       <!--/ carte avec les destinations -->
       <div class="row">
-        <div class="col-lg-9 col-md-12 ">
+        <div class="col-lg-8 col-md-12 ">
             <div class="leaflet-map">
-                <div id="map">
+                <div id="mapindex">
                     <a href="https://www.maptiler.com" style="position:absolute;left:10px;bottom:10px;z-index:999;"><img style="width: 130px;" src="https://api.maptiler.com/resources/logo.svg" alt="MapTiler logo"></a>
                 </div>
                 <p></p>
             </div>
         </div>  
-        <div class="col-lg-3 col-md-12 mb-5 bgbox">
+        <div class="col-lg-4 col-md-12 mb-5 bgbox">
              <livewire:show-head-spot />
             
         </div>
@@ -308,8 +309,5 @@
 @endsection
 
 @section('scripts')
-
-@include ('frontend.mapjs');
 @include ('frontend.mapindexjs');
-
 @endsection

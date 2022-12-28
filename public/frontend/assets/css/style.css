@@ -2861,6 +2861,10 @@ img.testimonial-thumb {
   height: 450px;
   z-index: 1;
 }
+.mapindex {
+  height: 450px;
+  z-index: 1;
+}
 
 .contact-info-box {
   margin-top: 20px;
@@ -3377,6 +3381,10 @@ label {
 
 #map {
   height: 600px;
+  width: 100%;
+}
+#mapindex {
+  height: 500px;
   width: 100%;
 }
 .container
