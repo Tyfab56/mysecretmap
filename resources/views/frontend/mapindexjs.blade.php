@@ -1,6 +1,6 @@
 
-var mapindex = L.map('mapindex',{minZoom: 1,maxZoom: 6});
-mapindex.setView([0, 0], 0);
+var mapindex = L.map('mapindex',{minZoom: 2,maxZoom: 6});
+mapindex.setView([15, 0], 1);
 var markers = L.markerClusterGroup({chunkedLoading: true,maxClusterRadius: 30});
 var currentpays;
 
