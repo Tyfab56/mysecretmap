@@ -75,6 +75,13 @@ class DestinationController extends Controller
 
         return response($markers, 200);
     }
+    
+    public function pictures($idspot)
+    {
+        $spot = Spots::where('id','=',$idspot)->first();
+        return view('frontend/pictures', compact('spot'));
+    }
+
 
     public function thewall($idpays,$tri = null,$size= null)
     {

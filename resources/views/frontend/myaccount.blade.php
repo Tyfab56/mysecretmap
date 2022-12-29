@@ -5,7 +5,7 @@
     <div class="container">
   
       <div class="row">
-        <div class="col-lg-5">
+        <div class="col-lg-6">
           <h3 class="border-title border-left mar-t0">{{ __('compte.MonCompte') }}</h3>
   
           <div class="accordion accordion-group accordion-classic" id="construction-accordion">
@@ -101,13 +101,13 @@
         </div>
 
 
-        <div class="col-lg-7">
+        <div class="col-lg-6">
 
             <div class="sidebar sidebar-right">
               <div class="widget recent-posts">
-                <h3 class="widget-title">Recent Posts</h3>
-               
-    
+                <h3 class="widget-title">Bienvenue sur My Secret Map</h3>
+                <p>Cette page vous permet de modifier vos informations, le niveaux de vos abonnements et de saisir les paramètres de vos circuits.</p>
+                <p><b>Rejoindre le club : </b>Si vous souhaitez <a href="https://www.patreon.com/fabriceh" target="_blank" >rejoindre le club des voyageurs</a>, vous trouverez sur cet lien toutes les informations utiles.</p>
               </div><!-- Recent post end -->
             </div><!-- Sidebar end -->
     

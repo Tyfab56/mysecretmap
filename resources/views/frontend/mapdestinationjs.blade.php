@@ -40,7 +40,7 @@ window.addEventListener('load', function () {
   Livewire.emit('InfoDestination',currentMarker,null,null);
   Livewire.emit('ImgRegion',currentMarker);
   Livewire.emit('ImgMap',currentMarker);
-  Livewire.emit('Pictures',currentMarker);
+
   
   var myDate = new Date();
   var dayInYear = Math.floor((myDate - new Date(myDate.getFullYear(), 0, 0)) / (1000 * 60 * 60 * 24));
@@ -60,6 +60,11 @@ window.addEventListener('load', function () {
   })
 
 
+function copyGPS (){
+        document.getElementById('id').select();
+        document.execCommand('copy');
+    }
+
 function goImage()
 {
   var url = '{{ route("addimagespot", ":spotid") }}';
@@ -76,7 +81,6 @@ function popimage(name,e,lat,lng) {
   Livewire.emit('InfoDestination',e,null,null);
   Livewire.emit('ImgRegion',e);
   Livewire.emit('ImgMap',e);
-  Livewire.emit('Pictures',e);
   var bounds = L.latLng(lat,lng).toBounds(6000)
   map.fitBounds(bounds);
   drawSolar();

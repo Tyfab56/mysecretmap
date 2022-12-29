@@ -17,10 +17,7 @@ mapindex.whenReady(
 
 });
 
-function copyGPS {
-        document.getElementById("copy_{{ $photo->id }}").select();
-        document.execCommand('copy');
-    }
+
 
 function onmapClick(e) {
 currentpays = e.sourceTarget.options.id;

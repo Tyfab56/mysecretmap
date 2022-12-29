@@ -45,6 +45,7 @@ Route::get('/destination/{id}/{spotid?}', [DestinationController::class, 'index'
 Route::get('/thewall/{idpays}', [DestinationController::class, 'thewall'])->name('thewall');
 Route::get('/thewall/{idpays}/{tri?}/{size?}', [DestinationController::class, 'thewall']);
 Route::get('/distance/{idspot}', [DistanceController::class, 'index'])->name('distance');
+Route::get('/pictures/{idspot}', [DestinationController::class, 'pictures'])->name('pictures');
 
 
 Route::get('/dashboard', function () {

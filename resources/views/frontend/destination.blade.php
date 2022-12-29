@@ -26,7 +26,7 @@
                 <div class="row">
                     <div class="col-lg-9"><img class="max50" src="{{asset('frontend/assets/images')}}/{{ Config::get('app.locale') }}/clubpatreon.jpg">
                     <br>Pour bénéficier des nombreux Bonus et faire grandir cette carte</div>
-                    <div class="col-lg-3"> <a class="btn btn-primary" href="{{ url('thewall') }}/{{ $idpays}}"">THE WALL</a></div>
+                    <div class="col-lg-3"> <a class="btn btn-primary" href="{{ url('thewall') }}/{{ $idpays}}">THE WALL</a></div>
                 </div>    
                 <div class="leaflet-map">
                     <div class="row">
@@ -48,7 +48,9 @@
           <div class="col-lg-3 bgbox"> <livewire:show-map-spot /></div>
         </div>
         <div class="row bgregbox">
-          <div class="col-lg-12"><div id="medias"></div></div>
+          <div class="col-lg-12">
+            <div><b>Spots à proximité :</b></div>
+            <div id="medias"></div></div>
         </div>
         <div class="row bgregbox">  
           <div class="col-lg-6 center"><livewire:show-map-globale /></div>
@@ -88,7 +90,7 @@
             @endguest
           </div>
           <div class="col-lg-9">
-            <livewire:show-images/>
+          
           </div>
         </div>  
         <div class="row">
