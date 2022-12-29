@@ -5,7 +5,7 @@
     <div class="container">
   
       <div class="row">
-        <div class="col-lg-8">
+        <div class="col-lg-5">
           <h3 class="border-title border-left mar-t0">{{ __('compte.MonCompte') }}</h3>
   
           <div class="accordion accordion-group accordion-classic" id="construction-accordion">
@@ -78,9 +78,21 @@
               <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
                 data-parent="#construction-accordion">
                 <div class="card-body">
-                  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                  industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
-                  scrambled it to make a type specimen book.
+                  Vous pouvez gerez vos circuits ici en choisissant vos destinations. Les membres abonnés au club Patreon disposent de 5 circuits par destination.
+                  <select class="form-control mb5" id="idpays" name="idpays" onChange="this.form.submit()">
+                        <option value="">{{__('destination.SelectDest')}}</option>
+                    
+                        @foreach($payslist as $pay)
+                        <option value="{{$pay->pays_id}}">{{$pay->pays}}</option>
+                        @endforeach
+                    </select>
+                  <div class="list-group">
+                            <a href="#" class="list-group-item list-group-item-action">The current link item</a>
+                            <a href="#" class="list-group-item list-group-item-action">A second link item</a>
+                            <a href="#" class="list-group-item list-group-item-action">A third link item</a>
+                            <a href="#" class="list-group-item list-group-item-action">A fourth link item</a>
+                            <a href="#" class="list-group-item list-group-item-action ">A disabled link item</a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -89,46 +101,12 @@
         </div>
 
 
-        <div class="col-lg-4 mt-5 mt-lg-0">
+        <div class="col-lg-7">
 
             <div class="sidebar sidebar-right">
               <div class="widget recent-posts">
                 <h3 class="widget-title">Recent Posts</h3>
-                <ul class="list-unstyled">
-                  <li class="d-flex align-items-center">
-                    <div class="posts-thumb">
-                      <a href="#"><img loading="lazy" alt="news-image" src="images/news/news1.jpg"></a>
-                    </div>
-                    <div class="post-info">
-                      <h4 class="entry-title">
-                        <a href="#">We Just Completes $17.6 Million Medical Clinic In Mid-missouri</a>
-                      </h4>
-                    </div>
-                  </li><!-- 1st post end-->
-    
-                  <li class="d-flex align-items-center">
-                    <div class="posts-thumb">
-                      <a href="#"><img loading="lazy" alt="news-img" src="images/news/news2.jpg"></a>
-                    </div>
-                    <div class="post-info">
-                      <h4 class="entry-title">
-                        <a href="#">Thandler Airport Water Reclamation Facility Expansion Project Named</a>
-                      </h4>
-                    </div>
-                  </li><!-- 2nd post end-->
-    
-                  <li class="d-flex align-items-center">
-                    <div class="posts-thumb">
-                      <a href="#"><img loading="lazy" alt="news-img" src="images/news/news3.jpg"></a>
-                    </div>
-                    <div class="post-info">
-                      <h4 class="entry-title">
-                        <a href="#">Silicon Bench And Cornike Begin Construction Solar Facilities</a>
-                      </h4>
-                    </div>
-                  </li><!-- 3rd post end-->
-    
-                </ul>
+               
     
               </div><!-- Recent post end -->
             </div><!-- Sidebar end -->

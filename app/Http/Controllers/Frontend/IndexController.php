@@ -116,8 +116,10 @@ class IndexController extends Controller
     {
         // Information sur cet user
         $user = Auth::user();
+        // chargement des pays actifs
+        $payslist = Pays::where('actif', '=', 1)->orderBy('pays', 'asc')->get();
       
-        return view('frontend/myaccount',compact('user'));
+        return view('frontend/myaccount',compact('user','payslist'));
     }
 
     public function addimagespotstore(Request $request)
