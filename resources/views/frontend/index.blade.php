@@ -24,14 +24,14 @@
           <div class="col-lg-5 cold-md-12 bgbox p5">
             <h2 class="section-title white">{{__('index.Top2Line1')}}</h2>
             <h3 class="section-sub-title white">{{__('index.Top2Line2')}}</h3> 
-            @if (isset($circuits))
+            @if (isset($noscircuits))
             <form method="post" action="">
               @csrf
               <div class="form-group">
                   <select class="form-control ml15 mw350 mauto" id="idcircuit" name="idcircuit" onChange="this.form.submit()">
                   <option value="">{{__('destination.SelectCircuit')}}</option>
                  
-                  @foreach($circuits as $circuit)
+                  @foreach($noscircuits as $circuit)
                  
             <option value="{{$circuit->id}}">{{$circuit->circuit->titre}}</option>
             @endforeach
@@ -82,7 +82,7 @@
                 
                 <div class="post-body">
                   <h4 class="post-title">
-                      {{__('index.Sub2Line1')}}
+                      {{__('index.Sub3Line1')}}
                   </h4>
                   <div class="latest-post-meta">
                       <span class="post-item-date">

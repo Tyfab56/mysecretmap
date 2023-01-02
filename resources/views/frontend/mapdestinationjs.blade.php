@@ -15,7 +15,7 @@ currentMarker = e.sourceTarget.options.id;
 
 }
 
-
+var currentCircuit = {{$circuitactif}};
 
 
 map.whenReady(function(){
@@ -65,6 +65,13 @@ function copyGPS (){
         document.execCommand('copy');
     }
 
+function addtour (){
+  var url = '{{ route("addtour", [":spotid",":circuitid"]) }}';
+  url = url.replace(':spotid',currentMarker).replace(':circuitid',currentCircuit);
+  window.location.href=url;
+
+    }
+
 function goImage()
 {
   var url = '{{ route("addimagespot", ":spotid") }}';
@@ -86,28 +93,7 @@ function popimage(name,e,lat,lng) {
   drawSolar();
   }
 
-function addcircuit()
-  {
-    @guest
-            let url = '{{route('login')}}';
-    Swal.fire({
-            title: 'Ajouter ce point à votre circuit',
-            text: "Se connecter maintenant ?",
-            type: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Oui'
-            }).then((result) => {
-            if (result.value) {
-            window.location.href = url;
-                            }
-        });
-    @endguest
-    @auth
-    alert('auth');
-    @endauth
-  }
+
 
 map.on('moveend', function() {
 

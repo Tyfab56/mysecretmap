@@ -148,7 +148,7 @@
                                   <li class="dropdown-submenu">
                                   <a href="#!" class="dropdown-toggle" data-toggle="dropdown"><img src="{{ asset('frontend/assets/images/continent/afrique.png') }}" style="height:32px;height:32px"></img>AFRICA</a>
                                   <ul class="dropdown-menu">
-                                    <li><a href="{{ url('destination') }}/RU">LA REUNION</a></li>
+                                    <li><a href="{{ url('destination') }}/RE">LA REUNION</a></li>
                                     <li><a href="#!">ILE MAURICE</a></li>
                                     <li><a href="{{ url('destination') }}/RG">RODRIGUES</a></li>
                                     

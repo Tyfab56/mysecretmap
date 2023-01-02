@@ -24,6 +24,6 @@ class Circuits extends Model implements TranslatableContract
     protected $fillable = [
         'user_id',
         'pays_id',
-        'titre'
+        'titrecircuit'
     ];
 }

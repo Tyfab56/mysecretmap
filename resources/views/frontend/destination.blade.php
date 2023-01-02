@@ -15,6 +15,9 @@
 @section('content')
 <section id="ts-features" class="ts-features">
     <div class="container">
+      <div class="row">
+         <h1> <a href='{{ route($pays->route) }}'>{{$pays->pays}}</a></h1>
+      </div>
         <div class="row">
           <div class="col-lg-12">Bandeau de pub + register</div>
         </div>
@@ -23,35 +26,57 @@
           
           
                <div class="col-lg-9">
-                <div class="row">
-                    <div class="col-lg-9"><img class="max50" src="{{asset('frontend/assets/images')}}/{{ Config::get('app.locale') }}/clubpatreon.jpg">
-                    <br>Pour bénéficier des nombreux Bonus et faire grandir cette carte</div>
-                    <div class="col-lg-3"> <a class="btn btn-primary" href="{{ url('thewall') }}/{{ $idpays}}">THE WALL</a></div>
-                </div>    
+                     <div class="row">
+                            <div class="col-lg-6">
+                              <img class="max50" src="{{asset('frontend/assets/images')}}/{{ Config::get('app.locale') }}/clubpatreon.jpg">
+                              <br>Pour bénéficier des nombreux Bonus et faire grandir cette carte
+                            </div>
+                            <div class="col-lg-6">
+                              <a class="btn btn-secondary m5" href="javascript:addtour()">AJOUTER CE SPOT AU CIRCUIT</a><br>
+                              <a class="btn btn-primary m5" href="{{ url('thewall') }}/{{ $idpays}}">THE WALL</a>
+                            </div>
+                    </div>    
                 <div class="leaflet-map">
-                    <div class="row">
-                        <div class="col-sm-6"> 
-                              <div style="padding : 5px"><b>{{__('destination.choiceday')}} :</b> <span id="theday"></span></div>
-                              <div style="padding: 5px;"> <input type="range" class="form-range" min="1" max="365" oninput="changeRange(this.value)" onchange="changeRange(this.value)" id="dayofyear"></div>
+                        <div class="row">
+                            <div class="col-sm-6"> 
+                                  <div style="padding : 5px"><b>{{__('destination.choiceday')}} :</b> <span id="theday"></span></div>
+                                  <div style="padding: 5px;"> <input type="range" class="form-range" min="1" max="365" oninput="changeRange(this.value)" onchange="changeRange(this.value)" id="dayofyear"></div>
+                            </div>
+                            <div class="col-sm-6"> 
+                                  <div style="padding : 5px"><b>{{__('destination.choicehour')}} :</b> <span id="thehour"></span><span id="thedayhour"></span></div>
+                                  <div style="padding: 5px;"> <input type="range" class="form-range" min="0" max="24" oninput="changeHour(this.value)" onchange="changeHour(this.value)" id="hourofday"></div>
+                            </div>   
+                      </div>
+                      <div class="row">
+                          <div id="map">
+                              <a href="https://www.maptiler.com" style="position:absolute;left:10px;bottom:10px;z-index:999;"><img src="https://api.maptiler.com/resources/logo.svg" alt="MapTiler logo"></a>
+                          </div>
+                          <p><span style="color:red"><b>{{__('destination.RedLine')}}</b></span> / <span style="color:orange"><b>{{__('destination.OrangeLine')}}</b></span></p><br/>
+                         
+                          <div class="row bgregbox w100">
+          <div class="col-lg-12">
+                 <div><b>Spots à proximité :</b></div>
+                 <div id="medias"></div>
+          </div>
+        </div>
+                         
                         </div>
-                        <div class="col-sm-6"> 
-                              <div style="padding : 5px"><b>{{__('destination.choicehour')}} :</b> <span id="thehour"></span><span id="thedayhour"></span></div>
-                              <div style="padding: 5px;"> <input type="range" class="form-range" min="0" max="24" oninput="changeHour(this.value)" onchange="changeHour(this.value)" id="hourofday"></div>
-                        </div>   
-                  </div>
-                    <div id="map">
-                        <a href="https://www.maptiler.com" style="position:absolute;left:10px;bottom:10px;z-index:999;"><img src="https://api.maptiler.com/resources/logo.svg" alt="MapTiler logo"></a>
-                    </div>
-                    <p><span style="color:red"><b>{{__('destination.RedLine')}}</b></span> / <span style="color:orange"><b>{{__('destination.OrangeLine')}}</b></span></p>
                 </div>
-               </div>
-          <div class="col-lg-3 bgbox"> <livewire:show-map-spot /></div>
+        </div>
+        <div class="col-lg-3 bgbox"> 
+          <livewire:show-map-spot />
+      </div>
         </div>
         <div class="row bgregbox">
           <div class="col-lg-12">
-            <div><b>Spots à proximité :</b></div>
-            <div id="medias"></div></div>
+                 <div><b>Spots à proximité :</b></div>
+                 
+          </div>
         </div>
+        <div class="row bgregbox">
+         
+        </div>
+
         <div class="row bgregbox">  
           <div class="col-lg-6 center"><livewire:show-map-globale /></div>
           <div class="col-lg-6 center"><livewire:show-img-region /></div>
@@ -69,28 +94,32 @@
         </div>
         @endif  
         @endauth
-        <div class="row">      
-          <div class="col-lg-3 col-md-12  bgbox selection:">
+        <div class="row min100">      
+          <div class="col-lg-3 col-md-12  bgbox ">
+          <h4 class="white">VOS CIRCUITS</h4>
             @auth
            
                   <div class="form-group">
+                  
                     <select class="form-control ml15 mw350 mauto" id="idcircuit" name="idcircuit">
                     <option value="">{{__('destination.SelectCircuit')}}</option>
                   
                         @foreach($circuits as $circuit)                    
-                          <option value="{{$circuit->id}}">{{$circuit->titre}}</option>
+                          <option value="{{$circuit->id}}" {{($circuitactif == $circuit->id) ? 'selected' : ''}}>{{$circuit->titrecircuit}}</option>
                         @endforeach
                    </select>
                   </div>
             @endauth
             @guest
 
-              <p ><h3 class="white">{{__('destination.CircuitLogin')}}</h3></p>
+              <p ><h6 class="white">{{__('destination.CircuitLogin')}}</h6></p>
               <a class="btn btn-primary mb5" href="{{ route('login') }}">{{__('menu.Connexion')}}</a>
             @endguest
           </div>
-          <div class="col-lg-9">
-          
+          <div class="col-lg-9 col-md-12 bgbox">
+               <div class="row">
+                    <p><h4   class="white"> DECOUVREZ NOS CIRCUITS</h4></p>  
+               </div>
           </div>
         </div>  
         <div class="row">

@@ -46,7 +46,7 @@ Route::get('/thewall/{idpays}', [DestinationController::class, 'thewall'])->name
 Route::get('/thewall/{idpays}/{tri?}/{size?}', [DestinationController::class, 'thewall']);
 Route::get('/distance/{idspot}', [DistanceController::class, 'index'])->name('distance');
 Route::get('/pictures/{idspot}', [DestinationController::class, 'pictures'])->name('pictures');
-
+Route::get('/addtour/{idspot}/{idcircuit}', [DestinationController::class, 'addtour'])->name('addtour');;
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -77,4 +77,10 @@ Route::post('/admin/spot/textstore', [SpotsController::class, 'spotTextStore'])-
 
 Route::get('/admin/circuits', [CircuitsController::class, 'index'])->name('admin.circuits')->middleware('App\Http\Middleware\CheckAdmin');
 Route::get('/admin/detailpays/{id}', [PaysController::class, 'detail'])->name('admin.detailpays');
+
+Route::view('/rodrigues','frontend.destinations.rodrigues')->name('rodrigues');
+Route::view('/iceland', 'frontend.destinations.iceland')->name('iceland');
+Route::view('/reunion', 'frontend.destinations.reunion')->name('reunion');
+
+
 require __DIR__ . '/auth.php';
