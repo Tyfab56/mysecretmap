@@ -3744,3 +3744,36 @@ max-width: 133px;
 {
   width : 100px;
 }
+.list-photo
+{
+  border-radius: 20%;
+  height: 90px;
+  margin-left: 20px;
+  margin-right: 20px;
+  
+}
+
+img.list-photo:hover, img.imgbox:hover{
+  cursor: pointer;
+}
+
+.list-spot
+{
+  color : white;
+  display: flex;
+  flex-direction:row;
+  align-items: center;
+  margin-bottom: 12px;
+  margin-top: 12px;
+  align-items: start;
+}
+
+.list-picture
+{
+  position : relative;
+}
+.list-titre
+{
+  color : white;
+  font-weight: 700;
+}

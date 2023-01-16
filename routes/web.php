@@ -46,7 +46,9 @@ Route::get('/thewall/{idpays}', [DestinationController::class, 'thewall'])->name
 Route::get('/thewall/{idpays}/{tri?}/{size?}', [DestinationController::class, 'thewall']);
 Route::get('/distance/{idspot}', [DistanceController::class, 'index'])->name('distance');
 Route::get('/pictures/{idspot}', [DestinationController::class, 'pictures'])->name('pictures');
-Route::get('/addtour/{idspot}/{idcircuit}', [DestinationController::class, 'addtour'])->name('addtour');;
+Route::get('/addtour/{idspot}/{idcircuit}', [DestinationController::class, 'addtour'])->name('addtour');
+Route::get('/removetour/{idspot}/{idcircuit}', [DestinationController::class, 'removetour'])->name('removetour');
+Route::get('/refreshtour/{idspays}/{idcircuit}', [DestinationController::class, 'updatetour'])->name('refreshtour');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

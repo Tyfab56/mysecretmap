@@ -316,7 +316,8 @@
             <div class="copyright-info">
               <span>Copyright &copy; <script>
                   document.write(new Date().getFullYear())
-                </script>, Designed &amp; Developed by <a href="https://my-lovely-planet.com">My Lovely Planet</a></span>
+                </script>, Designed &amp; Developed by <a href="https://my-lovely-planet.com">My Lovely Planet</a></span><br>
+                <span>{{ __('index.Affiliation') }} </span>
             </div>
           </div>
 

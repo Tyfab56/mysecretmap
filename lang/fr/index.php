@@ -60,6 +60,7 @@ return [
     "WallSort1" => "Aléatoire",
     "WallSort2" => "Ordre Alphabet",
     "WallSort3" => "Nouveaux spots",
+    "Affiliation" => "Nous avons choisi la méthode de l'affiliation pour nous aider à soutenir le fonctionnement de ce site .Le marketing d'affiliation est une pratique largement répandue et certaines des plus grandes marques de la planète l'utilisent.  Si vous cliquez sur l'un de ces liens et effectuez un achat, il se peut que nous touchions une petite commission de la part du bénéficiaire pour nous remercier d'avoir mis en avant son activité. Nous ne recommandons que les activités qui nous semblent pertinentes, mais nous vous recommandons de vérifier par vous même sur leur site que cela correspond à vos recherches."
     
 
 ];

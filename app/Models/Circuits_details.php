@@ -19,4 +19,9 @@ class Circuits_details extends Model
     {
         return $this->belongsTo(Circuits::class, 'circuit_id', 'id');
     }
+
+    public function Spot()
+    {
+        return $this->belongsTo(Spots::class, 'spot_id', 'id');
+    }
 }

@@ -1,7 +1,7 @@
 @extends('frontend.main_master')
 
 @section('css')
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.3/leaflet.css" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mapbox-gl/1.13.1/mapbox-gl.min.css" />
 <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.3.0/dist/MarkerCluster.css" />
 <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.3.0/dist/MarkerCluster.Default.css" />
@@ -67,12 +67,7 @@
           <livewire:show-map-spot />
       </div>
         </div>
-        <div class="row bgregbox">
-          <div class="col-lg-12">
-                 <div><b>Spots à proximité :</b></div>
-                 
-          </div>
-        </div>
+       
         <div class="row bgregbox">
          
         </div>
@@ -101,7 +96,7 @@
            
                   <div class="form-group">
                   
-                    <select class="form-control ml15 mw350 mauto" id="idcircuit" name="idcircuit">
+                    <select class="form-control ml15 mw350 mauto white" id="idcircuit" name="idcircuit">
                     <option value="">{{__('destination.SelectCircuit')}}</option>
                   
                         @foreach($circuits as $circuit)                    
@@ -119,6 +114,9 @@
           <div class="col-lg-9 col-md-12 bgbox">
                <div class="row">
                     <p><h4   class="white"> DECOUVREZ NOS CIRCUITS</h4></p>  
+               </div>
+               <div class="row">
+                  <livewire:show-circuit />
                </div>
           </div>
         </div>  
@@ -138,7 +136,7 @@
   </section>
 @endsection
 @section('fullscripts')
-<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.3/leaflet.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/mapbox-gl/1.13.1/mapbox-gl.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/mapbox-gl-leaflet/0.0.15/leaflet-mapbox-gl.min.js"></script>
 
@@ -146,8 +144,9 @@
   <script src="{{asset('frontend/assets/js/leaflet-semicircle.js')}}"></script>
   <script src="https://unpkg.com/leaflet.markercluster@1.3.0/dist/leaflet.markercluster.js"></script>
   <script src="{{asset('frontend/assets/js/leaflet.extra-markers.min.js')}}"></script>
+  <script src="{{asset('frontend/assets/js/polyline-encoder.js')}}"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/suncalc/1.9.0/suncalc.min.js"></script>
-  <script src="{{  asset('frontend/assets/js/intense.min.js') }}"></script>
+  <script src="{{asset('frontend/assets/js/intense.min.js') }}"></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js" integrity="sha512-k2GFCTbp9rQU412BStrcD/rlwv1PYec9SNrkbQlo6RZCf75l6KcC3UwDY8H5n5hl4v77IDtIPwOk9Dqjs/mMBQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>

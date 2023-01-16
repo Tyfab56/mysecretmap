@@ -7,12 +7,15 @@ use App\Models\Spots;
 use App\Models\Circuits;
 use App\Models\Circuits_details;
 
+
 use App\Models\Default_spots;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\Frontend\IndexController as FrontendIndexController;
+use Illuminate\Support\Facades\DB;
+use Helper;
 
 class DestinationController extends Controller
 {
@@ -116,16 +119,22 @@ class DestinationController extends Controller
                     Session::put('circuitactif', $premiercircuit->id);
                     $circuitactif = $premiercircuit->id;
                 }
-    
+
+              // Recuperation du circuit geometrique
+              $geometry = Circuits::where('id','=',$circuitactif)->first()->geometry;
+              // $geometry = Helper::polyline2_decode($geometry);
+            
 
              }        
 
         } else {
             $circuits = null;
             $circuitactif = 0;
+            $geometry ='';
         }
-       
-        return view('frontend/destination', compact('idpays', 'markers', 'pays', 'payslist', 'payslng', 'payslat', 'payszoom', 'paysoffset', 'spot', 'circuits','circuitactif'));
+        
+
+        return view('frontend/destination', compact('idpays', 'markers', 'pays', 'payslist', 'payslng', 'payslat', 'payszoom', 'paysoffset', 'spot', 'circuits','circuitactif','geometry'));
     }
 
     public function listmarkers($idpays, $nelat, $nelng, $swlat, $swlng)
@@ -148,6 +157,9 @@ class DestinationController extends Controller
         $spot = Spots::where('id','=',$idspot)->first();
         return view('frontend/pictures', compact('spot'));
     }
+
+    // Ajout de spot dans un circuit
+    // ----------------------------------------------------------------------------
     public function addtour($idspot,$idcircuit=null)
     {
          // Determiner l'id du user
@@ -165,20 +177,161 @@ class DestinationController extends Controller
                 $idpays = $spot->pays_id;
 
             // Verification du circuit
-               $circuit = Circuits::where('user_id','=',$iduser)->where("pays_id","=",$idpays)->where('id','=',$idcircuit)->first();
+               $circuit = Circuits::where('user_id','=',$iduser)->where("pays_id","=",$idpays)->where('id','=',$idcircuit)->count();
+               if ($circuit == 0)
+               {
+                
+                return back()->with('message', 'error circuit');
 
-                // verification que le spot n'est pas deja inscrit dans ce circuit
-                // Creation du spot dans le circuit
-        
+               }
 
+            // verification que le spot n'est pas deja inscrit dans ce circuit
+               $existe = Circuits_details::where('circuit_id','=',$idcircuit)->where('spot_id','=',$idspot)->count();
+               if ($existe == 0)
+               {
+                  // recherche du rang d'insetion
+
+                  $newpoint = new Circuits_details();
+                  $newpoint->circuit_id = $idcircuit;
+                  $newpoint->spot_id = $idspot;
+                  
+                  $newpoint->rang = 999;
+                  $newpoint->save();
+
+               }
+               else
+               {
+
+                
+                return back()->with('message', 'spot existant');
+
+               }
+                
+    
          }
          else
+         // Non identifié
          {
-            return view('login'); 
+            return redirect()->route('login'); 
          }
+         // Rafraichir la liste
+         $this->refreshtour($idpays,$idcircuit);
+    
+         return redirect()->route('destination', ['id' => $idpays,'spotid'=>$idspot])->with('message', 'spot ajouté');
         
-        return back()->with('message', 'spot ajouté');
     }
+    public function removetour($idspot, $idcircuit)
+    {
+        // recherche du pays de ce spot
+        $idpays = Spots::Where('id','=',$idspot)->first()->pays_id;
+        // suppression du tour
+        $results = DB::select("delete from circuits_details where circuit_id = ? and spot_id = ?", [$idcircuit,$idspot]);
+        // reffraichir
+        $this->refreshtour($idpays,$idcircuit);
+        return redirect()->route('destination', ['id' => $idpays,'spotid'=>$idspot]);
+
+    }
+    // test appel de la fonction de rafraichissement
+    public function updatetour($idpays, $idcircuit)
+    { 
+        
+        $this->refreshtour($idpays,$idcircuit);
+        return redirect()->route('destination', ['id' => $idpays]);
+
+    }
+
+
+    public function refreshtour($idpays, $idcircuit)
+    {
+       
+       
+        $listepoints = Circuits_details::where('circuit_id','=',$idcircuit)->get();
+        $results = DB::select("update circuits_details set rang = 999 where circuit_id = ? and rang > 1", [$idcircuit]);
+         // mise à zero des informations temps,distance et geometry sur le circuit en cours
+         $circuit = Circuits::where('id','=',$idcircuit)->first();
+         $circuit->tempstotal = 0;
+         $circuit->distancetotal = 0;
+         $circuit->geometry = '';
+         $circuit->save(); 
+         
+         $tempscumul = 0;
+         $metrescumul = 0; 
+         $geometry = '';
+         $listegeometry = array();
+         $polyline = array();
+
+         $i = 1;
+         foreach ($listepoints as $point)
+         {
+            //si c'est le premier point on fait
+            if ($i == 1)
+            {
+              $pointencours = $point->id;
+              $spotencours = $point->spot_id;
+              $point->rang = 1;
+              $point->save();
+              
+            }
+            // traitement : recherche du point le plus proche
+            $results = DB::select("SELECT id,spot_destination,temps,metres,geometry FROM distances WHERE spot_origine = ? AND temps = ( SELECT min(temps) FROM `distances` WHERE spot_origine = ? AND spot_destination IN ( SELECT spot_id FROM circuits_details WHERE circuit_id = ? AND rang > ? ) )", [$spotencours,$spotencours,$idcircuit,$i]);
+            // Donner à ce point l'indice i
+            // faire de ce point le nouveau pointencours
+           
+            if ($results)
+            {
+                $pointencours = $results[0]->id;
+                $spotencours = $results[0]->spot_destination;
+
+                // mise à jour des infos du circuit
+                $tempscumul = $tempscumul + $results[0]->temps;
+                $metrescumul = $metrescumul + $results[0]->metres;
+               
+
+                // mise à jour des infos sur ce spots dans le circuit
+                $newspot = Circuits_details::where('spot_id','=',$spotencours)->where('circuit_id','=',$idcircuit)->first();
+                $newspot->rang = $i +1;
+                $newspot->temps = $results[0]->temps;
+                $newspot->tempscumul = $tempscumul;
+                $newspot->metrescumul = $metrescumul;
+                $newspot->metres = $results[0]->metres;
+                $newspot->geometry = $results[0]->geometry;
+                
+                $newspot->save();
+                // stockage des points GPS du trajet
+               
+                    
+                    //dd($results[0]->geometry);
+                    $polyline = Helper::polyline2_decode($results[0]->geometry);
+                    //$polyline = Helper::pair($polyline);
+                    
+                
+               
+              
+                $listegeometry    = array_merge($listegeometry, $polyline);  
+                // mise à jour des infos de rando et temps sur place TODO
+
+                
+                           
+            }
+            
+            $i = $i +1;    
+
+        }
+
+        // Compilation de la geometry du circuit
+        //$polyline = Helper::flatten($listegeometry); 
+        //$polyline = Helper::polyline2_encode($listegeometry);
+        $polyline = Helper::polyline2_encode($listegeometry);
+        //MISE À JOUR DES INFOS DU CIRCUIT
+        $circuit->tempstotal = $tempscumul;
+        $circuit->distancetotal = $metrescumul;
+        $circuit->geometry = $polyline;
+        $circuit->save(); 
+     
+        // return redirect()->route('destination', ['id' => $idpays])->with('message', 'circuit mis à jour');
+        return;
+    }
+    
 
     public function thewall($idpays,$tri = null,$size= null)
     {
