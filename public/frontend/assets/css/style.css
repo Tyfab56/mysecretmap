@@ -2861,6 +2861,12 @@ img.testimonial-thumb {
   height: 450px;
   z-index: 1;
 }
+
+#gpsmap {
+  height: 200px;
+  width: 100%;
+}
+
 .mapindex {
   height: 450px;
   z-index: 1;
@@ -3380,7 +3386,7 @@ label {
 }
 
 #map {
-  height: 400px;
+  height: 200px;
   width: 100%;
 }
 #mapindex {

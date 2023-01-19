@@ -57,7 +57,7 @@
                                 <label class="info-title" for="typespotlist">Type du spot<span class="text-danger">*</span></label>
                                 <select class="form-control" id="typespotlist" name="typespotlist">
 
-                                    @foreach($typepoints as $typepoint)
+                                    @foreach($typepoints as $typepoint) 
 
                                     <option value="{{$typepoint->id}}" {{($spot->typepoint_id == $typepoint->id) ? 'selected' : ''}}>{{$typepoint->typepoint}}</option>
                                     @endforeach
@@ -86,6 +86,15 @@
                                 <label class="info-title" for="Lng">Lng<span class="text-danger">*</span></label>
                                 <input type="text" id="lng" name="lng" value="{{$spot->lng}}" class="form-control unicase-form-control text-input" />
                             </div>
+                            <div class="form-group">
+                                <label class="info-title" for="Latparking">Lat Parking<span class="text-danger">*</span></label>
+                                <input type="text" id="latparking" name="latparking" value="{{$spot->latparking}}" class="form-control unicase-form-control text-input" />
+                            </div>
+                            <div class="form-group">
+                                <label class="info-title" for="Lngparking">Lng Parking<span class="text-danger">*</span></label>
+                                <input type="text" id="lngparking" name="lngparking" value="{{$spot->lngparking}}" class="form-control unicase-form-control text-input" />
+                            </div>
+
                             <div class="form-group">
                                 <label class="info-title" for="titre">Image panoramique 3/1<span class="text-danger">*</span></label>
                                 <div class="controls">
@@ -191,7 +200,10 @@
             </div>
             <div class="col-6">
                 <div class="row">
+                    Positionnement Spot<br>
                     <div id="map"></div>
+                    Positionnement Parking<br>
+                    <div id="gpsmap"></div>
                     <form method="post" action="{{ route ('admin.spot.textstore') }}">
                         @csrf
                         <div class="row p-4 ">
@@ -245,7 +257,7 @@
 </div>
 @endsection
 @section('scripts')
-var marker;
+var marker,gpsmarker;
 
 
 function newPays(event)
@@ -277,18 +289,53 @@ console.log(res);
 }
 });
 }
-
+var gpsmap = L.map('gpsmap', {
+fullscreenControl: true,
+fullscreenControlOptions: {
+position: 'topleft'
+}
+}).setView([{{$spot->latparking}},{{$spot->lngparking}}], 5);
+var gl = L.mapboxGL({
+style: 'https://api.maptiler.com/maps/hybrid/style.json?key=iooFuVAppzuUB4nSQMl6'
+})
+.addTo(gpsmap);
 
 var map = L.map('map', {
 fullscreenControl: true,
 fullscreenControlOptions: {
 position: 'topleft'
 }
-}).setView([0,0], 5);
+}).setView([{{$spot->lat}},{{$spot->lng}}], 5);
+
 var gl = L.mapboxGL({
 style: 'https://api.maptiler.com/maps/hybrid/style.json?key=iooFuVAppzuUB4nSQMl6'
 })
 .addTo(map);
+
+
+if (marker instanceof L.Marker) {
+map.removeLayer(marker);
+};
+
+if (gpsmarker instanceof L.Marker) {
+gpsmap.removeLayer(gpsmarker);
+};
+
+marker = L.marker([{{$spot->lat}},{{$spot->lng}}], {draggable: true}).addTo(map);
+marker.on('dragend', function(event) {
+
+var latlng = event.target.getLatLng();
+document.getElementById("lat").setAttribute('value', latlng.lat);
+document.getElementById("lng").setAttribute('value', latlng.lng);
+});
+
+gpsmarker = L.marker([{{$spot->latparking}},{{$spot->lngparking}}], {draggable: true}).addTo(gpsmap);
+gpsmarker.on('dragend', function(event) {
+var latlng = event.target.getLatLng();
+document.getElementById("latparking").setAttribute('value', latlng.lat);
+document.getElementById("lngparking").setAttribute('value', latlng.lng);
+});
+
 
 function previous ()
 {
@@ -373,5 +420,7 @@ next: 'fa fa-chevron-right'
   <script src="https://unpkg.com/leaflet.markercluster@1.3.0/dist/leaflet.markercluster.js"></script>
   <script src="{{asset('frontend/assets/js/leaflet.extra-markers.min.js')}}"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/suncalc/1.9.0/suncalc.min.js"></script>
-  <script type="text/javascript" src="{{asset('frontend/assets/js/map.js')}}"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
+ 
 @endsection

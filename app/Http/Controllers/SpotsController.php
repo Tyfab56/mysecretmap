@@ -20,6 +20,8 @@ use function GuzzleHttp\Promise\exception_for;
 
 class SpotsController extends Controller
 {
+    
+    // Liste les spot sur la premiere page en fonction du type de marqueurs (maps)
     public function index($maps = null)
     {
 
@@ -34,6 +36,7 @@ class SpotsController extends Controller
 
         // Liste les type de maps
         $maps = Maps::get();
+   
 
         return view('admin.spots', compact('pays', 'users', 'spots', 'maps'));
     }
@@ -63,7 +66,7 @@ class SpotsController extends Controller
         // Liste les type de maps
         $maps = Maps::get();
 
-
+        
 
         return view('admin.addspot', compact('spot', 'langs', 'pays', 'typepoints', 'timeonsite', 'randotime', 'spotlang', 'previousspot', 'nextspot', 'maps'));
     }
@@ -159,10 +162,13 @@ class SpotsController extends Controller
         $spot->save();
         return back()->with('message', 'Texte modifié');
     }
+
+
+    // Mémoriser les informations sur ce spot
     public function spotStore(Request $request)
     {
 
-
+        
 
         // Controle du formulaire
         $validatedData = $request->validate(
@@ -179,7 +185,7 @@ class SpotsController extends Controller
 
             ]
         );
-
+        
 
         $id = Auth::id();
         $typeaction = session::get('typeaction');
@@ -198,6 +204,14 @@ class SpotsController extends Controller
         // Si spotid existe rechercher les informations
         $spotinfo = Spots::where('id', '=', $spotid)->first();
 
+        // verification du spot
+        if (is_null($spotinfo))
+        {
+            return back()->with('message', 'Pas de spot avec cet ID');
+        }
+
+        // Verifier que l'emplacement du parking n'a pas changé
+        $latparking = $spotinfo->latparking;
 
         // traitement du temps sur site
         list($hours, $mins) = explode(':', $request->timeonsite);
@@ -615,13 +629,25 @@ class SpotsController extends Controller
         // Memorisation base de données 
         $spot->name = $request->titre;
         $spot->pays_id = $request->payslist;
+        $spot->maps_id = $request->maplist;
         $spot->typepoint_id = $request->typespotlist;
         $spot->timeonsite = $timeonsite;
         $spot->randotime = $randotime;
         $spot->lng = $request->lng;
+        $spot->latparking = $request->latparking;
+        $spot->lngparking = $request->lngparking;
         $spot->lat = $request->lat;
         $spot->userid = $id;
         $spot->actif = $actif;
+
+        // Positionner updategps si la position à changé pour recalculer le trajet
+        if (round($latparking <> 0))
+        {
+            if ($latparking <> $request->latparking)
+            {
+                $spot->updategps = 1;
+            }
+        }
 
 
         // si nouvelle image mettre à jour les images

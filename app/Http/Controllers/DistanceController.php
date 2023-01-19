@@ -14,8 +14,12 @@ class DistanceController extends Controller
         // Trouver les infos sur ce spot
         $spot = Spots::where('id','=',$idspot)->first();
         $pays_id = $spot->pays_id;
-        $start_lat = $spot->lat;
-        $start_lng = $spot->lng;
+        $start_lat = $spot->latparking;
+        $start_lng = $spot->lngparking;
+
+        // updategps = 0 si pas de mise à jour = 1 si mise à jour a effectuer
+        $updategps = $spot->updategps;
+        
 
 
         // Définir l'URL de l'API de Graphopper
@@ -36,6 +40,14 @@ class DistanceController extends Controller
 
 
             $verif  = Distances::where('spot_origine','=',$spot->id)->where('spot_destination','=',$point->id)->first();
+
+            // verifier qu'une mise à jour des coordonnées n'a pas été faites
+            // updategps = 1
+            if ($updategps == 1) 
+            {
+                $verif == 1;
+            }
+
              if (is_null($verif))
              {
                  $url = $apiUrl.''.$start_lng.','.$start_lat.';'.$point->lng.','.$point->lat.'?access_token='.env('MAPBOX_ACCESS_TOKEN');          
@@ -45,19 +57,75 @@ class DistanceController extends Controller
               
 
                  // Ecriture des données dans la table
-                 $dist = new Distances();
+                 // Création de l'enregistrement uniquement si pas encore fait
+                 if ($updategps == 1)
+                 {
+                    $dist = Distances::where('spot_origine','=',$spot->id)->where('spot_destination','=',$point->id)->first();
+
+                    if (is_null($dist))
+                    {
+                        return back()->with('message', 'Update sans contrepartie');
+                    }
+                 }
+                 else
+                 {
+                    $dist = new Distances();
+                 }
+                 
                  $dist->spot_origine = $spot->id;
                  $dist->spot_destination = $point->id;
                  $dist->metres =round($data['routes'][0]['distance']);
                  $dist->temps = round($data['routes'][0]['duration']);
                  $dist->geometry = $data['routes'][0]['geometry'];
                  $dist->save();
+
+                  // mise à jour de nbdistance dans la table
+                $count = Distances::where('spot_origine','=',$spot->id)->count();
+                $spot->nbdistance = $count;
+                $spot->save();
+
+                // Calcul inverse
+                // Donnée depuis l'autre point
+                $spotinverse = Spots::where('pays_id','=',$pays_id)->where('id','!=',$point->id)->where('actif','=',1)->first();
+
+                $url = $apiUrl.''.$spotinverse->lngparking.','.$spotinverse->latparking.';'.$start_lng.','.$start_lat.'?access_token='.env('MAPBOX_ACCESS_TOKEN');          
+                $response = $client->get($url);
+                $data = json_decode($response->getBody(), true);
+                sleep(0.5);
+
+                if ($updategps == 1)
+                {
+                   $dist = Distances::where('spot_origine','=',$spotinverse->id)->where('spot_destination','=',$spot->id)->first();
+
+                   if (is_null($dist))
+                   {
+                       return back()->with('message', 'Update sans contrepartie');
+                   }
+                }
+                else
+                {
+                   $dist = new Distances();
+                }
+                
+                $dist->spot_origine = $spotinverse->id;
+                $dist->spot_destination = $spot->id;
+                $dist->metres =round($data['routes'][0]['distance']);
+                $dist->temps = round($data['routes'][0]['duration']);
+                $dist->geometry = $data['routes'][0]['geometry'];
+                $dist->save();
+
+                 // mise à jour de nbdistance dans la table
+               $count = Distances::where('spot_origine','=',$spotinverse->id)->count();
+               $spot->nbdistance = $count;
+               $spot->save();
+
+
              }
 
-        // mise à jour de nbdistance dans la table
-        $count = Distances::where('spot_origine','=',$spot->id)->count();
-        $spot->nbdistance = $count;
-        $spot->save();
+       
+
+        
+
 
         }
 

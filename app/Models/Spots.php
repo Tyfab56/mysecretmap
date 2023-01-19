@@ -37,7 +37,9 @@ class Spots extends Model implements TranslatableContract
         'imgvueregionmedium',
         'imgvueregionlarge',
         'randotime',
-        'typepoint_id'
+        'typepoint_id',
+        'latparking',
+        'lngparking',
 
     ];
 

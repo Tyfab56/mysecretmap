@@ -25,7 +25,8 @@ markers.addLayer(L.marker([{{$marker->lat}}, {{$marker->lng}}],
 { icon: Mark{{$marker->typepoint_id}} ,title: '{{$marker->name}}',id:{{$marker->id}}
 }).on('click', onmapClick).bindTooltip(`<p class='pintext'><img src="{{$marker->imgsquaresmall}}" /></p>
 <p class="textbox">{{$marker->name}}</p>`, {
-minWidth : 130
+minWidth : 130,
+interactive : true
 }));
 
 @endforeach
