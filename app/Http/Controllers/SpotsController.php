@@ -120,6 +120,10 @@ class SpotsController extends Controller
         $timeonsite = "00:00";
         $randotime = "00:00";
         $spot = new Spots();
+        $spot->lat = 0;
+        $spot->lng = 0;
+        $spot->latparking = 0;
+        $spot->lngparking = 0;
         $typepoints = Typepoints::all();
         Session::put('typeaction', 'add');
 

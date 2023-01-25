@@ -158,7 +158,7 @@
                               <li class="dropdown-submenu">
                               <a href="#!" class="dropdown-toggle" data-toggle="dropdown"><img src="{{ asset('frontend/assets/images/continent/europe.png') }}" style="height:32px;height:32px">EUROPE</a>
                               <ul class="dropdown-menu">
-                                <li><a href="{{ url('destination') }}/IS"><img src="{{ asset('frontend/assets/images/continent/iceland.png') }}" style="height:32px;height:32px"></img>ICELAND</a></li>
+                                <li><a href="{{ url('iceland') }}"><img src="{{ asset('frontend/assets/images/continent/iceland.png') }}" style="height:32px;height:32px"></img>ICELAND</a></li>
                                 
                               </ul>
                             </li>
@@ -316,7 +316,7 @@
             <div class="copyright-info">
               <span>Copyright &copy; <script>
                   document.write(new Date().getFullYear())
-                </script>, Designed &amp; Developed by <a href="https://my-lovely-planet.com">My Lovely Planet</a></span><br>
+                </script>, Designed &amp; Developed by <a href="https://my-lovely-planet.com">My Lovely Planet</a></span>
                 <span>{{ __('index.Affiliation') }} </span>
             </div>
           </div>
