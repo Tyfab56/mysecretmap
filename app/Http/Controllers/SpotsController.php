@@ -182,6 +182,7 @@ class SpotsController extends Controller
                 'titre' => 'required',
                 'lat' => 'required',
                 'lng' => 'required',
+                'maplist' => 'required',
                 'imgpano' => 'image|mimes:jpeg,jpg|max:10048',
                 'imgsquare' => 'image|mimes:jpeg,jpg|max:10048',
                 'imgregion' => 'image|mimes:jpeg,jpg|max:10048',
@@ -208,15 +209,20 @@ class SpotsController extends Controller
         // Si spotid existe rechercher les informations
         $spotinfo = Spots::where('id', '=', $spotid)->first();
 
-        // verification du spot
-        if (is_null($spotinfo))
-        {
-            return back()->with('message', 'Pas de spot avec cet ID');
-        }
+  
 
         // Verifier que l'emplacement du parking n'a pas changé
-        $latparking = $spotinfo->latparking;
+        
+        if (is_null($spotinfo))
+        {
+            $latparking = 0 ;   
+        }
+        else
+        {
+            $latparking = $spotinfo->latparking;
+        }
 
+        
         // traitement du temps sur site
         list($hours, $mins) = explode(':', $request->timeonsite);
         $timeonsite = mktime($hours, $mins, 0) - mktime(0, 0, 0);
@@ -503,9 +509,6 @@ class SpotsController extends Controller
             $disk->put('/medium/medium-' . $imgregionname, (string) $canvas, 'public');
             $mediumregionname = $disk->url('medium/medium-' . $imgregionname);
         }
-
-
-
 
         // traitement image carte globale
         if ($filemap == null) {

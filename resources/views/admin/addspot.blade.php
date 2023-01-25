@@ -21,11 +21,27 @@
                             @if (Session::get('typeaction') == 'edit')
 
                             <h3>Modification du spot</h3>
+                            
 
                             @else
 
                             <h3>Création du spot</h3>
 
+                            @endif
+                            @if (session('message'))
+                                <div class="alert alert-success">
+                                    {{ session('message') }}
+                                </div>
+                            @endif
+                            
+                            @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
                             @endif
 
                             <div class="form-group">
@@ -181,15 +197,7 @@
                                 @endif  
                             </div>
 
-                            @if ($errors->any())
-                            <div class="alert alert-danger">
-                                <ul>
-                                    @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                            @endif
+                            
 
                         </div>
 
