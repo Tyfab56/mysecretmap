@@ -48,7 +48,7 @@
                             </div>   
                       </div>
                       <div class="row">
-                          <div id="map">
+                          <div id="mapdest">
                               <a href="https://www.maptiler.com" style="position:absolute;left:10px;bottom:10px;z-index:999;"><img src="https://api.maptiler.com/resources/logo.svg" alt="MapTiler logo"></a>
                           </div>
                           <p><span style="color:red"><b>{{__('destination.RedLine')}}</b></span> / <span style="color:orange"><b>{{__('destination.OrangeLine')}}</b></span></p><br/>
@@ -154,8 +154,6 @@
 @endsection
 
 @section('scripts')
-
-@include ('frontend.mapjs');
 @include ('frontend.mapdestinationjs');
 
 @endsection

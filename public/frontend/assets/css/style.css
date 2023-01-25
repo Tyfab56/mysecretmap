@@ -3386,9 +3386,15 @@ label {
 }
 
 #map {
-  height: 200px;
+  height: 450px;
   width: 100%;
 }
+
+#mapdest {
+  height: 450px;
+  width: 100%;
+}
+
 #mapindex {
   height: 500px;
   width: 100%;
