@@ -172,6 +172,13 @@ date.setTime(timeOfFirst + dayNumMilli);
 return date;
 }
 
+function changeHour(value)
+  {
+  currentTime = value;
+  document.getElementById('thehour').innerHTML = currentTime;
+  drawSolar();
+  }
+
 var currentCircuit = {{$circuitactif}};
 
 var mapdest = L.map('mapdest').setView([{{$payslat}}, {{$payslng}}],{{$payszoom}});
