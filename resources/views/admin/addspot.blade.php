@@ -33,7 +33,7 @@
                                     {{ session('message') }}
                                 </div>
                             @endif
-                            
+
                             @if ($errors->any())
                             <div class="alert alert-danger">
                                 <ul>
@@ -109,6 +109,10 @@
                             <div class="form-group">
                                 <label class="info-title" for="Lngparking">Lng Parking<span class="text-danger">*</span></label>
                                 <input type="text" id="lngparking" name="lngparking" value="{{$spot->lngparking}}" class="form-control unicase-form-control text-input" />
+                            </div>
+                            <div class="form-group">
+                                <input type="checkbox" class="form-check-input" id="payant" name="payant" value="{{$spot->parkingpayant}}" @if ($spot->parkingpayant == 1) checked @endif>
+                                <label class="form-check-label" for="payant">Parking Payant</label>
                             </div>
 
                             <div class="form-group">

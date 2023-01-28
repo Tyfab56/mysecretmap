@@ -12,6 +12,7 @@ return [
     'RedLine' => "Ligne rouge = Lever de soleil",
     'OrangeLine' => "Ligne orange = coucher de soleil",
     'SelectDest' => 'Selectionnez la destination',
+    'SelectMap' => 'Selectionnez un type de carte',
     'SpotGlobal' => 'Spot sur la carte globale',
     'SpotClick' => 'Choisir un spot sur la carte',
     'ImageMissing' => 'Cette image est manquante, merci de nous prévenir',

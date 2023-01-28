@@ -40,6 +40,7 @@ class Spots extends Model implements TranslatableContract
         'typepoint_id',
         'latparking',
         'lngparking',
+        'parkingpayant',
 
     ];
 

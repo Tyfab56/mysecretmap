@@ -12,6 +12,7 @@ return [
     'RedLine' => "Red Line = Sunrise",
     'OrangeLine' => "Orange Line = Sunset",
     'SelectDest' => 'Select the destination',
+    'SelectMap' => 'Select Map type',
     'SpotGlobal' => 'Spot on the main map',
     'SpotClick' => 'Choose a spot on the map',
     'ImageMissing' => 'This picture is missing, please tell us',

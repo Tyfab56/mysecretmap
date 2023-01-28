@@ -22,23 +22,67 @@ class SpotsController extends Controller
 {
     
     // Liste les spot sur la premiere page en fonction du type de marqueurs (maps)
-    public function index($maps = null)
+    public function filter(Request $request)
     {
+        $maps = Maps::get();
 
-        if (is_null($maps)) {
-            $maps = 1;
+        if (is_null($request->maps)) {
+            $map = 1;
         }
-        // Liste les spots
-        $pays = Pays::where('actif', '=', 1)->orderBy('pays', 'asc')->get();
+        else
+        {
+            $map = $request->maps;
+        }
 
+        
+        // Liste les spots
+        $payslist = Pays::where('actif', '=', 1)->orderBy('pays', 'asc')->get();
+
+        if (is_null($request->pays)) {
+            $pays = null;
+        }
+        else
+        {
+            $pays = $request->pays;
+        }
+        
         $users = User::where('admin', '=', 1)->get();
-        $spots = Spots::orderBy('id', 'desc')->where('maps_id', '=', $maps)->paginate(15);
+        if (is_null($request->search))
+        { 
+            $spots = Spots::orderBy('id', 'desc')->where('maps_id', '=', $map)->where('pays_id', '=', $pays)->paginate(15);
+        }
+        else
+        {
+            $spots = Spots::orderBy('id', 'desc')->where('maps_id', '=', $map)->where('pays_id', '=', $pays)->where('name','LIKE',"%{$request->search}%")->paginate(15);
+        }
+       
+        // Liste les type de maps
+        $maps = Maps::get();
+   
+
+        return view('admin.spots', compact('payslist','pays', 'users', 'spots','map', 'maps'));
+
+    }
+    public function index()
+    {
+        $maps = Maps::get();
+        $map = 1;
+        
+
+        
+        // Liste les spots
+        $payslist = Pays::where('actif', '=', 1)->orderBy('pays', 'asc')->get();
+        $pays = 'IS';
+        
+        
+        $users = User::where('admin', '=', 1)->get();
+        $spots = Spots::orderBy('id', 'desc')->where('maps_id', '=', $map)->where('pays_id', '=', $pays)->paginate(15);
 
         // Liste les type de maps
         $maps = Maps::get();
    
 
-        return view('admin.spots', compact('pays', 'users', 'spots', 'maps'));
+        return view('admin.spots', compact('payslist','pays', 'users', 'spots','map', 'maps'));
     }
 
     public function edit($id, $lang = null)
@@ -231,6 +275,7 @@ class SpotsController extends Controller
         $randotime = mktime($hours, $mins, 0) - mktime(0, 0, 0);
 
         $actif = $request->has('actif');
+        $payant = $request->has('payant');
         // traitement de imgpano
         // Test existence d'une nouvelle image
 
@@ -632,7 +677,7 @@ class SpotsController extends Controller
             $spot = $spotinfo;
         }
 
-
+     
         // Memorisation base de données 
         $spot->name = $request->titre;
         $spot->pays_id = $request->payslist;
@@ -646,6 +691,7 @@ class SpotsController extends Controller
         $spot->lat = $request->lat;
         $spot->userid = $id;
         $spot->actif = $actif;
+        $spot->parkingpayant = $payant;
 
         // Positionner updategps si la position à changé pour recalculer le trajet
         if (round($latparking <> 0))
