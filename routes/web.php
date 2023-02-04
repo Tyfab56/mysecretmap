@@ -85,6 +85,8 @@ Route::get('/admin/detailpays/{id}', [PaysController::class, 'detail'])->name('a
 Route::view('/rodrigues','frontend.destinations.rodrigues')->name('rodrigues');
 Route::view('/iceland', 'frontend.destinations.iceland')->name('iceland');
 Route::view('/iceland/geology', 'frontend.destinations.iceland-geologie')->name('iceland.geology');
+Route::view('/blog', 'frontend.destinations.blog')->name('blog');
+Route::view('/blog/hotspot', 'frontend.destinations.blog-hotspot')->name('blog.hotspot');
 Route::view('/reunion', 'frontend.destinations.reunion')->name('reunion');
 
 

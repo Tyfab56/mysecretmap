@@ -143,28 +143,28 @@
                        
                         
                         <li class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">DESTINATIONS <i class="fa fa-angle-down"></i></a>
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">{{ __('menu.Destination') }} <i class="fa fa-angle-down"></i></a>
                             <ul class="dropdown-menu" role="menu">
                                   <li class="dropdown-submenu">
-                                  <a href="#!" class="dropdown-toggle" data-toggle="dropdown"><img src="{{ asset('frontend/assets/images/continent/afrique.png') }}" style="height:32px;height:32px"></img>AFRICA</a>
+                                  <a href="#!" class="dropdown-toggle" data-toggle="dropdown"><img src="{{ asset('frontend/assets/images/continent/afrique.png') }}" style="height:32px;height:32px"></img>{{ __('menu.Afrique') }}</a>
                                   <ul class="dropdown-menu">
-                                    <li><a href="{{ url('destination') }}/RE">LA REUNION</a></li>
-                                    <li><a href="#!">ILE MAURICE</a></li>
-                                    <li><a href="{{ url('destination') }}/RG">RODRIGUES</a></li>
+                                    <li><a href="{{ url('destination') }}/RE">{{ __('menu.Reunion') }}</a></li>
+                                    <li><a href="#">{{ __('menu.Maurice') }}</a></li>
+                                    <li><a href="{{ url('destination') }}/RG">{{ __('menu.Rodrigues') }}</a></li>
                                     
                                   </ul>
                                  
                               </li>
                               <li class="dropdown-submenu">
-                              <a href="#!" class="dropdown-toggle" data-toggle="dropdown"><img src="{{ asset('frontend/assets/images/continent/europe.png') }}" style="height:32px;height:32px">EUROPE</a>
+                              <a href="#!" class="dropdown-toggle" data-toggle="dropdown"><img src="{{ asset('frontend/assets/images/continent/europe.png') }}" style="height:32px;height:32px">{{ __('menu.Europe') }}</a>
                               <ul class="dropdown-menu">
-                                <li><a href="{{ url('iceland') }}"><img src="{{ asset('frontend/assets/images/continent/iceland.png') }}" style="height:32px;height:32px"></img>ICELAND</a></li>
+                                <li><a href="{{ url('iceland') }}"><img src="{{ asset('frontend/assets/images/continent/iceland.png') }}" style="height:32px;height:32px"></img>{{ __('menu.Iceland') }}</a></li>
                                 
                               </ul>
                             </li>
                             </ul>
                         </li>
-                
+                        <li class="nav-item"><a class="nav-link" href="{{ URL::route('blog')}}">Blog</a></li>
                         <li class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">ROAD MAP <i class="fa fa-angle-down"></i></a>
                             <ul class="dropdown-menu" role="menu">

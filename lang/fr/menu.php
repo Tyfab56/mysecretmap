@@ -1,7 +1,14 @@
 <?php
 
 return [
-    'Home' => 'Sommaire',
+    "Home" => "Sommaire",
+    "Destination" => "Destinations",
+    "Afrique" => "Afrique",
+    "Europe" => "Europe",
+    "Iceland" => "Islande",
+    "Reunion" => "La Réunion",
+    "Maurice" => "Ile Maurice",
+    "Rodrigues" => "Rodrigues",
     'Mode' =>  'Choix du Mode',
     'Photomode' => 'Mode photo',
     'Travelmode' => 'Mode Voyage',
