@@ -121,7 +121,14 @@ class DestinationController extends Controller
                 }
 
               // Recuperation du circuit geometrique
-              $geometry = Circuits::where('id','=',$circuitactif)->first()->geometry;
+              // Sous forme de plusieurs segments
+              $allgeometry = Circuits_details::where('circuit_id','=',$circuitactif)->where('geometry','<>',null)->get();
+              $geometry = array();
+              foreach ($allgeometry as $geo)
+              {
+               array_push($geometry, $geo->geometry);
+              }
+            
               // $geometry = Helper::polyline2_decode($geometry);
             
 

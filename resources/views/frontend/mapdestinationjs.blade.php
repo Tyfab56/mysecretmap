@@ -2,6 +2,7 @@
 
 var currentDate;
 var currentTime;
+var currentGeometry = {!! json_encode($geometry) !!};
 
 @if(is_null($spot))
 var currentMarker = {{$markers->first()->id??0}};
@@ -294,15 +295,18 @@ window.addEventListener('load', function () {
 
 function drawCircuit()
 {
-  
-            console.log(jedecode('{{$geometry}}'),5);
-         
-           var polyline = L.Polyline.fromEncoded('{{$geometry}}').addTo(mapdest);
-          //var polyline = L.Polyline({{$geometry}}).addTo(mapdest);
         
-
+        currentGeometry.forEach((element) => 
+        {
+          var color;
+                var r = Math.floor(Math.random() * 255);
+                var g = Math.floor(Math.random() * 255);
+                var b = Math.floor(Math.random() * 255);
+                color= "rgb("+r+" ,"+g+","+ b+")"; 
+          var polyline = L.Polyline.fromEncoded(element);
+          polyline.setStyle(color).addTo(mapdest);
          
-        
+        });
 }
 function jedecode (str, precision) {
     var index = 0,
