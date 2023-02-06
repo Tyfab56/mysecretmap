@@ -16,6 +16,11 @@
 @if (auth()->user()->isAdmin())
 <section>
 <div class="container">
+@if (session('message'))
+    <div class="alert alert-success">
+        {{ session('message') }}
+    </div>
+@endif
  
   <form method="get" action="{{ route ('admin.filterspots') }}">
                 @csrf

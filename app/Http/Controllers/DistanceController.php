@@ -13,6 +13,7 @@ class DistanceController extends Controller
     {
         // Trouver les infos sur ce spot
         $spot = Spots::where('id','=',$idspot)->first();
+ 
         $pays_id = $spot->pays_id;
         $start_lat = $spot->latparking;
         $start_lng = $spot->lngparking;
@@ -45,8 +46,10 @@ class DistanceController extends Controller
             // updategps = 1
             if ($updategps == 1) 
             {
-                $verif == 1;
+                $verif = null;
             }
+             
+
 
              if (is_null($verif))
              {
@@ -55,7 +58,7 @@ class DistanceController extends Controller
                  $data = json_decode($response->getBody(), true);
                  sleep(0.5);
               
-
+            
                  // Ecriture des données dans la table
                  // Création de l'enregistrement uniquement si pas encore fait
                  if ($updategps == 1)
@@ -64,7 +67,7 @@ class DistanceController extends Controller
 
                     if (is_null($dist))
                     {
-                        return back()->with('message', 'Update sans contrepartie');
+                        $dist = new Distances();
                     }
                  }
                  else
@@ -99,7 +102,7 @@ class DistanceController extends Controller
 
                    if (is_null($dist))
                    {
-                       return back()->with('message', 'Update sans contrepartie');
+                    $dist = new Distances();
                    }
                 }
                 else
@@ -116,12 +119,18 @@ class DistanceController extends Controller
 
                  // mise à jour de nbdistance dans la table
                $count = Distances::where('spot_origine','=',$spotinverse->id)->count();
-               $spot->nbdistance = $count;
-               $spot->save();
+               $spotinverse->nbdistance = $count;
+
+               $spotinverse->save();
+
+              
 
 
              }
-
+             // reinitialisation de l'indicateur de mise à jour pour le point d'origine
+             // Le point de destination sera traité comm point d'origine si necessaire
+             $spot->updategps = 0;
+             $spot->save();
        
 
         
