@@ -50,7 +50,7 @@ class DistanceController extends Controller
             }
              
 
-
+             // Calcul depuis ce point vers la destination
              if (is_null($verif))
              {
                  $url = $apiUrl.''.$start_lng.','.$start_lat.';'.$point->lng.','.$point->lat.'?access_token='.env('MAPBOX_ACCESS_TOKEN');          
@@ -89,26 +89,21 @@ class DistanceController extends Controller
 
                 // Calcul inverse
                 // Donnée depuis l'autre point
-                $spotinverse = Spots::where('pays_id','=',$pays_id)->where('id','!=',$point->id)->where('actif','=',1)->first();
+                $spotinverse = Spots::where('pays_id','=',$pays_id)->where('id','=',$point->id)->where('actif','=',1)->first();
 
                 $url = $apiUrl.''.$spotinverse->lngparking.','.$spotinverse->latparking.';'.$start_lng.','.$start_lat.'?access_token='.env('MAPBOX_ACCESS_TOKEN');          
                 $response = $client->get($url);
                 $data = json_decode($response->getBody(), true);
                 sleep(0.5);
 
-                if ($updategps == 1)
-                {
-                   $dist = Distances::where('spot_origine','=',$spotinverse->id)->where('spot_destination','=',$spot->id)->first();
+                
+                $dist = Distances::where('spot_origine','=',$spotinverse->id)->where('spot_destination','=',$spot->id)->first();
 
-                   if (is_null($dist))
+                if (is_null($dist))
                    {
                     $dist = new Distances();
                    }
-                }
-                else
-                {
-                   $dist = new Distances();
-                }
+            
                 
                 $dist->spot_origine = $spotinverse->id;
                 $dist->spot_destination = $spot->id;
@@ -120,7 +115,6 @@ class DistanceController extends Controller
                  // mise à jour de nbdistance dans la table
                $count = Distances::where('spot_origine','=',$spotinverse->id)->count();
                $spotinverse->nbdistance = $count;
-
                $spotinverse->save();
 
               
