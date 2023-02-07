@@ -6,7 +6,7 @@
     <img class="br5 img-image" src="{{asset('frontend/assets/images/nopic.jpg')}}">
     <div class="img-overlay">{{ __('destination.ImageMissing') }} : Peak Area Image ({{$spot->id}})</div>
     @else
-        <a href="{{$spot->imglargelarge??''}}" data-lightbox="area"><img class="br5 img-image" src="{{$spot->imgpeakmedium??''}}"> </a> 
+        <a href="{{$spot->imgpeaklarge??''}}" data-lightbox="area"><img class="br5 img-image" src="{{$spot->imgpeakmedium??''}}"> </a> 
         <div class="img-overlay">{{ __('destination.SpotPeak') }}</div>     
     @endempty
 @else
