@@ -187,7 +187,7 @@
                                 <img src="{{$spot->imgzoommedium}}">
                             </div>
                             <div class="form-group">
-                                <label class="info-title" for="imgpeak">ZPeak Montagne<span class="text-danger">*</span></label>
+                                <label class="info-title" for="imgpeak">Peak Montagne<span class="text-danger">*</span></label>
                                 <div class="controls">
                                     <input type="file" name="imgpeak" class="form-control" id="imgpeak">
 
