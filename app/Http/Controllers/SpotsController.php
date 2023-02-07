@@ -284,6 +284,7 @@ class SpotsController extends Controller
         $filesquare = $request->file('imgsquare');
         $fileregion = $request->file('imgregion');
         $filemap = $request->file('imgmap');
+        $filezoom = $request->file('imgzoom');
         $videomap = $request->file('videomap');
 
         // Traitement image panoramique
@@ -656,7 +657,7 @@ class SpotsController extends Controller
             // nouvelle image
             $imagezoomstatus = 1;
             $extension = $filezoom->getClientOriginalExtension();
-            $imgzoomname =  $request->file('imgzoom')->getClientOriginalName();;
+            $imgzoomname =  $request->file('imgzoom')->getClientOriginalName();
             $imgzoomname = str_replace(' ', '-', $imgzoomname);
             $imgzoomname = uniqid() . "_" . $id . "_" . $request->payslist . "_" . $imgzoomname;
 
@@ -814,12 +815,14 @@ class SpotsController extends Controller
             $spot->imgmapmedium = $mediummapname;
             $spot->imgmaplarge = $largemapname;
         }
+
         if ($imagezoomstatus == 1) {
             $spot->bucket = $bucket;
             $spot->fichierzoom = $imgzoomname;
             $spot->imgzoommedium = $mediumzoomname;
             $spot->imgzoomlarge = $largezoomname;
         }
+
         if ($videomapstatus == 1) {
             $spot->bucket = $bucket;
             $spot->videomap = $videomapname;

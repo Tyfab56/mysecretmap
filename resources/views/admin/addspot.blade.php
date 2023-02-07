@@ -450,6 +450,6 @@ next: 'fa fa-chevron-right'
   <script src="https://cdnjs.cloudflare.com/ajax/libs/suncalc/1.9.0/suncalc.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
-  <script src="{{asset('frontend/assets/js/dom-to-image.min.js)}}"></script>
+  <script src="{{asset('frontend/assets/js/dom-to-image.min.js')}}"></script>
  
 @endsection
