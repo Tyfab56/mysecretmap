@@ -14,6 +14,7 @@ return [
     'SelectDest' => 'Selectionnez la destination',
     'SelectMap' => 'Selectionnez un type de carte',
     'SpotGlobal' => 'Spot sur la carte globale',
+    'SpotPeak' => 'Vue sur les reliefs environnants',
     'SpotClick' => 'Choisir un spot sur la carte',
     'ImageMissing' => 'Cette image est manquante, merci de nous prévenir',
     'SpotArea' => 'Vue aérienne de la région',

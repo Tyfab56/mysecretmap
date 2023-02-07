@@ -14,6 +14,7 @@ return [
     'SelectDest' => 'Select the destination',
     'SelectMap' => 'Select Map type',
     'SpotGlobal' => 'Spot on the main map',
+    'SpotPeak' => 'View on the surrounding reliefs',
     'SpotClick' => 'Choose a spot on the map',
     'ImageMissing' => 'This picture is missing, please tell us',
     'SpotArea' => 'Aerial view from the area',

@@ -79,7 +79,7 @@
         </div>
         <div class="row min100">  
           <div class="col-lg-6 col-md-12">Chemin Accès</div>
-          <div class="col-lg-6 col-md-12">Montagne Environnentes</div>
+          <div class="col-lg-6 col-md-12"><livewire:show-peak-region /><</div>
         </div>
         @auth
         @if (auth()->user()->isPhotographer())
