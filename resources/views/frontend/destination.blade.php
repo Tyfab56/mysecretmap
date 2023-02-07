@@ -48,6 +48,7 @@
                             </div>   
                       </div>
                       <div class="row">
+                          <a name="mapPos" style="position:absolute; top:+100px;"></a>
                           <div id="mapdest">
                               <a href="https://www.maptiler.com" style="position:absolute;left:10px;bottom:10px;z-index:999;"><img src="https://api.maptiler.com/resources/logo.svg" alt="MapTiler logo"></a>
                           </div>
@@ -121,7 +122,7 @@
           </div>
         </div>  
         <div class="row">
-        <div class="col-lg-12">Vidéos le club</div>
+        <div class="col-lg-12"><a onClick='centerMap()'>Vidéos le club</a></div>
         </div>
         <div class="row">
                   <div class="col-lg-12">Autres vidéos</div>

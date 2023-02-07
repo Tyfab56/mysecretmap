@@ -173,6 +173,20 @@
                                 <img src="{{$spot->imgmapmedium}}">
                             </div>
                             <div class="form-group">
+                                <label class="info-title" for="imgmap">Zoom Lumière<span class="text-danger">*</span></label>
+                                <div class="controls">
+                                    <input type="file" name="imgzoom" class="form-control" id="imgzoom">
+
+                                    <div class="help-block"></div>
+                                    @error('imgzoom')
+                                    <span class="text-danger"> {{ $message }}</span>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class=" text-xs-right  pb-2">
+                                <img src="{{$spot->imgzoommedium}}">
+                            </div>
+                            <div class="form-group">
                                 <label class="info-title" for="videomap">Animation carte<span class="text-danger">*</span></label>
                                 <div class="controls">
                                     <input type="file" name="videomap" class="form-control" id="videomap">
@@ -216,6 +230,8 @@
                     <div id="map"></div>
                     Positionnement Parking<br>
                     <div id="gpsmap"></div>
+                    Zoom Spot<br>
+                    <div id="zoommap"></div>
                     <form method="post" action="{{ route ('admin.spot.textstore') }}">
                         @csrf
                         <div class="row p-4 ">
@@ -434,5 +450,6 @@ next: 'fa fa-chevron-right'
   <script src="https://cdnjs.cloudflare.com/ajax/libs/suncalc/1.9.0/suncalc.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
+  <script src="{{asset('frontend/assets/js/dom-to-image.min.js)}}"></script>
  
 @endsection

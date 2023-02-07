@@ -253,14 +253,15 @@ mapdest.addLayer(markers);
 
 mapdest.whenReady(function(){
 @foreach($markers as $marker)
-
+var popdiv = '<img class="addit" src="{{asset('frontend/assets/images/addpic.png')}}" onClick="addCircuit({{$marker->id}})">';
+var popup = L.popup().setContent(popdiv);
 markers.addLayer(L.marker([{{$marker->lat}}, {{$marker->lng}}],
 { icon: Mark{{$marker->typepoint_id}} ,title: '{{$marker->name}}',id:{{$marker->id}}
 }).on('click', onmapClick).bindTooltip(`<p class='pintext'><img src="{{$marker->imgsquaresmall}}" /></p>
 <p class="textbox">{{$marker->name}}</p>`, {
 minWidth : 130,
 interactive : true
-}));
+}).bindPopup(popup));
 
 @endforeach
 
@@ -370,17 +371,29 @@ function addtour (){
 
   }
 
+  function centerMap()
+  {
+    window.location.href='#mapdest'
+  }
+
+  function addCircuit (spotid){
+  var url = '{{ route("addtour", [":spotid",":circuitid"]) }}';
+  url = url.replace(':spotid',spotid).replace(':circuitid',currentCircuit);
+  window.location.href=url+'#mapPos';
+
+  } 
+
   function removetour (idspot){
   var url = '{{ route("removetour", [":idspot",":circuitid"]) }}';
   url = url.replace(':circuitid',currentCircuit).replace(':idspot',idspot);
-  window.location.href=url;
+  window.location.href=url+'#mapPos';
 
   }
 
   function refreshtour (){
   var url = '{{ route("refreshtour", [":paysid",":circuitid"]) }}';
   url = url.replace(':paysid','{{$idpays}}').replace(':circuitid',currentCircuit);
-  window.location.href=url;
+  window.location.href=url+'#mapPos';
   }
 
 function goImage()
