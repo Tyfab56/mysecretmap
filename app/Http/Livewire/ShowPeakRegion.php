@@ -16,12 +16,15 @@ class ShowPeakRegion extends Component
     public function ImgPeak($idspot)
     {
         if (!is_null($idspot)) {
+            
             $this->idspot = $idspot;
+            
         }
     }
 
     public function render()
     {
+        
         $this->spot = spots::select('id', 'imgpeakmedium', 'imgpeaklarge')->where('id', '=', $this->idspot)->first();
 
 
