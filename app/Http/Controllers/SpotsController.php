@@ -285,6 +285,7 @@ class SpotsController extends Controller
         $fileregion = $request->file('imgregion');
         $filemap = $request->file('imgmap');
         $filezoom = $request->file('imgzoom');
+        $filepeak = $request->file('imgpeak');
         $videomap = $request->file('videomap');
 
         // Traitement image panoramique
@@ -713,8 +714,85 @@ class SpotsController extends Controller
             $mediumzoomname = $disk->url('medium/medium-' . $imgzoomname);
         }
 
+        // traitement image peak
+        if ($filepeak == null) {
+            // pas de nouvelle image
+            $imagepeakstatus = 0;
+        } else {
+            // Recherche si ancienne image et suppression des images coorespondantes
 
-        // traitement image carte globale
+            if ($typeaction == "edit") {
+                if ($spotinfo->imgpeaklarge) {
+                    $bucket = $spotinfo->bucket;
+                    $disk = Storage::disk('wasabi');
+
+                    $filemedium = parse_url($spotinfo->imgpeakmedium);
+                    $filelarge = parse_url($spotinfo->imgpeaklarge);
+
+                    $disk->delete($filemedium);
+                    $disk->delete($filelarge);
+                }
+            }
+            // nouvelle image
+            $imagepeakstatus = 1;
+            $extension = $filepeak->getClientOriginalExtension();
+            $imgpeakname =  $request->file('imgpeak')->getClientOriginalName();
+            $imgpeakname = str_replace(' ', '-', $imgpeakname);
+            $imgpeakname = uniqid() . "_" . $id . "_" . $request->payslist . "_" . $imgpeakname;
+
+
+            $disk = Storage::disk('wasabi');
+            $bucket = 'mysecretmap';
+
+            // LARGE
+            // Stockage d'une image large 
+            $width = 1200;
+            $height = 534;
+            $canvas = Image::canvas($width, $height);
+
+            $imagefinale  = Image::make($filepeak)->resize(
+                $width,
+                null,
+                function ($constraint) {
+                    $constraint->aspectRatio();
+                }
+            );
+
+            $canvas->insert(
+                $imagefinale,
+                'center'
+            );
+            $canvas->encode($extension);
+
+            $disk->put('/large/large-' . $imgpeakname, (string) $canvas, 'public');
+            $largepeakname = $disk->url('large/large-' . $imgpeakname);
+
+
+            // MEDIUM
+            // Stockage d'un thumb 
+            $width = 600;
+            $height = 267;
+            $canvas = Image::canvas($width, $height);
+
+            $imagefinale  = Image::make($filepeak)->resize(
+                $width,
+                null,
+                function ($constraint) {
+                    $constraint->aspectRatio();
+                }
+            );
+
+            $canvas->insert(
+                $imagefinale,
+                'center'
+            );
+            $canvas->encode($extension);
+
+            $disk->put('/medium/medium-' . $imgpeakname, (string) $canvas, 'public');
+            $mediumpeakname = $disk->url('medium/medium-' . $imgpeakname);
+        }
+
+        // traitement video carte globale
         if ($videomap == null) {
             // pas de nouvelle image
             $videomapstatus = 0;
@@ -821,6 +899,13 @@ class SpotsController extends Controller
             $spot->fichierzoom = $imgzoomname;
             $spot->imgzoommedium = $mediumzoomname;
             $spot->imgzoomlarge = $largezoomname;
+        }
+
+        if ($imagepeakstatus == 1) {
+            $spot->bucket = $bucket;
+            $spot->fichierpeak = $imgpeakname;
+            $spot->imgpeakmedium = $mediumpeakname;
+            $spot->imgpeaklarge = $largepeakname;
         }
 
         if ($videomapstatus == 1) {

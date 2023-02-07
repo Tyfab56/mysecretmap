@@ -187,6 +187,20 @@
                                 <img src="{{$spot->imgzoommedium}}">
                             </div>
                             <div class="form-group">
+                                <label class="info-title" for="imgpeak">ZPeak Montagne<span class="text-danger">*</span></label>
+                                <div class="controls">
+                                    <input type="file" name="imgpeak" class="form-control" id="imgpeak">
+
+                                    <div class="help-block"></div>
+                                    @error('imgpeak')
+                                    <span class="text-danger"> {{ $message }}</span>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class=" text-xs-right  pb-2">
+                                <img src="{{$spot->imgpeakmedium}}">
+                            </div>
+                            <div class="form-group">
                                 <label class="info-title" for="videomap">Animation carte<span class="text-danger">*</span></label>
                                 <div class="controls">
                                     <input type="file" name="videomap" class="form-control" id="videomap">
