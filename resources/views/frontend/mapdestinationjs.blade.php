@@ -276,6 +276,7 @@ window.addEventListener('load', function () {
   Livewire.emit('InfoDestination',currentMarker,null,null);
   Livewire.emit('ImgRegion',currentMarker);
   Livewire.emit('ImgMap',currentMarker);
+  Livewire.emit('ImgPeak',currentMarker);
   Livewire.emit('RefreshCircuit',currentCircuit);
   // Tracer le circuit
   
