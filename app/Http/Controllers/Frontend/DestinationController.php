@@ -47,7 +47,7 @@ class DestinationController extends Controller
     
         // Chargement des markers de la carte
         $markers = Spots::select('id', 'name', 'lng', 'lat', 'imgpanosmall', 'imgsquaresmall',   'typepoint_id')
-            ->where('pays_id', $idpays)->where('actif', 1)->get();
+            ->where('pays_id', $idpays)->where('actif', 1)->where('maps_id', 1)->get();
 
         $payslist = Pays::where('actif', '=', 1)->orderBy('pays', 'asc')->get();
 
@@ -144,6 +144,14 @@ class DestinationController extends Controller
         return view('frontend/destination', compact('idpays', 'markers', 'pays', 'payslist', 'payslng', 'payslat', 'payszoom', 'paysoffset', 'spot', 'circuits','circuitactif','geometry'));
     }
 
+
+    public function getzoom($idspot)
+    {
+        $spotzoom = Spots::select('imgZoomLarge')->where('id', '=', $idspot)->first();
+      
+        return response($spotzoom, 200);
+
+    }
     public function listmarkers($idpays, $nelat, $nelng, $swlat, $swlng)
     {
 
@@ -152,8 +160,9 @@ class DestinationController extends Controller
             ->where('lat', '>', $swlat)
             ->where('lng', '<', $nelng)
             ->where('lng', '>', $swlng)
-            ->where('pays_id', $idpays)
-            ->where('actif', 1)
+            ->where('pays_id','=', $idpays)
+            ->where('actif', '=',1)
+            ->where('maps_id','=',1)
             ->get()->toJson();
 
         return response($markers, 200);

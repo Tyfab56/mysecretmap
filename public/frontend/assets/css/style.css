@@ -3382,6 +3382,10 @@ label {
   height: 450px;
   width: 100%;
 }
+#mapzoom {
+  height: 100%;
+  width: 100%;
+}
 
 #mapindex {
   height: 500px;

@@ -21,8 +21,12 @@ var sunriseDate;
 var sunsetDate;
 var sunriseLine;
 var sunsetLine;
+var sunriseZoom;
+var sunsetZoom;
 var hourLine;
+var hourZoom;
 var currentpays;
+var currentOverlay;
 
 function drawSolar()
 {
@@ -31,11 +35,21 @@ var textsunrise,textsunset;
 if (sunriseLine !== undefined)
 {
   sunriseLine.removeFrom(mapdest);
+  
+}
+if (sunriseZoom !== undefined)
+{
+  sunriseZoom.removeFrom(mapzoom);
 }
 
 if (sunsetLine !== undefined)
 {
   sunsetLine.removeFrom(mapdest);
+ 
+}
+if (sunsetZoom !== undefined)
+{
+  sunsetZoom.removeFrom(mapzoom);
 }
 var times = SunCalc.getTimes(currentDate,currentLat,currentLng);
 sunriseDate = DateTime.fromJSDate(times.sunrise).setZone("{{$pays->offset}}");
@@ -52,6 +66,10 @@ else
   sunriseLine = L.polyline([], {color: 'red'}).addTo(mapdest);
   sunriseLine.addLatLng(L.latLng(currentLat, currentLng));
   sunriseLine.addLatLng(L.latLng(newPoint.latitude, newPoint.longitude));
+
+  sunriseZoom = L.polyline([], {color: 'red'}).addTo(mapzoom);
+  sunriseZoom.addLatLng(L.latLng(currentLat, currentLng));
+  sunriseZoom.addLatLng(L.latLng(newPoint.latitude, newPoint.longitude));
   textsunrise = sunriseDate.setLocale("{{app()->getLocale()}}").toFormat("ff");
  
 }
@@ -68,6 +86,10 @@ else
   sunsetLine = L.polyline([], {color: 'orange'}).addTo(mapdest);
   sunsetLine.addLatLng(L.latLng(currentLat, currentLng));
   sunsetLine.addLatLng(L.latLng(newPoint.latitude, newPoint.longitude));
+
+  sunsetZoom = L.polyline([], {color: 'orange'}).addTo(mapzoom);
+  sunsetZoom.addLatLng(L.latLng(currentLat, currentLng));
+  sunsetZoom.addLatLng(L.latLng(newPoint.latitude, newPoint.longitude));
   textsunset = sunsetDate.setLocale("{{app()->getLocale()}}").toFormat("ff");
   
 } 
@@ -89,10 +111,20 @@ if (hourLine !== undefined)
   hourLine.removeFrom(mapdest);
 }
 
+if (hourZoom !== undefined)
+{
+  hourZoom.removeFrom(mapzoom);
+}
+
 
   hourLine = L.polyline([], {color: 'blue'}).addTo(mapdest);
   hourLine.addLatLng(L.latLng(currentLat, currentLng));
   hourLine.addLatLng(L.latLng(newPoint.latitude, newPoint.longitude));
+
+  hourZoom = L.polyline([], {color: 'blue'}).addTo(mapzoom);
+  hourZoom.addLatLng(L.latLng(currentLat, currentLng));
+  hourZoom.addLatLng(L.latLng(newPoint.latitude, newPoint.longitude));
+  
 
 
 
@@ -156,6 +188,26 @@ currentMarker = e.sourceTarget.options.id;
 currentTitle = e.sourceTarget.options.title; 
 currentLat = e.latlng.lat;
 currentLng = e.latlng.lng;
+var bounds = L.latLng(currentLat,currentLng).toBounds(1000);
+mapzoom.panTo(new L.LatLng(currentLat,currentLng));
+// Appel de l'image manquante
+var url='{{route('getzoom',['idspot'])}}';
+url = url.replace('idspot',e.sourceTarget.options.id);
+$.ajax({
+      type: "GET",
+      url: url
+  }).done(function(msg) 
+  {
+    if (currentOverlay  !== undefined)
+    {
+      currentOverlay.removeFrom(mapdest);
+    
+    }      
+    currentOverlay = L.imageOverlay(msg.imgZoomLarge,bounds).addTo(mapzoom);
+         
+  })
+
+
 drawSolar();
 }
 
@@ -191,6 +243,16 @@ style: 'https://api.maptiler.com/maps/voyager/style.json?key=iooFuVAppzuUB4nSQMl
 
 mapdest._layersMaxZoom = 19;
 var markers = L.markerClusterGroup({chunkedLoading: true,maxClusterRadius: 30});
+
+
+var mapzoom = L.map('mapzoom',{
+   dragging: false,
+   scrollWheelZoom: 'center'
+}).setView([{{$payslat}}, {{$payslng}}],{{$payszoom}});
+var gl = L.mapboxGL({
+style: 'https://api.maptiler.com/tiles/satellite-v2/?key=iooFuVAppzuUB4nSQMl6'
+}).addTo(mapzoom);
+mapzoom.removeControl(mapzoom.zoomControl);
 
 var Mark1 = L.ExtraMarkers.icon({
     markerColor: 'blue',
@@ -272,13 +334,14 @@ interactive : true
 window.addEventListener('load', function () {
   // Raffraichir la carte
   mapdest.invalidateSize();
+  mapzoom.invalidateSize();
   // Initialisation du curseur
   Livewire.emit('InfoDestination',currentMarker,null,null);
   Livewire.emit('ImgRegion',currentMarker);
   Livewire.emit('ImgMap',currentMarker);
   Livewire.emit('ImgPeak',currentMarker);
   Livewire.emit('RefreshCircuit',currentCircuit);
-  // Tracer le circuit
+
   
   var myDate = new Date();
   var dayInYear = Math.floor((myDate - new Date(myDate.getFullYear(), 0, 0)) / (1000 * 60 * 60 * 24));
@@ -298,7 +361,8 @@ window.addEventListener('load', function () {
 
 function drawCircuit()
 {
-        
+        if (currentGeometry !== '')
+        {
         currentGeometry.forEach((element) => 
         {
           var color;
@@ -310,6 +374,7 @@ function drawCircuit()
           polyline.setStyle(color).addTo(mapdest);
          
         });
+      }
 }
 function jedecode (str, precision) {
     var index = 0,
@@ -407,6 +472,7 @@ function goImage()
 }
 
 function popimage(name,e,lat,lng) {
+
   currentMarker = e;
   currentLat = lat;
   currentLng = lng;
@@ -414,8 +480,11 @@ function popimage(name,e,lat,lng) {
   Livewire.emit('InfoDestination',e,null,null);
   Livewire.emit('ImgRegion',e);
   Livewire.emit('ImgMap',e);
-  var bounds = L.latLng(lat,lng).toBounds(6000)
+  var bounds = L.latLng(lat,lng).toBounds(6000);
   mapdest.fitBounds(bounds);
+  var bounds = L.latLng(lat,lng).toBounds(500);
+  mapzoom.fitBounds(bounds);
+  mapzoom.panTo(new L.LatLng(lat,lng));  
   drawSolar();
   }
 
