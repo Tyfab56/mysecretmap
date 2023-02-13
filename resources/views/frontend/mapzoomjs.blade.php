@@ -20,3 +20,11 @@ L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',{
 
 zoommap.removeControl(zoommap.zoomControl);
 
+function saveMap()
+{
+   domtoimage.toJpeg(document.getElementById('zoommap'),{width: 1200,height:534})
+    .then(function (blob) {
+        window.saveAs(blob, '{{$spot->id}}.jpg');
+    });
+}
+

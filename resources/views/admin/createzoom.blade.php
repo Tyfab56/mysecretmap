@@ -16,7 +16,7 @@
 
 <div id="zoommap"></div>
 </div>
-
+<input onClick='saveMap()' name="file" class="btn btn-rounded btn-primary mt-5 mb-5" value="sauvegarder image">
 
 </section>
 @endsection
@@ -32,7 +32,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/mapbox-gl-leaflet/0.0.15/leaflet-mapbox-gl.min.js"></script>
   <script src="{{asset('frontend/assets/js/leaflet-providers.js')}}"></script>
   <script src="{{asset('frontend/assets/js/dom-to-image.js')}}"></script>
- 
+  <script src="{{asset('frontend/assets/js/filesaver.js')}}"></script>
 @endsection
 @section('scripts')
 @include ('frontend.mapzoomjs');
