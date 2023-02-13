@@ -235,6 +235,7 @@
                              <li><a class="dropdown-item" href="{{ route('admin.listspots') }}"> Tableaux de bord</a></li>
                              <li><a class="dropdown-item" href="{{ route('admin.listspots') }}"> Gestion Spots</a></li>
                              <li><a class="dropdown-item" href="{{ route('admin.circuits') }}"> Gestion Circuits</a></li>
+                             <li><a class="dropdown-item" href="{{ route('admin.createzoom') }}">image Zoom</a></li>
 
                         </ul>
                     </li>

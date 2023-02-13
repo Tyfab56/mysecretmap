@@ -2855,6 +2855,11 @@ img.testimonial-thumb {
   width: 100%;
 }
 
+#zoommap {
+  height: 534px;
+  width: 1200px;
+}
+
 .mapindex {
   height: 450px;
   z-index: 1;

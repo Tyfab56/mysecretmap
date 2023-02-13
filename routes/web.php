@@ -7,6 +7,7 @@ use App\Http\Controllers\SpotsController;
 use App\Http\Controllers\CircuitsController;
 use App\Http\Controllers\DistanceController;
 use App\Http\Controllers\PaysController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\Frontend\DestinationController;
 use Illuminate\Support\Facades\Route;
@@ -81,6 +82,9 @@ Route::post('/admin/spot/store', [SpotsController::class, 'spotStore'])->name('a
 Route::post('/admin/spot/textstore', [SpotsController::class, 'spotTextStore'])->name('admin.spot.textstore')->middleware('App\Http\Middleware\CheckAdmin');
 
 Route::get('/admin/circuits', [CircuitsController::class, 'index'])->name('admin.circuits')->middleware('App\Http\Middleware\CheckAdmin');
+Route::get('/admin/createzoom', [AdminController::class, 'createzoom'])->name('admin.createzoom')->middleware('App\Http\Middleware\CheckAdmin');
+Route::post('/admin/createzoomid', [AdminController::class, 'createzoomid'])->name('admin.createzoomid')->middleware('App\Http\Middleware\CheckAdmin');
+
 Route::get('/admin/detailpays/{id}', [PaysController::class, 'detail'])->name('admin.detailpays');
 
 Route::view('/rodrigues','frontend.destinations.rodrigues')->name('rodrigues');

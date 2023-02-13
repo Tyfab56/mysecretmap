@@ -25,7 +25,7 @@ class ShowPeakRegion extends Component
     public function render()
     {
         
-        $this->spot = spots::select('id', 'imgpeakmedium', 'imgpeaklarge')->where('id', '=', $this->idspot)->first();
+        $this->spot = Spots::select('imgpeakmedium', 'imgpeaklarge')->where('id', '=', $this->idspot)->first();
 
 
         return view('livewire.show-peak-region');

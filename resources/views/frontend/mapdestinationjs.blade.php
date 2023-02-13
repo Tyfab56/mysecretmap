@@ -202,7 +202,8 @@ $.ajax({
     {
       currentOverlay.removeFrom(mapdest);
     
-    }      
+    }   
+    var bounds = L.latLng(currentLat,currentLng).toBounds(3000);   
     currentOverlay = L.imageOverlay(msg.imgZoomLarge,bounds).addTo(mapzoom);
          
   })
