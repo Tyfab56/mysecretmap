@@ -9,6 +9,7 @@
             <meta name="author" content="">
             <meta name="keywords" content="spot,tourisme,photo, voyage">
             <meta name="robots" content="all">
+            <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
 
             <title>My Secret Map</title>
             
