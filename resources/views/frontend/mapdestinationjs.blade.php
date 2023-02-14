@@ -203,7 +203,8 @@ $.ajax({
       currentOverlay.removeFrom(mapdest);
     
     }   
-    var bounds = L.latLng(currentLat,currentLng).toBounds(3000);   
+    var bounds = recBounds(currentLat,currentLng);   
+
     currentOverlay = L.imageOverlay(msg.imgZoomLarge,bounds).addTo(mapzoom);
          
   })
@@ -225,6 +226,16 @@ var dayMilli = 1000 * 60 * 60 * 24;
 var dayNumMilli = dayNum * dayMilli;
 date.setTime(timeOfFirst + dayNumMilli);
 return date;
+}
+
+function recBounds(lat,lng)
+{
+
+   var southWest = L.latLng(lat - 0.004966634076, lng  - 0.02574920654);
+    var northEast = L.latLng(lat + 0.004966634076, lng + 0.02574920654);
+   
+    bounds = L.latLngBounds(southWest, northEast);
+    return bounds;
 }
 
 function changeHour(value)
@@ -249,7 +260,7 @@ var markers = L.markerClusterGroup({chunkedLoading: true,maxClusterRadius: 30});
 var mapzoom = L.map('mapzoom',{
    dragging: false,
    scrollWheelZoom: 'center'
-}).setView([{{$payslat}}, {{$payslng}}],{{$payszoom}});
+}).setView([{{$payslat}}, {{$payslng}}],15);
 var gl = L.mapboxGL({
 style: 'https://api.maptiler.com/tiles/satellite-v2/?key=iooFuVAppzuUB4nSQMl6'
 }).addTo(mapzoom);
