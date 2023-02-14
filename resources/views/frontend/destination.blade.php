@@ -19,22 +19,23 @@
          <h1> <a href='{{ route($pays->route) }}'>{{$pays->pays}}</a></h1>
       </div>
         <div class="row">
-          <div class="col-lg-12">Bandeau de pub + register</div>
-        </div>
-        
+               <div class="col-lg-3">                            
+                   <a class="btn btn-primary m5" href="{{ url('thewall') }}/{{ $idpays}}">THE WALL</a>
+               </div>
+        </div>   
         <div class="row">  
           
           
                <div class="col-lg-9">
                      <div class="row">
-                            <div class="col-lg-6">
-                              <img class="max50" src="{{asset('frontend/assets/images')}}/{{ Config::get('app.locale') }}/clubpatreon.jpg">
-                              <br>Pour bénéficier des nombreux Bonus et faire grandir cette carte
+                           
+
+                            <div class="row bgregbox w100">
+                            <div class="col-lg-12">
+                                  <div><b>Spots à proximité :</b></div>
+                                  <div id="medias"></div>
                             </div>
-                            <div class="col-lg-6">
-                              <a class="btn btn-secondary m5" href="javascript:addtour()">AJOUTER CE SPOT AU CIRCUIT</a><br>
-                              <a class="btn btn-primary m5" href="{{ url('thewall') }}/{{ $idpays}}">THE WALL</a>
-                            </div>
+                       </div>
                     </div>    
                 <div class="leaflet-map">
                        
@@ -43,7 +44,7 @@
                             <div id="mapdest">
                                 <a href="https://www.maptiler.com" style="position:absolute;left:10px;bottom:10px;z-index:999;"><img src="https://api.maptiler.com/resources/logo.svg" alt="MapTiler logo"></a>
                             </div>
-                          <p><span style="color:red"><b>{{__('destination.RedLine')}}</b></span> / <span style="color:orange"><b>{{__('destination.OrangeLine')}}</b></span></p><br/>
+                         
                             <div class="row min100">
                                   <div class="col-sm-6"> 
                                         <div style="padding : 5px"><b>{{__('destination.choiceday')}} :</b> <span id="theday"></span></div>
@@ -54,14 +55,10 @@
                                         <div style="padding: 5px;"> <input type="range" class="form-range" min="0" max="24" oninput="changeHour(this.value)" onchange="changeHour(this.value)" id="hourofday"></div>
                                 </div> 
                             </div>  
+                            <p><span style="color:red"><b>{{__('destination.RedLine')}}</b></span> / <span style="color:orange"><b>{{__('destination.OrangeLine')}}</b></span></p><br/>
                       </div>
                    
-                        <div class="row bgregbox w100">
-                            <div class="col-lg-12">
-                                  <div><b>Spots à proximité :</b></div>
-                                  <div id="medias"></div>
-                            </div>
-                       </div>
+                       
                          
                         
                 </div>
@@ -124,7 +121,14 @@
           </div>
         </div>  
         <div class="row">
-        <div class="col-lg-12"><a onClick='centerMap()'>Vidéos le club</a></div>
+        <div class="col-lg-6">
+                              <img class="max50" src="{{asset('frontend/assets/images')}}/{{ Config::get('app.locale') }}/clubpatreon.jpg">
+                              <br>Pour bénéficier des nombreux Bonus et faire grandir cette carte
+                            </div>
+                            <div class="col-lg-6">
+                              <a class="btn btn-secondary m5" href="javascript:addtour()">AJOUTER CE SPOT AU CIRCUIT</a><br>
+                              <a class="btn btn-primary m5" href="{{ url('thewall') }}/{{ $idpays}}">THE WALL</a>
+                            </div>
         </div>
         <div class="row">
                   <div class="col-lg-12">Autres vidéos</div>

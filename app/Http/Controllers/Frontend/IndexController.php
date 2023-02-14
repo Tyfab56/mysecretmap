@@ -169,6 +169,15 @@ class IndexController extends Controller
                     Session::put('circuitactif', $premiercircuit->id);
                     $circuitactif = $premiercircuit->id;
                 }
+                 // Recuperation du circuit geometrique
+              // Sous forme de plusieurs segments
+              $allgeometry = Circuits_details::where('circuit_id','=',$circuitactif)->where('geometry','<>',null)->get();
+              $geometry = array();
+              foreach ($allgeometry as $geo)
+              {
+               array_push($geometry, $geo->geometry);
+              }
+            
     
 
              }   
@@ -176,12 +185,13 @@ class IndexController extends Controller
         } else {
             $circuits = null;
             $circuitactif = 0;
+            $geometry ='';
         }
         // Si un cictuit est actif, on verifie que c'est dans le bon pays qui est egalement actif
        // Test du circuit en cours
        
 
-        return view('frontend/destination', compact('lastPays', 'idpays', 'markers', 'payslist', 'pays', 'payslng', 'payslat', 'payszoom', 'paysoffset', 'spot','lastspots','circuits','circuitactif'));
+        return view('frontend/destination', compact('lastPays', 'idpays', 'markers', 'payslist', 'pays', 'payslng', 'payslat', 'payszoom', 'paysoffset', 'spot','lastspots','circuits','circuitactif','geometry'));
     }
 
     public function nextdestinations()

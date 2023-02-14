@@ -113,7 +113,7 @@
                         <option value="">{{__('destination.SelectDest')}}</option>
                     
                         @foreach($payslist as $pay)
-                        <option value="{{$pay->pays_id}}" {{($idpays == $pay->pays_id) ? 'selected' : ''}}>{{$pay->pays}} ({{$pay->nbpic}})</option>
+                        <option value="{{$pay->pays_id}}" >{{$pay->pays}} ({{$pay->nbpic}})</option>
                         @endforeach
                     </select>
                 </div>

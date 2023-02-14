@@ -140,7 +140,7 @@ class DestinationController extends Controller
             $geometry ='';
         }
         
-
+ 
         return view('frontend/destination', compact('idpays', 'markers', 'pays', 'payslist', 'payslng', 'payslat', 'payszoom', 'paysoffset', 'spot', 'circuits','circuitactif','geometry'));
     }
 
