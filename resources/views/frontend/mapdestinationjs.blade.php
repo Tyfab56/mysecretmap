@@ -190,24 +190,7 @@ currentLat = e.latlng.lat;
 currentLng = e.latlng.lng;
 var bounds = L.latLng(currentLat,currentLng).toBounds(1000);
 mapzoom.panTo(new L.LatLng(currentLat,currentLng));
-// Appel de l'image manquante
-var url='{{route('getzoom',['idspot'])}}';
-url = url.replace('idspot',e.sourceTarget.options.id);
-$.ajax({
-      type: "GET",
-      url: url
-  }).done(function(msg) 
-  {
-    if (currentOverlay  !== undefined)
-    {
-      currentOverlay.removeFrom(mapdest);
-    
-    }   
-    var bounds = recBounds(currentLat,currentLng);   
-
-    currentOverlay = L.imageOverlay(msg.imgZoomLarge,bounds).addTo(mapzoom);
-         
-  })
+redrawOverlay();
 
 
 drawSolar();
@@ -227,7 +210,27 @@ var dayNumMilli = dayNum * dayMilli;
 date.setTime(timeOfFirst + dayNumMilli);
 return date;
 }
+function redrawOverlay()
+{
+  // Appel de l'image manquante
+    var url='{{route('getzoom',['idspot'])}}';
+    url = url.replace('idspot',currentMarker);
+  $.ajax({
+      type: "GET",
+      url: url
+  }).done(function(msg) 
+  {
+    if (currentOverlay  !== undefined)
+    {
+      currentOverlay.removeFrom(mapdest);
+    
+    }   
+    var bounds = recBounds(currentLat,currentLng);   
 
+    currentOverlay = L.imageOverlay(msg.imgZoomLarge,bounds).addTo(mapzoom);
+         
+  })
+}
 function recBounds(lat,lng)
 {
 
@@ -498,6 +501,7 @@ function popimage(name,e,lat,lng) {
   mapzoom.fitBounds(bounds);
   mapzoom.panTo(new L.LatLng(lat,lng));  
   drawSolar();
+  redrawOverlay();
   }
 
 
