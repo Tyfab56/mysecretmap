@@ -23,28 +23,12 @@ $('.leaflet-control-attribution').hide();
 
 function saveMap()
 {
-    var east = zoommap.getBounds().getEast();
-    var west=  zoommap.getBounds().getWest();
-    var north = zoommap.getBounds().getNorth();
-    var south = zoommap.getBounds().getSouth();
-
-    console.log (
-        'center:' + zoommap.getCenter() +'\n'+
-        'east:' + east +'\n'+
-        'west:' + west +'\n'+
-        'north:' + north +'\n'+
-        'south:' + south +'\n'+
-
-        'size in pixels:' + zoommap.getSize()
-    )
-
-    if( 1 == 2)
-   {  
+   
        domtoimage.toJpeg(document.getElementById('zoommap'),{width: 1200,height:534})
         .then(function (blob) {
         window.saveAs(blob, '{{$spot->id}}.jpg');
       });
-    }
+    
 }
 
 
