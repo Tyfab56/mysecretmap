@@ -389,4 +389,10 @@ class DestinationController extends Controller
 
         return view('frontend/thewall', compact('spots', 'idpays', 'pays'));
     }
+
+    public function circuit($idcircuit)
+    {
+        $circuit = Circuits_Details::where('circuit_id','=','$idcircuit')->orderBy('rang')->get();
+        return view('frontend/circuit',compact('circuit'));
+    }
 }

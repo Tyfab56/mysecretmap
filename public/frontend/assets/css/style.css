@@ -7,6 +7,10 @@
   font-weight: normal;
   font-style: normal;
 }
+
+
+  @import url('https://fonts.googleapis.com/css2?family=Oxygen&display=swap');
+
 /* Typography
 ================================================== */
 body {
@@ -17,7 +21,8 @@ body {
 
 body,
 p {
-  font-family: "Open Sans", sans-serif;
+  
+  font-family: 'Oxygen', sans-serif;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased !important;
   line-height: 21px;
@@ -32,7 +37,7 @@ h5,
 h6 {
   color: #212121;
   font-weight: 700;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Oxygen', sans-serif;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased !important;
 }
@@ -498,7 +503,7 @@ a[href^=tel] {
   font-weight: 700;
   text-transform: uppercase;
   color: #fff;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Oxygen', sans-serif;
   transition: 350ms;
   font-size: 14px;
 }
@@ -511,7 +516,7 @@ a[href^=tel] {
   font-weight: 700;
   text-transform: uppercase;
   color: #fff;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Oxygen', sans-serif;
   transition: 350ms;
   font-size: 14px;
 }
@@ -808,7 +813,7 @@ ul.top-info-box li .info-box span.info-icon {
 
 ul.top-info-box li .info-box .info-box-content {
   display: inline-block;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Oxygen', sans-serif;
   flex-direction: column;
 }
 
@@ -952,7 +957,7 @@ ul.navbar-nav > li > a:after {
 }
 
 ul.navbar-nav > li > a {
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Oxygen', sans-serif;
   color: #fff !important;
   text-rendering: optimizeLegibility;
   font-weight: 700 !important;
@@ -1037,7 +1042,7 @@ ul.navbar-nav > li > a {
 }
 
 .dropdown-menu li a {
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Oxygen', sans-serif;
   display: block;
   font-size: 12px;
   text-transform: uppercase;
@@ -3798,7 +3803,7 @@ img.list-photo:hover, img.imgbox:hover{
 .card-title
 {
   color: #1e1e4b;
-  font-family: "futura-bold";
+  font-family: 'Oxygen', sans-serif;
   font-weight: 700;
   line-height: 1.2; 
 }

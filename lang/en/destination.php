@@ -25,6 +25,9 @@ return [
     "RandomSpots" => "You can chage the sort order",
     "SelectCircuit" => 'Select a tour',
     "CircuitLogin" => "To create a tour, you must first log in",
-
+    "cherchespot" => "Search for a spot",
+    "proximite" => "nearby spots",
+    "NosCircuits" => "Our tours",
+    "VosCircuits" => "Your tours",
 
 ];

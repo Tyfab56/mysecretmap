@@ -16,14 +16,17 @@ $(document).ready(function(){
       <div class="row">
            
          
-          
-              <label class="radio-inline w100p">
+      <div class="col-lg-1  ">  
+              <label class="radio-inline">
                     <input type="radio" id="1" name="tri" checked> {{ __('index.WallSort1') }}
               </label>
-              <label class="radio-inline w100p">
+      </div>
+      <div class="col-lg-1">
+              <label class="radio-inline">
                     <input type="radio" id="2" name="tri"> {{ __('index.WallSort2') }}
               </label>
-              <label class="radio-inline w100p">
+</div>
+              <label class="radio-inline">
                     <input type="radio" id="3" name="tri"> {{ __('index.WallSort3') }}
               </label>
             

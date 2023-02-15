@@ -25,4 +25,8 @@ return [
     "RandomSpots" => "Vous pouvez changer l'ordre du tri",
     "SelectCircuit" => 'Selectionnez un circuit',
     "CircuitLogin" => "Pour créer un circuit, vous devez d'abord vous connecter",
+    "cherchespot" => "Rechercher un spot",
+    "proximite" => "Spots à proximité",
+    "NosCircuits" => "Nos circuits",
+    "VosCircuits" => "Vos circuits",
 ];

@@ -1,7 +1,4 @@
 <div>
-    <p class="white"> Détail du circuit</p>
-    <a class="btn btn-secondary m5" href="javascript:refreshtour()">MAJ CIRCUIT</a>
-   
 
      @if (!empty($circuit)) 
         @foreach($circuit as $point) 

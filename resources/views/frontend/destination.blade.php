@@ -15,24 +15,22 @@
 @section('content')
 <section id="ts-features" class="ts-features">
     <div class="container">
-      <div class="row">
-         <h1> <a href='{{ route($pays->route) }}'>{{$pays->pays}}</a></h1>
-      </div>
+        <div class="row">
+             <h1> <a href='{{ route($pays->route) }}'>{{$pays->pays}}</a></h1>
+        </div>
         <div class="row">
                <div class="col-lg-3">                            
-                   <a class="btn btn-primary m5" href="{{ url('thewall') }}/{{ $idpays}}">THE WALL</a>
+                   <a class="btn btn-primary m5" href="{{ url('thewall') }}/{{ $idpays}}">{{__('destination.cherchespot')}} </a>
                </div>
         </div>   
-        <div class="row">  
-          
-          
+        <div class="row">       
                <div class="col-lg-9">
                      <div class="row">
                            
 
                             <div class="row bgregbox w100">
                             <div class="col-lg-12">
-                                  <div><b>Spots à proximité :</b></div>
+                                  <div><b> :</b></div>
                                   <div id="medias"></div>
                             </div>
                        </div>
@@ -62,16 +60,12 @@
                          
                         
                 </div>
-        </div>
-        <div class="col-lg-3 bgbox"> 
-          <livewire:show-map-spot />
-      </div>
+            </div>
+              <div class="col-lg-3 bgbox"> 
+                <livewire:show-map-spot />
+            </div>
         </div>
        
-        <div class="row bgregbox">
-         
-        </div>
-
         <div class="row bgregbox min100">  
           <div class="col-lg-6 center"><div id="mapzoom"></div></div>
           <div class="col-lg-6 center"><livewire:show-img-region /></div>
@@ -90,56 +84,64 @@
         @endif  
         @endauth
         <div class="row min100">      
-          <div class="col-lg-3 col-md-12  bgbox ">
-          <h4 class="white">VOS CIRCUITS</h4>
-            @auth
-           
-                  <div class="form-group">
-                  
-                    <select class="form-control ml15 mw350 mauto white" id="idcircuit" name="idcircuit">
-                    <option value="">{{__('destination.SelectCircuit')}}</option>
-                  
-                        @foreach($circuits as $circuit)                    
-                          <option value="{{$circuit->id}}" {{($circuitactif == $circuit->id) ? 'selected' : ''}}>{{$circuit->titrecircuit}}</option>
-                        @endforeach
-                   </select>
-                  </div>
-            @endauth
-            @guest
+              <div class="col-lg-3 col-md-12 bgbox ">
+              <h4 class="white">{{__('destination.VosCircuits')}}</h4>
+                @auth
+              
+                      <div class="form-group">
+                      
+                        <select class="form-control ml15 mw350 mauto white" id="idcircuit" name="idcircuit">
+                        <option value="">{{__('destination.SelectCircuit')}}</option>
+                      
+                            @foreach($circuits as $circuit)                    
+                              <option value="{{$circuit->id}}" {{($circuitactif == $circuit->id) ? 'selected' : ''}}>{{$circuit->titrecircuit}}</option>
+                            @endforeach
+                      </select>
+                      </div>
+                @endauth
+                @guest
 
-              <p ><h6 class="white">{{__('destination.CircuitLogin')}}</h6></p>
-              <a class="btn btn-primary mb5" href="{{ route('login') }}">{{__('menu.Connexion')}}</a>
-            @endguest
-          </div>
-          <div class="col-lg-9 col-md-12 bgbox">
-               <div class="row">
-                    <p><h4   class="white"> DECOUVREZ NOS CIRCUITS</h4></p>  
-               </div>
-               <div class="row">
-                  <livewire:show-circuit />
-               </div>
-          </div>
+                  <p ><h6 class="white">{{__('destination.CircuitLogin')}}</h6></p>
+                  <a class="btn btn-primary mb5" href="{{ route('login') }}">{{__('menu.Connexion')}}</a>
+                @endguest
+       
+                <h4 class="white"> {{__('destination.NosCircuits')}}</h4>
+    
+              </div>
+              <div class="col-lg-6 col-md-12 bgbox">
+                  
+                  <div class="row">
+                      <livewire:show-circuit />
+                  </div>
+              </div>
+              <div class="col-lg-3 col-md-12 bgbox">
+             </div>
         </div>  
+
         <div class="row">
-        <div class="col-lg-6">
-                              <img class="max50" src="{{asset('frontend/assets/images')}}/{{ Config::get('app.locale') }}/clubpatreon.jpg">
-                              <br>Pour bénéficier des nombreux Bonus et faire grandir cette carte
-                            </div>
-                            <div class="col-lg-6">
-                              <a class="btn btn-secondary m5" href="javascript:addtour()">AJOUTER CE SPOT AU CIRCUIT</a><br>
-                              <a class="btn btn-primary m5" href="{{ url('thewall') }}/{{ $idpays}}">THE WALL</a>
-                            </div>
+
+        <div class="col-lg-3">
+
+               <div data-gyg-href="https://widget.getyourguide.com/default/activities.frame" data-gyg-locale-code="fr-FR" data-gyg-widget="activities" data-gyg-number-of-items="1" data-gyg-partner-id="ZBTCHLM" data-gyg-tour-ids="393203"></div>
+
+        </div> 
+        <div class="col-lg-3">
+        <div data-gyg-href="https://widget.getyourguide.com/default/activities.frame" data-gyg-locale-code="fr-FR" data-gyg-widget="activities" data-gyg-number-of-items="1" data-gyg-partner-id="ZBTCHLM" data-gyg-tour-ids="393203"></div>
         </div>
-        <div class="row">
-                  <div class="col-lg-12">Autres vidéos</div>
+        <div class="col-lg-3">
+        <div data-gyg-href="https://widget.getyourguide.com/default/activities.frame" data-gyg-locale-code="fr-FR" data-gyg-widget="activities" data-gyg-number-of-items="1" data-gyg-partner-id="ZBTCHLM" data-gyg-tour-ids="393203"></div>
         </div>
-        <div class="row">          
-          <div class="col-lg-12">Neuwsletter</div>
-        </div>  
+        <a class="btn btn-primary m5" href="https://www.getyourguide.fr/lagon-bleu-l5049/lagon-bleu-billet-d-entree-avec-boisson-serviette-et-masque-de-boue-t393203/?partner_id=ZBTCHLM&utm_medium=online_publisher&placement=content-middle ">{{__('destination.cherchespot')}} </a>
+                        
+
+       </div>
+
+      
   
   
         </div>
     </div>
+
   </section>
 @endsection
 @section('fullscripts')
