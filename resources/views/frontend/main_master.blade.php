@@ -166,7 +166,15 @@
                             </li>
                             </ul>
                         </li>
-                        <li class="nav-item"><a class="nav-link" href="{{ URL::route('blog')}}">Blog</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ URL::route('blog')}}">{{ __('menu.Blog') }}</a></li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">{{ __('menu.Store') }} <i class="fa fa-angle-down"></i></a>
+                            <ul class="dropdown-menu" role="menu">
+                              <li><a href="{{ URL::route('nextdestinations')}}">{{ __('menu.Audioguide') }}</a></li>
+                              
+                              
+                            </ul>
+                        </li>
                         <li class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">ROAD MAP <i class="fa fa-angle-down"></i></a>
                             <ul class="dropdown-menu" role="menu">

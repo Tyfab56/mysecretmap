@@ -17,7 +17,7 @@
     <div class="container">
       <div class="row text-center">
           <div class="col-lg-7 col-md-12">
-            <h3 class="section-sub-title">{{__('index.Top1Line1')}}</h3>
+            <h2 class="section-sub-title">{{__('index.Top1Line1')}}</h2>
             <h3 class="section-sub-title">{{__('index.Top1Line2')}}</h3>
             <h6 >{{__('index.Top1Line3')}}</h6>
           </div>

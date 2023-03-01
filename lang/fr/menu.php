@@ -22,4 +22,7 @@ return [
     'Language' => 'Langue',
     'Destination' => 'Destination',
     'Searchhere' => 'Rechercher...',
+    'Store' => 'Boutique',
+    'Audioguide' => 'Audioguide',
+    'Blog' => 'Blog',
 ];

@@ -22,6 +22,9 @@ return [
     'Language' => 'Language ',
     'Destination' => 'Destination',
     'Searchhere' => 'Search here...',
+    'Store' => 'Store',
+    'Audioguide' => 'Audioguide',
+    'Blog' => 'Blog',
 
 
 

@@ -16,3 +16,10 @@ Ajout d'une description
 Ajout d'une image 
 
 @endsection
+@section('scripts')
+function loadCircuit()
+{
+    
+}
+
+@endsection

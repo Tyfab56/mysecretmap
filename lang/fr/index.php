@@ -20,7 +20,7 @@ return [
     'EmailAdress' => "Adresse Email",
     'Sunset' => "Coucher du soleil",
     'Sunrise' => "Lever du soleil",
-    'Top1Line1' => "VOYAGEURS, VOUS ALLEZ AIMER",
+    'Top1Line1' => "EXPLOREZ",
     'Top1Line2' => "VOS PROCHAINES DESTINATIONS",
     'Top1Line3' => "Islande, Seychelles, Rodrigues, La réunion...à vous de choisir",
     "Top2Line1" => "DÉCOUVREZ NOS CIRCUITS",
