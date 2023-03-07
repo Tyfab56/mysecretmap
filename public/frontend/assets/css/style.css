@@ -3843,3 +3843,59 @@ img.list-photo:hover, img.imgbox:hover{
     padding-left: 1.3rem;
   }
   
+.pad_section
+{
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  background-color: #ffffff;
+} 
+ 
+.pad_container_h16
+{
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.pad_section .content-wrapper {
+  padding: 5rem 3rem;
+}
+
+.pad_section .image-wrapper img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.pad_section .content-wrapper {
+  background: #fafafa;
+}
+
+.audio_features .card {
+  padding-left: 32px;
+  padding-right: 32px;
+}
+
+@media (min-width: 768px){
+  .container-fluid {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+
+@media (min-width: 992px)
+{
+.pad_section .content-wrapper .text-wrapper
+{
+    padding-right: 2rem;
+}
+}
+
+.display-2 {
+  font-size: 3rem;
+  line-height: 1.1;
+}
+
+.display-7 {
+  font-family: 'Jost', sans-serif;
+  font-size: 1.2rem;
+  line-height: 1.5;
+}

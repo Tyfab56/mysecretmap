@@ -94,6 +94,7 @@ Route::view('/iceland/geology', 'frontend.destinations.iceland-geologie')->name(
 Route::view('/blog', 'frontend.destinations.blog')->name('blog');
 Route::view('/blog/hotspot', 'frontend.destinations.blog-hotspot')->name('blog.hotspot');
 Route::view('/reunion', 'frontend.destinations.reunion')->name('reunion');
+Route::view('/audioguide', 'frontend.audioguide')->name('audioguide');
 
 
 require __DIR__ . '/auth.php';
