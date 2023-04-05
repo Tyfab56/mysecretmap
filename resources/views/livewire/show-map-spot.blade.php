@@ -1,5 +1,9 @@
 <div class="f13 white">
-    <div class="mt-3 white"><img src="{{$spot->imgpanomedium??''}}" class="max100 mb5 responsive intense" ></div>
+    <div class="mt-3 white img-relative"> 
+      <a href="{{$spot->imgpanolarge??''}}" data-lightbox="pano"><img src="{{$spot->imgpanomedium??''}}" class="max100 mb5 responsive intense" >
+      <img src="{{asset('frontend/assets/images/zoom.png')}}" id="imgzoom">
+      </a>
+    </div>
     <b class="white">{{ __('index.Spot') }} : <span class="orange">{{$titre}}</span></b><br>
     <b class="white">Lat : <span class="orange">{{$spot->lat}}</span></b><br>
     <b class="white">Lng : <span class="orange">{{$spot->lng}}</span></b><br>

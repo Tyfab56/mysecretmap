@@ -3899,3 +3899,10 @@ img.list-photo:hover, img.imgbox:hover{
   font-size: 1.2rem;
   line-height: 1.5;
 }
+
+#imgzoom
+{
+  position: absolute;
+  left: 45%;
+  top: 40%;
+}
