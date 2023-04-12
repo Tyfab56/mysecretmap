@@ -48,7 +48,9 @@
                 </x-primary-button>
             </div>
         </form>
+       
     </x-auth-card>
+    <a class="btn btn-primary indexbtn" href="{{'home'}}"">{{ __('destination.VoirAllSpots') }}</a>
 </x-guest-layout>
 
 @endsection

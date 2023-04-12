@@ -15,4 +15,6 @@ return [
 'remember' => 'Se souvenir de moi',
 'login' => 'Connexion',
 'forgot' => 'Oublié le mot de passe ?',
+'txtforgot' => 'Vous avez oublié votre mot de passe ? Pas de problème. Indiquez-nous votre adresse électronique et nous vous enverrons un lien de réinitialisation du mot de passe.',
+'reset' => 'Réinitialisation du mot de passe',
 ];
