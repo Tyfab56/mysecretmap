@@ -12,4 +12,7 @@ return [
 'confirm' => 'Confirmer le mot de passe',
 'alreadyregistered' => 'Déjà inscrit ?',
 'register' => 'Inscription',
+'remember' => 'Se souvenir de moi',
+'login' => 'Connexion',
+'forgot' => 'Oublié le mot de passe ?',
 ];

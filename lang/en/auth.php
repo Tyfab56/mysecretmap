@@ -22,5 +22,8 @@ return [
     'confirm' => 'Confirm password',
     'alreadyregistered' => 'Already registered?',
     'register' => 'Register',
+    'remember' => 'Remember me',
+    'login' => 'Log in',
+    'forgot' => 'Forgot your password ?',
 
 ];
