@@ -166,7 +166,8 @@
                             </li>
                             </ul>
                         </li>
-                        <li class="nav-item"><a class="nav-link" href="{{ URL::route('blog')}}">{{ __('menu.Blog') }}</a></li>
+                        <!-- <li class="nav-item"><a class="nav-link" href="{{ URL::route('blog')}}">{{ __('menu.Blog') }}</a></li> -->
+
                         <li class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">{{ __('menu.Store') }} <i class="fa fa-angle-down"></i></a>
                             <ul class="dropdown-menu" role="menu">
@@ -175,6 +176,7 @@
                               
                             </ul>
                         </li>
+                        <!--
                         <li class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">ROAD MAP <i class="fa fa-angle-down"></i></a>
                             <ul class="dropdown-menu" role="menu">
@@ -182,10 +184,12 @@
                               <li><a href="{{ URL::route('whatsnext')}}">NEW FEATURES</a></li>
                               
                             </ul>
-                        </li>
+                        </li> -->
                 
-                        <li class="nav-item"><a class="nav-link" href="{{ URL::route('contact')}}">Contact</a></li>
-
+                        <!--
+                          <li class="nav-item"><a class="nav-link" href="{{ URL::route('contact')}}">Contact</a></li>
+                         -->
+                         <!--
                         <li class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">BE PARTNERS <i class="fa fa-angle-down"></i></a>
                             <ul class="dropdown-menu" role="menu">
@@ -194,6 +198,7 @@
                               <li><a href="{{ URL::route('tourism')}}">TOURISM BOARD</a></li>
                             </ul>
                         </li>
+                         -->
                         @auth
                         <li class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"> <i class="glyphicon glyphicon-user"> </i> {{ __('menu.Bonjour') }} {{Auth::user()->name}} <i class="fa fa-angle-down"></i></a>
