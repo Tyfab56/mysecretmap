@@ -94,8 +94,8 @@
                       <div class="info-box">
                         <div class="info-box-content">
                            
-                            <p class="info-box-subtitle">nouvelles destinations</p>
-                            <p class="info-box-title">Bientôt</p>
+                            <p class="info-box-subtitle">{{ __('index.Newdestination') }}</p>
+                            <p class="info-box-title">{{ __('index.Newdestination2') }}</p>
                         </div>
                       </div>
                     </li>

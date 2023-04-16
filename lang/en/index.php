@@ -2,6 +2,8 @@
 
 return [
     'Newspots' => 'New Spots',
+    'Newdestination' => 'NEW DESTINATIONS',
+    'Newdestination2' => '2023 : Reunion Island, Mauritius',
     'Description' => 'Description',
     'InfoSpot' => 'Discover a lot more information and the possibility to create your own tour',
     'Spot' => 'Spot',
