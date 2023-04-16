@@ -77,3 +77,8 @@
     @endpush 
 </x-guest-layout>
 @endsection
+
+@section('content')
+@section('fullscripts')
+<script src="https://www.google.com/recaptcha/api.js?render={{ config('services.recaptcha.site_key') }}"></script> 
+@endsection
