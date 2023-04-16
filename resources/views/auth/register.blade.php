@@ -50,6 +50,8 @@
                 <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
             </div>
 
+            <div class="g-recaptcha mt-4" data-sitekey={{config('services.recaptcha.key')}}></div>
+
             <div class="flex items-center justify-end mt-4">
                 <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
                     {{ __('auth.alreadyregistered') }}
@@ -61,24 +63,11 @@
             </div>
         </form>
     </x-auth-card>
-    @push('capscripts') 
-        <script>
-            grecaptcha.ready(function () {
-                document.getElementById('registerForm').addEventListener("submit", function (event) {
-                    event.preventDefault();
-                    grecaptcha.execute('{{ config('services.recaptcha.site_key') }}', { action: 'register' })
-                        .then(function (token) {
-                            document.getElementById("recaptcha_token").value = token;
-                            document.getElementById('registerForm').submit();
-                        });
-                });
-            });
-        </script>
-    @endpush 
+    
 </x-guest-layout>
 @endsection
 
 @section('content')
 @section('fullscripts')
-<script src="https://www.google.com/recaptcha/api.js?render={{ config('services.recaptcha.site_key') }}"></script> 
+<script async src="https://www.google.com/recaptcha/api.js">
 @endsection
