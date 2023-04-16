@@ -3497,6 +3497,14 @@ a.red:hover
 {
   padding-top: 5px ;
 }
+.pt10
+{
+  padding-top: 10px ;
+}
+.pt20
+{
+  padding-top: 20px ;
+}
 .pr15
 {
   padding-right: 15px ;

@@ -3,13 +3,13 @@
 <section class="pad_section">
 
     <div class="container pad_container_16">
-        <div class="content-wrapper">
+        <div class="content-wrapper pb-4">
             <div class="row align-items-center">
                 <div class="col-lg-8">
                     <div class="text-wrapper">
                         <h6 class="card-title mbr-fonts-style display-2"><strong>Audioguide Islande</strong></h6>
                         <p class="mbr-text mbr-fonts-style mb-4 display-7">
-                            Découvrez l'Islande en compagnie du photographe Fabrice H<br><br>J'ai conçu cet audioguide pour Iphone, Android et windows, à destination des amateurs de photographies qui ont envie de découvrir cette fantastique destination. Il existe actuellement en Français et une version anglaise est en cours de traduction.<br></p>
+                            Découvrez l'Islande en compagnie du photographe Fabrice H<br><br>J'ai conçu cet audioguide pour Iphone, Android et windows, à destination des amateurs de photographies qui ont envie de découvrir cette fantastique destination. Il existe actuellement en Français et en anglais. D'autres olangues sont en préparation.<br></p>
                             <div class="image-wrapper">
                                 <img src="{{ asset('frontend/assets/images/fr-audioguide.jpg')}}" alt="">
                             </div>
@@ -26,18 +26,21 @@
                                     
                 </div>
             </div>
+            <div class="center pt20">
+                     <button class="btn btn-primary solid blank" type="submit">Souscrire maintenant</button>
+            </div>
+           
         </div>
+       
     </div>
 </section>
 <section class="pad_section">
     
     
     <div class="container-fluid">
-        <div class="row">
-            
-        </div>
-        <div class="row">
-            <div class="card audio_features col-12 col-md-6 col-lg-3">
+       
+        <div class="row" style="justify-content: center">
+            <div class="card audio_features col-md-6 col-lg-3">
                 <div class="card-wrapper">
                     <div class="card-box align-center">
                         <div class="iconfont-wrapper">
@@ -48,7 +51,7 @@
                     </div>
                 </div>
             </div>
-            <div class="card col-12 col-md-6 col-lg-3">
+            <div class="card col-md-6 col-lg-3">
                 <div class="card-wrapper">
                     <div class="card-box align-center">
                         <div class="iconfont-wrapper">
@@ -59,7 +62,7 @@
                     </div>
                 </div>
             </div>
-            <div class="card col-12 col-md-6 col-lg-3">
+            <div class="card col-md-6 col-lg-3">
                 <div class="card-wrapper">
                     <div class="card-box align-center">
                         <div class="iconfont-wrapper">
