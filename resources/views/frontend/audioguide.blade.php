@@ -5,18 +5,25 @@
     <div class="container pad_container_16">
         <div class="content-wrapper">
             <div class="row align-items-center">
-                <div class="col-12 col-lg">
+                <div class="col-lg-8">
                     <div class="text-wrapper">
                         <h6 class="card-title mbr-fonts-style display-2"><strong>Audioguide Islande</strong></h6>
                         <p class="mbr-text mbr-fonts-style mb-4 display-7">
                             Découvrez l'Islande en compagnie du photographe Fabrice H<br><br>J'ai conçu cet audioguide pour Iphone, Android et windows, à destination des amateurs de photographies qui ont envie de découvrir cette fantastique destination. Il existe actuellement en Français et une version anglaise est en cours de traduction.<br></p>
-                        
+                            <div class="image-wrapper">
+                                <img src="{{ asset('frontend/assets/images/fr-audioguide.jpg')}}" alt="">
+                            </div>
                     </div>
                 </div>
-                <div class="col-12 col-lg-7">
-                    <div class="image-wrapper">
-                        <img src="{{ asset('frontend/assets/images/fr-audioguide.jpg')}}" alt="">
-                    </div>
+                <div class="col-lg-4 center">
+                                   
+                                    <deckgo-demo 
+                                                src="https://mysecretmap.com/audioguide_fr"
+                                                instant="true"
+                                                style="width: 30vw; height: 90vh;">
+                                     </deckgo-demo>
+                                    
+                                    
                 </div>
             </div>
         </div>
@@ -67,5 +74,13 @@
         </div>
     </div>
 </section>
+
+@endsection
+
+@section('fullscripts')
+
+<script type="module" src="https://unpkg.com/@deckdeckgo/demo@latest/dist/deckdeckgo-demo/deckdeckgo-demo.esm.js"></script>
+<script nomodule="" src="https://unpkg.com/@deckdeckgo/demo@latest/dist/deckdeckgo-demo/deckdeckgo-demo.js"></script>
+
 
 @endsection
