@@ -61,7 +61,7 @@
             </div>
         </form>
     </x-auth-card>
-    @push('scripts') 
+    @push('capscripts') 
         <script>
             grecaptcha.ready(function () {
                 document.getElementById('registerForm').addEventListener("submit", function (event) {
