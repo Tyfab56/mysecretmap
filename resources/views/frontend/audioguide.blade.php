@@ -55,7 +55,7 @@
                             <span class="mbr-iconfont mobi-mbri-cash mobi-mbri"></span>
                         </div>
                         <h5 class="card-title mbr-fonts-style display-7"><strong>Profitez du tarif de lancement</strong><br><strong>dès maintenant</strong></h5>
-                        <p class="card-text mbr-fonts-style display-7">Mis en vente le 1er juin au tarif de 19 €. En précommande dés maintenant au tarif de 12 € avec accès immédiat aux premiers enregistrements déjà en ligne.</p>
+                        <p class="card-text mbr-fonts-style display-7">Mis en vente le 1er juin au tarif de 12€. En précommande dés maintenant au tarif de 9€ avec accès immédiat aux premiers enregistrements déjà en ligne.</p>
                     </div>
                 </div>
             </div>
