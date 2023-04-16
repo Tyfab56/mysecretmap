@@ -83,6 +83,7 @@
             <div class="row align-items-center">
               <div class="logo col-lg-3 text-center text-lg-left mb-3 mb-md-5 mb-lg-0">
                   <a class="d-block" href="{{ URL::route('home')}}">
+                   <img loading="lazy" src="{{  asset('frontend/assets/images/maplogo.gif') }}" alt="My Secret map">
                     <img loading="lazy" src="{{  asset('frontend/assets/images/logoh55.png') }}" alt="My Secret map">
                   </a>
               </div><!-- logo end -->
