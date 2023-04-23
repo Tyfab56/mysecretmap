@@ -252,6 +252,7 @@
                              <li><a class="dropdown-item" href="{{ route('admin.listspots') }}"> Gestion Spots</a></li>
                              <li><a class="dropdown-item" href="{{ route('admin.circuits') }}"> Gestion Circuits</a></li>
                              <li><a class="dropdown-item" href="{{ route('admin.createzoom') }}">image Zoom</a></li>
+                             <li><a class="dropdown-item" href="{{ route('admin.timeline') }}">Timeline</a></li>
 
                         </ul>
                     </li>

@@ -8,6 +8,7 @@ use App\Http\Controllers\CircuitsController;
 use App\Http\Controllers\DistanceController;
 use App\Http\Controllers\PaysController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\TimelineController;
 use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\Frontend\DestinationController;
 use Illuminate\Support\Facades\Route;
@@ -63,6 +64,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile/me', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile/me', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile/me', [ProfileController::class, 'destroy'])->name('profile.destroy');
+   
 });
 
 Route::get('language/{locale}', function ($locale) {
@@ -89,6 +91,7 @@ Route::get('/admin/createzoom', [AdminController::class, 'createzoom'])->name('a
 Route::post('/admin/createzoomid', [AdminController::class, 'createzoomid'])->name('admin.createzoomid')->middleware('App\Http\Middleware\CheckAdmin');
 
 Route::get('/admin/detailpays/{id}', [PaysController::class, 'detail'])->name('admin.detailpays');
+Route::get('/admin/timeline', [TimelineController::class, 'detail'])->name('admin.timeline')->middleware('App\Http\Middleware\CheckAdmin');;
 
 Route::view('/rodrigues','frontend.destinations.rodrigues')->name('rodrigues');
 Route::view('/iceland', 'frontend.destinations.iceland')->name('iceland');
