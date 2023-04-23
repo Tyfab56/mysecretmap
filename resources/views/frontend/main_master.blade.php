@@ -116,7 +116,7 @@
                       </div>
                     </li>
                     <li class="header-get-a-quote">
-                      <a class="btn btn-primary" href="{{ URL::route('aboutus')}}">EN SAVOIR PLUS</a>
+                      <a class="btn btn-primary" href="{{ URL::route('aboutus')}}">{{ __('index.AboutLink') }}</a>
                     </li>
                   </ul><!-- Ul end -->
               </div><!-- header right end -->
@@ -285,7 +285,7 @@
       <div class="container">
         <div class="row justify-content-between">
           <div class="col-lg-4 col-md-6 footer-widget footer-about">
-            <h3 class="widget-title">About Us</h3>
+            <h3 class="widget-title"><a class="btn btn-primary" href="{{ URL::route('aboutus')}}">{{ __('index.AboutLink') }}</a></h3>
             <img loading="lazy" width="200px" class="footer-logo" src="{{  asset('frontend/assets/images/logoh55w.png') }}" alt="Constra">
             <p>{{ __('index.Aboutme') }}</p>
             <div class="footer-social">
@@ -341,7 +341,7 @@
           <div class="col-md-6">
             <div class="footer-menu text-center text-md-right">
               <ul class="list-unstyled">
-                <li><a href="about.html">About</a></li>
+                <li><a href="{{ URL::route('aboutus')}}">{{ __('index.AboutLink') }}</a></li>
                 <li><a href="team.html">Our people</a></li>
                 <li><a href="faq.html">Faq</a></li>
                 <li><a href="news-left-sidebar.html">Blog</a></li>

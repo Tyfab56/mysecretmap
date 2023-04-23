@@ -61,9 +61,8 @@ return [
     "WallSort1" => "Random",
     "WallSort2" => "Alphabet",
     "WallSort3" => "New spots",
-    "Affiliation" => "We have chosen the affiliate method to help support the operation of this site. Affiliate marketing is a widespread practice and some of the biggest brands on the planet use it.  If you click on one of these links and make a purchase, we may receive a small commission from the recipient to thank us for promoting their business. We only recommend activities that we think are relevant, but we recommend that you check for yourself on their site to see if it matches your search."
-    
-    
+    "Affiliation" => "We have chosen the affiliate method to help support the operation of this site. Affiliate marketing is a widespread practice and some of the biggest brands on the planet use it.  If you click on one of these links and make a purchase, we may receive a small commission from the recipient to thank us for promoting their business. We only recommend activities that we think are relevant, but we recommend that you check for yourself on their site to see if it matches your search.",
+    "AboutLink" => "About us",
     
 
 
