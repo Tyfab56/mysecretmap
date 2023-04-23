@@ -73,6 +73,13 @@
                     
                   </figure>
                 </div><!-- Client 1 end -->
+                <div class="col-sm-4 col-6">
+                  <figure class="clients-logo">
+                    <p class="info-box-subtitle">AudioGuide</p>
+                    <span class="quote-subtext green">En ligne</span>
+                    
+                  </figure>
+                </div><!-- Client 1 end -->
   
                 <div class="col-sm-4 col-6">
                   <figure class="clients-logo">
