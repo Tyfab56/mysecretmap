@@ -36,7 +36,7 @@ class TimelineController extends Controller
                         ->withInput();
         }
 
-        $filetimeline = $request->file('imgtimeline');
+        $filetimeline = $request->file('imagetimeline');
 
         // traitement image carré
         if ($filetimeline == null) {
@@ -81,7 +81,7 @@ class TimelineController extends Controller
             $disk->put('/large/large-' . $imgtimelinename, (string) $canvas, 'public');
             $largetimelinename = $disk->url('large/large-' . $imgtimelinename);
 
-
+        }
             
             
         // Enregistrer la timeline en base de données
