@@ -27,9 +27,10 @@
             <!-- Colorbox -->
             <link rel="stylesheet" href="{{  asset('frontend/assets/plugins/colorbox/colorbox.css') }}">
             <!-- Template styles-->
-            <link rel="stylesheet" href="{{  asset('frontend/assets/css/style.css') }}">
+           
             
             @yield('css')
+            <link rel="stylesheet" href="{{  asset('frontend/assets/css/style.css') }}">
             @livewireStyles
            
 

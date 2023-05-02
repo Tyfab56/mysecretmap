@@ -397,4 +397,8 @@ class IndexController extends Controller
     public function spot($id)
     {
     }
+    public function timeline()
+    {
+        return view('frontend/timeline');
+    }
 }

@@ -8,7 +8,6 @@
         "php": "^8.0.2",
         "aimeos/aimeos-laravel": "~2023.04",
         "astrotomic/laravel-translatable": "^11.11",
-        "barryvdh/laravel-debugbar": "^3.7",
         "guzzlehttp/guzzle": "^7.2",
         "intervention/image": "^2.7",
         "laravel-views/laravel-views": "^2.4",

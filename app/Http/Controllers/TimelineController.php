@@ -5,83 +5,66 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Timelines;
+use App\Models\TimelinesTranslation;
 use Illuminate\Support\Facades\Storage;
+use Validator;
 
 class TimelineController extends Controller
 {
     public function index()
     {
-        $timeline = Timelines::orderBy('date')->get();
-        dd($timelime);
-        return view('admin.timeline', compact('timeline'));
-    }
-
-    public function create()
-    {
-        return view('admin.timeline.create');
-    }
+        $timeline = Timelines::orderBy('id', 'desc')->get();
+        return view('frontend.timeline',compact('timeline'));
+    } 
 
     public function store(Request $request)
+  
     {
-        $request->validate([
-            'title' => 'required',
+        // Valider les données soumises par l'utilisateur
+        $validator = Validator::make($request->all(), [
+            'title' => 'required|max:140',
+            'description' => 'required|max:255',
             'date' => 'required|date',
-            'description' => 'required',
-            'image' => 'required|image|max:2048'
+            'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
-        $imagePath = $request->file('image')->store('public/timeline');
-        $imageUrl = Storage::url($imagePath);
-
-        $timeline = new Timeline([
-            'title' => $request->get('title'),
-            'date' => $request->get('date'),
-            'description' => $request->get('description'),
-            'image_url' => $imageUrl
-        ]);
-        $timeline->save();
-
-        return redirect('/admin/timeline')->with('success', 'Événement ajouté à la timeline.');
-    }
-
-    public function edit($id)
-    {
-        $timeline = Timeline::find($id);
-        return view('admin.timeline.edit', compact('timeline'));
-    }
-
-    public function update(Request $request, $id)
-    {
-        $request->validate([
-            'title' => 'required',
-            'date' => 'required|date',
-            'description' => 'required',
-            'image' => 'nullable|image|max:2048'
-        ]);
-
-        $timeline = Timeline::find($id);
-
-        if ($request->hasFile('image')) {
-            Storage::delete(str_replace('/storage', 'public', $timeline->image_url));
-            $imagePath = $request->file('image')->store('public/timeline');
-            $imageUrl = Storage::url($imagePath);
-            $timeline->image_url = $imageUrl;
+        // Rediriger l'utilisateur avec un message d'erreur si la validation échoue
+        if ($validator->fails()) {
+            return redirect('timelines/create')
+                        ->withErrors($validator)
+                        ->withInput();
         }
 
-        $timeline->title = $request->get('title');
-        $timeline->date = $request->get('date');
-        $timeline->description = $request->get('description');
+        // Enregistrer la timeline en base de données
+        $timeline = new Timelines;
+        $timeline->date = $request->input('date');
+
+        // Enregistrer l'image si elle est fournie
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $filename = time() . '_' . $image->getClientOriginalName();
+            $image->move(public_path('images/timelines'), $filename);
+            $timeline->image = $filename;
+        }
+
         $timeline->save();
+   
 
-        return redirect('/admin/timeline')->with('success', 'Événement de la timeline mis à jour.');
+        // Enregistrer les traductions pour la timeline
+        $title_translations = $request->input('title');
+        $description_translations = $request->input('description');
+
+        foreach ($title_translations as $locale => $title) {
+            $translation = new TimelinesTranslation;
+            $translation->timelines_id = $timeline->id;
+            $translation->locale = $locale;
+            $translation->texte = $title;
+            $translation->description = $description_translations[$locale];
+            $translation->save();
+        }
+
+        // Rediriger l'utilisateur vers une page de confirmation ou de gestion des timelines
+        return back()->with('success', 'Timeline créée avec succès.');
     }
-
-    public function destroy($id)
-    {
-        $timeline = Timeline::find($id);
-        Storage::delete(str_replace('/storage', 'public', $timeline->image_url));
-        $timeline->delete();
-
-        return redirect('/admin/timeline')->with('success', 'Événement de la timeline supprimé.');
-    }
+    
 }

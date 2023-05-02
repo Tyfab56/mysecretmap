@@ -18,7 +18,7 @@
                 <div class="col-lg-4 center">
                                    
                                     <deckgo-demo 
-                                                src="https://mysecretmap.com/audioguide_fr"
+                                                src="https://mysecretmap.com/audioguide_demo"
                                                 instant="true"
                                                 style="width: 30vw; height: 90vh;">
                                      </deckgo-demo>
