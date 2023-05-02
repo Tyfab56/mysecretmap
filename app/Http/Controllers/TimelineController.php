@@ -51,7 +51,7 @@ class TimelineController extends Controller
             $extension = $filetimeline->getClientOriginalExtension();
             $imgtimelinename =  $request->file('imagetimeline')->getClientOriginalName();;
             $imgtimelinename = str_replace(' ', '-', $imgtimelinename);
-            $imgtimelinename = uniqid() . "_" . $id . "_" . $request->payslist . "_" . $imgsquarename;
+            $imgtimelinename = uniqid() . "_" . $imgtimelinename;
 
 
             $disk = Storage::disk('wasabi');
