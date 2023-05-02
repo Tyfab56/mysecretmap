@@ -173,7 +173,7 @@
                                 <img src="{{$spot->imgmapmedium}}">
                             </div>
                             <div class="form-group">
-                                <label class="info-title" for="imgmap">Zoom Lumière<span class="text-danger">*</span></label>
+                                <label class="info-title" for="imgzoom">Zoom Lumière<span class="text-danger">*</span></label>
                                 <div class="controls">
                                     <input type="file" name="imgzoom" class="form-control" id="imgzoom">
 

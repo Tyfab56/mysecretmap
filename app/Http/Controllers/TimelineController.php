@@ -36,17 +36,64 @@ class TimelineController extends Controller
                         ->withInput();
         }
 
+        $filetimeline = $request->file('imgtimeline');
+
+        // traitement image carré
+        if ($filetimeline == null) {
+            // pas de nouvelle image
+            $imagetimelinestatus = 0;
+        } else {
+            // Recherche si ancienne image et suppression des images coorespondantes
+
+            
+            // nouvelle image
+            $imagetimelinestatus = 1;
+            $extension = $filetimeline->getClientOriginalExtension();
+            $imgtimelinename =  $request->file('imagetimeline')->getClientOriginalName();;
+            $imgtimelinename = str_replace(' ', '-', $imgtimelinename);
+            $imgtimelinename = uniqid() . "_" . $id . "_" . $request->payslist . "_" . $imgsquarename;
+
+
+            $disk = Storage::disk('wasabi');
+            $bucket = 'mysecretmap';
+
+            // LARGE
+       
+            $width = 500;
+            $height = 375   ;
+            $canvas = Image::canvas($width, $height);
+
+            $imagefinale  = Image::make($filesquare)->resize(
+                $width,
+                null,
+                function ($constraint) {
+                    $constraint->aspectRatio();
+                    $constraint->upsize();
+                }
+            );
+
+            $canvas->insert(
+                $imagefinale,
+                'center'
+            );
+            $canvas->encode($extension);
+
+            $disk->put('/large/large-' . $imgtimelinename, (string) $canvas, 'public');
+            $largetimelinename = $disk->url('large/large-' . $imgtimelinename);
+
+
+            
+            
         // Enregistrer la timeline en base de données
         $timeline = new Timelines;
         $timeline->date = $request->input('date');
         $timeline->timelinescat_id = $request->input('timelinescat');
         
         // Enregistrer l'image si elle est fournie
-        if ($request->hasFile('image')) {
-            $image = $request->file('image');
-            $filename = time() . '_' . $image->getClientOriginalName();
-            $image->move(public_path('images/timelines'), $filename);
-            $timeline->image = $filename;
+        if ($imagetimelinestatus == 1) {
+            $timeline->bucket = $bucket;
+            $timeline->fichier = $imgtimelinename;
+            $timeline->image = $largetimelinename;
         }
 
         $timeline->save();

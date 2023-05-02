@@ -70,7 +70,7 @@
 
     <div class="form-group">
         <label for="image">{{ __('Image') }}</label>
-        <input id="image" type="file" class="form-control-file @error('image') is-invalid @enderror" name="image">
+        <input id="imagetimeline" type="file" class="form-control-file @error('image') is-invalid @enderror" name="imagetimeline">
 
         @error('image')
             <span class="invalid-feedback" role="alert">
