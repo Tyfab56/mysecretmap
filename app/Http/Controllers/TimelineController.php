@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\TimelinesCat;
 use App\Models\Timelines;
 use App\Models\TimelinesTranslation;
+use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Storage;
 use Validator;
 
