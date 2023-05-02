@@ -36,7 +36,7 @@ Route::get('contact', [IndexController::class, 'contact'])->name('contact');
 Route::get('patreon', [IndexController::class, 'contact'])->name('patreon');
 Route::get('aboutus', [IndexController::class, 'aboutus'])->name('aboutus');
 Route::get('medias', [IndexController::class, 'medias'])->name('medias');
-Route::get('timeline', [TimelineController::class, 'index'])->name('timeline');
+Route::get('timeline', [IndexController::class, 'timeline'])->name('timeline');
 
 Route::get('myaccount', [IndexController::class, 'myaccount'])->name('myaccount');
 Route::get('addimagespot/{spotid}', [IndexController::class, 'addimagespot'])->name('addimagespot');

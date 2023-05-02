@@ -11,6 +11,10 @@ class Timelines extends Model
 {
     use Translatable;
 
+    public function timelinescat()
+    {
+        return $this->belongsTo(TimelinesCat::class);
+    }
 
     public $translatedAttributes = [
         'description', 'texte'

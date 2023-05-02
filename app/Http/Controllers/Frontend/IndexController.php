@@ -10,6 +10,8 @@ use App\Models\Circuits;
 use App\Models\Circuits_details;
 use App\Models\Default_spots;
 use App\Models\Noscircuits;
+use App\Models\TimelineCat;
+use App\Models\Timelines;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -397,8 +399,45 @@ class IndexController extends Controller
     public function spot($id)
     {
     }
-    public function timeline()
+    public function timeline(Request $request)
     {
-        return view('frontend/timeline');
+            $perPage = 5; // Nombre d'éléments à récupérer par page
+            $page = $request->input('page', 1); // Page actuelle
+            $skip = ($page - 1) * $perPage; // Nombre d'éléments à sauter
+           
+            // Récupérer les éléments de la timeline
+            $items = Timelines::orderBy('id', 'desc')
+                             ->skip($skip)
+                             ->take($perPage)
+                             ->get();
+        
+            // Calculer le nombre total de pages
+            $totalitems = Timelines::count();
+            $totalpages = ceil($totalitems / $perPage);
+        
+            // Retourner les éléments de la page actuelle et les informations de pagination
+            
+
+            if ($request->ajax()) {
+                $output = '';
+                foreach($items as $spot)
+                {
+                    $output .= '<div class="cd-timeline__block">
+                        <div class="cd-timeline__img cd-timeline__img--picture">
+                            <img src="' . asset('frontend/assets/images/icon-image/' . $spot->timelinescat->icon) . '" alt="Picture">
+                        </div> <!-- cd-timeline__img -->
+                        <div class="cd-timeline__content text-component">
+                            <h2>' . $spot->texte . '</h2>
+                            <p class="color-contrast-medium">' . $spot->description . '</p>
+                            <div class="flex justify-between items-center">
+                                <span class="cd-timeline__date">' . $spot->date . '</span>
+                            </div>
+                        </div> <!-- cd-timeline__content -->
+                    </div> <!-- cd-timeline__block -->';
+                }
+                return Response($output);
+            }
+        
+            return view('frontend.timeline', compact('items','totalpages'));
     }
 }

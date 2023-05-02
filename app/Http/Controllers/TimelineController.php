@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\TimelinesCat;
 use App\Models\Timelines;
 use App\Models\TimelinesTranslation;
 use Illuminate\Support\Facades\Storage;
@@ -13,8 +14,8 @@ class TimelineController extends Controller
 {
     public function index()
     {
-        $timeline = Timelines::orderBy('id', 'desc')->get();
-        return view('frontend.timeline',compact('timeline'));
+        $icons = TimelinesCat::get();  
+        return view('admin.timeline',compact('icons'));
     } 
 
     public function store(Request $request)
@@ -38,7 +39,8 @@ class TimelineController extends Controller
         // Enregistrer la timeline en base de données
         $timeline = new Timelines;
         $timeline->date = $request->input('date');
-
+        $timeline->timelinescat_id = $request->input('timelinescat');
+        
         // Enregistrer l'image si elle est fournie
         if ($request->hasFile('image')) {
             $image = $request->file('image');

@@ -16,7 +16,14 @@
             </span>
         @enderror
     </div>
+    <div class="form-group">
+    <select name="timelinescat" class="form-control">
+            @foreach($icons as $icon)
+                <option value="{{ $icon->id }}">{{ $icon->icon }}</option>
+            @endforeach
+</select>
 
+    </div>
     <div class="form-group">
         <label for="title_fr">{{ __('Title (French)') }}</label>
         <input id="title_fr" type="text" class="form-control @error('title.fr') is-invalid @enderror" name="title[fr]" value="{{ old('title.fr') }}" required autocomplete="title_fr">

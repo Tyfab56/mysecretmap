@@ -140,9 +140,10 @@
                       
                       <ul class="nav navbar-nav mr-auto">
                      
-                        <li class="nav-item"><a class="nav-link" href="{{ URL::route('home')}}">{{ __('menu.Home') }}</a></li>
+                       
+                       <li class="nav-item"><a class="nav-link" href="{{ URL::route('home')}}">{{ __('menu.Home') }}</a></li>
 
-                        
+                       <li class="nav-item"><a class="nav-link" href="{{ URL::route('timeline')}}">{{ __('menu.Filinfo') }}</a></li>
   
                        
                         

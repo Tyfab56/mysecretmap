@@ -25,7 +25,7 @@ return [
     'Store' => 'Store',
     'Audioguide' => 'Audioguide',
     'Blog' => 'Blog',
-
+    'Filinfo' => 'News feed',
 
 
 

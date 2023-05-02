@@ -25,4 +25,5 @@ return [
     'Store' => 'Boutique',
     'Audioguide' => 'Audioguide',
     'Blog' => 'Blog',
+    'Filinfo' => 'Fil Info',
 ];
