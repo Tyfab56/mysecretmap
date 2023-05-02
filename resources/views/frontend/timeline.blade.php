@@ -84,7 +84,7 @@ function loadMoreData(numpage){
         <div class="cd-timeline__content text-component">
           <h2>{{$spot->texte}}</h2>
           <p class="color-contrast-medium">{{$spot->description}}</p>
-
+          <img src="{{$spot->image}}">
           <div class="flex justify-between items-center">
             <span class="cd-timeline__date">{{$spot->date}}</span>
           
