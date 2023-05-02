@@ -64,7 +64,7 @@ class TimelineController extends Controller
             $height = 375   ;
             $canvas = Image::canvas($width, $height);
 
-            $imagefinale  = Image::make($filesquare)->resize(
+            $imagefinale  = Image::make($filetimeline)->resize(
                 $width,
                 null,
                 function ($constraint) {
