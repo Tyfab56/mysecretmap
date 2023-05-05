@@ -122,10 +122,10 @@ class TimelineController extends Controller
 {
     // Récupérer l'ID de l'enregistrement à partir de la zone d'entrée du formulaire
     $id = $request->input('id');
-
+ 
     // Récupérer les données de cet enregistrement à partir de la base de données
-    $enregistrement = SpotsTranslation::where('id','=',$id)->where('locale','=','fr')->first();;
-      
+    $enregistrement = SpotsTranslation::where('spots_id','=',$id)->where('locale','=','fr')->first();;
+
     // Renvoyer la réponse à la zone de sortie correspondante
     return response()->json(['description' => $enregistrement->description]);
 }
