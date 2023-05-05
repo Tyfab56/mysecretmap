@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\TimelinesCat;
 use App\Models\Timelines;
 use App\Models\TimelinesTranslation;
+use App\Models\SpotsTranslation;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Storage;
 use Validator;
@@ -116,5 +117,17 @@ class TimelineController extends Controller
         // Rediriger l'utilisateur vers une page de confirmation ou de gestion des timelines
         return back()->with('success', 'Timeline créée avec succès.');
     }
+
+    public function getSpot(Request $request)
+{
+    // Récupérer l'ID de l'enregistrement à partir de la zone d'entrée du formulaire
+    $id = $request->input('id');
+
+    // Récupérer les données de cet enregistrement à partir de la base de données
+    $enregistrement = SpotsTranslation::where('id','=',$id)->where('locale','=','fr')->first();;
+      
+    // Renvoyer la réponse à la zone de sortie correspondante
+    return response()->json(['description' => $enregistrement->description]);
+}
     
 }

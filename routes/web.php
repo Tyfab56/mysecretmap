@@ -106,4 +106,6 @@ Route::view('/reunion', 'frontend.destinations.reunion')->name('reunion');
 Route::view('/audioguide', 'frontend.audioguide')->name('audioguide');
 
 
+Route::post('/getspot', [TimelineController::class, 'getSpot'])->name('getspot');
+
 require __DIR__ . '/auth.php';

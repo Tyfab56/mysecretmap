@@ -7,11 +7,11 @@
             <div class="row align-items-center">
                 <div class="col-lg-8">
                     <div class="text-wrapper">
-                        <h6 class="card-title mbr-fonts-style display-2"><strong>Audioguide Islande</strong></h6>
+                        <h6 class="card-title mbr-fonts-style display-2"><strong>{{ __('audioguide.AudioTitreIslande') }}</strong></h6>
                         <p class="mbr-text mbr-fonts-style mb-4 display-7">
-                            Découvrez l'Islande en compagnie du photographe Fabrice H<br><br>J'ai conçu cet audioguide pour Iphone, Android et windows, à destination des amateurs de photographies qui ont envie de découvrir cette fantastique destination. Il existe actuellement en Français et en anglais. D'autres olangues sont en préparation.<br></p>
+                        {{ __('audioguide.AudioDesc') }}</p>
                             <div class="image-wrapper">
-                                <img src="{{ asset('frontend/assets/images/fr-audioguide.jpg')}}" alt="">
+                                <img src="{{ asset('frontend/assets/images/'. app()->getLocale() .'-audioguide.jpg')}}" alt="">
                             </div>
                     </div>
                 </div>
@@ -21,13 +21,15 @@
                                                 src="https://mysecretmap.com/audioguide_demo"
                                                 instant="true"
                                                 style="width: 30vw; height: 90vh;">
+                                                Wait for the demo
                                      </deckgo-demo>
                                     
                                     
                 </div>
             </div>
             <div class="center pt20">
-                     <button class="btn btn-primary solid blank" type="submit">Souscrire maintenant</button>
+                      <h2>{{ __('audioguide.Lancement') }}</h2></br>
+                     <button class="btn btn-primary solid blank" type="submit">{{ __('audioguide.Subscribe') }}</button>
             </div>
            
         </div>
@@ -46,8 +48,8 @@
                         <div class="iconfont-wrapper">
                             <span class="mbr-iconfont mbrib-map-pin"></span>
                         </div>
-                        <h5 class="card-title mbr-fonts-style display-7"><strong>Gagnez du temps sur la préparation votre voyage</strong></h5>
-                        <p class="card-text mbr-fonts-style display-7">Plus de 200 spots à découvrir en audio de façon interactive sur la carte , mais également une version texte avec des liens vers d'autres ressources utiles pour votre voyage.</p>
+                        <h5 class="card-title mbr-fonts-style display-7"><strong>{{ __('audioguide.AdvTitre1') }}</strong></h5>
+                        <p class="card-text mbr-fonts-style display-7">{{ __('audioguide.AdvDesc1') }}</p>
                     </div>
                 </div>
             </div>
@@ -57,8 +59,8 @@
                         <div class="iconfont-wrapper">
                             <span class="mbr-iconfont mobi-mbri-cash mobi-mbri"></span>
                         </div>
-                        <h5 class="card-title mbr-fonts-style display-7"><strong>Profitez du tarif de lancement</strong><br><strong>dès maintenant</strong></h5>
-                        <p class="card-text mbr-fonts-style display-7">Mis en vente le 1er juin au tarif de 12€. En précommande dés maintenant au tarif de 9€ avec accès immédiat aux premiers enregistrements déjà en ligne.</p>
+                        <h5 class="card-title mbr-fonts-style display-7"><strong>{{ __('audioguide.AdvTitre2') }}</strong></h5>
+                        <p class="card-text mbr-fonts-style display-7">{{ __('audioguide.AdvDesc2') }}</p>
                     </div>
                 </div>
             </div>
@@ -68,13 +70,13 @@
                         <div class="iconfont-wrapper">
                             <span class="mbr-iconfont mobi-mbri-like mobi-mbri"></span>
                         </div>
-                        <h5 class="card-title mbr-fonts-style display-7"><strong>Découvrez les lieux secrets du photographe Fabrice H</strong><strong><br></strong></h5>
-                        <p class="card-text mbr-fonts-style display-7">En plus des lieux incontournables, Fabrice vous ouvre des lieux incroyables hors des sentiers touristiques habituels</p>
+                        <h5 class="card-title mbr-fonts-style display-7"><strong></strong>{{ __('audioguide.AdvTitre3') }}<strong><br></strong></h5>
+                        <p class="card-text mbr-fonts-style display-7">{{ __('audioguide.AdvDesc3') }}</p>
                     </div>
                 </div>
                
             </div>
-            <h2 class="pt20">ISLANDE : En préparation un audio guide spécial HIGHTLANDS</h2>
+            <h2 class="pt20">{{ __('audioguide.SubTitre1') }}</h2>
         </div>
     </div>
 </section>

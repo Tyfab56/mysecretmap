@@ -345,7 +345,7 @@
             <div class="footer-menu text-center text-md-right">
               <ul class="list-unstyled">
                 <li><a href="{{ URL::route('aboutus')}}">{{ __('index.AboutLink') }}</a></li>
-                <li><a href="team.html">Our people</a></li>
+                <li><a href="{{ URL::route('audioguide')}}">{{ __('index.AudioguideLink') }}</a></li>
                 <li><a href="faq.html">Faq</a></li>
                 <li><a href="news-left-sidebar.html">Blog</a></li>
                 <li><a href="pricing.html">Pricing</a></li>
