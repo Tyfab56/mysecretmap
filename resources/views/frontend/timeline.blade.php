@@ -86,7 +86,7 @@ function loadMoreData(numpage){
           <p class="color-contrast-medium">{{$spot->description}}</p>
           <img src="{{$spot->image}}">
           <div class="flex justify-between items-center">
-            <span class="cd-timeline__date">{{$spot->date}}</span>
+            <h2><span class="cd-timeline__date">{{\Carbon\Carbon::parse($spot->date)->diffForHumans()}}</span></h2>
           
           </div>
         </div> <!-- cd-timeline__content -->
