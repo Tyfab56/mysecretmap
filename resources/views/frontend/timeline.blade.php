@@ -98,7 +98,12 @@ function loadMoreData(numpage){
     </div>
   </section> <!-- cd-timeline -->
 
-
+<style>
+  .cd-main-header
+  {
+    height: 150px;
+  }
+</style>
 
 </body>
 @endsection

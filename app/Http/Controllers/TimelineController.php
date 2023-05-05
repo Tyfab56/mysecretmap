@@ -65,14 +65,7 @@ class TimelineController extends Controller
             $height = 375   ;
             $canvas = Image::canvas($width, $height);
 
-            $imagefinale  = Image::make($filetimeline)->resize(
-                $width,
-                null,
-                function ($constraint) {
-                    $constraint->aspectRatio();
-                    $constraint->upsize();
-                }
-            );
+            $imagefinale  = Image::make($filetimeline)->fit(500, 375, null, 'center', false);
 
             $canvas->insert(
                 $imagefinale,
