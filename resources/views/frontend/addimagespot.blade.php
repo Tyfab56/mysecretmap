@@ -2,7 +2,7 @@
 @section('css')
 <link rel="stylesheet" href="{{ asset('frontend/assets/css/driveway.css')}}" />
 <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
-<link rel="stylesheet" href="{{ asset('frontend/assets/css/masonry.css')}}"/>
+
 @endsection
 @section('fullscripts')
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -55,17 +55,7 @@ function delPicture (id)
             }
             });
             }
-  $(document).ready(function() {
-  // Initialize Masonry
-  var $grid = $('.grid').masonry({
-    itemSelector: '.grid-item',
-    columnWidth: '.grid-item',
-    percentPosition: true
-  });
-
-  // Layout Masonry after each image loads
   
-});
 
 @endsection
 @section('content')
@@ -103,7 +93,7 @@ function delPicture (id)
                 <div class="grid-item">
                   <img src="{{ $picture->medium }}" alt="">
                 </div>
-                <div><a href="javascript:delPicture({{ $picture->id }})"><img class="delete-image" src="{{asset('frontend/assets/images/delete.png')}}"></a></div>
+                <div><a href="javascript:delPicture({{ $picture->id }})"><img class="delete-icon" src="{{asset('frontend/assets/images/delete.png')}}"></a></div>
               @endforeach
             </div>
            
