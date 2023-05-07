@@ -1,0 +1,52 @@
+/* style pour la grille Masonry */
+.grid {
+    /* centre les éléments de la grille */
+    margin: 0 auto;
+  }
+  
+  /* style pour les éléments de la grille */
+  .grid-item {
+    /* spécifie les marges autour des éléments */
+    margin: 10px;
+  }
+  
+  /* animation de transition pour les éléments */
+  .grid-item {
+    -webkit-transition: height 0.4s ease-in-out;
+    -moz-transition: height 0.4s ease-in-out;
+    -o-transition: height 0.4s ease-in-out;
+    transition: height 0.4s ease-in-out;
+  }
+  
+  /* style pour les éléments de la grille en mode "hover" */
+  .grid-item:hover {
+    /* ajoute une ombre autour de l'élément */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* style pour les éléments de la grille en mode "focus" */
+  .grid-item:focus {
+    /* ajoute une bordure autour de l'élément */
+    border: 2px solid #333;
+  }
+  
+  /* style pour le bouton de chargement de plus de contenu */
+  .load-more-button {
+    /* centre le bouton */
+    margin: 0 auto;
+    /* ajoute une marge en haut du bouton */
+    margin-top: 20px;
+    /* ajoute une marge en bas du bouton */
+    margin-bottom: 20px;
+  }
+  
+  /* style pour l'icône de chargement de plus de contenu */
+  .load-more-icon {
+    /* centre l'icône dans le bouton */
+    margin: 0 auto;
+    /* ajoute une marge en bas de l'icône */
+    margin-bottom: 10px;
+  }
+  
