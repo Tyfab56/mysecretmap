@@ -2,7 +2,7 @@
 @section('css')
 <link rel="stylesheet" href="{{ asset('frontend/assets/css/driveway.css')}}" />
 <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
-<script src="{{ asset('frontend/assets/css/masonry.css')}}"></script>
+<link rel="stylesheet" href="{{ asset('frontend/assets/css/masonry.css')}}"/>
 @endsection
 @section('fullscripts')
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -103,38 +103,41 @@ function delPicture (id)
                 <div class="grid-item">
                   <img src="{{ $picture->medium }}" alt="">
                 </div>
-                <div><a href="javascript:delPicture({{ $picture->id }})"><img class="addit" src="{{asset('frontend/assets/images/delete.png')}}"></a></div>
+                <div><a href="javascript:delPicture({{ $picture->id }})"><img class="delete-image" src="{{asset('frontend/assets/images/delete.png')}}"></a></div>
               @endforeach
             </div>
            
           </div>
         </div>
 
-        <script>
-        
-
-          function delPicture (id)
-            {
-            let url = '{{route('delimagespot', ['Id'])}}';
-            url = url.replace('Id', id);
-
-            Swal.fire({
-            title: 'Confirmer la suppression?',
-            text: "Suppression definitive",
-            type: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Oui, supprimer'
-            }).then((result) => {
-            if (result.value) {
-            window.location.href = url;
-            }
-            });
-            }
-      </script>
  @else
  Uniquement pour les photographes
  @endif
 @endauth
+<style>
+  .grid-item {
+    float: left;
+    margin-bottom: 10px;
+    width: 25%; /* ajuster la largeur des colonnes en fonction de vos besoins */
+  }
+  
+  .grid-item img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .grid-item .delete-icon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 5px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+</style>
+
 @endsection
