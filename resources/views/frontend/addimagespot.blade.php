@@ -92,9 +92,7 @@ function delPicture (id)
               @foreach($pictures as $photo)
               <div class="gallery-item">
                 <img src="{{ $photo->medium }}" alt="">
-                <div class="gallery-actions">
-                  <a href=""javascript:delPicture({{ $photo->id }})" class="gallery-delete"><i class="fa fa-trash"></i></a>
-                </div>
+                
               </div>
               @endforeach
           </div>
@@ -108,13 +106,14 @@ function delPicture (id)
  @endif
 @endauth
 <style>
-  .gallery {
-  margin: 0 auto;
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .gallery-item {
-  width: 25%;
-  float: left;
+  flex-grow: 1;
   margin-bottom: 20px;
 }
 
@@ -122,34 +121,9 @@ function delPicture (id)
   display: block;
   width: 100%;
   height: auto;
+  object-fit: cover;
 }
 
-.gallery-actions {
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: 1;
-  opacity: 0;
-  transition: opacity 0.2s ease-in-out;
-}
-
-.gallery-item:hover .gallery-actions {
-  opacity: 1;
-}
-
-.gallery-delete {
-  display: inline-block;
-  padding: 5px;
-  background-color: #fff;
-  color: #f00;
-  border-radius: 50%;
-  box-shadow: 0 0 3px #999;
-  transition: transform 0.2s ease-in-out;
-}
-
-.gallery-delete:hover {
-  transform: scale(1.2);
-}
 
 </style>
 
