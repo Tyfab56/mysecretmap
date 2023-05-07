@@ -325,6 +325,121 @@ class IndexController extends Controller
         return \Redirect::route('addimagespot', $spotid);
     }
 
+
+    public function addimagespotstoredz(Request $request)
+    {
+
+
+        $file = $request->file('file');
+        $validatedData = $request->validate(
+            [
+                'file' => 'image|mimes:jpeg,jpg|max:20048',
+            ]
+        );
+
+        $iduser = Auth::id();
+        $spotid = $request->spotid;
+        $spot = Spots::where('id', '=', $spotid)->first();
+        $paysid = $spot->pays_id;
+       
+
+
+
+
+        if ($file == null) {
+            // pas de nouvelle image
+            $imagestatus = 0;
+        } else {
+            $extension = $file->getClientOriginalExtension();
+            $imgname =  $request->file('file')->getClientOriginalName();;
+            $imgname = str_replace(' ', '-', $imgname);
+            $imgname = uniqid() . "_" . $iduser . "_" . $request->payslist . "_" . $imgname;
+
+            $disk = Storage::disk('wasabi');
+            $bucket = 'mysecretmap';
+
+            // STOCKAGE IMAGE ORIGINALE
+
+
+            [$width, $height] = getimagesize($file);
+            $canvas = Image::canvas($width, $height);
+            $imagefinale  = Image::make($file);
+
+            $canvas->insert($imagefinale, 'center');
+            $canvas->encode($extension);
+
+            $disk->put('/large/large-' . $imgname, (string) $canvas, 'public');
+            $largename = $disk->url('large/large-' . $imgname);
+
+            // STOCKAGE IMAGE MEDIUM
+            $mh = $height;
+            $mw = $width;
+
+            if ($mw > $mh) {
+                $width = 600;
+                $height = round((600 * $mh) / $mw);
+            } else {
+                $height = 600;
+                $width = round((600 * $mw) / $mh);
+            }
+            $canvas = Image::canvas($width, $height);
+            $imagemediumfinale  = Image::make($file)->resize(
+                $width,
+                $height,
+                function ($constraint) {
+                    $constraint->aspectRatio();
+                }
+            );
+            $canvas->insert($imagemediumfinale, 'center');
+            $canvas->encode($extension);
+            $disk->put('/medium/medium-' . $imgname, (string) $canvas, 'public');
+            $mediumname = $disk->url('medium/medium-' . $imgname);
+
+            // STOCKAGE IMAGE SMALL
+            if ($mw > $mh) {
+                $width = 130;
+                $height = round((130 * $mh) / $mw);
+            } else {
+                $height = 130;
+                $width = round((130 * $mw) / $mh);
+            }
+
+            $canvas = Image::canvas($width, $height);
+            $imagesmallfinale  = Image::make($file)->resize(
+                $width,
+                $height,
+                function ($constraint) {
+                    $constraint->aspectRatio();
+                }
+            );
+            $canvas->insert($imagesmallfinale, 'center');
+            $canvas->encode($extension);
+            $disk->put('/small/small-' . $imgname, (string) $canvas, 'public');
+            $smallname = $disk->url('small/small-' . $imgname);
+
+            // MEMORISATION BD
+
+            $picture = new Pictures();
+            $picture->fichier = $imgname;
+            $picture->user_id = $iduser;
+            $picture->spot_id = $spotid;
+            $picture->pays_id = $paysid;
+            $picture->bucket = $bucket;
+            $picture->width = $mw;
+            $picture->height = $mh;
+            $picture->actif = 1;
+            $picture->large = $largename;
+            $picture->medium = $mediumname;
+            $picture->small =  $smallname;
+            $picture->created_at = Carbon::now();
+            $picture->updated_at = Carbon::now();
+            $picture->save();
+        }
+
+
+        return \Redirect::route('addimagespot', $spotid);
+    }
+
     public function addimagespot($spotid)
     {
         // Selectionne les infos du spot

@@ -1,12 +1,38 @@
 @extends('frontend.main_master')
 @section('css')
 <link rel="stylesheet" href="{{ asset('frontend/assets/css/driveway.css')}}" />
-
+<link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
 @endsection
 @section('fullscripts')
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
 @endsection
 @section('scripts')
+
+// Initialisation de Dropzone
+Dropzone.options.myDropzone = {
+    paramName: "file",
+    maxFilesize: 2, // Taille maximale des fichiers en Mo
+    acceptedFiles: ".jpeg,.jpg,.png,.gif", // Extensions autorisées
+    dictDefaultMessage: "Glissez-déposez vos fichiers ici ou cliquez pour sélectionner",
+    dictFallbackMessage: "Votre navigateur ne supporte pas le glisser-déposer de fichiers.",
+    dictFileTooBig: "Le fichier est trop volumineux ({{filesize}}Mo). Taille maximale autorisée : {{maxFilesize}}Mo.",
+    dictInvalidFileType: "Vous ne pouvez pas téléverser des fichiers de ce type.",
+    dictResponseError: "Le serveur a répondu avec le code {{statusCode}}.",
+    dictCancelUpload: "Annuler l'envoi",
+    dictCancelUploadConfirmation: "Êtes-vous sûr de vouloir annuler cet envoi ?",
+    dictRemoveFile: "Supprimer le fichier",
+    dictRemoveFileConfirmation: null,
+    init: function() {
+      
+            this.on("totaluploadprogress", function(progress) {
+                document.querySelector("#progress .progress-bar").style.width = progress + "%";
+            });
+            this.on("queuecomplete", function() {
+                document.querySelector("#progress .progress-bar").style.width = "0%";
+            });
+    }
+};
 
 @endsection
 @section('content')
@@ -14,6 +40,15 @@
 @if (auth()->user()->isPhotographer())
 <section id="ts-features" class="ts-features">
     <div class="container">
+      <div class="row">
+                <form action="{{ route('addimagespot.storedz') }}" class="dropzone" id="myDropzone">
+              @csrf
+          </form>
+
+          <div id="progress" class="progress">
+              <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+      </div>
         <div class="row">
           <div class="col-lg-12"><img  class="w100" src="{{$spot->imgpanolarge??''}}"></div>
         </div>
