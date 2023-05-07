@@ -41,41 +41,24 @@ Dropzone.options.myDropzone = {
 <section id="ts-features" class="ts-features">
     <div class="container">
       <div class="row">
-                <form action="{{ route('addimagespot.storedz') }}" class="dropzone" id="myDropzone">
-              @csrf
-          </form>
-
-          <div id="progress" class="progress">
-              <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
-          </div>
+                
       </div>
         <div class="row">
           <div class="col-lg-12"><img  class="w100" src="{{$spot->imgpanolarge??''}}"></div>
         </div>
         <div class="col-12">
-          <form  id="fileUploadForm" method="post" action="{{ route('addimagespot.store') }}" enctype="multipart/form-data">
+        <form action="{{ route('addimagespot.storedz') }}" class="dropzone" id="myDropzone">
               @csrf
               <input type="hidden" id="spotid" name="spotid" value="{{$spot->id}}">
-              <div class="form-group">
-              
-                <div class="controls">
-                    <input type="file" name="img" class="form-control" id="img">
-
-                    <div class="help-block"></div>
-                    @error('img')
-                    <span class="text-danger"> {{ $message }}</span>
-                    @enderror
-                </div>
-                <div class="progress">
-                  <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
-              </div>
-            </div>
-            <div class=" text-xs-right">
-              <input type="submit" name="file" class="btn btn-rounded btn-primary mb-5" value="Validation">
-              <a class="btn btn-secondary mb-5" href="/destination/{{ $spot->pays_id }}/{{ $spot->id }}">RETOUR PAGE PRECEDENTE</a>
-            
-          </div>
           </form>
+
+          <div id="progress" class="progress">
+              <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+
+          <a class="btn btn-secondary mb-5" href="/destination/{{ $spot->pays_id }}/{{ $spot->id }}">RETOUR PAGE PRECEDENTE</a>
+          
+      
         </div>
         <div class="row">
           <div class="col-lg-3 bgregbox">

@@ -42,7 +42,7 @@ Route::get('myaccount', [IndexController::class, 'myaccount'])->name('myaccount'
 Route::get('addimagespot/{spotid}', [IndexController::class, 'addimagespot'])->name('addimagespot');
 Route::get('delimagespot/{id}', [IndexController::class, 'delimagespot'])->name('delimagespot');
 Route::post('addimagespot/store', [IndexController::class, 'addimagespotstore'])->name('addimagespot.store');
-Route::post('addimagespot/storeDZ', [IndexController::class, 'addimagespotstoredz'])->name('addimagespot.storedz');
+Route::post('addimagespot/storedz', [IndexController::class, 'addimagespotstoredz'])->name('addimagespot.storedz');
 
 Route::get('/listmarkers/{idpays}/{nelat}/{nelng}/{swlat}/{swlng}', [DestinationController::class, 'listmarkers'])->name('listmarkers');
 Route::get('/getzoom/{idspot}', [DestinationController::class, 'getzoom'])->name('getzoom');
