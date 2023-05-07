@@ -92,8 +92,9 @@ function delPicture (id)
               @foreach ($pictures as $picture)
                 <div class="grid-item">
                   <img src="{{ $picture->medium }}" alt="">
+                  <a href="javascript:delPicture({{ $picture->id }})"><img class="delete-icon" src="{{asset('frontend/assets/images/delete.png')}}"></a>
                 </div>
-                <div><a href="javascript:delPicture({{ $picture->id }})"><img class="delete-icon" src="{{asset('frontend/assets/images/delete.png')}}"></a></div>
+                <div></div>
               @endforeach
             </div>
            
