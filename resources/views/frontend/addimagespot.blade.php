@@ -6,7 +6,7 @@
 @section('fullscripts')
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
-<script src="{{ asset('frontend/assets/js/masonry.min.js"></script>
+<script src="{{ asset('frontend/assets/js/masonry.min.js')}}"></script>
 @endsection
 @section('scripts')
 
@@ -63,9 +63,7 @@ function delPicture (id)
   });
 
   // Layout Masonry after each image loads
-  $grid.imagesLoaded().progress(function() {
-    $grid.masonry();
-  });
+  
 });
 
 @endsection
@@ -107,24 +105,7 @@ function delPicture (id)
                 <div><a href="javascript:delPicture({{ $picture->id }})"><img class="addit" src="{{asset('frontend/assets/images/delete.png')}}"></a></div>
               @endforeach
             </div>
-            <div class="dw">
-             
-            @foreach($pictures as $picture)
-            
-              <div class="dw-panel">
-                
-                 <div>
-                  <img  src="{{ $picture->medium }}" class="dw-panel__content" alt="">
-                 </div>
-                 <div><a href="javascript:delPicture({{ $picture->id }})"><img class="addit" src="{{asset('frontend/assets/images/delete.png')}}"></a></div>
-              </div>
-             
-      
-                 
-            
-              
-            @endforeach
-            </div>
+           
           </div>
         </div>
 
