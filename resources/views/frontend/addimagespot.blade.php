@@ -88,11 +88,13 @@ function delPicture (id)
            <p><b>Nombre d'images :</b> {{ $spottotalcount }}</p>
           </div>
           <div class="col-lg-10">
-          @foreach($pictures as $photo)
-          <div class="masonry masonry--h">
-             <figure class="masonry-brick masonry-brick--h"><img src="{{ $photo->medium }}" class="masonry-img" alt=""></figure>
+          <div class="wrapper">
+              @foreach($pictures as $photo)
+              <div class="masonry masonry--h">
+                <figure class="masonry-brick masonry-brick--h"><img src="{{ $photo->medium }}" class="masonry-img" alt=""></figure>
+              </div>
+              @endforeach
           </div>
-          @endforeach
           
 
            
