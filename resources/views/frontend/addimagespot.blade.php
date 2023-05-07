@@ -2,12 +2,14 @@
 @section('css')
 <link rel="stylesheet" href="{{ asset('frontend/assets/css/driveway.css')}}" />
 <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
+<link rel="stylesheet" href="https://unpkg.com/flexmasonry/dist/flexmasonry.css">
+
 
 @endsection
 @section('fullscripts')
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
-<script src="{{ asset('frontend/assets/js/masonry.min.js')}}"></script>
+<script src="https://unpkg.com/flexmasonry/dist/flexmasonry.js"></script>
 @endsection
 @section('scripts')
 
@@ -56,7 +58,7 @@ function delPicture (id)
             });
             }
   
-
+            FlexMasonry.init('.grid');
 @endsection
 @section('content')
 @auth
@@ -88,11 +90,13 @@ function delPicture (id)
            <p><b>Nombre d'images :</b> {{ $spottotalcount }}</p>
           </div>
           <div class="col-lg-10">
-          <div class="wrapper">
+
+
+
+          <div class="grid">
+    <
               @foreach($pictures as $photo)
-              <div class="masonry masonry--h">
-                <figure class="masonry-brick masonry-brick--h"><img src="{{ $photo->medium }}" class="masonry-img" alt=""></figure>
-              </div>
+              <div><img src="{{ $photo->medium }}" alt=""></div>
               @endforeach
           </div>
           
@@ -105,132 +109,7 @@ function delPicture (id)
  Uniquement pour les photographes
  @endif
 @endauth
-<style>.wrapper {
-  margin: 2em auto;
-  max-width: 970px;
-}
-
-img {
-  vertical-align: middle;
-  max-width: 100%;
-}
-
-.masonry {
-  display: flex;
-  width: 100%;
-}
-
-a {
-  color: #333;
-}
-
-.masonry--h {
-  flex-flow: row wrap;
-}
-
-.masonry--v {
-  flex-flow: column wrap;
-  max-height: 1080px;
-}
-
-.masonry--h,
-.masonry--v {
-  margin-left: -8px; /* Adjustment for the gutter */
-  counter-reset: brick;
-}
-
-.masonry-brick {
-  overflow: hidden;
-  border-radius: 5px;
-  margin: 0 0 8px 8px;  /* Some Gutter */
-  background-color: #333;
-  color: white;
-  position: relative;
-}
-
-.masonry-brick:after {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  z-index: 5000;
-  transform: translate(-50%, -50%);
-  counter-increment: brick;
-  content: counter(brick);
-  transition: font-size .25s, opacity .25s ease-in-out;
-  font-weight: 700;
-  opacity: .5;
-  font-size: 1.25em;
-}
-
-.masonry-brick:hover:after {
-  font-size: 2.25em;
-  opacity: 1;
-}
-
-.masonry-brick--h {
-  flex: auto;
-  height: 250px;
-  min-width: 150px;
-}
-
-@media only screen and (min-width: 1024px) {
-  /* Horizontal masonry bricks on desktop-sized screen */
-  .masonry-brick--h:nth-child(4n+1) {
-    width: 250px;
-  }
-  .masonry-brick--h:nth-child(4n+2) {
-    width: 325px;
-  }
-  .masonry-brick--h:nth-child(4n+3) {
-    width: 180px;
-  }
-  .masonry-brick--h:nth-child(4n+4) {
-    width: 380px;
-  }
-
-  /* Adjusting vertical masonry height on desktop-sized screen */
-  .masonry--v {
-    max-height: 1600px;
-  }
-
-  /* Vertical masonry bricks on desktop-sized screen */
-  .masonry-brick--v {
-    width: 33.33333%;
-  }
-}
-
-@media only screen and (max-width: 1023px) and (min-width: 768px) {
-  /* Horizontal masonry bricks on tabled-sized screen */
-  .masonry-brick--h:nth-child(4n+1) {
-    width: 200px;
-  }
-  .masonry-brick--h:nth-child(4n+2) {
-    width: 250px;
-  }
-  .masonry-brick--h:nth-child(4n+3) {
-    width: 120px;
-  }
-  .masonry-brick--h:nth-child(4n+4) {
-    width: 280px;
-  }
-
-  /* Adjusting vertical masonry height on tablet-sized screen */
-  .masonry--v {
-    max-height: 2000px;
-  }
-
-  /* Vertical masonry bricks on tablet-sized screen */
-  .masonry-brick--v {
-    width: 50%;
-  }
-}
-
-.masonry-img {
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
-  filter: brightness(50%);
-}
+<style>
 
 </style>
 
