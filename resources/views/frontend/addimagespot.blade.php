@@ -6,6 +6,7 @@
 @section('fullscripts')
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
+<script src="{{ asset('frontend/assets/js/masonry.min.js"></script>
 @endsection
 @section('scripts')
 
@@ -33,6 +34,39 @@ Dropzone.options.myDropzone = {
             });
     }
 };
+
+function delPicture (id)
+            {
+            let url = '{{route('delimagespot', ['Id'])}}';
+            url = url.replace('Id', id);
+
+            Swal.fire({
+            title: 'Confirmer la suppression?',
+            text: "Suppression definitive",
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Oui, supprimer'
+            }).then((result) => {
+            if (result.value) {
+            window.location.href = url;
+            }
+            });
+            }
+  $(document).ready(function() {
+  // Initialize Masonry
+  var $grid = $('.grid').masonry({
+    itemSelector: '.grid-item',
+    columnWidth: '.grid-item',
+    percentPosition: true
+  });
+
+  // Layout Masonry after each image loads
+  $grid.imagesLoaded().progress(function() {
+    $grid.masonry();
+  });
+});
 
 @endsection
 @section('content')
@@ -65,6 +99,14 @@ Dropzone.options.myDropzone = {
            <p><b>Nombre d'images :</b> {{ $spottotalcount }}</p>
           </div>
           <div class="col-lg-9">
+          <div class="grid">
+              @foreach ($pictures as $picture)
+                <div class="grid-item">
+                  <img src="{{ $picture->medium }}" alt="">
+                </div>
+                <div><a href="javascript:delPicture({{ $picture->id }})"><img class="addit" src="{{asset('frontend/assets/images/delete.png')}}"></a></div>
+              @endforeach
+            </div>
             <div class="dw">
              
             @foreach($pictures as $picture)
@@ -87,24 +129,7 @@ Dropzone.options.myDropzone = {
         </div>
 
         <script>
-          $(function () {
-              $(document).ready(function () {
-                  $('#fileUploadForm').ajaxForm({
-                      beforeSend: function () {
-                          var percentage = '0';
-                      },
-                      uploadProgress: function (event, position, total, percentComplete) {
-                          var percentage = percentComplete;
-                          $('.progress .progress-bar').css("width", percentage+'%', function() {
-                            return $(this).attr("aria-valuenow", percentage) + "%";
-                          })
-                      },
-                      complete: function (xhr) {
-                          console.log('File has uploaded');
-                      }
-                  });
-              });
-          });
+        
 
           function delPicture (id)
             {
