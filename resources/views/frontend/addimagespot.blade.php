@@ -84,19 +84,21 @@ function delPicture (id)
       
         </div>
         <div class="row">
-          <div class="col-lg-3 bgregbox">
+          <div class="col-lg-2 bgregbox">
            <p><b>Nombre d'images :</b> {{ $spottotalcount }}</p>
           </div>
-          <div class="col-lg-9">
-          <div class="grid">
-              @foreach ($pictures as $picture)
-                <div class="grid-item">
-                  <img src="{{ $picture->medium }}" alt="">
-                  <a href="javascript:delPicture({{ $picture->id }})"><img class="delete-icon" src="{{asset('frontend/assets/images/delete.png')}}"></a>
+          <div class="col-lg-10">
+          <div class="gallery">
+              @foreach($pictures as $photo)
+              <div class="gallery-item">
+                <img src="{{ $photo->medium }}" alt="">
+                <div class="gallery-actions">
+                  <a href=""javascript:delPicture({{ $photo->id }})" class="gallery-delete"><i class="fa fa-trash"></i></a>
                 </div>
-                <div></div>
+              </div>
               @endforeach
-            </div>
+          </div>
+
            
           </div>
         </div>
@@ -106,29 +108,49 @@ function delPicture (id)
  @endif
 @endauth
 <style>
-  .grid-item {
-    float: left;
-    margin-bottom: 10px;
-    width: 25%; /* ajuster la largeur des colonnes en fonction de vos besoins */
-  }
-  
-  .grid-item img {
-    display: block;
-    max-width: 100%;
-    height: auto;
-  }
-  
-  .grid-item .delete-icon {
-    position: absolute;
-    top: 0;
-    right: 0;
-    z-index: 1;
-    color: #fff;
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 5px;
-    border-radius: 50%;
-    cursor: pointer;
-  }
+  .gallery {
+  margin: 0 auto;
+}
+
+.gallery-item {
+  width: 25%;
+  float: left;
+  margin-bottom: 20px;
+}
+
+.gallery-item img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.gallery-actions {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.gallery-item:hover .gallery-actions {
+  opacity: 1;
+}
+
+.gallery-delete {
+  display: inline-block;
+  padding: 5px;
+  background-color: #fff;
+  color: #f00;
+  border-radius: 50%;
+  box-shadow: 0 0 3px #999;
+  transition: transform 0.2s ease-in-out;
+}
+
+.gallery-delete:hover {
+  transform: scale(1.2);
+}
+
 </style>
 
 @endsection
