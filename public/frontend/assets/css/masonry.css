@@ -1,3 +1,9 @@
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    height: auto;
+ }
+ 
 .grid-item {
     float: left;
     margin-bottom: 10px;
