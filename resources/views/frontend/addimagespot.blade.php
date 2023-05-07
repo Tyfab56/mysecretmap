@@ -12,13 +12,13 @@
 // Initialisation de Dropzone
 Dropzone.options.myDropzone = {
     paramName: "file",
-    maxFilesize: 2, // Taille maximale des fichiers en Mo
+    maxFilesize: 20, // Taille maximale des fichiers en Mo
     acceptedFiles: ".jpeg,.jpg,.png,.gif", // Extensions autorisées
     dictDefaultMessage: "Glissez-déposez vos fichiers ici ou cliquez pour sélectionner",
     dictFallbackMessage: "Votre navigateur ne supporte pas le glisser-déposer de fichiers.",
-    dictFileTooBig: "Le fichier est trop volumineux ({{filesize}}Mo). Taille maximale autorisée : {{maxFilesize}}Mo.",
+    dictFileTooBig: "Le fichier est trop volumineux. Taille maximale autorisée : 20Mo.",
     dictInvalidFileType: "Vous ne pouvez pas téléverser des fichiers de ce type.",
-    dictResponseError: "Le serveur a répondu avec le code {{statusCode}}.",
+    dictResponseError: "Le serveur a répondu avec une erreur.",
     dictCancelUpload: "Annuler l'envoi",
     dictCancelUploadConfirmation: "Êtes-vous sûr de vouloir annuler cet envoi ?",
     dictRemoveFile: "Supprimer le fichier",
