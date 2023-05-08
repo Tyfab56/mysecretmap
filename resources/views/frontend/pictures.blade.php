@@ -7,9 +7,9 @@
       
 <div class="flexbin flexbin-margin">         
               @foreach($pictures as $photo)
-              <div class="smartbin-grid-item">
+  
                    <a href="product/1.html"><img src="{{ $photo->medium }}" /></a>
-              </div>
+       
               @endforeach
           </div>
 
