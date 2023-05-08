@@ -25,9 +25,9 @@
 </style>
 @endsection
 @section('scripts')
-
+var wall;
 $( document ).ready(function() {
-       var wall = new Freewall("#grid");
+      wall = new Freewall("#grid");
                   wall.fitWidth();
 });
 
