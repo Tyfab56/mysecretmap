@@ -10,7 +10,7 @@
 @section('fullscripts')
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
-
+<script src="https://unpkg.com/flexmasonry/dist/flexmasonry.js"></script>
 @endsection
 @section('scripts')
 
@@ -117,7 +117,6 @@ function delPicture (id)
 
 
           <div class="grid">
-    <
               @foreach($pictures as $photo)
               <div><img src="{{ $photo->medium }}" alt=""></div>
               @endforeach
