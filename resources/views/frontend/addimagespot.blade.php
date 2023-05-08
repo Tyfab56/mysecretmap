@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="{{ asset('frontend/assets/css/flexbin.css')}}" />
 @endsection
 @section('fincss')
-
+<link rel="stylesheet" href="{{ asset('frontend/assets/css/flexbin.css')}}" />
 @endsection
 
 @section('fullscripts')
