@@ -22,6 +22,10 @@
       width: 80%;
       margin: auto;
     }
+    .item img {
+				margin: 0;
+				display: block;
+			}
 </style>
 @endsection
 @section('scripts')
