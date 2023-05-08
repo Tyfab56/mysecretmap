@@ -106,7 +106,7 @@ Route::view('/blog/hotspot', 'frontend.destinations.blog-hotspot')->name('blog.h
 Route::view('/reunion', 'frontend.destinations.reunion')->name('reunion');
 Route::view('/audioguide', 'frontend.audioguide')->name('audioguide');
 
-
+Route::view('/test', 'frontend.test')->name('test');
 Route::post('/getspot', [TimelineController::class, 'getSpot'])->name('getspot');
 
 require __DIR__ . '/auth.php';
