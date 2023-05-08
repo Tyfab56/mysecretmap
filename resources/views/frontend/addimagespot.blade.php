@@ -96,7 +96,7 @@ function delPicture (id)
           <div class="flexbin flexbin-margin">
               
               @foreach($pictures as $photo)
-              <div></div><a href="product/1.html"><img src="{{ $photo->medium }}" /></a></div>
+              <a href="product/1.html"><img src="{{ $photo->medium }}" /></a>
               @endforeach
           </div>
           
