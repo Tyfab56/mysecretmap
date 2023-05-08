@@ -1,10 +1,15 @@
 @extends('frontend.main_master')
+@section('fincss')
+<link rel="stylesheet" href="{{ asset('frontend/assets/css/flexbin.css')}}" />
+@endsection
 @section('content')
-<div >
+
       
-<a class="btn btn-primary m5" href="javascript:window.history.back()">RETOUR PAGE PRECEDENTE</a>
-       @livewire('show-images', ['idspot' => $spot->id])
-</div>
+<div class="flexbin flexbin-margin">         
+              @foreach($pictures as $photo)
+              <a href="product/1.html"><img src="{{ $photo->medium }}" /></a>
+              @endforeach
+          </div>
 
 
 

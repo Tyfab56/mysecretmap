@@ -10,7 +10,7 @@
 
 </head>
 <body>
-<div class="flexbin flexbin-margin">
+<div class="flexbin flexbin-margin flexbin-3">
 <div><img src="https://mysecretmap.s3.eu-central-1.wasabisys.com/medium/medium-64575678424c0_1___DSC0389-Panorama-header.jpg" alt=""></div>
                             <div><img src="https://mysecretmap.s3.eu-central-1.wasabisys.com/medium/medium-64575678af943_1___DSC0338-header.jpg" alt=""></div>
                             <div><img src="https://mysecretmap.s3.eu-central-1.wasabisys.com/medium/medium-6457567cbcf4e_1___DSC1598-header.jpg" alt=""></div>
