@@ -1,16 +1,16 @@
 @extends('frontend.main_master')
 @section('css')
 <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
-
+<link rel="stylesheet" href="{{ asset('frontend/assets/css/flexbin.css')}}" />
 @endsection
 @section('fincss')
-<link rel="stylesheet" href="https://unpkg.com/flexmasonry/dist/flexmasonry.css">
+
 @endsection
 
 @section('fullscripts')
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
-<script src="https://unpkg.com/flexmasonry/dist/flexmasonry.js"></script>
+
 @endsection
 @section('scripts')
 
