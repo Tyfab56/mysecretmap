@@ -14,7 +14,7 @@
       height: 300px;
       margin: 2.5px;
       flex-grow: 1; }
-      .flexbin > * > img {
+      .flexbin  img {
         height: 300px;
         object-fit: cover;
         max-width: 100%;
@@ -39,7 +39,7 @@
           height: 150px;
           margin: 2.5px;
           flex-grow: 1; }
-          .flexbin > * > img {
+          .flexbin  img {
             height: 150px;
             object-fit: cover;
             max-width: 100%;
@@ -64,7 +64,7 @@
           height: 100px;
           margin: 2.5px;
           flex-grow: 1; }
-          .flexbin > * > img {
+          .flexbin  img {
             height: 100px;
             object-fit: cover;
             max-width: 100%;
