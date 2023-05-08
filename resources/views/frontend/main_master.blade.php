@@ -31,6 +31,7 @@
             
             @yield('css')
             <link rel="stylesheet" href="{{  asset('frontend/assets/css/style.css') }}">
+            @yield('fincss')
             @livewireStyles
            
 
