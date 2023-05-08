@@ -6,8 +6,7 @@ use App\Models\Pays;
 use App\Models\Spots;
 use App\Models\Circuits;
 use App\Models\Circuits_details;
-
-
+use App\Models\Pictures;
 use App\Models\Default_spots;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
