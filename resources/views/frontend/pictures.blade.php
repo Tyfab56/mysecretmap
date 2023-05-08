@@ -10,9 +10,9 @@
       
 <div id="grid">         
               @foreach($pictures as $photo)
-  
+                   <div class="item">
                    <a href="product/1.html"><img src="{{ $photo->medium }}" /></a>
-       
+                  </div>
               @endforeach
           </div>
 
@@ -26,9 +26,9 @@
 @endsection
 @section('scripts')
 
-$(function() {
-      var wall = new Freewall("#grid");
+$( document ).ready(function() {
+       var wall = new Freewall("#grid");
                   wall.fitWidth();
-    });
+});
 
 @endsection
