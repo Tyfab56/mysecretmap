@@ -2,7 +2,7 @@
 @section('fincss')
 <link rel="stylesheet" href="{{ asset('frontend/assets/css/flexbin.css')}}" />
 @endsection
-@section('scripts')
+@section('fullscripts')
 <script src="{{asset('frontend/assets/js/freewall.js')}}"></script>
 @endsection
 @section('content')
@@ -24,7 +24,7 @@
     }
 </style>
 @endsection
-@section('fullscripts')
+@section('scripts')
 
 $(function() {
       var wall = new Freewall("#grid");
