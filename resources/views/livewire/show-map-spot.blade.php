@@ -16,5 +16,8 @@
     <div class="mt-3"><b>{{ __('index.Drone') }}</b> : <span  style="color:white">{{$traduction->drone?? ''}}</span></div>
     <div class="mt-3"><b>{{ __('index.Lumiere') }}</b> : <span  style="color:white">{{$traduction->lumiere?? ''}}</span></div>
     <div class="mt-3"><b>{{ __('index.Secretspot') }}</b> : <span  style="color:white">{{$traduction->secretspot?? ''}}</span></div>
-    <a class="btn btn-primary indexbtn" href="{{ url('pictures') }}/{{ $spot->id}}"">Voir toutes les images</a>
+    if ({{$nbpic}} != 0) 
+    {
+    <a class="btn btn-primary indexbtn" href="{{ url('pictures') }}/{{ $spot->id}}">{{ __('index.VoirImage') }}({{$nbpic}})</a>
+    }
 </div>

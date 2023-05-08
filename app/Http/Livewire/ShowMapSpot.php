@@ -5,10 +5,11 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use App\Models\Spots;
 use App\Models\SpotsTranslation;
+use App\Models\Pictures;
 
 class ShowMapSpot extends Component
 {
-    public  $idspot, $titre, $traduction, $timeonsite, $randotime, $sunrise, $sunset;
+    public  $idspot, $titre, $traduction, $timeonsite, $randotime, $sunrise, $sunset,$nbpic;
 
     protected $listeners = [
         'InfoDestination'
@@ -47,6 +48,8 @@ class ShowMapSpot extends Component
             $this->traduction = SpotsTranslation::where('spots_id', '=', $this->idspot)
                 ->where('locale', '=', app()->getlocale())
                 ->first();
+
+            $this->nbpic = Pictures::where('spot_id','=',$this->idspot)->count();
             return view('livewire.show-map-spot');
         } else {
             return view('livewire.no-spot');

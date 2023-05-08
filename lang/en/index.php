@@ -66,6 +66,7 @@ return [
     "AudioguideLink" => "Audio Guide",
     "filinfo" => "Follow the news feed",
     "filinfosub" => "Patreon subscribers have access to the full version of the news feed",
+    "VoirImage" => "See all pictures",
 
 
 
