@@ -171,7 +171,8 @@ class DestinationController extends Controller
     public function pictures($idspot)
     {
         $spot = Spots::where('id','=',$idspot)->first();
-        return view('frontend/pictures', compact('spot'));
+        $pictures = Pictures::where('spot_id', '=', $idspot)->where('actif', '=', 1)->paginate(20);
+        return view('frontend/pictures', compact('spot','pictures'));
     }
 
     // Ajout de spot dans un circuit
