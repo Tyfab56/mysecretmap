@@ -8,7 +8,7 @@
 @section('content')
 
       
-<div id="grid">         
+          <div id="freewall">         
               @foreach($pictures as $photo)
                    <div class="item">
                    <a href="product/1.html"><img src="{{ $photo->medium }}" /></a>
@@ -18,21 +18,26 @@
 
 
 <style>
-#grid {
-      width: 80%;
-      margin: auto;
-    }
-    .item img {
-				margin: 0;
-				display: block;
-			}
+
 </style>
 @endsection
 @section('scripts')
 var wall;
 $( document ).ready(function() {
-      wall = new Freewall("#grid");
-                  wall.fitWidth();
+       var wall = new freewall("#freewall");
+    wall.fitWidth();
+
+    // Configuration de la grille (taille des marges, espacement entre les éléments, etc.)
+    wall.reset({
+        selector: 'img',
+        animate: true,
+        cellW: 200,
+        cellH: 'auto',
+        delay: 30,
+        onResize: function() {
+            wall.fitWidth();
+        }
+    });
 });
 
 @endsection
