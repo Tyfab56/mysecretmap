@@ -15,23 +15,7 @@
 
 
 <style>
-       .smartbin-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: stretch;
-}
 
-.smartbin-grid-item {
-  margin-bottom: 16px;
-  width: calc(33.33% - 10px);
-}
-
-.smartbin-grid-item img {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-}
 </style>
 @endsection
 @section('scripts')
