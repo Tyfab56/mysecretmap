@@ -2,10 +2,13 @@
 @section('fincss')
 <link rel="stylesheet" href="{{ asset('frontend/assets/css/flexbin.css')}}" />
 @endsection
+@section('scripts')
+<script src="{{asset('frontend/assets/js/freewall.js')}}"></script>
+@endsection
 @section('content')
 
       
-<div class="flexbin flexbin-margin">         
+<div id="grid">         
               @foreach($pictures as $photo)
   
                    <a href="product/1.html"><img src="{{ $photo->medium }}" /></a>
@@ -15,9 +18,17 @@
 
 
 <style>
-
+#grid {
+      width: 80%;
+      margin: auto;
+    }
 </style>
 @endsection
-@section('scripts')
+@section('fullscripts')
+
+$(function() {
+      var wall = new Freewall("#grid");
+                  wall.fitWidth();
+    });
 
 @endsection
