@@ -2,7 +2,7 @@
 <div class="slider">
     @foreach ($pictures as $picture)
         <div class="slide">
-            <img src="{{ $picture->small) }}" alt="">
+            <img src="{{ $picture->small }}" alt="">
         </div>
     @endforeach
 </div>
