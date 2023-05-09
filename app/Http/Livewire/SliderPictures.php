@@ -6,7 +6,7 @@ use Livewire\Component;
 use App\Models\pictures;
 class SliderPictures extends Component
 {
-    public  $idspot; 
+    public  $idspot,$pictures; 
 
     protected $listeners = [
         'PictureDestination'
