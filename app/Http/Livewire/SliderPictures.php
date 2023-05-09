@@ -1,0 +1,31 @@
+<?php
+
+namespace App\Http\Livewire;
+
+use Livewire\Component;
+
+class SliderPictures extends Component
+{
+    public  $idspot; 
+
+    protected $listeners = [
+        'PictureDestination'
+    ];
+
+    public function PictureDestination($idspot)
+    {
+        if (!is_null($idspot)) {
+            
+            $this->idspot = $idspot;
+            
+        }
+    }
+
+    public function render()
+    {
+        if ($this->idspot) {
+            $this->pictures = Pictures::select()->where('id', '=', $this->idspot)->paginate(5);
+        }
+        return view('livewire.slider-pictures');
+    }
+}

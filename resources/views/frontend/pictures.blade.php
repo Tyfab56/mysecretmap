@@ -7,16 +7,19 @@
 @endsection
 @section('content')
 
-      
-        <div id="container">     
+<div class="pt-5">
+       <div id="leftwall" class="col-2">
+		   </div>
+       <div id="rightwall" class="col-10">
+		   <div id="container">     
               @foreach($pictures as $photo)
                    <div class="item">
                    <a href="product/1.html"><img src="{{ $photo->medium }}" width="100%" /></a>
                   </div>
               @endforeach
           </div>
-
-
+		</div>
+		</div>
 <style>
     .free-wall {
     margin: 15px;
