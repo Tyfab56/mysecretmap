@@ -48,15 +48,15 @@ wall.reset({
               gutterX: 2,
               gutterY: 2,
               onResize: function() {
-                     wall.fitWidth();
+                     wall.fitHeight();
               }
        });
-
+       wall.fitHeight();
        var images = wall.container.find('.item');
 
 
        images.find('img').on('load', function() {
-              wall.fitWidth();
+              wall.fitHeight();
        
        });
 
