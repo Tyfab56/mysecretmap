@@ -8,36 +8,56 @@
 @section('content')
 
       
-          <div id="freewall">         
+        <div id="container">     
               @foreach($pictures as $photo)
                    <div class="item">
-                   <a href="product/1.html"><img src="{{ $photo->medium }}" /></a>
+                   <a href="product/1.html"><img src="{{ $photo->medium }}" width="100%" /></a>
                   </div>
               @endforeach
           </div>
 
 
 <style>
-
+    .free-wall {
+    margin: 15px;
+}
+    #container {
+      width: 80%;
+      margin: auto;
+    }
+    .item 
+    {
+        width: 33%;
+    }
+    .item img {
+              margin: 0;
+              display: block;
+       }
 </style>
 @endsection
 @section('scripts')
-var wall;
-$( document ).ready(function() {
-       var wall = new freewall("#freewall");
-    wall.fitWidth();
 
-    // Configuration de la grille (taille des marges, espacement entre les éléments, etc.)
-    wall.reset({
-        selector: 'img',
-        animate: true,
-        cellW: 200,
-        cellH: 'auto',
-        delay: 30,
-        onResize: function() {
-            wall.fitWidth();
-        }
-    });
-});
+
+var wall = new Freewall("#container");
+
+wall.reset({
+              selector: '.item',
+              animate: true,
+              cellW: 150,
+              cellH: 'auto',
+              gutterX: 2,
+              gutterY: 2,
+              onResize: function() {
+                     wall.fitWidth();
+              }
+       });
+
+       var images = wall.container.find('.item');
+
+
+       images.find('img').on('load', function() {
+              wall.fitWidth();
+       
+       });
 
 @endsection
