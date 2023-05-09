@@ -51,7 +51,7 @@ wall.reset({
                      wall.fitHeight();
               }
        });
-       wall.fitHeight();
+      
        var images = wall.container.find('.item');
 
 
@@ -59,5 +59,11 @@ wall.reset({
               wall.fitHeight();
        
        });
+
+$( document ).ready()
+{
+       wall.fitWidth();
+       wall.fitHeight();
+}
 
 @endsection
