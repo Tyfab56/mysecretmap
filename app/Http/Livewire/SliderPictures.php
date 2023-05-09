@@ -25,7 +25,8 @@ class SliderPictures extends Component
     {
         if ($this->idspot) {
             $this->pictures = Pictures::select()->where('id', '=', $this->idspot)->paginate(5);
+            return view('livewire.slider-pictures');
         }
-        return view('livewire.slider-pictures');
+       
     }
 }
