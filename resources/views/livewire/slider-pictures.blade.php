@@ -19,7 +19,7 @@
     scroll-snap-align: start;
 }
 
-img {
+.slide img {
     width: 100%;
     height: auto;
 }
