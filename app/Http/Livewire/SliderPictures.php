@@ -3,7 +3,7 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
-use App\Models\pictures;
+use App\Models\Pictures;
 class SliderPictures extends Component
 {
     public  $idspot,$pictures; 
@@ -24,7 +24,7 @@ class SliderPictures extends Component
     public function render()
     {
         if ($this->idspot) {
-            $this->pictures = Pictures::select()->where('id', '=', $this->idspot)->paginate(5);
+            $this->pictures = Pictures::select()->where('id', '=', $this->idspot)->get();
             return view('livewire.slider-pictures');
         }
         else
