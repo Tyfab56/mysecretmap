@@ -183,7 +183,7 @@ Livewire.emit('InfoDestination',e.sourceTarget.options.id,null,null);
 Livewire.emit('ImgRegion',e.sourceTarget.options.id);
 Livewire.emit('ImgMap',e.sourceTarget.options.id);
 Livewire.emit('ImgPeak',e.sourceTarget.options.id);
-Livewire.emit('Pictures',e.sourceTarget.options.id);
+Livewire.emit('PictureDestination',e.sourceTarget.options.id);
 currentMarker = e.sourceTarget.options.id;
 currentTitle = e.sourceTarget.options.title; 
 currentLat = e.latlng.lat;
@@ -355,7 +355,9 @@ window.addEventListener('load', function () {
   Livewire.emit('ImgRegion',currentMarker);
   Livewire.emit('ImgMap',currentMarker);
   Livewire.emit('ImgPeak',currentMarker);
+  Livewire.emit('PictureDestination',currentMarker);
   Livewire.emit('RefreshCircuit',currentCircuit);
+
 
   
   var myDate = new Date();
