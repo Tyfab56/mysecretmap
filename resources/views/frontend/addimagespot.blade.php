@@ -127,8 +127,8 @@ function deletePicture (id)
 
 .delete-icon {
     position: absolute;
-    top: 0;
-    right: 0;
+    top: 10;
+    right: 10;
     cursor: pointer;
 }
 
