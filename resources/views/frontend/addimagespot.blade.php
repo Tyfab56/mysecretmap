@@ -98,19 +98,12 @@ function deletePicture (id)
               @foreach($pictures as $photo)
               <div class="picture-wrapper">
                     <a href="product/1.html"><img src="{{ $photo->medium }}" /></a>
-                    <img src="/images/delete.png" alt="Supprimer" class="delete-icon" onclick="deletePicture({{ $photo->id }})">
-              </div> 
+                    <img src="{{asset('frontend/assets/images/delete.png')}}" alt="Supprimer" class="delete-icon" onclick="deletePicture({{ $photo->id }})">
+ </div> 
               @endforeach
           </div>
           
-          <div class="flexbin flexbin-margin">
-    @foreach($pictures as $photo)
-        <div class="picture-wrapper">
-            <a href="product/1.html"><img src="{{ $photo->medium }}" /></a>
-            <img src="{{asset('frontend/assets/images/addpic.png')}}" alt="Supprimer" class="delete-icon" onclick="deletePicture({{ $photo->id }})">
-        </div>
-    @endforeach
-</div>
+          
 
            
           </div>
