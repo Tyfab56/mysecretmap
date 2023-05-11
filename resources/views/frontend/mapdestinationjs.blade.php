@@ -462,7 +462,7 @@ function addtour (){
   }
 
   function addUrlToHistory(parametre) {
-  var newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + '//' + parametre;
+  var newUrl = 'https://mysecretmap.com/destination/IS/' + parametre;
   window.history.pushState({path:newUrl},'',newUrl);
 }
 
