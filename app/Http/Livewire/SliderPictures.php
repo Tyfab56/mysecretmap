@@ -2,11 +2,12 @@
 
 namespace App\Http\Livewire;
 
-use Livewire\Component;
 use App\Models\Pictures;
+use Livewire\Component;
+
 class SliderPictures extends Component
 {
-    public  $idspot,$pictures; 
+    public  $idspot, $pictures;
 
     protected $listeners = [
         'PictureDestination'
@@ -15,23 +16,15 @@ class SliderPictures extends Component
     public function PictureDestination($idspot)
     {
         if (!is_null($idspot)) {
-            
             $this->idspot = $idspot;
-            
         }
     }
 
     public function render()
     {
-        if ($this->idspot) {
-            $this->pictures = Pictures::select()->where('id', '=', $this->idspot)->get();
-            return view('livewire.slider-pictures');
-        }
-        else
-        {
-            return view('livewire.no-slider-pictures');
-        }
 
-       
+        $this->pictures = Pictures::select('id', 'spot_id', 'small')->where('spot_id', '=', $this->idspot)->where('actif', '=', 1)->get();
+
+        return view('livewire.slider-pictures');
     }
 }

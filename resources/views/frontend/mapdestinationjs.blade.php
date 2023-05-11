@@ -188,6 +188,7 @@ currentMarker = e.sourceTarget.options.id;
 currentTitle = e.sourceTarget.options.title; 
 currentLat = e.latlng.lat;
 currentLng = e.latlng.lng;
+addUrlToHistory('e.sourceTarget.options.id')"
 var bounds = L.latLng(currentLat,currentLng).toBounds(1000);
 mapzoom.panTo(new L.LatLng(currentLat,currentLng));
 redrawOverlay();
@@ -459,6 +460,11 @@ function addtour (){
   {
     window.location.href='#mapdest'
   }
+
+  function addUrlToHistory(parametre) {
+  var newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?param=' + parametre;
+  window.history.pushState({path:newUrl},'',newUrl);
+}
 
   function addCircuit (spotid){
   var url = '{{ route("addtour", [":spotid",":circuitid"]) }}';
