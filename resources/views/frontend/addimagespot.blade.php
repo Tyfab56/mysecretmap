@@ -107,7 +107,7 @@ function deletePicture (id)
     @foreach($pictures as $photo)
         <div class="picture-wrapper">
             <a href="product/1.html"><img src="{{ $photo->medium }}" /></a>
-            <img src="{{asset('frontend/assets/images/delete.png')}}" alt="Supprimer" class="delete-icon" onclick="deletePicture({{ $photo->id }})">
+            <img src="{{asset('frontend/assets/images/addpic.png')}}" alt="Supprimer" class="delete-icon" onclick="deletePicture({{ $photo->id }})">
         </div>
     @endforeach
 </div>
@@ -127,8 +127,8 @@ function deletePicture (id)
 
 .delete-icon {
     position: absolute;
-    top: 10;
-    right: 10;
+    top: 0;
+    right: 0;
     cursor: pointer;
 }
 
