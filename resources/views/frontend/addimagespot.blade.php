@@ -39,7 +39,7 @@ Dropzone.options.myDropzone = {
     }
 };
 
-function delPicture (id)
+function deletePicture (id)
             {
             let url = '{{route('delimagespot', ['Id'])}}';
             url = url.replace('Id', id);
@@ -96,10 +96,21 @@ function delPicture (id)
           <div class="flexbin flexbin-margin">
               
               @foreach($pictures as $photo)
-              <a href="product/1.html"><img src="{{ $photo->medium }}" /></a>
+              <div class="picture-wrapper">
+                    <a href="product/1.html"><img src="{{ $photo->medium }}" /></a>
+                    <img src="/images/delete.png" alt="Supprimer" class="delete-icon" onclick="deletePicture({{ $photo->id }})">
+              </div> 
               @endforeach
           </div>
           
+          <div class="flexbin flexbin-margin">
+    @foreach($pictures as $photo)
+        <div class="picture-wrapper">
+            <a href="product/1.html"><img src="{{ $photo->medium }}" /></a>
+            <img src="{{asset('frontend/assets/images/delete.png')}} alt="Supprimer" class="delete-icon" onclick="deletePicture({{ $photo->id }})">
+        </div>
+    @endforeach
+</div>
 
            
           </div>
@@ -110,6 +121,16 @@ function delPicture (id)
  @endif
 @endauth
 <style>
+.picture-wrapper {
+    position: relative;
+}
+
+.delete-icon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+}
 
 </style>
 
