@@ -23,7 +23,7 @@
     .flexbin.flexbin-margin {
       margin: 2.5px; }
     @media (max-width: 980px) {
-      .flexbin {
+      .flexbin { 
         display: flex;
         overflow: hidden;
         flex-wrap: wrap;
