@@ -188,7 +188,7 @@ currentMarker = e.sourceTarget.options.id;
 currentTitle = e.sourceTarget.options.title; 
 currentLat = e.latlng.lat;
 currentLng = e.latlng.lng;
-addUrlToHistory('e.sourceTarget.options.id')"
+addUrlToHistory('e.sourceTarget.options.id');
 var bounds = L.latLng(currentLat,currentLng).toBounds(1000);
 mapzoom.panTo(new L.LatLng(currentLat,currentLng));
 redrawOverlay();
