@@ -39,7 +39,7 @@ Route::get('medias', [IndexController::class, 'medias'])->name('medias');
 Route::get('timeline', [IndexController::class, 'timeline'])->name('timeline');
 
 Route::get('myaccount', [IndexController::class, 'myaccount'])->name('myaccount');
-Route::get('addimagespot/{spotid}', [IndexController::class, 'addimagespot'])->name('addimagespot');
+
 Route::get('delimagespot/{id}', [IndexController::class, 'delimagespot'])->name('delimagespot');
 Route::post('addimagespot/store', [IndexController::class, 'addimagespotstore'])->name('addimagespot.store');
 Route::post('addimagespot/storedz', [IndexController::class, 'addimagespotstoredz'])->name('addimagespot.storedz');
@@ -93,7 +93,7 @@ Route::get('/admin/circuits', [CircuitsController::class, 'index'])->name('admin
 Route::get('/admin/createzoom', [AdminController::class, 'createzoom'])->name('admin.createzoom')->middleware('App\Http\Middleware\CheckAdmin');
 Route::post('/admin/createzoomid', [AdminController::class, 'createzoomid'])->name('admin.createzoomid')->middleware('App\Http\Middleware\CheckAdmin');
 Route::get('/admin/timeline', [TimelineController::class, 'index'])->name('admin.timeline')->middleware('App\Http\Middleware\CheckAdmin');
-
+Route::get('addimagespot/{spotid}', [IndexController::class, 'addimagespot'])->name('addimagespot')->middleware('App\Http\Middleware\CheckAdmin');
 Route::get('/admin/detailpays/{id}', [PaysController::class, 'detail'])->name('admin.detailpays');
 Route::post('/admin/timeline/store', [TimelineController::class, 'Store'])->name('admin.timeline.store')->middleware('App\Http\Middleware\CheckAdmin');
 
