@@ -2,7 +2,7 @@
 
 return [
 
-    "About" => "A propos",
+    "About" => "A propos", 
     "Become" => "Devenez partenaire My Secret Map",
     "Intro" => "Nous souhaitons rassembler des photographes talentueux pour participer à notre site internet. En tant que membres de notre communauté, vos photos seront mises en avant et vous aurez l'opportunité de contribuer à la création d'une carte interactive révélant des spots photo exceptionnels.",
     "Arg1" => "Faites briller vos Photos",
