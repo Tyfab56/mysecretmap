@@ -149,7 +149,7 @@
 
                             <ul class="dropdown-menu" role="menu">
                                 <li><a href="{{ URL::route('timeline')}}">{{ __('menu.Filinfo') }}</a></li>
-                                <li><a href="{{ URL::route('aboutus')}}">{{ __('menu.Infosd') }}</a></li>
+                                <li><a href="{{ URL::route('aboutus')}}">{{ __('menu.Infos') }}</a></li>
                             
                             </ul> 
                         </li>   
