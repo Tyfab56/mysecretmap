@@ -103,7 +103,7 @@
                   </div>
                   <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#our-values-accordion">
                       <div class="card-body">
-                      {{ __('Ppoto.AscDesc3') }} </div>
+                      {{ __('Photo.AscDesc3') }} </div>
                   </div>
                 </div>
             </div>
