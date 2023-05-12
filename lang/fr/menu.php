@@ -25,5 +25,9 @@ return [
     'Store' => 'Boutique',
     'Audioguide' => 'Audioguide',
     'Blog' => 'Blog',
+    'Infos' => "A propos",
     'Filinfo' => 'Fil Info',
+    'Photographer' => 'Photographe ?',
+    'Photojoinus' => 'Rejoignez nous',
 ];
+

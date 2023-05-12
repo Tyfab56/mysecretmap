@@ -144,9 +144,16 @@
                        
                        <li class="nav-item"><a class="nav-link" href="{{ URL::route('home')}}">{{ __('menu.Home') }}</a></li>
 
-                       <li class="nav-item"><a class="nav-link" href="{{ URL::route('timeline')}}">{{ __('menu.Filinfo') }}</a></li>
-  
-                       
+                       <li class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">{{ __('menu.Infos') }} <i class="fa fa-angle-down"></i></a>
+
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="{{ URL::route('timeline')}}">{{ __('menu.Filinfo') }}</a></li>
+                                <li><a href="{{ URL::route('aboutus')}}">{{ __('menu.Infosd') }}</a></li>
+                            
+                            </ul> 
+                        </li>   
+                     
                         
                         <li class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">{{ __('menu.Destination') }} <i class="fa fa-angle-down"></i></a>
@@ -203,6 +210,17 @@
                             </ul>
                         </li>
                          -->
+                         @guest
+                         
+                          <li class="nav-item dropdown">
+                              <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"> <i class="glyphicon glyphicon-user"> </i> {{ __('menu.Photographer') }}</a>
+                              <ul class="dropdown-menu" role="menu">
+                                <li><a href="{{ URL::route('photographers')}}">{{ __('menu.Photojoinus') }}</a></li>
+                              </ul> 
+                            </li> 
+                        
+                        @endguest
+
                         @auth
                         <li class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"> <i class="glyphicon glyphicon-user"> </i> {{ __('menu.Bonjour') }} {{Auth::user()->name}} <i class="fa fa-angle-down"></i></a>

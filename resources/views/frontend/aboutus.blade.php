@@ -4,14 +4,13 @@
     <div class="container">
       <div class="row">
           <div class="col-lg-6">
-            <h3 class="column-title">L'EQUIPE</h3>
+            <h3 class="column-title">{{ __('about.equipe') }}</h3>
   
             <div id="testimonial-slide" class="testimonial-slide">
                 <div class="item">
                   <div class="quote-item">
                       <span class="quote-text">
-                        Hello, je suis le créateur de My Secret Map et depuis 2021, je partage -entouré d'une équipe d'incroyables photographes - nos meilleurs spots touristiques et  conseils photos pour vous aider à construire vos plus beaux voyages. Je suis tombé amoureux de la photographie et des voyages il y plus de 30 ans et cela ne m'a jamais quitté. Bénéficiez de nos explorations avec ce générateur de voyages. </span>
-  
+                      {{ __('about.fabriceh') }}</span>
                       <div class="quote-item-footer">
                         <img loading="lazy" class="testimonial-thumb" src="/frontend/assets/images/team/fab1.jpg" alt="Fabrice H">
                         <div class="quote-item-info">
@@ -33,7 +32,7 @@
                         <img loading="lazy" class="testimonial-thumb" src="/frontend/assets/images/team/helen1.jpg" alt="Helen">
                         <div class="quote-item-info">
                             <h3 class="quote-author">Helen Stourk</h3>
-                            <span class="quote-subtext">IT manager</span>
+                            <span class="quote-subtext">Webmaster</span>
                         </div>
                       </div>
                   </div><!-- Quote item end -->

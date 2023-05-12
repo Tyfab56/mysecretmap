@@ -24,7 +24,11 @@
                 <div class="card-body">
                   <div class="input-w">
                     <label for="name"><p><b>{{ __('compte.Name') }} :</b></p> </label>
-                    <input type="text" name= "name" id="name" value="{{$user->name}}"/>
+                    <input type="text" name= "name" id="name" value="{{$user->name}}" style="width:70%"/>
+                </div>
+                <div class="input-w">
+                    <label for="name"><p><b>{{ __('compte.Prenom') }} :</b></p> </label>
+                    <input type="text" name= "name" id="name" value="{{$user->prenom}}" style="width:70%"/>
                 </div>
                 <div class="input-w">
                     <label for="pseudo"><p><b>{{ __('compte.Pseudo') }} :</b></p> </label>

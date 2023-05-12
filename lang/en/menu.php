@@ -25,8 +25,10 @@ return [
     'Store' => 'Store',
     'Audioguide' => 'Audioguide',
     'Blog' => 'Blog',
+    'Infos' => "About us",
     'Filinfo' => 'News feed',
-
+    'Photographer' => 'Photographer?',
+    'Photojoinus' => 'Join us',
 
 
 ];
