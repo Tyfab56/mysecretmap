@@ -6,7 +6,7 @@
           <div class="col-lg-6">
             <div class="ts-intro">
                 <h3 class="into-sub-title">{{ __('photo.Become') }}</h3>
-                <p>{{ __('Photo.Intro') }}</p>
+                <p>{{ __('photo.Intro') }}</p>
             </div><!-- Intro box end -->
   
             <div class="gap-20"></div>
@@ -72,7 +72,7 @@
   
           <div class="col-lg-6 mt-4 mt-lg-0">
             <h3 class="into-sub-title">{{ __('photo.Titre2') }}</h3>
-            <p>{{ __('Photo.SousTitre2') }}</p>
+            <p>{{ __('photo.SousTitre2') }}</p>
   
             <div class="accordion accordion-group" id="our-values-accordion">
                 <div class="card">
