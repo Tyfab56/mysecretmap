@@ -2,9 +2,9 @@
 @section('content')
 <section id="ts-features" class="ts-features">
     <div class="container">
-      <div class="row">
+      <div class="row mt-5">
           <div class="col-lg-6">
-            <div class="ts-intro"><h2>{{ __('photo.About') }}</h2>
+            <div class="ts-intro">
                 <h3 class="into-sub-title">{{ __('photo.Become') }}</h3>
                 <p>{{ __('Photo.Intro') }}</p>
             </div><!-- Intro box end -->
@@ -12,7 +12,7 @@
             <div class="gap-20"></div>
   
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-6 mt-2">
                   <div class="ts-service-box">
                       <span class="ts-service-icon">
                         <i class="fas fa-trophy"></i>
@@ -23,7 +23,7 @@
                   </div><!-- Service 1 end -->
                 </div><!-- col end -->
   
-                <div class="col-md-6">
+                <div class="col-md-6 mt-2">
                   <div class="ts-service-box">
                       <span class="ts-service-icon">
                         <i class="fas fa-sliders-h"></i>
@@ -36,7 +36,7 @@
             </div><!-- Content row 1 end -->
   
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-6 mt-2">
                   <div class="ts-service-box">
                       <span class="ts-service-icon">
                         <i class="fas fa-thumbs-up"></i>
@@ -47,7 +47,7 @@
                   </div><!-- Service 1 end -->
                 </div><!-- col end -->
   
-                <div class="col-md-6">
+                <div class="col-md-6 mt-2">
                   <div class="ts-service-box">
                       <span class="ts-service-icon">
                         <i class="fas fa-users"></i>
@@ -57,6 +57,16 @@
                       </div>
                   </div><!-- Service 2 end -->
                 </div><!-- col end -->
+                <div class="col-md-12 mt-2">
+                <div class="card-wrapper mt-2">
+                    <div class="card-box align-left">
+                    </b><h3 class="into-sub-title">{{ __('photo.CommentTitre') }}</h3>
+                        <p>
+                        <b> {{ __('photo.CommentDesc') }}</b></p>
+                       
+                    </div>
+</div>
+                </div>
             </div><!-- Content row 1 end -->
           </div><!-- Col end -->
   
@@ -108,6 +118,52 @@
                 </div>
             </div>
           </div>
+      </div>
+      <div class="row justify-content-center mt-5">
+     
+            
+            <div class="col-md-4">
+                <div class="photo-item mbr-flex">
+                    <div class="photo-icon-box">
+                    <i class="fa-solid fa-1 photo-iconfont"></i>
+                    </div>
+                    <div class="text-box">
+                        <h4>
+                            <strong>{{ __('photo.Step1Title') }}</strong>
+                        </h4>
+                        <p>{{ __('photo.Step1Desc') }}</p>
+                    </div>
+                </div>
+</div>
+ <div class="col-md-4">
+ <div class="photo-item mbr-flex">
+                    <div class="photo-icon-box">
+                    <i class="fa-solid fa-2 photo-iconfont"></i>
+                    </div>
+                    <div class="text-box">
+                        <h4>
+                            <strong>{{ __('photo.Step2Title') }}</strong>
+                        </h4>
+                        <p>{{ __('photo.Step2Desc') }}</p>
+                    </div>
+                </div>
+                
+</div>
+<div class="col-md-4">
+<div class="photo-item mbr-flex">
+                    <div class="photo-icon-box">
+                    <i class="fa-solid fa-3 photo-iconfont"></i>
+                    </div>
+                    <div class="text-box">  
+                        <h4>
+                            <strong>{{ __('photo.Step3Title') }}</strong>
+                        </h4>
+                        <p>{{ __('photo.Step3Desc') }}</p>
+                    </div>
+                </div>
+            
+      
+            </div>
       </div>
     </div>
 </section> 
