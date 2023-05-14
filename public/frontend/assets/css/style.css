@@ -3939,3 +3939,9 @@ img.list-photo:hover, img.imgbox:hover{
   font-size: 2rem;
   color: #ffffff;
 }
+.photo-greybox
+{
+  background: #d6d3d3;
+  padding: 17px;
+  border-radius: 10px;
+}

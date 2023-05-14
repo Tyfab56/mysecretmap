@@ -58,14 +58,14 @@
                   </div><!-- Service 2 end -->
                 </div><!-- col end -->
                 <div class="col-md-12 mt-2">
-                <div class="card-wrapper mt-2">
+                <div class="card-wrapper photo-greybox mt-2">
                     <div class="card-box align-left">
                     </b><h3 class="into-sub-title">{{ __('photo.CommentTitre') }}</h3>
                         <p>
                         <b> {{ __('photo.CommentDesc') }}</b></p>
                        
                     </div>
-</div>
+          </div>
                 </div>
             </div><!-- Content row 1 end -->
           </div><!-- Col end -->
@@ -134,9 +134,9 @@
                         <p>{{ __('photo.Step1Desc') }}</p>
                     </div>
                 </div>
-</div>
- <div class="col-md-4">
- <div class="photo-item mbr-flex">
+      </div>
+      <div class="col-md-4">
+      <div class="photo-item mbr-flex">
                     <div class="photo-icon-box">
                     <i class="fa-solid fa-2 photo-iconfont"></i>
                     </div>
@@ -148,9 +148,9 @@
                     </div>
                 </div>
                 
-</div>
-<div class="col-md-4">
-<div class="photo-item mbr-flex">
+      </div>
+      <div class="col-md-4">
+      <div class="photo-item mbr-flex">
                     <div class="photo-icon-box">
                     <i class="fa-solid fa-3 photo-iconfont"></i>
                     </div>
@@ -165,7 +165,11 @@
       
             </div>
       </div>
+      <div class="row">
+      <a class="btn btn-primary display-4" href="/login">Inscription / Connection</a>
+      </div>
     </div>
+
 </section> 
 
 @endsection
