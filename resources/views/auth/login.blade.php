@@ -1,7 +1,7 @@
 @extends('frontend.main_master')
 @section('content')
 <x-guest-layout>
-    <x-auth-card>
+    <x-auth-card :mode="'login'">
        
         <!-- Session Status -->
         <x-auth-session-status class="mb-4" :status="session('status')" />
@@ -50,7 +50,7 @@
         </form>
        
     </x-auth-card>
-    <a class="btn btn-primary indexbtn" href="{{'home'}}"">{{ __('destination.VoirAllSpots') }}</a>
+   
 </x-guest-layout>
 
 @endsection

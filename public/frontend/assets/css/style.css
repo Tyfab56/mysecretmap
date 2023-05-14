@@ -3945,3 +3945,10 @@ img.list-photo:hover, img.imgbox:hover{
   padding: 17px;
   border-radius: 10px;
 }
+
+.btn-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70px; /* Ajustez la hauteur de la div selon vos besoins */
+} 

@@ -165,8 +165,11 @@
       
             </div>
       </div>
-      <div class="row">
-      <a class="btn btn-primary display-4" href="/login">Inscription / Connection</a>
+
+      <div>
+        <div class="btn-center">
+           <a class="btn btn-primary display-4" href="/login">Inscription / Connection</a>
+           </div>
       </div>
     </div>
 
