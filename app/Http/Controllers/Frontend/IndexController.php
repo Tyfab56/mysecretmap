@@ -207,7 +207,6 @@ class IndexController extends Controller
         $user = Auth::user();
         // chargement des pays actifs
         $payslist = Pays::where('actif', '=', 1)->orderBy('pays', 'asc')->get();
-        dd($user);
         return view('frontend/myaccount',compact('user','payslist'));
     }
 
