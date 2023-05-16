@@ -30,8 +30,8 @@
                 data-parent="#construction-accordion">
                 <div class="card-body">
                     <div class="avatar-150">
-                       @if($user->profil_photo_path)
-                        <img id="avatar-preview" class="mw-150" src="{{ $user->profil_photo_path}}" alt="Avatar" />
+                       @if($user->profile_photo_path)
+                        <img id="avatar-preview" class="mw-150" src="{{ $user->profile_photo_path}}" alt="Avatar" />
                        @else
                        <img id="avatar-preview " class="mw-150" src="{{asset('frontend/assets/images/avatar.jpg')}}" alt="Avatar" />
                       @endif
