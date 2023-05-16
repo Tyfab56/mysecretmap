@@ -557,7 +557,7 @@ class IndexController extends Controller
 
     public function avatarstore(Request $request)
     {
-        dd($request);
+ 
         $avatar = $request->file('file');
 
         // traitement image carré

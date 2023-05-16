@@ -15,6 +15,7 @@
               @foreach($pictures as $photo)
                    <div class="item">
                    <a href="product/1.html"><img src="{{ $photo->medium }}" width="100%" /></a>
+                   <a href="product/1.html"><img src="{{ $photo->user()->profile-photo-path }}" width="100%" /></a>
                   </div>
               @endforeach
           </div>
