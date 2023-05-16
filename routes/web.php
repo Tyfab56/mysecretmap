@@ -95,8 +95,8 @@ Route::post('/admin/createzoomid', [AdminController::class, 'createzoomid'])->na
 Route::get('/admin/timeline', [TimelineController::class, 'index'])->name('admin.timeline')->middleware('App\Http\Middleware\CheckAdmin');
 Route::get('addimagespot/{spotid}', [IndexController::class, 'addimagespot'])->name('addimagespot')->middleware('App\Http\Middleware\CheckAdmin');
 Route::get('/admin/detailpays/{id}', [PaysController::class, 'detail'])->name('admin.detailpays');
-Route::post('/admin/timeline/store', [TimelineController::class, 'Store'])->name('admin.timeline.store')->middleware('App\Http\Middleware\CheckAdmin');
-
+Route::post('/admin/timeline/store', [TimelineController::class, 'store'])->name('admin.timeline.store')->middleware('App\Http\Middleware\CheckAdmin');
+Route::post('addavatar/store', [IndexController::class, 'avatarstore'])->name('addavatar.store');
 
 Route::view('/rodrigues','frontend.destinations.rodrigues')->name('rodrigues');
 Route::view('/iceland', 'frontend.destinations.iceland')->name('iceland');
@@ -105,6 +105,7 @@ Route::view('/blog', 'frontend.destinations.blog')->name('blog');
 Route::view('/blog/hotspot', 'frontend.destinations.blog-hotspot')->name('blog.hotspot');
 Route::view('/reunion', 'frontend.destinations.reunion')->name('reunion');
 Route::view('/audioguide', 'frontend.audioguide')->name('audioguide');
+Route::view('/changeavatar', 'frontend.loadavatar')->name('changeavatar');
 
 Route::view('/test', 'frontend.test')->name('test');
 Route::post('/getspot', [TimelineController::class, 'getSpot'])->name('getspot');

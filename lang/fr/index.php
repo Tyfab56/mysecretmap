@@ -68,5 +68,6 @@ return [
     "filinfo" => "Suivez le fil info",
     "filinfosub" => "Les abonnés Patreon ont accès à la version complète du fil info ",
     "VoirImage" => "Voir toutes les images",
+    "RetourPrecPage" => "Retour page précédente",
     
 ];

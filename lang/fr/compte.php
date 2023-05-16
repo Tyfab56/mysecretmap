@@ -12,4 +12,5 @@ return [
     "Facebook"=>"Facebook",
     "Instagram"=>"Instagram",
     "Web"=> "Site Internet",
+    "ChangeAvatar"=> "Changer avatar",
 ];

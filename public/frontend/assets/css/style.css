@@ -3952,3 +3952,30 @@ img.list-photo:hover, img.imgbox:hover{
   align-items: center;
   height: 70px; /* Ajustez la hauteur de la div selon vos besoins */
 } 
+
+.avatar-300
+{
+  width: 300px;
+  height: 300px;
+  background-color: #999;
+}
+.avatar-200
+{
+  width: 200px;
+  height: 200px;
+  background-color: #999;
+}
+.avatar-150
+{
+  width: 150px;
+  height: 150px;
+  background-color: #999;
+}
+
+.mw-150
+{
+  max-width: 150px!important;
+}
+.jc-center{
+  justify-content: center;
+}

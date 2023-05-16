@@ -555,4 +555,67 @@ class IndexController extends Controller
         
             return view('frontend.timeline', compact('items','totalpages'));
     }
+
+    public function avatarstore(Request $request)
+    {
+        
+        $avatar = $request->file('file');
+
+        // traitement image carré
+        if ($avatar == null) {
+            // pas de nouvelle image
+            $imageavatarstatus = 0;
+        } else {
+            // Recherche si ancienne image et suppression des images coorespondantes
+
+            
+            // nouvelle image
+            $imageavatarstatus = 1;
+            $extension = $avatar->getClientOriginalExtension();
+            $imgavatarname =  $request->file('file')->getClientOriginalName();;
+            $imgavatarname = str_replace(' ', '-', $imgavatarname);
+            $imgavatarname = uniqid() . "_" . $imgavatarname;
+
+
+            $disk = Storage::disk('wasabi');
+            $bucket = 'mysecretmap';
+
+            // LARGE
+       
+            $width = 400;
+            $height = 400   ;
+            $canvas = Image::canvas($width, $height);
+
+            $imagefinale  = Image::make($avatar)->fit(400, 400, null, 'center', false);
+
+            $canvas->insert(
+                $imagefinale,
+                'center'
+            );
+            $canvas->encode($extension);
+
+            $disk->put('/large/large-' . $imgavatarname, (string) $canvas, 'public');
+            $largeavatarname = $disk->url('large/large-' . $imgavatarname);
+
+        }
+            
+            
+        // Retrouver le user en cours
+        $iduser = Auth::user()->id;
+        $user = User::find($iduser);
+
+      
+        
+        // Enregistrer l'image si elle est fournie
+        if ($imagetimelinestatus == 1) {
+         
+
+            $user->profil_photo_path = $largeavatarname;
+        }
+
+        $user->save();
+   
+
+        $this->call('myaccount');
+    }
 }

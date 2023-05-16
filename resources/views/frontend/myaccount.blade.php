@@ -1,4 +1,11 @@
 @extends('frontend.main_master')
+@section('css')
+<link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
+@endsection
+@section('fullscripts')
+<script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
+@endsection
+
 @section('content')
 @auth
 <section id="main-container" class="main-container">
@@ -22,6 +29,17 @@
               <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
                 data-parent="#construction-accordion">
                 <div class="card-body">
+                    <div class="avatar-150">
+                       @if($user->profil_photo_path)
+                        <img id="avatar-preview" class="mw-150" src="{{ $user->profil_photo_path}}" alt="Avatar" />
+                       @else
+                       <img id="avatar-preview " class="mw-150" src="{{asset('frontend/assets/images/avatar.jpg')}}" alt="Avatar" />
+                      @endif
+                    </div>
+                    <a href="{{route('changeavatar')}}"><button class="btn btn-primary mb-1" style="background-color: #ffb600; color: white; border-radius: 5px;">{{ __('compte.ChangeAvatar') }}</button></a>
+                    
+
+
                   <div class="input-w">
                     <label for="name"><p><b>{{ __('compte.Name') }} :</b></p> </label>
                     <input type="text" name= "name" id="name" value="{{$user->name}}" style="width:70%"/>
