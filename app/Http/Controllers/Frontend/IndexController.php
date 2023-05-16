@@ -615,6 +615,8 @@ class IndexController extends Controller
 
         $user->save();
    
-        return;
+        return response()->json([
+            'message' => 'OK'
+        ]);
     }
 }
