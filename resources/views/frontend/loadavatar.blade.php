@@ -30,6 +30,10 @@ Dropzone.options.myDropzone = {
                 alert("L'image doit avoir une taille minimale de 400x400 pixels.");
             }
         });
+        this.on("success", function(file, response) {
+            // Redirect to the desired page
+            window.location.href = "{{ route('myaccount') }}";
+        });
     }
     
 };

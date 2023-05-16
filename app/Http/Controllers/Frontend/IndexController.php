@@ -558,7 +558,7 @@ class IndexController extends Controller
 
     public function avatarstore(Request $request)
     {
-        
+        dd($request);
         $avatar = $request->file('file');
 
         // traitement image carré
@@ -602,20 +602,19 @@ class IndexController extends Controller
             
         // Retrouver le user en cours
         $iduser = Auth::user()->id;
-        $user = User::find($iduser);
+        $user = User::find($iduser);    
 
       
         
         // Enregistrer l'image si elle est fournie
-        if ($imagetimelinestatus == 1) {
+        if ($imageavatarstatus == 1) {
          
 
-            $user->profil_photo_path = $largeavatarname;
+            $user->profile_photo_path = $largeavatarname;
         }
 
         $user->save();
    
-
-        $this->call('myaccount');
+        return;
     }
 }
