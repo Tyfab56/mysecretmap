@@ -103,9 +103,7 @@ function deletePicture (id)
                     <li > 
                        
                             <img src = "{{ $photo->medium }}" class="mainimg" alt = " " /> 
-                            <div class = "overlay" > 
-                          
-                           
+                            <div class = "overlay" >    
                                 <span > Titre de l'image </span >
                             </div >
                       
