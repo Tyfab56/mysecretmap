@@ -86,27 +86,38 @@ function deletePicture (id)
           
       
         </div>
-        <div class="row">
-          <div class="col-lg-2 bgregbox">
-           <p><b>Nombre d'images :</b> {{ $spottotalcount }}</p>
-          </div>
-          <div class="col-lg-10">
+            <div class="row">
+                <div class="col-lg-2 bgregbox">
+                <p><b>Nombre d'images :</b> {{ $spottotalcount }}</p>
+                </div>
+                <div class="col-lg-10">
 
-     
-          <div class="flexbin flexbin-margin">
-              
-              @foreach($pictures as $photo)
-              <div class="picture-wrapper">
-                    <a href="product/1.html"><img src="{{ $photo->medium }}" /></a>
-                    <img src="{{asset('frontend/assets/images/delete.png')}}" alt="Supprimer" class="delete-icon" onclick="deletePicture({{ $photo->id }})">
- </div> 
-              @endforeach
-          </div>
-          
-          
+        
+                <div class="gallery-container" > 
+                    <h2 class="heading-text">Responsive <span>image gallery</span></h2>
+                    <!-- header text --> 
+                        <ul class = "image-gallery" > 
+                    
+                    @foreach($pictures as $photo)
 
-           
-          </div>
+                    <li > 
+                        <div class="picture-wrapper">
+                            <img src = "{{ $photo->medium }}" alt = " " /> 
+                            <img src="{{asset('frontend/assets/images/delete.png')}}" alt="Supprimer" class="delete-icon" onclick="deletePicture({{ $photo->id }})">
+                            <div class = "overlay" > 
+                                <span > Titre de l'image </span >
+                            </div >
+                        </div>
+                    </li > 
+                    
+                    @endforeach
+                    </ul> 
+                </div>
+            
+            
+
+            
+            </div>
         </div>
 
  @else
@@ -124,6 +135,74 @@ function deletePicture (id)
     right: 0;
     cursor: pointer;
 }
+
+.container {
+  padding: 40px 5%;
+}
+
+.heading-text {
+  margin-bottom: 2rem;
+  font-size: 2rem;
+}
+
+.heading-text span {
+  font-weight: 100;
+}
+
+ul {
+  list-style: none;
+}
+
+/* Responsive image gallery rules begin*/
+
+.image-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.image-gallery > li {
+  flex: 1 1 auto; /* or flex: auto; */
+  height: 300px;
+  cursor: pointer;
+  position: relative;
+}
+
+.image-gallery::after {
+  content: "";
+  flex-grow: 999;
+}
+
+.image-gallery li img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  vertical-align: middle;
+  border-radius: 5px;
+}
+
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(57, 57, 57, 0.502);
+  top: 0;
+  left: 0;
+  transform: scale(0);
+  transition: all 0.2s 0.1s ease-in-out;
+  color: #fff;
+  border-radius: 5px;
+  /* center overlay content */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* hover */
+.image-gallery li:hover .overlay {
+  transform: scale(1);
+}
+
 
 </style>
 
