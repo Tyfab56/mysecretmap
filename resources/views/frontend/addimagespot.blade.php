@@ -102,7 +102,7 @@ function deletePicture (id)
 
                     <li > 
                         <div class="picture-wrapper">
-                            <img src = "{{ $photo->medium }}" alt = " " /> 
+                            <img src = "{{ $photo->medium }}" class="mainimg" alt = " " /> 
                             <img src="{{asset('frontend/assets/images/delete.png')}}" alt="Supprimer" class="delete-icon" onclick="deletePicture({{ $photo->id }})">
                             <div class = "overlay" > 
                                 <span > Titre de l'image </span >
@@ -173,7 +173,7 @@ ul {
   flex-grow: 999;
 }
 
-.image-gallery li img {
+.image-gallery li .mainimg {
   object-fit: cover;
   width: 100%;
   height: 100%;
