@@ -96,14 +96,13 @@ function deletePicture (id)
                 <div class="gallery-container" > 
                     <h2 class="heading-text">Responsive <span>image gallery</span></h2>
                     <!-- header text --> 
-                        <ul class = "image-gallery" > 
                     
+                    <ul class = "image-gallery" > 
                     @foreach($pictures as $photo)
 
                     <li > 
                         <div class="picture-wrapper">
                             <img src = "{{ $photo->medium }}" class="mainimg" alt = " " /> 
-                            <img src="{{asset('frontend/assets/images/delete.png')}}" alt="Supprimer" class="delete-icon" onclick="deletePicture({{ $photo->id }})">
                             <div class = "overlay" > 
                                 <span > Titre de l'image </span >
                             </div >

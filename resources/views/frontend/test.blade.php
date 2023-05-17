@@ -86,8 +86,52 @@ ul {
 <div class="container" > 
 <h2 class="heading-text">Responsive <span>image gallery</span></h2>
 <!-- header text --> 
+<ul class="image-gallery"> 
+                    
+                    
+                    <li> 
+                 
+                            <img src="https://mysecretmap.s3.eu-central-1.wasabisys.com/medium/medium-645cbba43c621_1___DSC8392-geysir-2.jpg" class="mainimg" alt=" "> 
+                              <div class="overlay"> 
+                                <span> Titre de l'image </span>
+                            </div>
+                    
+                    </li> 
+                    
+                    
+                    <li> 
+                    
+                            <img src="https://mysecretmap.s3.eu-central-1.wasabisys.com/medium/medium-645cbba43c621_1___DSC8391-geysir-3.jpg" class="mainimg" alt=" "> 
+                             <div class="overlay"> 
+                                <span> Titre de l'image </span>
+                            </div>
+                   
+                    </li> 
+                    
+                    
+                    <li> 
+                     
+                            <img src="https://mysecretmap.s3.eu-central-1.wasabisys.com/medium/medium-645cbbab7df32_1___DSC8393-geysir-1.jpg" class="mainimg" alt=" "> 
+                             <div class="overlay"> 
+                                <span> Titre de l'image </span>
+                            </div>
+                     
+                    </li> 
+                    
+                    
+                    <li> 
+                       
+                            <img src="https://mysecretmap.s3.eu-central-1.wasabisys.com/medium/medium-645cbbac6c8f8_1___DSC8364-geysir-4.jpg" class="mainimg" alt=" "> 
+                             <div class="overlay"> 
+                                <span> Titre de l'image </span>
+                            </div>
+                        
+                    </li> 
+                    
+    </ul>
+
+
 <ul class = "image-gallery" > 
-   
      <li > 
         <img src = "https://images.unsplash.com/photo-1684122561380-3772a4f9e388?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=800&q=60" alt = " " /> 
         <div class = "overlay" > 
@@ -126,7 +170,9 @@ ul {
     </li > 
  </ul> 
   
-<div >
+
+
+ <div >
 
 <script>
 
