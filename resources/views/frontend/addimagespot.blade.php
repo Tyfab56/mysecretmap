@@ -101,12 +101,12 @@ function deletePicture (id)
                     @foreach($pictures as $photo)
 
                     <li > 
-                        <div class="picture-wrapper">
+                       
                             <img src = "{{ $photo->medium }}" class="mainimg" alt = " " /> 
                             <div class = "overlay" > 
                                 <span > Titre de l'image </span >
                             </div >
-                        </div>
+                      
                     </li > 
                     
                     @endforeach
