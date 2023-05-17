@@ -104,7 +104,7 @@ function deletePicture (id)
                        
                             <img src = "{{ $photo->medium }}" class="mainimg" alt = " " /> 
                             <div class = "overlay" > 
-                            <img src="{{asset('frontend/assets/images/delete.png')}}" alt="Supprimer" class="delete-icon" onclick="deletePicture({{ $photo->id }})">
+                          
                            
                                 <span > Titre de l'image </span >
                             </div >
