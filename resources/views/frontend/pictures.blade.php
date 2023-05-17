@@ -15,7 +15,7 @@
               @foreach($pictures as $photo)
                    <div class="item">
                    <a href="product/1.html"><img src="{{ $photo->medium }}" width="100%" /></a>
-                   <a href="product/1.html"><img src="{{ $photo->user()->profile-photo-path }}" width="100%" /></a>
+                   <a href="product/1.html" class="thumbnail"><img src="{{ $photo->user->profile_photo_path }}" width="40" height="40" /></a>
                   </div>
               @endforeach
           </div>
@@ -37,6 +37,24 @@
               margin: 0;
               display: block;
        }
+	
+.thumbnail {
+    position: absolute;	
+    top: 10px;
+    right: 10px;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    overflow: hidden;
+	border: 2px solid #ccc; 
+}
+
+.thumbnail img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
 </style>
 @endsection
 @section('scripts')
