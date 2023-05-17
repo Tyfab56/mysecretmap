@@ -136,7 +136,7 @@ function deletePicture (id)
     cursor: pointer;
 }
 
-.container {
+.gallery-container {
   padding: 40px 5%;
 }
 
