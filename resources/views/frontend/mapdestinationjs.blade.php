@@ -227,8 +227,13 @@ function redrawOverlay()
     
     }   
     var bounds = recBounds(currentLat,currentLng);   
+ 
 
-    currentOverlay = L.imageOverlay(msg.imgZoomLarge,bounds).addTo(mapzoom);
+    if (msg.imgZoomLarge)
+    {
+      currentOverlay = L.imageOverlay(msg.imgZoomLarge,bounds).addTo(mapzoom);
+    }
+ 
          
   })
 }

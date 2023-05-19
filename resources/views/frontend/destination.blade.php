@@ -56,8 +56,14 @@
                             <p><span style="color:red"><b>{{__('destination.RedLine')}}</b></span> / <span style="color:orange"><b>{{__('destination.OrangeLine')}}</b></span></p><br/>
                       </div>
                    
-                       
-                         
+                      <div class="row bgregbox min100">  
+          <div class="col-lg-6 center"><div id="mapzoom"></div></div>
+          <div class="col-lg-6 center"><livewire:show-img-region /></div>
+        </div>
+        <div class="row bgregbox min100">  
+          <div class="col-lg-6 col-md-12"><livewire:show-map-globale /></div>
+          <div class="col-lg-6 col-md-12"><livewire:show-peak-region /></div>
+        </div>             
                         
                 </div>
             </div>
@@ -66,14 +72,8 @@
             </div>
         </div>
        
-        <div class="row bgregbox min100">  
-          <div class="col-lg-6 center"><div id="mapzoom"></div></div>
-          <div class="col-lg-6 center"><livewire:show-img-region /></div>
-        </div>
-        <div class="row bgregbox min100">  
-          <div class="col-lg-6 col-md-12"><livewire:show-map-globale /></div>
-          <div class="col-lg-6 col-md-12"><livewire:show-peak-region /></div>
-        </div>
+        
+        
         <div class="row bgregbox min100">  
           <div class="col-lg-12 col-md-12"><livewire:slider-pictures /></div>
           
