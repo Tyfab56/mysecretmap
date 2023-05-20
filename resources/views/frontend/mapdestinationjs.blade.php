@@ -499,6 +499,16 @@ function goImage()
 
 }
 
+var myImages = document.querySelectorAll('.img-image');
+
+// Initialisez Zooming
+var zooming = new Zooming({
+  // Options de configuration (facultatif)
+});
+
+// Associez le zoom à tous les éléments sélectionnés
+zooming.listen(myImages);
+
 function popimage(name,e,lat,lng) {
 
   currentMarker = e;

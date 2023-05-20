@@ -147,7 +147,7 @@ class DestinationController extends Controller
     public function getzoom($idspot)
     {
         $spotzoom = Spots::select('imgZoomLarge')->where('id', '=', $idspot)->first();
-      
+        
         return response($spotzoom, 200);
 
     }
