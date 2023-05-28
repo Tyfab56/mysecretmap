@@ -3531,7 +3531,7 @@ input[type=range] {
  {
   position: relative;
   width: 100%;
-  max-width: 700px;
+  max-width: 100%;
  }
  .img-image
  {
