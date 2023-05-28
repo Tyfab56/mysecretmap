@@ -56,11 +56,11 @@
                             <p><span style="color:red"><b>{{__('destination.RedLine')}}</b></span> / <span style="color:orange"><b>{{__('destination.OrangeLine')}}</b></span></p><br/>
                       </div>
                    
-                      <div class="row bgregbox min100">  
+        <div class="row pt-1 pb-1 pr-1 pl-1 bgregbox min100">  
           <div class="col-lg-6 center pt-1 pb-1 pr-1 pl-1"><div id="mapzoom"></div></div>
           <div class="col-lg-6 center pt-1 pb-1  pr-1 pl-1"><livewire:show-img-region /></div>
         </div>
-        <div class="row bgregbox min100">  
+        <div class="row pt-1 pb-1 pr-1 pl-1 bgregbox min100">  
           <div class="col-lg-6 pt-1 pb-1  pr-1 pl-1"><livewire:show-map-globale /></div>
           <div class="col-lg-6 pt-1 pb-1  pr-1 pl-1"><livewire:show-peak-region /></div>
         </div>             
