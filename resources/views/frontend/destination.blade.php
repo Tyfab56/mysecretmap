@@ -57,12 +57,12 @@
                       </div>
                    
                       <div class="row bgregbox min100">  
-          <div class="col-lg-6 center pr-2 pl-2"><div id="mapzoom"></div></div>
-          <div class="col-lg-6 center pr-2 pl-2"><livewire:show-img-region /></div>
+          <div class="col-lg-6 center pr-1 pl-1"><div id="mapzoom"></div></div>
+          <div class="col-lg-6 center pr-1 pl-1"><livewire:show-img-region /></div>
         </div>
         <div class="row bgregbox min100">  
-          <div class="col-lg-6 pr-2 pl-2 "><livewire:show-map-globale /></div>
-          <div class="col-lg-6 pr-2 pl-2"><livewire:show-peak-region /></div>
+          <div class="col-lg-6 pr-1 pl-1"><livewire:show-map-globale /></div>
+          <div class="col-lg-6 pr-1 pl-1"><livewire:show-peak-region /></div>
         </div>             
                         
                 </div>
