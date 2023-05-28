@@ -124,7 +124,7 @@
         </div>  
 
         <div class="row">
-
+        <div id="mapzoom"></div>
         <div class="col-lg-3">
 
                <div data-gyg-href="https://widget.getyourguide.com/default/activities.frame" data-gyg-locale-code="fr-FR" data-gyg-widget="activities" data-gyg-number-of-items="1" data-gyg-partner-id="ZBTCHLM" data-gyg-tour-ids="393203"></div>
