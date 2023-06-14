@@ -19,8 +19,8 @@ class ApiController extends Controller
         JOIN oc_product p ON op.product_id = p.product_id
         JOIN oc_order_status os ON o.order_status_id = os.order_status_id
         JOIN oc_customer c ON o.customer_id = c.customer_id
-        WHERE c.email = '?'
-          AND p.model = '?'",[$email,$productId]);
+        WHERE c.email = ':email'
+        AND p.model = ':productId'",['email'  => $email,'productId'  => $productId]);
 
         
       dd(results);
