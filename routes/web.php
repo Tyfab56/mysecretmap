@@ -110,6 +110,6 @@ Route::view('/changeavatar', 'frontend.loadavatar')->name('changeavatar');
 
 Route::view('/test', 'frontend.test')->name('test');
 Route::post('/getspot', [TimelineController::class, 'getSpot'])->name('getspot');
-Route::get('/check-product/{email}/{product_id}', [ApiController::class, 'checkProduct']);
+Route::get('/check-product/{email}/{product_id}', [ApiController::class, 'checkProduct'])->name('check-product');
 
 require __DIR__ . '/auth.php';
