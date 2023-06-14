@@ -11,6 +11,7 @@ class ApiController extends Controller
     {
         $email = $request->input('email');
         $productId = $request->input('product_id');
+ 
 
         $results = DB::select("SELECT o.order_status_id, os.name AS order_status
         FROM oc_order o

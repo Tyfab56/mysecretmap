@@ -107,9 +107,10 @@ Route::view('/blog/hotspot', 'frontend.destinations.blog-hotspot')->name('blog.h
 Route::view('/reunion', 'frontend.destinations.reunion')->name('reunion');
 Route::view('/audioguide', 'frontend.audioguide')->name('audioguide');
 Route::view('/changeavatar', 'frontend.loadavatar')->name('changeavatar');
+Route::get('/check-product', [ApiController::class, 'checkProduct']);
 
 Route::view('/test', 'frontend.test')->name('test');
 Route::post('/getspot', [TimelineController::class, 'getSpot'])->name('getspot');
-Route::get('/check-product/{email}/{product_id}', [ApiController::class, 'checkProduct'])->name('check-product');
+//Route::get('/check-product/{email}/{product_id}', [ApiController::class, 'checkProduct'])->name('check-product');
 
 require __DIR__ . '/auth.php';
