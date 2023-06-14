@@ -9,6 +9,7 @@ use App\Http\Controllers\DistanceController;
 use App\Http\Controllers\PaysController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\TimelineController;
+use App\Http\Controllers\ApiController;
 use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\Frontend\DestinationController;
 use Illuminate\Support\Facades\Route;
@@ -109,5 +110,6 @@ Route::view('/changeavatar', 'frontend.loadavatar')->name('changeavatar');
 
 Route::view('/test', 'frontend.test')->name('test');
 Route::post('/getspot', [TimelineController::class, 'getSpot'])->name('getspot');
+Route::get('/check-product/{email}/{product_id}', [ApiController::class, 'checkProduct']);
 
 require __DIR__ . '/auth.php';

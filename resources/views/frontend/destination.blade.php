@@ -30,7 +30,7 @@
 
                             <div class="row bgregbox w100">
                             <div class="col-lg-12">
-                                  <div><b> :</b></div>
+                                  
                                   <div id="medias"></div>
                             </div>
                        </div>
