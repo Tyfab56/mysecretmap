@@ -3,7 +3,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Product;
+use Illuminate\Support\Facades\DB;
 
 class ApiController extends Controller
 {
@@ -25,10 +25,7 @@ class ApiController extends Controller
       dd(results);
 
         // Vérifier la base de données
-        $product = Product::where('id', $productId)
-            ->where('user_email', $email)
-            ->first();
-
+       
         if ($product) {
             // Le produit existe pour cet utilisateur
             return response()->json(['status' => 'ok']);
