@@ -20,15 +20,21 @@ class ApiController extends Controller
         JOIN oc_order_status os ON o.order_status_id = os.order_status_id
         JOIN oc_customer c ON o.customer_id = c.customer_id
         WHERE c.email = :email and os.name ='Shipped'
-        AND p.model = :productId limit 0,1",['email'  => $email,'productId'  => $productId]);
+        AND p.model = :productId limit 0,1",['email'  => $email,'productId'  => $productId]);   
        
         if ($results) {
            
-            return response()->json(['status' => 'ok']);
+            $message = json(['status' => 'ok'], 200)
+            ->header('Access-Control-Allow-Origin', '*')
+            ->header('Access-Control-Allow-Methods', 'GET');
         } else {
            
-            return response()->json(['status' => 'no']);
+            $message =json(['status' => 'no'], 200)
+            ->header('Access-Control-Allow-Origin', '*')
+            ->header('Access-Control-Allow-Methods', 'GET');
         }
+
+        return $message;
     }
 }
 
