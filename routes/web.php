@@ -9,7 +9,7 @@ use App\Http\Controllers\DistanceController;
 use App\Http\Controllers\PaysController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\TimelineController;
-
+use App\Http\Controllers\ApiController;
 use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\Frontend\DestinationController;
 use Illuminate\Support\Facades\Route;
@@ -25,6 +25,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/api/check-product', [ApiController::class, 'checkProduct']);
+Route::post('/api/check-product', [ApiController::class, 'checkProduct']);
 
 Route::get('/', [IndexController::class, 'index'])->name('home');
 Route::post('godestination', [IndexController::class, 'godestination'])->name('godestination');
