@@ -23,18 +23,20 @@ class ApiController extends Controller
         AND p.model = :productId limit 0,1",['email'  => $email,'productId'  => $productId]);   
        
         if ($results) {
-           
-            $message = json(['status' => 'ok'], 200)
+
+            return response()->json(['status' => 'ok'], 200)
             ->header('Access-Control-Allow-Origin', '*')
             ->header('Access-Control-Allow-Methods', 'GET');
+           
+           
         } else {
            
-            $message =json(['status' => 'no'], 200)
+            return response()->json(['status' => 'no'], 200)
             ->header('Access-Control-Allow-Origin', '*')
             ->header('Access-Control-Allow-Methods', 'GET');
         }
 
-        return $message;
+        
     }
 }
 
