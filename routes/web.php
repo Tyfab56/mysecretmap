@@ -26,7 +26,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::middleware('cors')->group(function () {
+Route::middleware('api')->group(function () {
     Route::get('/api/check-product', [ApiController::class, 'checkProduct']);
     Route::post('/api/check-product', [ApiController::class, 'checkProduct']);
 });
