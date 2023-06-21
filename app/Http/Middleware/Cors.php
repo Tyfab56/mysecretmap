@@ -16,7 +16,13 @@ class Cors
      */
     public function handle($request, Closure $next)
     {
-        return $next($request)
-            ->header('Access-Control-Allow-Origin', '*')
+        $response = $next($request);
+
+        $response->headers->set('Access-Control-Allow-Origin', 'https://mysecretmap.com');
+        $response->headers->set('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+        $response->headers->set('Access-Control-Allow-Headers', 'Content-Type');
+
+        return $response;
 
     }
+}
