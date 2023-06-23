@@ -22,23 +22,10 @@
             <h6 >{{__('index.Top1Line3')}}</h6>
           </div>
           <div class="col-lg-5 cold-md-12 bgbox p5">
-            <h2 class="section-title white">{{__('index.Top2Line1')}}</h2>
-            <h3 class="section-sub-title white">{{__('index.Top2Line2')}}</h3> 
-            @if (isset($noscircuits))
-            <form method="post" action="">
-              @csrf
-              <div class="form-group">
-                  <select class="form-control ml15 mw350 mauto" id="idcircuit" name="idcircuit" onChange="this.form.submit()">
-                  <option value="">{{__('destination.SelectCircuit')}}</option>
-                 
-                  @foreach($noscircuits as $circuit)
-                 
-            <option value="{{$circuit->id}}">{{$circuit->circuit->titre}}</option>
-            @endforeach
-          </select>
-          @endif
-          <a class="linkorange white"><p class="pt5">{{__('index.Top2Line3')}}</p></a> 
-        </div>
+          <h5 class="section-sub-title white" style="max-height: 300px">{{__('index.TitreVideo')}}</h5>
+          {!!__('index.CodeVideo')!!}
+          <a class="linkorange white"><p class="pt5">{{__('index.LienVideo')}}</p></a>
+          </div>
       </form>
           </div>
       </div>

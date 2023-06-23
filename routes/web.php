@@ -13,6 +13,7 @@ use App\Http\Controllers\ApiController;
 use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\Frontend\DestinationController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\StoreController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,11 +26,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/tostore', [StoreController::class, 'tostore'])->name('tostore');
 
-Route::middleware('api')->group(function () {
-    Route::get('/api/check-product', [ApiController::class, 'checkProduct']);
-    Route::post('/api/check-product', [ApiController::class, 'checkProduct']);
-});
+Route::get('/api/check-product', [ApiController::class, 'checkProduct'])->middleware('App\Http\Middleware\CorsMiddleware');
+Route::post('/api/check-product', [ApiController::class, 'checkProduct']);
+
 
 Route::get('/', [IndexController::class, 'index'])->name('home');
 Route::post('godestination', [IndexController::class, 'godestination'])->name('godestination');

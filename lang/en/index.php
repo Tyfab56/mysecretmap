@@ -68,7 +68,9 @@ return [
     "filinfosub" => "Patreon subscribers have access to the full version of the news feed",
     "VoirImage" => "See all pictures",
     "RetourPrecPage" => "Back to previous page",
-
+    "TitreVideo" => "NEW : ICELAND Audio Guide",
+    "CodeVideo" =>  '<iframe width="560" height="315" src="https://www.youtube.com/embed/diClSEWYZ8I" title="Audio Guide Islande" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>',
+    "LienVideo" =>  'Discover the audio guide', 
 
 
 ];

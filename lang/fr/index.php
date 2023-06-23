@@ -69,5 +69,8 @@ return [
     "filinfosub" => "Les abonnés Patreon ont accès à la version complète du fil info ",
     "VoirImage" => "Voir toutes les images",
     "RetourPrecPage" => "Retour page précédente",
+    "TitreVideo" => "NOUVEAU : Audio Guide Islande",
+    "CodeVideo" =>  '<iframe width="100%" max-height="215" src="https://www.youtube.com/embed/diClSEWYZ8I" title="Audio Guide Islande" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>',
+    "LienVideo" =>  'Découvrir le guide audio', 
     
 ];
