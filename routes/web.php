@@ -114,6 +114,7 @@ Route::view('/reunion', 'frontend.destinations.reunion')->name('reunion');
 Route::view('/audioguide', 'frontend.audioguide')->name('audioguide');
 Route::view('/changeavatar', 'frontend.loadavatar')->name('changeavatar');
 
+Route::view('/guide_iceland_en','frontend.guide_iceland_en')->name('guide_iceland_en');
 
 Route::view('/test', 'frontend.test')->name('test');
 Route::post('/getspot', [TimelineController::class, 'getSpot'])->name('getspot');
