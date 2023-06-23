@@ -1,8 +1,8 @@
 <?php
 
 return [
-    "FabricehTitle"=> "Founder of MySecretMap",
-    "FabricehDesc"=> "Fabrice H is the creator of the My secret Map's concept and has realized some of the destinations like Iceland and Reunion",
+    "AudioTitreIslande" => "Audioguide Iceland",
+    "AudioDesc"=> "Discover Iceland with photographer Fabrice H. I've designed this audio guide for Iphone, Android and Windows, for photography enthusiasts who want to discover this fantastic destination. It is currently available in French and English. Other languages are in preparation.",
     "Lancement" => "LAUNCH OFFER: 9€ instead of 12€.",
     "Subscribe" => "benefit from the promotion now",
     "AdvTitre1" =>"Save time preparing your trip",
