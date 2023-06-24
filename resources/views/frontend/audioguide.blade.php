@@ -15,7 +15,7 @@
                             </div>
                     </div>
                 </div>
-                <div class="col-lg-4 center">
+                <div class="col-lg-4 center"> 
                                    
                                     <deckgo-demo 
                                                 src="https://mysecretmap.com/audioguide_demo"
@@ -26,6 +26,12 @@
                                     
                                     
                 </div>
+            </div>
+            <div class="center pt20">
+                 <div class="col-lg-8"></div>
+                 <div class="col-lg-4">
+                 <img src="{{ asset('frontend/assets/images/audio_isl_en_'. app()->getLocale())}}" alt="">
+                 </div>
             </div>
             <div class="center pt20">
                       <h2>{{ __('audioguide.Lancement') }}</h2></br>
