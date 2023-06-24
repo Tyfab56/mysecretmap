@@ -28,7 +28,9 @@
                 </div>
             </div>
             <div class="center pt20">
-                 <div class="col-lg-8"></div>
+                 <div class="col-lg-8">
+                    Vous pouvez découvrir cette démo en scannant ce QR Code ou en cliquant sur ce lien <a href="http://www.mysecretmap.com/audioguide_demo" target="_blank"> Demo Audioguide </a>
+                 </div>
                  <div class="col-lg-4">
                  <img src="{{ asset('frontend/assets/images/audio_isl_en_'. app()->getLocale())}}" alt="">
                  </div>
