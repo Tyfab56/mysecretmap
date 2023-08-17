@@ -53,6 +53,7 @@ return [
     "BonusTeam" => "Integrer notre équipe",
     "Aboutme" => "Hello, je suis le créateur de My Secret Map et depuis 2021, je partage -entouré d'une équipe d'incroyables photographes - nos meilleurs spots touristiques et  conseils photos pour vous aider à construire vos plus beaux voyages",
     "OT" => "Offices du Tourisme",
+    "OTdesc" => "Nous créons des audioguides touristiques pour les offices de tourisme, les musées et les collectivités locales. Contactez-nous.",
     "NousSoutenir" => "Nous Soutenir",
     "NousSoutenirDesc" => "Pour vous investir et ouvrir de nouveaux spots :",
     "ShareSpots" => "Partagez nos spots",

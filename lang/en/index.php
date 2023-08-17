@@ -52,6 +52,7 @@ return [
     "BonusTeam" => "Integrating our team",
     "Aboutme" => "Hello, I'm the creator of My Secret Map and since 2021, I've been sharing - together with a team of incredible photographers - our best tourist spots and photo tips to help you build your most beautiful trips",
     "OT" => "Tourism Offices",
+    "OTdesc" => "We create audio guides for tourist offices, museums, and local communities. Please contact us.",
     "NousSoutenir" => "Support us",
     "NousSoutenirDesc" => "To get involved and open new spots :",
     "ShareSpots" => "Share our spots",
