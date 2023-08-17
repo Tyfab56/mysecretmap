@@ -20,8 +20,9 @@
             <h2 class="section-sub-title">{{__('index.Top1Line1')}}</h2>
             <h3 class="section-sub-title">{{__('index.Top1Line2')}}</h3>
             <h6 >{{__('index.Top1Line3')}}</h6>
+            <h6 >{{__('index.Top1Line4')}}</h6>
           </div>
-          
+
           <div class="col-lg-5 cold-md-12 bgbox p5">
           <h5 class="section-sub-title white" style="max-height: 300px">{{__('index.TitreVideo')}}</h5>
           {!!__('index.CodeVideo')!!}
