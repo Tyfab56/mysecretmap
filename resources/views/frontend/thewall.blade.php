@@ -13,21 +13,21 @@ $(document).ready(function(){
       <div class="row "><h1 class="centerdiv">{{$pays->pays}}</h1></div>
       <div class="row "><h2 class="centerdiv">{{ __('destination.TousSpots') }}</h2></div>
       <div class="row "><h4 class="centerdiv">{{ __('destination.RandomSpots') }}</h4></div>
-      <div class="row">
+      <div class="row fit-inlinep pr-3">
            
          
-        <div class="col-lg-1  ">  
-                <label class="radio-inline">
+        <div>  
+                <label class="radio-inline pl-3">
                       <input type="radio" id="1" name="tri" checked> {{ __('index.WallSort1') }}
                 </label>
         </div>
-        <div class="col-lg-1">
-                <label class="radio-inline">
+        <div>
+                <label class="radio-inline pl-3">
                       <input type="radio" id="2" name="tri"> {{ __('index.WallSort2') }}
                 </label>
         </div>
         <div>
-              <label class="radio-inline">
+              <label class="radio-inline pl-3">
                     <input type="radio" id="3" name="tri"> {{ __('index.WallSort3') }}
               </label>
             

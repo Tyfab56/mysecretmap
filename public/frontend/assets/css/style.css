@@ -3979,3 +3979,8 @@ img.list-photo:hover, img.imgbox:hover{
 .jc-center{
   justify-content: center;
 }
+.fit-inline
+{
+  background-color: #88888870;
+  width: fit-content;
+}
