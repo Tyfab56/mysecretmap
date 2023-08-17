@@ -3439,6 +3439,10 @@ label {
 {
   color: cornflowerblue;
 }
+.darkgray
+{
+  color : darkgray;
+}
 
 .red{
   color : rgb(231, 67, 67);
