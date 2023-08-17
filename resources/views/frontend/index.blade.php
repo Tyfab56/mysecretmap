@@ -85,7 +85,7 @@
      
   
     </div>
-  
+</section> 
   
  
   <section id="ts-features" class="ts-features">
