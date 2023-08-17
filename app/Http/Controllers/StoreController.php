@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\tostore;
+use Illuminate\Support\Carbon;
 
 class StoreController extends Controller
 {
@@ -17,7 +19,7 @@ class StoreController extends Controller
          $store->tracking = $tracking;
          $store->created_at = Carbon::now();;
          $store->save();
-     
+
          
         $uri = $request->getRequestUri();
         $mot_a_retirer = "/tostore";
