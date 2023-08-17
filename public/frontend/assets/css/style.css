@@ -3983,10 +3983,12 @@ img.list-photo:hover, img.imgbox:hover{
 {
   background-color: #88888870;
   width: fit-content;
+  border-radius: 5px;
 }
 
 .wall-center
 {
   display: flex;
   justify-content: center;
+
 }
