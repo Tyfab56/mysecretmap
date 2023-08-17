@@ -326,7 +326,7 @@
             <h3 class="widget-title">{{ __('index.OT') }}</h3>
              <div class="working-hours">
             {{ __('index.OTdesc') }}
-              <br><br>  {{ __('index.OTcontact') }}
+              <br><br>  <a href="{{ __('index.OTcontact') }}">{{ __('index.OTcontact') }}</a>
              </div>
           </div><!-- Col end -->
 
