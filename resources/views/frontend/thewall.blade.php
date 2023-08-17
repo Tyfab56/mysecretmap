@@ -16,21 +16,23 @@ $(document).ready(function(){
       <div class="row">
            
          
-      <div class="col-lg-1  ">  
-              <label class="radio-inline">
-                    <input type="radio" id="1" name="tri" checked> {{ __('index.WallSort1') }}
-              </label>
-      </div>
-      <div class="col-lg-1">
-              <label class="radio-inline">
-                    <input type="radio" id="2" name="tri"> {{ __('index.WallSort2') }}
-              </label>
-</div>
+        <div class="col-lg-1  ">  
+                <label class="radio-inline">
+                      <input type="radio" id="1" name="tri" checked> {{ __('index.WallSort1') }}
+                </label>
+        </div>
+        <div class="col-lg-1">
+                <label class="radio-inline">
+                      <input type="radio" id="2" name="tri"> {{ __('index.WallSort2') }}
+                </label>
+        </div>
+        <div>
               <label class="radio-inline">
                     <input type="radio" id="3" name="tri"> {{ __('index.WallSort3') }}
               </label>
             
        </div>
+     </div>
       <div class="row text-center">
          
         @foreach($spots as $spot)
