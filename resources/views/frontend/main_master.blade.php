@@ -333,11 +333,8 @@
           <div class="col-lg-3 col-md-6 mt-5 mt-lg-0 footer-widget">
             <h3 class="widget-title">{{ __('index.More') }}</h3>
             <ul class="list-arrow">
-              <li><a href="service-single.html">{{ __('index.Audioguide') }}</a></li>
-              <li><a href="service-single.html">General Contracting</a></li>
-              <li><a href="service-single.html">Construction Management</a></li>
-              <li><a href="service-single.html">Design and Build</a></li>
-              <li><a href="service-single.html">Self-Perform Construction</a></li>
+              <li><a href="{{ URL::route('aboutus')}}">{{ __('index.Audioguide') }}</a></li>
+             
             </ul>
           </div><!-- Col end -->
         </div><!-- Row end -->

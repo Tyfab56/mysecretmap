@@ -112,6 +112,7 @@ Route::view('/blog', 'frontend.destinations.blog')->name('blog');
 Route::view('/blog/hotspot', 'frontend.destinations.blog-hotspot')->name('blog.hotspot');
 Route::view('/reunion', 'frontend.destinations.reunion')->name('reunion');
 Route::view('/audioguide', 'frontend.audioguide')->name('audioguide');
+Route::view('/audioguides', 'frontend.audioguides')->name('audioguides');
 Route::view('/changeavatar', 'frontend.loadavatar')->name('changeavatar');
 
 Route::view('/guide_iceland_en','frontend.guide_iceland_en')->name('guide_iceland_en');
