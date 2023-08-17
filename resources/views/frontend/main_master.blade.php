@@ -333,7 +333,7 @@
           <div class="col-lg-3 col-md-6 mt-5 mt-lg-0 footer-widget">
             <h3 class="widget-title">{{ __('index.More') }}</h3>
             <ul class="list-arrow">
-              <li><a href="{{ URL::route('aboutus')}}">{{ __('index.Audioguide') }}</a></li>
+              <li><a href="{{ URL::route('audioguides')}}">{{ __('index.Audioguide') }}</a></li>
              
             </ul>
           </div><!-- Col end -->
