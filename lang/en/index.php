@@ -25,6 +25,8 @@ return [
     'Top1Line1' => "EXPLORE",
     'Top1Line2' => "YOUR NEXT TRIPS",
     'Top1Line3' => "Iceland, Seychelles, Rodrigues, Reunion Island...the choice is yours",
+    'Top1Line4' => "We create digital travel assistants with texts, audio, and photos to help you optimize your stay.",
+  
     "Top2Line1" => "DISCOVER OUR TOURS",
     "Top2Line2" => "OR CREATE YOUR OWN ...",
     "Top2Line3" => "I create my tour",

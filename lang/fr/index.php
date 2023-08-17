@@ -25,6 +25,7 @@ return [
     'Top1Line1' => "EXPLOREZ",
     'Top1Line2' => "VOS PROCHAINES DESTINATIONS",
     'Top1Line3' => "Islande, Seychelles, Rodrigues, La réunion...à vous de choisir",
+    'Top1Line4' => "Nous créons des assistants de voyage numériques avec des textes, des fichiers audio et des photos pour vous permettre d'optimiser votre séjour.",
     "Top2Line1" => "DÉCOUVREZ NOS CIRCUITS",
     "Top2Line2" => "OU CRÉEZ LE VOTRE ...",
     "Top2Line3" => "Je créé mon circuit",
