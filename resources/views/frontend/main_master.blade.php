@@ -324,10 +324,10 @@
 
           <div class="col-lg-4 col-md-6 footer-widget mt-5 mt-md-0">
             <h3 class="widget-title">{{ __('index.OT') }}</h3>
-            <div class="working-hours">
+             <div class="working-hours">
             {{ __('index.OTdesc') }}
               <br><br>  {{ __('index.OTcontact') }}
-</div>
+             </div>
           </div><!-- Col end -->
 
           <div class="col-lg-3 col-md-6 mt-5 mt-lg-0 footer-widget">

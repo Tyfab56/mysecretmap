@@ -56,7 +56,7 @@ return [
     "OTdesc" => "Nous créons des audioguides touristiques pour les offices de tourisme, les musées et les collectivités locales. Contactez-nous.",
     "OTcontact" =>"Email : Fabrice@mylovely-planet.com",
     "More" => "En savoir plus",
-    "Audioguide"=>"Audioguides",
+    "Audioguide" => "Audioguides",
     "NousSoutenir" => "Nous Soutenir",
     "NousSoutenirDesc" => "Pour vous investir et ouvrir de nouveaux spots :",
     "ShareSpots" => "Partagez nos spots",

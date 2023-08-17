@@ -55,7 +55,7 @@ return [
     "OTdesc" => "We create audio guides for tourist offices, museums, and local communities. Please contact us.",
     "OTcontact" =>"Email : Fabrice@mylovely-planet.com",
     "More" => "Read more",
-    "Audioguide"=>"Audio guides",
+    "Audioguide" => "Audio guides",
     "NousSoutenir" => "Support us",
     "NousSoutenirDesc" => "To get involved and open new spots :",
     "ShareSpots" => "Share our spots",
