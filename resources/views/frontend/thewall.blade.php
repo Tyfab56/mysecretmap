@@ -33,7 +33,7 @@ $(document).ready(function(){
             
        </div>
      </div>
-      <div class="row text-center">
+      <div class="row wall-center">
          
         @foreach($spots as $spot)
         <div class="img-relative">
