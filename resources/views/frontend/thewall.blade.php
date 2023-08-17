@@ -38,7 +38,7 @@ $(document).ready(function(){
         @foreach($spots as $spot)
         <div class="img-relative">
             @if ($spot->imgsquaresmall) 
-            <a href="{{ url('destination') }}/{{$idpays }}/{{ $spot->id }}"> <img class="imgwall img-wall br5" src="{{$spot->imgsquaresmall??''}}"></a>  
+            <a href="{{ url('destination') }}/{{$idpays }}/{{ $spot->id }}"> <img style="width: 130px;height: 130px;" class="imgwall img-wall br5" src="{{$spot->imgsquaresmall??''}}"></a>  
             @else
             <a href="{{ url('destination') }}/{{$idpays }}/{{ $spot->id }}"> <img class="imgwall img-wall br5" src="{{$spot->imgpanosmall??''}}"></a>  
             @endif
