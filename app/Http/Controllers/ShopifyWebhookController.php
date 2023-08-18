@@ -1,7 +1,9 @@
+<?php
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Vente; // Assurez-vous d'avoir le modèle approprié pour les ventes
+use App\Models\Shopifysales; 
 
 class ShopifyWebhookController extends Controller
 {
