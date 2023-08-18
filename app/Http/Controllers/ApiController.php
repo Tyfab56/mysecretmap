@@ -13,14 +13,14 @@ class ApiController extends Controller
         $productId = $request->input('product_id');
  
 
-        $results = DB::select("SELECT o.order_status_id, os.name AS order_status
-        FROM oc_order o
-        JOIN oc_order_product op ON o.order_id = op.order_id
-        JOIN oc_product p ON op.product_id = p.product_id
-        JOIN oc_order_status os ON o.order_status_id = os.order_status_id
-        JOIN oc_customer c ON o.customer_id = c.customer_id
-        WHERE c.email = :email and os.name ='Shipped'
-        AND p.model = :productId limit 0,1",['email'  => $email,'productId'  => $productId]);   
+        $results = DB::select("SELECT email,idproduit,installation
+        FROM shopifysales
+        WHERE email = :email and status ='Paid'
+        AND idproduit = :productId 
+        and installation < 2
+        limit 0,1",['email'  => $email,'productId'  => $productId]);   
+
+        
        
         if ($results) {
 
