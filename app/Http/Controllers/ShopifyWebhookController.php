@@ -20,7 +20,7 @@ class ShopifyWebhookController extends Controller
             'currency' => $data['currency'],
             'status' => $data['financial_status'],
             'created_at' => $data['created_at'],
-            'idproduit' => $data['sku'],
+            'idproduit' => $data['line_items'][0]['sku'],
             
             // ... autres champs
         ]);
