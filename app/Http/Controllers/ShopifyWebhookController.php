@@ -11,10 +11,17 @@ class ShopifyWebhookController extends Controller
     {
         // Traitez les données reçues du webhook Shopify
         $data = $request->json()->all();
-        dd($request);
+      
         // Mettez à jour votre base de données avec les informations de vente
         Shopifysales::create([
-            'nom_client' => $data['customer']['first_name'],
+            'id' => $data['id'],
+            'email' => $data['email'],
+            'price' => $data['total_price'],
+            'currency' => $data['currency'],
+            'status' => $data['financial_status'],
+            'created_at' => $data['created_at'],
+            'idproduit'=>$data['line_items']['id'],
+            
             // ... autres champs
         ]);
 
