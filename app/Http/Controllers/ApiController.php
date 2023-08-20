@@ -20,7 +20,7 @@ class ApiController extends Controller
         and installation < 2
         limit 0,1",['email'  => $email,'productId'  => $productId]);   
 
-        
+        // TODO : Mise à jour du nombre d'installation pour éviter le piratage d'un email valide
        
         if ($results) {
 
