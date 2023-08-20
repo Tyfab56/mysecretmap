@@ -5,7 +5,7 @@
 		<div class="col-md-12">
 			<div class="page-header">
 				<h1>
-					LayoutIt! <small>Interface Builder for Bootstrap</small>
+                     Nous developpons des Applis & Audioguides Innovants
 				</h1>
 			</div>
 		</div>
