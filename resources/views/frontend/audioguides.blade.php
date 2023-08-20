@@ -14,12 +14,19 @@
 	<div class="row">
 		<div class="col-md-12">
 			<h2>
-            Un atout touristique
+            LES AUDIOGUIDES NOUVELLES GENERATIONS
 			</h2>
 			<p>
-            Amélioration de l'expérience des visiteurs : Les audioguides permettent aux visiteurs de découvrir un lieu de manière interactive et immersive. Cela peut rendre leur expérience plus engageante, informative et divertissante, ce qui peut se traduire par des avis positifs et des retours favorables.
+            Oubliez tout ce que vous savez sur les audioguides 
+            <p>
+            <b>Amélioration de l'expérience des visiteurs</b> : Les audioguides permettent aux visiteurs de découvrir un lieu de manière interactive et immersive.
+            L'expérience visiteur est plus engageante, informative et divertissante, ce qui peut se traduire automatiquement par <b>des avis positifs</b> et des recommendations.
+            <p>
+            <b>Transmission d'informations précises </b>: Les audioguides garantissent que les informations fournies aux visiteurs sont uniformes, 
+            précises et bien structurées. Cela évite les erreurs de communication et assure que les faits et les histoires 
+            sont transmis de manière cohérente.</p>
 
-Transmission d'informations précises : Les audioguides garantissent que les informations fournies aux visiteurs sont uniformes, précises et bien structurées. Cela évite les erreurs de communication et assure que les faits et les histoires sont transmis de manière cohérente.
+
 
 Attractivité pour les visiteurs internationaux : Les audioguides multilingues sont un atout pour les visiteurs internationaux qui ne parlent pas la langue locale. Cela élargit la portée de l'office du tourisme en attirant un public plus diversifié.
 
