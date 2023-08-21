@@ -3785,7 +3785,7 @@ max-width: 133px;
 {
   width : 100px;
 }
-.ttm
+.ttl
 {
   text-transform : lowercase;
 }
@@ -3793,7 +3793,10 @@ max-width: 133px;
 {
   text-transform : capitalize;
 }
-
+.ttn
+{
+  text-transform : none;
+}
 .list-photo
 {
   border-radius: 20%;
