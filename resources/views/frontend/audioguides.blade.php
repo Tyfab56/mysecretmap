@@ -57,8 +57,7 @@
 				Offices du tourismes
 			</h6 pb-2><img loading="lazy" style="width: 80px;" src="{{  asset('frontend/assets/images/tourisme.png') }}" alt="My Secret map">
 			<p>
-				Lorem ipsum dolor sit amet, <strong>consectetur adipiscing elit</strong>. Aliquam eget sapien sapien. Curabitur in metus urna. In hac habitasse platea dictumst. Phasellus eu sem sapien, sed vestibulum velit. Nam purus nibh, lacinia non faucibus et, pharetra in dolor. Sed iaculis posuere diam ut cursus. <em>Morbi commodo sodales nisi id sodales. Proin consectetur, nisi id commodo imperdiet, metus nunc consequat lectus, id bibendum diam velit et dui.</em> Proin massa magna, vulputate nec bibendum nec, posuere nec lacus. <small>Aliquam mi erat, aliquam vel luctus eu, pharetra quis elit. Nulla euismod ultrices massa, et feugiat ipsum consequat eu.</small>
-			</p>
+            Informations détaillées sur les sites touristiques, les monuments, les lieux historiques et culturels de la région, mise en avant des sites moins populaires, narration et textes multilingues, disponible 24 heures sur 24, collecte de données sur les visiteurs, allége la charge de travail du personnel de l'office de tourisme, expérience touristique moderne, favorise les visites guidées autonomes.</p>
 		</div>
 		<div class="col-md-3 center">
 			<h6>
