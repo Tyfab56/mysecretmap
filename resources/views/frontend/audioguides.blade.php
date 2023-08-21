@@ -1,11 +1,11 @@
 @extends('frontend.main_master')
 @section('content')
 <div class="container-fluid">
-	<div class="row">
-		<div class="col-md-12 pt-3 max80 text-center">
-			<div class="roundgraybox">
+	<div class="row text-center pt-3 pb-3">
+		<div class="col-md-12 ">
+			<div class="roundgraybox m5">
 				<h3>
-                     "Nous developpons des Applis & Audioguides touristiques" 
+                     "Nous développons des applications et audioguides touristiques, culturels et historiques." 
 				</h3>
                 <h6> Fabrice H.</h6>
 			</div>
