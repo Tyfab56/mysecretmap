@@ -50,7 +50,7 @@
 		</div>
 	</div>
 </div>
-	<div class="row pt-5 lightgray">
+	<div class="row pt-5 roundgraybox">
 		<div class="col-md-3 center">
 			
 			<h6 class="text-center">
@@ -82,7 +82,7 @@
 			</h6><img loading="lazy" style="width: 80px;" src="{{  asset('frontend/assets/images/jardin.png') }}" alt="My Secret map">
 		
 			<p>
-            informations détaillées sur les différentes espèces de plantes, leur origine, leurs caractéristiques botaniques et leurs utilisations, instructions de navigation pour les principales attractions, les sentiers et les points d'intérêt, l'histoire, la culture et l'évolution du jardin botanique, spécificités de chaque saison, les périodes de floraison et les changements visuels, liens entre les plantes et les traditions locales. 
+            Informations détaillées sur les différentes espèces de plantes, leur origine, leurs caractéristiques botaniques et leurs utilisations, instructions de navigation pour les principales attractions, les sentiers et les points d'intérêt, l'histoire, la culture et l'évolution du jardin botanique, spécificités de chaque saison, les périodes de floraison et les changements visuels, liens entre les plantes et les traditions locales. 
 			</p>
 		</div>
 	</div>

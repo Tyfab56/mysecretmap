@@ -3995,3 +3995,8 @@ img.list-photo:hover, img.imgbox:hover{
   justify-content: center;
 
 }
+.roundgraybox
+{
+  background-color: lightgray;
+  border-radius: 5px;
+}
