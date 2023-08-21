@@ -64,7 +64,7 @@
 				Musées
 			</h6 pb-2><img loading="lazy" style="width: 80px;" src="{{  asset('frontend/assets/images/musee.png') }}" alt="My Secret map">
 			<p>
-             Informations détaillées sur les œuvres d'art, les expositions et les artefacts, mise à jour des contenus  pour refléter de nouvelles expositions ou des informations récentes, contenus multilingues, effets sonores et musique,  questions, quiz ou des jeux liés aux expositions, fonctions d'accessibilité avec descriptions détaillées pour les malvoyants et sous-titres pour les malentendants,versions pour adultes, enfants, passionnés d'art, etc </p>
+             Informations détaillées sur les œuvres d'art, les expositions et les artefacts, mise à jour des contenus  pour refléter de nouvelles expositions ou informations récentes, contenus multilingues, effets sonores, questions, quiz ou jeux liés aux expositions, fonctions d'accessibilité avec descriptions pour les malvoyants et sous-titres pour les malentendants,versions pour adultes, enfants, passionnés d'art. </p>
 		</div>
 		<div class="col-md-3 center">
 			<h6>
