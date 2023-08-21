@@ -63,10 +63,9 @@
 		<div class="col-md-3 center">
 			<h6>
 				Musées
-			</h6><img loading="lazy" style="width: 80px;" src="{{  asset('frontend/assets/images/musee.png') }}" alt="My Secret map">
+			</h6 pb-2><img loading="lazy" style="width: 80px;" src="{{  asset('frontend/assets/images/musee.png') }}" alt="My Secret map">
 			<p>
-				Lorem ipsum dolor sit amet, <strong>consectetur adipiscing elit</strong>. Aliquam eget sapien sapien. Curabitur in metus urna. In hac habitasse platea dictumst. Phasellus eu sem sapien, sed vestibulum velit. Nam purus nibh, lacinia non faucibus et, pharetra in dolor. Sed iaculis posuere diam ut cursus. <em>Morbi commodo sodales nisi id sodales. Proin consectetur, nisi id commodo imperdiet, metus nunc consequat lectus, id bibendum diam velit et dui.</em> Proin massa magna, vulputate nec bibendum nec, posuere nec lacus. <small>Aliquam mi erat, aliquam vel luctus eu, pharetra quis elit. Nulla euismod ultrices massa, et feugiat ipsum consequat eu.</small>
-			</p>
+             Informations détaillées sur les œuvres d'art, les expositions et les artefacts, mise à jour des contenus  pour refléter de nouvelles expositions ou des informations récentes, contenus multilingues, effets sonores et musique,  questions, quiz ou des jeux liés aux expositions, fonctions d'accessibilité avec descriptions détaillées pour les malvoyants et sous-titres pour les malentendants,versions pour adultes, enfants, passionnés d'art, etc </p>
 		</div>
 		<div class="col-md-3 center">
 			<h6>
