@@ -4000,3 +4000,8 @@ img.list-photo:hover, img.imgbox:hover{
   background-color: lightgray;
   border-radius: 5px;
 }
+
+.roundgraybox .p
+{
+  font-size: 1.05rem;
+}
