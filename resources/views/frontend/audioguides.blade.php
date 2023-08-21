@@ -17,8 +17,9 @@
             LES AUDIOGUIDES NOUVELLES GENERATIONS
 			</h2>
 			<h4>
-            Nous croyons que chaque lieu a une histoire à raconter. Nous sommes là pour vous aider à capturer cette histoire et à la partager avec le monde. Notre vision est de faire de chaque visite une aventure enrichissante, éducative et mémorable. 
-           </h4>
+            <div class="gray"> Nous croyons que chaque lieu a une histoire à raconter. Nous sommes là pour vous aider à capturer cette histoire et à la partager avec le monde. Notre vision est de faire de chaque visite une aventure enrichissante, éducative et mémorable. 
+            </div>
+            </h4>
             <p>
             <b>Amélioration de l'expérience des visiteurs</b> : Les audioguides permettent aux visiteurs de découvrir un lieu de manière interactive et immersive.
             L'expérience visiteur est plus engageante, informative et divertissante, ce qui peut se traduire automatiquement par <b>des avis positifs</b> et des recommendations.
