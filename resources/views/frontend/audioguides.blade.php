@@ -3,9 +3,9 @@
 <div class="container-fluid">
 	<div class="row text-center pt-3 pb-3">
 		<div class="col-md-12 ">
-			<div class="roundgraybox m5">
+			<div class="roundgraybox m5 p5">
 				<h3>
-                     "Nous développons des applications et audioguides touristiques, culturels et historiques." 
+                     <i>"Nous développons des applications et audioguides touristiques, culturels et historiques."</i> 
 				</h3>
                 <h6> Fabrice H.</h6>
 			</div>
