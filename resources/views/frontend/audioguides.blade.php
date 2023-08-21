@@ -2,11 +2,11 @@
 @section('content')
 <div class="container-fluid">
 	<div class="row">
-		<div class="col-md-12">
-			<div class="page-header roundgraybox">
-				<h1>
+		<div class="col-md-12 pt-3 max80 texte-center">
+			<div class="roundgraybox">
+				<h3>
                      "Nous developpons des Applis & Audioguides touristiques" 
-				</h1>
+				</h3>
                 <h6> Fabrice H.</h6>
 			</div>
 		</div>
