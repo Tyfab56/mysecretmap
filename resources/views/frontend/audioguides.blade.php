@@ -85,6 +85,7 @@
 	</div>
 	<div class="row">
 		<div class="col-md-12">
+            <h1>Mais aussi : Galeries d'Art, Monuments Historiques, Châteaux, Parcs Nationaux et Réserves Naturelles, Zoos et Parcs Animaliers, Aquariums, Sites Archéologiques, Eglises, Mémoriaux, Parcs à Thème , Centres Culturels et Artistiques, Centres Scientifiques et Planétariums, Trails et Sentiers de Randonnée, Compagnies de Croisières et Bateaux de Tourisme, Stations de Ski ... n'hésitez pas à nous constacter </h1>
 		</div>
 	</div>
 </div>
