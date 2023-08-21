@@ -85,7 +85,7 @@
 	</div>
 	<div class="row">
 		<div class="col-md-12">
-            <h1>Mais aussi : Galeries d'Art, Monuments Historiques, Châteaux, Parcs Nationaux et Réserves Naturelles, Zoos et Parcs Animaliers, Aquariums, Sites Archéologiques, Eglises, Mémoriaux, Parcs à Thème , Centres Culturels et Artistiques, Centres Scientifiques et Planétariums, Trails et Sentiers de Randonnée, Compagnies de Croisières et Bateaux de Tourisme, Stations de Ski ... n'hésitez pas à nous constacter </h1>
+            <h5>Mais aussi : galeries d'art, monuments Historiques, châteaux, parcs nationaux et réserves naturelles, zoos et parcs animaliers, aquariums, sites archéologiques, églises, mémoriaux, parcs à thème , centres culturels et artistiques, centres scientifiques et planétariums, trails et sentiers de randonnée, compagnies de croisières et bateaux de tourisme, stations de Ski ... n'hésitez pas à nous contacter </h1>
 		</div>
 	</div>
 </div>
