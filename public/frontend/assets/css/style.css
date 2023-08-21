@@ -3785,6 +3785,10 @@ max-width: 133px;
 {
   width : 100px;
 }
+.ttm
+{
+  text-transform : lowercase
+}
 .list-photo
 {
   border-radius: 20%;

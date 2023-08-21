@@ -5,7 +5,7 @@
 		<div class="col-md-12 ">
 			<div class="roundgraybox m5 p5">
 				<h3>
-                     <i>"Nous développons des applications et audioguides touristiques, culturels et historiques."</i> 
+                     <i class="ttm">"Nous développons des applications et audioguides touristiques, culturels et historiques."</i> 
 				</h3>
                 <h6> Fabrice H.</h6>
 			</div>
