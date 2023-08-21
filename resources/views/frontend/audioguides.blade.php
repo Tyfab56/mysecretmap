@@ -16,8 +16,9 @@
 			<h2>
             LES AUDIOGUIDES NOUVELLES GENERATIONS
 			</h2>
-			<p>
-            Oubliez tout ce que vous savez sur les audioguides 
+			<h4>
+            Nous croyons que chaque lieu a une histoire à raconter. Nous sommes là pour vous aider à capturer cette histoire et à la partager avec le monde. Notre vision est de faire de chaque visite une aventure enrichissante, éducative et mémorable. 
+           </h4>
             <p>
             <b>Amélioration de l'expérience des visiteurs</b> : Les audioguides permettent aux visiteurs de découvrir un lieu de manière interactive et immersive.
             L'expérience visiteur est plus engageante, informative et divertissante, ce qui peut se traduire automatiquement par <b>des avis positifs</b> et des recommendations.
@@ -85,7 +86,7 @@
 	</div>
 	<div class="row">
 		<div class="col-md-12">
-            <h5>Mais aussi : galeries d'art, monuments Historiques, châteaux, parcs nationaux et réserves naturelles, zoos et parcs animaliers, aquariums, sites archéologiques, églises, mémoriaux, parcs à thème , centres culturels et artistiques, centres scientifiques et planétariums, trails et sentiers de randonnée, compagnies de croisières et bateaux de tourisme, stations de Ski ... n'hésitez pas à nous contacter </h1>
+            <h5>Mais aussi : galeries d'art, monuments historiques, châteaux, parcs nationaux et réserves naturelles, zoos et parcs animaliers, aquariums, sites archéologiques, églises, mémoriaux, parcs à thème , centres culturels et artistiques, centres scientifiques et planétariums, trails et sentiers de randonnée, compagnies de croisières et bateaux de tourisme, stations de Ski ... n'hésitez pas à nous contacter </h1>
 		</div>
 	</div>
 </div>
