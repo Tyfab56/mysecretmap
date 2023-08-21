@@ -5,8 +5,9 @@
 		<div class="col-md-12">
 			<div class="page-header">
 				<h1>
-                     Nous developpons des Applis & Audioguides touristiques
+                     "Nous developpons des Applis & Audioguides touristiques" 
 				</h1>
+                <h6> Fabrice H.</h6>
 			</div>
 		</div>
 	</div>
@@ -17,31 +18,31 @@
             LES AUDIOGUIDES NOUVELLES GENERATIONS
 			</h2>
 			<h4>
-            <div class="gray"> Nous croyons que chaque lieu a une histoire à raconter. Nous sommes là pour vous aider à capturer cette histoire et à la partager avec le monde. Notre vision est de faire de chaque visite une aventure enrichissante, éducative et mémorable. 
+            <div class="darkgray"> Nous croyons que chaque lieu a une histoire à raconter. Nous sommes là pour vous aider à capturer cette histoire et à la partager avec le monde. Notre vision est de faire de chaque visite une aventure enrichissante, éducative et mémorable. 
             </div>
             </h4>
             <p>
-            <b>Amélioration de l'expérience des visiteurs</b> : Les audioguides permettent aux visiteurs de découvrir un lieu de manière interactive et immersive.
+            <b class="orange">Amélioration de l'expérience des visiteurs</b> : Les audioguides permettent aux visiteurs de découvrir un lieu de manière interactive et immersive.
             L'expérience visiteur est plus engageante, informative et divertissante, ce qui peut se traduire automatiquement par <b>des avis positifs</b> et des recommendations.
             <p>
-            <b>Transmission d'informations précises </b>: Les audioguides garantissent que <b>les informations fournies aux visiteurs sont uniformes, 
+            <b class="orange">Transmission d'informations précises </b>: Les audioguides garantissent que <b>les informations fournies aux visiteurs sont uniformes, 
             précises et bien structurées.</b> Cela évite les erreurs de communication et assure que les faits et les histoires 
             sont transmis de manière cohérente.</p>
             <p>
-            <b>Attractivité pour les visiteurs internationaux</b> : Les audioguides multilingues sont un atout pour les visiteurs internationaux qui ne parlent pas la langue locale.</p> 
+            <b class="orange">Attractivité pour les visiteurs internationaux</b> : Les audioguides multilingues sont un atout pour les visiteurs internationaux qui ne parlent pas la langue locale.</p> 
             <p>
-            <b>Enrichissement culturel</b> : Les audioguides peuvent raconter des histoires, expliquer les contextes historiques et culturels, et fournir des informations approfondies sur les sites et les monuments. 
+            <b class="orange"Enrichissement culturel</b> : Les audioguides peuvent raconter des histoires, expliquer les contextes historiques et culturels, et fournir des informations approfondies sur les sites et les monuments. 
             Cela permet aux visiteurs de mieux comprendre et d'apprécier ce qu'ils voient.</p>
             <p>
-            <b>Flexibilité des visites</b> : Les audioguides interactifs permettent aux visiteurs de choisir leur propre itinéraire et de passer plus de temps sur les éléments qui les intéressent le plus. 
+            <b class="orange">Flexibilité des visites</b> : Les audioguides interactifs permettent aux visiteurs de choisir leur propre itinéraire et de passer plus de temps sur les éléments qui les intéressent le plus. 
             Cela peut rendre l'expérience plus personnalisée.</b>
             <p>
-            <b>Nouveaux revenus</b> : La location ou la vente d'audioguides peut être une source de revenus supplémentaire pour les offices du tourisme. 
+            <b class="orange">Nouveaux revenus</b> : La location ou la vente d'audioguides peut être une source de revenus supplémentaire pour les offices du tourisme. 
             Cela peut aider à financer d'autres initiatives touristiques et à améliorer les installations pour les visiteurs.</p>
             <p>
-            <b>Différenciation concurrentielle</b>: Proposer des audioguides de haute qualité peut aider un office du tourisme à se démarquer de la concurrence en offrant une expérience unique et moderne.</p>
+            <b class="orange">Différenciation concurrentielle</b>: Proposer des audioguides de haute qualité peut aider un office du tourisme à se démarquer de la concurrence en offrant une expérience unique et moderne.</p>
             <p>
-            <b>Accessibilité</b> : Les audioguides adaptés aux personnes à besoins spécifiques, tels que les malvoyants ou les malentendants, rendent les sites touristiques plus accessibles à un public diversifié.</p>
+            <b class="orange">Accessibilité</b> : Les audioguides adaptés aux personnes à besoins spécifiques, tels que les malvoyants ou les malentendants, rendent les sites touristiques plus accessibles à un public diversifié.</p>
 
 
 
