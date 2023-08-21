@@ -50,7 +50,7 @@
 		</div>
 	</div>
 </div>
-	<div class="row">
+	<div class="row pt-5 lightgray">
 		<div class="col-md-3 center">
 			
 			<h6 class="text-center">
@@ -80,16 +80,9 @@
 			<h6>
 				Parcs et Jardins
 			</h6><img loading="lazy" style="width: 80px;" src="{{  asset('frontend/assets/images/jardin.png') }}" alt="My Secret map">
-			<lt class="lt--mac-os">
-				<lt class="lt-highlighter__wrapper">
-					<lt class="lt-highlighter__scroll-element">
-						<canvas class="lt-highlighter__canvas">
-						</canvas>
-					</lt>
-				</lt>
-			</lt>
+		
 			<p>
-				Lorem ipsum dolor sit amet, <strong>consectetur adipiscing elit</strong>. Aliquam eget sapien sapien. Curabitur in metus urna. In hac habitasse platea dictumst. Phasellus eu sem sapien, sed vestibulum velit. Nam purus nibh, lacinia non faucibus et, pharetra in dolor. Sed iaculis posuere diam ut cursus. <em>Morbi commodo sodales nisi id sodales. Proin consectetur, nisi id commodo imperdiet, metus nunc consequat lectus, id bibendum diam velit et dui.</em> Proin massa magna, vulputate nec bibendum nec, posuere nec lacus. <small>Aliquam mi erat, aliquam vel luctus eu, pharetra quis elit. Nulla euismod ultrices massa, et feugiat ipsum consequat eu.</small>
+            informations détaillées sur les différentes espèces de plantes, leur origine, leurs caractéristiques botaniques et leurs utilisations, instructions de navigation pour les principales attractions, les sentiers et les points d'intérêt, l'histoire, la culture et l'évolution du jardin botanique, spécificités de chaque saison, les périodes de floraison et les changements visuels, liens entre les plantes et les traditions locales. 
 			</p>
 		</div>
 	</div>
