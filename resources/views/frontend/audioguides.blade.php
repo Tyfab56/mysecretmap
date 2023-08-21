@@ -3,7 +3,7 @@
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-12">
-			<div class="page-header">
+			<div class="page-header roundgraybox">
 				<h1>
                      "Nous developpons des Applis & Audioguides touristiques" 
 				</h1>
@@ -31,7 +31,7 @@
             <p>
             <b class="orange">Attractivité pour les visiteurs internationaux</b> : Les audioguides multilingues sont un atout pour les visiteurs internationaux qui ne parlent pas la langue locale.</p> 
             <p>
-            <b class="orange"Enrichissement culturel</b> : Les audioguides peuvent raconter des histoires, expliquer les contextes historiques et culturels, et fournir des informations approfondies sur les sites et les monuments. 
+            <b class="orange">Enrichissement culturel</b> : Les audioguides peuvent raconter des histoires, expliquer les contextes historiques et culturels, et fournir des informations approfondies sur les sites et les monuments. 
             Cela permet aux visiteurs de mieux comprendre et d'apprécier ce qu'ils voient.</p>
             <p>
             <b class="orange">Flexibilité des visites</b> : Les audioguides interactifs permettent aux visiteurs de choisir leur propre itinéraire et de passer plus de temps sur les éléments qui les intéressent le plus. 
