@@ -2,7 +2,7 @@
 @section('content')
 <div class="container-fluid">
 	<div class="row">
-		<div class="col-md-12 pt-3 max80 texte-center">
+		<div class="col-md-12 pt-3 max80 text-center">
 			<div class="roundgraybox">
 				<h3>
                      "Nous developpons des Applis & Audioguides touristiques" 
