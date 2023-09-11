@@ -18,7 +18,7 @@
             LES AUDIOGUIDES NOUVELLES GENERATIONS
 			</h2>
 			<h4>
-            <div class="darkgray"> Nous croyons que chaque lieu a une histoire à raconter. Nous sommes là pour vous aider à capturer cette histoire et à la partager avec le monde. Notre vision est de faire de chaque visite une aventure enrichissante, éducative et mémorable. 
+            <div class="darkgray ttn"> Nous croyons que chaque lieu a une histoire à raconter. Nous sommes là pour vous aider à capturer cette histoire et à la partager avec le monde. Notre vision est de faire de chaque visite une aventure enrichissante, éducative et mémorable. 
             </div>
             </h4>
             <p>

@@ -35,6 +35,8 @@
                     <span class="ml-2 text-sm text-gray-600">{{ __('auth.remember') }}</span>
                 </label>
             </div>
+            <input type="hidden" name="recaptcha_v3_token" id="recaptcha_v3_token">
+
 
             <div class="flex items-center justify-end mt-4">
                 @if (Route::has('password.request'))
@@ -53,4 +55,14 @@
    
 </x-guest-layout>
 
+@endsection
+@section('fincss')
+<script src="https://www.google.com/recaptcha/api.js?render=6LfGlhgoAAAAAIy5hyp6rpWRdOZteIFQ5s9fm0VU"></script>
+<script>
+    grecaptcha.ready(function() {
+        grecaptcha.execute('6LfGlhgoAAAAAIy5hyp6rpWRdOZteIFQ5s9fm0VU', { action: 'login' }).then(function(token) {
+            document.getElementById('recaptcha_v3_token').value = token;
+        });
+    });
+</script>
 @endsection

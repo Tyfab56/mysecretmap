@@ -14,6 +14,11 @@ return [
     |
     */
 
+    'recaptcha_v3' => [
+        'sitekey' => env('RECAPTCHA_V3_SITEKEY'),
+        'secret' => env('RECAPTCHA_V3_SECRET'),
+    ],
+
     'mailgun' => [
         'domain' => env('MAILGUN_DOMAIN'),
         'secret' => env('MAILGUN_SECRET'),
