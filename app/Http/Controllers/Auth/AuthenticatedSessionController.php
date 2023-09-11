@@ -43,7 +43,7 @@ class AuthenticatedSessionController extends Controller
         }
 
 
-        $request->authenticate();
+         $request->authenticate();
 
         $request->session()->regenerate();
         // chargement de la langue mémorisé
@@ -58,7 +58,8 @@ class AuthenticatedSessionController extends Controller
             $user->save();
         }
 
-        return redirect('/');
+       // return redirect('/');
+       return redirect()->route('instructions');
     }
 
     /**
