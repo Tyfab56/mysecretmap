@@ -38,6 +38,11 @@ class AuthenticatedSessionController extends Controller
         // chargement de la langue mémorisé
        $user = Auth::user();
 
+       if ($user->email_verified_at !== null) {
+        Auth::logout();
+        return back()->with('error', 'Votre compte n\'est pas encore vérifié. Veuillez vérifier votre adresse e-mail.');
+       }
+
        if ($user) {
 
             $lang = $user->lang_id;

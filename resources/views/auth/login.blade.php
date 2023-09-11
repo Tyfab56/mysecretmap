@@ -6,6 +6,13 @@
         <!-- Session Status -->
         <x-auth-session-status class="mb-4" :status="session('status')" />
 
+        @if ($errors->has('error'))
+            <div class="alert alert-danger">
+                {{ $errors->first('error') }}
+            </div>
+       
+        @endif
+
         <form method="POST" action="{{ route('login') }}">
             @csrf
 
