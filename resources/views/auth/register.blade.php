@@ -7,7 +7,11 @@
                 <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
             </a>
         </x-slot>
-
+        @if ($errors->has('reCAPTCHA'))
+            <div class="alert alert-danger">
+                {{ $errors->first('reCAPTCHA') }}
+            </div>
+        @endif
        
         <form method="POST" action="{{ route('register') }}" > 
 
