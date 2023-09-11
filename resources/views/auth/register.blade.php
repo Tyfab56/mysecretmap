@@ -11,6 +11,10 @@
             <div class="alert alert-danger">
                 {{ $errors->first('reCAPTCHA') }}
             </div>
+        @else
+        <div class="alert alert-danger">
+               Pas d'erreur
+            </div>
         @endif
        
         <form method="POST" action="{{ route('register') }}" > 
