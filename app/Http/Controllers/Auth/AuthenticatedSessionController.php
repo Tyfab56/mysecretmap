@@ -43,20 +43,20 @@ class AuthenticatedSessionController extends Controller
         }
 
 
-         $request->authenticate();
+       //  $request->authenticate();
 
-        $request->session()->regenerate();
+       // $request->session()->regenerate();
         // chargement de la langue mémorisé
-        $user = Auth::user();
+       //  $user = Auth::user();
 
-        if ($user) {
+       /* if ($user) {
 
             $lang = $user->lang_id;
             app()->setLocale($lang);
             session()->put('locale', $lang);
             $user->lastconnect = \Carbon\Carbon::now();
             $user->save();
-        }
+        }*/
 
        // return redirect('/');
        return redirect()->route('instructions');
