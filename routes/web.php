@@ -27,7 +27,7 @@ use App\Http\Controllers\StoreController;
 */
 
 Route::get('/tostore', [StoreController::class, 'tostore'])->name('tostore');
-Route::get('/instructions', [IndexController::class, 'instructions'])->name('instruction');
+Route::get('/instructions', [IndexController::class, 'instructions'])->name('instructions');
 
 Route::get('/api/check-product', [ApiController::class, 'checkProduct'])->middleware('App\Http\Middleware\CorsMiddleware');
 Route::post('/api/check-product', [ApiController::class, 'checkProduct']);

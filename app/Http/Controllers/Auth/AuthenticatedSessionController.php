@@ -28,7 +28,15 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request)
     {
-       
+        $response = $request->input('recaptcha_v3_token');
+        $recaptcha = new \ReCaptcha\ReCaptcha(env('RECAPTCHA_V3_SECRET'));
+        $result = $recaptcha->setExpectedAction('register')->verify($response);
+
+        if (!$result->isSuccess()) {
+        // Échec de la validation reCAPTCHA v3
+        return redirect()->back()->withErrors(['reCAPTCHA' => 'La validation reCAPTCHA a échoué.']);
+         }
+    
 
 
        //  $request->authenticate();
