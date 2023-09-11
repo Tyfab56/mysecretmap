@@ -555,11 +555,11 @@ class IndexController extends Controller
             return view('frontend.timeline', compact('items','totalpages'));
     }
 
-    public function instruction()
+    public function instructions()
     {
         return view('frontend.instructions');
     }
-    
+
     public function avatarstore(Request $request)
     {
  
