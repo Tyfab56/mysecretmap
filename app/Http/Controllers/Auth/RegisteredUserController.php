@@ -35,7 +35,14 @@ class RegisteredUserController extends Controller
     public function store(Request $request)
     {
 
-        
+        $response = $request->input('recaptcha_v3_token');
+        $recaptcha = new \ReCaptcha\ReCaptcha(env('RECAPTCHA_V3_SECRET'));
+        $result = $recaptcha->setExpectedAction('register')->verify($response);
+
+        if (!$result->isSuccess()) {
+        // Échec de la validation reCAPTCHA v3
+        return redirect()->back()->withErrors(['reCAPTCHA' => 'La validation reCAPTCHA a échoué.']);
+         }
 
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
@@ -52,8 +59,9 @@ class RegisteredUserController extends Controller
 
         event(new Registered($user));
 
-        Auth::login($user);
+        //Auth::login($user);
 
-        return redirect(RouteServiceProvider::HOME);
+        //return redirect(RouteServiceProvider::HOME);
+        return redirect()->route('instructions');
     }
 }
