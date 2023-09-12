@@ -43,7 +43,10 @@
                             <div id="mapdest">
                                 <a href="https://www.maptiler.com" style="position:absolute;left:10px;bottom:10px;z-index:999;"><img src="https://api.maptiler.com/resources/logo.svg" alt="MapTiler logo"></a>
                             </div>
+                            <div class="row">
                             <div class="col-sm-12"><input type="checkbox" id="myToggle">Sun Settings</div>
+                            </div>
+                           
                             <div id="sun" class="row min100">
                               
                                   <div class="col-sm-6"> 
@@ -53,10 +56,10 @@
                                   <div class="col-sm-6"> 
                                         <div style="padding : 5px"><b>{{__('destination.choicehour')}} :</b> <span id="thehour"></span><span id="thedayhour"></span></div>
                                         <div style="padding: 5px;"> <input type="range" class="form-range" min="0" max="24" oninput="changeHour(this.value)" onchange="changeHour(this.value)" id="hourofday"></div>
-                                </div> 
-                            </div>  
-                            <p><span style="color:red"><b>{{__('destination.RedLine')}}</b></span> / <span style="color:orange"><b>{{__('destination.OrangeLine')}}</b></span></p><br/>
-                      </div>
+                                   </div> 
+                              </div>  
+                              <p><span style="color:red"><b>{{__('destination.RedLine')}}</b></span> / <span style="color:orange"><b>{{__('destination.OrangeLine')}}</b></span></p><br/>
+                          </div>
                    
         <div class="row pt-1 pb-1 pr-1 pl-1 bgregbox min100">  
           <div class="col-lg-6 center pt-1 pb-1 pr-1 pl-1"><div id="mapzoom"></div></div>
