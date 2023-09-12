@@ -2,6 +2,7 @@
 
 var currentDate;
 var currentTime;
+var stopMarker = 0;
 var currentGeometry = {!! json_encode($geometry) !!};
 
 @if(is_null($spot))
@@ -179,6 +180,7 @@ function bearingDistance(lat, lon, radius, bearing){
        
 
 function onmapClick(e) {
+stopMarker = 1;
 Livewire.emit('InfoDestination',e.sourceTarget.options.id,null,null);
 Livewire.emit('ImgRegion',e.sourceTarget.options.id);
 Livewire.emit('ImgMap',e.sourceTarget.options.id);
@@ -192,9 +194,8 @@ addUrlToHistory(currentMarker);
 var bounds = L.latLng(currentLat,currentLng).toBounds(1000);
 mapzoom.panTo(new L.LatLng(currentLat,currentLng));
 redrawOverlay();
-
-
 drawSolar();
+stopMarker = 0;
 }
 
 var getDateFromDayNum = function(dayNum, year){
@@ -211,6 +212,7 @@ var dayNumMilli = dayNum * dayMilli;
 date.setTime(timeOfFirst + dayNumMilli);
 return date;
 }
+
 function redrawOverlay()
 {
   // Appel de l'image manquante
@@ -357,29 +359,29 @@ window.addEventListener('load', function () {
   mapdest.invalidateSize();
   mapzoom.invalidateSize();
   // Initialisation du curseur
-  Livewire.emit('InfoDestination',currentMarker,null,null);
-  Livewire.emit('ImgRegion',currentMarker);
-  Livewire.emit('ImgMap',currentMarker);
-  Livewire.emit('ImgPeak',currentMarker);
-  Livewire.emit('PictureDestination',currentMarker);
-  Livewire.emit('RefreshCircuit',currentCircuit);
+  if stopMarker = 0 
+  {
+    Livewire.emit('InfoDestination',currentMarker,null,null);
+    Livewire.emit('ImgRegion',currentMarker);
+    Livewire.emit('ImgMap',currentMarker);
+    Livewire.emit('ImgPeak',currentMarker);
+    Livewire.emit('PictureDestination',currentMarker);
+    Livewire.emit('RefreshCircuit',currentCircuit);
+    var myDate = new Date();
+    var dayInYear = Math.floor((myDate - new Date(myDate.getFullYear(), 0, 0)) / (1000 * 60 * 60 * 24));
+    document.getElementById("dayofyear").value = dayInYear ;
+    currentDate = myDate;
+    currentTime = 12;
+    const DateTime = luxon.DateTime;
+    displayDate = DateTime.fromJSDate(currentDate).setLocale("{{app()->getLocale()}}");
+    document.getElementById('theday').innerHTML = displayDate.toLocaleString({ month: 'long', day: 'numeric' });
+    document.getElementById('thehour').innerHTML = currentTime;
+    // Premier point
 
-
-  
-  var myDate = new Date();
-  var dayInYear = Math.floor((myDate - new Date(myDate.getFullYear(), 0, 0)) / (1000 * 60 * 60 * 24));
-  document.getElementById("dayofyear").value = dayInYear ;
-  currentDate = myDate;
-  currentTime = 12;
-  const DateTime = luxon.DateTime;
-  displayDate = DateTime.fromJSDate(currentDate).setLocale("{{app()->getLocale()}}");
-  document.getElementById('theday').innerHTML = displayDate.toLocaleString({ month: 'long', day: 'numeric' });
-  document.getElementById('thehour').innerHTML = currentTime;
-  // Premier point
-
-  popimage('',currentMarker,currentLat,currentLng);
-  drawSolar();
-  drawCircuit(); 
+    popimage('',currentMarker,currentLat,currentLng);
+    drawSolar();
+    drawCircuit(); 
+  }
   })
 
 function drawCircuit()
