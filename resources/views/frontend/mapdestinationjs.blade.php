@@ -360,21 +360,21 @@ window.addEventListener('load', function () {
   // Raffraichir la carte
   mapdest.invalidateSize();
   mapzoom.invalidateSize();
-  // Initialisation te la zone toggle
-  var sunsetToggle = document.getElementById('sunToggle');
-  var switchery = new Switchery(sunsetToggle, { size: 'small' });
 
-  function handleCheckboxClick() {
-    if (sunsetToggle.checked) {
+  // Initialisation te la zone toggle
+var suntoggle = document.getElementById('sunToggle');
+var switchery = new Switchery(suntoggle, { size: 'small' });
+
+function handleCheckboxClick() {
+    if (suntoggle.checked) {
         alert('Le checkbox est activé.');
-        
     } else {
         alert('Le checkbox est désactivé.');
-        
     }
 }
 
-sunsetToggle.addEventListener('click', handleCheckboxClick);
+suntoggle.addEventListener('click', handleCheckboxClick);
+
 
 
   // Initialisation du curseur
