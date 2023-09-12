@@ -367,7 +367,7 @@ window.addEventListener('load', function () {
   
 
   changeCheckbox.onchange = function() {
-    alert(changeCheckbox.checked)
+    alert('ok')
   };
 
 
