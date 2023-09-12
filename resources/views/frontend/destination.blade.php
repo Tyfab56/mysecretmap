@@ -9,7 +9,8 @@
 <link rel="stylesheet" href="{{ asset('frontend/assets/css/leaflet.extra-markers.min.css')}}" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.css" integrity="sha512-Woz+DqWYJ51bpVk5Fv0yES/edIMXjj3Ynda+KWTIkGoynAMHrqTcDUQltbipuiaD5ymEo9520lyoVOo9jCQOCA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
+<link href="https://cdn.jsdelivr.net/npm/switchery@0.8.2/dist/switchery.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/switchery@0.8.2/dist/switchery.min.js"></script>
 @endsection
 
 @section('content')
@@ -44,11 +45,12 @@
                             </div>
                          
                             <div class="row min100">
-                                  <div class="col-sm-6"> 
+                              <div class="col-sm-2"><input type="checkbox" id="myToggle"></div>
+                                  <div class="col-sm-5"> 
                                         <div style="padding : 5px"><b>{{__('destination.choiceday')}} :</b> <span id="theday"></span></div>
                                         <div style="padding: 5px;"> <input type="range" class="form-range" min="1" max="365" oninput="changeRange(this.value)" onchange="changeRange(this.value)" id="dayofyear"></div>
                                   </div>
-                                  <div class="col-sm-6"> 
+                                  <div class="col-sm-5"> 
                                         <div style="padding : 5px"><b>{{__('destination.choicehour')}} :</b> <span id="thehour"></span><span id="thedayhour"></span></div>
                                         <div style="padding: 5px;"> <input type="range" class="form-range" min="0" max="24" oninput="changeHour(this.value)" onchange="changeHour(this.value)" id="hourofday"></div>
                                 </div> 

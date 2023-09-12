@@ -358,6 +358,10 @@ window.addEventListener('load', function () {
   // Raffraichir la carte
   mapdest.invalidateSize();
   mapzoom.invalidateSize();
+  // Initialisation te la zone toggle
+  var sunsetToggle = document.getElementById('myToggle');
+  var switchery = new Switchery(sunsetToggle, { size: 'small' });
+
   // Initialisation du curseur
   if (stopMarker == 0 )
   {
