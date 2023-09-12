@@ -361,16 +361,16 @@ window.addEventListener('load', function () {
   mapdest.invalidateSize();
   mapzoom.invalidateSize();
   // Initialisation te la zone toggle
-  var sunsetToggle = document.getElementById('myToggle');
+  var sunsetToggle = document.getElementById('sunToggle');
   var switchery = new Switchery(sunsetToggle, { size: 'small' });
 
   function handleCheckboxClick() {
     if (sunsetToggle.checked) {
-        console.log('Le checkbox est activé.');
-        // Ajoutez ici le code à exécuter lorsque le checkbox est activé.
+        alert('Le checkbox est activé.');
+        
     } else {
-        console.log('Le checkbox est désactivé.');
-        // Ajoutez ici le code à exécuter lorsque le checkbox est désactivé.
+        alert('Le checkbox est désactivé.');
+        
     }
 }
 
