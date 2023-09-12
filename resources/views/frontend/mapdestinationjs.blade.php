@@ -354,7 +354,7 @@ interactive : true
 
 });
 
-var changeCheckbox = document.querySelector('.js-check-change')
+var changeCheckbox = document.querySelector('.js-check-change');
   
 
 changeCheckbox.onchange = function() {
