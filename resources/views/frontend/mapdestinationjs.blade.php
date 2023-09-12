@@ -363,9 +363,9 @@ window.addEventListener('load', function () {
   // Initialisation te la zone toggle
   var sunsetToggle = document.getElementById('myToggle');
   var switchery = new Switchery(sunsetToggle, { size: 'small' });
-  
+
   function handleCheckboxClick() {
-    if (toggle.checked) {
+    if (sunsetToggle.checked) {
         console.log('Le checkbox est activé.');
         // Ajoutez ici le code à exécuter lorsque le checkbox est activé.
     } else {
@@ -374,7 +374,7 @@ window.addEventListener('load', function () {
     }
 }
 
-toggle.addEventListener('click', handleCheckboxClick);
+sunsetToggle.addEventListener('click', handleCheckboxClick);
 
 
   // Initialisation du curseur
