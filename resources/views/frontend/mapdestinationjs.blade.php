@@ -354,12 +354,7 @@ interactive : true
 
 });
 
-var changeCheckbox = document.querySelector('.js-check-change');
-  
 
-changeCheckbox.onchange = function() {
-  alert(changeCheckbox.checked)
-};
 
 window.addEventListener('load', function () {
   // Raffraichir la carte
@@ -368,6 +363,13 @@ window.addEventListener('load', function () {
   // Initialisation te la zone toggle
   var sunsetToggle = document.getElementById('myToggle');
   var switchery = new Switchery(sunsetToggle, { size: 'small' });
+  var changeCheckbox = document.querySelector('.js-check-change');
+  
+
+  changeCheckbox.onchange = function() {
+    alert(changeCheckbox.checked)
+  };
+
 
   // Initialisation du curseur
   if (stopMarker == 0 )
