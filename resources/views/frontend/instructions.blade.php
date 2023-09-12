@@ -5,7 +5,11 @@
 
   
 <section id="news" class="news">
-   Instructions
+<div class="container">
+        <h1>{{ trans('instruction.title') }}</h1>
+        <p>{{ trans('instruction.message') }}</p>
+        <a href="{{ route('home') }}" class="btn btn-primary">{{ trans('instruction.back_to_home') }}</a>
+    </div>
 </section> 
   
   
