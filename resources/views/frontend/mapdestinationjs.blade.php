@@ -359,7 +359,7 @@ window.addEventListener('load', function () {
   mapdest.invalidateSize();
   mapzoom.invalidateSize();
   // Initialisation du curseur
-  if stopMarker = 0 
+  if (stopMarker == 0 )
   {
     Livewire.emit('InfoDestination',currentMarker,null,null);
     Livewire.emit('ImgRegion',currentMarker);
