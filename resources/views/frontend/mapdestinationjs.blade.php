@@ -393,15 +393,11 @@ window.addEventListener('load', function () {
 var suntoggle = document.getElementById('sunToggle');
 var switchery = new Switchery(suntoggle, { size: 'small' });
 
-function handleCheckboxClick() {
-    if (suntoggle.checked) {
-        alert('Le checkbox est activé.');
-    } else {
-        alert('Le checkbox est désactivé.');
-    }
-  }
+$("#suntoggle").change(function(){
+    alert("change here");
+  });
 
-suntoggle.addEventListener('click', handleCheckboxClick);
+
 function drawCircuit()
 {
         if (currentGeometry !== '')
