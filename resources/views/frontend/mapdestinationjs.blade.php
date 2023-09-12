@@ -354,6 +354,13 @@ interactive : true
 
 });
 
+var changeCheckbox = document.querySelector('.js-check-change')
+  
+
+changeCheckbox.onchange = function() {
+  alert(changeCheckbox.checked)
+};
+
 window.addEventListener('load', function () {
   // Raffraichir la carte
   mapdest.invalidateSize();
