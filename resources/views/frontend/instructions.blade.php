@@ -5,7 +5,7 @@
 
   
 <section id="news" class="news">
-<div class="container">
+<div class="container center">
         <h1>{{__('instruction.title')}}</h1>
         <p>{{__('instruction.message')}}</p>
         <a href="{{ route('home') }}" class="btn btn-primary">{{__('instruction.back_to_home')}}</a>
