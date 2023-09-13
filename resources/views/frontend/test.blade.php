@@ -55,21 +55,29 @@
 
   }
 
-  .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1; /* Ensures the overlay is on top of the main image */
-    opacity: 0; /* Initially hide the overlay */
-    transition: opacity 0.3s ease-in-out; /* Add a smooth transition effect */
+  .image-container {
+    position: relative;
 }
 
+/* Styles pour l'overlay */
+.overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Styles pour l'overlay visible au survol */
 .go_gridItem:hover .overlay {
-    opacity: 1; /* Show the overlay on hover */
+    opacity: 1;
 }
 
 .overlay img {
-    width: 50px; /* Adjust the size of the overlay image as needed */
+    width: 50px;
     height: auto;
 }
 
