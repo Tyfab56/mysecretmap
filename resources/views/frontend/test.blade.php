@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-<div class="gridOverflow go-masonry go-zoomFx">
+<div class="gridOverflow go-masonry">
 
     @foreach ($pictures as $picture)
     <a class="go_gridItem">
