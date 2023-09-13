@@ -9,13 +9,12 @@
 
     @foreach ($pictures as $picture)
     <a class="go_gridItem">
-    <div class="image-container">
+
          <img src="{{ $picture->medium}}" /> 
          <span class="go_caption go_caption-full">
                 {{ $picture->spot->name}}
          </span>
        
-     </div>
             
     </a>
     @endforeach
