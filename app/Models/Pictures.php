@@ -34,4 +34,8 @@ class Pictures extends Model
     {
         return $this->belongsTo(User::class);
     }
+    public function spot()
+    {
+        return $this->belongsTo(Spots::class);
+    }
 }

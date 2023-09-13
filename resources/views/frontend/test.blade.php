@@ -10,6 +10,10 @@
     @foreach ($pictures as $picture)
     <a class="go_gridItem">
          <img src="{{ $picture->medium}}" /> 
+         <span class="go_caption go_caption-full">
+                {{ $picture->spot->name}}
+         </span>
+            
     </a>
     @endforeach
   <div class="go_gridItem go_gridItem-centered" href="someURL"><p> centered content - typically some text </p> </div>
