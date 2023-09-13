@@ -22,8 +22,8 @@ return [
     'EmailAdress' => "Email address",
     'Sunset' => "Sunset",
     'Sunrise' => "Sunrise",
-    'Top1Line1' => "EXPLORE",
-    'Top1Line2' => "YOUR NEXT TRIPS",
+    'Top1Line1' => "WE SHARE OUR",
+    'Top1Line2' => "BEST SPOTS WITH YOU",
     'Top1Line3' => "Iceland, Seychelles, Rodrigues, Reunion Island...the choice is yours",
     'Top1Line4' => "We create digital travel assistants with texts, audio, and photos to help you optimize your stay.",
   
