@@ -9,6 +9,7 @@
 
     @foreach ($pictures as $picture)
     <a class="go_gridItem">
+    <div class="image-container">
          <img src="{{ $picture->medium}}" /> 
          <span class="go_caption go_caption-full">
                 {{ $picture->spot->name}}
@@ -16,7 +17,7 @@
          <div class="overlay">
                 <img src="{{ $picture->user->avatar }}" alt="Small Overlay Image">
             </div>
-      
+     </div>
             
     </a>
     @endforeach
@@ -25,6 +26,10 @@
 </div>
 <div class="row">{{ $pictures->links() }}
 <style>
+
+.image-container {
+    position: relative;
+}
   .gridOverflow {
     max-width: 90%;
     margin-top: 10px;
