@@ -13,7 +13,7 @@
          <img src="{{ $picture->medium}}" /> 
          <span class="go_caption go_caption-full">
                 {{ $picture->spot->name}}
-                <img src="{{ $picture->user->avatar}" /> 
+                <img src="{{ $picture->user->avatar}}" /> 
          </span>
          
             
