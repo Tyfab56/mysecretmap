@@ -1,82 +1,18 @@
-<div>
-<div class="slider">
-	<a class="prev" href="#">&#10094;</a>
-    <a class="next" href="#">&#10095;</a>
+<div class="gridOverflow go-masonry">
+
     @foreach ($pictures as $picture)
-        <div class="slide">
-            <img src="{{ $picture->small }}" alt="">
-        </div>
+    <a href="/destination/{{$picture->spot->pays_id}}/{{$picture->spot->id}}"class="go_gridItem">
+
+         <img src="{{ $picture->medium}}" /> 
+         <span class="go_caption go_caption-full">
+                {{ $picture->spot->name}}
+                <img src="{{ $picture->user->avatar}}" class="avatar" alt="{{$picture->user->pseudo}}"/> 
+         </span>
+         
+            
+    </a>
     @endforeach
+  <div class="go_gridItem go_gridItem-centered" href="someURL"><p> centered content - typically some text </p> </div>
+ 
 </div>
-	<script>
-    var slideIndex = 1;
-    showSlides(slideIndex);
-
-    function plusSlides(n) {
-        showSlides(slideIndex += n);
-    }
-
-    function showSlides(n) {
-        var i;
-        var slides = document.getElementsByClassName("slide");
-        if (n > slides.length) {
-            slideIndex = 1
-        }
-        if (n < 1) {
-            slideIndex = slides.length
-        }
-        for (i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";
-        }
-      
-    }
-
-    document.querySelector(".prev").addEventListener("click", function() {
-        plusSlides(-1);
-    });
-    document.querySelector(".next").addEventListener("click", function() {
-        plusSlides(1);
-    });
-</script>
-
-<style>
-	.prev, .next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    cursor: pointer;
-    padding: 16px;
-    color: white;
-    font-size: 20px;
-    transition: 0.6s ease;
-}
-
-.next {
-    right: 0;
-}
-
-
-
-	
-    .slider {
-    display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
-}
-
-.slide {
-    width: 100%;
-	margin-left: 2px;
-    scroll-snap-align: start;
-}
-
-.slide img {
-    width: auto;
-     height: 100px
-}
-.slider-image {
-   ; /* set desired height */
-}
-</style>
-</div>
+<div class="row">{{ $pictures->links() }}
