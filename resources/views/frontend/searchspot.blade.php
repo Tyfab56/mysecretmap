@@ -16,7 +16,7 @@
 
         <!-- Bouton encore plus à droite -->
         <div>
-            <a href="destination/{{$spot->pays_id}}/{{$spot->id])}}" class="btn btn-primary">
+            <a href="destination/{{$spot->pays_id}}/{{$spot->id}}" class="btn btn-primary">
                 Voir plus
             </a>
         </div>
