@@ -565,7 +565,7 @@ class IndexController extends Controller
  
         $avatar = $request->file('file');
 
-        // traitement image carré
+        // traitement image 
         if ($avatar == null) {
             // pas de nouvelle image
             $imageavatarstatus = 0;
@@ -601,28 +601,65 @@ class IndexController extends Controller
             $disk->put('/large/large-' . $imgavatarname, (string) $canvas, 'public');
             $largeavatarname = $disk->url('large/large-' . $imgavatarname);
 
-        }
+        
             
             
-        // Retrouver le user en cours
-        $iduser = Auth::user()->id;
-        $user = User::find($iduser);    
+            // Retrouver le user en cours
+            $iduser = Auth::user()->id;
+            $user = User::find($iduser);    
 
-       // Supprimer l'ancien avatar
-        $filelarge = parse_url($user->profile_photo_path);
-        if ($filelarge)
-        {
-            $disk->delete($filelarge);
-        }
+            // Supprimer l'ancien avatar
+            $filelarge = parse_url($user->profile_photo_path);
+            if ($filelarge)
+            {
+                $disk->delete($filelarge);
+            }
       
         
-        // Enregistrer l'image si elle est fournie
-        if ($imageavatarstatus == 1) {
-            $user->profile_photo_path = $largeavatarname;
-        }
+            // Enregistrer l'image si elle est fournie
+            if ($imageavatarstatus == 1) {
+                $user->profile_photo_path = $largeavatarname;
+            }
 
-        $user->save();
-   
+      
+
+        
+            // AVATAR
+       
+            $width = 50;
+            $height = 50   ;
+            $canvas = Image::canvas($width, $height);
+
+            $imagefinale  = Image::make($avatar)->fit($width, $height, null, 'center', false);
+
+            $canvas->insert(
+                $imagefinale,
+                'center'
+            );
+            $canvas->encode($extension);
+
+            $disk->put('/small/small-' . $imgavatarname, (string) $canvas, 'public');
+            $avatarname = $disk->url('small/small-' . $imgavatarname);
+
+        
+            
+          
+
+            // Supprimer l'ancien avatar
+            $filelarge = parse_url($user->avatar);
+            if ($filelarge)
+            {
+                $disk->delete($filelarge);
+            }
+      
+        
+            // Enregistrer l'image si elle est fournie
+            if ($imageavatarstatus == 1) {
+                $user->avatar = $avatarname;
+            }
+             // enregistrement des deux image
+             $user->save();
+    }
         return response()->json([
             'message' => 'OK'
         ]);
