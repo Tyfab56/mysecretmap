@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use App\Models\Pays;
 use App\Models\User;
 use App\Models\Spots;
+use App\Models\SpotsTranslation;
 use App\Models\Pictures;
 use App\Models\Circuits;
 use App\Models\Circuits_details;
@@ -93,6 +94,16 @@ class IndexController extends Controller
         return view('frontend/index', compact('lastPays', 'idpays', 'pays', 'payslist', 'payslng', 'payslat', 'payszoom', 'paysoffset', 'spot', 'lastspots', 'noscircuits','markerspays','pictures'));
     }
 
+    public function search(Request $request)
+    {
+        $locale = app()->getLocale(); // Obtient la langue en cours
+
+        $results = SpotsTranslation::where('description', 'like', '%' . $request->input('query') . '%')
+            ->where('locale', $locale)
+            ->get();
+    
+        return view('searchspot', compact('results')); 
+    }
 
     public function godestination(Request $request)
     {

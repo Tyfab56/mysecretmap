@@ -65,6 +65,7 @@ Route::get('/addtour/{idspot}/{idcircuit}', [DestinationController::class, 'addt
 Route::get('/removetour/{idspot}/{idcircuit}', [DestinationController::class, 'removetour'])->name('removetour');
 Route::get('/refreshtour/{idspays}/{idcircuit}', [DestinationController::class, 'updatetour'])->name('refreshtour');
 Route::get('/circuit/{idcircuit}', [DestinationController::class, 'circuit'])->name('circuit');
+Route::get('/search', [IndexController::class, 'search'])->name('search');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
