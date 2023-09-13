@@ -3,8 +3,8 @@
 @foreach ($spots as $spot)
     <div>
         <p>{{ $spot->name }}</p> <!-- ou tout autre champ du modèle Spot que vous souhaitez afficher -->
-        <!-- Vous pouvez également accéder à la traduction via : -->
-        <p>Description: {{ $spot->translations->where('locale', app()->getLocale())->first()->description }}</p>
+        <!-- Pour accéder à la traduction : -->
+        <p>Description: {{ $spot->translate(app()->getLocale())->description }}</p>
     </div>
 @endforeach
 @endsection

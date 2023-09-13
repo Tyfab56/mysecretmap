@@ -96,16 +96,12 @@ class IndexController extends Controller
 
     public function search(Request $request)
     {
-        $locale = app()->getLocale();
+        $spots = Spots::whereTranslationLike('description', '%' . $request->input('query') . '%')->get();
 
-    $spots = Spots::whereHas('translations', function ($query) use ($request, $locale) {
-        $query->where('description', 'like', '%' . $request->input('query') . '%')
-              ->where('locale', $locale);
-    })->get();
+         return view('frontend.searchspot', compact('spots'));
 
-    return view('results', compact('spots'));
     
-        return view('frontend.searchspot', compact('results')); 
+       
     }
 
     public function godestination(Request $request)
