@@ -10,4 +10,10 @@ class SpotsTranslation extends Model
     use HasFactory;
     public $timestamps = false;
     protected $fillable = ['description', 'accessibilite', 'chemin', 'drone','lumiere','secretspot'];
+
+    public function spot()
+    {
+        return $this->belongsTo(Spot::class);
+    }
+
 }

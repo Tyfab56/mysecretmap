@@ -58,4 +58,9 @@ class Spots extends Model implements TranslatableContract
     {
         return $this->belongsTo(Maps::class, 'maps_id', 'id');
     }
+
+    public function translations()
+{
+    return $this->hasMany(SpotsTranslation::class);
+}
 }
