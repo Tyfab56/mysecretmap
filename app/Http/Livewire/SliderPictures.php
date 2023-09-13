@@ -9,11 +9,10 @@ use Livewire\WithPagination;
 class SliderPictures extends Component
 {
     use WithPagination;
-    public  $idspot, $pictures;
 
-    protected $listeners = [
-        'PictureDestination'
-    ];
+    public  $idspot;
+
+    protected $listeners = ['PictureDestination'];
 
     public function PictureDestination($idspot)
     {
@@ -24,9 +23,10 @@ class SliderPictures extends Component
 
     public function render()
     {
+        $pictures = Pictures::where('spot_id', '=', $this->idspot)
+                            ->where('actif', '=', 1)
+                            ->paginate(10);
 
-        $this->pictures = Pictures::where('spot_id', '=', $this->idspot)->where('actif', '=', 1)->paginate(30);
-
-        return view('livewire.slider-pictures'); 
+        return view('livewire.slider-pictures', ['pictures' => $pictures]); 
     }
 }
