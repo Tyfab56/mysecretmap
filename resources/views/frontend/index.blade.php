@@ -136,7 +136,7 @@
       <div class="row">
         <div class="col-lg-12">
           <div class="ts-intro">
-            <h3 class="into-sub-title">{{ __('index.LastSpots') }}</h3>
+            <h3 class="into-sub-title">{{ __('index.LastSpots') }}</h3> <a class="btn btn-primary indexbtn" href="{{ url('thewall') }}/{{ $idpays}}"">{{ __('destination.VoirAllSpots') }}</a>
              <p>{{ __('index.LastSpotsDesc') }}</p> 
           </div>
         </div> 

@@ -48,6 +48,10 @@
                            <li><i class="fas fa-map-marker-alt"></i> <p class="info-text"></p>
                           </li>
                       </ul>
+                      <form action="{{ route('search.spots') }}" method="GET">
+    <input type="text" name="query" placeholder="Rechercher par description">
+    <button type="submit">Rechercher</button>
+</form>
                     </div>
                     <!--/ Top info end -->
         
