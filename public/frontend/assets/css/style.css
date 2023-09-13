@@ -4063,11 +4063,14 @@ border: 2px solid white
 
 .search-input {
   width: 100%;
-  padding: 10px 40px 10px 10px; /* Ajoutez de l'espace à droite pour l'icône */
-  border-radius: 25px; /* Pour rendre la barre arrondie */
+  padding: 2px 40px 2px 10px; /* Ajoutez de l'espace à droite pour l'icône */
+  border-radius: 10px; /* Pour rendre la barre arrondie */
   border: 1px solid #ccc;
 }
 
+.search-input .btn {
+  font-size: 14px;
+}
 .btn-search {
   position: absolute;
   right: 5px;
@@ -4075,7 +4078,7 @@ border: 2px solid white
   transform: translateY(-50%);
   background: none;
   border: none;
-  font-size: 16px;
+  font-size: 14px;
   color: #333; /* Changez la couleur si nécessaire */
 }
 
