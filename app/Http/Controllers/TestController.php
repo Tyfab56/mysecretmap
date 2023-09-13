@@ -11,7 +11,7 @@ class TestController extends Controller
     public function index()
     {
         $pictures = Pictures::all();
-        return view('test',compact(pictures)); 
+        return view('test',compact('pictures')); 
         
     }
 }
