@@ -122,7 +122,7 @@ Route::view('/changeavatar', 'frontend.loadavatar')->name('changeavatar');
 
 Route::view('/guide_iceland_en','frontend.guide_iceland_en')->name('guide_iceland_en');
 
-Route::view('/test', [TestController::class, 'index'])->name('test');
+Route::get('/test', [TestController::class, 'index'])->name('test');
 
 Route::post('/getspot', [TimelineController::class, 'getSpot'])->name('getspot');
 //Route::get('/check-product/{email}/{product_id}', [ApiController::class, 'checkProduct'])->name('check-product');
