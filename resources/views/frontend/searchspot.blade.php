@@ -3,6 +3,11 @@
 
 <section id="ts-features" class="ts-features">
     <div class="container">
+    <div class="row">
+            <div class="col-12">
+                <h2>Résultats pour : "{{ $query }}"</h2>
+            </div>
+        </div>
         <div class="row">
             <!-- Contenu principal -->
             <div class="col-lg-8">
