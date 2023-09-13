@@ -4052,6 +4052,5 @@ border: 2px solid white
 .title-and-button {
   display: flex; /* Utilisez Flexbox pour aligner les éléments horizontalement */
   align-items: center; /* Centrez verticalement les éléments */
-  justify-content: space-between; /* Placez les éléments à chaque extrémité horizontalement */
   margin-bottom: 10px; /* Ajoutez un espace entre le titre et le paragraphe */
 }
