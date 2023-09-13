@@ -27,9 +27,7 @@
 <div class="row">{{ $pictures->links() }}
 <style>
 
-.image-container {
-    position: relative;
-}
+
   .gridOverflow {
     max-width: 90%;
     margin-top: 10px;
@@ -62,10 +60,8 @@
 /* Styles pour l'overlay */
 .overlay {
     position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+    bottom: -30px; /* Ajustez cette valeur en fonction de la taille de l'overlay */
+    right: -30px; /* Ajustez cette valeur en fonction de la taille de l'overlay */
     z-index: 1;
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
