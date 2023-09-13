@@ -23,46 +23,5 @@
  
 </div>
 <div class="row">{{ $pictures->links() }}
-<style>
 
-
-  .gridOverflow {
-    max-width: 90%;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    --masonryItemHeight: 180px;
-  }
-  .go_gridItem .go_caption {
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-}
-.avatar
-{
-  width : 45px;
-  height : 45px;
-  border-radius: 50%;
-  border: 2px solid white
-
-}
-/* Affiche le texte au survol de l'élément .go_gridItem */
-.go_gridItem:hover .go_caption {
-    opacity: 1;
-    background-color: rgba(0, 0, 0, 0.5);
-    bottom: 0;
-    right: 0;
-    color: white;
-    box-sizing: border-box;
-    padding: 0.15rem 1rem;
-    text-align: center;
-    position: absolute;
-
-  }
-
-
-
-
-
-
-
-  </style>
 @endsection
