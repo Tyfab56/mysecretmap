@@ -10,7 +10,11 @@
             <div class="alert alert-danger">
                 {{ $errors->first('error') }}
             </div>
-       
+            
+            <form method="POST" action="{{ route('verification.resend') }}">
+                @csrf
+                <button type="submit">Renvoyer l'email de vérification</button>
+            </form>
         @endif
 
         <form method="POST" action="{{ route('login') }}">
