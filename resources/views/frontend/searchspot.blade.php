@@ -10,7 +10,7 @@
 
         <!-- Titre et description à droite de l'image -->
         <div class="flex-grow-1">
-            <h4>{{ $spot->title }}</h4>
+            <h4>{{ $spot->name }}</h4>
             <p>{{ $spot->translate(app()->getLocale())->description }}</p>
         </div>
 
