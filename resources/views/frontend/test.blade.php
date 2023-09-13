@@ -8,7 +8,7 @@
 <div class="gridOverflow go-masonry">
 
     @foreach ($pictures as $picture)
-    <a class="go_gridItem">
+    <a href="/destination/{{$picture->spot->pays_id}}/{{$picture->spot->id}}"class="go_gridItem">
 
          <img src="{{ $picture->medium}}" /> 
          <span class="go_caption go_caption-full">
