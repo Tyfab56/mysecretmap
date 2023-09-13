@@ -19,6 +19,7 @@
     max-width: 90%;
     margin-top: 10px;
     margin-bottom: 10px;
+    --masonryItemHeight: 280px;
   }
   </style>
 @endsection
