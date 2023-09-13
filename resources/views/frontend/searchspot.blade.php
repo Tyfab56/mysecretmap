@@ -13,7 +13,7 @@
 
         <!-- Bouton encore plus à droite -->
         <div>
-            <a href="{{ route('destination', ['country_code' => $spot->country_code, 'spot_id' => $spot->id]) }}" class="btn btn-primary">
+            <a href="{{ route('destination', ['id' => $spot->pays_id, 'spot_id' => $spot->id]) }}" class="btn btn-primary">
                 Voir plus
             </a>
         </div>
