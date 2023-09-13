@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Picture;
+use App\Models\Pictures;
 use Illuminate\Http\Request;
 
 class TestController extends Controller
