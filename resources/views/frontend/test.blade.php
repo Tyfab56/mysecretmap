@@ -13,6 +13,9 @@
          <span class="go_caption go_caption-full">
                 {{ $picture->spot->name}}
          </span>
+         <span class="go_avatar">
+                {{ $picture->user->profile_photo_path}}
+         </span>
             
     </a>
     @endforeach
@@ -31,6 +34,10 @@
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
 }
+.go_gridItem .go_avatar{
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
 
 /* Affiche le texte au survol de l'élément .go_gridItem */
 .go_gridItem:hover .go_caption {
@@ -38,6 +45,19 @@
     background-color: rgba(0, 0, 0, 0.5);
     bottom: 0;
     right: 0;
+    color: white;
+    box-sizing: border-box;
+    padding: 0.15rem 1rem;
+    text-align: center;
+    position: absolute;
+
+  }
+
+  .go_gridItem:hover .go_avatar {
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.5);
+    bottom: 0;
+    left: 0;
     color: white;
     box-sizing: border-box;
     padding: 0.15rem 1rem;
