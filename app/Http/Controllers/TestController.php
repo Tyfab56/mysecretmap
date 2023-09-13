@@ -12,15 +12,19 @@ class TestController extends Controller
     {
         //$pictures = Pictures::paginate(30);
         
-        $pictures = DB::table('pictures')
-    ->select(DB::raw('MAX(id) as id'))
-    ->groupBy('spot_id')
-    ->get();
-
-// Obtenez les images complètes correspondant aux ID sélectionnés
-$latestPictures = Pictures::whereIn('id', $pictures->pluck('id'))->paginate(30);
+        $latestPictures = Pictures::selectRaw('MAX(id) as id')
+        ->groupBy('spot_id')
+        ->orderBy('id', 'desc')
+        ->limit(30)
+        ->get();
+    
+    $pictureIds = $latestPictures->pluck('id');
+    
+    $pictures = Pictures::whereIn('id', $pictureIds)
+        ->orderBy('created_at', 'desc')
+        ->paginate(30);
         
-return view('frontend.test',compact('latestPictures')); 
+return view('frontend.test',compact('pictures')); 
         
     }
 }
