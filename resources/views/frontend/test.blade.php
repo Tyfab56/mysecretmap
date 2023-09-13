@@ -13,7 +13,7 @@
          <img src="{{ $picture->medium}}" /> 
          <span class="go_caption go_caption-full">
                 {{ $picture->spot->name}}
-                <img src="{{ $picture->user->avatar}}" class="avatar" /> 
+                <img src="{{ $picture->user->avatar}}" class="avatar" alt="$picture->user->pseudo"/> 
          </span>
          
             
@@ -38,6 +38,8 @@
 }
 .avatar
 {
+  width : 45px;
+  height : 45px;
   border-radius: 50%;
   border: 2px solid white
 
