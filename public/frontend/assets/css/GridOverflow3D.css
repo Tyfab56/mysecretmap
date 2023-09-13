@@ -67,6 +67,7 @@
   display: block;
 }
 
+
 .go_gridItem-panorama {
   grid-column: span 2;
   padding-bottom: calc(((100% - var(--gridGap)) / 2) * var(--itemAspectRatio));

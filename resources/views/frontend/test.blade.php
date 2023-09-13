@@ -36,7 +36,12 @@
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
 }
+.go_gridItem .go_caption .img 
+{
+  border-radius: 50%;
+  border: 2px solid white
 
+}
 /* Affiche le texte au survol de l'élément .go_gridItem */
 .go_gridItem:hover .go_caption {
     opacity: 1;
