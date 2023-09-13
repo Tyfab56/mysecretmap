@@ -38,11 +38,7 @@ class AuthenticatedSessionController extends Controller
         // chargement de la langue mémorisé
        $user = Auth::user();
 
-       if ($user->email_verified_at == null) {
-        $user->sendEmailVerificationNotification();
-        Auth::logout();
-        return back()->withErrors(['error' => 'Votre compte n\'est pas encore vérifié. Veuillez vérifier votre adresse e-mail.']);
-       }
+      
 
        if ($user) {
 
@@ -52,6 +48,12 @@ class AuthenticatedSessionController extends Controller
             $user->lastconnect = \Carbon\Carbon::now();
             $user->save();
         }
+
+        if ($user->email_verified_at == null) {
+
+            return redirect()->route('instructions');
+    
+           }
 
        return redirect('/');
        
