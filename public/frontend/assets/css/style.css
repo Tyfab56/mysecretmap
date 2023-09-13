@@ -4054,3 +4054,31 @@ border: 2px solid white
   align-items: center; /* Centrez verticalement les éléments */
   margin-bottom: 10px; /* Ajoutez un espace entre le titre et le paragraphe */
 }
+
+.search-form {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.search-input {
+  width: 100%;
+  padding: 10px 40px 10px 10px; /* Ajoutez de l'espace à droite pour l'icône */
+  border-radius: 25px; /* Pour rendre la barre arrondie */
+  border: 1px solid #ccc;
+}
+
+.btn-search {
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 16px;
+  color: #333; /* Changez la couleur si nécessaire */
+}
+
+.btn-search:focus {
+  outline: none;
+}
