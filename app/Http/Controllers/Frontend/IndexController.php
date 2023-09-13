@@ -102,7 +102,7 @@ class IndexController extends Controller
             ->where('locale', $locale)
             ->get();
     
-        return view('searchspot', compact('results')); 
+        return view('frontend.searchspot', compact('results')); 
     }
 
     public function godestination(Request $request)
