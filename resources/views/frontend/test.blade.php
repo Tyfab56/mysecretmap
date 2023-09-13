@@ -30,17 +30,26 @@
     margin-bottom: 10px;
     --masonryItemHeight: 180px;
   }
-  .avatar-container {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        padding: 10px; /* Ajustez la marge si nécessaire */
-    }
+  .avatar-overlay {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+    border-radius: 50%; /* Rend l'avatar rond */
+    background-color: rgba(0, 0, 0, 0.8); /* Fond semi-transparent */
+    display: none; /* Masque initialement l'avatar */
+    margin-top: -50px; /* Déplace l'avatar au-dessus de l'image principale */
+    margin-left: 10px; /* Ajustez la position horizontale selon vos besoins */
+    z-index: 1; /* Assurez-vous que l'avatar est au-dessus de l'image principale */
+}
 
-    /* Style pour l'image de l'avatar */
-    .avatar-container img {
-        width: 50px; /* Ajustez la largeur de l'avatar selon vos besoins */
-        height: auto;
-    }
+.avatar {
+    width: 100%;
+    height: auto;
+}
+
+/* Afficher l'avatar au survol */
+.image-container:hover .avatar-overlay {
+    display: block;
   </style>
 @endsection
