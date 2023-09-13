@@ -13,14 +13,15 @@
     </a>
     @endforeach
   <div class="go_gridItem go_gridItem-centered" href="someURL"><p> centered content - typically some text </p> </div>
-  {{ $pictures->links() }}
+ 
 </div>
+{{ $pictures->links() }}
 <style>
   .gridOverflow {
     max-width: 90%;
     margin-top: 10px;
     margin-bottom: 10px;
-    --masonryItemHeight: 280px;
+    --masonryItemHeight: 180px;
   }
   </style>
 @endsection
