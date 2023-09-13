@@ -73,6 +73,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function markEmailAsVerified()
     {
+
         $this->email_verified_at = now();
         $this->save();
     }
