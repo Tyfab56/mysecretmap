@@ -98,7 +98,7 @@ class IndexController extends Controller
     {
         $locale = app()->getLocale();
 
-    $spots = Spot::whereHas('translations', function ($query) use ($request, $locale) {
+    $spots = Spots::whereHas('translations', function ($query) use ($request, $locale) {
         $query->where('description', 'like', '%' . $request->input('query') . '%')
               ->where('locale', $locale);
     })->get();
