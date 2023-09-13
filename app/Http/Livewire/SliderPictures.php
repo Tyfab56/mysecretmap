@@ -23,7 +23,7 @@ class SliderPictures extends Component
     public function render()
     {
 
-        $this->pictures = Pictures::where('spot_id', '=', $this->idspot)->where('actif', '=', 1)->paginate(30);
+        $this->pictures = Pictures::where('spot_id', '=', $this->idspot)->where('actif', '=', 1)->get();
 
         return view('livewire.slider-pictures'); 
     }
