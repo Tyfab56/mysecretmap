@@ -13,9 +13,7 @@
          <span class="go_caption go_caption-full">
                 {{ $picture->spot->name}}
          </span>
-         <span class="go_avatar">
-              <img src="{{ $picture->user->profile_photo_path}}">
-         </span>
+      
             
     </a>
     @endforeach
