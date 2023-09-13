@@ -9,10 +9,11 @@
 
     @foreach ($pictures as $picture)
     <a class="go_gridItem" href="{{ $picture->medium }}">
-    <img src="{{ $picture->small}}" /> 
+    <img src="{{ $picture->medium}}" /> 
     </a>
     @endforeach
   <div class="go_gridItem go_gridItem-centered" href="someURL"><p> centered content - typically some text </p> </div>
+  {{ $pictures->links() }}
 </div>
 <style>
   .gridOverflow {
