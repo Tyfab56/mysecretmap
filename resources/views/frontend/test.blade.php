@@ -14,9 +14,7 @@
          <span class="go_caption go_caption-full">
                 {{ $picture->spot->name}}
          </span>
-         <div class="overlay">
-                <img src="{{ $picture->user->avatar }}" alt="Small Overlay Image">
-            </div>
+       
      </div>
             
     </a>
