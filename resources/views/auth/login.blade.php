@@ -5,7 +5,11 @@
        
         <!-- Session Status -->
         <x-auth-session-status class="mb-4" :status="session('status')" />
-
+        @if (session('status') == 'verification-link-sent')
+                <div class="alert alert-success">
+                    Le lien de vérification a été renvoyé à votre adresse e-mail.
+                </div>
+        @endif
         @if ($errors->has('error'))
             <div class="alert alert-danger">
                 {{ $errors->first('error') }}
@@ -13,7 +17,10 @@
 
             <form method="POST" action="{{ route('verification.send') }}">
                 @csrf
-                <button type="submit">Renvoyer l'email de vérification</button>
+                <x-primary-button class="ml-3">
+                Renvoyer l'email de vérification
+                </x-primary-button>
+                <button type="submit"></button>
             </form>
         @endif
 
