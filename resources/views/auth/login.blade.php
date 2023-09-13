@@ -15,13 +15,7 @@
                 {{ $errors->first('error') }}
             </div>
 
-            <form method="POST" action="{{ route('verification.send') }}">
-                @csrf
-                <x-primary-button class="ml-3">
-                Renvoyer l'email de vérification
-                </x-primary-button>
-                <button type="submit"></button>
-            </form>
+            
         @endif
 
         <form method="POST" action="{{ route('login') }}">

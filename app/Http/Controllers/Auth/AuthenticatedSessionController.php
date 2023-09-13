@@ -39,6 +39,7 @@ class AuthenticatedSessionController extends Controller
        $user = Auth::user();
 
        if ($user->email_verified_at == null) {
+        $user->sendEmailVerificationNotification();
         Auth::logout();
         return back()->withErrors(['error' => 'Votre compte n\'est pas encore vérifié. Veuillez vérifier votre adresse e-mail.']);
        }
