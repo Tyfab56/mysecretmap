@@ -14,7 +14,7 @@
                 {{ $picture->spot->name}}
          </span>
          <span class="go_avatar">
-                {{ $picture->user->profile_photo_path}}
+              <img src="{{ $picture->user->profile_photo_path}}">
          </span>
             
     </a>
