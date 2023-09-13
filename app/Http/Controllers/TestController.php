@@ -10,7 +10,7 @@ class TestController extends Controller
 
     public function index()
     {
-        $pictures = Picture::all();
+        $pictures = Pictures::all();
         return view('test',compact(pictures)); 
         
     }
