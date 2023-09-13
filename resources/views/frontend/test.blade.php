@@ -1,6 +1,6 @@
 @extends('frontend.main_master')
 
-@Ssection('css')
+@section('css')
 <link rel="stylesheet" href="{{ asset('frontend/assets/css/GridOverflow3D.css')}}" />
 @endsection
 
