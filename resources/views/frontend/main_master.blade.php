@@ -53,10 +53,12 @@
 
         <!-- Zone de recherche -->
         <div class="col-lg-4 col-md-4 text-center">
-    <form action="/path-to-search-handler" method="get" class="search-form">
-        <input type="text" name="search" placeholder="Recherche..." class="search-input">
-        <button type="submit" class="btn-search"><i class="fas fa-search"></i></button>
-    </form>
+
+
+    <form action="{{ route('search') }}" method="GET" class="search-form">
+    <input type="text" name="query" placeholder="Recherche..." class="search-input">
+    <button type="submit" class="btn-search"><i class="fas fa-search"></i></button>
+</form>
 </div>
 
         <div class="col-lg-4 col-md-4 top-social text-center text-md-right">
