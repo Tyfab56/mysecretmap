@@ -7,15 +7,17 @@
 @section('content')
 <div class="gridOverflow go-masonry go-zoomFx go-actionIcon">
 
-    @foreach ($pictures as $picture)
-
-    <div class="avatar-container">
-        <img src="{{$picture->user->profile_photo_path}}" alt="Avatar de l'utilisateur">
+@foreach ($pictures as $picture)
+    <div class="go_gridItem">
+        <div class="image-container">
+            <a href="{{ $picture->medium }}">
+                <img src="{{ $picture->medium }}" alt="Image principale">
+            </a>
+            <div class="avatar-overlay">
+                <img class="avatar" src="{{ $picture->user->profile_photo_path }}" alt="Avatar">
+            </div>
+        </div>
     </div>
-
-    <a class="go_gridItem" href="{{ $picture->medium }}">
-    <img src="{{ $picture->medium}}" /> 
-    </a>
     @endforeach
   <div class="go_gridItem go_gridItem-centered" href="someURL"><p> centered content - typically some text </p> </div>
  
