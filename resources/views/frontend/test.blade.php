@@ -53,31 +53,6 @@
 
   }
 
-/* Styles pour l'image principale */
-.image-container {
-    position: relative;
-}
-
-/* Styles pour l'overlay */
-.overlay {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1;
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-}
-
-/* Styles pour l'overlay visible au survol */
-.go_gridItem:hover .overlay {
-    opacity: 1;
-}
-
-.overlay img {
-    width: 50px;
-    height: auto;
-}
 
 
 
