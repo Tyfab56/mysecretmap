@@ -4019,7 +4019,6 @@ img.list-photo:hover, img.imgbox:hover{
 }
 /* caption pour la gallery */
 .gridOverflow {
-  max-width: 90%;
   margin-top: 10px;
   margin-bottom: 10px;
   --masonryItemHeight: 180px;
