@@ -73,7 +73,7 @@ Route::get('/dashboard', function () {
 Route::get('/email/verify/{id}/{hash}', [VerifyEmailController::class, '__invoke'])
     ->middleware(['signed', 'throttle:6,1'])
     ->name('verification.verify');
-    
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile/me', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile/me', [ProfileController::class, 'update'])->name('profile.update');
@@ -121,7 +121,8 @@ Route::view('/changeavatar', 'frontend.loadavatar')->name('changeavatar');
 
 Route::view('/guide_iceland_en','frontend.guide_iceland_en')->name('guide_iceland_en');
 
-Route::view('/test', 'frontend.test')->name('test');
+Route::view('/test', [TestController::class, 'index'])->name('test');
+
 Route::post('/getspot', [TimelineController::class, 'getSpot'])->name('getspot');
 //Route::get('/check-product/{email}/{product_id}', [ApiController::class, 'checkProduct'])->name('check-product');
 
