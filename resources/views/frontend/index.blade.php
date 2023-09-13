@@ -163,7 +163,7 @@
         <div class="col-lg-12">
           <div class="ts-intro">
             <h3 class="into-sub-title">{{ __('index.LastImages') }}</h3>
-             <p>{{ __('index.LastImageDesc') }}</p> 
+             <p>{{ __('index.LastImagesDesc') }}</p> 
           </div>
         </div> 
 
