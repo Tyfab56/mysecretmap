@@ -76,7 +76,21 @@ class IndexController extends Controller
             $spot = null;
         }
 
-        return view('frontend/index', compact('lastPays', 'idpays', 'pays', 'payslist', 'payslng', 'payslat', 'payszoom', 'paysoffset', 'spot', 'lastspots', 'noscircuits','markerspays'));
+      
+        
+        $latestPictures = Pictures::selectRaw('MAX(id) as id')
+        ->groupBy('spot_id')
+        ->orderBy('id', 'desc')
+        ->limit(30)
+        ->get();
+    
+        $pictureIds = $latestPictures->pluck('id');
+    
+        $pictures = Pictures::whereIn('id', $pictureIds)
+                    ->orderBy('created_at', 'desc')
+                    ->paginate(30);
+
+        return view('frontend/index', compact('lastPays', 'idpays', 'pays', 'payslist', 'payslng', 'payslat', 'payszoom', 'paysoffset', 'spot', 'lastspots', 'noscircuits','markerspays','pictures'));
     }
 
 
