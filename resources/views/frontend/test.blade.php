@@ -13,7 +13,7 @@
          <img src="{{ $picture->medium}}" /> 
          <span class="go_caption go_caption-full">
                 {{ $picture->spot->name}}
-                <img src="{{ $picture->user->avatar}}" /> 
+                <img src="{{ $picture->user->avatar}}" class="avatar" /> 
          </span>
          
             
@@ -36,7 +36,7 @@
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
 }
-.go_gridItem .go_caption .img 
+.avatar
 {
   border-radius: 50%;
   border: 2px solid white
