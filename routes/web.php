@@ -70,7 +70,10 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 
-
+Route::get('/email/verify/{id}/{hash}', [VerifyEmailController::class, '__invoke'])
+    ->middleware(['signed', 'throttle:6,1'])
+    ->name('verification.verify');
+    
 Route::middleware('auth')->group(function () {
     Route::get('/profile/me', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile/me', [ProfileController::class, 'update'])->name('profile.update');
