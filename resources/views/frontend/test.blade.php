@@ -10,7 +10,7 @@
     @foreach ($pictures as $picture)
 
     <div class="avatar-container">
-        <img src="{{$picture->$user->profile_photo_path}}" alt="Avatar de l'utilisateur">
+        <img src="{{$picture->user->profile_photo_path}}" alt="Avatar de l'utilisateur">
     </div>
 
     <a class="go_gridItem" href="{{ $picture->medium }}">
