@@ -11,6 +11,11 @@ return [
     "Pseudo"=>"Pseudo",
     "Facebook"=>"Facebook",
     "Instagram"=>"Instagram",
+    "Twitter"=>"Twitter",
+    "500px"=>"500px",
+    "TikTok"=>"TikTok",
+    "Mastodon"=>"Mastodon",
+
     "Web"=> "Site Internet",
     "ChangeAvatar"=> "Changer avatar",
 ];
