@@ -30,12 +30,12 @@ $(document).ready(function() {
 
     <h2>Votre profil</h2>
 
-    @foreach($whoIams as $whoIam)
+    @foreach($whoiams as $whoiam)
         <div class="form-check">
-            <input class="form-check-input" type="radio" name="whoiam_id" id="whoiam_{{ $whoIam->id }}" value="{{ $whoIam->id }}"
-            {{ $user->whoiam_id == $whoIam->id ? 'checked' : '' }} onchange="submitForm()">
-            <label class="form-check-label" for="whoiam_{{ $whoIam->id }}" title="{{ $whoIam->translate('fr')->description }}">
-                {{ $whoIam->translate('fr')->name }}
+            <input class="form-check-input" type="radio" name="whoiam_id" id="whoiam_{{ $whoiam->id }}" value="{{ $whoiam->id }}"
+            {{ $user->whoiam_id == $whoiam->id ? 'checked' : '' }} onchange="submitForm()">
+            <label class="form-check-label" for="whoiam_{{ $whoiam->id }}" title="{{ $whoiam->translate('fr')->description }}">
+                {{ $whoiam->translate('fr')->name }}
             </label>
         </div>
     @endforeach
