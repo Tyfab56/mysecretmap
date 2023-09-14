@@ -126,7 +126,7 @@ $(document).ready(function() {
                 <input class="w400p" type="text" name="facebook" id="facebook" value="{{$user->facebook}}" />
             </div>
             <div class="input-w">
-                <label for="instagram"> <i class="fab fa-instagram"></i><p><b>{{ __('compte.Instagram') }} :</b></p> </label>
+                <label for="instagram"> <p><b>{{ __('compte.Instagram') }} :</b><i class="fab fa-instagram"></i></p> </label>
                 <input class="w400p" type="text" name="instagram" id="instagram" value="{{$user->instagram}}" />
             </div>
 
