@@ -122,19 +122,27 @@ $(document).ready(function() {
                 <input class="w400p" type="text" name="internet" id="internet" value="{{$user->internet}}" />
             </div>
             <div class="input-w">
-                <label for="facebook" class="social-label"><p><b>{{ __('compte.Facebook') }} :</b><i class="fab fa-facebook-square"></i>
-</p> </label>
-                <input class="w400p" type="text" name="facebook" id="facebook" value="{{$user->facebook}}" />
+                <label for="facebook" class="social-label">
+                  <p><b>{{ __('compte.Facebook') }} :</b></p> 
+                  <i class="fab fa-facebook-square"></i>
+                 <input class="w400p" type="text" name="facebook" id="facebook" value="{{$user->facebook}}" />
+                </label>
             </div>
             <div class="input-w">
-                <label for="instagram" class="social-label"> <p><b>{{ __('compte.Instagram') }} :</b><i class="fab fa-instagram"></i></p> </label>
-                <input class="w400p" type="text" name="instagram" id="instagram" value="{{$user->instagram}}" />
+                <label for="instagram" class="social-label">
+                   <p><b>{{ __('compte.Instagram') }} :</b></p>
+                   <i class="fab fa-instagram"></i> 
+                 <input class="w400p" type="text" name="instagram" id="instagram" value="{{$user->instagram}}" />
+                </label>
             </div>
 
             <!-- Twitter -->
               <div class="input-w">
-                  <label for="twitter" class="social-label"><p><b>{{ __('compte.Twitter') }} :</b><i class="fab fa-twitter"></i></p> </label>
-                  <input class="w400p" type="text" name="twitter" id="twitter" value="{{$user->twitter}}" />
+                  <label for="twitter" class="social-label">
+                    <p><b>{{ __('compte.Twitter') }} :</b></p> 
+                    <i class="fab fa-twitter"></i>
+                   <input class="w400p" type="text" name="twitter" id="twitter" value="{{$user->twitter}}" />
+                  </label>
               </div>
 
               <!-- 500px -->
@@ -222,7 +230,7 @@ $(document).ready(function() {
 <style>
   .fab.fa-facebook-square {
     color: #1877F2; 
-    font-size : 32px;
+    font-size : 25px;
     margin-left: 10px;
     margin-right: 10px;
 }
@@ -231,31 +239,31 @@ $(document).ready(function() {
     color: transparent; /* Pour que la couleur de l'icône elle-même soit transparente et laisse transparaître le dégradé */
     background-clip: text;
     -webkit-background-clip: text;
-    font-size : 32px;
+    font-size : 25px;
     margin-left: 10px;
     margin-right: 10px;
 }
 .fab.fa-500px {
     color: #0099E5; /* Couleur associée à 500px */
-    font-size : 32px;
+    font-size : 25px;
     margin-left: 10px;
     margin-right: 10px;
 }
 .fab.fa-twitter {
     color: #1DA1F2; /* Couleur officielle de Twitter */
-    font-size : 32px;
+    font-size : 25px;
     margin-left: 10px;
     margin-right: 10px;
 }
 .fab.fa-tiktok {
     color: #69C9D0; /* Un bleu associé à TikTok */
-    font-size : 32px;
+    font-size : 25px;
     margin-left: 10px;
     margin-right: 10px;
 }
 .fab.fa-mastodon {
     color: #3088d4; /* Couleur bleu foncé de Mastodon */
-    font-size : 32px;
+    font-size : 25px;
     margin-left: 10px;
     margin-right: 10px;
 }
