@@ -235,7 +235,7 @@ class IndexController extends Controller
         // Récupération des profils et de leurs traductions
         $whoiams = Whoiam::with('translations')->get();
     
-        return view('frontend/myaccount', compact('user', 'payslist', 'whoIams'));
+        return view('frontend/myaccount', compact('user', 'payslist', 'whoiams'));
     }
 
     public function addimagespotstore(Request $request)
