@@ -182,7 +182,7 @@
                 {{ $picture->spot->name}}
                 <a href="{{ route('users.show', $picture->user->id) }}">
                   <img src="{{ $picture->user->avatar }}" class="avatar" alt="{{ $picture->user->pseudo }}" />
-              </a>
+               </a>
          </span>
          
             

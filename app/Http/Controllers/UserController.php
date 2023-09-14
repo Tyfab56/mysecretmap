@@ -58,7 +58,7 @@ class UserController extends Controller
         $user = User::findOrFail($id);
 
         // Retour de la vue avec l'utilisateur comme donnée
-        return view('user.show', compact('user'));
+        return view('frontend.user.show', compact('user'));
     }
 
 
