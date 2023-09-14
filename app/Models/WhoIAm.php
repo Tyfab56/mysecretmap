@@ -36,7 +36,7 @@ class Whoiam extends Model
      */
     public function translations()
     {
-        return $this->hasMany(WhoIAmTranslation::class);
+        return $this->hasMany(WhoiamTranslation::class);
     }
 }
 

@@ -233,7 +233,7 @@ class IndexController extends Controller
         $payslist = Pays::where('actif', '=', 1)->orderBy('pays', 'asc')->get();
     
         // Récupération des profils et de leurs traductions
-        $whoIams = Whoiam::with('translations')->get();
+        $whoiams = Whoiam::with('translations')->get();
     
         return view('frontend/myaccount', compact('user', 'payslist', 'whoIams'));
     }

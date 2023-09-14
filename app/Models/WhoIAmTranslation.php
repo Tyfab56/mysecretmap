@@ -25,7 +25,7 @@ class WhoiamTranslation extends Model
      */
     public function whoiam()
     {
-        return $this->belongsTo(WhoIAm::class);
+        return $this->belongsTo(Whoiam::class);
     }
 }
 
