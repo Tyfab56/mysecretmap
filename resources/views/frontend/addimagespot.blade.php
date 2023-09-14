@@ -104,7 +104,7 @@ function deletePicture (id)
                         <img src="{{ $photo->medium }}" class="mainimg" alt="Image Title" /> 
                         <div class="overlay">
                             <span>Titre de l'image</span>
-                            <a href="delimagespot/{{ $photo->id) }}" class="delete-photo" onclick="return confirm('Are you sure you want to delete this image?');">
+                            <a href="delimagespot/{{ $photo->id }}" class="delete-photo" onclick="return confirm('Are you sure you want to delete this image?');">
                                 <i class="fas fa-trash"></i>
                             </a>
                         </div>
