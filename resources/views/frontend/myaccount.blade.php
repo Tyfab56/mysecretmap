@@ -214,7 +214,15 @@ $(document).ready(function() {
 </section>
 <style>
   .fab.fa-facebook-square {
-    color: #1877F2; /* Couleur officielle de Facebook */
+    color: #1877F2; 
+    font-size : 32px;
+}
+.fab.fa-instagram {
+    background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+    color: transparent; /* Pour que la couleur de l'icône elle-même soit transparente et laisse transparaître le dégradé */
+    background-clip: text;
+    -webkit-background-clip: text;
+    font-size : 32px;
 }
 
 </style>
