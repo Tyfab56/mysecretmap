@@ -139,9 +139,11 @@ $(document).ready(function() {
 
               <!-- 500px -->
               <div class="input-w">
-                  <label for="five_hundred_px" class="social-label"><p><b>{{ __('compte.500px') }} :</b><i class="fab fa-500px"></i>
-</p> </label>
-                  <input class="w400p" type="text" name="five_hundred_px" id="five_hundred_px" value="{{$user->five_hundred_px}}" />
+                  <label for="five_hundred_px" class="social-label">
+                    <p><b>{{ __('compte.500px') }} :</b></p>
+                    <i class="fab fa-500px"></i>
+                    <input class="w400p" type="text" name="five_hundred_px" id="five_hundred_px" value="{{$user->five_hundred_px}}" />
+                  </label>
               </div>
 
               <!-- TikTok -->
@@ -221,6 +223,8 @@ $(document).ready(function() {
   .fab.fa-facebook-square {
     color: #1877F2; 
     font-size : 32px;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 .fab.fa-instagram {
     background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
@@ -228,22 +232,31 @@ $(document).ready(function() {
     background-clip: text;
     -webkit-background-clip: text;
     font-size : 32px;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 .fab.fa-500px {
     color: #0099E5; /* Couleur associée à 500px */
     font-size : 32px;
-}
+    margin-left: 10px;
+    margin-right: 10px;
 .fab.fa-twitter {
     color: #1DA1F2; /* Couleur officielle de Twitter */
     font-size : 32px;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 .fab.fa-tiktok {
     color: #69C9D0; /* Un bleu associé à TikTok */
     font-size : 32px;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 .fab.fa-mastodon {
     color: #3088d4; /* Couleur bleu foncé de Mastodon */
     font-size : 32px;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 .social-label {
     display: flex;
