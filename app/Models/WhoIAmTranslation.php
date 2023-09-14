@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class WhoIAmTranslation extends Model
+class WhoiamTranslation extends Model
 {
     /**
      * The attributes that are mass assignable.
