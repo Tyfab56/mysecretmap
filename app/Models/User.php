@@ -32,6 +32,10 @@ class User extends Authenticatable implements MustVerifyEmail
         'internet',
         'facebook',
         'instagram',
+        'twitter',
+        'five_hundred_px', 
+        'tiktok',
+        'mastodon',
         
     ];
 

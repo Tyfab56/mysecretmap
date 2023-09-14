@@ -27,7 +27,7 @@ class UserController extends Controller
         $user->update($data);
 
         // Redirect back with a success message
-        return redirect()->back()->with('success', 'Profile updated successfully!');
+        return redirect()->back()->with('successUser', 'Profile updated successfully!');
     }
 
     public function updateSocial(Request $request, User $user)
@@ -37,13 +37,17 @@ class UserController extends Controller
         'internet' => 'nullable|url',
         'facebook' => 'nullable|url',
         'instagram' => 'nullable|url',
+        'twitter' => 'nullable|url',               
+        'five_hundred_px' => 'nullable|url',      
+        'tiktok' => 'nullable|url',               
+        'mastodon' => 'nullable|url',      
     ]);
 
     // Update the user's social profiles
     $user->update($data);
 
     // Redirect back with a success message
-    return redirect()->back()->with('success', 'Social profiles updated successfully!');
+    return redirect()->back()->with('successSocial', 'Social profiles updated successfully!');
 }
 
 

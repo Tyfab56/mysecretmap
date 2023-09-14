@@ -40,6 +40,11 @@
         </a>
 
         <!-- Start of form -->
+          @if(session('successUser'))
+              <div class="alert alert-success">
+                  {{ session('successUser') }}
+              </div>
+          @endif
         <form action="{{ route('user.update', $user->id) }}" method="POST">
             @csrf
             @method('PUT')
@@ -93,6 +98,11 @@
               </div>
               <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#construction-accordion">
     <div class="card-body">
+          @if(session('successSocial'))
+              <div class="alert alert-success">
+                  {{ session('successSocial') }}
+              </div>
+          @endif
         <form action="{{ route('user.updateSocial', $user->id) }}" method="POST">
             @csrf
             @method('PUT')
@@ -109,6 +119,31 @@
                 <label for="instagram"><p><b>{{ __('compte.Instagram') }} :</b></p> </label>
                 <input class="w400p" type="text" name="instagram" id="instagram" value="{{$user->instagram}}" />
             </div>
+
+            <!-- Twitter -->
+              <div class="input-w">
+                  <label for="twitter"><p><b>{{ __('compte.Twitter') }} :</b></p> </label>
+                  <input class="w400p" type="text" name="twitter" id="twitter" value="{{$user->twitter}}" />
+              </div>
+
+              <!-- 500px -->
+              <div class="input-w">
+                  <label for="500px"><p><b>{{ __('compte.500px') }} :</b></p> </label>
+                  <input class="w400p" type="text" name="500px" id="500px" value="{{$user->five_hundred_px}}" />
+              </div>
+
+              <!-- TikTok -->
+              <div class="input-w">
+                  <label for="tiktok"><p><b>{{ __('compte.TikTok') }} :</b></p> </label>
+                  <input class="w400p" type="text" name="tiktok" id="tiktok" value="{{$user->tiktok}}" />
+              </div>
+
+              <!-- Mastodon -->
+              <div class="input-w">
+                  <label for="mastodon"><p><b>{{ __('compte.Mastodon') }} :</b></p> </label>
+                  <input class="w400p" type="text" name="mastodon" id="mastodon" value="{{$user->mastodon}}" />
+              </div>
+
 
             <!-- Save Button -->
             <button type="submit">Save Changes</button>
