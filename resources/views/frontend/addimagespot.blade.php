@@ -100,14 +100,16 @@ function deletePicture (id)
                     <ul class = "image-gallery" > 
                     @foreach($pictures as $photo)
 
-                    <li > 
-                       
-                            <img src = "{{ $photo->medium }}" class="mainimg" alt = " " /> 
-                            <div class = "overlay" >    
-                                <span > Titre de l'image </span >
-                            </div >
-                      
-                    </li > 
+                    <<li>
+                        <img src="{{ $photo->medium }}" class="mainimg" alt="Image Title" /> 
+                        <div class="overlay">
+                            <span>Titre de l'image</span>
+                            <a href="{{ route('photo.delete', $photo->id) }}" class="delete-photo" onclick="return confirm('Are you sure you want to delete this image?');">
+                                <i class="fas fa-trash"></i>
+                            </a>
+                        </div>
+                    </li>
+
                     
                     @endforeach
                     </ul> 
