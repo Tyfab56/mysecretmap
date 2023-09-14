@@ -224,7 +224,7 @@ $(document).ready(function() {
     -webkit-background-clip: text;
     font-size : 32px;
 }
-
+ 
 </style>
 
 @endauth
