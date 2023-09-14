@@ -122,7 +122,8 @@ $(document).ready(function() {
                 <input class="w400p" type="text" name="internet" id="internet" value="{{$user->internet}}" />
             </div>
             <div class="input-w">
-                <label for="facebook"><p><b>{{ __('compte.Facebook') }} :</b></p> </label>
+                <label for="facebook"><p><b>{{ __('compte.Facebook') }} :</b><i class="fab fa-facebook-square"></i>
+</p> </label>
                 <input class="w400p" type="text" name="facebook" id="facebook" value="{{$user->facebook}}" />
             </div>
             <div class="input-w">
@@ -211,7 +212,12 @@ $(document).ready(function() {
       </div>
     </div>
 </section>
+<style>
+  .fab.fa-facebook-square {
+    color: #1877F2; /* Couleur officielle de Facebook */
+}
 
+</style>
 
 @endauth
 @guest
