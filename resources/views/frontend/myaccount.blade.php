@@ -118,8 +118,11 @@ $(document).ready(function() {
             @method('PUT')
             
             <div class="input-w">
-                <label for="internet"><p><b>{{ __('compte.Web') }} :</b></p> </label>
+                <label for="internet" class="social-label">
+                  <p><b>{{ __('compte.Web') }} :</b></p>
+                  <i class="fas fa-globe"></i>
                 <input class="w400p" type="text" name="internet" id="internet" value="{{$user->internet}}" />
+                </label>
             </div>
             <div class="input-w">
                 <label for="facebook" class="social-label">
@@ -165,9 +168,11 @@ $(document).ready(function() {
 
               <!-- Mastodon -->
               <div class="input-w">
-                  <label for="mastodon" class="social-label"><p><b>{{ __('compte.Mastodon') }} :</b><i class="fab fa-mastodon"></i>
-</p> </label>
-                  <input class="w400p" type="text" name="mastodon" id="mastodon" value="{{$user->mastodon}}" />
+                  <label for="mastodon" class="social-label">
+                    <p><b>{{ __('compte.Mastodon') }} :</b>
+                    <i class="fab fa-mastodon"></i></p> 
+                    <input class="w400p" type="text" name="mastodon" id="mastodon" value="{{$user->mastodon}}" />
+                  </label>
               </div>
 
 
@@ -264,6 +269,13 @@ $(document).ready(function() {
 .fab.fa-mastodon {
     color: #3088d4; /* Couleur bleu foncé de Mastodon */
     font-size : 25px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.fas.fa-globe
+{
+  font-size : 25px;
     margin-left: 10px;
     margin-right: 10px;
 }
