@@ -133,25 +133,28 @@ $(document).ready(function() {
 
             <!-- Twitter -->
               <div class="input-w">
-                  <label for="twitter"><p><b>{{ __('compte.Twitter') }} :</b></p> </label>
+                  <label for="twitter"><p><b>{{ __('compte.Twitter') }} :</b><i class="fab fa-twitter"></i></p> </label>
                   <input class="w400p" type="text" name="twitter" id="twitter" value="{{$user->twitter}}" />
               </div>
 
               <!-- 500px -->
               <div class="input-w">
-                  <label for="five_hundred_px"><p><b>{{ __('compte.500px') }} :</b></p> </label>
+                  <label for="five_hundred_px"><p><b>{{ __('compte.500px') }} :</b><i class="fab fa-500px"></i>
+</p> </label>
                   <input class="w400p" type="text" name="five_hundred_px" id="five_hundred_px" value="{{$user->five_hundred_px}}" />
               </div>
 
               <!-- TikTok -->
               <div class="input-w">
-                  <label for="tiktok"><p><b>{{ __('compte.TikTok') }} :</b></p> </label>
+                  <label for="tiktok"><p><b>{{ __('compte.TikTok') }} :</b><i class="fab fa-tiktok"></i>
+</p> </label>
                   <input class="w400p" type="text" name="tiktok" id="tiktok" value="{{$user->tiktok}}" />
               </div>
 
               <!-- Mastodon -->
               <div class="input-w">
-                  <label for="mastodon"><p><b>{{ __('compte.Mastodon') }} :</b></p> </label>
+                  <label for="mastodon"><p><b>{{ __('compte.Mastodon') }} :</b><i class="fab fa-mastodon"></i>
+</p> </label>
                   <input class="w400p" type="text" name="mastodon" id="mastodon" value="{{$user->mastodon}}" />
               </div>
 
@@ -224,7 +227,23 @@ $(document).ready(function() {
     -webkit-background-clip: text;
     font-size : 32px;
 }
- 
+.fab.fa-500px {
+    color: #0099E5; /* Couleur associée à 500px */
+    font-size : 32px;
+}
+.fab.fa-twitter {
+    color: #1DA1F2; /* Couleur officielle de Twitter */
+    font-size : 32px;
+}
+.fab.fa-tiktok {
+    color: #69C9D0; /* Un bleu associé à TikTok */
+    font-size : 32px;
+}
+.fab.fa-mastodon {
+    color: #3088d4; /* Couleur bleu foncé de Mastodon */
+    font-size : 32px;
+}
+
 </style>
 
 @endauth
