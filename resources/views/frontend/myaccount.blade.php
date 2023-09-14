@@ -283,7 +283,7 @@ $(document).ready(function() {
 }
 .social-label {
     display: grid;
-    grid-template-columns: 100px 32px 1fr; /* texte, icône, input */
+    grid-template-columns: 160px 32px 1fr; /* texte, icône, input */
     align-items: center; /* Centre vertical */
     gap: 10px; /* Espacement entre les éléments */
 }
