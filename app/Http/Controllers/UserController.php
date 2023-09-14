@@ -52,5 +52,15 @@ class UserController extends Controller
     
 }
 
+    public function show($id)
+    {
+        // Récupération de l'utilisateur à partir de son ID
+        $user = User::findOrFail($id);
+
+        // Retour de la vue avec l'utilisateur comme donnée
+        return view('user.show', compact('user'));
+    }
+
+
 
 }

@@ -180,7 +180,9 @@
          <img src="{{ $picture->medium}}" /> 
          <span class="go_caption go_caption-full">
                 {{ $picture->spot->name}}
-                <img src="{{ $picture->user->avatar}}" class="avatar" alt="{{$picture->user->pseudo}}"/> 
+                <a href="{{ route('users.show', $picture->user->id) }}">
+                  <img src="{{ $picture->user->avatar }}" class="avatar" alt="{{ $picture->user->pseudo }}" />
+              </a>
          </span>
          
             

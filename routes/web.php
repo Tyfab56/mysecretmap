@@ -33,6 +33,7 @@ Route::get('/instructions', [IndexController::class, 'instructions'])->name('ins
 
 Route::get('/api/check-product', [ApiController::class, 'checkProduct'])->middleware('App\Http\Middleware\CorsMiddleware');
 Route::post('/api/check-product', [ApiController::class, 'checkProduct']);
+Route::get('/users/{id}', [UserController::class, 'show'])->name('users.show');
 
 
 Route::get('/', [IndexController::class, 'index'])->name('home');
