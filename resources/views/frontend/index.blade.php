@@ -333,4 +333,9 @@
 
 @section('scripts')
 @include ('frontend.mapindexjs');
+$(document).ready(function() {
+    $('.avatar-link').click(function() {
+        window.location.href = $(this).data('href');
+    });
+});
 @endsection
