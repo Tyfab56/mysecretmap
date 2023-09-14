@@ -13,6 +13,7 @@ use App\Models\Default_spots;
 use App\Models\Noscircuits;
 use App\Models\TimelineCat;
 use App\Models\Timelines;
+use App\Models\WhoIAm;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -227,9 +228,14 @@ class IndexController extends Controller
     {
         // Information sur cet user
         $user = Auth::user();
-        // chargement des pays actifs
+    
+        // Chargement des pays actifs
         $payslist = Pays::where('actif', '=', 1)->orderBy('pays', 'asc')->get();
-        return view('frontend/myaccount',compact('user','payslist'));
+    
+        // Récupération des profils et de leurs traductions
+        $whoIams = WhoIAm::with('translations')->get();
+    
+        return view('frontend/myaccount', compact('user', 'payslist', 'whoIams'));
     }
 
     public function addimagespotstore(Request $request)

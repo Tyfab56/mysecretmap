@@ -11,6 +11,11 @@ $(document).ready(function() {
         $(hash).collapse('show');
     }
 });
+
+    function submitForm() {
+        document.getElementById('whoiamForm').submit();
+    }
+
 </script>
 @endsection
 
@@ -18,6 +23,24 @@ $(document).ready(function() {
 @auth
 <section id="main-container" class="main-container">
     <div class="container">
+        <div class="row">
+        <form id="whoiamForm" action="{{ route('profil.update') }}" method="POST">
+    @csrf
+    @method('PUT')
+
+    <h2>Votre profil</h2>
+
+    @foreach($whoIams as $whoIam)
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="whoiam_id" id="whoiam_{{ $whoIam->id }}" value="{{ $whoIam->id }}"
+            {{ $user->whoiam_id == $whoIam->id ? 'checked' : '' }} onchange="submitForm()">
+            <label class="form-check-label" for="whoiam_{{ $whoIam->id }}" title="{{ $whoIam->translate('fr')->description }}">
+                {{ $whoIam->translate('fr')->name }}
+            </label>
+        </div>
+    @endforeach
+</form>
+        </div>
   
       <div class="row">
         <div class="col-lg-6">
