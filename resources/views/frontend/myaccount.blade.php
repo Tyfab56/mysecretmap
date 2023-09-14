@@ -129,7 +129,7 @@
               <!-- 500px -->
               <div class="input-w">
                   <label for="500px"><p><b>{{ __('compte.500px') }} :</b></p> </label>
-                  <input class="w400p" type="text" name="500px" id="500px" value="{{$user->five_hundred_px}}" />
+                  <input class="w400p" type="text" name="five_hundred_p" id="five_hundred_px" value="{{$user->five_hundred_px}}" />
               </div>
 
               <!-- TikTok -->
