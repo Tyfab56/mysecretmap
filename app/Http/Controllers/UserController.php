@@ -52,6 +52,24 @@ class UserController extends Controller
     
 }
 
+
+public function updateWhoIAm(Request $request)
+{
+    $user = Auth::user();
+
+    // Valider la demande
+    $request->validate([
+        'whoiam_id' => 'required|exists:whoiams,id',
+    ]);
+
+    // Mettre à jour le champ "whoiam" de l'utilisateur
+    $user->whoiam_id = $request->input('whoiam_id');
+    $user->save();
+
+    return redirect()->route('myaccount')->with('success', 'Votre profil a été mis à jour avec succès.');
+}
+
+
     public function show($id)
     {
         // Récupération de l'utilisateur à partir de son ID
