@@ -4,6 +4,14 @@
 @endsection
 @section('fullscripts')
 <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
+<script>
+$(document).ready(function() {
+    var hash = window.location.hash;
+    if(hash) {
+        $(hash).collapse('show');
+    }
+});
+</script>
 @endsection
 
 @section('content')
@@ -75,12 +83,7 @@
 
 <script>
 
-$(document).ready(function() {
-    var hash = window.location.hash;
-    if(hash) {
-        $(hash).collapse('show');
-    }
-});
+
     function toggleEdit(id) {
         let input = document.getElementById(id);
         if (input.readOnly) {
