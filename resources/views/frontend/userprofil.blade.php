@@ -1,4 +1,4 @@
-@extends('layouts.app')  {{-- Assume you have a main layout --}}
+@extends('frontend.main_master')
 
 @section('content')
 <div class="user-banner" style="background-image: url('{{ $user->banner_path }}');">
