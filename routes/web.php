@@ -78,12 +78,13 @@ Route::get('/email/verify/{id}/{hash}', [VerifyEmailController::class, '__invoke
     ->middleware(['signed', 'throttle:6,1'])
     ->name('verification.verify');
 
-Route::middleware('auth')->group(function () {
+Route::middleware('auth','verified')->group(function () {
     Route::get('/profile/me', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile/me', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile/me', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::put('/user/{user}', [UserController::class, 'update'])->name('user.update');
- 
+    Route::put('/user/social/{user}', [UserController::class, 'updateSocial'])->name('user.updateSocial');
+
 
    
 });

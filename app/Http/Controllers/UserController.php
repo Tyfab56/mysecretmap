@@ -29,4 +29,22 @@ class UserController extends Controller
         // Redirect back with a success message
         return redirect()->back()->with('success', 'Profile updated successfully!');
     }
+
+    public function updateSocial(Request $request, User $user)
+{
+    // Validate the incoming request data
+    $data = $request->validate([
+        'internet' => 'nullable|url',
+        'facebook' => 'nullable|url',
+        'instagram' => 'nullable|url',
+    ]);
+
+    // Update the user's social profiles
+    $user->update($data);
+
+    // Redirect back with a success message
+    return redirect()->back()->with('success', 'Social profiles updated successfully!');
+}
+
+
 }

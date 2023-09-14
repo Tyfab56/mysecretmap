@@ -92,24 +92,30 @@
                 </h2>
               </div>
               <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#construction-accordion">
-                <div class="card-body">
-                  
-                  <div class="input-w">
-                    <label for="internet"><p><b>{{ __('compte.Web') }} :</b></p> </label>
-                    <input class="w400p" type="text" name="internet" id="internet" value="{{$user->internet}}"/>
-                </div>
-                <div class="input-w">
-                    <label for="pseudo"><p><b>{{ __('compte.Facebook') }} :</b></p> </label>
-                    <input class="w400p" type="text" name="facebook" id="facebook" value="{{$user->facebook}}"/>
-                </div>
-                <div class="input-w">
-                    <label for="instagram"><p><b>{{ __('compte.Instagram') }} :</b></p> </label>
-                    <input class="w400p" type="text" name="instagram" id="instagram" value="{{$user->instagram}}"/>
-                </div>
+    <div class="card-body">
+        <form action="{{ route('user.updateSocial', $user->id) }}" method="POST">
+            @csrf
+            @method('PUT')
+            
+            <div class="input-w">
+                <label for="internet"><p><b>{{ __('compte.Web') }} :</b></p> </label>
+                <input class="w400p" type="text" name="internet" id="internet" value="{{$user->internet}}" />
+            </div>
+            <div class="input-w">
+                <label for="facebook"><p><b>{{ __('compte.Facebook') }} :</b></p> </label>
+                <input class="w400p" type="text" name="facebook" id="facebook" value="{{$user->facebook}}" />
+            </div>
+            <div class="input-w">
+                <label for="instagram"><p><b>{{ __('compte.Instagram') }} :</b></p> </label>
+                <input class="w400p" type="text" name="instagram" id="instagram" value="{{$user->instagram}}" />
+            </div>
 
-                  
-                </div>
-              </div>
+            <!-- Save Button -->
+            <button type="submit">Save Changes</button>
+        </form>
+    </div>
+</div>
+
             </div>
             <div class="card">
               <div class="card-header p-0 bg-transparent" id="headingThree">

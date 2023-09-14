@@ -29,6 +29,9 @@ class User extends Authenticatable implements MustVerifyEmail
         'profile_photo_path',
         'avatar',
         'pseudo',
+        'internet',
+        'facebook',
+        'instagram',
         
     ];
 
