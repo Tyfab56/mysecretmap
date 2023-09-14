@@ -10,12 +10,19 @@ use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
 
-class User extends Authenticatable implements MustVerifyEmail
+use Astrotomic\Translatable\Contracts\Translatable as TranslatableContract;
+use Astrotomic\Translatable\Translatable;
+
+class User extends Authenticatable implements MustVerifyEmail, TranslatableContract
+
 {
     use HasApiTokens;
     use HasFactory;
     use Notifiable;
+    use Translatable;
 
+    public $translatedAttributes = ['titre', 'description'];
+    
     /**
      * The attributes that are mass assignable.
      *
