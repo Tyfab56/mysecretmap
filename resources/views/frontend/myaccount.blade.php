@@ -122,38 +122,38 @@ $(document).ready(function() {
                 <input class="w400p" type="text" name="internet" id="internet" value="{{$user->internet}}" />
             </div>
             <div class="input-w">
-                <label for="facebook"><p><b>{{ __('compte.Facebook') }} :</b><i class="fab fa-facebook-square"></i>
+                <label for="facebook" class="social-label"><p><b>{{ __('compte.Facebook') }} :</b><i class="fab fa-facebook-square"></i>
 </p> </label>
                 <input class="w400p" type="text" name="facebook" id="facebook" value="{{$user->facebook}}" />
             </div>
             <div class="input-w">
-                <label for="instagram"> <p><b>{{ __('compte.Instagram') }} :</b><i class="fab fa-instagram"></i></p> </label>
+                <label for="instagram" class="social-label"> <p><b>{{ __('compte.Instagram') }} :</b><i class="fab fa-instagram"></i></p> </label>
                 <input class="w400p" type="text" name="instagram" id="instagram" value="{{$user->instagram}}" />
             </div>
 
             <!-- Twitter -->
               <div class="input-w">
-                  <label for="twitter"><p><b>{{ __('compte.Twitter') }} :</b><i class="fab fa-twitter"></i></p> </label>
+                  <label for="twitter" class="social-label"><p><b>{{ __('compte.Twitter') }} :</b><i class="fab fa-twitter"></i></p> </label>
                   <input class="w400p" type="text" name="twitter" id="twitter" value="{{$user->twitter}}" />
               </div>
 
               <!-- 500px -->
               <div class="input-w">
-                  <label for="five_hundred_px"><p><b>{{ __('compte.500px') }} :</b><i class="fab fa-500px"></i>
+                  <label for="five_hundred_px" class="social-label"><p><b>{{ __('compte.500px') }} :</b><i class="fab fa-500px"></i>
 </p> </label>
                   <input class="w400p" type="text" name="five_hundred_px" id="five_hundred_px" value="{{$user->five_hundred_px}}" />
               </div>
 
               <!-- TikTok -->
               <div class="input-w">
-                  <label for="tiktok"><p><b>{{ __('compte.TikTok') }} :</b><i class="fab fa-tiktok"></i>
+                  <label for="tiktok" class="social-label"><p><b>{{ __('compte.TikTok') }} :</b><i class="fab fa-tiktok"></i>
 </p> </label>
                   <input class="w400p" type="text" name="tiktok" id="tiktok" value="{{$user->tiktok}}" />
               </div>
 
               <!-- Mastodon -->
               <div class="input-w">
-                  <label for="mastodon"><p><b>{{ __('compte.Mastodon') }} :</b><i class="fab fa-mastodon"></i>
+                  <label for="mastodon" class="social-label"><p><b>{{ __('compte.Mastodon') }} :</b><i class="fab fa-mastodon"></i>
 </p> </label>
                   <input class="w400p" type="text" name="mastodon" id="mastodon" value="{{$user->mastodon}}" />
               </div>
@@ -242,6 +242,14 @@ $(document).ready(function() {
 .fab.fa-mastodon {
     color: #3088d4; /* Couleur bleu foncé de Mastodon */
     font-size : 32px;
+}
+.social-label {
+    display: flex;
+    align-items: center;
+}
+
+.social-label p {
+    margin: 0; /* Supprimer la marge pour éviter les espacements inattendus */
 }
 
 </style>
