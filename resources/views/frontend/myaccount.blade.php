@@ -146,9 +146,11 @@ $(document).ready(function() {
 
               <!-- TikTok -->
               <div class="input-w">
-                  <label for="tiktok" class="social-label"><p><b>{{ __('compte.TikTok') }} :</b><i class="fab fa-tiktok"></i>
-</p> </label>
+                <label for="tiktok" class="social-label">
+                  <p><b>{{ __('compte.TikTok') }} :</b></p>
+                  <i class="fab fa-tiktok"></i>
                   <input class="w400p" type="text" name="tiktok" id="tiktok" value="{{$user->tiktok}}" />
+               </label>
               </div>
 
               <!-- Mastodon -->
@@ -246,6 +248,7 @@ $(document).ready(function() {
 .social-label {
     display: flex;
     align-items: center;
+    flex-wrap: nowrap; /* S'assurer que les éléments ne se mettent pas à la ligne */
 }
 
 .social-label p {
