@@ -240,6 +240,7 @@ $(document).ready(function() {
     font-size : 32px;
     margin-left: 10px;
     margin-right: 10px;
+}
 .fab.fa-twitter {
     color: #1DA1F2; /* Couleur officielle de Twitter */
     font-size : 32px;
