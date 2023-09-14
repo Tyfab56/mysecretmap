@@ -47,7 +47,7 @@ class UserController extends Controller
     $user->update($data);
 
     // Redirect back with a success message
-    return redirect()->back()->with('successSocial', 'Social profiles updated successfully!');
+    return redirect()->back(). '#collapseTwo' .with('successSocial', 'Social profiles updated successfully!');
 }
 
 

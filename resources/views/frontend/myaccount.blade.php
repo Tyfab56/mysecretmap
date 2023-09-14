@@ -74,6 +74,13 @@
 </div>
 
 <script>
+
+$(document).ready(function() {
+    var hash = window.location.hash;
+    if(hash) {
+        $(hash).collapse('show');
+    }
+});
     function toggleEdit(id) {
         let input = document.getElementById(id);
         if (input.readOnly) {
