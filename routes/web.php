@@ -15,6 +15,7 @@ use App\Http\Controllers\Frontend\DestinationController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StoreController;
 use App\Http\Controllers\TestController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -67,6 +68,7 @@ Route::get('/refreshtour/{idspays}/{idcircuit}', [DestinationController::class, 
 Route::get('/circuit/{idcircuit}', [DestinationController::class, 'circuit'])->name('circuit');
 Route::get('/search', [IndexController::class, 'search'])->name('search');
 
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -80,6 +82,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile/me', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile/me', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile/me', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::put('/user/{user}', [UserController::class, 'update'])->name('user.update');
+ 
+
    
 });
 

@@ -26,38 +26,61 @@
                 </h2>
               </div>
   
-              <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
-                data-parent="#construction-accordion">
-                <div class="card-body">
-                    <div class="avatar-150">
-                       @if($user->profile_photo_path)
-                        <img id="avatar-preview" class="mw-150" src="{{ $user->profile_photo_path}}" alt="Avatar" />
-                       @else
-                       <img id="avatar-preview " class="mw-150" src="{{asset('frontend/assets/images/avatar.jpg')}}" alt="Avatar" />
-                      @endif
-                    </div>
-                    <a href="{{route('changeavatar')}}"><button class="btn btn-primary mb-1" style="background-color: #ffb600; color: white; border-radius: 5px;">{{ __('compte.ChangeAvatar') }}</button></a>
-                    
+              <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#construction-accordion">
+    <div class="card-body">
+        <div class="avatar-150">
+            @if($user->profile_photo_path)
+            <img id="avatar-preview" class="mw-150" src="{{ $user->profile_photo_path }}" alt="Avatar" />
+            @else
+            <img id="avatar-preview" class="mw-150" src="{{asset('frontend/assets/images/avatar.jpg')}}" alt="Avatar" />
+            @endif
+        </div>
+        <a href="{{route('changeavatar')}}">
+            <button class="btn btn-primary mb-1" style="background-color: #ffb600; color: white; border-radius: 5px;">{{ __('compte.ChangeAvatar') }}</button>
+        </a>
 
+        <!-- Start of form -->
+        <form action="{{ route('user.update', $user->id) }}" method="POST">
+            @csrf
+            @method('PUT')
 
-                  <div class="input-w">
-                    <label for="name"><p><b>{{ __('compte.Name') }} :</b></p> </label>
-                    <input type="text" name= "name" id="name" value="{{$user->name}}" style="width:70%"/>
-                </div>
-                <div class="input-w">
-                    <label for="name"><p><b>{{ __('compte.Prenom') }} :</b></p> </label>
-                    <input type="text" name= "name" id="name" value="{{$user->prenom}}" style="width:70%"/>
-                </div>
-                <div class="input-w">
-                    <label for="pseudo"><p><b>{{ __('compte.Pseudo') }} :</b></p> </label>
-                    <input type="text" name="pseudo" id="pseudo" value="{{$user->pseudo}}"/>
-                </div>
-                  <p><b>{{ __('compte.Email') }} : </b> {{$user->email}}</p>
-               
+            <div class="input-w">
+                <label for="name"><p><b>{{ __('compte.Name') }} :</b></p> </label>
+                <input type="text" name="name" id="name" value="{{$user->name}}" readonly style="width:70%" />
+                <button type="button" onclick="toggleEdit('name')">Edit</button>
+            </div>
+            <div class="input-w">
+                <label for="prenom"><p><b>{{ __('compte.Prenom') }} :</b></p> </label>
+                <input type="text" name="prenom" id="prenom" value="{{$user->prenom}}" readonly style="width:70%" />
+                <button type="button" onclick="toggleEdit('prenom')">Edit</button>
+            </div>
+            <div class="input-w">
+                <label for="pseudo"><p><b>{{ __('compte.Pseudo') }} :</b></p> </label>
+                <input type="text" name="pseudo" id="pseudo" value="{{$user->pseudo}}" readonly />
+                <button type="button" onclick="toggleEdit('pseudo')">Edit</button>
+            </div>
 
+            <p><b>{{ __('compte.Email') }} : </b> {{$user->email}}</p>
 
-                </div>
-              </div>
+            <!-- Save Button -->
+            <button type="submit" style="display: none;" id="saveChangesBtn">Save Changes</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    function toggleEdit(id) {
+        let input = document.getElementById(id);
+        if (input.readOnly) {
+            input.readOnly = false;
+            input.focus();
+            document.getElementById('saveChangesBtn').style.display = 'block';
+        } else {
+            input.readOnly = true;
+        }
+    }
+</script>
+
             </div>
             <div class="card">
               <div class="card-header p-0 bg-transparent" id="headingTwo">
