@@ -13,7 +13,7 @@ use App\Models\Default_spots;
 use App\Models\Noscircuits;
 use App\Models\TimelineCat;
 use App\Models\Timelines;
-use App\Models\WhoIAm;
+use App\Models\Whoiam;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -233,7 +233,7 @@ class IndexController extends Controller
         $payslist = Pays::where('actif', '=', 1)->orderBy('pays', 'asc')->get();
     
         // Récupération des profils et de leurs traductions
-        $whoIams = WhoIAm::with('translations')->get();
+        $whoIams = Whoiam::with('translations')->get();
     
         return view('frontend/myaccount', compact('user', 'payslist', 'whoIams'));
     }

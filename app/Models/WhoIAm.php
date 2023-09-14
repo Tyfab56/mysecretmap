@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Astrotomic\Translatable\Translatable;
 
-class WhoIAm extends Model
+class Whoiam extends Model
 {
     use Translatable;
 
