@@ -113,72 +113,74 @@ $(document).ready(function() {
                   {{ session('successSocial') }}
               </div>
           @endif
-        <form action="{{ route('user.updateSocial', $user->id) }}" method="POST">
-            @csrf
-            @method('PUT')
-            
-            <div class="input-w">
-                <label for="internet" class="social-label">
-                  <p><b>{{ __('compte.Web') }} :</b></p>
-                  <i class="fas fa-globe"></i>
-                <input class="w400p" type="text" name="internet" id="internet" value="{{$user->internet}}" />
-                </label>
-            </div>
-            <div class="input-w">
-                <label for="facebook" class="social-label">
-                  <p><b>{{ __('compte.Facebook') }} :</b></p> 
-                  <i class="fab fa-facebook-square"></i>
-                 <input class="w400p" type="text" name="facebook" id="facebook" value="{{$user->facebook}}" />
-                </label>
-            </div>
-            <div class="input-w">
-                <label for="instagram" class="social-label">
-                   <p><b>{{ __('compte.Instagram') }} :</b></p>
-                   <i class="fab fa-instagram"></i> 
-                 <input class="w400p" type="text" name="instagram" id="instagram" value="{{$user->instagram}}" />
-                </label>
-            </div>
+          <form action="{{ route('user.updateSocial', $user->id) }}" method="POST">
+    @csrf
+    @method('PUT')
+    
+    <div class="input-w">
+        <label for="internet" class="social-label">
+            <div class="label-text"><b>{{ __('compte.Web') }} :</b></div>
+            <div class="label-icon"><i class="fas fa-globe"></i></div>
+            <div class="label-input"><input type="text" name="internet" id="internet" value="{{$user->internet}}" /></div>
+        </label>
+    </div>
+    
+    <div class="input-w">
+        <label for="facebook" class="social-label">
+            <div class="label-text"><b>{{ __('compte.Facebook') }} :</b></div> 
+            <div class="label-icon"><i class="fab fa-facebook-square"></i></div>
+            <div class="label-input"><input type="text" name="facebook" id="facebook" value="{{$user->facebook}}" /></div>
+        </label>
+    </div>
+    
+    <div class="input-w">
+        <label for="instagram" class="social-label">
+            <div class="label-text"><b>{{ __('compte.Instagram') }} :</b></div>
+            <div class="label-icon"><i class="fab fa-instagram"></i></div> 
+            <div class="label-input"><input type="text" name="instagram" id="instagram" value="{{$user->instagram}}" /></div>
+        </label>
+    </div>
 
-            <!-- Twitter -->
-              <div class="input-w">
-                  <label for="twitter" class="social-label">
-                    <p><b>{{ __('compte.Twitter') }} :</b></p> 
-                    <i class="fab fa-twitter"></i>
-                   <input class="w400p" type="text" name="twitter" id="twitter" value="{{$user->twitter}}" />
-                  </label>
-              </div>
+    <!-- Twitter -->
+    <div class="input-w">
+        <label for="twitter" class="social-label">
+            <div class="label-text"><b>{{ __('compte.Twitter') }} :</b></div>
+            <div class="label-icon"><i class="fab fa-twitter"></i></div>
+            <div class="label-input"><input type="text" name="twitter" id="twitter" value="{{$user->twitter}}" /></div>
+        </label>
+    </div>
 
-              <!-- 500px -->
-              <div class="input-w">
-                  <label for="five_hundred_px" class="social-label">
-                    <p><b>{{ __('compte.500px') }} :</b></p>
-                    <i class="fab fa-500px"></i>
-                    <input class="w400p" type="text" name="five_hundred_px" id="five_hundred_px" value="{{$user->five_hundred_px}}" />
-                  </label>
-              </div>
+    <!-- 500px -->
+    <div class="input-w">
+        <label for="five_hundred_px" class="social-label">
+            <div class="label-text"><b>{{ __('compte.500px') }} :</b></div>
+            <div class="label-icon"><i class="fab fa-500px"></i></div>
+            <div class="label-input"><input type="text" name="five_hundred_px" id="five_hundred_px" value="{{$user->five_hundred_px}}" /></div>
+        </label>
+    </div>
 
-              <!-- TikTok -->
-              <div class="input-w">
-                <label for="tiktok" class="social-label">
-                  <p><b>{{ __('compte.TikTok') }} :</b></p>
-                  <i class="fab fa-tiktok"></i>
-                  <input class="w400p" type="text" name="tiktok" id="tiktok" value="{{$user->tiktok}}" />
-               </label>
-              </div>
+    <!-- TikTok -->
+    <div class="input-w">
+        <label for="tiktok" class="social-label">
+            <div class="label-text"><b>{{ __('compte.TikTok') }} :</b></div>
+            <div class="label-icon"><i class="fab fa-tiktok"></i></div>
+            <div class="label-input"><input type="text" name="tiktok" id="tiktok" value="{{$user->tiktok}}" /></div>
+        </label>
+    </div>
 
-              <!-- Mastodon -->
-              <div class="input-w">
-                  <label for="mastodon" class="social-label">
-                    <p><b>{{ __('compte.Mastodon') }} :</b>
-                    <i class="fab fa-mastodon"></i></p> 
-                    <input class="w400p" type="text" name="mastodon" id="mastodon" value="{{$user->mastodon}}" />
-                  </label>
-              </div>
+    <!-- Mastodon -->
+    <div class="input-w">
+        <label for="mastodon" class="social-label">
+            <div class="label-text"><b>{{ __('compte.Mastodon') }} :</b></div>
+            <div class="label-icon"><i class="fab fa-mastodon"></i></div>
+            <div class="label-input"><input type="text" name="mastodon" id="mastodon" value="{{$user->mastodon}}" /></div>
+        </label>
+    </div>
 
+    <!-- Save Button -->
+    <button type="submit">Save Changes</button>
+</form>
 
-            <!-- Save Button -->
-            <button type="submit">Save Changes</button>
-        </form>
     </div>
 </div>
 
@@ -280,23 +282,24 @@ $(document).ready(function() {
     margin-right: 10px;
 }
 .social-label {
-    display: flex;
+    display: grid;
+    grid-template-columns: 100px 32px 1fr; /* texte, icône, input */
     align-items: center; /* Centre vertical */
     gap: 10px; /* Espacement entre les éléments */
 }
 
-.social-label p {
-    margin: 0;
-    flex-shrink: 0; /* Empêcher le texte de se réduire */
+.label-text, .label-icon, .label-input {
+    display: flex;
+    align-items: center; 
 }
 
-.social-label i {
-    font-size: 24px; /* Ajustez la taille selon vos besoins */
-    flex-shrink: 0; /* Empêcher l'icône de se réduire */
+.label-text {
+    justify-content: flex-end; /* Aligner le texte à droite */
+    padding-right: 10px; /* Pour un peu d'espace avant l'icône */
 }
 
-.w400p {
-    flex-grow: 1; /* Autoriser l'input à prendre l'espace restant */
+.label-input input {
+    width: 100%; /* Faire en sorte que l'input occupe toute la largeur de son conteneur */
 }
 
 
