@@ -281,13 +281,24 @@ $(document).ready(function() {
 }
 .social-label {
     display: flex;
-    align-items: center;
-    flex-wrap: nowrap; /* S'assurer que les éléments ne se mettent pas à la ligne */
+    align-items: center; /* Centre vertical */
+    gap: 10px; /* Espacement entre les éléments */
 }
 
 .social-label p {
-    margin: 0; /* Supprimer la marge pour éviter les espacements inattendus */
+    margin: 0;
+    flex-shrink: 0; /* Empêcher le texte de se réduire */
 }
+
+.social-label i {
+    font-size: 24px; /* Ajustez la taille selon vos besoins */
+    flex-shrink: 0; /* Empêcher l'icône de se réduire */
+}
+
+.w400p {
+    flex-grow: 1; /* Autoriser l'input à prendre l'espace restant */
+}
+
 
 </style>
 
