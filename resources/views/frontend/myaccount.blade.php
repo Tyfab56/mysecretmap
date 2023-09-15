@@ -92,50 +92,55 @@ $(function () {
               </div>
   
      <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#construction-accordion">
-           <div class="card-body">
-           <div class="">
+     <div class="card-body">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="">
                 @if($user->profile_photo_path)
-                <img id="avatar-preview" class="mw-150 avatar-r100" src="{{ $user->profile_photo_path }}" alt="Avatar" />
+                    <img id="avatar-preview" class="mw-150 avatar-r100" src="{{ $user->profile_photo_path }}" alt="Avatar" />
                 @else
-                <img id="avatar-preview" class="mw-150 avatar-r100" src="{{asset('frontend/assets/images/avatar.jpg')}}" alt="Avatar" />
+                    <img id="avatar-preview" class="mw-150 avatar-r100" src="{{asset('frontend/assets/images/avatar.jpg')}}" alt="Avatar" />
                 @endif
-          </div>
-        <a href="{{route('changeavatar')}}">
-            <button class="btn btn-primary mb-1" style="background-color: #ffb600; color: white; border-radius: 5px;font-size: 12px;">{{ __('compte.ChangeAvatar') }}</button>
-        </a>
-
-        <!-- Start of form -->
-          @if(session('successUser'))
-              <div class="alert alert-success">
-                  {{ session('successUser') }}
-              </div>
-          @endif
-        <form action="{{ route('user.update', $user->id) }}" method="POST">
-            @csrf
-            @method('PUT')
-
-            <div class="input-w">
-                <label for="name"><p><b>{{ __('compte.Name') }} :</b></p> </label>
-                <input type="text" name="name" id="name" value="{{$user->name}}" readonly style="width:70%" />
-                <button type="button" onclick="toggleEdit('name')">Edit</button>
             </div>
-            <div class="input-w">
-                <label for="prenom"><p><b>{{ __('compte.Prenom') }} :</b></p> </label>
-                <input type="text" name="prenom" id="prenom" value="{{$user->prenom}}" readonly style="width:70%" />
-                <button type="button" onclick="toggleEdit('prenom')">Edit</button>
-            </div>
-            <div class="input-w">
-                <label for="pseudo"><p><b>{{ __('compte.Pseudo') }} :</b></p> </label>
-                <input type="text" name="pseudo" id="pseudo" value="{{$user->pseudo}}" readonly />
-                <button type="button" onclick="toggleEdit('pseudo')">Edit</button>
-            </div>
+            <a href="{{route('changeavatar')}}">
+                <button class="btn btn-primary mb-1" style="background-color: #ffb600; color: white; border-radius: 5px; font-size: 12px;">{{ __('compte.ChangeAvatar') }}</button>
+            </a>
+        </div>
+        <div class="col-md-9">
+            @if(session('successUser'))
+                <div class="alert alert-success">
+                    {{ session('successUser') }}
+                </div>
+            @endif
+            <form action="{{ route('user.update', $user->id) }}" method="POST">
+                @csrf
+                @method('PUT')
 
-            <p><b>{{ __('compte.Email') }} : </b> {{$user->email}}</p>
+                <div class="input-w">
+                    <label for="name"><p><b>{{ __('compte.Name') }} :</b></p> </label>
+                    <input type="text" name="name" id="name" value="{{$user->name}}" readonly style="width:70%" />
+                    <button type="button" onclick="toggleEdit('name')">Edit</button>
+                </div>
+                <div class="input-w">
+                    <label for="prenom"><p><b>{{ __('compte.Prenom') }} :</b></p> </label>
+                    <input type="text" name="prenom" id="prenom" value="{{$user->prenom}}" readonly style="width:70%" />
+                    <button type="button" onclick="toggleEdit('prenom')">Edit</button>
+                </div>
+                <div class="input-w">
+                    <label for="pseudo"><p><b>{{ __('compte.Pseudo') }} :</b></p> </label>
+                    <input type="text" name="pseudo" id="pseudo" value="{{$user->pseudo}}" readonly />
+                    <button type="button" onclick="toggleEdit('pseudo')">Edit</button>
+                </div>
 
-            <!-- Save Button -->
-            <button type="submit" style="display: none;" id="saveChangesBtn">Save Changes</button>
-        </form>
+                <p><b>{{ __('compte.Email') }} : </b> {{$user->email}}</p>
+
+                <!-- Save Button -->
+                <button type="submit" style="display: none;" id="saveChangesBtn">Save Changes</button>
+            </form>
+        </div>
     </div>
+</div>
+
 </div>
 
 <script>
