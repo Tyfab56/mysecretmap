@@ -204,16 +204,16 @@ $(function () {
 @endif
 @if ($user->whoiam_id !== 1)
 <div class="card">
-              <div class="card-header p-0 bg-transparent" id="headingTwo">
+              <div class="card-header p-0 bg-transparent" id="headingThree">
                 <h2 class="mb-0">
                   <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse"
-                    data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                     {{ __('compte.MesReseaux') }}
                   </button>
                 </h2>
               </div>
             
-<div id="collapseThree" class="collapse" aria-labelledby="headingTwo" data-parent="#construction-accordion">
+<div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#construction-accordion">
     <div class="card-body">
           @if(session('successSocial'))
               <div class="alert alert-success">
@@ -329,15 +329,15 @@ $(function () {
 </div>
 @endif
             <div class="card">
-              <div class="card-header p-0 bg-transparent" id="headingThree">
+              <div class="card-header p-0 bg-transparent" id="headingFour">
                 <h2 class="mb-0">
                   <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse"
-                    data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
                     {{ __('compte.MesCircuits') }}
                   </button>
                 </h2>
               </div>
-              <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
+              <div id="collapseFour" class="collapse" aria-labelledby="headingFour"
                 data-parent="#construction-accordion">
                 <div class="card-body">
                   Vous pouvez gerez vos circuits ici en choisissant vos destinations. Les membres abonnés au club Patreon disposent de 5 circuits par destination.
