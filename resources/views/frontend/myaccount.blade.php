@@ -371,6 +371,7 @@ button[type="submit"] {
     cursor: pointer;
     float: right;
     margin-top: 10px;
+    margin-bottom: 10px;
     transition: background-color 0.3s;
 }
 
