@@ -88,6 +88,7 @@ Route::middleware('auth','verified')->group(function () {
     Route::put('/profil/update', [UserController::class, 'updateWhoIAm'])->name('whoiam.update');
     Route::post('/update-photographer-info', [UserController::class, 'updatePhotographerInfo'])
     ->name('update.photographer.info');
+    Route::get('/get-photographer-info', [UserController::class, 'getPhotographerInfo'])->name('get.photographer.info');
    
 });
 

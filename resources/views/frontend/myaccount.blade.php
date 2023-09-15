@@ -54,6 +54,28 @@ $('#save-info-button').click(function() {
             }
         });
     });
+
+    $(document).ready(function () {
+        $('#language').change(function () {
+            // Récupérez la langue sélectionnée
+            var selectedLanguage = $(this).val();
+
+            // Effectuez une requête AJAX pour récupérer les informations correspondantes
+            $.ajax({
+                url: '/get-photographer-info',
+                type: 'GET',
+                data: { language: selectedLanguage },
+                success: function (data) {
+                    // Mettez à jour les champs du formulaire avec les informations récupérées
+                    $('#photographer_title').val(data.photographer_title);
+                    $('#photographer_description').val(data.photographer_description);
+                },
+                error: function () {
+                    // Gérez les erreurs si nécessaire
+                }
+            });
+        });
+    });
 </script>
 
 @endsection
