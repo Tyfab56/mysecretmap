@@ -38,6 +38,22 @@ $(function () {
         }
     });
 });
+
+$('#save-info-button').click(function() {
+        $.ajax({
+            type: 'POST',
+            url: $('#update-info-photo').attr('action'),
+            data: $('#update-info-photo').serialize(),
+            success: function(response) {
+                // Gérez la réponse de la requête ici (par exemple, affichez un message de succès)
+                alert('Data updated successfully!');
+            },
+            error: function(error) {
+                // Gérez les erreurs de la requête ici
+                console.error(error);
+            }
+        });
+    });
 </script>
 
 @endsection
@@ -191,17 +207,14 @@ $(function () {
             
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#construction-accordion">
                     <div class="card-body">
-                        @if(session('successInfo'))
-                            <div class="alert alert-success">
-                                {{ session('successSocial') }}
-                            </div>
-                        @endif
-                        <form action="{{ route('update.photographer.info') }}" method="POST">
+                       
+                        <form id="update-info-photo" action="{{ route('update.photographer.info') }}" method="POST">
                              @csrf
 
                             <div class="form-group">
                                 <label for="language">Language:</label>
                                 <select name="language" id="language" class="form-control">
+                                  <option value="">Choix de la langue</option>
                                     <option value="en">English</option>
                                     <option value="fr">Français</option>
                                     <!-- Ajoutez d'autres langues au besoin -->
@@ -218,7 +231,7 @@ $(function () {
                                 <textarea name="photographer_description" id="photographer_description" class="form-control"></textarea>
                             </div>
 
-                            <button type="submit" class="btn btn-primary">Save</button>
+                            <button type="submit" id="save-info-button" class="btn btn-primary">Save</button>
                         </form>
 
 

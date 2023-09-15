@@ -124,7 +124,10 @@ public function updatePhotographerInfo(Request $request)
 
 
     $userTranslation->save();
-
+    
+    if ($request->ajax()) {
+        return response()->json(['message' => 'Mise à jour réussie']);
+    }
   
     return back()->with('success', 'Vos informations de photographe ont été mises à jour avec succès.');
 }
