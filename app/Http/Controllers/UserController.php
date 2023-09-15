@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User; 
 use Illuminate\Support\Facades\Auth;
-use App\Http\Controllers\Validator;
+use Illuminate\Support\Facades\Validator;
+
 
 class UserController extends Controller
 {
