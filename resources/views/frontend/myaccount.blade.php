@@ -231,7 +231,7 @@ $('#save-info-button').click(function() {
                                 <textarea name="photographer_description" id="photographer_description" class="form-control"></textarea>
                             </div>
 
-                            <button type="submit" id="save-info-button" class="btn btn-primary">Save</button>
+                            <button type="button" id="save-info-button" class="btn btn-primary">Save</button>
                         </form>
 
 
