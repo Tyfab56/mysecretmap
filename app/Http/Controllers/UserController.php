@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User; 
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Validator;
 
 class UserController extends Controller
 {
@@ -35,15 +36,15 @@ class UserController extends Controller
 {
     
     // Validate the incoming request data
-    $data = $request->validate([
+    $validationRules = [
         'internet' => 'nullable|url',
         'facebook' => 'nullable|url',
         'instagram' => 'nullable|url',
-        'twitter' => 'nullable|url',               
-        'five_hundred_px' => 'nullable|url',      
-        'tiktok' => 'nullable|url',               
-        'mastodon' => 'nullable|url',      
-    ]);
+        'twitter' => 'nullable|url',
+        'five_hundred_px' => 'nullable|url',
+        'tiktok' => 'nullable|url',
+        'mastodon' => 'nullable|url',
+    ];
 
     $validator = Validator::make($request->all(), $validationRules);
 
