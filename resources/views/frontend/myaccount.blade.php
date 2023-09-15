@@ -154,8 +154,9 @@ $(function () {
     }
 </script>
 
-            </div>
-            <div class="card">
+</div>
+@if ($user->whoiam_id !== 1)
+<div class="card">
               <div class="card-header p-0 bg-transparent" id="headingTwo">
                 <h2 class="mb-0">
                   <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse"
@@ -164,7 +165,7 @@ $(function () {
                   </button>
                 </h2>
               </div>
-              @if ($user->whoiam !== 1)
+            
 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#construction-accordion">
     <div class="card-body">
           @if(session('successSocial'))
@@ -279,6 +280,7 @@ $(function () {
     </div>
 </div>
 @endif
+
             </div>
             <div class="card">
               <div class="card-header p-0 bg-transparent" id="headingThree">
