@@ -3,6 +3,7 @@
 return [
     "MonCompte" => "Mon compte",
     "MesInfos" => "Mes Informations",
+    "InfosPhotos"=> "Présentation photographe",
     "MesReseaux" => "Mes réseaux sociaux",
     "MesCircuits" => "Mes circuits",
     "Name"=>"Nom",

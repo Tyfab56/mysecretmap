@@ -115,6 +115,8 @@ $(function () {
             <form action="{{ route('user.update', $user->id) }}" method="POST">
         @csrf
         @method('PUT')
+        <!-- Email -->
+        <p><b>{{ __('compte.Email') }} : </b> {{$user->email}}</p>
 
         <!-- Name -->
         <div class="input-w">
@@ -149,8 +151,7 @@ $(function () {
         </div>
         @enderror
 
-        <!-- Email -->
-        <p><b>{{ __('compte.Email') }} : </b> {{$user->email}}</p>
+    
 
         <!-- Save Button -->
         <button type="submit" class="cool-btn">{{ __('compte.savechange') }}</button>
@@ -177,6 +178,30 @@ $(function () {
 </script>
 
 </div>
+@if ($user->whoiam_id == 2)
+<div class="card">
+              <div class="card-header p-0 bg-transparent" id="headingTwo">
+                <h2 class="mb-0">
+                  <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse"
+                    data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    {{ __('compte.InfosPhotos') }}
+                  </button>
+                </h2>
+              </div>
+            
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#construction-accordion">
+                    <div class="card-body">
+                        @if(session('successInfo'))
+                            <div class="alert alert-success">
+                                {{ session('successSocial') }}
+                            </div>
+                        @endif
+                    
+
+                    </div>
+                </div>
+</div>
+@endif
 @if ($user->whoiam_id !== 1)
 <div class="card">
               <div class="card-header p-0 bg-transparent" id="headingTwo">
@@ -188,7 +213,7 @@ $(function () {
                 </h2>
               </div>
             
-<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#construction-accordion">
+<div id="collapseThree" class="collapse" aria-labelledby="headingTwo" data-parent="#construction-accordion">
     <div class="card-body">
           @if(session('successSocial'))
               <div class="alert alert-success">
