@@ -41,19 +41,20 @@ $(document).ready(function() {
                 <h42 class="mb-4">Le profil permet de paramètrer l'affichage de certaines zones en fonction de votre intérêt</h2>
 
                 @foreach($whoiams as $whoiam)
-                    <div class="form-check mb-3">
-                        <input class="form-check-input" type="radio" name="whoiam_id" id="whoiam_{{ $whoiam->id }}" value="{{ $whoiam->id }}" {{ $user->whoiam_id == $whoiam->id ? 'checked' : '' }} onchange="this.form.submit()">
-                        <label class="form-check-label" for="whoiam_{{ $whoiam->id }}">
-                            {{ $whoiam->name }}
-                            <button class="hint-toggle ml-2" data-target="#hint_{{ $whoiam->id }}">
-                                <i class="fa fa-info-circle"></i>
-                            </button>
-                        </label>
-                        <div id="hint_{{ $whoiam->id }}" class="hint-content" style="display: none;">
-                            {{ $whoiam->description }}
-                        </div>
-                    </div>
-                @endforeach
+    <div class="form-check mb-3">
+        <input class="form-check-input" type="radio" name="whoiam_id" id="whoiam_{{ $whoiam->id }}" value="{{ $whoiam->id }}" {{ $user->whoiam_id == $whoiam->id ? 'checked' : '' }} onchange="this.form.submit()">
+        <label class="form-check-label" for="whoiam_{{ $whoiam->id }}">
+            {{ $whoiam->name }}
+            <button class="hint-toggle ml-2" data-target="#hint_{{ $whoiam->id }}">
+                ▼
+            </button>
+        </label>
+        <div id="hint_{{ $whoiam->id }}" class="hint-content" style="display: none;">
+            {{ $whoiam->description }}
+        </div>
+    </div>
+@endforeach
+
 
 
 
