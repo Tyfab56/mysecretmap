@@ -16,13 +16,28 @@ $(document).ready(function() {
         document.getElementById('whoiamForm').submit();
     }
 
-    $(document).ready(function() {
-    $('.hint-toggle').on('click', function(e) {
-        e.preventDefault();
-        const target = $($(this).data('target'));
-        target.toggleClass('open');
+   
+    $(function () {
+    $('.hint-toggle').click(function() {
+        var targetId = $(this).data('target');
+        var targetElement = $(targetId);
+        
+        if(targetElement.css('opacity') == '0') {
+            targetElement.css({
+                'opacity': '1',
+                'height': 'auto'
+            });
+            targetElement.parent().addClass('hint-visible'); // Pour tourner l'icône
+        } else {
+            targetElement.css({
+                'opacity': '0',
+                'height': '0'
+            });
+            targetElement.parent().removeClass('hint-visible'); // Pour remettre l'icône à sa position initiale
+        }
     });
 });
+
 
 
 </script>
@@ -345,26 +360,30 @@ $(document).ready(function() {
     width: 100%; /* Faire en sorte que l'input occupe toute la largeur de son conteneur */
 }
 
+.hint-content {
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+    transition: opacity 0.3s, height 0.3s;
+}
+
 .hint-toggle {
     background: none;
     border: none;
-    font-size: 12px;
     cursor: pointer;
+    padding: 0;
+    font-size: 14px;
+    color: #007bff; /* ou une autre couleur de votre choix */
+    transition: transform 0.3s;
 }
 
-.hint-content {
-    padding: 10px;
-    background-color: #f7f7f7;
-    border: 1px solid #e0e0e0;
-    border-radius: 4px;
-    margin-top: 5px;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease-in-out;
+.hint-visible .hint-toggle {
+    transform: rotate(180deg); /* Pour tourner l'icône quand le contenu est visible */
 }
 
-.hint-content.open {
-    max-height: 200px; /* Vous pouvez ajuster cette valeur en fonction de la taille du contenu. */
+.hint-visible .hint-content {
+    opacity: 1;
+    height: auto; /* Vous pouvez spécifier une hauteur fixe si vous le souhaitez */
 }
 
 
