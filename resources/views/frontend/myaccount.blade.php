@@ -113,30 +113,48 @@ $(function () {
                 </div>
             @endif
             <form action="{{ route('user.update', $user->id) }}" method="POST">
-                @csrf
-                @method('PUT')
+        @csrf
+        @method('PUT')
 
-                <div class="input-w">
-                    <label for="name"><p><b>{{ __('compte.Name') }} :</b></p> </label>
-                    <input type="text" name="name" id="name" value="{{$user->name}}" readonly style="width:70%" />
-                    <button type="button" onclick="toggleEdit('name')">Edit</button>
-                </div>
-                <div class="input-w">
-                    <label for="prenom"><p><b>{{ __('compte.Prenom') }} :</b></p> </label>
-                    <input type="text" name="prenom" id="prenom" value="{{$user->prenom}}" readonly style="width:70%" />
-                    <button type="button" onclick="toggleEdit('prenom')">Edit</button>
-                </div>
-                <div class="input-w">
-                    <label for="pseudo"><p><b>{{ __('compte.Pseudo') }} :</b></p> </label>
-                    <input type="text" name="pseudo" id="pseudo" value="{{$user->pseudo}}" readonly />
-                    <button type="button" onclick="toggleEdit('pseudo')">Edit</button>
-                </div>
+        <!-- Name -->
+        <div class="input-w">
+            <label for="name"><p><b>{{ __('compte.Name') }} :</b></p> </label>
+            <input type="text" name="name" id="name" value="{{$user->name}}" />
+        </div>
+        @error('name')
+        <div class="text-right text-danger">
+            {{ $message }}
+        </div>
+        @enderror
 
-                <p><b>{{ __('compte.Email') }} : </b> {{$user->email}}</p>
+        <!-- Prenom -->
+        <div class="input-w">
+            <label for="prenom"><p><b>{{ __('compte.Prenom') }} :</b></p> </label>
+            <input type="text" name="prenom" id="prenom" value="{{$user->prenom}}" />
+        </div>
+        @error('prenom')
+        <div class="text-right text-danger">
+            {{ $message }}
+        </div>
+        @enderror
 
-                <!-- Save Button -->
-                <button type="submit" style="display: none;" id="saveChangesBtn">Save Changes</button>
-            </form>
+        <!-- Pseudo -->
+        <div class="input-w">
+            <label for="pseudo"><p><b>{{ __('compte.Pseudo') }} :</b></p> </label>
+            <input type="text" name="pseudo" id="pseudo" value="{{$user->pseudo}}" />
+        </div>
+        @error('pseudo')
+        <div class="text-right text-danger">
+            {{ $message }}
+        </div>
+        @enderror
+
+        <!-- Email -->
+        <p><b>{{ __('compte.Email') }} : </b> {{$user->email}}</p>
+
+        <!-- Save Button -->
+        <button type="submit" class="cool-btn">{{ __('compte.savechange') }}</button>
+    </form>
         </div>
     </div>
 </div>
@@ -283,9 +301,8 @@ $(function () {
 
     </div>
 </div>
+</div>
 @endif
-
-            </div>
             <div class="card">
               <div class="card-header p-0 bg-transparent" id="headingThree">
                 <h2 class="mb-0">
