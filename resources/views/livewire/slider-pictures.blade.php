@@ -13,7 +13,7 @@
             
     </a>
     @endforeach
-  <div class="go_gridItem go_gridItem-centered" href="someURL"><p> centered content - typically some text </p> </div>
+  <div class="go_gridItem go_gridItem-centered" href="someURL"><p> </p> </div>
  
 </div>
 {{ $pictures->links() }}

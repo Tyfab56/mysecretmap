@@ -164,7 +164,8 @@ $(function () {
                   </button>
                 </h2>
               </div>
-              <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#construction-accordion">
+              @if ($user->whoiam !== 1)
+<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#construction-accordion">
     <div class="card-body">
           @if(session('successSocial'))
               <div class="alert alert-success">
@@ -277,7 +278,7 @@ $(function () {
 
     </div>
 </div>
-
+@endif
             </div>
             <div class="card">
               <div class="card-header p-0 bg-transparent" id="headingThree">
