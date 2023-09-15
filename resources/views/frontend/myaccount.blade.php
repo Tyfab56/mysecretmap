@@ -52,11 +52,11 @@ $(function () {
                         @csrf
                         @method('PUT')
 
-                        <h4 class="mb-4">Choix du profil</h4>
-                        <h42 class="mb-4">Le profil permet de paramètrer l'affichage de certaines zones en fonction de votre intérêt</h2>
+                        <h4>Choix du profil</h4>
+                        <h2 >Le profil permet de paramètrer l'affichage de certaines zones en fonction de votre intérêt</h2>
 
                         @foreach($whoiams as $whoiam)
-                                <div class="form-check mb-3">
+                                <div class="form-check ml-5">
                                     <input class="form-check-input" type="radio" name="whoiam_id" id="whoiam_{{ $whoiam->id }}" value="{{ $whoiam->id }}" {{ $user->whoiam_id == $whoiam->id ? 'checked' : '' }} onchange="this.form.submit()">
                                     <label class="form-check-label" for="whoiam_{{ $whoiam->id }}">
                                         {{ $whoiam->name }}
