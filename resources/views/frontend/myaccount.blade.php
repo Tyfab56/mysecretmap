@@ -224,6 +224,9 @@ $(function () {
                     <div class="label-icon"><i class="fab fa-tiktok"></i></div>
                     <div class="label-input"><input type="text" name="tiktok" id="tiktok" value="{{$user->tiktok}}" /></div>
                 </label>
+                @error('tiktok')
+                    <div class="text-danger">{{ $message }}</div>
+                 @enderror
             </div>
 
             <!-- Mastodon -->

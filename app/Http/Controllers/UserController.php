@@ -45,9 +45,20 @@ class UserController extends Controller
         'mastodon' => 'nullable|url',      
     ]);
 
+    $validator = Validator::make($request->all(), $validationRules);
+
+    // Vérifiez si la validation a échoué
+    if ($validator->fails()) {
+        // Vous pouvez personnaliser le message d'erreur ici
+        return redirect($url)->withErrors($validator)->withInput();
+    }
+
+    // Si la validation réussit, mettez à jour les profils sociaux
+    $data = $validator->validated();
+
     // Update the user's social profiles
     $user->update($data);
-    dd ($user);
+
     // Redirect back with a success message
     $url = url()->previous() . '#collapseTwo';
     return redirect($url)->with('successSocial', 'Social profiles updated successfully!');
