@@ -362,20 +362,22 @@ $(function () {
 }
 
 button[type="submit"] {
-    background-color: #007bff;  /* Couleur d'arrière-plan du bouton */
-    color: white;  /* Couleur du texte */
-    padding: 10px 20px;  /* Padding autour du texte */
-    border: none;  /* Supprime la bordure par défaut */
-    border-radius: 5px;  /* Coins arrondis */
-    cursor: pointer;  /* Change le curseur au survol */
-    float: right;  /* Place le bouton à droite */
-    margin-top: 10px;  /* Ajoute un peu d'espace en haut */
-    transition: background-color 0.3s;  /* Transition douce lors du survol */
+    background-color: #007bff;
+    color: white;
+    padding: 5px 15px;  /* Réduire le padding pour réduire la taille du bouton */
+    font-size: 14px;  /* Taille du texte plus petite */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    float: right;
+    margin-top: 10px;
+    transition: background-color 0.3s;
 }
 
 button[type="submit"]:hover {
-    background-color: #0056b3;  /* Couleur d'arrière-plan du bouton lors du survol */
+    background-color: #0056b3;
 }
+
 
 
 .hint-content {
