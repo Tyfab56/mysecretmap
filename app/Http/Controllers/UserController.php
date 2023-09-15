@@ -50,6 +50,7 @@ class UserController extends Controller
     // Vérifiez si la validation a échoué
     if ($validator->fails()) {
         // Vous pouvez personnaliser le message d'erreur ici
+        $url = url()->previous() . '#collapseTwo';
         return redirect($url)->withErrors($validator)->withInput();
     }
 
