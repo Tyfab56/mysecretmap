@@ -16,13 +16,14 @@ $(document).ready(function() {
         document.getElementById('whoiamForm').submit();
     }
 
-$(document).ready(function() {
+    $(document).ready(function() {
     $('.hint-toggle').on('click', function(e) {
         e.preventDefault();
-        const target = $(this).data('target');
-        $(target).toggle();
+        const target = $($(this).data('target'));
+        target.toggleClass('open');
     });
 });
+
 
 </script>
 @endsection
@@ -40,19 +41,20 @@ $(document).ready(function() {
                 <h42 class="mb-4">Le profil permet de paramètrer l'affichage de certaines zones en fonction de votre intérêt</h2>
 
                 @foreach($whoiams as $whoiam)
-                        <div class="form-check mb-3">
-                            <input class="form-check-input" type="radio" name="whoiam_id" id="whoiam_{{ $whoiam->id }}" value="{{ $whoiam->id }}" {{ $user->whoiam_id == $whoiam->id ? 'checked' : '' }} onchange="this.form.submit()">
-                            <label class="form-check-label" for="whoiam_{{ $whoiam->id }}">
-                                {{ $whoiam->name }}
-                                <button class="hint-toggle ml-2" data-target="#hint_{{ $whoiam->id }}">
-                                    <i class="fa fa-info-circle"></i>
-                                </button>
-                            </label>
-                            <div id="hint_{{ $whoiam->id }}" class="hint-content" style="display: none;">
-                                {{ $whoiam->description }}
-                            </div>
+                    <div class="form-check mb-3">
+                        <input class="form-check-input" type="radio" name="whoiam_id" id="whoiam_{{ $whoiam->id }}" value="{{ $whoiam->id }}" {{ $user->whoiam_id == $whoiam->id ? 'checked' : '' }} onchange="this.form.submit()">
+                        <label class="form-check-label" for="whoiam_{{ $whoiam->id }}">
+                            {{ $whoiam->name }}
+                            <button class="hint-toggle ml-2" data-target="#hint_{{ $whoiam->id }}">
+                                <i class="fa fa-info-circle"></i>
+                            </button>
+                        </label>
+                        <div id="hint_{{ $whoiam->id }}" class="hint-content" style="display: none;">
+                            {{ $whoiam->description }}
                         </div>
+                    </div>
                 @endforeach
+
 
 
         </form>
@@ -342,13 +344,28 @@ $(document).ready(function() {
     width: 100%; /* Faire en sorte que l'input occupe toute la largeur de son conteneur */
 }
 
+.hint-toggle {
+    background: none;
+    border: none;
+    font-size: 12px;
+    cursor: pointer;
+}
+
 .hint-content {
     padding: 10px;
     background-color: #f7f7f7;
     border: 1px solid #e0e0e0;
     border-radius: 4px;
     margin-top: 5px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
 }
+
+.hint-content.open {
+    max-height: 200px; /* Vous pouvez ajuster cette valeur en fonction de la taille du contenu. */
+}
+
 
 </style>
 
