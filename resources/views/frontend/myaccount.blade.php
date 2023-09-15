@@ -47,33 +47,34 @@ $(function () {
 <section id="main-container" class="main-container">
     <div class="container">
         <div class="row">
-        <form id="whoiamForm" action="{{ route('whoiam.update') }}" method="POST" class="mt-3">
-                @csrf
-                @method('PUT')
+         <div class="col-lg-6">
+                <form id="whoiamForm" action="{{ route('whoiam.update') }}" method="POST" class="mt-3">
+                        @csrf
+                        @method('PUT')
 
-                <h4 class="mb-4">Choix du profil</h4>
-                <h42 class="mb-4">Le profil permet de paramètrer l'affichage de certaines zones en fonction de votre intérêt</h2>
+                        <h4 class="mb-4">Choix du profil</h4>
+                        <h42 class="mb-4">Le profil permet de paramètrer l'affichage de certaines zones en fonction de votre intérêt</h2>
 
-                @foreach($whoiams as $whoiam)
-                        <div class="form-check mb-3">
-                            <input class="form-check-input" type="radio" name="whoiam_id" id="whoiam_{{ $whoiam->id }}" value="{{ $whoiam->id }}" {{ $user->whoiam_id == $whoiam->id ? 'checked' : '' }} onchange="this.form.submit()">
-                            <label class="form-check-label" for="whoiam_{{ $whoiam->id }}">
-                                {{ $whoiam->name }}
-                                <button class="hint-toggle ml-2" type="button" data-target="#hint_{{ $whoiam->id }}">
-                                    ▼
-                                </button>
-                            </label>
-                            <div id="hint_{{ $whoiam->id }}" class="hint-content">
-                                {{ $whoiam->description }}
-                            </div>
-                        </div>
-                @endforeach
-
-
+                        @foreach($whoiams as $whoiam)
+                                <div class="form-check mb-3">
+                                    <input class="form-check-input" type="radio" name="whoiam_id" id="whoiam_{{ $whoiam->id }}" value="{{ $whoiam->id }}" {{ $user->whoiam_id == $whoiam->id ? 'checked' : '' }} onchange="this.form.submit()">
+                                    <label class="form-check-label" for="whoiam_{{ $whoiam->id }}">
+                                        {{ $whoiam->name }}
+                                        <button class="hint-toggle ml-2" type="button" data-target="#hint_{{ $whoiam->id }}">
+                                            ▼
+                                        </button>
+                                    </label>
+                                    <div id="hint_{{ $whoiam->id }}" class="hint-content">
+                                        {{ $whoiam->description }}
+                                    </div>
+                                </div>
+                        @endforeach
 
 
-        </form>
 
+
+                </form>
+          </div>
         </div>
   
       <div class="row">
