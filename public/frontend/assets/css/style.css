@@ -4035,6 +4035,14 @@ border-radius: 50%;
 border: 2px solid white
 
 }
+.avatar-r100
+{
+width : 100px;
+height : 100px;
+border-radius: 50%;
+border: 3px solid #9b9393
+
+}
 .avatar-r150
 {
 width : 150px;

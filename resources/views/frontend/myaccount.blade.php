@@ -95,13 +95,13 @@ $(function () {
            <div class="card-body">
            <div class="">
                 @if($user->profile_photo_path)
-                <img id="avatar-preview" class="mw-150 avatar-r150" src="{{ $user->profile_photo_path }}" alt="Avatar" />
+                <img id="avatar-preview" class="mw-150 avatar-r100" src="{{ $user->profile_photo_path }}" alt="Avatar" />
                 @else
-                <img id="avatar-preview" class="mw-150" src="{{asset('frontend/assets/images/avatar.jpg')}}" alt="Avatar" />
+                <img id="avatar-preview" class="mw-150 avatar-r100" src="{{asset('frontend/assets/images/avatar.jpg')}}" alt="Avatar" />
                 @endif
           </div>
         <a href="{{route('changeavatar')}}">
-            <button class="btn btn-primary mb-1" style="background-color: #ffb600; color: white; border-radius: 5px;">{{ __('compte.ChangeAvatar') }}</button>
+            <button class="btn btn-primary mb-1" style="background-color: #ffb600; color: white; border-radius: 5px;font-size: 12px;">{{ __('compte.ChangeAvatar') }}</button>
         </a>
 
         <!-- Start of form -->
