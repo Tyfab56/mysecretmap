@@ -181,7 +181,7 @@
          <span class="go_caption go_caption-full">
                 {{ $picture->spot->name}}
              
-                   <img src="{{ $picture->user->avatar }}" class="avatar" alt="{{ $picture->user->pseudo }}" />
+                   <img src="{{ $picture->user->avatar }}" class="avatar-r45" alt="{{ $picture->user->pseudo }}" />
               
                
          </span>

@@ -4027,12 +4027,20 @@ img.list-photo:hover, img.imgbox:hover{
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
 }
-.avatar
+.avatar-r45
 {
 width : 45px;
 height : 45px;
 border-radius: 50%;
 border: 2px solid white
+
+}
+.avatar-r150
+{
+width : 150px;
+height : 150px;
+border-radius: 50%;
+border: 3px solid white
 
 }
 

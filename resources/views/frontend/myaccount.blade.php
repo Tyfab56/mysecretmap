@@ -80,8 +80,7 @@ $(function () {
       <div class="row">
         <div class="col-lg-6">
           <h3 class="border-title border-left mar-t0">{{ __('compte.MonCompte') }}</h3>
-  
-          <div class="accordion accordion-group accordion-classic" id="construction-accordion">
+   <div class="accordion accordion-group accordion-classic" id="construction-accordion">
             <div class="card">
               <div class="card-header p-0 bg-transparent" id="headingOne">
                 <h2 class="mb-0">
@@ -92,15 +91,15 @@ $(function () {
                 </h2>
               </div>
   
-              <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#construction-accordion">
-    <div class="card-body">
-        <div class="avatar-150">
-            @if($user->profile_photo_path)
-            <img id="avatar-preview" class="mw-150" src="{{ $user->profile_photo_path }}" alt="Avatar" />
-            @else
-            <img id="avatar-preview" class="mw-150" src="{{asset('frontend/assets/images/avatar.jpg')}}" alt="Avatar" />
-            @endif
-        </div>
+     <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#construction-accordion">
+           <div class="card-body">
+           <div class="avatar-r150">
+                @if($user->profile_photo_path)
+                <img id="avatar-preview" class="mw-150" src="{{ $user->profile_photo_path }}" alt="Avatar" />
+                @else
+                <img id="avatar-preview" class="mw-150" src="{{asset('frontend/assets/images/avatar.jpg')}}" alt="Avatar" />
+                @endif
+          </div>
         <a href="{{route('changeavatar')}}">
             <button class="btn btn-primary mb-1" style="background-color: #ffb600; color: white; border-radius: 5px;">{{ __('compte.ChangeAvatar') }}</button>
         </a>
