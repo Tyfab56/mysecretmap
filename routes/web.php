@@ -86,7 +86,8 @@ Route::middleware('auth','verified')->group(function () {
     Route::put('/user/{user}', [UserController::class, 'update'])->name('user.update');
     Route::put('/user/social/{user}', [UserController::class, 'updateSocial'])->name('user.updateSocial');
     Route::put('/profil/update', [UserController::class, 'updateWhoIAm'])->name('whoiam.update');
-
+    Route::post('/update-photographer-info', [UserController::class, 'updatePhotographerInfo'])
+    ->name('update.photographer.info');
    
 });
 

@@ -196,7 +196,7 @@ $(function () {
                                 {{ session('successSocial') }}
                             </div>
                         @endif
-                        <form action="" method="POST">
+                        <form action="{{ route('update.photographer.info') }}" method="POST">
                              @csrf
 
                             <div class="form-group">
