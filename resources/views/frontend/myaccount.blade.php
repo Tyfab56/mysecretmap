@@ -15,6 +15,11 @@ $(document).ready(function() {
     function submitForm() {
         document.getElementById('whoiamForm').submit();
     }
+    
+    $(function () {
+       $('[data-toggle="tooltip"]').tooltip()
+    })
+
 
 </script>
 @endsection
@@ -24,22 +29,26 @@ $(document).ready(function() {
 <section id="main-container" class="main-container">
     <div class="container">
         <div class="row">
-    <form id="whoiamForm" action="{{ route('whoiam.update') }}" method="POST">
-    @csrf
-    @method('PUT')
+        <form id="whoiamForm" action="{{ route('whoiam.update') }}" method="POST" class="mt-3">
+                @csrf
+                @method('PUT')
 
-    <h2>Votre profil</h2>
+                <h4 class="mb-4">Votre profil</h4>
 
-    @foreach($whoiams as $whoiam)
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="whoiam_id" id="whoiam_{{ $whoiam->id }}" value="{{ $whoiam->id }}"
-            {{ $user->whoiam_id == $whoiam->id ? 'checked' : '' }} onchange="submitForm()">
-            <label class="form-check-label" for="whoiam_{{ $whoiam->id }}" title="{{ $whoiam->translate('fr')->description }}">
-                {{ $whoiam->translate('fr')->name }}
-            </label>
-        </div>
-    @endforeach
-</form>
+                @foreach($whoIams as $whoiam)
+                    <div class="form-check mb-3">
+                        <input class="form-check-input" type="radio" name="whoiam_id" id="whoiam_{{ $whoiam->id }}" value="{{ $whoiam->id }}" {{ $user->whoiam_id == $whoiam->id ? 'checked' : '' }} onchange="this.form.submit()">
+                        <label class="form-check-label" for="whoiam_{{ $whoiam->id }}">
+                            {{ $whoiam->title }}
+                            <span class="hint-icon ml-2" data-toggle="tooltip" title="{{ $whoiam->description }}">
+                                <i class="fa fa-info-circle"></i>
+                            </span>
+                        </label>
+                    </div>
+                @endforeach
+
+        </form>
+
         </div>
   
       <div class="row">
