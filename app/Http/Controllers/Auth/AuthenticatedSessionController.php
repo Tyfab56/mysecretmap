@@ -43,8 +43,20 @@ class AuthenticatedSessionController extends Controller
        if ($user) {
 
             $lang = $user->lang_id;
-            app()->setLocale($lang);
-            session()->put('locale', $lang);
+
+            if (is_string($lang)) {
+                app()->setLocale($lang);
+                session()->put('locale', $lang);
+        
+               
+            } else {
+                // Gérer le cas où la langue de l'utilisateur n'est pas valide.
+                // Par exemple, vous pouvez définir une langue par défaut.
+                app()->setLocale(config('app.fallback_locale'));
+                session()->put('locale', config('app.fallback_locale'));
+            }
+
+           
             $user->lastconnect = \Carbon\Carbon::now();
             $user->save();
         }
