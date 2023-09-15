@@ -33,7 +33,7 @@ class UserController extends Controller
 
     public function updateSocial(Request $request, User $user)
 {
-    dd($request);
+    
     // Validate the incoming request data
     $data = $request->validate([
         'internet' => 'nullable|url',
@@ -47,7 +47,7 @@ class UserController extends Controller
 
     // Update the user's social profiles
     $user->update($data);
-
+    dd ($user);
     // Redirect back with a success message
     $url = url()->previous() . '#collapseTwo';
     return redirect($url)->with('successSocial', 'Social profiles updated successfully!');
