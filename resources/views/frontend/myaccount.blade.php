@@ -15,7 +15,7 @@ $(document).ready(function() {
     function submitForm() {
         document.getElementById('whoiamForm').submit();
     }
-    
+
     $(function () {
        $('[data-toggle="tooltip"]').tooltip()
     })
@@ -35,7 +35,7 @@ $(document).ready(function() {
 
                 <h4 class="mb-4">Votre profil</h4>
 
-                @foreach($whoIams as $whoiam)
+                @foreach($whoiams as $whoiam)
                     <div class="form-check mb-3">
                         <input class="form-check-input" type="radio" name="whoiam_id" id="whoiam_{{ $whoiam->id }}" value="{{ $whoiam->id }}" {{ $user->whoiam_id == $whoiam->id ? 'checked' : '' }} onchange="this.form.submit()">
                         <label class="form-check-label" for="whoiam_{{ $whoiam->id }}">
