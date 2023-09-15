@@ -16,6 +16,7 @@ return [
     "TikTok"=>"TikTok",
     "Mastodon"=>"Mastodon",
     "Web"=> "Web Site",
+    "savechange" => "Save Changes",
     "ChangeAvatar"=> "Change avatar",
 
 ];

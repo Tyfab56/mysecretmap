@@ -15,7 +15,7 @@ return [
     "500px"=>"500px",
     "TikTok"=>"TikTok",
     "Mastodon"=>"Mastodon",
-
+    "savechange" => "Enregistrer",
     "Web"=> "Site Internet",
     "ChangeAvatar"=> "Changer avatar",
 ];

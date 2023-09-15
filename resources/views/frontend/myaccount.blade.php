@@ -52,8 +52,8 @@ $(function () {
                         @csrf
                         @method('PUT')
 
-                        <h4>Choix du profil</h4>
-                        <h2 >Le profil permet de paramètrer l'affichage de certaines zones en fonction de votre intérêt</h2>
+                        <h2>Choix du profil</h2>
+                        <h5 >Le profil permet de paramètrer l'affichage de certaines zones en fonction de votre intérêt</h5>
 
                         @foreach($whoiams as $whoiam)
                                 <div class="form-check ml-5">
@@ -171,73 +171,74 @@ $(function () {
                   {{ session('successSocial') }}
               </div>
           @endif
-          <form action="{{ route('user.updateSocial', $user->id) }}" method="POST">
-    @csrf
-    @method('PUT')
-    
-    <div class="input-w">
-        <label for="internet" class="social-label">
-            <div class="label-text"><b>{{ __('compte.Web') }} :</b></div>
-            <div class="label-icon"><i class="fas fa-globe"></i></div>
-            <div class="label-input"><input type="text" name="internet" id="internet" value="{{$user->internet}}" /></div>
-        </label>
-    </div>
-    
-    <div class="input-w">
-        <label for="facebook" class="social-label">
-            <div class="label-text"><b>{{ __('compte.Facebook') }} :</b></div> 
-            <div class="label-icon"><i class="fab fa-facebook-square"></i></div>
-            <div class="label-input"><input type="text" name="facebook" id="facebook" value="{{$user->facebook}}" /></div>
-        </label>
-    </div>
-    
-    <div class="input-w">
-        <label for="instagram" class="social-label">
-            <div class="label-text"><b>{{ __('compte.Instagram') }} :</b></div>
-            <div class="label-icon"><i class="fab fa-instagram"></i></div> 
-            <div class="label-input"><input type="text" name="instagram" id="instagram" value="{{$user->instagram}}" /></div>
-        </label>
-    </div>
+    <form action="{{ route('user.updateSocial', $user->id) }}" method="POST">
+            @csrf
+            @method('PUT')
+            
+            <div class="input-w">
+                <label for="internet" class="social-label">
+                    <div class="label-text"><b>{{ __('compte.Web') }} :</b></div>
+                    <div class="label-icon"><i class="fas fa-globe"></i></div>
+                    <div class="label-input"><input type="text" name="internet" id="internet" value="{{$user->internet}}" /></div>
+                </label>
+            </div>
+            
+            <div class="input-w">
+                <label for="facebook" class="social-label">
+                    <div class="label-text"><b>{{ __('compte.Facebook') }} :</b></div> 
+                    <div class="label-icon"><i class="fab fa-facebook-square"></i></div>
+                    <div class="label-input"><input type="text" name="facebook" id="facebook" value="{{$user->facebook}}" /></div>
+                </label>
+            </div>
+            
+            <div class="input-w">
+                <label for="instagram" class="social-label">
+                    <div class="label-text"><b>{{ __('compte.Instagram') }} :</b></div>
+                    <div class="label-icon"><i class="fab fa-instagram"></i></div> 
+                    <div class="label-input"><input type="text" name="instagram" id="instagram" value="{{$user->instagram}}" /></div>
+                </label>
+            </div>
 
-    <!-- Twitter -->
-    <div class="input-w">
-        <label for="twitter" class="social-label">
-            <div class="label-text"><b>{{ __('compte.Twitter') }} :</b></div>
-            <div class="label-icon"><i class="fab fa-twitter"></i></div>
-            <div class="label-input"><input type="text" name="twitter" id="twitter" value="{{$user->twitter}}" /></div>
-        </label>
-    </div>
+            <!-- Twitter -->
+            <div class="input-w">
+                <label for="twitter" class="social-label">
+                    <div class="label-text"><b>{{ __('compte.Twitter') }} :</b></div>
+                    <div class="label-icon"><i class="fab fa-twitter"></i></div>
+                    <div class="label-input"><input type="text" name="twitter" id="twitter" value="{{$user->twitter}}" /></div>
+                </label>
+            </div>
 
-    <!-- 500px -->
-    <div class="input-w">
-        <label for="five_hundred_px" class="social-label">
-            <div class="label-text"><b>{{ __('compte.500px') }} :</b></div>
-            <div class="label-icon"><i class="fab fa-500px"></i></div>
-            <div class="label-input"><input type="text" name="five_hundred_px" id="five_hundred_px" value="{{$user->five_hundred_px}}" /></div>
-        </label>
-    </div>
+            <!-- 500px -->
+            <div class="input-w">
+                <label for="five_hundred_px" class="social-label">
+                    <div class="label-text"><b>{{ __('compte.500px') }} :</b></div>
+                    <div class="label-icon"><i class="fab fa-500px"></i></div>
+                    <div class="label-input"><input type="text" name="five_hundred_px" id="five_hundred_px" value="{{$user->five_hundred_px}}" /></div>
+                </label>
+            </div>
 
-    <!-- TikTok -->
-    <div class="input-w">
-        <label for="tiktok" class="social-label">
-            <div class="label-text"><b>{{ __('compte.TikTok') }} :</b></div>
-            <div class="label-icon"><i class="fab fa-tiktok"></i></div>
-            <div class="label-input"><input type="text" name="tiktok" id="tiktok" value="{{$user->tiktok}}" /></div>
-        </label>
-    </div>
+            <!-- TikTok -->
+            <div class="input-w">
+                <label for="tiktok" class="social-label">
+                    <div class="label-text"><b>{{ __('compte.TikTok') }} :</b></div>
+                    <div class="label-icon"><i class="fab fa-tiktok"></i></div>
+                    <div class="label-input"><input type="text" name="tiktok" id="tiktok" value="{{$user->tiktok}}" /></div>
+                </label>
+            </div>
 
-    <!-- Mastodon -->
-    <div class="input-w">
-        <label for="mastodon" class="social-label">
-            <div class="label-text"><b>{{ __('compte.Mastodon') }} :</b></div>
-            <div class="label-icon"><i class="fab fa-mastodon"></i></div>
-            <div class="label-input"><input type="text" name="mastodon" id="mastodon" value="{{$user->mastodon}}" /></div>
-        </label>
-    </div>
+            <!-- Mastodon -->
+            <div class="input-w">
+                <label for="mastodon" class="social-label">
+                    <div class="label-text"><b>{{ __('compte.Mastodon') }} :</b></div>
+                    <div class="label-icon"><i class="fab fa-mastodon"></i></div>
+                    <div class="label-input"><input type="text" name="mastodon" id="mastodon" value="{{$user->mastodon}}" /></div>
+                </label>
+            </div>
 
-    <!-- Save Button -->
-    <button type="submit">Save Changes</button>
-</form>
+            <!-- Save Button -->
+            <button type="submit" class="cool-btn">{{ __('compte.savechange') }}</button>
+
+     </form>
 
     </div>
 </div>
@@ -359,6 +360,23 @@ $(function () {
 .label-input input {
     width: 100%; /* Faire en sorte que l'input occupe toute la largeur de son conteneur */
 }
+
+button[type="submit"] {
+    background-color: #007bff;  /* Couleur d'arrière-plan du bouton */
+    color: white;  /* Couleur du texte */
+    padding: 10px 20px;  /* Padding autour du texte */
+    border: none;  /* Supprime la bordure par défaut */
+    border-radius: 5px;  /* Coins arrondis */
+    cursor: pointer;  /* Change le curseur au survol */
+    float: right;  /* Place le bouton à droite */
+    margin-top: 10px;  /* Ajoute un peu d'espace en haut */
+    transition: background-color 0.3s;  /* Transition douce lors du survol */
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;  /* Couleur d'arrière-plan du bouton lors du survol */
+}
+
 
 .hint-content {
     transition: opacity 0.3s ease-in-out, max-height 0.3s ease-in-out;
