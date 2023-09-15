@@ -124,7 +124,7 @@ public function updatePhotographerInfo(Request $request)
 
 
     $userTranslation->save();
-    
+
     if ($request->ajax()) {
         return response()->json(['message' => 'Mise à jour réussie']);
     }
@@ -132,7 +132,21 @@ public function updatePhotographerInfo(Request $request)
     return back()->with('success', 'Vos informations de photographe ont été mises à jour avec succès.');
 }
 
+public function getPhotographerInfo(Request $request)
+    {
+        // Récupérez la langue sélectionnée depuis la requête
+        $selectedLanguage = $request->input('language');
 
+        // Récupérez les informations du photographe en fonction de la langue
+        $user = Auth::user();
+        $photographerInfo = $user->translations()->where('locale', $selectedLanguage)->first();
+
+        // Retournez les informations au format JSON
+        return response()->json([
+            'photographer_title' => $photographerInfo->titre,
+            'photographer_description' => $photographerInfo->description,
+        ]);
+    }
 
 
 
