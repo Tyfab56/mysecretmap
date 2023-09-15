@@ -12,14 +12,15 @@ $(document).ready(function() {
     }
 });
 
-    function submitForm() {
-        document.getElementById('whoiamForm').submit();
-    }
+function submitForm() {
+    document.getElementById('whoiamForm').submit();
+}
 
-   
-    $(function () {
-    $('.hint-toggle').click(function() {
-        var targetI 
+$(function () {
+    $('.hint-toggle').click(function(e) {
+        e.preventDefault(); // Empêche le comportement par défaut du bouton
+
+        var targetId = $(this).data('target'); // Cette ligne était manquante/corrompue
         var targetElement = $(targetId);
         
         if(targetElement.css('opacity') == '0') {
@@ -37,10 +38,8 @@ $(document).ready(function() {
         }
     });
 });
-
-
-
 </script>
+
 @endsection
 
 @section('content')
