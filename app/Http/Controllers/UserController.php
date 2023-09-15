@@ -55,7 +55,7 @@ class UserController extends Controller
 
 public function updateWhoIAm(Request $request)
 {
-    dd($request);
+
     $user = Auth::user();
 
     // Valider la demande
