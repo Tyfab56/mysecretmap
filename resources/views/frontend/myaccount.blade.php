@@ -196,7 +196,31 @@ $(function () {
                                 {{ session('successSocial') }}
                             </div>
                         @endif
-                    
+                        <form action="" method="POST">
+                             @csrf
+
+                            <div class="form-group">
+                                <label for="language">Language:</label>
+                                <select name="language" id="language" class="form-control">
+                                    <option value="en">English</option>
+                                    <option value="fr">Français</option>
+                                    <!-- Ajoutez d'autres langues au besoin -->
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="photographer_title">Photographer Title:</label>
+                                <input type="text" name="photographer_title" id="photographer_title" class="form-control">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="photographer_description">Photographer Description:</label>
+                                <textarea name="photographer_description" id="photographer_description" class="form-control"></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">Save</button>
+                        </form>
+
 
                     </div>
                 </div>
