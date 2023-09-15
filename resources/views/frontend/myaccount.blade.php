@@ -39,7 +39,7 @@ $(document).ready(function() {
                     <div class="form-check mb-3">
                         <input class="form-check-input" type="radio" name="whoiam_id" id="whoiam_{{ $whoiam->id }}" value="{{ $whoiam->id }}" {{ $user->whoiam_id == $whoiam->id ? 'checked' : '' }} onchange="this.form.submit()">
                         <label class="form-check-label" for="whoiam_{{ $whoiam->id }}">
-                            {{ $whoiam->title }}
+                            {{ $whoiam->name }}
                             <span class="hint-icon ml-2" data-toggle="tooltip" title="{{ $whoiam->description }}">
                                 <i class="fa fa-info-circle"></i>
                             </span>
