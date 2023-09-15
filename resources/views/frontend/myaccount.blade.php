@@ -181,6 +181,11 @@ $(function () {
                     <div class="label-icon"><i class="fas fa-globe"></i></div>
                     <div class="label-input"><input type="text" name="internet" id="internet" value="{{$user->internet}}" /></div>
                 </label>
+                @error('internet')
+                            <div class="text-right text-danger">
+                                                    {{ $message }}
+                            </div>
+                             @enderror
             </div>
             
             <div class="input-w">
@@ -189,6 +194,11 @@ $(function () {
                     <div class="label-icon"><i class="fab fa-facebook-square"></i></div>
                     <div class="label-input"><input type="text" name="facebook" id="facebook" value="{{$user->facebook}}" /></div>
                 </label>
+                @error('facebook')
+                            <div class="text-right text-danger">
+                                                    {{ $message }}
+                            </div>
+                             @enderror
             </div>
             
             <div class="input-w">
@@ -197,6 +207,11 @@ $(function () {
                     <div class="label-icon"><i class="fab fa-instagram"></i></div> 
                     <div class="label-input"><input type="text" name="instagram" id="instagram" value="{{$user->instagram}}" /></div>
                 </label>
+                @error('instagram')
+                            <div class="text-right text-danger">
+                                                    {{ $message }}
+                            </div>
+                             @enderror
             </div>
 
             <!-- Twitter -->
@@ -206,6 +221,11 @@ $(function () {
                     <div class="label-icon"><i class="fab fa-twitter"></i></div>
                     <div class="label-input"><input type="text" name="twitter" id="twitter" value="{{$user->twitter}}" /></div>
                 </label>
+                @error('twitter')
+                            <div class="text-right text-danger">
+                                                    {{ $message }}
+                            </div>
+                @enderror
             </div>
 
             <!-- 500px -->
@@ -215,6 +235,11 @@ $(function () {
                     <div class="label-icon"><i class="fab fa-500px"></i></div>
                     <div class="label-input"><input type="text" name="five_hundred_px" id="five_hundred_px" value="{{$user->five_hundred_px}}" /></div>
                 </label>
+                            @error('five_hundred_px')
+                            <div class="text-right text-danger">
+                                                    {{ $message }}
+                            </div>
+                             @enderror
             </div>
 
             <!-- TikTok -->
@@ -238,6 +263,11 @@ $(function () {
                     <div class="label-icon"><i class="fab fa-mastodon"></i></div>
                     <div class="label-input"><input type="text" name="mastodon" id="mastodon" value="{{$user->mastodon}}" /></div>
                 </label>
+                @error('mastodon')
+                            <div class="text-right text-danger">
+                                                    {{ $message }}
+                            </div>
+                             @enderror
             </div>
 
             <!-- Save Button -->
