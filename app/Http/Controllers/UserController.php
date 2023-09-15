@@ -98,34 +98,33 @@ public function updateWhoIAm(Request $request)
     }
 
 
-    use App\Models\UserTranslation;
+
 
 public function updatePhotographerInfo(Request $request)
 {
-    // Validez les données du formulaire, assurez-vous que 'language', 'photographer_title', et 'photographer_description' sont présents dans les données soumises.
-
+   
     $validatedData = $request->validate([
-        'language' => 'required|in:en,fr', // Ajoutez d'autres langues au besoin
+        'language' => 'required|in:en,fr', 
         'photographer_title' => 'required|string|max:255',
         'photographer_description' => 'required|string',
     ]);
 
-    $user = auth()->user(); // Obtenez l'utilisateur connecté
+    $user = auth()->user();
 
-    // Recherchez ou créez un enregistrement dans la table user_translations en fonction de la langue
+ 
     $userTranslation = UserTranslation::firstOrNew([
         'user_id' => $user->id,
         'locale' => $validatedData['language'],
     ]);
 
-    // Mettez à jour les champs 'titre' et 'description' de l'enregistrement
+
     $userTranslation->titre = $validatedData['photographer_title'];
     $userTranslation->description = $validatedData['photographer_description'];
 
-    // Sauvegardez l'enregistrement dans la base de données
+
     $userTranslation->save();
 
-    // Redirigez l'utilisateur vers la page précédente avec un message de succès
+  
     return back()->with('success', 'Vos informations de photographe ont été mises à jour avec succès.');
 }
 
