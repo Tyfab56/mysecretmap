@@ -225,7 +225,9 @@ $(function () {
                     <div class="label-input"><input type="text" name="tiktok" id="tiktok" value="{{$user->tiktok}}" /></div>
                 </label>
                 @error('tiktok')
-                    <div class="text-danger">{{ $message }}</div>
+                 <div class="text-right text-danger">
+                    <{{ $message }}
+                </div>
                  @enderror
             </div>
 
