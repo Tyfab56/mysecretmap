@@ -226,7 +226,7 @@ $(function () {
                 </label>
                 @error('tiktok')
                  <div class="text-right text-danger">
-                    <{{ $message }}
+                    <{{ $error }}
                 </div>
                  @enderror
             </div>
