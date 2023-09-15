@@ -117,7 +117,7 @@ public function updatePhotographerInfo(Request $request)
         'locale' => $validatedData['language'],
     ]);
 
-
+    $userTranslation->user_id = $user->id;
     $userTranslation->titre = $validatedData['photographer_title'];
     $userTranslation->description = $validatedData['photographer_description'];
 
