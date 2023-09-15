@@ -85,7 +85,7 @@ Route::middleware('auth','verified')->group(function () {
     Route::delete('/profile/me', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::put('/user/{user}', [UserController::class, 'update'])->name('user.update');
     Route::put('/user/social/{user}', [UserController::class, 'updateSocial'])->name('user.updateSocial');
-    Route::post('/user/whoiam', [UserController::class, 'updateWhoIAm'])->name('whoiam.update');
+    Route::put('/profil/update', [UserController::class, 'updateWhoIAm'])->name('whoiam.update');
 
    
 });

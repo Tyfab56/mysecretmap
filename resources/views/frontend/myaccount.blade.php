@@ -24,7 +24,7 @@ $(document).ready(function() {
 <section id="main-container" class="main-container">
     <div class="container">
         <div class="row">
-        <form id="whoiamForm" action="{{ route('whoiam.update') }}" method="POST">
+    <form action="{{ route('whoiam.update') }}" method="POST">
     @csrf
     @method('PUT')
 
