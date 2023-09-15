@@ -364,6 +364,10 @@ $(function () {
     opacity: 0;
     max-height: 0;
     overflow: hidden;
+    font-size: 0.9rem; /* réduit la taille de la police */
+    border-radius: 10px; /* coins arrondis */
+    padding: 10px; /* espace autour du texte à l'intérieur de la boîte */
+    background-color: #f7f7f7; /* couleur de fond légèrement grise */
 }
 
 .hint-toggle {
