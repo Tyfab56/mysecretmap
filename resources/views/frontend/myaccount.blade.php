@@ -18,23 +18,23 @@ function submitForm() {
 
 $(function () {
     $('.hint-toggle').click(function(e) {
-        e.preventDefault(); // Empêche le comportement par défaut du bouton
+        e.preventDefault(); 
 
-        var targetId = $(this).data('target'); // Cette ligne était manquante/corrompue
+        var targetId = $(this).data('target');
         var targetElement = $(targetId);
         
         if(targetElement.css('opacity') == '0') {
             targetElement.css({
                 'opacity': '1',
-                'height': 'auto'
+                'max-height': '200px' // ou toute autre valeur maximale pour afficher le contenu
             });
-            targetElement.parent().addClass('hint-visible'); // Pour tourner l'icône
+            $(this).parent().addClass('hint-visible');
         } else {
             targetElement.css({
                 'opacity': '0',
-                'height': '0'
+                'max-height': '0'
             });
-            targetElement.parent().removeClass('hint-visible'); // Pour remettre l'icône à sa position initiale
+            $(this).parent().removeClass('hint-visible');
         }
     });
 });
@@ -63,7 +63,7 @@ $(function () {
                                     ▼
                                 </button>
                             </label>
-                            <div id="hint_{{ $whoiam->id }}" class="hint-content" style="display: none;">
+                            <div id="hint_{{ $whoiam->id }}" class="hint-content">
                                 {{ $whoiam->description }}
                             </div>
                         </div>
@@ -360,10 +360,10 @@ $(function () {
 }
 
 .hint-content {
+    transition: opacity 0.3s ease-in-out, max-height 0.3s ease-in-out;
     opacity: 0;
-    height: 0;
+    max-height: 0;
     overflow: hidden;
-    transition: opacity 0.3s, height 0.3s;
 }
 
 .hint-toggle {
@@ -382,8 +382,10 @@ $(function () {
 
 .hint-visible .hint-content {
     opacity: 1;
-    height: auto; /* Vous pouvez spécifier une hauteur fixe si vous le souhaitez */
+    max-height: 200px; /* ajustez cette valeur selon la hauteur maximale que vous souhaitez pour le contenu */
 }
+
+
 
 
 </style>
