@@ -33,6 +33,7 @@ class UserController extends Controller
 
     public function updateSocial(Request $request, User $user)
 {
+    dd($request);
     // Validate the incoming request data
     $data = $request->validate([
         'internet' => 'nullable|url',
