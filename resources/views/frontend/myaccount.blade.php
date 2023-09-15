@@ -93,9 +93,9 @@ $(function () {
   
      <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#construction-accordion">
            <div class="card-body">
-           <div class="avatar-r150">
+           <div class="">
                 @if($user->profile_photo_path)
-                <img id="avatar-preview" class="mw-150" src="{{ $user->profile_photo_path }}" alt="Avatar" />
+                <img id="avatar-preview" class="mw-150 avatar-r150" src="{{ $user->profile_photo_path }}" alt="Avatar" />
                 @else
                 <img id="avatar-preview" class="mw-150" src="{{asset('frontend/assets/images/avatar.jpg')}}" alt="Avatar" />
                 @endif
