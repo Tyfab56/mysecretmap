@@ -9,6 +9,7 @@ return [
     "Name"=>"Name",
     "Prenom"=>"First name", 
     "Email"=>"Email",
+    "Pays" => "Country or Region",
     "Pseudo"=>"Nickname",
     "Facebook"=>"Facebook",
     "Instagram"=>"Instagram",

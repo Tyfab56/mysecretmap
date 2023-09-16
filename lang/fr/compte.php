@@ -9,6 +9,7 @@ return [
     "Name"=>"Nom",
     "Prenom"=>"Prénom",
     "Email"=>"Email",
+    "Pays"=>"Pays ou Région",
     "Pseudo"=>"Pseudo",
     "Facebook"=>"Facebook",
     "Instagram"=>"Instagram",
