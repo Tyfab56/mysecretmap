@@ -21,14 +21,14 @@ Dropzone.options.myDropzone = {
     init: function() {
         this.on("success", function(file, response) {
             if(response.status === 'success') {
-                alert(response.message); // Message de réussite
+                alert(response.message); 
                
             }
         });
 
         this.on("error", function(file, response) {
             if(response.status === 'error') {
-                alert(response.message); // Message d'erreur
+                console.log(response.message); 
             }
         });
       
