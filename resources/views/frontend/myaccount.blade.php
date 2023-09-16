@@ -212,7 +212,7 @@ $('#save-info-button').click(function() {
                     {{ session('successUser') }}
                 </div>
             @endif
-            <form action="{{ route('user.update', $user->id) }}" method="POST">
+            <form action="{{ route('user.update', $user->id) }}" method="POST" class="user-update-form">
         @csrf
         @method('PUT')
         <!-- Email -->
@@ -508,7 +508,26 @@ $('#save-info-button').click(function() {
     </div>
 </section>
 <style>
-  
+  .user-update-form .input-w {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.user-update-form .input-w label {
+    flex: 1;
+    margin-right: 10px;
+}
+
+.user-update-form .input-w input, 
+.user-update-form .input-w select {
+    flex: 2;
+    padding: 10px;
+    height: 40px;
+    box-sizing: border-box;
+}
+
 
 .label-text, .label-icon, .label-input {
     display: flex;
