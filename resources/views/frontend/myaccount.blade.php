@@ -19,6 +19,7 @@ Dropzone.options.myDropzone = {
     dictRemoveFile: "Supprimer le fichier",
     dictRemoveFileConfirmation: null,
     init: function() {
+        var dzInstance = this; 
 
         @if(!empty($user->small_banner))
         var mockFile = {
@@ -35,6 +36,12 @@ Dropzone.options.myDropzone = {
         @endif
 
         this.on("success", function(file, response) {
+            this.files.forEach(function(fileItem) {
+                if (fileItem !== file) {
+                    dzInstance.removeFile(fileItem);
+                }
+            });
+
             if(response.status === 'success') {
                 alert(response.message); 
                
