@@ -2,6 +2,7 @@
 
 @section('content')
 <div class="user-banner" style="background-image: url('{{ $user->banner_path }}');">
+    <img src="{{ $user->large_banner }}" alt="{{ $user->pseudo }}'s banner" class="user-large-banner" />
     <h1 class="user-pseudo">{{ $user->pseudo }}</h1>
     <div class="avatar-wrapper">
         <img src="{{ $user->profile_photo_path }}" alt="{{ $user->pseudo }}'s avatar" class="user-avatar"/>
@@ -47,11 +48,19 @@
     position: relative;
     text-align: center;
     color: white;
-    padding-top: 100px;
+    padding-top: 60px;  /* ajusté pour permettre à la large-banner de s'adapter */
 }
 
 .user-pseudo {
     font-size: 2em;
+    margin-bottom: 10px;  /* un peu d'espace entre le pseudo et la large-banner */
+}
+
+.user-large-banner {
+    max-width: 80%;  /* à ajuster selon votre besoin */
+    height: auto;
+    display: block;
+    margin: 0 auto 20px;  /* centré horizontalement avec un peu d'espace au-dessous */
 }
 
 .avatar-wrapper {
@@ -85,5 +94,6 @@
     text-align: justify;
     padding: 0 10%;
 }
+
 </style>
 @endsection
