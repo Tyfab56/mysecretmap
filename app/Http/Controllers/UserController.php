@@ -212,7 +212,7 @@ public function updatePhotographerInfo(Request $request)
 
             
                 $user->large_banner = $largename;
-                $user->small_baner = $smallname;
+                $user->small_banner = $smallname;
                 $user->save();
             }
             return response()->json([
