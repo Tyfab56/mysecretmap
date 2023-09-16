@@ -526,6 +526,10 @@ $('#save-info-button').click(function() {
     padding: 10px;
     height: 40px;
     box-sizing: border-box;
+    width: 100%;  /* Pour s'assurer qu'il prend toute la largeur disponible */
+    border: 1px solid #ccc;  /* Si vous avez une bordure sur vos inputs, assurez-vous qu'elle est aussi sur votre select */
+    border-radius: 4px;  /* Si vous utilisez des coins arrondis pour vos inputs */
+    font-size: 1rem;  /* Assurez-vous que la taille de la police est la même */
 }
 
 
