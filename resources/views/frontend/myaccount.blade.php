@@ -289,7 +289,7 @@ $('#save-info-button').click(function() {
                         </form>
                         <form action="{{ route('addimageprofil') }}" class="dropzone" id="myDropzone">
                             @csrf
-                            <input type="hidden" id="spotid" name="spotid" value="{{$spot->id}}">
+                          
                         </form>
                        <div id="progress" class="progress">
                         <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
