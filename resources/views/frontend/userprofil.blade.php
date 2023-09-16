@@ -1,15 +1,17 @@
 @extends('frontend.main_master')
 
 @section('content')
-<div class="user-banner" style="background-image: url('{{ $user->banner_path }}');">
-    <img src="{{ $user->large_banner }}" alt="{{ $user->pseudo }}'s banner" class="user-large-banner" />
+<div class="user-banner">
     <h1 class="user-pseudo">{{ $user->pseudo }}</h1>
+    <img src="{{ $user->large_banner }}" alt="User Banner" class="user-large-banner"/>
     <div class="avatar-wrapper">
         <img src="{{ $user->profile_photo_path }}" alt="{{ $user->pseudo }}'s avatar" class="user-avatar"/>
     </div>
 </div>
+<h2 class="user-title">{{ $user->title }}</h2>
+<p class="user-description">{{ $user->description }}</p>
 
-<<div class="social-icons">
+<div class="social-icons">
     @if($user->internet)
         <a href="{{ $user->internet }}" target="_blank" title="Website"><i class="fas fa-globe"></i></a>
     @endif
@@ -41,47 +43,44 @@
 
 
 <style>
-    .user-banner {
-    height: 250px; 
-    background-size: cover;
-    background-position: center;
+   .user-banner {
     position: relative;
     text-align: center;
     color: white;
-    padding-top: 60px;  /* ajusté pour permettre à la large-banner de s'adapter */
 }
 
 .user-pseudo {
-    font-size: 2em;
-    margin-bottom: 10px;  /* un peu d'espace entre le pseudo et la large-banner */
+    font-size: 2.5em;
+    z-index: 2;
+    position: relative;
 }
 
 .user-large-banner {
-    max-width: 80%;  /* à ajuster selon votre besoin */
-    height: auto;
+    width: 100%;
     display: block;
-    margin: 0 auto 20px;  /* centré horizontalement avec un peu d'espace au-dessous */
+    z-index: 1;
 }
 
 .avatar-wrapper {
     position: absolute;
-    bottom: -25px;
+    bottom: 10px;
     left: 50%;
     transform: translateX(-50%);
     border: 3px solid white;
     border-radius: 50%;
     overflow: hidden;
+    z-index: 3;
 }
 
 .user-avatar {
-    width: 50px;
-    height: 50px;
+    width: 100px;  /* Rendu plus grand */
+    height: 100px;
     border-radius: 50%;
 }
 
 .social-icons {
     text-align: center;
-    margin-top: 30px;
+    margin-top: 20px;
 }
 
 .social-icons a {
@@ -89,11 +88,18 @@
     font-size: 24px;
 }
 
+.user-title {
+    font-size: 1.5em;
+    text-align: center;
+    margin-top: 20px;
+}
+
 .user-description {
-    margin-top: 30px;
+    margin-top: 15px;
     text-align: justify;
     padding: 0 10%;
 }
+
 
 </style>
 @endsection
