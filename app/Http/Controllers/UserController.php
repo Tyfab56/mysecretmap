@@ -145,7 +145,8 @@ public function updatePhotographerInfo(Request $request)
                 ]
             );
 
-            $iduser = Auth::id();
+            $user = Auth::user();
+
             $file = $request->file('file');
 
             if ($file == null) {
