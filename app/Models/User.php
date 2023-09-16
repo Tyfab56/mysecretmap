@@ -100,6 +100,6 @@ class User extends Authenticatable implements MustVerifyEmail, TranslatableContr
 
     public function pictures(): HasMany
     {
-        return $this->hasMany(Picture::class);
+        return $this->hasMany(Pictures::class);
     }
 }
