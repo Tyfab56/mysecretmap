@@ -172,7 +172,7 @@ public function updatePhotographerInfo(Request $request)
         
         
                 $extension = $file->getClientOriginalExtension();  
-                $imgname = $iduser . "_banner.jpg";
+                $imgname = $user->id . "_banner.jpg";
 
                 
                 // STOCKAGE IMAGE ORIGINALE
