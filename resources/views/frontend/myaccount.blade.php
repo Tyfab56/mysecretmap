@@ -194,7 +194,7 @@ $('#save-info-button').click(function() {
      <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#construction-accordion">
      <div class="card-body">
     <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-3 center-flex">
             <div class="">
                 @if($user->profile_photo_path)
                     <img id="avatar-preview" class="mw-150 avatar-r100" src="{{ $user->profile_photo_path }}" alt="Avatar" />
@@ -508,6 +508,14 @@ $('#save-info-button').click(function() {
     </div>
 </section>
 <style>
+    .center-flex {
+    display: flex;
+    justify-content: center;
+
+    flex-direction: column; /* pour garder les éléments en colonne */
+}
+
+
   .user-update-form .input-w {
     display: flex;
     justify-content: space-between;
