@@ -54,10 +54,10 @@ Dropzone.options.myDropzone = {
         });
       
             this.on("totaluploadprogress", function(progress) {
-                document.querySelector("#progress .progress-bar").style.width = progress + "%";
+                document.querySelector("#progressbar .progress-bar").style.width = progress + "%";
             });
             this.on("queuecomplete", function() {
-                document.querySelector("#progress .progress-bar").style.width = "0%";
+                document.querySelector("#progressbar .progress-bar").style.width = "0%";
             });
     }
 };
@@ -310,7 +310,7 @@ $('#save-info-button').click(function() {
                             @csrf
                           
                         </form>
-                       <div id="progress" class="progress">
+                       <div id="progressbar" class="progress">
                         <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
                       </div>
 
