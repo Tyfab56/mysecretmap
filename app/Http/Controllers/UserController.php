@@ -89,14 +89,17 @@ public function updateWhoIAm(Request $request)
 }
 
 
-    public function show($id)
-    {
-        // Récupération de l'utilisateur à partir de son ID
-        $user = User::findOrFail($id);
+public function show($id)
+{
+    // Récupération de l'utilisateur à partir de son ID
+    $user = User::findOrFail($id);
 
-        // Retour de la vue avec l'utilisateur comme donnée
-        return view('frontend.userprofil', compact('user'));
-    }
+    // Récupération des photos associées à cet utilisateur avec pagination
+    $pictures = $user->pictures()->paginate(10);
+
+    // Retour de la vue avec l'utilisateur et ses photos comme données
+    return view('frontend.userprofil', compact('user', 'pictures'));
+}
 
 
 
