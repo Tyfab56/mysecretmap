@@ -44,10 +44,7 @@ Dropzone.options.myDropzone = {
                 }
             });
 
-            if(response.status === 'success') {
-                alert(response.message); 
-               
-            }
+            
         });
 
         this.on("error", function(file, response) {
