@@ -98,7 +98,7 @@ class User extends Authenticatable implements MustVerifyEmail, TranslatableContr
         $this->save();
     }
 
-    public function pictures(): HasMany
+    public function pictures()
     {
         return $this->hasMany(Pictures::class);
     }
