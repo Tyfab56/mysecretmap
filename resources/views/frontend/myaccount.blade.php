@@ -567,7 +567,7 @@ $('#save-info-button').click(function() {
 }
 
 button[type="submit"] {
-    background-color: #007bff;
+    background-color: #6f7895;;
     color: white;
     padding: 5px 15px;  /* Réduire le padding pour réduire la taille du bouton */
     font-size: 14px;  /* Taille du texte plus petite */
@@ -581,7 +581,7 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-    background-color: #0056b3;
+    background-color: #000000;
 }
 
 
