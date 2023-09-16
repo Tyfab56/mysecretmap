@@ -6,6 +6,8 @@
 
 // Initialisation de Dropzone
 Dropzone.options.myDropzone = {
+    thumbnailWidth: 400,
+    thumbnailHeight: 133,
     paramName: "file",
     maxFilesize: 2, 
     acceptedFiles: ".jpeg,.jpg", 
@@ -628,6 +630,7 @@ button[type="submit"]:hover {
     height: auto;   /* pour maintenir le ratio d'aspect */
     max-width: 400px;   /* ou la valeur que vous souhaitez */
     margin-bottom: 0;
+    object-fit: cover;
 }
 
 .dropzone .dz-preview {
