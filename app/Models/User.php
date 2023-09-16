@@ -44,7 +44,7 @@ class User extends Authenticatable implements MustVerifyEmail, TranslatableContr
         'tiktok',
         'mastodon',
         'photographer_banner',
-];
+
         
     ];
 

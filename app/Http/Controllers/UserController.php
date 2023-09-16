@@ -102,7 +102,34 @@ public function updateWhoIAm(Request $request)
 
 public function updatePhotographerInfo(Request $request)
 {
+   // Valdation de la banniere
+
+
+   $this->validate($request, [
+    'photographer_banner' => 'image|mimes:jpeg,jpg|max:2048',
+    ]);
+
+  if ($request->hasFile('photographer_banner')) {
+    $file = $request->file('photographer_banner');
+    $extension = $file->getClientOriginalExtension();
+    $imgname =  $user->id . "_profil.jpg; 
+
+    $disk = Storage::disk('wasabi');
+    $bucket = 'mysecretmap';  
+
+    // Process the image
    
+    $canvas = Image::canvas(1920,640);
+    $imagefinale = Image::make($file);
+    $canvas->insert($imagefinale, 'center');
+    $canvas->encode($extension);
+
+    // Save the image to Wasabi
+    $disk->put('/large/' . $imgname, (string) $canvas, 'public');
+    $user->photographer_banner = $disk->url('large/' . $imgname);
+
+    $user->save();
+
     $validatedData = $request->validate([
         'language' => 'required|in:en,fr', 
         'photographer_title' => 'required|string|max:255',
