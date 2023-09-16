@@ -4101,3 +4101,56 @@ border: 3px solid #9b9393
 .btn-search:focus {
   outline: none;
 }
+
+.fab.fa-facebook-square {
+  color: #1877F2; 
+  font-size : 25px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.fab.fa-instagram {
+  background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+  color: transparent; /* Pour que la couleur de l'icône elle-même soit transparente et laisse transparaître le dégradé */
+  background-clip: text;
+  -webkit-background-clip: text;
+  font-size : 25px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.fab.fa-500px {
+  color: #0099E5; /* Couleur associée à 500px */
+  font-size : 25px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.fab.fa-twitter {
+  color: #1DA1F2; /* Couleur officielle de Twitter */
+  font-size : 25px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.fab.fa-tiktok {
+  color: #69C9D0; /* Un bleu associé à TikTok */
+  font-size : 25px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.fab.fa-mastodon {
+  color: #3088d4; /* Couleur bleu foncé de Mastodon */
+  font-size : 25px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.fas.fa-globe
+{
+font-size : 25px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.social-label {
+  display: grid;
+  grid-template-columns: 160px 32px 1fr; /* texte, icône, input */
+  align-items: center; /* Centre vertical */
+  gap: 10px; /* Espacement entre les éléments */
+}
