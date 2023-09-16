@@ -26,6 +26,7 @@ class UserController extends Controller
             'name' => 'required|string|max:191',
             'prenom' => 'nullable|string|max:191', 
             'pseudo' => 'nullable|string|max:191', 
+            'mypays_id' => 'required'
         ]);
 
         // Update the user's profile
