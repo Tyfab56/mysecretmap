@@ -4021,7 +4021,7 @@ img.list-photo:hover, img.imgbox:hover{
 .gridOverflow {
   margin-top: 10px;
   margin-bottom: 10px;
-  --masonryItemHeight: 280px;
+
 }
 .go_gridItem .go_caption {
   opacity: 0;
