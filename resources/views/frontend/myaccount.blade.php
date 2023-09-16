@@ -2,8 +2,49 @@
 @section('css')
 <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
 @endsection
+@section('scripts')
+
+// Initialisation de Dropzone
+Dropzone.options.myDropzone = {
+    paramName: "file",
+    maxFilesize: 2, // Taille maximale des fichiers en Mo
+    acceptedFiles: ".jpeg,.jpg, // Extensions autorisées
+    dictDefaultMessage: "Glissez-déposez vos fichiers ici ou cliquez pour sélectionner",
+    dictFallbackMessage: "Votre navigateur ne supporte pas le glisser-déposer de fichiers.",
+    dictFileTooBig: "Le fichier est trop volumineux. Taille maximale autorisée : 20Mo.",
+    dictInvalidFileType: "Vous ne pouvez pas téléverser des fichiers de ce type.",
+    dictResponseError: "Le serveur a répondu avec une erreur.",
+    dictCancelUpload: "Annuler l'envoi",
+    dictCancelUploadConfirmation: "Êtes-vous sûr de vouloir annuler cet envoi ?",
+    dictRemoveFile: "Supprimer le fichier",
+    dictRemoveFileConfirmation: null,
+    init: function() {
+        this.on("success", function(file, response) {
+            if(response.status === 'success') {
+                alert(response.message); // Message de réussite
+               
+            }
+        });
+
+        this.on("error", function(file, response) {
+            if(response.status === 'error') {
+                alert(response.message); // Message d'erreur
+            }
+        });
+      
+            this.on("totaluploadprogress", function(progress) {
+                document.querySelector("#progress .progress-bar").style.width = progress + "%";
+            });
+            this.on("queuecomplete", function() {
+                document.querySelector("#progress .progress-bar").style.width = "0%";
+            });
+    }
+};
+@endsection
+
 @section('fullscripts')
 <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
+
 <script>
 $(document).ready(function() {
     var hash = window.location.hash;
@@ -200,20 +241,6 @@ $('#save-info-button').click(function() {
 
 </div>
 
-<script>
-
-
-    function toggleEdit(id) {
-        let input = document.getElementById(id);
-        if (input.readOnly) {
-            input.readOnly = false;
-            input.focus();
-            document.getElementById('saveChangesBtn').style.display = 'block';
-        } else {
-            input.readOnly = true;
-        }
-    }
-</script>
 
 </div>
 @if ($user->whoiam_id == 2)
@@ -260,6 +287,13 @@ $('#save-info-button').click(function() {
 
                             <button type="button" id="save-info-button" class="btn btn-primary">Save</button>
                         </form>
+                        <form action="{{ route('addimageprofil') }}" class="dropzone" id="myDropzone">
+                            @csrf
+                            <input type="hidden" id="spotid" name="spotid" value="{{$spot->id}}">
+                        </form>
+                       <div id="progress" class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
 
 
                     </div>

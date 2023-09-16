@@ -89,7 +89,7 @@ Route::middleware('auth','verified')->group(function () {
     Route::post('/update-photographer-info', [UserController::class, 'updatePhotographerInfo'])
     ->name('update.photographer.info');
     Route::get('/get-photographer-info', [UserController::class, 'getPhotographerInfo'])->name('get.photographer.info');
-   
+    Route::post('/addimageprofil', [UserController::class, 'updatePhotoProfil'])->name('addimageprofil');
 });
 
 Route::get('language/{locale}', function ($locale) {

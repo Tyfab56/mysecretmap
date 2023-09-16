@@ -105,30 +105,7 @@ public function updatePhotographerInfo(Request $request)
    // Valdation de la banniere
 
 
-   $this->validate($request, [
-    'photographer_banner' => 'image|mimes:jpeg,jpg|max:2048',
-    ]);
-
-  if ($request->hasFile('photographer_banner')) {
-    $file = $request->file('photographer_banner');
-    $extension = $file->getClientOriginalExtension();
-    $imgname =  $user->id . "_profil.jpg; 
-
-    $disk = Storage::disk('wasabi');
-    $bucket = 'mysecretmap';  
-
-    // Process the image
    
-    $canvas = Image::canvas(1920,640);
-    $imagefinale = Image::make($file);
-    $canvas->insert($imagefinale, 'center');
-    $canvas->encode($extension);
-
-    // Save the image to Wasabi
-    $disk->put('/large/' . $imgname, (string) $canvas, 'public');
-    $user->photographer_banner = $disk->url('large/' . $imgname);
-
-    $user->save();
 
     $validatedData = $request->validate([
         'language' => 'required|in:en,fr', 
@@ -158,6 +135,105 @@ public function updatePhotographerInfo(Request $request)
   
     return back()->with('success', 'Vos informations de photographe ont été mises à jour avec succès.');
 }
+
+    public function updatePhotoProfil (Request $request)
+    {
+        try {
+            $validatedData = $request->validate(
+                [
+                    'file' => 'image|mimes:jpeg,jpg|max:2048',
+                ]
+            );
+
+            $iduser = Auth::id();
+            $file = $request->file('file');
+
+            if ($file == null) {
+                // pas de nouvelle image
+                $imagestatus = 0;
+            } else {
+                $disk = Storage::disk('wasabi');
+                $bucket = 'mysecretmap';
+
+                // Supression des anciennes images
+            if ($user->large_banner)  
+            {
+                $filelarge = parse_url($user->large_banner);
+                $disk->delete($filelarge);
+
+            }
+            if ($user->small_banner)  
+            {
+                $filesmall= parse_url($user->small_banner);
+                $disk->delete($filesmall);
+
+            }
+        
+        
+                $extension = $file->getClientOriginalExtension();  
+                $imgname = $iduser . "_banner.jpg";
+
+                
+                // STOCKAGE IMAGE ORIGINALE
+
+
+                $width = 1920;
+                $height = 640 ;
+                $canvas = Image::canvas($width, $height);
+                $imagefinale  = Image::make($file);
+
+                $canvas->insert($imagefinale, 'center');
+                $canvas->encode($extension);
+
+                $disk->put('/large/' . $imgname, (string) $canvas, 'public');
+                $largename = $disk->url('large/' . $imgname);
+
+                // STOCKAGE IMAGE SMALL
+                if ($mw > $mh) {
+                    $width = 130;
+                    $height = round((130 * $mh) / $mw);
+                } else {
+                    $height = 130;
+                    $width = round((130 * $mw) / $mh);
+                }
+
+                $canvas = Image::canvas($width, $height);
+                $imagesmallfinale  = Image::make($file)->resize(
+                    $width,
+                    $height,
+                    function ($constraint) {
+                        $constraint->aspectRatio();
+                    }
+                );
+                $canvas->insert($imagesmallfinale, 'center');
+                $canvas->encode($extension);
+                $disk->put('/small/' . $imgname, (string) $canvas, 'public');
+                $smallname = $disk->url('small/' . $imgname);
+
+                // MEMORISATION BD
+
+            
+                $user->large_banner = $largename;
+                $user->small_baner = $smallname;
+                $user->save();
+            }
+            return response()->json([
+                'status' => 'success',
+                'large_banner' => $largename,
+                'small_banner' => $smallname,
+                'message' => 'Image de profil mise à jour avec succès!'
+            ]);
+        } catch (\Exception $e) {
+            // En cas d'erreur :
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Une erreur est survenue lors du téléchargement de l\'image: ' . $e->getMessage()
+            ], 500);
+        }
+        
+        
+        
+    }
 
 public function getPhotographerInfo(Request $request)
     {
