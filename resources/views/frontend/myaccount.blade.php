@@ -153,7 +153,7 @@ $('#save-info-button').click(function() {
                         @method('PUT')
 
                         <h2>{{ __('compte.ChoixProfil') }}</h2>
-                        <h5 >{ __('compte.ChoixProfilDesc') }}</h5>
+                        <h5 >{{ __('compte.ChoixProfilDesc') }}</h5>
                         <div class="radio-box">
 
 
