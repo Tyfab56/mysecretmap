@@ -255,7 +255,7 @@ $('#save-info-button').click(function() {
             <label for="mypays_id"><p><b>{{ __('compte.Pays') }} :</b></p> </label>
             <select name="mypays_id" id="mypays_id">
                 @foreach($pays as $pay)
-                    <option value="{{ $pay->id }}" @if($user->mypays_id == $pay->id) selected @endif>{{ $pay->pays }}</option>
+                    <option value="{{ $pay->pays_id }}" @if($user->mypays_id == $pay->pays_id) selected @endif>{{ $pay->pays }}</option>
                 @endforeach
             </select>
         </div>
