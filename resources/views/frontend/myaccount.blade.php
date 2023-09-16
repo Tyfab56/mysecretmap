@@ -613,7 +613,7 @@ button[type="submit"]:hover {
     max-width: 400px;   /* ou la valeur que vous souhaitez */
 }
 
-.dz-preview {
+.dropzone .dz-preview {
     width: 400px;  /* ou la valeur que vous souhaitez */
 }
 
