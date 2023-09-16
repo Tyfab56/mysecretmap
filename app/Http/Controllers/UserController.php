@@ -95,7 +95,7 @@ public function show($id)
     $user = User::findOrFail($id);
 
     // Récupération des photos associées à cet utilisateur avec pagination
-    $pictures = $user->pictures()->paginate(10);
+    $pictures = $user->pictures()->paginate(20);
 
     // Retour de la vue avec l'utilisateur et ses photos comme données
     return view('frontend.userprofil', compact('user', 'pictures'));
