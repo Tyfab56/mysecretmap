@@ -19,6 +19,7 @@ return [
     'name' => 'Name',
     'email' => 'Email',
     'password' => 'Password',
+    'Pays' => 'Country or destination of residence',
     'confirm' => 'Confirm password',
     'alreadyregistered' => 'Already registered?',
     'register' => 'Register',
