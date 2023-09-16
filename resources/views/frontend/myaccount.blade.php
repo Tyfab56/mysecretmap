@@ -310,7 +310,7 @@ $('#save-info-button').click(function() {
                             @csrf
                           
                         </form>
-                       <div id="progressbar" class="progress">
+                       <div id="progressbar" class="progress m5">
                         <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
                       </div>
 
@@ -634,7 +634,7 @@ button[type="submit"]:hover {
     width: 400px;  /* ou la valeur que vous souhaitez */
 }
 
-.dropzone .dz-preview:first-child .dz-progress {
+.dropzone .dz-preview .dz-progress {
     display: none;
 }
 </style>
