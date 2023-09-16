@@ -280,10 +280,7 @@ $('#save-info-button').click(function() {
                                 <textarea name="photographer_description" id="photographer_description" class="form-control"></textarea>
                             </div>
 
-                            <div class="form-group">
-                                <label for="photographer_banner">Photographer Banner:</label>
-                                <input type="file" name="photographer_banner" id="photographer_banner" class="form-control">
-                            </div>
+                           
 
                             <button type="button" id="save-info-button" class="btn btn-primary">Save</button>
                         </form>
