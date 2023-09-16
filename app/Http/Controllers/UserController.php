@@ -190,14 +190,10 @@ public function updatePhotographerInfo(Request $request)
                 $disk->put('/large/' . $imgname, (string) $canvas, 'public');
                 $largename = $disk->url('large/' . $imgname);
 
-                // STOCKAGE IMAGE SMALL
-                if ($mw > $mh) {
+                
                     $width = 130;
-                    $height = round((130 * $mh) / $mw);
-                } else {
-                    $height = 130;
-                    $width = round((130 * $mw) / $mh);
-                }
+                    $height = 43;
+              
 
                 $canvas = Image::canvas($width, $height);
                 $imagesmallfinale  = Image::make($file)->resize(
