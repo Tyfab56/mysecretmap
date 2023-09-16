@@ -12,7 +12,7 @@
 </div>
 <h2 class="user-title">{{ $user->title }}</h2>
 <p class="user-description">{{ $user->description }}</p>
-<div class="row">
+<div class="container">
 <div class="gridOverflow go-masonry">
 
     @foreach ($pictures as $picture)
