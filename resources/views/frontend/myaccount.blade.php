@@ -21,18 +21,18 @@ Dropzone.options.myDropzone = {
     init: function() {
         var dzInstance = this; 
 
-        @if(!empty($user->small_banner))
+        @if(!empty($user->large_banner))
         var mockFile = {
             name: "Image existante",
             size: 12345, 
             type: 'image/jpeg',
             status: Dropzone.ADDED,
-            url: '{{ $user->small_banner }}'
+            url: '{{ $user->large_banner }}'
         };
 
         this.files.push(mockFile);
         this.emit("addedfile", mockFile);
-        this.emit("thumbnail", mockFile, '{{ $user->small_banner }}');
+        this.emit("thumbnail", mockFile, '{{ $user->large_banner }}');
         @endif
 
         this.on("success", function(file, response) {
