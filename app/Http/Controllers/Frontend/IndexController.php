@@ -230,7 +230,7 @@ class IndexController extends Controller
         $user = Auth::user();
     
         // Chargement des pays actifs
-        $pays = Pays::all();  // ou utilisez votre méthode pour récupérer tous les pays
+        $pays = Pays::orderBy('pays', 'asc')->get();
 
         $payslist = Pays::where('actif', '=', 1)->orderBy('pays', 'asc')->get();
     
