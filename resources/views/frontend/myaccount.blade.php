@@ -605,9 +605,15 @@ button[type="submit"]:hover {
     opacity: 1;
     max-height: 200px; /* ajustez cette valeur selon la hauteur maximale que vous souhaitez pour le contenu */
 }
+.dz-image img {
+    width: 100%;    /* pour que l'image prenne toute la largeur de son conteneur */
+    height: auto;   /* pour maintenir le ratio d'aspect */
+    max-width: 400px;   /* ou la valeur que vous souhaitez */
+}
 
-
-
+.dz-preview {
+    width: 400px;  /* ou la valeur que vous souhaitez */
+}
 
 </style>
 
