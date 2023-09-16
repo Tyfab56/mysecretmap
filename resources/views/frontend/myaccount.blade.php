@@ -19,6 +19,21 @@ Dropzone.options.myDropzone = {
     dictRemoveFile: "Supprimer le fichier",
     dictRemoveFileConfirmation: null,
     init: function() {
+
+        @if(!empty($user->small_banner))
+        var mockFile = {
+            name: "Image existante",
+            size: 12345, // Taille fictive, vous pouvez la remplacer par la taille réelle si vous l'avez
+            type: 'image/jpeg',
+            status: Dropzone.ADDED,
+            url: '{{ $user->small_banner }}'
+        };
+
+        myDropzone.files.push(mockFile);
+        myDropzone.emit("addedfile", mockFile);
+        myDropzone.emit("thumbnail", mockFile, '{{ $user->small_banner }}');
+        @endif
+        
         this.on("success", function(file, response) {
             if(response.status === 'success') {
                 alert(response.message); 
@@ -284,6 +299,7 @@ $('#save-info-button').click(function() {
 
                             <button type="button" id="save-info-button" class="btn btn-primary">Save</button>
                         </form>
+                        <label for="myDropzone">Banner For Photographer page:</label>
                         <form action="{{ route('addimageprofil') }}" class="dropzone" id="myDropzone">
                             @csrf
                           
