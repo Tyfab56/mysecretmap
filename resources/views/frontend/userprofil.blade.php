@@ -12,25 +12,6 @@
 </div>
 <h2 class="user-title">{{ $user->title }}</h2>
 <p class="user-description">{{ $user->description }}</p>
-<div class="container">
-<div class="gridOverflow go-masonry">
-
-    @foreach ($pictures as $picture)
-    <a href="/destination/{{$picture->spot->pays_id}}/{{$picture->spot->id}}" class="go_gridItem">
-
-         <img src="{{ $picture->medium }}" /> 
-         <span class="go_caption go_caption-full">
-                {{ $picture->spot->name }}
-                
-         </span>
-    </a>
-    @endforeach
-
-    <div class="go_gridItem go_gridItem-centered" href="someURL">
-        <p> centered content - typically some text </p> 
-    </div>
-</div>
-<div class="row">{{ $pictures->links() }}</div>
 <div class="social-icons">
     @if($user->internet)
         <a href="{{ $user->internet }}" target="_blank" title="Website"><i class="fas fa-globe"></i></a>
@@ -60,6 +41,26 @@
         <a href="{{ $user->mastodon }}" target="_blank" title="Mastodon"><i class="fab fa-mastodon"></i></a>
     @endif
 </div>
+<div class="container">
+<div class="gridOverflow go-masonry">
+
+    @foreach ($pictures as $picture)
+    <a href="/destination/{{$picture->spot->pays_id}}/{{$picture->spot->id}}" class="go_gridItem">
+
+         <img src="{{ $picture->medium }}" /> 
+         <span class="go_caption go_caption-full">
+                {{ $picture->spot->name }}
+                
+         </span>
+    </a>
+    @endforeach
+
+    <div class="go_gridItem go_gridItem-centered" href="someURL">
+        <p> centered content - typically some text </p> 
+    </div>
+</div>
+<div class="row">{{ $pictures->links() }}</div>
+
 
 </div>
 <style>
