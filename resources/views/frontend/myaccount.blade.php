@@ -634,6 +634,9 @@ button[type="submit"]:hover {
     width: 400px;  /* ou la valeur que vous souhaitez */
 }
 
+.dropzone .dz-preview:first-child .dz-progress {
+    display: none;
+}
 </style>
 
 @endauth
