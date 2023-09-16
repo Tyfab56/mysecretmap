@@ -606,7 +606,10 @@ button[type="submit"]:hover {
     max-height: 200px; /* ajustez cette valeur selon la hauteur maximale que vous souhaitez pour le contenu */
 }
 
-
+.dropzone .dz-preview .dz-image {
+    width: 100%;
+    height: 100%;
+}
 .dropzone .dz-preview .dz-image img {
     width: 100%;    /* pour que l'image prenne toute la largeur de son conteneur */
     height: auto;   /* pour maintenir le ratio d'aspect */
