@@ -7,6 +7,8 @@ return [
     "MesReseaux" => "Mes réseaux sociaux",
     "MesCircuits" => "Mes circuits",
     "Name"=>"Nom",
+    "ChoixProfil"=>"Choix du profil",
+    "ChoixProfilDesc"=>"Le profil permet de paramètrer l'affichage de certaines zones en fonction de votre intérêt",
     "Prenom"=>"Prénom",
     "Email"=>"Email",
     "Pays"=>"Pays ou Région",

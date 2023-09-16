@@ -9,6 +9,8 @@ return [
     "Name"=>"Name",
     "Prenom"=>"First name", 
     "Email"=>"Email",
+    "ChoixProfil" => "Profile Choice",
+    "ChoixProfilDesc" => "The profile allows you to configure the display of certain areas based on your interest",
     "Pays" => "Country or Region",
     "Pseudo"=>"Nickname",
     "Facebook"=>"Facebook",

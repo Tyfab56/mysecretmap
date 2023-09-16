@@ -152,8 +152,10 @@ $('#save-info-button').click(function() {
                         @csrf
                         @method('PUT')
 
-                        <h2>Choix du profil</h2>
-                        <h5 >Le profil permet de paramètrer l'affichage de certaines zones en fonction de votre intérêt</h5>
+                        <h2>{{ __('compte.ChoixProfil') }}</h2>
+                        <h5 >{ __('compte.ChoixProfilDesc') }}</h5>
+                        <div class="radio-box">
+
 
                         @foreach($whoiams as $whoiam)
                                 <div class="form-check ml-5">
@@ -170,7 +172,7 @@ $('#save-info-button').click(function() {
                                 </div>
                         @endforeach
 
-
+                        </div>
 
 
                 </form>
@@ -508,6 +510,16 @@ $('#save-info-button').click(function() {
     </div>
 </section>
 <style>
+
+.radio-box {
+    border: 1px solid #e0e0e0;  /* bordure grise */
+    padding: 20px;              /* espace intérieur */
+    border-radius: 10px;        /* coins arrondis */
+    background-color: #f9f9f9; /* couleur de fond légèrement grise */
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.1); /* ombre subtile */
+    margin: 20px 0;            /* espace extérieur, à ajuster selon les besoins */
+}
+
     .center-flex {
     display: flex;
     align-items: center;
