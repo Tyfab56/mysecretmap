@@ -32,6 +32,17 @@
                 <x-input-error :messages="$errors->get('email')" class="mt-2" />
             </div>
 
+            <!-- Pays Selection -->
+            <div class="mt-4">
+                <x-input-label for="mypays_id" :value="__('auth.pays')" />
+                <x-select-input id="mypays_id" name="mypays_id" required>
+                    @foreach($pays as $pay)
+                        <option value="{{ $pay->pays_id }}">{{ $pay->pays }}</option>
+                    @endforeach
+                </x-select-input>
+                <x-input-error :messages="$errors->get('mypays_id')" class="mt-2" />
+            </div>
+
             <!-- Password -->
             <div class="mt-4">
                 <x-input-label for="password" :value="__('auth.password')" />
