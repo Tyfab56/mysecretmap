@@ -605,6 +605,12 @@ button[type="submit"]:hover {
     opacity: 1;
     max-height: 200px; /* ajustez cette valeur selon la hauteur maximale que vous souhaitez pour le contenu */
 }
+.dropzone .dz-preview.dz-image-preview {
+
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
 
 .dropzone .dz-preview .dz-image {
     width: 100%;
@@ -614,6 +620,7 @@ button[type="submit"]:hover {
     width: 100%;    /* pour que l'image prenne toute la largeur de son conteneur */
     height: auto;   /* pour maintenir le ratio d'aspect */
     max-width: 400px;   /* ou la valeur que vous souhaitez */
+    margin-bottom: 0;
 }
 
 .dropzone .dz-preview {
