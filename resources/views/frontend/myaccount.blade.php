@@ -7,8 +7,8 @@
 // Initialisation de Dropzone
 Dropzone.options.myDropzone = {
     paramName: "file",
-    maxFilesize: 2, // Taille maximale des fichiers en Mo
-    acceptedFiles: ".jpeg,.jpg, // Extensions autorisées
+    maxFilesize: 2, 
+    acceptedFiles: ".jpeg,.jpg", 
     dictDefaultMessage: "Glissez-déposez vos fichiers ici ou cliquez pour sélectionner",
     dictFallbackMessage: "Votre navigateur ne supporte pas le glisser-déposer de fichiers.",
     dictFileTooBig: "Le fichier est trop volumineux. Taille maximale autorisée : 20Mo.",
