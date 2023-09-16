@@ -140,7 +140,7 @@ public function updatePhotographerInfo(Request $request)
     return back()->with('success', 'Vos informations de photographe ont été mises à jour avec succès.');
 }
 
-    public function updatePhotoProfil (Request $request)
+public function updatePhotoProfil (Request $request)
     {
         try {
             $validatedData = $request->validate(
@@ -236,7 +236,8 @@ public function updatePhotographerInfo(Request $request)
         
     }
 
-public function getPhotographerInfo(Request $request)
+
+    public function getPhotographerInfo(Request $request)
     {
         // Récupérez la langue sélectionnée depuis la requête
         $selectedLanguage = $request->input('language');

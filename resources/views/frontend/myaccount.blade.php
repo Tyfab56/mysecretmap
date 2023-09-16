@@ -250,7 +250,20 @@ $('#save-info-button').click(function() {
             {{ $message }}
         </div>
         @enderror
-
+        <!-- Pays Selection -->
+        <div class="input-w">
+            <label for="mypays_id"><p><b>{{ __('compte.Pays') }} :</b></p> </label>
+            <select name="mypays_id" id="mypays_id">
+                @foreach($pays as $pay)
+                    <option value="{{ $pay->id }}" @if($user->mypays_id == $pay->id) selected @endif>{{ $pay->nom }}</option>
+                @endforeach
+            </select>
+        </div>
+        @error('mypays_id')
+        <div class="text-right text-danger">
+            {{ $message }}
+        </div>
+        @enderror
     
 
         <!-- Save Button -->

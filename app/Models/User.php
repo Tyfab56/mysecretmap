@@ -45,6 +45,7 @@ class User extends Authenticatable implements MustVerifyEmail, TranslatableContr
         'mastodon',
         'large_banner',
         'small_banner',
+        'mypays_id',
 
         
     ];
@@ -101,5 +102,10 @@ class User extends Authenticatable implements MustVerifyEmail, TranslatableContr
     public function pictures()
     {
         return $this->hasMany(Pictures::class);
+    }
+
+    public function pays()
+    {
+        return $this->belongsTo(Pays::class, 'mypays_id', 'pays_id');
     }
 }

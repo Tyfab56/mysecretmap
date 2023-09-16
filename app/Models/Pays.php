@@ -29,4 +29,9 @@ class Pays extends Model implements TranslatableContract
     {
         return $this->hasMany(Spots::class, 'pays_id', 'pays_id');
     }
+
+    public function users()
+    {
+        return $this->hasMany(User::class, 'mypays_id', 'pays_id');
+    }
 }

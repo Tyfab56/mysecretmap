@@ -230,12 +230,14 @@ class IndexController extends Controller
         $user = Auth::user();
     
         // Chargement des pays actifs
-        $payslist = Pays::where('actif', '=', 1)->orderBy('pays', 'asc')->get();
+        $pays = Pays::all();  // ou utilisez votre méthode pour récupérer tous les pays
+
+        //$payslist = Pays::where('actif', '=', 1)->orderBy('pays', 'asc')->get();
     
         // Récupération des profils et de leurs traductions
         $whoiams = Whoiam::with('translations')->get();
     
-        return view('frontend/myaccount', compact('user', 'payslist', 'whoiams'));
+        return view('frontend/myaccount', compact('user', 'pays', 'whoiams'));
     }
 
     public function addimagespotstore(Request $request)
