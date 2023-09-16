@@ -510,8 +510,7 @@ $('#save-info-button').click(function() {
 <style>
     .center-flex {
     display: flex;
-    justify-content: center;
-
+    align-items: center;
     flex-direction: column; /* pour garder les éléments en colonne */
 }
 
