@@ -88,11 +88,9 @@
   
     </div>
 </section> 
-  
- 
-  <section id="ts-features" class="ts-features">
+<section id="ts-features" class="ts-features">
     <div class="container">
-    <div class="row">
+      <div class="row">
         <div class="col-lg-12">
           <div class="ts-intro">
              <div class="title-and-button">
@@ -104,6 +102,24 @@
         </div> 
 
       </div>
+
+      <div class="swiper">
+        <div class="swiper-wrapper">
+        @foreach($lastspots as $spot)
+        <div class="swiper-slide">
+          <a href="{{ url('destination') }}/{{$spot->pays_id }}/{{ $spot->id }}"> <img class="imgbox" onClick="" src="{{ $spot->imgsquaremedium }}"></a>
+            <div class="bottom-center">
+              <span class="textbox"><b>{{ $spot->name }}</b></span>
+           </div>
+        </div>
+        @endforeach
+      </div>
+
+    </div>
+  </section>
+ 
+  <section id="ts-features" class="ts-features">
+    <div class="container">
         <div class="row">
           <!--/ Choix des destinations --> 
           <div class="col-lg-3">
@@ -143,24 +159,7 @@
     </div>   
   </section>
 
-  <section id="ts-features" class="ts-features">
-    <div class="container">
-     
 
-      <div class="swiper">
-        <div class="swiper-wrapper">
-        @foreach($lastspots as $spot)
-        <div class="swiper-slide">
-          <a href="{{ url('destination') }}/{{$spot->pays_id }}/{{ $spot->id }}"> <img class="imgbox" onClick="" src="{{ $spot->imgsquaremedium }}"></a>
-            <div class="bottom-center">
-              <span class="textbox"><b>{{ $spot->name }}</b></span>
-           </div>
-        </div>
-        @endforeach
-      </div>
-
-    </div>
-  </section>
   <section id="ts-features" class="ts-features">
     <div class="container">
       <div class="row">
