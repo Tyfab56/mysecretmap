@@ -92,6 +92,18 @@
  
   <section id="ts-features" class="ts-features">
     <div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+          <div class="ts-intro">
+             <div class="title-and-button">
+                <h3 class="into-sub-title">{{ __('index.LastSpots') }}</h3>
+                 <a class="btn btn-primary indexbtn" href="{{ url('thewall') }}/{{ $idpays}}"">{{ __('destination.VoirAllSpots') }}</a>
+             </div>
+             <p>{{ __('index.LastSpotsDesc') }}</p> 
+          </div>
+        </div> 
+
+      </div>
         <div class="row">
           <!--/ Choix des destinations --> 
           <div class="col-lg-3">
@@ -133,18 +145,7 @@
 
   <section id="ts-features" class="ts-features">
     <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="ts-intro">
-             <div class="title-and-button">
-                <h3 class="into-sub-title">{{ __('index.LastSpots') }}</h3>
-                 <a class="btn btn-primary indexbtn" href="{{ url('thewall') }}/{{ $idpays}}"">{{ __('destination.VoirAllSpots') }}</a>
-             </div>
-             <p>{{ __('index.LastSpotsDesc') }}</p> 
-          </div>
-        </div> 
-
-      </div>
+     
 
       <div class="swiper">
         <div class="swiper-wrapper">
