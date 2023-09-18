@@ -1,16 +1,16 @@
 @extends('frontend.main_master')
 @section('content')
 <div class="banner">
-    <img src="path-to-your-image.jpg" alt="Image de destination touristique" class="banner-image">
+    <img src="banner-tourism-1.jpg" alt="My Secret Map" class="banner-image">
     <div class="banner-content">
-        <h1>Boostez le tourisme dans votre région</h1>
-        <p>Des solutions numériques innovantes pour mettre en valeur votre destination.</p>
+        <h1>Faites rayonner votre destination </h1>
+        <p>Révélez vous avec nos solutions numériques innovantes</p>
     </div>
 </div>
 <section class="presentation-section">
     <h2>Qui sommes-nous?</h2>
     <p class="description">
-        Au cœur de notre mission, une passion : le tourisme. Fondée par une équipe d'experts en promotion touristique, notre entreprise s'est donnée pour objectif de valoriser chaque destination dans toute sa singularité. Nous croyons que chaque lieu recèle une histoire, une culture, et une ambiance qui méritent d'être partagées et célébrées. Grâce à nos solutions numériques innovantes, nous offrons aux offices du tourisme les outils nécessaires pour mettre en lumière leur région et attirer un public toujours plus vaste. Car pour nous, promouvoir le tourisme, c'est aussi participer à la préservation et à la transmission d'un patrimoine.
+    Chez My Secret Map, le tourisme est plus qu'une mission : c'est une passion. Née de spécialistes en promotion touristique, notre vision est simple : chaque destination est unique. Chaque coin du monde a son histoire, sa culture, sa magie. Avec nos outils numériques avant-gardistes, nous aidons les offices du tourisme à dévoiler cette magie et à toucher un plus grand nombre de voyageurs. 
     </p>
 </section>
 
