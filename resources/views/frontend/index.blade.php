@@ -138,7 +138,7 @@
               
             </div>
             <div class="col-lg-3">
-              <a class="btn btn-primary indexbtn" href="{{ url('thewall') }}/{{ $idpays}}"">{{ __('destination.VoirAllSpots') }}</a>
+            
             </div>
        </div>
        <!--/ carte avec les destinations -->
