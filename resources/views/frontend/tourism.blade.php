@@ -1,7 +1,7 @@
 @extends('frontend.main_master')
 @section('content')
 <div class="banner">
-    <img src="banner-tourism-1.jpg" alt="My Secret Map" class="banner-image">
+    <img src="{{asset('frontend/assets/images/blog/banner-tourism-1.jpg')}}" alt="My Secret Map" class="banner-image">
     <div class="banner-content">
         <h1>Faites rayonner votre destination </h1>
         <p>Révélez vous avec nos solutions numériques innovantes</p>
