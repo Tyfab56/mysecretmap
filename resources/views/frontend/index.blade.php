@@ -26,9 +26,9 @@
           </div>
 
           <div class="col-lg-5 cold-md-12 bgbox p5">
-          <h5 class="section-sub-title white" style="max-height: 300px">{{__('index.TitreVideo')}}</h5>
-          {!!__('index.CodeVideo')!!}
-          <a class="linkorange white"><p class="pt5">{{__('index.LienVideo')}}</p></a>
+          <h5 class="section-sub-title white" style="max-height: 300px">{{__('index.Charly1')}}</h5>
+          {!!__('index.Charly2')!!}
+          <a class="linkorange white"><p class="pt5">{{__('index.Charly3')}}</p></a>
           </div>
       </div>
       <!--/ Title row end -->
