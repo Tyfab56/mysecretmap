@@ -42,7 +42,7 @@ return [
     "ChoixPointDesc" => "TO DISCOVER THE FIRST INFORMATION, THEN CLICK ON 'EXPLORE THE SPOT'.",
     "Charly1"=>"Charly is here",
     "Charly2"=>"Charly knows the best places, the most beautiful spots, the lesser-known locations, as well as anecdotes and legends. He will advise you on your photos and on using a drone for each destination. Charly accompanies you and optimizes your trip.",
-    "Charly3"=>"Charly, your digital exploration assistant",
+    "Charly3"=>"Charly, assistant and audioguide",
     'NoAccess' => "You have no accesss here",
     'LastSpots' => "Last Spots",
     "LastSpotsDesc" => "Scroll through the thumbnails or click directly on the image to open the page for this spot",
