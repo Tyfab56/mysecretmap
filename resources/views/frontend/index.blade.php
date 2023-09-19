@@ -18,18 +18,21 @@
 <section id="news" class="news">
     <div class="container">
       <div class="row text-center">
-          <div class="col-lg-7 col-md-12">
+          <div class="col-lg-6 col-md-12">
             <h2 class="section-sub-title">{{__('index.Top1Line1')}}</h2>
             <h3 class="section-sub-title">{{__('index.Top1Line2')}}</h3>
             <h6 >{{__('index.Top1Line3')}}</h6>
             <h6 class="darkgray" >{{__('index.Top1Line4')}}</h6>
           </div>
 
-          <div class="col-lg-5 cold-md-12 bgbox p5">
+          <div class="col-lg-4 cold-md-12 bgbox p5">
           <h5 class="section-sub-title white" style="max-height: 300px">{{__('index.Charly1')}}</h5>
           <p class="white">{!!__('index.Charly2')!!}</p>
           <a class="linkorange white"><p class="pt5">{{__('index.Charly3')}}</p></a>
           </div>
+          <div class="col-lg-2 col-md-12">
+        <img src="{{ asset('frontend/assets/frontend/images/bloc/charly1.jpg')}}" alt="charly" class="img-fluid"> <!-- Remplacez 'chemin_vers_votre_image.jpg' par le chemin vers votre image -->
+    </div>
       </div>
       <!--/ Title row end -->
   
