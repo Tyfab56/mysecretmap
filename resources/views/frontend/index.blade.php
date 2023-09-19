@@ -31,7 +31,7 @@
           <a class="linkorange white"><p class="pt5">{{__('index.Charly3')}}</p></a>
           </div>
           <div class="col-lg-2 col-md-12">
-        <img src="{{ asset('frontend/images/blog/charly1.jpg')}}" alt="charly" class="img-fluid"> <!-- Remplacez 'chemin_vers_votre_image.jpg' par le chemin vers votre image -->
+        <img src="{{ asset('frontend/assets/images/blog/charly1.jpg')}}" alt="charly" class="img-fluid"> <!-- Remplacez 'chemin_vers_votre_image.jpg' par le chemin vers votre image -->
     </div>
       </div>
       <!--/ Title row end -->

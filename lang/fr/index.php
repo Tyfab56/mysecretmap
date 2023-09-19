@@ -61,7 +61,7 @@ return [
     "More" => "En savoir plus",
     "Audioguide" => "Audioguides",
     "Charly1"=>"Charly est là ",
-    "Charly2"=>"Charly Charly connaît les meilleurs endroits, les plus beaux spots, les lieux peu connus, ainsi que les anecdotes et légendes. Il saura vous conseiller pour vos photos et pour utiliser un drone pour chaque destination. Charly vous accompagne et optimise votre voyage.",
+    "Charly2"=>"Charly connaît les meilleurs endroits, les plus beaux spots, les lieux peu connus, ainsi que les anecdotes et légendes. Il saura vous conseiller pour vos photos et pour utiliser un drone pour chaque destination. Charly vous accompagne et optimise votre voyage.",
     "Charly3"=>"Charly, votre assistant numérique d'exploration ",
     "NousSoutenir" => "Nous Soutenir",
     "NousSoutenirDesc" => "Pour vous investir et ouvrir de nouveaux spots :",
