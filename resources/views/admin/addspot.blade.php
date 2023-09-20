@@ -20,7 +20,7 @@
                         <div class="col-12">
                             @if (Session::get('typeaction') == 'edit')
 
-                            <h3>Modification du spot</h3>
+                            <a href="/destination/{($spot->pays_id)}}/{($spot->id)}}"><h3>Modification du spot</h3></a>
                             
 
                             @else
@@ -28,6 +28,7 @@
                             <h3>Création du spot</h3>
 
                             @endif
+
                             @if (session('message'))
                                 <div class="alert alert-success">
                                     {{ session('message') }}
