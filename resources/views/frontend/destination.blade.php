@@ -75,7 +75,7 @@
             </div>
               <div class="col-lg-3 bgbox"> 
               @if($spot->audioguide)
-                  oH
+                       $spot->audioguide
               @endif
                 <livewire:show-map-spot />
             </div>
