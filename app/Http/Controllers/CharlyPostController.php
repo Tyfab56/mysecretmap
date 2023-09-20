@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\CharlyPost; 
+use App\Models\CharlyPostTranslation;
 
 class CharlyPostController extends Controller
 {
