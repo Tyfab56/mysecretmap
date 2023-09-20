@@ -114,6 +114,10 @@
                                 <input type="checkbox" class="form-check-input" id="payant" name="payant" value="{{$spot->parkingpayant}}" @if ($spot->parkingpayant == 1) checked @endif>
                                 <label class="form-check-label" for="payant">Parking Payant</label>
                             </div>
+                            <div class="form-group">
+                                <input type="checkbox" class="form-check-input" id="audioguide" name="audioguide" value="{{$spot->audioguide}}" @if ($spot->audioguide == 1) checked @endif>
+                                <label class="form-check-label" for="payant">Audioguide</label>
+                            </div>
 
                             <div class="form-group">
                                 <label class="info-title" for="titre">Image panoramique 3/1<span class="text-danger">*</span></label>

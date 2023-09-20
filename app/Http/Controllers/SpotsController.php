@@ -851,6 +851,7 @@ class SpotsController extends Controller
         $spot->userid = $id;
         $spot->actif = $actif;
         $spot->parkingpayant = $payant;
+        $spot->audioguide = $audioguide;
 
         // Positionner updategps si la position à changé pour recalculer le trajet
         if (round($latparking <> 0))

@@ -41,6 +41,7 @@ class Spots extends Model implements TranslatableContract
         'latparking',
         'lngparking',
         'parkingpayant',
+        'audioguide',
 
     ];
 
