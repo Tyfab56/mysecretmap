@@ -12,6 +12,7 @@ use App\Http\Controllers\TimelineController;
 use App\Http\Controllers\ApiController;
 use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\Frontend\DestinationController;
+use App\Http\Controllers\CharlyPostController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StoreController;
 use App\Http\Controllers\TestController;
@@ -34,7 +35,7 @@ Route::get('/instructions', [IndexController::class, 'instructions'])->name('ins
 Route::get('/api/check-product', [ApiController::class, 'checkProduct'])->middleware('App\Http\Middleware\CorsMiddleware');
 Route::post('/api/check-product', [ApiController::class, 'checkProduct']);
 Route::get('/users/{id}', [UserController::class, 'show'])->name('users.show');
-Route::get('/charly-posts/{pays_id}', 'CharlyPostController@index')->name('charly_posts');
+Route::get('/charly-posts/{pays_id}', [CharlyPostController::class, 'index'])->name('charly_posts');
 
 
 
