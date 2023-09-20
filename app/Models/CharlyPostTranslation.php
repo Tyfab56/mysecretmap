@@ -14,7 +14,7 @@ class CharlyPostTranslation extends Model
     public $timestamps = false;
 
     protected $fillable = [
-        'charly_post_id',
+        'post_id',
         'locale',
         'titre',
         'description',
