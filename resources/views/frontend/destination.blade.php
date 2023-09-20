@@ -74,6 +74,9 @@
                 </div>
             </div>
               <div class="col-lg-3 bgbox"> 
+                @if {{$spot->audioguide}}
+                oH 
+                @endif
                 <livewire:show-map-spot />
             </div>
         </div>
