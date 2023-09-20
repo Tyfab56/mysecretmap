@@ -116,7 +116,7 @@
                             </div>
                             <div class="form-group">
                                 <input type="checkbox" class="form-check-input" id="audioguide" name="audioguide" value="{{$spot->audioguide}}" @if ($spot->audioguide == 1) checked @endif>
-                                <label class="form-check-label" for="payant">Audioguide</label>
+                                <label class="form-check-label" for="audioguide">Audioguide</label>
                             </div>
 
                             <div class="form-group">

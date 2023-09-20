@@ -277,6 +277,8 @@ class SpotsController extends Controller
 
         $actif = $request->has('actif');
         $payant = $request->has('payant');
+        $audioguide = $request->has('audioguide');
+        
         // traitement de imgpano
         // Test existence d'une nouvelle image
 
