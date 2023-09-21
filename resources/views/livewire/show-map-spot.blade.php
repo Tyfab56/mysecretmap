@@ -10,9 +10,11 @@
               <p>{{ __('destination.pubaudio2') }}</p>
 
               <!-- Bouton -->
+              <div class="center">
               <a href="{{ route('tostore') }}">
-                  <button type="button">{{ __('destination.pubaudio3') }}</button>
+                  <button type="button" class="orange">{{ __('destination.pubaudio3') }}</button>
               </a>
+              </div>
       @endif
     <div class="mt-3 white img-relative"> 
       <a href="{{$spot->imgpanolarge??''}}" data-lightbox="pano"><img src="{{$spot->imgpanomedium??''}}" class="max100 mb5 responsive intense" >
