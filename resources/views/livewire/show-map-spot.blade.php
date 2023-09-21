@@ -1,7 +1,18 @@
 <div class="f13 white">
     @if(($spot->audioguide == 1))
-                       <h1>Audioguide</h1>
-              @endif
+                  <h1>{{ __('destination.pubaudio1') }}</h1>
+
+              <!-- Petite image -->
+              <img src="{{asset('frontend/assets/images/tostore.png')}}" alt="Store" width="200">
+
+              <!-- Texte -->
+              <p>{{ __('description.pubaudio2') }}</p>
+
+              <!-- Bouton -->
+              <a href="{{ route('tostore') }}">
+                  <button type="button">{{ __('description.pubaudio3') }}</button>
+              </a>
+      @endif
     <div class="mt-3 white img-relative"> 
       <a href="{{$spot->imgpanolarge??''}}" data-lightbox="pano"><img src="{{$spot->imgpanomedium??''}}" class="max100 mb5 responsive intense" >
       <img src="{{asset('frontend/assets/images/zoom.png')}}" id="imgloupe">

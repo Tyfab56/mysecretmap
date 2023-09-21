@@ -29,4 +29,7 @@ return [
     "proximite" => "Spots à proximité",
     "NosCircuits" => "Nos circuits",
     "VosCircuits" => "Vos circuits",
+    "pubaudio1" => "Le bon plan !",
+    "pubaudio2" => "Découvrez l'histoire de ce spot  : mettez Charly, notre audioguide, dans vos bagages,. D'autres spots sont à découvrir dans le secteur, ne passez pas à côté. ",
+    "pubaudio3" => "Découvrez l'audioguide",
 ];
