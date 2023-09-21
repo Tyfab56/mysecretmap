@@ -3,8 +3,9 @@
                   <h1>{{ __('destination.pubaudio1') }}</h1>
 
               <!-- Petite image -->
-              <img src="{{asset('frontend/assets/images/tostore.png')}}" alt="Store" width="200">
-
+              <div class="center">
+                   <img src="{{asset('frontend/assets/images/tostore.png')}}" alt="Store" width="200">
+              </div>
               <!-- Texte -->
               <p>{{ __('destination.pubaudio2') }}</p>
 
