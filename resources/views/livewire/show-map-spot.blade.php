@@ -6,11 +6,11 @@
               <img src="{{asset('frontend/assets/images/tostore.png')}}" alt="Store" width="200">
 
               <!-- Texte -->
-              <p>{{ __('description.pubaudio2') }}</p>
+              <p>{{ __('destination.pubaudio2') }}</p>
 
               <!-- Bouton -->
               <a href="{{ route('tostore') }}">
-                  <button type="button">{{ __('description.pubaudio3') }}</button>
+                  <button type="button">{{ __('destination.pubaudio3') }}</button>
               </a>
       @endif
     <div class="mt-3 white img-relative"> 
