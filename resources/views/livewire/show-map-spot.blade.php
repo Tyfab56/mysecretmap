@@ -1,4 +1,7 @@
 <div class="f13 white">
+    @if(($spot->audioguide == 1))
+                       <h1>Audioguide</h1>
+              @endif
     <div class="mt-3 white img-relative"> 
       <a href="{{$spot->imgpanolarge??''}}" data-lightbox="pano"><img src="{{$spot->imgpanomedium??''}}" class="max100 mb5 responsive intense" >
       <img src="{{asset('frontend/assets/images/zoom.png')}}" id="imgloupe">

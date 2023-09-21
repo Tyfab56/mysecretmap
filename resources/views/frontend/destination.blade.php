@@ -74,10 +74,8 @@
                 </div>
             </div>
               <div class="col-lg-3 bgbox"> 
-              @if(($spot->audioguide == 1))
-                       <h1>Audioguide</h1>
-              @endif
-                <livewire:show-map-spot />
+             
+              <livewire:show-map-spot />
             </div>
         </div>
        
