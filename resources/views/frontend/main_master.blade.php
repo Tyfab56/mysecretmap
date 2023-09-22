@@ -281,7 +281,7 @@
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Admin <i class="fa fa-angle-down"></i></a>
                         <ul class="dropdown-menu" role="menu">
                              <li><a class="dropdown-item" href="{{ route('admin.listspots') }}"> Tableaux de bord</a></li>
-                             <li><a class="dropdown-item" href="{{ route('admin.listspots') }}"> Gestion Spots</a></li>
+                             <li><a class="dropdown-item" href="{{ route('admin.charly-posts.listposts') }}"> Gestion Charly Posts</a></li>
                              <li><a class="dropdown-item" href="{{ route('admin.circuits') }}"> Gestion Circuits</a></li>
                              <li><a class="dropdown-item" href="{{ route('admin.createzoom') }}">image Zoom</a></li>
                              <li><a class="dropdown-item" href="{{ route('admin.timeline') }}">Timeline</a></li>

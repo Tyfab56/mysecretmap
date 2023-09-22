@@ -102,7 +102,19 @@ Route::get('language/{locale}', function ($locale) {
 });
 Route::get('lang/{lang}', [LanguageController::class, 'switchLang'])->name('lang.switch');
 
+// Route charly-posts
+// Enregistrer un nouveau CharlyPost
+Route::post('/admin/charly-posts', [CharlyPostController::class, 'store'])->name('admin.charly-posts.store')->middleware('App\Http\Middleware\CheckAdmin');
+Route::get('/admin/charly-posts/create', [CharlyPostController::class, 'create'])->name('admin.charly-posts.create')->middleware('App\Http\Middleware\CheckAdmin');
+// Afficher la liste des CharlyPost
+Route::get('/admin/charly-posts', [CharlyPostController::class, 'listpost'])->name('admin.charly-posts.listposts');
+// Afficher un CharlyPost unique
+Route::get('/admin/charly-posts/{id}', [CharlyPostController::class, 'show'])->name('admin.charly-posts.show');
+// Afficher le formulaire de modification
+Route::get('/admin/charly-posts/{id}/edit', [CharlyPostController::class, 'edit'])->name('admin.charly-posts.edit');
 
+
+// Route Spots
 Route::get('/admin/listspots/', [SpotsController::class, 'index'])->name('admin.listspots')->middleware('App\Http\Middleware\CheckAdmin');
 Route::get('/admin/filterspots/', [SpotsController::class, 'filter'])->name('admin.filterspots')->middleware('App\Http\Middleware\CheckAdmin');
 Route::get('/admin/addspot', [SpotsController::class, 'addspot'])->name('admin.addspot')->middleware('App\Http\Middleware\CheckAdmin');
