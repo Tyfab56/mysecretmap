@@ -178,7 +178,9 @@
       <div class="gridOverflow go-masonry">
 
     @foreach ($pictures as $picture)
-    <a href="/destination/{{$picture->spot->pays_id}}/{{$picture->spot->id}}"class="go_gridItem">
+
+    <a href="{{ route('destination', ['id' => $picture->spot->pays_id, 'spotid' => $picture->spot->id]) }}" class="go_gridItem">
+
 
          <img src="{{ $picture->medium}}" /> 
          <span class="go_caption go_caption-full">
