@@ -516,13 +516,13 @@ class IndexController extends Controller
     {
         return view('frontend/photographers');
     }
-    public function medias()
+    public function medias($idspot)
     {
         // chargement des pays actif
         $pays = Pays::where('actif', '=', 1)->orderBy('pays', 'asc')->get();
+        //
+        return view('frontend/medias',compact('pays,$idspot'));
 
-        return view('frontend/medias',compact('pays'));
-        
     }
 
     public function benefits()

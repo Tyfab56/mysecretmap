@@ -63,13 +63,17 @@ Dropzone.options.myDropzone = {
     </div>
 </div>
 
-
+    @if ($idspot)
       <div class="row">
       <form action="{{ route('submitpicture') }}" class="dropzone" id="myDropzone">
               @csrf
               
           </form>
-</div>
+    </div>
+    @else
+    <div class="row">
+    </div>
+    @endif
 </div>
 </section>
 @endsection
