@@ -46,8 +46,8 @@ Dropzone.options.myDropzone = {
     <div class="row">
     <div class="col-md-6">
         <select id="countrySelect" name="country_id">
-            @foreach($pays as $pays)
-                <option value="{{ $country->id }}">{{ $country->name }}</option>
+            @foreach($pays as $pay)
+                <option value="{{ $pay->pays_id }}">{{ $pay->pays }}</option>
             @endforeach
         </select>
 
