@@ -7,7 +7,7 @@ use App\Models\User;
 use App\Models\Langs;
 use App\Models\Spots;
 use App\Models\Maps;
-
+use App\Models\PendingPicture;
 use App\Models\Typepoints;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
@@ -943,4 +943,32 @@ class SpotsController extends Controller
             return back()->with('message', 'Spot modifié');
         }
     }
+
+public function submitPicture(Request $request)
+{
+    $validatedData = $request->validate([
+        'spotid' => 'required|integer',
+        'file' => 'required|mimes:jpg,png,jpeg,gif|max:2048',
+    ]);
+
+    $spotId = $request->input('spotid');
+    $file = $request->file('file');
+
+    $filename = time() . '_' . $file->getClientOriginalName();
+    $file->storeAs('public/pending_pictures', $filename);  // Stockage dans un dossier séparé pour les images en attente
+
+    $pendingPicture = new PendingPicture([
+        'user_id' => auth()->id(),
+        'spot_id' => $spotId,
+        'filename' => $filename,
+    ]);
+    $pendingPicture->save();
+
+    return response()->json(['message' => 'Image uploaded and waiting for validation.']);
+}
+
+
+
+
+
 }

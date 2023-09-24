@@ -41,5 +41,14 @@ Dropzone.options.myDropzone = {
 
 @endsection
 @section('content')
-
+<section id="ts-features" class="ts-features">
+    <div class="container">
+      <div class="row">
+      <form action="{{ route('submitpicture') }}" class="dropzone" id="myDropzone">
+              @csrf
+              <input type="hidden" id="spotid" name="spotid" value="{{$spot->id}}">
+          </form>
+</div>
+</div>
+</section>
 @endsection

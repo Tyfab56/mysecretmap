@@ -46,6 +46,7 @@ class User extends Authenticatable implements MustVerifyEmail, TranslatableContr
         'large_banner',
         'small_banner',
         'mypays_id',
+        'pending_images_count',
 
         
     ];
