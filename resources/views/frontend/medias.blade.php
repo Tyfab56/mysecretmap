@@ -46,7 +46,7 @@ Dropzone.options.myDropzone = {
       <div class="row">
       <form action="{{ route('submitpicture') }}" class="dropzone" id="myDropzone">
               @csrf
-              <input type="hidden" id="spotid" name="spotid" value="{{$spot->id}}">
+              
           </form>
 </div>
 </div>
