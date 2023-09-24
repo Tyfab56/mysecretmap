@@ -41,6 +41,7 @@ Route::get('/charly-posts/{pays_id}', [CharlyPostController::class, 'index'])->n
 
 Route::get('/', [IndexController::class, 'index'])->name('home');
 Route::post('godestination', [IndexController::class, 'godestination'])->name('godestination');
+
 Route::get('nextdestinations', [IndexController::class, 'nextdestinations'])->name('nextdestinations');
 Route::get('whatsnext', [IndexController::class, 'whatsnext'])->name('whatsnext');
 Route::get('benefits', [IndexController::class, 'benefits'])->name('benefits');
@@ -60,6 +61,7 @@ Route::post('addimagespot/storedz', [IndexController::class, 'addimagespotstored
 
 Route::get('/listmarkers/{idpays}/{nelat}/{nelng}/{swlat}/{swlng}', [DestinationController::class, 'listmarkers'])->name('listmarkers');
 Route::get('/getzoom/{idspot}', [DestinationController::class, 'getzoom'])->name('getzoom');
+Route::get('/gallery/{idspot?}', [DestinationController::class, 'gallery'])->name('gallery');
 
 Route::get('/destination/{id}/{spotid?}', [DestinationController::class, 'index'])->name('destination');
 Route::get('/thewall/{idpays}', [DestinationController::class, 'thewall'])->name('thewall');

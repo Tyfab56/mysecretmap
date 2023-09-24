@@ -395,4 +395,22 @@ class DestinationController extends Controller
         $circuit = Circuits_Details::where('circuit_id','=','$idcircuit')->orderBy('rang')->get();
         return view('frontend/circuit',compact('circuit'));
     }
+
+    public function gallery($idspot)
+
+{
+    if ($idspot)
+    {
+        // Selectionnez unqiement ce spot
+        $pictures = Picture::where('spot_id', $idspot)->orderByDesc('id')->paginate(40);
+        return view('frontend.gallery', compact('pictures'));
+    }
+    else
+   {
+    $pictures = Picture::all()->orderByDesc('id')->paginate(40);
+    return view('frontend.gallery', compact('pictures'));
+
+   } 
+   
+}
 }
