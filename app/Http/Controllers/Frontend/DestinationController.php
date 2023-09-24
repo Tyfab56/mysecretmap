@@ -402,12 +402,12 @@ class DestinationController extends Controller
     if ($idspot)
     {
         // Selectionnez unqiement ce spot
-        $pictures = Picture::where('spot_id', $idspot)->orderByDesc('id')->paginate(40);
+        $pictures = Pictures::where('spot_id', $idspot)->orderByDesc('id')->paginate(40);
         return view('frontend.gallery', compact('pictures'));
     }
     else
    {
-    $pictures = Picture::all()->orderByDesc('id')->paginate(40);
+    $pictures = Pictures::all()->orderByDesc('id')->paginate(40);
     return view('frontend.gallery', compact('pictures'));
 
    } 
