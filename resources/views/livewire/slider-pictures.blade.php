@@ -14,7 +14,7 @@
     </a>
     @endforeach
   <div class="go_gridItem go_gridItem-centered" href="someURL"><p> </p> </div>
- 
+  {{ $pictures->links() }}
 </div>
-{{ $pictures->links() }}
+
 </div>
