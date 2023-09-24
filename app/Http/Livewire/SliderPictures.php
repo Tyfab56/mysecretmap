@@ -9,6 +9,7 @@ use Livewire\WithPagination;
 class SliderPictures extends Component
 {
     use WithPagination;
+    use Livewire\WithPagination;
 
     public  $idspot;
 
