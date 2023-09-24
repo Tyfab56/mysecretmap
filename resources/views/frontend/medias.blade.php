@@ -43,6 +43,27 @@ Dropzone.options.myDropzone = {
 @section('content')
 <section id="ts-features" class="ts-features">
     <div class="container">
+    <div class="row">
+    <div class="col-md-6">
+        <select id="countrySelect" name="country_id">
+            @foreach($pays as $pays)
+                <option value="{{ $country->id }}">{{ $country->name }}</option>
+            @endforeach
+        </select>
+
+        <select id="spotSelect" name="spot_id">
+            {{-- Les spots seront remplis dynamiquement par JavaScript --}}
+        </select>
+    </div>
+
+    <div class="col-md-6">
+        @if(isset($selectedSpot))
+            <img src="{{ $selectedSpot->image_path }}" alt="{{ $selectedSpot->name }}">
+        @endif
+    </div>
+</div>
+
+
       <div class="row">
       <form action="{{ route('submitpicture') }}" class="dropzone" id="myDropzone">
               @csrf

@@ -50,7 +50,7 @@ Route::get('photographers', [IndexController::class, 'photographers'])->name('ph
 Route::get('contact', [IndexController::class, 'contact'])->name('contact');
 Route::get('patreon', [IndexController::class, 'contact'])->name('patreon');
 Route::get('aboutus', [IndexController::class, 'aboutus'])->name('aboutus');
-Route::get('medias', [IndexController::class, 'medias'])->name('medias');
+Route::get('medias/{idspot?}', [IndexController::class, 'medias'])->name('medias');
 Route::get('timeline', [IndexController::class, 'timeline'])->name('timeline');
 
 Route::get('myaccount', [IndexController::class, 'myaccount'])->name('myaccount');
