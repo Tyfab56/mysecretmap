@@ -14,9 +14,11 @@
     </a>
     @endforeach
   <div class="go_gridItem go_gridItem-centered" href="someURL"><p> </p> </div>
-  <a href="{{ route('gallery', ['idspot' => $pictures->first()->spot->id]) }}" class="btn btn-primary">
-    Voir la galerie
-</a>
+  @if($pictures->isNotEmpty())
+    <a href="{{ route('gallery', ['idspot' => $pictures->first()->spot_id]) }}" class="btn btn-primary">
+        Voir la galerie
+    </a>
+  @endif
 </div>
 
 </div>
