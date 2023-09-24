@@ -516,7 +516,7 @@ class IndexController extends Controller
     {
         return view('frontend/photographers');
     }
-    public function medias($idspot)
+    public function medias($idspot=null)
     {
         // chargement des pays actif
         $pays = Pays::where('actif', '=', 1)->orderBy('pays', 'asc')->get();
