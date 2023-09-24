@@ -20,7 +20,7 @@
     </a>
   @endif
   @if(auth()->user() && auth()->user()->isPhotographer())
-        <a href="{{ route('routeNameForSubmittingPhotos') }}" class="btn btn-secondary">
+        <a href="" class="btn btn-secondary">
             Proposer des photos
         </a>
     @endif
