@@ -16,7 +16,7 @@
   <div class="go_gridItem go_gridItem-centered" href="someURL"><p> </p> </div>
   @if($pictures->isNotEmpty())
     <a href="{{ route('gallery', ['idspot' => $pictures->first()->spot_id]) }}" class="btn btn-primary">
-        Voir la galerie
+       {{__('destination.CompleteGallery')}} 
     </a>
   @endif
 </div>
