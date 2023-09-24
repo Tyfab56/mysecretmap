@@ -72,6 +72,7 @@ Dropzone.options.myDropzone = {
     </div>
     @else
     <div class="row">
+        Choississez un spot
     </div>
     @endif
 </div>
