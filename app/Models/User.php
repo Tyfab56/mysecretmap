@@ -89,7 +89,7 @@ class User extends Authenticatable implements MustVerifyEmail, TranslatableContr
     public function isPhotographer()
     {
 
-        return $this->photographe ? true : false;
+        return $this->whoiam_id == 2;
     }
 
     public function markEmailAsVerified()

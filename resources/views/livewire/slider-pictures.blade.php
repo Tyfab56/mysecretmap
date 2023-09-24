@@ -19,6 +19,11 @@
        {{__('destination.CompleteGallery')}} 
     </a>
   @endif
+  @if(auth()->user() && auth()->user()->isPhotographer())
+        <a href="{{ route('routeNameForSubmittingPhotos') }}" class="btn btn-secondary">
+            Proposer des photos
+        </a>
+    @endif
 </div>
 
 </div>
