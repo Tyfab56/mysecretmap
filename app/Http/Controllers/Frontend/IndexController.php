@@ -520,7 +520,13 @@ class IndexController extends Controller
     {
         // chargement des pays actif
         $pays = Pays::where('actif', '=', 1)->orderBy('pays', 'asc')->get();
-        //
+        // verifier que le spot existe
+        $spot = Spot::find($idspot);
+
+        if (!$spot) {
+        $idspot = null;
+        }
+
         return view('frontend/medias',compact('pays','idspot'));
 
     }
