@@ -9,7 +9,7 @@ use Livewire\WithPagination;
 class SliderPictures extends Component
 {
     use WithPagination;
-
+    protected $paginationTheme = 'bootstrap';
 
     public  $idspot;
 
