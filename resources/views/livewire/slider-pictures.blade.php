@@ -14,7 +14,7 @@
     </a>
     @endforeach
   <div class="go_gridItem go_gridItem-centered" href="someURL"><p> </p> </div>
-  <a href="{{ route('gallery', ['idspot' => $picture->spot->id]) }}" class="btn btn-primary">
+  <a href="{{ route('gallery', ['idspot' => $pictures->first()->spot->id]) }}" class="btn btn-primary">
     Voir la galerie
 </a>
 </div>
