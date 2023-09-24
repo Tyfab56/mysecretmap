@@ -14,7 +14,7 @@
     </a>
     @endforeach
   <div class="go_gridItem go_gridItem-centered" href="someURL"><p> </p> </div>
-  {{ $pictures->links('pagination::bootstrap-4') }}
+  {{ $pictures->withQueryString()->links('pagination::bootstrap-4') }}
 </div>
 
 </div>
