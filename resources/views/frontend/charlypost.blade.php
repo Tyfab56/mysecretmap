@@ -10,7 +10,10 @@
                 
                 <!-- Div for the video -->
                 <div class="video mb-3">
-                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/{{ $post->video_link }}" frameborder="0" allowfullscreen></iframe>
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/{{ $post->video_link }}" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                   
                 </div>
             </div>
             <div class="col-md-6 post">
@@ -36,4 +39,20 @@
 
 <!-- Liens de pagination -->
 {{ $posts->links() }}
+<script>
+    .video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+</script>
 @endsection
