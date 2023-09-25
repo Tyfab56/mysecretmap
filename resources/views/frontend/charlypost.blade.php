@@ -19,7 +19,7 @@
             <div class="col-md-6 post">
                 <!-- Div for the title and the description -->
                 <div class="content">
-                    <h3>{{ $post->title  }}</h3>
+                    <h3>{{ $post->titre  }}</h3>
                     <p>{{ $post->description }}</p>
                 </div>
             </div>
