@@ -526,6 +526,7 @@ class IndexController extends Controller
         if (!$spot) {
         $idspot = null;
         }
+        // renvoyer l'image
 
         return view('frontend/medias',compact('pays','idspot'));
 
