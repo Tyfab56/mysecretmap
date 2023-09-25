@@ -19,7 +19,7 @@
             <div class="col-md-6 post">
                 <!-- Div for the title and the description -->
                 <div class="content">
-                    <h3>{{ $post->title }}</h3>
+                    <h3>{{ $post->title  }}</h3>
                     <p>{{ $post->description }}</p>
                 </div>
             </div>
@@ -39,8 +39,9 @@
 
 <!-- Liens de pagination -->
 {{ $posts->links() }}
-<script>
-    .video-wrapper {
+<style>
+
+   .video-wrapper {
     position: relative;
     padding-bottom: 56.25%; /* 16:9 aspect ratio */
     height: 0;
@@ -54,5 +55,5 @@
     width: 100%;
     height: 100%;
 }
-</script>
+</style>
 @endsection
