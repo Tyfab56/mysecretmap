@@ -10,9 +10,16 @@ class CharlyPostController extends Controller
 {
     public function index($pays_id)
     {
+
+        $locale = app()->getLocale(); // Obtenez la langue actuelle
+
         $posts = CharlyPost::where('pays_id', $pays_id)
-                        ->orderBy('rank', 'desc') // ou 'created_at' ou autre colonne selon votre choix
-                        ->paginate(10);
+            ->whereHas('translations', function ($query) use ($locale) {
+                $query->where('locale', $locale);
+            })
+            ->orderBy('rank', 'desc')
+            ->paginate(10);
+
     
         return view('frontend.charlypost', compact('posts'));
     }
