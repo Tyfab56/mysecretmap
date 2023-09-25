@@ -12,7 +12,8 @@
                 <div class="video mb-3">
                     <iframe width="100%" height="315" src="https://www.youtube.com/embed/{{ $post->video_link }}" frameborder="0" allowfullscreen></iframe>
                 </div>
-
+            </div>
+            <div class="col-md-6 post">
                 <!-- Div for the title and the description -->
                 <div class="content">
                     <h3>{{ $post->title }}</h3>
