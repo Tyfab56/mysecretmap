@@ -159,11 +159,7 @@
              @foreach($timelines as $timeline)
                   <div class="timeline-entry">
                       <a href="{{ route('timeline'}}">
-                          <h6>
-                              {{ $timeline->texte }} -
-                              <span class="timeline-date">{{\Carbon\Carbon::parse($spot->date)->diffForHumans()}}</span>
-                          </h6>
-                          <p>{{ $timeline->description }}</p>
+                        
                       </a>
                   </div>
               @endforeach
