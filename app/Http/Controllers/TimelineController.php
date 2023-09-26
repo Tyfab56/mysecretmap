@@ -39,7 +39,7 @@ class TimelineController extends Controller
         }
 
         $filetimeline = $request->file('imagetimeline');
-        $page = $request->>input('page');
+        $page = $request->input('page');
 
         // traitement image carré
         if ($filetimeline == null) {
