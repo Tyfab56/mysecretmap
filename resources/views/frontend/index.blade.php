@@ -156,7 +156,7 @@
         </div>  
         <div class="col-lg-4 col-md-12 mb-5 bgbox">
              <livewire:show-head-spot />
-            
+            List pour les derneier timeline
         </div>
       </div>
     </div>   
