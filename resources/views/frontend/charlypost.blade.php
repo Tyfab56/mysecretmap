@@ -69,5 +69,19 @@
     width: 100%;
     height: 100%;
 }
+.hidden-content {
+    display: none;
+}
+.ellipsis {
+    cursor: pointer;
+}
 </style>
+<script>
+        $(document).ready(function() {
+    $('.ellipsis').on('click', function() {
+        $(this).prev('.hidden-content').toggle();
+        $(this).text($(this).text() == '...' ? 'Hide' : '...');
+    });
+});
+</script>
 @endsection
