@@ -9,6 +9,7 @@
             <div class="col-md-6 post"> <!-- Assuming two posts per row, adjust as needed -->
                 
                 <!-- Div for the video -->
+                <h3>{{ $post->titre  }}</h3>
                 <div class="video mb-3">
                     <div class="video-wrapper">
                         <iframe src="https://www.youtube.com/embed/{{ $post->video_link }}" frameborder="0" allowfullscreen></iframe>
@@ -19,7 +20,7 @@
             <div class="col-md-6 post">
                 <!-- Div for the title and the description -->
                 <div class="content">
-                    <h3>{{ $post->titre  }}</h3>
+                  
                     <p>{{ $post->description }}</p>
                 </div>
             </div>
