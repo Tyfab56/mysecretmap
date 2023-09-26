@@ -82,14 +82,17 @@ function loadMoreData(numpage){
         </div> <!-- cd-timeline__img -->
 
         <div class="cd-timeline__content text-component">
-          <h2>{{$spot->texte}}</h2>
-          <p class="color-contrast-medium">{{$spot->description}}</p>
-          <img src="{{$spot->image}}">
-          <div class="flex justify-between items-center">
+    <div class="content-left">
+        <h6>{{$spot->texte}}</h6>
+        <p class="color-contrast-medium">{{$spot->description}}</p>
+        <div class="flex justify-between items-center">
             <h2><span class="cd-timeline__date">{{\Carbon\Carbon::parse($spot->date)->diffForHumans()}}</span></h2>
-          
-          </div>
-        </div> <!-- cd-timeline__content -->
+        </div>
+    </div>
+    <div class="content-right">
+        <img src="{{$spot->image}}" class="content-image">
+    </div>
+</div> <!-- cd-timeline__content -->
       </div> <!-- cd-timeline__block -->
       @endforeach
       <div class="ajax-load" id="loading">
@@ -103,6 +106,27 @@ function loadMoreData(numpage){
   {
     height: 150px;
   }
+
+  .cd-timeline__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+}
+
+.content-left {
+    flex: 1;
+    padding-right: 20px; /* Ajouter un espace entre le contenu et l'image */
+}
+
+.content-right {
+    width: auto; /* permet au conteneur de s'ajuster à l'image */
+    max-width: 200px;
+}
+
+.content-image {
+    max-width: 100%; /* assurez-vous que l'image ne dépasse pas la largeur de son conteneur */
+    height: auto;
+}
 </style>
 
 </body>
