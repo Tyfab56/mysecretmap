@@ -193,12 +193,6 @@ button[type="submit"]:hover {
     background-color: #0b7dda;
 }
 
-.box {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 120vh;
-}
 
 .form-container {
   max-width: 50%;
