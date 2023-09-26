@@ -58,8 +58,8 @@ $('#getspot').click(function() {
     @csrf
     <div class="form-group">
       <label for="id-enregistrement">Id Spots</label>
-        <input type="text" id="id-enregistrement">
-        <button id="getspot">Récupérer l'enregistrement</button>
+      <input type="text" id="id-enregistrement" name="id_spot">
+      <button id="getspot" type="button">Récupérer l'enregistrement</button>
     </div>
     <div class="form-group">
         <label for="date">{{ __('Date') }}</label>
@@ -82,7 +82,7 @@ $('#getspot').click(function() {
     <div class="form-group">
         <label for="title_fr">{{ __('Title (French)') }}</label>
         <input id="title_fr" type="text" class="form-control @error('title.fr') is-invalid @enderror" name="title[fr]" value="{{ old('title.fr') }}" required autocomplete="title_fr">
-        <button id="translateBtn1">Traduire Titre</button>
+        <button id="translateBtn1" type="button">Traduire Titre</button>
         @error('title.fr')
             <span class="invalid-feedback" role="alert">
                 <strong>{{ $message }}</strong>
@@ -104,7 +104,7 @@ $('#getspot').click(function() {
     <div class="form-group">
         <label for="description_fr">{{ __('Description (French)') }}</label>
         <textarea id="description_fr" class="form-control @error('description.fr') is-invalid @enderror" name="description[fr]" required autocomplete="description_fr">{{ old('description.fr') }}</textarea>
-        <button id="translateBtn2">Traduire Description</button> 
+        <button id="translateBtn2" type="button">Traduire Description</button>
         @error('description.fr')
             <span class="invalid-feedback" role="alert">
                 <strong>{{ $message }}</strong>
@@ -124,9 +124,7 @@ $('#getspot').click(function() {
     </div>
     <div class="form-group">
         <label for="page">{{ __('Page') }}</label>
-        <textarea id="page" class="form-control" name="page">{{ old('page') }}</textarea>
-
-       
+        <textarea id="page" class="form-control" name="page">{{ old('page') }}</textarea>     
     </div>
 
     <div class="form-group">
