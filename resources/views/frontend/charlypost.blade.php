@@ -6,6 +6,13 @@
             
             <!-- Loop over the posts -->
             @foreach($posts as $post)
+
+            @php
+                $content = $post->description;
+                $displayContent = strlen($content) > 500 ? substr($content, 0, 500) : $content;
+                $hiddenContent = strlen($content) > 500 ? substr($content, 500) : '';
+            @endphp
+
             <div class="col-md-4 "> <!-- Assuming two posts per row, adjust as needed -->
                 
                 <!-- Div for the video -->
@@ -20,8 +27,14 @@
             <div class="col-md-8 ">
                 <!-- Div for the title and the description -->
                 <div class="content">
-                  
-                    <p>{{ $post->description }}</p>
+                <div class="post-content">
+                        {{ $displayContent }}
+                        <span class="hidden-content">{{ $hiddenContent }}</span>
+                        @if(strlen($content) > 500)
+                            <span class="ellipsis">...</span>
+                        @endif
+                    </div>
+                   
                 </div>
             </div>
             @endforeach
