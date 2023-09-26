@@ -9,8 +9,8 @@
 
             @php
                 $content = $post->description;
-                $displayContent = strlen($content) > 500 ? substr($content, 0, 500) : $content;
-                $hiddenContent = strlen($content) > 500 ? substr($content, 500) : '';
+                $displayContent = strlen($content) > 300 ? substr($content, 0, 300) : $content;
+                $hiddenContent = strlen($content) > 300 ? substr($content, 300) : '';
             @endphp
 
             <div class="col-md-4 "> <!-- Assuming two posts per row, adjust as needed -->
@@ -30,7 +30,7 @@
                 <div class="post-content">
                         {{ $displayContent }}
                         <span class="hidden-content">{{ $hiddenContent }}</span>
-                        @if(strlen($content) > 500)
+                        @if(strlen($content) > 300)
                             <span class="ellipsis">...</span>
                         @endif
                     </div>
