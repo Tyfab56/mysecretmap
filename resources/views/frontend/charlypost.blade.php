@@ -39,7 +39,7 @@ $(document).ready(function() {
                         {{ $displayContent }}
                         <span class="hidden-content">{{ $hiddenContent }}</span>
                         @if(strlen($content) > 900)
-                            <b><span class="ellipsis">...</span></b>
+                            <span class="ellipsis">...</span>
                         @endif
                     </div>
                    
