@@ -3,7 +3,7 @@
 $(document).ready(function() {
     $('.ellipsis').on('click', function() {
         $(this).prev('.hidden-content').toggle();
-        $(this).text($(this).text() == '...' ? 'Hide' : '...');
+        $(this).text($(this).text() == '...' ? '<br>Hide</b>' : '...');
     });
 });
 @endsection
@@ -17,8 +17,8 @@ $(document).ready(function() {
 
             @php
                 $content = $post->description;
-                $displayContent = strlen($content) > 300 ? substr($content, 0, 300) : $content;
-                $hiddenContent = strlen($content) > 300 ? substr($content, 300) : '';
+                $displayContent = strlen($content) > 600 ? substr($content, 0, 600) : $content;
+                $hiddenContent = strlen($content) > 600 ? substr($content, 600) : '';
             @endphp
 
             <div class="col-md-4 "> <!-- Assuming two posts per row, adjust as needed -->
@@ -38,7 +38,7 @@ $(document).ready(function() {
                 <div class="post-content">
                         {{ $displayContent }}
                         <span class="hidden-content">{{ $hiddenContent }}</span>
-                        @if(strlen($content) > 300)
+                        @if(strlen($content) > 600)
                             <span class="ellipsis">...</span>
                         @endif
                     </div>
