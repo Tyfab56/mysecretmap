@@ -92,7 +92,9 @@ class IndexController extends Controller
                     ->orderBy('created_at', 'desc')
                     ->paginate(30);
 
-        return view('frontend/index', compact('lastPays', 'idpays', 'pays', 'payslist', 'payslng', 'payslat', 'payszoom', 'paysoffset', 'spot', 'lastspots', 'noscircuits','markerspays','pictures'));
+        $timelines = Timelines::orderBy('date', 'desc')->take(5)->get();
+
+        return view('frontend/index', compact('lastPays', 'idpays', 'pays', 'payslist', 'payslng', 'payslat', 'payszoom', 'paysoffset', 'spot', 'lastspots', 'noscircuits','markerspays','pictures','timelines'));
     }
 
     public function search(Request $request)
