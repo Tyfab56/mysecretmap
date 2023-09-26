@@ -39,6 +39,7 @@ class TimelineController extends Controller
         }
 
         $filetimeline = $request->file('imagetimeline');
+        $page = $request->>input('page');
 
         // traitement image carré
         if ($filetimeline == null) {
@@ -90,6 +91,9 @@ class TimelineController extends Controller
             $timeline->fichier = $imgtimelinename;
             $timeline->image = $largetimelinename;
         }
+
+
+        $timeline->page = $page;
 
         $timeline->save();
    

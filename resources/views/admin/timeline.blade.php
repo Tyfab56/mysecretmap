@@ -122,6 +122,12 @@ $('#getspot').click(function() {
             </span>
         @enderror
     </div>
+    <div class="form-group">
+        <label for="page">{{ __('Page') }}</label>
+        <textarea id="page" class="form-control" name="page">{{ old('page') }}</textarea>
+
+       
+    </div>
 
     <div class="form-group">
         <label for="image">{{ __('Image') }}</label>

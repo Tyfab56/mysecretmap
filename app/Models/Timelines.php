@@ -21,7 +21,7 @@ class Timelines extends Model
     ];
 
     protected $fillable = [
-        'image','fichier','bucket'
+        'image','fichier','bucket','page'
 
     ];
 }
