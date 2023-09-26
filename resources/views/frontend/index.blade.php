@@ -156,13 +156,7 @@
         </div>  
         <div class="col-lg-4 col-md-12 mb-5 bgbox">
              <livewire:show-head-spot />
-             @foreach($timelines as $timeline)
-                  <div class="timeline-entry">
-                      <a href="{{ route('timeline'}}">
-                        
-                      </a>
-                  </div>
-              @endforeach
+        
         </div>
       </div>
     </div>   
