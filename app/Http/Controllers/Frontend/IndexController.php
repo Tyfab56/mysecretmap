@@ -56,10 +56,6 @@ class IndexController extends Controller
         $payszoom = $pays->zoom;
         $paysoffset = $pays->offset;
 
-        // Chargement des markers de la carte
-        //$markers = Spots::select('id', 'name', 'lng', 'lat', 'imgpanosmall', 'imgsquaresmall', 'typepoint_id')
-        //    ->where('pays_id', $idpays)->where('actif', 1)->get();
-
         $markerspays = Pays::where('actif', 1)->get();
 
         // récupération des circuits pour ce pays par defaut
