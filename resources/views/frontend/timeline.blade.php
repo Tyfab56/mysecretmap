@@ -85,6 +85,9 @@ function loadMoreData(numpage){
     <div class="content-left">
         <h6>{{$spot->texte}}</h6>
         <p class="color-contrast-medium">{{$spot->description}}</p>
+        @if(!empty($spot->page))
+            <a href="{{$spot->page}}" class="btn">Voir la page</a>
+        @endif
         <div class="flex justify-between items-center">
             <h2><span class="cd-timeline__date">{{\Carbon\Carbon::parse($spot->date)->diffForHumans()}}</span></h2>
         </div>
