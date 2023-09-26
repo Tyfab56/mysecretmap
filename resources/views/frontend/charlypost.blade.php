@@ -6,7 +6,7 @@
             
             <!-- Loop over the posts -->
             @foreach($posts as $post)
-            <div class="col-md-4 post"> <!-- Assuming two posts per row, adjust as needed -->
+            <div class="col-md-4 "> <!-- Assuming two posts per row, adjust as needed -->
                 
                 <!-- Div for the video -->
                 <h3>{{ $post->titre  }}</h3>
@@ -17,7 +17,7 @@
                    
                 </div>
             </div>
-            <div class="col-md-8 post">
+            <div class="col-md-8 ">
                 <!-- Div for the title and the description -->
                 <div class="content">
                   
