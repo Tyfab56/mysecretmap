@@ -163,7 +163,7 @@
                 @endif
                 <span class="white">{{ $timeline->texte}}</span></h6>
                 @if ($timeline->page)
-                </a>
+                <i class="fas fa-arrow-right"></i></a>
                 @endif
                 <p style="font-size: 0.95rem;">{{ $timeline->description }}</p>
                 
