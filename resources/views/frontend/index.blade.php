@@ -155,7 +155,7 @@
             </div>
         </div>  
         <div class="col-lg-4 col-md-12 mb-5 bgbox">
-             <livewire:show-head-spot />
+          
              @foreach($timelines as $timeline)
                 {{ $timeline->titre}}
               @endforeach
