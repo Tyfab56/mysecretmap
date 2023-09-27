@@ -158,6 +158,7 @@
           
              @foreach($timelines as $timeline)
                 {{ $timeline->titre}}
+                <p>{{ $timeline->description }}</p>
               @endforeach
         </div>
       </div>
