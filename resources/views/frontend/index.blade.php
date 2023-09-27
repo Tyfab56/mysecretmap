@@ -158,8 +158,15 @@
           
              @foreach($timelines as $timeline)
              <h6> <span class="orange">{{\Carbon\Carbon::parse($timeline->date)->diffForHumans()}}</span> -
-                <span class="grey">{{ $timeline->texte}}</span></h6>
-                <p>{{ $timeline->description }}</p>
+                @if ($timeline->page)
+                <a href="{{ $timeline->page}}">
+                @endif
+                <span class="white">{{ $timeline->texte}}</span></h6>
+                @if ($timeline->page)
+                </a>
+                @endif
+                <p style="font-size: 0.95rem;">{{ $timeline->description }}</p>
+                
               @endforeach
         </div>
       </div>
