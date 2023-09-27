@@ -154,11 +154,11 @@
                 <p></p>
             </div>
         </div>  
-        <div class="col-lg-4 col-md-12 mb-5 bgbox">
+        <div class="col-lg-4 col-md-12 mb-5 bgbox white">
           
              @foreach($timelines as $timeline)
-             {{\Carbon\Carbon::parse($timeline->date)->diffForHumans()}} -
-                {{ $timeline->titre}}
+             <h6>{{\Carbon\Carbon::parse($timeline->date)->diffForHumans()}} -
+                {{ $timeline->texte}}</h6>
                 <p>{{ $timeline->description }}</p>
               @endforeach
         </div>
