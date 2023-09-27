@@ -164,7 +164,7 @@
                   <span class="white">
                       {{ $timeline->texte }}
                       @if ($timeline->page)
-                          <i class="fas fa-arrow-right"></i>
+                      <i class="fas fa-chevron-right"></i>
                       @endif
                   </span>
               @if ($timeline->page)
