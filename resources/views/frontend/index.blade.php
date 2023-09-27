@@ -155,7 +155,7 @@
             </div>
         </div>  
         <div class="col-lg-4 col-md-12 mb-4 pt-3 br5  bgbox white">
-             <h4 class"white">{{__('index.ActuBref')}}</h4>
+             <h4 class= "white">{{__('index.ActuBref')}}</h4>
              @foreach($timelines as $timeline)
              <h6> <span class="orange">{{\Carbon\Carbon::parse($timeline->date)->diffForHumans()}}</span> -
              @if ($timeline->page)
