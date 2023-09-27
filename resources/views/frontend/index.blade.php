@@ -154,8 +154,8 @@
                 <p></p>
             </div>
         </div>  
-        <div class="col-lg-4 col-md-12 mb-5 bgbox white">
-          
+        <div class="col-lg-4 col-md-12 mb-4 pt-3 br5  bgbox white">
+             <h5>Actus en bref</h5>
              @foreach($timelines as $timeline)
              <h6> <span class="orange">{{\Carbon\Carbon::parse($timeline->date)->diffForHumans()}}</span> -
              @if ($timeline->page)
@@ -170,7 +170,7 @@
               @if ($timeline->page)
                   </a>
               @endif
-                <p style="font-size: 0.95rem;">{{ $timeline->description }}</p>
+                <p class="darkgray" style="font-size: 0.95rem;">{{ $timeline->description }}</p>
                 
               @endforeach
         </div>
