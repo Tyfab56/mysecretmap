@@ -157,6 +157,7 @@
         <div class="col-lg-4 col-md-12 mb-5 bgbox">
           
              @foreach($timelines as $timeline)
+             {{\Carbon\Carbon::parse($timeline->date)->diffForHumans()}} -
                 {{ $timeline->titre}}
                 <p>{{ $timeline->description }}</p>
               @endforeach
