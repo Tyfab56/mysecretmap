@@ -21,7 +21,7 @@ return [
     'Profil' => 'My Account ',
     'Language' => 'Language ',
     'Destination' => 'Destination',
-    'Searchhere' => 'Search here...',
+    'Search' => 'Search a spot...',
     'Store' => 'Store',
     'Audioguide' => 'Audioguide',
     'Blog' => 'Blog',
