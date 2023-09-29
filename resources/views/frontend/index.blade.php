@@ -26,7 +26,7 @@
           </div>
 
           <div class="col-lg-4 cold-md-12 bgbox p5">
-          <h5 class="section-sub-title white" style="max-height: 300px">{{__('index.Charly1')}}</h5>
+          <i class="fas fa-headphones"></i> <i class="fas fa-music"></i><h6 class="section-sub-title white" style="max-height: 300px">{{__('index.Charly1')}}</h6>
           <p class="white">{!!__('index.Charly2')!!}</p>
           <a class="linkorange white"><p class="pt5">{{__('index.Charly3')}}</p></a>
           </div>
