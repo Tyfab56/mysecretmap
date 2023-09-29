@@ -35,11 +35,12 @@
           <a class="linkorange white"><p class="pt5">{{__('index.Charly3')}}</p></a>
           </div>
           <div class="col-lg-2 col-md-12" style="position: relative;">
-            <img src="{{ asset('frontend/assets/images/blog/charly1.jpg')}}" alt="charly" class="img-fluid br5">
-            <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; display: flex; align-items: center; justify-content: center;">
-                <span style="color: white; font-size: 0.8rem; text-align: center; width: 80%;">Merci beaucoup Charly pour ces précieux conseils</span>
-            </div>
-        </div>
+              <img src="{{ asset('frontend/assets/images/blog/charly1.jpg')}}" alt="charly" class="img-fluid br5">
+              <div style="position: absolute; bottom: 10px; left: 0; right: 0; display: flex; justify-content: center;">
+                  <span style="color: white; font-size: 0.8rem; text-align: center; width: 80%;">Merci beaucoup</span>
+              </div>
+          </div>
+
       </div>
       <!--/ Title row end -->
   
