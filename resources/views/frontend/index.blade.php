@@ -26,10 +26,10 @@
           </div>
 
           <div class="col-lg-4 cold-md-12 bgbox p5 br5">
-           <div class="jc-center" style="display: flex;">
-              <i class="fas fa-headphones orange" ></i>            
+           <div class="jc-center ai-center" style="display: flex;">
+              <i class="fas fa-headphones orange f1-4em" ></i>            
               <h6 class="section-sub-title white ml-2 mr-2" style="max-height: 300px">{{__('index.Charly1')}}</h6>
-              <i class="fas fa-music orange"></i>
+              <i class="fas fa-music orange f1-4em"></i>
           </div>
           <p class="white">{!!__('index.Charly2')!!}</p>
           <a class="linkorange white"><p class="pt5">{{__('index.Charly3')}}</p></a>

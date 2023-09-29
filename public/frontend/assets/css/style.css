@@ -4154,3 +4154,11 @@ font-size : 25px;
   align-items: center; /* Centre vertical */
   gap: 10px; /* Espacement entre les éléments */
 }
+.ai-center
+{
+  align-items : center;
+}
+.f1-4em
+{
+  font-size: 1.4em;
+}
