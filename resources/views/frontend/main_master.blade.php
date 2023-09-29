@@ -56,7 +56,7 @@
 
 
     <form action="{{ route('search') }}" method="GET" class="search-form">
-    <input type="text" name="query" placeholder="{{__('menu.search')}}" class="search-input">
+    <input type="text" name="query" placeholder="{{__('menu.Search')}}" class="search-input">
     <button type="submit" class="btn-search"><i class="fas fa-search"></i></button>
 </form>
 </div>
