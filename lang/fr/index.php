@@ -63,6 +63,8 @@ return [
     "Charly1"=>"Charly est là ",
     "Charly2"=>"Charly connaît les meilleurs endroits, les plus beaux spots, les lieux peu connus, ainsi que les anecdotes et légendes. Il saura vous conseiller pour vos photos et pour utiliser un drone pour chaque destination. Charly vous accompagne et optimise votre voyage.",
     "Charly3"=>"Charly, assistant et audioguide ",
+    "Charly4"=>"Merci Sabrina pour votre photo avec Charly en main",
+
     "NousSoutenir" => "Nous Soutenir",
     "NousSoutenirDesc" => "Pour vous investir et ouvrir de nouveaux spots :",
     "ShareSpots" => "Partagez nos spots",
