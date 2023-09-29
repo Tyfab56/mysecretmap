@@ -32,7 +32,9 @@
               <i class="fas fa-music orange f1-4em"></i>
           </div>
           <p class="white">{!!__('index.Charly2')!!}</p>
-          <a class="linkorange white"><p class="pt5">{{__('index.Charly3')}}</p></a>
+          <a href="{{ route('tostore') }}" class="btn btn-primary">
+              <p class="pt5 white">{{__('index.Charly3')}}</p>
+          </a>
           </div>
           <div class="col-lg-2 col-md-12" style="position: relative;">
               <img src="{{ asset('frontend/assets/images/blog/charly1.jpg')}}" alt="charly" class="img-fluid br5">
