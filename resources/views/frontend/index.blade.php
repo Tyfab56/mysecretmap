@@ -26,17 +26,17 @@
           </div>
 
           <div class="col-lg-4 cold-md-12 bgbox p5 br5">
-           <div style="display: flex; align-items: center;">
-              <i class="fas fa-headphones" style="color: white;"></i>            
+           <div class="jc-center" style="display: flex;">
+              <i class="fas fa-headphones orange" ></i>            
               <h6 class="section-sub-title white ml-2 mr-2" style="max-height: 300px">{{__('index.Charly1')}}</h6>
-              <i class="fas fa-music" style="color: white;"></i>
+              <i class="fas fa-music orange"></i>
           </div>
           <p class="white">{!!__('index.Charly2')!!}</p>
           <a class="linkorange white"><p class="pt5">{{__('index.Charly3')}}</p></a>
           </div>
           <div class="col-lg-2 col-md-12">
-        <img src="{{ asset('frontend/assets/images/blog/charly1.jpg')}}" alt="charly" class="img-fluid"> <!-- Remplacez 'chemin_vers_votre_image.jpg' par le chemin vers votre image -->
-    </div>
+        <img src="{{ asset('frontend/assets/images/blog/charly1.jpg')}}" alt="charly" class="img-fluid br5">
+         </div>
       </div>
       <!--/ Title row end -->
   
