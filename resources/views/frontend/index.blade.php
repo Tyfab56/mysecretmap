@@ -34,9 +34,10 @@
           <p class="white">{!!__('index.Charly2')!!}</p>
           <a class="linkorange white"><p class="pt5">{{__('index.Charly3')}}</p></a>
           </div>
-          <div class="col-lg-2 col-md-12">
-        <img src="{{ asset('frontend/assets/images/blog/charly1.jpg')}}" alt="charly" class="img-fluid br5">
-         </div>
+          <div class="col-lg-2 col-md-12" style="position: relative;">
+    <img src="{{ asset('frontend/assets/images/blog/charly1.jpg')}}" alt="charly" class="img-fluid br5">
+    <span style="position: absolute; bottom: 10px; left: 10px; color: white; background-color: rgba(0,0,0,0.5); padding: 2px 5px;">Merci beaucoup</span>
+</div>
       </div>
       <!--/ Title row end -->
   
