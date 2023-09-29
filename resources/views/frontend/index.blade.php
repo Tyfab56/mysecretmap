@@ -33,13 +33,13 @@
           </div>
           <p class="white">{!!__('index.Charly2')!!}</p>
           <a href="{{ route('tostore') }}" class="btn btn-primary">
-              <p class="pt5 white">{{__('index.Charly3')}}</p>
+              <p class="mb-0 white">{{__('index.Charly3')}}</p>
           </a>
           </div>
           <div class="col-lg-2 col-md-12" style="position: relative;">
               <img src="{{ asset('frontend/assets/images/blog/charly1.jpg')}}" alt="charly" class="img-fluid br5">
               <div style="position: absolute; bottom: 10px; left: 0; right: 0; display: flex; justify-content: center;">
-                  <span style="color: white; font-size: 0.8rem; text-align: center; width: 80%;">{{__('index.Charly4')}}</span>
+                  <span style="color: white; font-size: 0.8rem; text-align: center; width: 80%;font-style: italic;">{{__('index.Charly4')}}</span>
               </div>
           </div>
 
