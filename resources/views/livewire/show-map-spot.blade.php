@@ -1,15 +1,15 @@
 <div class="f14 white">
     @if(($spot->audioguide == 1))
 
-                <div class="center white">
-                    <h6>{{ __('destination.pubaudio1') }}</h6>
+                <div class="center">
+                    <h6 class="white">{{ __('destination.pubaudio1') }}</h6>
                 </div>
 
              
               <!-- Texte -->
               <p>{{ __('destination.pubaudio2') }}</p>
                <!-- Petite image -->
-               <div class="center">
+               <div class="center mb-2">
                    <img src="{{asset('frontend/assets/images/tostore.png')}}" alt="Store" width="100">
               </div>
 
