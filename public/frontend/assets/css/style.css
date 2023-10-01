@@ -3443,6 +3443,10 @@ label {
 {
   color : darkgray;
 }
+.lightgray
+{
+  color : lightgray;
+}
 
 .red{
   color : rgb(231, 67, 67);

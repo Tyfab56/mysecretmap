@@ -7,7 +7,7 @@
 
              
               <!-- Texte -->
-              <p>{{ __('destination.pubaudio2') }}</p>
+              <p class="lightgray>{{ __('destination.pubaudio2') }}</p>
                <!-- Petite image -->
                <div class="center mb-2">
                    <img src="{{asset('frontend/assets/images/tostore.png')}}" alt="Store" width="100">
