@@ -8,7 +8,7 @@ $(document).ready(function() {
 });
 @endsection
 @section('content')
-<<section id="news" class="news">
+<section id="news" class="news">
     <div class="container">
         <div class="row text-center">
             
@@ -25,7 +25,7 @@ $(document).ready(function() {
                 
                 <!-- Div for the video -->
                 <div class="post-container">
-                    <div class="circle">{{ $post->rang }}</div>
+                    <div class="circle">{{ $post->rank }}</div>
                     <h4>{{ $post->titre }}</h4>
                 </div>
                 <div class="video mb-3">
@@ -95,7 +95,7 @@ $(document).ready(function() {
 .circle {
     width: 30px; /* Ajustez la taille du cercle selon vos besoins */
     height: 30px; /* Ajustez la taille du cercle selon vos besoins */
-    background-color: #007bff; /* Couleur de fond du cercle */
+    background-color: #000; /* Couleur de fond du cercle */
     color: #fff; /* Couleur du texte à l'intérieur du cercle */
     border-radius: 50%; /* Pour créer un cercle */
     text-align: center;
