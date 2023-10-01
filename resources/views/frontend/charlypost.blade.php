@@ -24,7 +24,10 @@ $(document).ready(function() {
             <div class="col-md-4 "> <!-- Assuming two posts per row, adjust as needed -->
                 
                 <!-- Div for the video -->
-                <h3>{{ $post->titre  }}</h3>
+                <div class="post-container">
+                    <div class="circle">{{ $post->rang }}</div>
+                    <h4>{{ $post->titre }}</h4>
+                </div>
                 <div class="video mb-3">
                     <div class="video-wrapper">
                         <iframe src="https://www.youtube.com/embed/{{ $post->video_link }}" frameborder="0" allowfullscreen></iframe>
@@ -83,6 +86,28 @@ $(document).ready(function() {
 .ellipsis {
     cursor: pointer;
 }
+
+.post-container {
+    display: flex;
+    align-items: center; /* Aligner les éléments verticalement au centre */
+}
+
+.circle {
+    width: 30px; /* Ajustez la taille du cercle selon vos besoins */
+    height: 30px; /* Ajustez la taille du cercle selon vos besoins */
+    background-color: #007bff; /* Couleur de fond du cercle */
+    color: #fff; /* Couleur du texte à l'intérieur du cercle */
+    border-radius: 50%; /* Pour créer un cercle */
+    text-align: center;
+    line-height: 30px; /* Pour centrer verticalement le texte à l'intérieur du cercle */
+    margin-right: 10px; /* Espace entre le cercle et le titre */
+}
+
+
+
+
+
+
 </style>
 
 @endsection
