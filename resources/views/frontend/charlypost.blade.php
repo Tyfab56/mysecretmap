@@ -97,6 +97,7 @@ $(document).ready(function() {
     height: 30px; /* Ajustez la taille du cercle selon vos besoins */
     background-color: #000; /* Couleur de fond du cercle */
     color: #fff; /* Couleur du texte à l'intérieur du cercle */
+    font-size: 13px;
     border-radius: 50%; /* Pour créer un cercle */
     text-align: center;
     line-height: 30px; /* Pour centrer verticalement le texte à l'intérieur du cercle */
