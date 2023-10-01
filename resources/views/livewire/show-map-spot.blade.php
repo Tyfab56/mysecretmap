@@ -1,4 +1,4 @@
-<div class="f13 white">
+<div class="f14 white">
     @if(($spot->audioguide == 1))
                   <h1>{{ __('destination.pubaudio1') }}</h1>
 
