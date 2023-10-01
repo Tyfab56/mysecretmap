@@ -62,7 +62,7 @@ return [
     "Audioguide" => "Audioguides",
     "Charly0"=>"Charly est là ",
     "Charly1"=>"Assistant de voyage et audioguide",
-    "Charly2"=>"Charly connaît les meilleurs endroits, les plus beaux spots, les lieux peu connus, ainsi que les anecdotes et légendes. Il saura vous conseiller pour vos photos et pour utiliser un drone pour chaque destination. Charly vous accompagne et optimise votre voyage.",
+    "Charly2"=>"Charly connaît les meilleurs endroits, les lieux peu connus, les anecdotes et légendes. Il saura vous conseiller pour vos photos et pour utiliser un drone pour chaque destination. Charly vous accompagne et optimise votre voyage.",
     "Charly3"=>"JE COMMANDE L'AUDIOGUIDE",
     "Charly4"=>"Merci Sabrina pour votre photo avec Charly en main",
 
