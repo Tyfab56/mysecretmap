@@ -1,10 +1,13 @@
 <div class="f14 white">
     @if(($spot->audioguide == 1))
-                  <h1>{{ __('destination.pubaudio1') }}</h1>
+
+                <div class="center">
+                    <h6>{{ __('destination.pubaudio1') }}</h6>
+                </div>
 
               <!-- Petite image -->
               <div class="center">
-                   <img src="{{asset('frontend/assets/images/tostore.png')}}" alt="Store" width="200">
+                   <img src="{{asset('frontend/assets/images/tostore.png')}}" alt="Store" width="100">
               </div>
               <!-- Texte -->
               <p>{{ __('destination.pubaudio2') }}</p>
@@ -12,7 +15,7 @@
               <!-- Bouton -->
               <div class="center">
               <a href="{{ route('tostore') }}">
-                  <button type="button" class="orange">{{ __('destination.pubaudio3') }}</button>
+                  <button type="button" class="btn btn-primary">{{ __('destination.pubaudio3') }}</button>
               </a>
               </div>
       @endif
