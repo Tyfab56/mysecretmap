@@ -138,8 +138,8 @@ Route::get('/admin/timeline', [TimelineController::class, 'index'])->name('admin
 Route::get('addimagespot/{spotid}', [IndexController::class, 'addimagespot'])->name('addimagespot')->middleware('App\Http\Middleware\CheckAdmin');
 Route::get('/admin/detailpays/{id}', [PaysController::class, 'detail'])->name('admin.detailpays');
 Route::post('/admin/timeline/store', [TimelineController::class, 'store'])->name('admin.timeline.store')->middleware('App\Http\Middleware\CheckAdmin');
-Route::post('/shopifysales', [ShopifysalesController::class, 'store'])->name('shopifysales')->middleware('App\Http\Middleware\CheckAdmin');;
-Route::get('/shopifysaleslist', [ShopifysalesController::class, 'index'])->name('shopifysaleslist')->middleware('App\Http\Middleware\CheckAdmin');;
+Route::post('/shopifysales', [ShopifysalesController::class, 'store'])->name('admin.shopifysales')->middleware('App\Http\Middleware\CheckAdmin');;
+Route::get('/shopifysaleslist', [ShopifysalesController::class, 'index'])->name('admin.shopifysaleslist')->middleware('App\Http\Middleware\CheckAdmin');;
 Route::post('addavatar/store', [IndexController::class, 'avatarstore'])->name('addavatar.store');
 
 Route::view('/rodrigues','frontend.destinations.rodrigues')->name('rodrigues');

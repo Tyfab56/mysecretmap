@@ -11,7 +11,7 @@ class ShopifysalesController extends Controller
     public function index()
     {
         $shopifysales = Shopifysales::all();
-        return view('shopifysaleslist', ['shopifysales' => $shopifysales]);
+        return view('admin.shopifysaleslist', ['shopifysales' => $shopifysales]);
     }
 
     public function store(Request $request)
@@ -27,6 +27,6 @@ class ShopifysalesController extends Controller
     
         Shopifysales::create($data);
     
-        return redirect()->route('shopifysaleslist'); 
+        return redirect()->route('admin.shopifysaleslist'); 
 }
 }

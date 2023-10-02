@@ -4,7 +4,7 @@
 
 <div class="container">
     <h2>Shopifysales List</h2>
-    <a href="{{ route('shopifysales') }}" class="btn btn-primary mb-3">Add New Sale</a>
+    <a href="{{ route('admin.shopifysales') }}" class="btn btn-primary mb-3">Add New Sale</a>
     @if($shopifysales->isEmpty())
         <p>No sales recorded yet!</p>
     @else

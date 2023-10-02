@@ -283,7 +283,7 @@
                              <li><a class="dropdown-item" href="{{ route('admin.listspots') }}"> Tableaux de bord</a></li>
                              <li><a class="dropdown-item" href="{{ route('admin.charly-posts.listposts') }}"> Gestion Charly Posts</a></li>
                              <li><a class="dropdown-item" href="{{ route('admin.circuits') }}"> Gestion Circuits</a></li>
-                             <li><a class="dropdown-item" href="{{ route('shopifysaleslist') }}"> Gestion Shopify Sales</a></li>
+                             <li><a class="dropdown-item" href="{{ route('admin.shopifysaleslist') }}"> Gestion Shopify Sales</a></li>
                              <li><a class="dropdown-item" href="{{ route('admin.createzoom') }}">image Zoom</a></li>
                              <li><a class="dropdown-item" href="{{ route('admin.timeline') }}">Timeline</a></li>
 
