@@ -7,7 +7,15 @@
             <div class="row align-items-center">
                 <div class="col-lg-8">
                     <div class="text-wrapper">
-                        <h6 class="card-title mbr-fonts-style display-2"><strong>{{ __('audioguide.AudioTitre') }}</strong></h6>
+                    <div class="row align-items-center">
+                        <div class="col-md-4">
+                            <img src="{{ asset('frontend/assets/images/charly_80.png')}}" alt="charly" class="img-fluid">
+                        </div>
+                        <div class="col-md-8">
+                            <h6 class="card-title mbr-fonts-style display-2"><strong>{{ __('audioguide.AudioTitre') }}</strong></h6>
+                            <h6 class="card-title mbr-fonts-style display-2"><strong>{{ __('audioguide.AudioSubTitre') }}</strong></h6>
+                        </div>
+                    </div>
                         <p class="mbr-text mbr-fonts-style mb-4 display-7">
                         {{ __('audioguide.AudioDesc') }}</p>
                             <div class="image-wrapper">
