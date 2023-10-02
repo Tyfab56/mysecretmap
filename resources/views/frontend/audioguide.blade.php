@@ -8,7 +8,7 @@
                 <div class="col-lg-8">
                     <div class="text-wrapper">
                     <div class="row align-items-center">
-                        <div class="col-md-4">
+                        <div class="col-md-2 center ">
                             <img src="{{ asset('frontend/assets/images/charly_80.png')}}" alt="charly" class="img-fluid">
                         </div>
                         <div class="col-md-8">
@@ -18,19 +18,12 @@
                     </div>
                         <p class="mbr-text mbr-fonts-style mb-4 display-7">
                         {{ __('audioguide.AudioDesc') }}</p>
-                            <div class="image-wrapper">
-                                <img src="{{ asset('frontend/assets/images/'. app()->getLocale() .'-audioguide.jpg')}}" alt="">
-                            </div>
+                           
                     </div>
                 </div>
                 <div class="col-lg-4 center"> 
                                    
-                                    <deckgo-demo 
-                                                src="https://mysecretmap.com/audioguide_demo"
-                                                instant="true"
-                                                style="width: 30vw; height: 90vh;">
-                                                Wait for the demo
-                                     </deckgo-demo>
+                                    
                                     
                                     
                 </div>
