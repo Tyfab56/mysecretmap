@@ -19,5 +19,5 @@ return [
 "Image4" => "You can also choose directly from the slideshow and access the detailed cards.",
 "Image5" => "The app guides you directly to the spots you've chosen from your current location.",
 "Image6" => "Discover dozens of activities near where you are.",
-
+"OurProducts" => "Our products",
 ];

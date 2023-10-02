@@ -55,7 +55,7 @@
                 </div>
                 <div class="col-lg-4 center"> 
                 <div>   
-                    <h6>Nos produits</h6>
+                    <h6>{{ __('audioguide.OurProducts') }}</h6>
                     <p>- Iceland in English</p>
                     <p>- Islande en Français (Pré-commande -50%)</p>                    
                 </div>
