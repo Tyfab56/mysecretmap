@@ -3,7 +3,7 @@
 return [
     "AudioTitre" => "Bonjour, je suis Charly",
     "AudioSubTitre" => "Assitant voyage et Audioguide",
-    "AudioDesc"=> "Découvrez l'Islande autrement avec Charly : spots inexplorés, astuces photo, légendes locales. Votre voyage, sublimé par un expert dans votre téléphone.",
+    "AudioDesc"=> "Découvrez nos destinations autrement avec Charly : spots inexplorés, astuces photo, légendes locales. Votre voyage, sublimé par un expert dans votre téléphone.",
     "Lancement" => "OFFRE DE LANCEMENT : 9€ au lieu de 12€",
     "Subscribe" => "Je profite de la promotion maintenant",
     "AdvTitre1" =>"Gagnez du temps sur la préparation votre voyage",

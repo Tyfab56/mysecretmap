@@ -18,6 +18,32 @@
                     </div>
                         <p class="mbr-text mbr-fonts-style mb-4 display-7">
                         {{ __('audioguide.AudioDesc') }}</p>
+                        <!-- Première ligne de trois images -->
+<div class="row">
+    <div class="col-lg-4 col-md-4 col-sm-4">
+        <img src="{{ asset('frontend/assets/images/audioguide_demo1.jpg') }}" alt="Description de l'image 1" class="img-fluid">
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-4">
+        <img src="{{ asset('frontend/assets/images/audioguide_demo2.jpg') }}" alt="Description de l'image 2" class="img-fluid">
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-4">
+        <img src="{{ asset('frontend/assets/images/audioguide_demo3.jpg') }}" alt="Description de l'image 3" class="img-fluid">
+    </div>
+</div>
+
+<!-- Deuxième ligne de trois images -->
+<div class="row mt-4"> <!-- mt-4 ajoute une marge en haut pour espacer les deux lignes -->
+    <div class="col-lg-4 col-md-4 col-sm-4">
+        <img src="{{ asset('frontend/assets/images/audioguide_demo4.jpg') }}" alt="Description de l'image 4" class="img-fluid">
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-4">
+        <img src="{{ asset('frontend/assets/images/audioguide_demo5.jpg') }}" alt="Description de l'image 5" class="img-fluid">
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-4">
+        <img src="{{ asset('frontend/assets/images/audioguide_demo6.jpg') }}" alt="Description de l'image 6" class="img-fluid">
+    </div>
+</div>
+
                            
                     </div>
                 </div>
