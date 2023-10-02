@@ -25,18 +25,22 @@
                     <h6 >{{__('index.Top1Line3')}}</h6>
                     <h6 class="darkgray" >{{__('index.Top1Line4')}}</h6>
                 </div>
-                <div class="col-lg-6 col-md-4 d-flex justify-content-end">
-                   <img src="{{ asset('frontend/assets/images/charly_80.png')}}" alt="charly" class="img-fluid">
-                </div>
+               
             </div>
 
           <div class="col-lg-4 cold-md-12 bgbox p5 br5">
-           <div class="jc-center ai-center" style="display: flex;">
-              <i class="fas fa-headphones orange f1-4em" ></i>            
-              <h6 class="section-sub-title white ml-2 mr-2" style="max-height: 300px">{{__('index.Charly0')}}</h6>
-              <i class="fas fa-music orange f1-4em"></i>
+          <div class="col-lg-12 col-md-12 d-flex align-items-center">
+              <div class="jc-center ai-center" style="display: flex;">
+                  <i class="fas fa-headphones orange f1-4em" ></i>            
+                  <h6 class="section-sub-title white ml-2 mr-2" style="max-height: 300px">{{__('index.Charly0')}}</h6>
+                  <i class="fas fa-music orange f1-4em"></i>
+                  <h6 class="white">{!!__('index.Charly1')!!}</h6>
+              </div>
+              <div class="col-lg-6 col-md-4 d-flex justify-content-end">
+                      <img src="{{ asset('frontend/assets/images/charly_80.png')}}" alt="charly" class="img-fluid">
+              </div>
           </div>
-          <h6 class="white">{!!__('index.Charly1')!!}</h6>
+        
           <p class="white">{!!__('index.Charly2')!!}</p>
           <a href="{{ route('tostore') }}" class="btn btn-primary">
               <p class="mb-0 white">{{__('index.Charly3')}}</p>
