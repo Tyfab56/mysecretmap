@@ -49,7 +49,24 @@
                 </div>
                 <div class="col-lg-4 center"> 
                                    
-                                    
+                <div class="center mt-2">
+                    <h6 class="white">{{ __('destination.pubaudio1') }}</h6>
+                </div>
+
+             
+              <!-- Texte -->
+              <p class="lightgray">{{ __('destination.pubaudio2') }}</p>
+               <!-- Petite image -->
+               <div class="center mb-2">
+                   <img src="{{asset('frontend/assets/images/tostore.png')}}" alt="Store" width="100">
+              </div>
+
+              <!-- Bouton -->
+              <div class="center">
+              <a href="{{ route('tostore') }}">
+                  <button type="button" class="btn btn-primary">{{ __('destination.pubaudio3') }}</button>
+              </a>
+              </div>           
                                     
                                     
                 </div>
