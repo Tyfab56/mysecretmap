@@ -28,3 +28,4 @@ class ShopifysalesController extends Controller
     
         return redirect()->route('shopifysaleslist'); 
 }
+}
