@@ -28,5 +28,5 @@ class ShopifysalesController extends Controller
         Shopifysales::create($data);
     
         return redirect()->route('admin.shopifysaleslist'); 
-}
+    }
 }
