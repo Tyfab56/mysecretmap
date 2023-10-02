@@ -1,7 +1,7 @@
 <?php
 
 return [
-    "AudioTitreIslande" => "Charly vous guide",
+    "AudioTitre" => "Bonjour, je suis Charly",
     "AudioDesc"=> "Partir à l'aventure en Islande, c'est bien. Mais confier l'optimisation de votre voyage à Charly, notre assistant et audioguide, c'est encore mieux. Il maîtrise parfaitement le pays, dévoile des lieux méconnus, et vous narre anecdotes et légendes qui enrichiront votre séjour. Charly vous conseille également pour réussir vos photos et vous informe sur la réglementation des drones. Avec Charly, c'est un expert que vous avez dans votre téléphone.",
     "Lancement" => "OFFRE DE LANCEMENT : 9€ au lieu de 12€",
     "Subscribe" => "Je profite de la promotion maintenant",
