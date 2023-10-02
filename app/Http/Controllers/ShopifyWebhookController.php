@@ -27,4 +27,6 @@ class ShopifyWebhookController extends Controller
 
         return response()->json(['message' => 'Webhook traité avec succès'], 200);
     }
+
+
 }
