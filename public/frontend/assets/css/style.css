@@ -3443,6 +3443,10 @@ label {
 {
   color : darkgray;
 }
+.purple
+{
+  color : #e791fe;
+}
 .lightgray
 {
   color : lightgray;
@@ -4169,4 +4173,8 @@ font-size : 25px;
 .f1-4em
 {
   font-size: 1.4em;
+}
+.f1-9em
+{
+  font-size: 1.9em;
 }

@@ -29,10 +29,9 @@
           <div class="row align-items-center">
                   <div class="col-md-12">
                       <div class="jc-center ai-center d-flex">
-                          <i class="fas fa-headphones orange f1-4em"></i>
+                          <i class="fas fa-headphones purple f1-9em"></i>
                           <h6 class="section-sub-title white ml-2 mr-2">{{__('index.Charly0')}}</h6>
-                          <i class="fas fa-music orange f1-4em"></i>
-                          <img src="{{ asset('frontend/assets/images/charly_80.png')}}" style="height:65px;" alt="charly" class="img-fluid">
+                          <img src="{{ asset('frontend/assets/images/charly_80.png')}}" style="height:65px;" alt="charly" class="img-fluid ml-2">
                       </div>
                   </div>
                  
