@@ -22,6 +22,4 @@ return [
     "Image5"=>"L'application vous guide directement aux spots que vous avez choisi en partant de l'endroit ou vous êtes.",
     "Image6"=>"Découvrez des dizaines d'activités à proximité de l'endroit ou vous vous trouvez",
 
-
-]; 
 ]; 
