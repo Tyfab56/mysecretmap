@@ -12,5 +12,12 @@ return [
     "AdvTitre3" =>"Discover the secret places of photographer Fabrice H",
     "AdvDesc3" =>"In addition to the must-see places, Fabrice will show you some incredible places off the beaten tourist track.",
     "SubTitre1" =>"ICELAND 2023: IN PREPARATION FOR A SPECIAL HIGHTLANDS AUDIO GUIDE",
-    "Explain1" => ""
+    "Explain1" => "",
+    "Image1" => "Click on the map to discover over 200 spots (regular addition of new places).",
+"Image2" => "A click on the spot gives you the thumbnail and the option to open the detail card or get the route.",
+"Image3" => "The detail card lets you listen to the audio, read the text, and discover nearby activities.",
+"Image4" => "You can also choose directly from the slideshow and access the detailed cards.",
+"Image5" => "The app guides you directly to the spots you've chosen from your current location.",
+"Image6" => "Discover dozens of activities near where you are.",
+
 ];

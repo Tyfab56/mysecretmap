@@ -1,9 +1,9 @@
 <?php
 
 return [
-    "AudioTitre" => "Bonjour, je suis Charly",
-    "AudioSubTitre" => "Assitant voyage et Audioguide",
-    "AudioDesc"=> "Découvrez nos destinations autrement avec Charly : spots inexplorés, astuces photo, légendes locales. Votre voyage, sublimé par un expert dans votre téléphone.",
+    "AudioTitre" => "Hello, I'm Charly",
+    "AudioSubTitre" => "Travel Assistant and Audioguide",
+    "AudioDesc" => "Discover our destinations in a unique way with Charly: unexplored spots, photo tips, local legends. Your trip, enhanced by an expert in your phone.",
     "Lancement" => "OFFRE DE LANCEMENT : 9€ au lieu de 12€",
     "Subscribe" => "Je profite de la promotion maintenant",
     "AdvTitre1" =>"Gagnez du temps sur la préparation votre voyage",
@@ -17,4 +17,11 @@ return [
     "Image1" => "Cliquez sur la carte pour découvrir plus de 200 spots (ajout régulier de nouveaux lieux) ",
     "Image2"=> "Un clic sur le spot, vous obtenez la vignette et la possibilité d'ouvrir la fiche ou d'obtenir l'itinéraire",
     "Image3"=> "La fiche de détail permet d'écouter l'audio, de lire le texte, de découvrir les activités aux alentours",
+    "Image4"=> "Vous pouvez également choisir directement dans le diaporama et acceder aux fiches détaillées",
+    "Image4"=> "Vous pouvez également choisir directement dans le diaporama et acceder aux fiches détaillées",
+    "Image5"=>"L'application vous guide directement aux spots que vous avez choisi en partant de l'endroit ou vous êtes.",
+    "Image6"=>"Découvrez des dizaines d'activités à proximité de l'endroit ou vous vous trouvez",
+
+
+]; 
 ]; 
