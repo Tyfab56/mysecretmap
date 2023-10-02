@@ -4178,3 +4178,13 @@ font-size : 25px;
 {
   font-size: 1.9em;
 }
+.subpic
+{
+  color: #e791fe;
+  font-weight: 900;
+  /* padding-top: 5px; */
+  font-size: 0.7em;
+  line-height: initial;
+  max-width: 80%;
+  margin: 10px;
+}

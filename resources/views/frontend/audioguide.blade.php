@@ -22,13 +22,14 @@
 <div class="row">
     <div class="col-lg-4 col-md-4 col-sm-4">
         <img src="{{ asset('frontend/assets/images/audioguide_demo1.jpg') }}" alt="Description de l'image 1" class="img-fluid">
-        <p class="purple">{{ __('audioguide.Image1') }}</p>
+        <p class="subpic">{{ __('audioguide.Image1') }}</p>
     </div>
     <div class="col-lg-4 col-md-4 col-sm-4">
         <img src="{{ asset('frontend/assets/images/audioguide_demo2.jpg') }}" alt="Description de l'image 2" class="img-fluid">
     </div>
     <div class="col-lg-4 col-md-4 col-sm-4">
         <img src="{{ asset('frontend/assets/images/audioguide_demo3.jpg') }}" alt="Description de l'image 3" class="img-fluid">
+        <p class="subpic">{{ __('audioguide.Image2') }}</p>
     </div>
 </div>
 

@@ -14,5 +14,6 @@ return [
     "AdvDesc3" =>"En plus des lieux incontournables, Fabrice vous ouvre des lieux incroyables hors des sentiers touristiques habituels",
     "SubTitre1" =>"ISLANDE 2023 : EN PRÉPARATION UN AUDIO GUIDE SPÉCIAL HIGHTLANDS",
     "Explain1" => "",
-    "Image1" => "Cliquez sur la carte pour découvrir plus de 200 spots"
+    "Image1" => "Cliquez sur la carte pour découvrir plus de 200 spots (ajout régulier de nouveaux lieux) ",
+    "Image2"=> "Un clic sur le spot, vous obtenez la vignette et la possibilité d'ouvrir la fiche ou d'obtenir l'itinéraire",
 ]; 
