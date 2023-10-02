@@ -32,11 +32,10 @@
                           <i class="fas fa-headphones orange f1-4em"></i>
                           <h6 class="section-sub-title white ml-2 mr-2">{{__('index.Charly0')}}</h6>
                           <i class="fas fa-music orange f1-4em"></i>
+                          <img src="{{ asset('frontend/assets/images/charly_80.png')}}" style="height:65px;" alt="charly" class="img-fluid">
                       </div>
                   </div>
-                  <div class="col-md-4">
-                      <img src="{{ asset('frontend/assets/images/charly_80.png')}}" style="height:65px;" alt="charly" class="img-fluid">
-                  </div>
+                 
               </div>
 
           <h6 class="white">{!!__('index.Charly1')!!}</h6>
