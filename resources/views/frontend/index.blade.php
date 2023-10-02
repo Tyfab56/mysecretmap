@@ -18,17 +18,17 @@
 <section id="news" class="news">
     <div class="container">
       <div class="row text-center">
-      <div class="col-lg-12 col-md-12 d-flex align-items-center">
-    <div class="col-lg-6 col-md-8">
-        <h2 class="section-sub-title">{{__('index.Top1Line1')}}</h2>
-        <h3 class="section-sub-title">{{__('index.Top1Line2')}}</h3>
-        <h6 >{{__('index.Top1Line3')}}</h6>
-        <h6 class="darkgray" >{{__('index.Top1Line4')}}</h6>
-    </div>
-    <div class="col-lg-6 col-md-4 d-flex justify-content-end">
-        <img src="{{ asset('frontend/assets/images/charly_80.png')}}" alt="charly" >
-    </div>
-</div>
+              <div class="col-lg-12 col-md-12 d-flex align-items-center">
+                <div class="col-lg-6 col-md-8">
+                    <h2 class="section-sub-title">{{__('index.Top1Line1')}}</h2>
+                    <h3 class="section-sub-title">{{__('index.Top1Line2')}}</h3>
+                    <h6 >{{__('index.Top1Line3')}}</h6>
+                    <h6 class="darkgray" >{{__('index.Top1Line4')}}</h6>
+                </div>
+                <div class="col-lg-6 col-md-4 d-flex justify-content-end">
+                   <img src="{{ asset('frontend/assets/images/charly_80.png')}}" alt="charly" class="img-fluid">
+                </div>
+            </div>
 
           <div class="col-lg-4 cold-md-12 bgbox p5 br5">
            <div class="jc-center ai-center" style="display: flex;">
