@@ -29,5 +29,7 @@ return [
     'Filinfo' => 'Fil Info',
     'Photographer' => 'Photographe ?',
     'Photojoinus' => 'Rejoignez nous',
+    'Partner' => 'Partenaires',
+    'Transport' => 'Transporteurs',
 ];
 

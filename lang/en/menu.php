@@ -29,6 +29,8 @@ return [
     'Filinfo' => 'News feed',
     'Photographer' => 'Photographer?',
     'Photojoinus' => 'Join us',
+    'Partner' => 'Partners',
+    'Transport' => 'Transport companies',
 
 
 ];

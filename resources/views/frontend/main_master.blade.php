@@ -198,6 +198,12 @@
                               
                             </ul>
                         </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">{{ __('menu.Partner') }} <i class="fa fa-angle-down"></i></a>
+                            <ul class="dropdown-menu" role="menu">
+                                 <li><a href="{{ URL::route('audioguide')}}">{{ __('menu.Transport') }}</a></li>                           
+                            </ul>
+                        </li>
                         <!--
                         <li class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">ROAD MAP <i class="fa fa-angle-down"></i></a>
