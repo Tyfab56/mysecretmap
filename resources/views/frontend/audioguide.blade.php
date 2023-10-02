@@ -71,18 +71,7 @@
                                     
                 </div>
             </div>
-            <div class="center pt20">
-                 <div class="col-lg-8">
-                    Vous pouvez découvrir cette démo en scannant ce QR Code avec votre mobile ou en cliquant sur ce lien <a href="http://www.mysecretmap.com/audioguide_demo" target="_blank"> Demo Audioguide</br>Attention : la Géolocalisation ne fonctionne pas sur Desktop, mais uniquement sur Mobile </a>
-                 </div>
-                 <div class="col-lg-4">
-                 <img src="{{ asset('frontend/assets/images/audio_isl_en_'. app()->getLocale()).'.png'}}" alt="">
-                 </div>
-            </div>
-            <div class="center pt20">
-                      <h2>{{ __('audioguide.Lancement') }}</h2></br>
-                     <button class="btn btn-primary solid blank" type="submit">{{ __('audioguide.Subscribe') }}</button>
-            </div>
+          
            
         </div>
        
