@@ -16,4 +16,5 @@ return [
     "Explain1" => "",
     "Image1" => "Cliquez sur la carte pour découvrir plus de 200 spots (ajout régulier de nouveaux lieux) ",
     "Image2"=> "Un clic sur le spot, vous obtenez la vignette et la possibilité d'ouvrir la fiche ou d'obtenir l'itinéraire",
+    "Image3"=> "La fiche de détail permet d'écouter l'audio, de lire le texte, de découvrir les activités aux alentours",
 ]; 
