@@ -1,6 +1,6 @@
 @extends('frontend.main_master')
 @section('content') 
-<form action="{{ route('shopifysales') }}" method="post">
+<form action="{{ route('admin.shopifysales.store') }}" method="post">
     @csrf
     <input type="email" name="email" placeholder="Email" required>
     <input type="text" name="price" placeholder="Price" required>

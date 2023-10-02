@@ -8,6 +8,12 @@ use App\Models\Shopifysales;
 class ShopifysalesController extends Controller
 {
 
+ 
+    public function form()
+    { 
+        return view('admin.shopifysales');    
+    }
+    
     public function index()
     {
         $shopifysales = Shopifysales::all();
