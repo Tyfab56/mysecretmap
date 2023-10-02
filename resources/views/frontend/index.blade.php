@@ -28,7 +28,7 @@
           <div class="col-lg-4 cold-md-12 bgbox p5 br5">
           <div class="row align-items-center">
                   <div class="col-md-8">
-                      <div class="jc-center ai-center d-flex">
+                      <div class="jc-center ai-center d-flex justify-content-end">
                           <i class="fas fa-headphones orange f1-4em"></i>
                           <h6 class="section-sub-title white ml-2 mr-2">{{__('index.Charly0')}}</h6>
                           <i class="fas fa-music orange f1-4em"></i>
