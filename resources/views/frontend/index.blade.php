@@ -35,7 +35,7 @@
                       </div>
                   </div>
                   <div class="col-md-4 text-right">
-                      <img src="{{ asset('frontend/assets/images/charly_80.png')}}" alt="charly" class="img-fluid">
+                      <img src="{{ asset('frontend/assets/images/charly_80.png')}}" style="height:65px;" alt="charly" class="img-fluid">
                   </div>
               </div>
 
