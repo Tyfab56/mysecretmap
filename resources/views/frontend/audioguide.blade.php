@@ -54,14 +54,12 @@
                     </div>
                 </div>
                 <div class="col-lg-4 center"> 
-                                   
-                <div class="center mt-2">
-                    <h6 class="white">{{ __('destination.pubaudio1') }}</h6>
+                <div>   
+                    <h6>Nos produits</h6>
+                    <p>- Iceland in English</p>
+                    <p>- Islande en Français (Pré-commande -50%)</p>                    
                 </div>
 
-             
-              <!-- Texte -->
-              <p class="lightgray">{{ __('destination.pubaudio2') }}</p>
                <!-- Petite image -->
                <div class="center mb-2">
                    <img src="{{asset('frontend/assets/images/tostore.png')}}" alt="Store" width="100">
