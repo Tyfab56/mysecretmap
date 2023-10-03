@@ -54,6 +54,6 @@
     </div>
 
     <!-- Descriptif qui invite à cliquer -->
-    <p class="text-center mt-4">{{ __('audioguide.TrspEnd) }}</p>
+    <p class="text-center mt-4">{{ __('audioguide.TrspEnd') }}</p>
 
 @endsection
