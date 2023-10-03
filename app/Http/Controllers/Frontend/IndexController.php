@@ -708,4 +708,9 @@ class IndexController extends Controller
     {
         return view('frontend.transporteur');
     }
+
+    public function croisiere()
+    {
+        return view('frontend.croisiere');
+    }
 }

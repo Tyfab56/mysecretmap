@@ -75,7 +75,7 @@ Route::get('/refreshtour/{idspays}/{idcircuit}', [DestinationController::class, 
 Route::get('/circuit/{idcircuit}', [DestinationController::class, 'circuit'])->name('circuit');
 Route::get('/search', [IndexController::class, 'search'])->name('search');
 Route::get('/partner/transport', [IndexController::class, 'transport'])->name('transport');
-
+Route::get('/partner/croisiere', [IndexController::class, 'croisiere'])->name('croisiere');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
