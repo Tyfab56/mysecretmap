@@ -13,7 +13,7 @@
     <h2 class="text-center mb-4">{{ __('audioguide.TrspSousTitre') }}</h2>
 
     <!-- Quatre cards avec des icônes et un texte en dessous -->
-    <div class="row">
+    <div class="row center-row">
 
         <div class="col-md-3 mb-4">
             <div class="card text-center">
@@ -55,5 +55,10 @@
 
     <!-- Descriptif qui invite à cliquer -->
     <p class="text-center mt-4">{{ __('audioguide.TrspEnd') }}</p>
-
+<style>
+    .centered-row {
+    max-width: 80%;
+    margin: auto;
+}
+</style>    
 @endsection
