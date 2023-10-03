@@ -1,9 +1,15 @@
 @extends('frontend.main_master')
 @section('content')
+
 <div class="container mt-5">
+            <h1 class="text-center mb-4">{{ __('audioguide.CroisiereTitre') }}</h1>
 
-    <p>Le secteur des croisières est riche et diversifié, offrant une multitude d'opportunités pour les audioguides et les assistants de voyage. Voici comment vous pourriez structurer et détailler votre offre pour ce segment :</p>
+            <!-- Image en dessous -->
+            <div class="text-center">
+                <img src="{{ asset('frontend/assets/images/charly_80.png') }}" alt="Description de l'image" class="img-fluid mb-4">
+            </div>
 
+    <p>Le secteur des croisières est riche et diversifié, offrant une multitude d'opportunités pour les audioguides et les assistants de voyage.
     <!-- Bloc 1 -->
     <div class="block mb-5">
         <h3>1. Présentation de la Compagnie de Croisière</h3>

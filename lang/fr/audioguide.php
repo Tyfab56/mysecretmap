@@ -28,7 +28,9 @@ return [
     "Trspbox2" => "Croisière",
     "Trspbox3" => "Location de voiture",
     "Trspbox4" => "Voyagiste",
-    "TrspEnd" => "Découvrez tous les détails de nos prestations pour chaque catégorie en cliquant sur chaque section"
+    "TrspEnd" => "Découvrez tous les détails de nos prestations pour chaque catégorie en cliquant sur chaque section",
+    "Croisieretitre" => "Des idées pour votre audioguide 'croisière'",
+    
     
     
     
