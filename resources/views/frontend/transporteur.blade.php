@@ -19,7 +19,7 @@
             <div class="card text-center">
                 <img src="{{ asset('frontend/assets/images/icon-image/avion.png') }}" alt="Description de l'icône 1" class="card-img-top mt-3">
                 <div class="card-body">
-                    <p class="card-text">{{ __('audioguide.Trspbox1) }}</p>
+                    <p class="card-text">{{ __('audioguide.Trspbox1') }}</p>
                 </div>
             </div>
         </div>
@@ -28,7 +28,7 @@
             <div class="card text-center">
                 <img src="{{ asset('frontend/assets/images/icon-image/bateau.png') }}" alt="Description de l'icône 2" class="card-img-top mt-3">
                 <div class="card-body">
-                    <p class="card-text">{{ __('audioguide.Trspbox2) }}</p>
+                    <p class="card-text">{{ __('audioguide.Trspbox2') }}</p>
                 </div>
             </div>
         </div>
@@ -37,7 +37,7 @@
             <div class="card text-center">
                 <img src="{{ asset('frontend/assets/images/icon-image/voiture.png') }}" alt="Description de l'icône 3" class="card-img-top mt-3">
                 <div class="card-body">
-                    <p class="card-text">{{ __('audioguide.Trspbox3) }}</p>
+                    <p class="card-text">{{ __('audioguide.Trspbox3') }}</p>
                 </div>
             </div>
         </div>
@@ -46,7 +46,7 @@
             <div class="card text-center">
                 <img src="{{ asset('frontend/assets/images/icon-image/bateau.png') }}" alt="Description de l'icône 4" class="card-img-top mt-3">
                 <div class="card-body">
-                    <p class="card-text">{{ __('audioguide.Trspbox4) }}</p>
+                    <p class="card-text">{{ __('audioguide.Trspbox4') }}</p>
                 </div>
             </div>
         </div>
