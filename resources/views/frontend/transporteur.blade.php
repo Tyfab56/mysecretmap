@@ -57,7 +57,7 @@
     <p class="text-center mt-4">{{ __('audioguide.TrspEnd') }}</p>
 <style>
     .centered-row {
-    max-width: 80%;
+    max-width: 70%;
     margin: auto;
 }
 </style>    
