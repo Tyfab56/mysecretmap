@@ -25,7 +25,7 @@
         </div>
 
         <div class="col-md-3 mb-4">
-            <a href="{{ URL::route('home')}}" >
+            <a href="{{ URL::route('croisiere')}}" >
             <div class="card text-center">
                 <img src="{{ asset('frontend/assets/images/icon-image/bateau.png') }}" alt="Description de l'icône 2" class="card-img-top mt-3">
                 <div class="card-body">
