@@ -703,4 +703,9 @@ class IndexController extends Controller
             'message' => 'OK'
         ]);
     }
+
+    public function transport()
+    {
+        return view('frontend.transporteur');
+    }
 }

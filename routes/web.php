@@ -74,6 +74,7 @@ Route::get('/removetour/{idspot}/{idcircuit}', [DestinationController::class, 'r
 Route::get('/refreshtour/{idspays}/{idcircuit}', [DestinationController::class, 'updatetour'])->name('refreshtour');
 Route::get('/circuit/{idcircuit}', [DestinationController::class, 'circuit'])->name('circuit');
 Route::get('/search', [IndexController::class, 'search'])->name('search');
+Route::get('/partner/transport', [IndexController::class, 'transport'])->name('transport');
 
 
 Route::get('/dashboard', function () {
@@ -152,6 +153,7 @@ Route::view('/reunion', 'frontend.destinations.reunion')->name('reunion');
 Route::view('/audioguide', 'frontend.audioguide')->name('audioguide');
 Route::view('/audioguides', 'frontend.audioguides')->name('audioguides');
 Route::view('/changeavatar', 'frontend.loadavatar')->name('changeavatar');
+
 
 Route::view('/guide_iceland_en','frontend.guide_iceland_en')->name('guide_iceland_en');
 
