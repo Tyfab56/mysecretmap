@@ -6,14 +6,14 @@
 
     <!-- Image en dessous -->
     <div class="text-center">
-        <img src="votre_image.jpg" alt="Description de l'image" class="img-fluid mb-4">
+        <img src="{{ asset('frontend/assets/images/charly_80.png') }}" alt="Description de l'image" class="img-fluid mb-4">
     </div>
 
     <!-- Sous-titre en dessous de l'image -->
     <h2 class="text-center mb-4">{{ __('audioguide.TrspSousTitre') }}</h2>
 
     <!-- Quatre cards avec des icônes et un texte en dessous -->
-    <div class="row center-row">
+    <div class="row centered-row">
 
         <div class="col-md-3 mb-4">
             <div class="card text-center">
