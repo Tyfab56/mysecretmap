@@ -17,7 +17,7 @@
 
         <div class="col-md-3 mb-4">
             <div class="card text-center">
-                <img src="icone1.png" alt="Description de l'icône 1" class="card-img-top mt-3">
+                <img src="{{ asset('frontend/assets/images/icon-image/avion.png') }}" alt="Description de l'icône 1" class="card-img-top mt-3">
                 <div class="card-body">
                     <p class="card-text">{{ __('audioguide.Trspbox1) }}</p>
                 </div>
@@ -26,27 +26,27 @@
 
         <div class="col-md-3 mb-4">
             <div class="card text-center">
-                <img src="icone2.png" alt="Description de l'icône 2" class="card-img-top mt-3">
+                <img src="{{ asset('frontend/assets/images/icon-image/bateau.png') }}" alt="Description de l'icône 2" class="card-img-top mt-3">
                 <div class="card-body">
-                    <p class="card-text">{{ __('audioguide.Trspbox1) }}</p>
+                    <p class="card-text">{{ __('audioguide.Trspbox2) }}</p>
                 </div>
             </div>
         </div>
 
         <div class="col-md-3 mb-4">
             <div class="card text-center">
-                <img src="icone3.png" alt="Description de l'icône 3" class="card-img-top mt-3">
+                <img src="{{ asset('frontend/assets/images/icon-image/voiture.png') }}" alt="Description de l'icône 3" class="card-img-top mt-3">
                 <div class="card-body">
-                    <p class="card-text">{{ __('audioguide.Trspbox1) }}</p>
+                    <p class="card-text">{{ __('audioguide.Trspbox3) }}</p>
                 </div>
             </div>
         </div>
 
         <div class="col-md-3 mb-4">
             <div class="card text-center">
-                <img src="icone4.png" alt="Description de l'icône 4" class="card-img-top mt-3">
+                <img src="{{ asset('frontend/assets/images/icon-image/bateau.png') }}" alt="Description de l'icône 4" class="card-img-top mt-3">
                 <div class="card-body">
-                    <p class="card-text">{{ __('audioguide.Trspbox1) }}</p>
+                    <p class="card-text">{{ __('audioguide.Trspbox4) }}</p>
                 </div>
             </div>
         </div>
