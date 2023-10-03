@@ -22,6 +22,15 @@ return [
     "Image5"=>"L'application vous guide directement aux spots que vous avez choisi en partant de l'endroit ou vous êtes.",
     "Image6"=>"Découvrez des dizaines d'activités à proximité de l'endroit ou vous vous trouvez",
     "OurProducts" => "Nos produits",
+    "TrspTitre" => "Charly un assistant de voyage numérique",
+    "TrspSousTitre" => "Des versions adaptées à chaque métier",
+    "Trspbox1" => "Compagnie aérienne",
+    "Trspbox2" => "Croisière",
+    "Trspbox3" => "Location de voiture",
+    "Trspbox4" => "Voyagiste",
+    "TrspEnd" => "Découvrez tous les détails de nos prestations pour chaque catégorie en cliquant sur chaque section"
+    
+    
     
 
 ]; 
