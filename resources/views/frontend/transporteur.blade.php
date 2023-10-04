@@ -46,7 +46,7 @@
 
         <div class="col-md-3 mb-4">
             <div class="card text-center">
-                <img src="{{ asset('frontend/assets/images/icon-image/bateau.png') }}" alt="Description de l'icône 4" class="card-img-top mt-3">
+                <img src="{{ asset('frontend/assets/images/icon-image/bus.png') }}" alt="Description de l'icône 4" class="card-img-top mt-3">
                 <div class="card-body">
                     <p class="card-text">{{ __('audioguide.Trspbox4') }}</p>
                 </div>
