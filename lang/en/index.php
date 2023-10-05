@@ -45,6 +45,7 @@ return [
     "Charly2"=>"Charly knows the best places, the most beautiful spots, the lesser-known locations, as well as anecdotes and legends. He will advise you on your photos and on using a drone for each destination. Charly accompanies you and optimizes your trip.",
     "Charly3"=>"I ORDER THE AUDIOGUIDE",
     "Charly4"=>"Thank you Sabrina for your photo with Charly in hand",
+    "Charly5"=>"Episodes",
     'NoAccess' => "You have no accesss here",
     'LastSpots' => "Last Spots",
     "LastSpotsDesc" => "Scroll through the thumbnails or click directly on the image to open the page for this spot",

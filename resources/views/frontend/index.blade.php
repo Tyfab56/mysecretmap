@@ -39,12 +39,14 @@
 
           <h6 class="white">{!!__('index.Charly1')!!}</h6>
           <p class="white">{!!__('index.Charly2')!!}</p>
-          <a href="{{ route('tostore') }}" class="btn btn-primary">
+          <a href="{{ route('tostore') }}" class="btn btn-primary d-inline-block mr-2">
               <p class="mb-0 white">{{__('index.Charly3')}}</p>
           </a>
-          <a href="{{ route('tostore') }}" class="btn btn-primary">
-              <p class="mb-0 white">{{__('index.Charly3')}}</p>
-          </a>
+                <a href="{{ route('charly_posts', ['pays_id' => 'IS']) }}" class="btn btn-primary d-inline-block">
+          <p class="mb-0 white">{{__('index.Charly5')}}</p>
+      </a>
+
+
           </div>
           <div class="col-lg-2 col-md-12" style="position: relative;">
               <img src="{{ asset('frontend/assets/images/blog/charly1.jpg')}}" alt="charly" class="img-fluid br5">

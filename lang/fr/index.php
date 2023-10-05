@@ -65,6 +65,7 @@ return [
     "Charly2"=>"Charly connaît les meilleurs endroits, les lieux peu connus, les anecdotes et légendes. Il saura vous conseiller pour vos photos et pour utiliser un drone pour chaque destination. Charly vous accompagne et optimise votre voyage.",
     "Charly3"=>"JE COMMANDE L'AUDIOGUIDE",
     "Charly4"=>"Merci Sabrina pour votre photo avec Charly en main",
+    "Charly5"=>"Episodes",
 
     "NousSoutenir" => "Nous Soutenir",
     "NousSoutenirDesc" => "Pour vous investir et ouvrir de nouveaux spots :",
