@@ -38,7 +38,7 @@ $(document).ready(function() {
             <div class="col-md-8 ">
                 <!-- Div for the title and the description -->
                 <div class="content">
-                <div class="post-content mt-5 f1">
+                <div class="post-content mt-5 f0-9em">
                         {{ $displayContent }}
                         <span class="hidden-content">{{ $hiddenContent }}</span>
                         @if(strlen($content) > 900)
