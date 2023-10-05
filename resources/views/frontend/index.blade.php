@@ -42,6 +42,9 @@
           <a href="{{ route('tostore') }}" class="btn btn-primary">
               <p class="mb-0 white">{{__('index.Charly3')}}</p>
           </a>
+          <a href="{{ route('tostore') }}" class="btn btn-primary">
+              <p class="mb-0 white">{{__('index.Charly3')}}</p>
+          </a>
           </div>
           <div class="col-lg-2 col-md-12" style="position: relative;">
               <img src="{{ asset('frontend/assets/images/blog/charly1.jpg')}}" alt="charly" class="img-fluid br5">
