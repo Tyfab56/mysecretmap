@@ -4170,6 +4170,11 @@ font-size : 25px;
 {
   align-items : center;
 }
+.f1
+{
+  font-size: 1em;
+}
+
 .f1-4em
 {
   font-size: 1.4em;
