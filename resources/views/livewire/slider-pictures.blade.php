@@ -1,5 +1,5 @@
 <div>
-  <h1>Pictures about {{$spot->name}}({{$pictures->count()}}</h1>
+  <h1>Pictures about ({{$pictures->count()}})</h1>
 <div class="gridOverflow go-masonry">
 
     @foreach ($pictures as $picture)
