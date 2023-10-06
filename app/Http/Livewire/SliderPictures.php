@@ -28,7 +28,7 @@ class SliderPictures extends Component
         $pictures = Pictures::where('spot_id', '=', $this->idspot)
                             ->where('actif', '=', 1)
                             ->paginate(10);
-        $spot = Spots::where('id','=',$this->idspot)->get();                    
+        $spot = Spots::where('id','=',$this->idspot)->first();                    
 
         return view('livewire.slider-pictures', ['pictures' => $pictures,'spot' => $spot]); 
     }
