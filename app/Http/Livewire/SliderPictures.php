@@ -30,6 +30,6 @@ class SliderPictures extends Component
                             ->paginate(10);
         $spot = Spots::where('id','=',$this->idspot)->get();                    
 
-        return view('livewire.slider-pictures', ['pictures' => $pictures,'$spot' => $spot]); 
+        return view('livewire.slider-pictures', ['pictures' => $pictures,'spot' => $spot]); 
     }
 }
