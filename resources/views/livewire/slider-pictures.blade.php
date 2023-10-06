@@ -1,4 +1,5 @@
 <div>
+  <h1>Pictures about </h1>
 <div class="gridOverflow go-masonry">
 
     @foreach ($pictures as $picture)
