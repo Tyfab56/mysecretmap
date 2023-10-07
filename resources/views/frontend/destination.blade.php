@@ -28,69 +28,63 @@
         <div class="row">        
                <div class="col-lg-9">
                      <div class="row">
-                           
-
                             <div class="row bgregbox w100">
-                            <div class="col-lg-12">
-                                  
+                               <div class="col-lg-12">
                                   <div id="medias"></div>
-                            </div>
-                       </div>
-                    </div>    
+                               </div>
+                           </div>
+                     </div>    
 
-                <div class="leaflet-map">
+                     <div class="leaflet-map">
                        
-                        <div class="row">
-                            <a name="mapPos" style="position:absolute; top:+100px;"></a>
-                            <div id="mapdest">
-                                <a href="https://www.maptiler.com" style="position:absolute;left:10px;bottom:10px;z-index:999;"><img src="https://api.maptiler.com/resources/logo.svg" alt="MapTiler logo"></a>
-                            </div>
-                            <div class="row">
-                            <div class="col-sm-12"><input type="checkbox" id="sunToggle" class="js-switch"><span class="p5" >Sun Settings</span></div>
-                            </div>
-                           
-                            <div id="sun" class="row min100">
+                          <div class="row">
+
+                              <a name="mapPos" style="position:absolute; top:+100px;"></a>
+                              <div id="mapdest">
+                                  <a href="https://www.maptiler.com" style="position:absolute;left:10px;bottom:10px;z-index:999;"><img src="https://api.maptiler.com/resources/logo.svg" alt="MapTiler logo"></a>
+                              </div>
+                              <div class="row">
+                              <div class="col-sm-12"><input type="checkbox" id="sunToggle" class="js-switch"><span class="p5" >Sun Settings</span></div>
+                              </div>
                               
-                                  <div class="col-sm-6"> 
-                                        <div style="padding : 5px"><b>{{__('destination.choiceday')}} :</b> <span id="theday"></span></div>
-                                        <div style="padding: 5px;"> <input type="range" class="form-range" min="1" max="365" oninput="changeRange(this.value)" onchange="changeRange(this.value)" id="dayofyear"></div>
-                                  </div>
-                                  <div class="col-sm-6"> 
-                                        <div style="padding : 5px"><b>{{__('destination.choicehour')}} :</b> <span id="thehour"></span><span id="thedayhour"></span></div>
-                                        <div style="padding: 5px;"> <input type="range" class="form-range" min="0" max="24" oninput="changeHour(this.value)" onchange="changeHour(this.value)" id="hourofday"></div>
-                                   </div> 
-                              </div>  
-                              <p><span style="color:red"><b>{{__('destination.RedLine')}}</b></span> / <span style="color:orange"><b>{{__('destination.OrangeLine')}}</b></span></p><br/>
+                              <div id="sun" class="row min100">
+                                
+                                    <div class="col-sm-6"> 
+                                          <div style="padding : 5px"><b>{{__('destination.choiceday')}} :</b> <span id="theday"></span></div>
+                                          <div style="padding: 5px;"> <input type="range" class="form-range" min="1" max="365" oninput="changeRange(this.value)" onchange="changeRange(this.value)" id="dayofyear"></div>
+                                    </div>
+                                    <div class="col-sm-6"> 
+                                          <div style="padding : 5px"><b>{{__('destination.choicehour')}} :</b> <span id="thehour"></span><span id="thedayhour"></span></div>
+                                          <div style="padding: 5px;"> <input type="range" class="form-range" min="0" max="24" oninput="changeHour(this.value)" onchange="changeHour(this.value)" id="hourofday"></div>
+                                      </div> 
+                                </div>  
+                                <p><span style="color:red"><b>{{__('destination.RedLine')}}</b></span> / <span style="color:orange"><b>{{__('destination.OrangeLine')}}</b></span></p><br/>
                           </div>
-         
-        
-                <div class="row pt-1 pb-1 pr-1 pl-1 bgregbox min100">  
-                      <div class="col-lg-12 pt-1 pb-1  pr-1 pl-1"><livewire:show-map-globale /></div>
-                </div> 
+              
+                          <div class="row pt-1 pb-1 pr-1 pl-1 bgregbox min100">  
+                                <div class="col-lg-12 pt-1 pb-1  pr-1 pl-1"><livewire:show-map-globale /></div>
+                          </div> 
 
-                <div class="row pt-1 pb-1 pr-1 pl-1 bgregbox min100">  
-                  <div class="col-lg-6 center pt-1 pb-1 pr-1 pl-1"><div id="mapzoom"></div></div>
-                  <div class="col-lg-6 center pt-1 pb-1 pr-1 pl-1"><livewire:show-img-region /></div>
-                </div> 
+                          <div class="row pt-1 pb-1 pr-1 pl-1 bgregbox min100">  
+                            <div class="col-lg-6 center pt-1 pb-1 pr-1 pl-1"><div id="mapzoom"></div></div>
+                            <div class="col-lg-6 center pt-1 pb-1 pr-1 pl-1"><livewire:show-img-region /></div>
+                          </div> 
 
-                <div class="row pt-1 pb-1 pr-1 pl-1 bgregbox min100">  
-                  <div class="col-lg-6 pt-1 pb-1  pr-1 pl-1"><livewire:show-peak-region /></div>
-                </div>             
+                          <div class="row pt-1 pb-1 pr-1 pl-1 bgregbox min100">  
+                            <div class="col-lg-6 pt-1 pb-1  pr-1 pl-1"><livewire:show-peak-region /></div>
+                          </div>             
                         
-                </div>
-            </div>
-              <div class="col-lg-3 bgbox"> 
-             
-              <livewire:show-map-spot />
-            </div>
+                    </div>
+
+               </div>
+               <div class="col-lg-3 bgbox">           
+                  <livewire:show-map-spot />
+               </div>
         </div>
        
          
-        
-        <div class="row bgregbox min100">  
-          <div class="col-lg-12 col-md-12"><livewire:slider-pictures /></div>
-          
-          
+       <div class="row bgregbox min100">  
+          <div class="col-lg-12 col-md-12"><livewire:slider-pictures /></div>   
         </div>
         @auth
         @if (auth()->user()->isPhotographer())
