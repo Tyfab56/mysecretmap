@@ -25,7 +25,7 @@
                    <a class="btn btn-primary m5" href="{{ url('thewall') }}/{{ $idpays}}">{{__('destination.cherchespot')}} </a>
                </div>
         </div>   
-        <div class="row">       
+        <div class="row">        
                <div class="col-lg-9">
                      <div class="row">
                            
@@ -37,6 +37,7 @@
                             </div>
                        </div>
                     </div>    
+
                 <div class="leaflet-map">
                        
                         <div class="row">
@@ -63,17 +64,18 @@
                           </div>
          
         
-        <div class="row pt-1 pb-1 pr-1 pl-1 bgregbox min100">  
-        <div class="col-lg-12 pt-1 pb-1  pr-1 pl-1"><livewire:show-map-globale /></div>
-        </div> 
-        <div class="row pt-1 pb-1 pr-1 pl-1 bgregbox min100">  
-          <div class="col-lg-6 center pt-1 pb-1 pr-1 pl-1"><div id="mapzoom"></div></div>
-          <div class="col-lg-6 center pt-1 pb-1 pr-1 pl-1"><livewire:show-img-region /></div>
-        </div>
-        <div class="row pt-1 pb-1 pr-1 pl-1 bgregbox min100">  
-    
-          <div class="col-lg-6 pt-1 pb-1  pr-1 pl-1"><livewire:show-peak-region /></div>
-        </div>             
+                <div class="row pt-1 pb-1 pr-1 pl-1 bgregbox min100">  
+                      <div class="col-lg-12 pt-1 pb-1  pr-1 pl-1"><livewire:show-map-globale /></div>
+                </div> 
+
+                <div class="row pt-1 pb-1 pr-1 pl-1 bgregbox min100">  
+                  <div class="col-lg-6 center pt-1 pb-1 pr-1 pl-1"><div id="mapzoom"></div></div>
+                  <div class="col-lg-6 center pt-1 pb-1 pr-1 pl-1"><livewire:show-img-region /></div>
+                </div> 
+
+                <div class="row pt-1 pb-1 pr-1 pl-1 bgregbox min100">  
+                  <div class="col-lg-6 pt-1 pb-1  pr-1 pl-1"><livewire:show-peak-region /></div>
+                </div>             
                         
                 </div>
             </div>
