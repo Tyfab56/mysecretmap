@@ -460,6 +460,7 @@ $('#save-info-button').click(function() {
 </div>
 </div>
 @endif
+@if ($user->isadmin)
             <div class="card">
               <div class="card-header p-0 bg-transparent" id="headingFour">
                 <h2 class="mb-0">
@@ -493,7 +494,7 @@ $('#save-info-button').click(function() {
           </div>
           <!--/ Accordion end -->
         </div>
-
+@endif
 
         <div class="col-lg-6">
 
