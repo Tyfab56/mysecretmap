@@ -31,5 +31,6 @@ return [
     'Photojoinus' => 'Rejoignez nous',
     'Partner' => 'Partenaires',
     'Transport' => 'Transporteurs',
+    'Medias' => 'Gestion des médias',
 ];
 

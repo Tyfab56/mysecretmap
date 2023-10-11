@@ -240,11 +240,11 @@
 
                         @auth
                         <li class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"> <i class="glyphicon glyphicon-user"> </i> {{ __('menu.Bonjour') }} {{Auth::user()->name}} <i class="fa fa-angle-down"></i></a>
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"> <i class="glyphicon glyphicon-user"> </i> {{ __('menu.Bonjour') }} {{Auth::user()->pseudo}} <i class="fa fa-angle-down"></i></a>
                             <ul class="dropdown-menu" role="menu">
                               <li><a href="{{ URL::route('myaccount')}}">{{ __('menu.Profil') }}</a></li>
                               @if (auth()->user()->isPhotographer())
-                              <li><a href="{{ URL::route('medias')}}">GESTION MEDIAS</a></li>
+                              <li><a href="{{ URL::route('medias')}}">{{ __('menu.Medias') }}</a></li>
                               @else
                               <li><a href="{{ URL::route('logout')}}">DEVENIR PHOTOGRAPHE</a></li>
                               @endif
