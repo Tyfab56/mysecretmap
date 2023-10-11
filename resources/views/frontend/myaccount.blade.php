@@ -460,7 +460,7 @@ $('#save-info-button').click(function() {
 </div>
 </div>
 @endif
-@if ($user->isadmin)
+@if (auth()->user()->isAdmin())
             <div class="card">
               <div class="card-header p-0 bg-transparent" id="headingFour">
                 <h2 class="mb-0">
