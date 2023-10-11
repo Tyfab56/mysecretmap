@@ -15,6 +15,8 @@
                  <div class="list-titre">
                  
                     Etape {{$point->rang}} :  <span class="orange">{{$point->spot()->first()->name}} </span>-  Trajet : {{ \Carbon\Carbon::parse($point->temps)->format('H:i') }} ( Jour : {{ \Carbon\Carbon::parse($point->tempscumul)->format('H:i') }})
+                    
+                    <p>On Site : {{$point->timeonsite}}</p>
                     <p>Distance :  {!! round(Helper::convertDistance($point->metres,'meter','kilometer'),1) !!}km ( Jour :  {!! round(Helper::convertDistance($point->metrescumul,'meter','kilometer'),1) !!} km)</p>
                 </div>
                 <div class="list-desc cornblue">{{$point->spot()->first()->description}}</div>

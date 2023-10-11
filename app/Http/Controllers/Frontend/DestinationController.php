@@ -307,6 +307,8 @@ class DestinationController extends Controller
                 $newspot = Circuits_details::where('spot_id','=',$spotencours)->where('circuit_id','=',$idcircuit)->first();
                 $newspot->rang = $i +1;
                 $newspot->temps = $results[0]->temps;
+                // ajout du temps sur site 
+                $newspot->onsite = $results[0]->spot->timeonsite;
                 $newspot->tempscumul = $tempscumul;
                 $newspot->metrescumul = $metrescumul;
                 $newspot->metres = $results[0]->metres;

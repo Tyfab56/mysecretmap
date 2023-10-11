@@ -12,7 +12,9 @@ class Circuits_details extends Model
     protected $fillable = [
         'circuit_id',
         'rang',
-        'spot_id'
+        'spot_id',
+        'timeonsite',
+        'timerando'
     ];
 
     public function Circuit()
