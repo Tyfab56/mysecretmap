@@ -308,7 +308,8 @@ class DestinationController extends Controller
                 $newspot->rang = $i +1;
                 $newspot->temps = $results[0]->temps;
                 // ajout du temps sur site 
-                $newspot->onsite = $results[0]->Spot->timeonsite;
+                $newspot->onsite = $point->Spot->timeonsite;       
+               
                 $newspot->tempscumul = $tempscumul;
                 $newspot->metrescumul = $metrescumul;
                 $newspot->metres = $results[0]->metres;
