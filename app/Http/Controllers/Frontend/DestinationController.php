@@ -206,6 +206,7 @@ class DestinationController extends Controller
                if ($existe == 0)
                {
                   // recherche du rang d'insetion
+                  // PAr default on le met à la fin et lance un refresh pour recalculer le tour
 
                   $newpoint = new Circuits_details();
                   $newpoint->circuit_id = $idcircuit;
@@ -260,9 +261,16 @@ class DestinationController extends Controller
     public function refreshtour($idpays, $idcircuit)
     {
        
-       
-        $listepoints = Circuits_details::where('circuit_id','=',$idcircuit)->get();
+       // Parcourir tous les point set les remettre à leur place
+       // todo ajouter des point qui ne peuvent pas etre déplacé ou qui doivent absolument etre apres un autre
+       // avec valeur colonne : tobeafterspot
+       // exclure de la liste ceux qui ont une valeur à tobeafterspot / traité à part
+
+        $listepoints = Circuits_details::where('circuit_id','=',$idcircuit)->where('tobefafterspot','=',null)->get();
+
+        // mettre tout les spot à 999 / Meme ceux tobeafterspot
         $results = DB::select("update circuits_details set rang = 999 where circuit_id = ? and rang > 1", [$idcircuit]);
+
          // mise à zero des informations temps,distance et geometry sur le circuit en cours
          $circuit = Circuits::where('id','=',$idcircuit)->first();
          $circuit->tempstotal = 0;
@@ -277,6 +285,7 @@ class DestinationController extends Controller
          $polyline = array();
 
          $i = 1;
+         // Re-indexer tous les points
          foreach ($listepoints as $point)
          {
             //si c'est le premier point on fait
@@ -286,13 +295,21 @@ class DestinationController extends Controller
               $spotencours = $point->spot_id;
               $point->rang = 1;
               $point->save();
+
               
             }
+
+            // todo recherche s'il y a un point tobeafterspot pour $spotencours et l'inserer puis continuer la boucle
+           
+
+           //  >>>>>>>> traitement ici
+           // en faire le nouveau $spotencours
+
             // traitement : recherche du point le plus proche
             $results = DB::select("SELECT id,spot_destination,temps,metres,geometry FROM distances WHERE spot_origine = ? AND temps = ( SELECT min(temps) FROM `distances` WHERE spot_origine = ? AND spot_destination IN ( SELECT spot_id FROM circuits_details WHERE circuit_id = ? AND rang > ? ) )", [$spotencours,$spotencours,$idcircuit,$i]);
             // Donner à ce point l'indice i
             // faire de ce point le nouveau pointencours
-           
+            dd($results);
             if ($results)
             {
                 $pointencours = $results[0]->id;
