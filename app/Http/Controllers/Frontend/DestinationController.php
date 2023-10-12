@@ -329,7 +329,7 @@ class DestinationController extends Controller
                 $infospot = Spots::where('id','=',$spotencours);
               
                 // ajout du temps sur site 
-                $newspot->timeonsite = $infospot->timeonsite;       
+                //$newspot->timeonsite = $infospot->timeonsite;       
                
                 $newspot->tempscumul = $tempscumul;
                 $newspot->metrescumul = $metrescumul;
