@@ -14,11 +14,11 @@
             <div class="list-info">
                  <div class="list-titre">
                  
-                 {{__('destination.Etape')} {{$point->rang}} :  <span class="orange">{{$point->spot()->first()->name}} </span>-  Trajet : {{ \Carbon\Carbon::parse($point->temps)->format('H:i') }} 
+                 {{__('destination.Etape')}} {{$point->rang}} :  <span class="orange">{{$point->spot()->first()->name}} </span>-  Trajet : {{ \Carbon\Carbon::parse($point->temps)->format('H:i') }} 
                     
-                    <p>{{__('destination.TempsSurSite')} : {{ \Carbon\Carbon::parse($point->timeonsite)->format('H:i') }}</p>
-                    <p>{{__('destination.TempsTotal')} : {{ \Carbon\Carbon::parse($point->tempscumul)->format('H:i') }}
-                    <p>{{__('destination.Distance')} :  {!! round(Helper::convertDistance($point->metres,'meter','kilometer'),1) !!}km ( Jour :  {!! round(Helper::convertDistance($point->metrescumul,'meter','kilometer'),1) !!} km)</p>
+                    <p>{{__('destination.TempsSurSite')}} : {{ \Carbon\Carbon::parse($point->timeonsite)->format('H:i') }}</p>
+                    <p>{{__('destination.TempsTotal')}} : {{ \Carbon\Carbon::parse($point->tempscumul)->format('H:i') }}
+                    <p>{{__('destination.Distance')}} :  {!! round(Helper::convertDistance($point->metres,'meter','kilometer'),1) !!}km ( Jour :  {!! round(Helper::convertDistance($point->metrescumul,'meter','kilometer'),1) !!} km)</p>
                 </div>
                 <div class="list-desc cornblue">{{$point->spot()->first()->description}}</div>
             </div>
