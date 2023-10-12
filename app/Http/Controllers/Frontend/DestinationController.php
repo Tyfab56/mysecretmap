@@ -297,6 +297,7 @@ class DestinationController extends Controller
               $point->rang = 1;
               // cherche les infos de ce spot
               $infospot = Spots::where('id','=',$spotencours)->first();
+              dd($infospot);
               $point->timeonsite = $infospot->timeonsite;
               $point->save();
 
@@ -322,7 +323,7 @@ class DestinationController extends Controller
 
                  // Charger les infos de ce spot
                  $infospot = Spots::where('id','=',$spotencours)->first();
-                 
+
                  // mise à jour des infos du circuit
                 $tempscumul = $tempscumul + $results[0]->temps;
                 $metrescumul = $metrescumul + $results[0]->metres;
