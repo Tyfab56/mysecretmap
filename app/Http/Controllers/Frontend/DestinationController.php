@@ -297,7 +297,7 @@ class DestinationController extends Controller
               $point->rang = 1;
               // cherche les infos de ce spot
               $infospot = Spots::where('id','=',$spotencours)->first();
-              dd($infospot);
+ 
               $point->timeonsite = $infospot->timeonsite;
               $point->save();
 
