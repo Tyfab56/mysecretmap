@@ -266,7 +266,7 @@ class DestinationController extends Controller
        // avec valeur colonne : tobeafterspot
        // exclure de la liste ceux qui ont une valeur à tobeafterspot / traité à part
 
-        $listepoints = Circuits_details::where('circuit_id','=',$idcircuit)->where('tobefafterspot','=',null)->get();
+        $listepoints = Circuits_details::where('circuit_id','=',$idcircuit)->where('tobeafterspot','=',null)->get();
 
         // mettre tout les spot à 999 / Meme ceux tobeafterspot
         $results = DB::select("update circuits_details set rang = 999 where circuit_id = ? and rang > 1", [$idcircuit]);
