@@ -30,8 +30,11 @@ return [
     "NosCircuits" => "Our tours",
     "VosCircuits" => "Your tours",
     "pubaudio1" => "The Good Deal!",
-"pubaudio2" => "Discover the history of this spot: take Charly, our audioguide, along with you. Other spots are to be discovered in the area, don't miss out.",
-"pubaudio3" => "I order the Audioguide",
-"CompleteGallery" => "View complete gallery",
+    "pubaudio2" => "Discover the history of this spot: take Charly, our audioguide, along with you. Other spots are to be discovered in the area, don't miss out.",
+    "pubaudio3" => "I order the Audioguide",
+    "CompleteGallery" => "View complete gallery",
+    'Etape'=>"Stage",
+    'TempsSurSite' => "Time on site",
+    'TempsTotal' => "Total time"
 
 ];

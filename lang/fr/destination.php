@@ -33,4 +33,7 @@ return [
     "pubaudio2" => "Découvrez l'histoire de ce spot  : mettez Charly, notre audioguide, dans vos bagages. D'autres spots sont à découvrir dans le secteur, ne passez pas à côté. ",
     "pubaudio3" => "Je commande l'audioguide",
     "CompleteGallery" => "Voir la galerie complète",
+    'Etape'=>"Etape",
+    'TempsSurSite' => "Temps sur site",
+    'TempsTotal' => "Temps total"
 ];
