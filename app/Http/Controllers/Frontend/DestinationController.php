@@ -306,7 +306,7 @@ class DestinationController extends Controller
            // en faire le nouveau $spotencours
 
             // traitement : recherche du point le plus proche
-            $results = DB::select("SELECT id,spot_destination,temps,metres,geometry FROM distances WHERE spot_origine = ? AND temps = ( SELECT min(temps) FROM `distances` WHERE spot_origine = ? AND spot_destination IN ( SELECT spot_id FROM circuits_details WHERE circuit_id = ? AND rang > ? ) )", [$spotencours,$spotencours,$idcircuit,$i]);
+            $results = DB::select("SELECT id,spot_destination,temps,metres,geometry FROM distances WHERE spot_origine = ? AND temps = ( SELECT min(temps) FROM `distances` WHERE spot_origine = ? AND spot_destination IN ( SELECT spot_id FROM circuits_details WHERE circuit_id = ? AND rang > ? ) ) limit 1", [$spotencours,$spotencours,$idcircuit,$i]);
             // Donner à ce point l'indice i
             // faire de ce point le nouveau pointencours
             dd($results);
