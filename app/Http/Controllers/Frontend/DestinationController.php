@@ -288,12 +288,16 @@ class DestinationController extends Controller
          // Re-indexer tous les points
          foreach ($listepoints as $point)
          {
+            
             //si c'est le premier point on fait
             if ($i == 1)
             {
               $pointencours = $point->id;
               $spotencours = $point->spot_id;
               $point->rang = 1;
+              // cherche les infos de ce spot
+              $infospot = Spots::where('id','=',$spotencours)->first();
+              $point->timeonsite = $infospot->timeonsite;
               $point->save();
 
               
@@ -309,13 +313,17 @@ class DestinationController extends Controller
             $results = DB::select("SELECT id,spot_destination,temps,metres,geometry FROM distances WHERE spot_origine = ? AND temps = ( SELECT min(temps) FROM `distances` WHERE spot_origine = ? AND spot_destination IN ( SELECT spot_id FROM circuits_details WHERE circuit_id = ? AND rang > ? ) ) limit 1", [$spotencours,$spotencours,$idcircuit,$i]);
             // Donner à ce point l'indice i
             // faire de ce point le nouveau pointencours
-            
+           
+
             if ($results)
             {
                 $pointencours = $results[0]->id;
                 $spotencours = $results[0]->spot_destination;
 
-                // mise à jour des infos du circuit
+                 // Charger les infos de ce spot
+                 $infospot = Spots::where('id','=',$spotencours)->first();
+                 
+                 // mise à jour des infos du circuit
                 $tempscumul = $tempscumul + $results[0]->temps;
                 $metrescumul = $metrescumul + $results[0]->metres;
                
@@ -326,7 +334,7 @@ class DestinationController extends Controller
                 $newspot->temps = $results[0]->temps;
                 
                 // Allez chercher l'info timeonsite du spot en cours 
-                $infospot = Spots::where('id','=',$spotencours);
+                $newspot->timeonsite = $infospot->timeonsite;
               
                 // ajout du temps sur site 
                 //$newspot->timeonsite = $infospot->timeonsite;       
