@@ -16,6 +16,7 @@ use App\Http\Controllers\CharlyPostController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StoreController;
 use App\Http\Controllers\TestController;
+use App\Http\Controllers\HotelController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ShopifysalesController;
 
@@ -75,6 +76,7 @@ Route::get('/refreshtour/{idspays}/{idcircuit}', [DestinationController::class, 
 Route::get('/circuit/{idcircuit}', [DestinationController::class, 'circuit'])->name('circuit');
 Route::get('/search', [IndexController::class, 'search'])->name('search');
 Route::get('/partner/transport', [IndexController::class, 'transport'])->name('transport');
+Route::get('/partner/hotel', [HotelController::class, 'partnership'])->name('hotels');
 Route::get('/partner/croisiere', [IndexController::class, 'croisiere'])->name('croisiere');
 
 Route::get('/dashboard', function () {

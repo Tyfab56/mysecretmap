@@ -32,5 +32,6 @@ return [
     'Partner' => 'Partners',
     'Transport' => 'Transport companies',
     'Medias' => 'Medias management',
+    'Hotels' => 'Hotels',
 
 ];
