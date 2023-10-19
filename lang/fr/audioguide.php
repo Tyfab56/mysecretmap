@@ -31,8 +31,9 @@ return [
     "TrspEnd" => "Découvrez tous les détails de nos prestations pour chaque catégorie en cliquant sur chaque section",
     "CroisiereTitre" => "Des idées pour votre audioguide 'croisière'",
     "Hoteltitre" => "Découvrez Charly, l'assistant de voyage et l'audioguide sur l'Islande",
-    "HotelSousTitre" => "Une valeur ajoutée pour votre hôtel",
+    "HotelSousTitre" => "Enrichissez l'expérience de vos clients avec un guide audio inédit sur les merveilles de l'Islande.",
     
+
     
     
     
