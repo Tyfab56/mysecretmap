@@ -8,7 +8,7 @@
             <div class="text-center">
                 <img src="{{ asset('frontend/assets/images/charly_80.png') }}" alt="Description de l'image" class="img-fluid mb-4">
             </div>
-            <h3 class="text-center mb-4">{{ __('audioguide.HotelSousTitre') }}</h3>
+            <h4 class="text-center mb-4">{!! __('audioguide.HotelSousTitre') !!}</h4>
 
             <div class="container">
     <div>
