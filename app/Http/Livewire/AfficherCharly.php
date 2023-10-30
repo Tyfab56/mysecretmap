@@ -9,7 +9,7 @@ class AfficherCharly extends Component
 {
 
     public $charlyPost;
-    public $shouldRender = true;
+    public $shouldRender = false;
 
     protected $listeners = ['AfficheVideo' => 'handleAfficheVideo'];
 
@@ -18,13 +18,14 @@ class AfficherCharly extends Component
         $locale = app()->getLocale();
 
         // Vérifie si un post avec la locale spécifiée et l'idSpot existe.
-      //  $this->charlyPost = CharlyPost::whereHas('translations', function ($query) use ($locale) {
-      //      $query->where('locale', $locale);
-      //  })->where('spot_id', $spotId)->first();
+        $this->charlyPost = CharlyPost::whereHas('translations', function ($query) use ($locale) {
+            $query->where('locale', $locale);
+        })->where('spot_id', $spotId)->first();
+
 
 
         // Si un post est trouvé, on doit rendre le composant, sinon non.
-     //   $this->shouldRender = !is_null($this->charlyPost);
+        $this->shouldRender = !is_null($this->charlyPost);
     }
     public function render()
     {

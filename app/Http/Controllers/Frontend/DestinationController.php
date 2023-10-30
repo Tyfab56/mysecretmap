@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Models\Pays;
 use App\Models\Spots;
+use App\Models\CharlyPosts;
 use App\Models\Circuits;
 use App\Models\Circuits_details;
 use App\Models\Pictures;
@@ -139,7 +140,12 @@ class DestinationController extends Controller
             $geometry ='';
         }
 
-        
+        // test
+        $charlyPost = CharlyPost::whereHas('translations', function ($query) use ($locale) {
+            $query->where('locale', $locale);
+        })->where('spot_id', $idspot)->first();
+
+        dd($charlyPost);
         
         // Comptage du nombre de pictures
         return view('frontend/destination', compact('idpays', 'markers', 'pays', 'payslist', 'payslng', 'payslat', 'payszoom', 'paysoffset', 'spot', 'circuits','circuitactif','geometry'));
