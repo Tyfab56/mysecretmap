@@ -22,6 +22,8 @@ class AfficherCharly extends Component
             $query->where('locale', $locale);
         })->where('spot_id', $spotId)->first();
 
+        dd($idSpot);
+
         // Si un post est trouvé, on doit rendre le composant, sinon non.
         $this->shouldRender = !is_null($this->charlyPost);
     }
