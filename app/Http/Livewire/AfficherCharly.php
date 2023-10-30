@@ -11,9 +11,9 @@ class AfficherCharly extends Component
     public $charlyPost;
     public $shouldRender = false;
 
-    protected $listeners = ['ImgRegion' => 'handleImgRegion'];
+    protected $listeners = ['AfficheVideo' => 'handleAfficheVideo'];
 
-    public function AfficheVideo($idSpot)
+    public function handleAfficheVideo($idSpot)
     {
         $locale = app()->getLocale();
 
