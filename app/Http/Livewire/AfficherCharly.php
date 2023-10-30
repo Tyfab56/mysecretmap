@@ -25,7 +25,8 @@ class AfficherCharly extends Component
 
 
         // Si un post est trouvé, on doit rendre le composant, sinon non.
-        $this->shouldRender = !is_null($this->charlyPost);
+        $this->shouldRender = true;
+        //$this->shouldRender = !is_null($this->charlyPost);
     }
     public function render()
     {
