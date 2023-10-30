@@ -9,7 +9,7 @@ class AfficherCharly extends Component
 {
 
     public $charlyPost;
-    public $shouldRender = false;
+    public $shouldRender = true;
 
     protected $listeners = [
         'AfficheVideo'
