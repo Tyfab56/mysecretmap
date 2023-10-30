@@ -141,6 +141,7 @@ class DestinationController extends Controller
         }
 
         // test
+        $locale = app()->getLocale();
         $charlyPost = CharlyPost::whereHas('translations', function ($query) use ($locale) {
             $query->where('locale', $locale);
         })->where('spot_id', $idspot)->first();
