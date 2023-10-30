@@ -183,6 +183,7 @@ function onmapClick(e) {
 stopMarker = 1;
 Livewire.emit('InfoDestination',e.sourceTarget.options.id,null,null);
 Livewire.emit('ImgRegion',e.sourceTarget.options.id);
+Livewire.emit('AfficheVideo',e.sourceTarget.options.id);
 Livewire.emit('ImgMap',e.sourceTarget.options.id);
 Livewire.emit('ImgPeak',e.sourceTarget.options.id);
 Livewire.emit('PictureDestination',e.sourceTarget.options.id);
@@ -366,6 +367,7 @@ window.addEventListener('load', function () {
   {
     Livewire.emit('InfoDestination',currentMarker,null,null);
     Livewire.emit('ImgRegion',currentMarker);
+    Livewire.emit('AfficheVideo',currentMarker);
     Livewire.emit('ImgMap',currentMarker);
     Livewire.emit('ImgPeak',currentMarker);
     Livewire.emit('PictureDestination',currentMarker);

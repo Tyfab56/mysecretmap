@@ -138,6 +138,8 @@ class DestinationController extends Controller
             $circuitactif = 0;
             $geometry ='';
         }
+
+        
         
         // Comptage du nombre de pictures
         return view('frontend/destination', compact('idpays', 'markers', 'pays', 'payslist', 'payslng', 'payslat', 'payszoom', 'paysoffset', 'spot', 'circuits','circuitactif','geometry'));

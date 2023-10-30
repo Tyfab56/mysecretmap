@@ -64,6 +64,9 @@
                           <div class="row pt-1 pb-1 pr-1 pl-1 bgregbox min100">  
                                 <div class="col-lg-12 pt-1 pb-1  pr-1 pl-1"><livewire:show-map-globale /></div>
                           </div> 
+                          <div class="row pt-1 pb-1 pr-1 pl-1 bgregbox min100">  
+                                <div class="col-lg-12 pt-1 pb-1  pr-1 pl-1"><livewire:afficher-charly /></div>
+                          </div> 
 
                           <div class="row pt-1 pb-1 pr-1 pl-1 bgregbox min100">  
                             <div class="col-lg-6 center pt-1 pb-1 pr-1 pl-1"><div id="mapzoom"></div></div>
