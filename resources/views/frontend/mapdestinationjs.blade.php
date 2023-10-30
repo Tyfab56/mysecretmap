@@ -178,6 +178,10 @@ function bearingDistance(lat, lon, radius, bearing){
                 return radians * 180 / Math.PI;
               }
        
+function affiche()
+{
+  Livewire.emit('AfficheVideo',280);
+}
 
 function onmapClick(e) {
 stopMarker = 1;
