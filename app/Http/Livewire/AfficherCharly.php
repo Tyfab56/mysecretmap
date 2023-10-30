@@ -21,6 +21,8 @@ class AfficherCharly extends Component
         $locale = app()->getLocale();
   
         $this->charlyPost = CharlyPost::first();
+
+        dd($this->charlyPost);
         
        // whereHas('translations', function ($query) use ($locale) {
        //     $query->where('locale', $locale);
