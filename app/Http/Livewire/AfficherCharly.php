@@ -13,14 +13,14 @@ class AfficherCharly extends Component
 
     protected $listeners = ['AfficheVideo' => 'handleAfficheVideo'];
 
-    public function handleAfficheVideo($idSpot)
+    public function handleAfficheVideo($idspot)
     {
         $locale = app()->getLocale();
 
         // Vérifie si un post avec la locale spécifiée et l'idSpot existe.
         $this->charlyPost = CharlyPost::whereHas('translations', function ($query) use ($locale) {
             $query->where('locale', $locale);
-        })->where('spot_id', $spotId)->first();
+        })->where('spot_id', $idspot)->first();
 
 
 
