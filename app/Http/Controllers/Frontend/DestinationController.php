@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Models\Pays;
 use App\Models\Spots;
-use App\Models\CharlyPosts;
+use App\Models\CharlyPost;
 use App\Models\Circuits;
 use App\Models\Circuits_details;
 use App\Models\Pictures;
@@ -141,7 +141,7 @@ class DestinationController extends Controller
         }
 
         // test
-        $charlyPost = CharlyPosts::whereHas('translations', function ($query) use ($locale) {
+        $charlyPost = CharlyPost::whereHas('translations', function ($query) use ($locale) {
             $query->where('locale', $locale);
         })->where('spot_id', $idspot)->first();
 
