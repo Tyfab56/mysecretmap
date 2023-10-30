@@ -140,13 +140,7 @@ class DestinationController extends Controller
             $geometry ='';
         }
 
-        // test
-        $locale = app()->getLocale();
-        $charlyPost = CharlyPost::whereHas('translations', function ($query) use ($locale) {
-            $query->where('locale', $locale);
-        })->where('spot_id', $spotid)->first();
-
-        dd($charlyPost);
+     
         
         // Comptage du nombre de pictures
         return view('frontend/destination', compact('idpays', 'markers', 'pays', 'payslist', 'payslng', 'payslat', 'payszoom', 'paysoffset', 'spot', 'circuits','circuitactif','geometry'));
