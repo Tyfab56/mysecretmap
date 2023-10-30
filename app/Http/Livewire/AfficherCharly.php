@@ -19,14 +19,16 @@ class AfficherCharly extends Component
     public function AfficheVideo($idspot)
     {
         $locale = app()->getLocale();
-
-       
-        $this->charlyPost = CharlyPost::whereHas('translations', function ($query) use ($locale) {
-            $query->where('locale', $locale);
-        })->where('spot_id', $idspot)->first();
+  
+        $this->charlyPost = CharlyPost::first();
+        
+       // whereHas('translations', function ($query) use ($locale) {
+       //     $query->where('locale', $locale);
+       // })->where('spot_id', $idspot)->first();
 
         $this->shouldRender = !is_null($this->charlyPost);
     }
+
     public function render()
     {
         if ($this->shouldRender) {
