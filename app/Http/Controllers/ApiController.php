@@ -38,6 +38,17 @@ class ApiController extends Controller
 
         
     }
+    public function AfficheVideo($idspot)
+    {
+        $locale = app()->getLocale();
+  
+        $charlyPost = CharlyPost:: whereHas('translations', function ($query) use ($locale) {
+            $query->where('locale', $locale);
+        })->where('spot_id', $idspot)->first();
+
+        dd($charlypost);
+        return true;
+    }
 }
 
 
