@@ -19,7 +19,7 @@ class HotelController extends Controller
 
     public function create()
     {
-        return view('create_hotel');
+        return view('createhotel');
     }
 
     public function store(Request $request)
