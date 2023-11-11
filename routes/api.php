@@ -22,4 +22,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::post('/shopify-webhook', [ShopifyWebhookController::class, 'handleWebhook']);
 
-Route::get('/testapi/{idspot}',[ApiController::class, 'AfficheVideo']);
+Route::get('/testapi/{idspot}/',[ApiController::class, 'AfficheVideo']);
