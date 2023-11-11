@@ -1,10 +1,5 @@
 @extends('frontend.main_master')
 @section('content')
-{{-- resources/views/add_hotel.blade.php --}}
-
-@extends('layouts.app')
-
-@section('content')
 <div class="container">
     <div class="row">
         <!-- Colonne pour le formulaire -->
