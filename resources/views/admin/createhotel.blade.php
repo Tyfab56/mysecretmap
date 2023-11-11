@@ -8,7 +8,7 @@
 <div class="container">
     <div class="row">
         <!-- Colonne pour le formulaire -->
-        <div class="col-md-8">
+       
             <h1>Ajouter un nouvel hôtel</h1>
 
             <form action="{{ route('admin.hotels.store') }}" method="POST">
@@ -65,16 +65,11 @@
 
                 <button type="submit" class="btn btn-primary">Ajouter</button>
             </form>
-        </div>
+
 
         <!-- Colonne pour la carte -->
-        <div class="col-md-4">
-            <div id="map" style="height: 400px;">
-                {{-- Ici, vous pouvez intégrer votre carte --}}
-            </div>
-        </div>
+       
     </div>
 </div>
 @endsection
 
-@endsection
