@@ -51,13 +51,13 @@ class HotelController extends Controller
 
     $hotel->save();
 
-    return redirect()->route('hotels.index')->with('success', 'Hôtel ajouté avec succès.');
+    return redirect()->route('admin.hotels')->with('success', 'Hôtel ajouté avec succès.');
 }
 
 public function destroy(Hotel $hotel)
 {
     $hotel->delete();
-    return redirect()->route('hotels.index')->with('success', 'Hôtel supprimé avec succès.');
+    return redirect()->route('admin.hotels')->with('success', 'Hôtel supprimé avec succès.');
 }
 
 }
