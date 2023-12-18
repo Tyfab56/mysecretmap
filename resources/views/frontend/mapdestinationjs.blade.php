@@ -191,7 +191,7 @@ Livewire.emit('AfficheVideo',e.sourceTarget.options.id);
 Livewire.emit('ImgMap',e.sourceTarget.options.id);
 Livewire.emit('ImgPeak',e.sourceTarget.options.id);
 Livewire.emit('PictureDestination',e.sourceTarget.options.id);
-Livewire.emit('initWindy',e.latlng.lat,e.latlng.lng );
+Livewire.emit('initWindy', { lat: e.latlng.lat, lng: e.latlng.lng });
 currentMarker = e.sourceTarget.options.id;
 currentTitle = e.sourceTarget.options.title; 
 currentLat = e.latlng.lat;
@@ -377,7 +377,7 @@ window.addEventListener('load', function () {
     Livewire.emit('ImgPeak',currentMarker);
     Livewire.emit('PictureDestination',currentMarker);
     Livewire.emit('RefreshCircuit',currentCircuit);
-    Livewire.emit('initWindy',currentLat,currentLng );
+    Livewire.emit('initWindy'{ lat:currentLat, lng: currentLng} );
     var myDate = new Date();
     var dayInYear = Math.floor((myDate - new Date(myDate.getFullYear(), 0, 0)) / (1000 * 60 * 60 * 24));
     document.getElementById("dayofyear").value = dayInYear ;
