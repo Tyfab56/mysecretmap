@@ -72,6 +72,7 @@
                             <div class="col-lg-6 center pt-1 pb-1 pr-1 pl-1"><div id="mapzoom"></div></div>
                             <div class="col-lg-6 center pt-1 pb-1 pr-1 pl-1"><livewire:show-img-region /></div>
                           </div> 
+                          
 
                           <div class="row pt-1 pb-1 pr-1 pl-1 bgregbox min100">  
                             <div class="col-lg-6 pt-1 pb-1  pr-1 pl-1"><livewire:show-peak-region /></div>
@@ -84,7 +85,19 @@
                   <livewire:show-map-spot />
                </div>
         </div>
-       
+
+        <div class="row bgregbox min100">  
+        <div
+              data-windywidget="forecast"
+              data-thememode="white"
+              data-tempunit="F"
+              data-lat="48.8566"
+              data-lon="2.3522"
+              data-appid="widgets_d670075606">
+          </div>
+          <script async="true" data-cfasync="false" type="text/javascript" src="https://windy.app/widgets-code/forecast/windy_forecast_async.js?v1.4.14"></script>
+
+        </div>
          
        <div class="row bgregbox min100">  
           <div class="col-lg-12 col-md-12"><livewire:slider-pictures /></div>   
