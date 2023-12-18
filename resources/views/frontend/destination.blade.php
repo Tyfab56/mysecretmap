@@ -91,7 +91,7 @@
                   data-windywidget="map"
                   data-thememode="white"
                   data-lat="63.983269"
-                  data-lon="-22.5561494"
+                  data-lng="-22.5561494"
                   data-appid="widgets_5549bb6f23">
               </div>
         <script async="true" data-cfasync="false" type="text/javascript" src="//windy.app/widget3/windy_map_async.js?v286"></script>
