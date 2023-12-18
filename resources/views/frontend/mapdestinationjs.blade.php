@@ -377,7 +377,7 @@ window.addEventListener('load', function () {
     Livewire.emit('ImgPeak',currentMarker);
     Livewire.emit('PictureDestination',currentMarker);
     Livewire.emit('RefreshCircuit',currentCircuit);
-    Livewire.emit('initWindy',currentLat.lat,currentLng );
+    Livewire.emit('initWindy',currentLat,currentLng );
     var myDate = new Date();
     var dayInYear = Math.floor((myDate - new Date(myDate.getFullYear(), 0, 0)) / (1000 * 60 * 60 * 24));
     document.getElementById("dayofyear").value = dayInYear ;
