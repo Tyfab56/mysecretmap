@@ -87,14 +87,18 @@
         </div>
 
         <div class="row bgregbox min100">  
-                <div
-                  data-windywidget="map"
-                  data-thememode="white"
-                  data-lat="63.983269"
+        <div
+    data-windywidget="stats"
+    data-thememode="white"
+    data-responsive="true"
+    data-horizontal="true"
+    data-lat="63.983269"
                   data-lng="-22.5561494"
-                  data-appid="widgets_5549bb6f23">
-              </div>
-        <script async="true" data-cfasync="false" type="text/javascript" src="//windy.app/widget3/windy_map_async.js?v286"></script>
+    data-appid="widgets_509719e072">
+</div>
+             
+
+<script async="true" data-cfasync="false" type="text/javascript" src="//windy.app/widget2/windy_stats_async.js?v31"></script>
        </div>
          
        <div class="row bgregbox min100">  
