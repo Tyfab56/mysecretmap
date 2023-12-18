@@ -1,4 +1,5 @@
 <div>
+{{ $lat }}{{ $lng }}
     <div
         data-windywidget="forecast"
         data-thememode="white"
