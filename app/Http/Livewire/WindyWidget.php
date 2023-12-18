@@ -6,15 +6,15 @@ use Livewire\Component;
 
 class WindyWidget extends Component
 {
-    public $lat = 0;
-    public $lng = 0;
+    public $windylat = 0;
+    public $windylng = 0;
 
     protected $listeners = ['initWindy' => 'initializeWidget'];
 
     public function initializeWidget($lat,$lng)
     {
-        $this->lat = $lat;
-        $this->lng = $lng;
+        $this->windylat = $lat;
+        $this->windylng = $lng;
     }
 
     public function render()
