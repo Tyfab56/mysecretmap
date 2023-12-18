@@ -11,10 +11,10 @@ class WindyWidget extends Component
 
     protected $listeners = ['initWindy' => 'initializeWidget'];
 
-    public function initializeWidget($data)
+    public function initializeWidget($lat,$lng)
     {
-        $this->lat = $data['lat'];
-        $this->lng = $data['lng'];
+        $this->lat = $lat;
+        $this->lng = $lng;
     }
 
     public function render()
