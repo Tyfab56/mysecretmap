@@ -87,7 +87,16 @@
         </div>
 
         <div class="row bgregbox min100">  
-
+        <div
+    data-windywidget="forecast"
+    data-thememode="white"
+    data-tempunit="F"
+    data-lat="63.983269"
+                  data-lng="-22.5561494"
+    data-appid="widgets_5672060608">
+</div>
+<script async="true" data-cfasync="false" type="text/javascript" src="https://windy.app/widgets-code/forecast/windy_forecast_async.js?v1.4.2"></script>
+       
        </div>
          
        <div class="row bgregbox min100">  
