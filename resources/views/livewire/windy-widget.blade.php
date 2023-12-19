@@ -1,12 +1,8 @@
 <div>
-    <div
-        data-windywidget="forecast"
-        data-thememode="white"
-        data-tempunit="F"
-        data-lat= "64.3531"  
-        data-lng= "-21.4515"  
-        data-appid="widgets_d670075606">
-    </div>
-    <script async="true" data-cfasync="false" type="text/javascript" src="https://windy.app/widgets-code/forecast/windy_forecast_async.js?v1.4.14"></script>
+    {{ $windylat }}
+    {{ $windylng }}
+       
+  
+    
 </div>
 
