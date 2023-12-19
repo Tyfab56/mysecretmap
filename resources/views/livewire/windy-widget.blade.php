@@ -1,12 +1,8 @@
 <div>
-    <div
-        data-windywidget="forecast"
-        data-thememode="white"
-        data-tempunit="F"
-        data-lat="63"  
-        data-lng= "-19"  
-        data-appid="widgets_d670075606">
-    </div>
-    <script async="true" data-cfasync="false" type="text/javascript" src="https://windy.app/widgets-code/forecast/windy_forecast_async.js?v1.4.14"></script>
+<a class="weatherwidget-io" href="https://forecast7.com/en/64d00n22d56/reykjanesbaer/" data-label_1="REYKJANESBÆR" data-label_2="WEATHER" data-theme="original" >REYKJANESBÆR WEATHER</a>
+<script>
+!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+</script>
+
 </div>
 
