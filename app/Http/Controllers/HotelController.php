@@ -50,7 +50,7 @@ class HotelController extends Controller
     $hotel->website_url = $validatedData['website_url'] ?? null;
 
     $hotel->save();
-
+    dd('alors');
     return redirect()->route('admin.hotels')->with('success', 'Hôtel ajouté avec succès.');
 }
 
