@@ -296,6 +296,9 @@
                                     <input type="submit" name="file" class="btn btn-rounded btn-primary mb-5" value="Validation texte">
 
                                 </div>
+                                <div class=" text-xs-right">
+                                    <button id="TransEn" type="button">En</button>
+                                </div>  
                             </div>
                     </form>
                 </div>
@@ -306,6 +309,46 @@
 @section('scripts')
 var marker,gpsmarker;
 
+document.getElementById('transEn').addEventListener('click', function() {
+    translateField ('en',{{$spot->id}},'description',document.getElementById('description').value)
+});
+
+function translateField (langue,idspot,idfield,textfield)
+{
+    let inputText = textfield;
+    let apiUrl = 'https://api-free.deepl.com/v2/translate';
+    let apiKey = '34b13441-b8ff-f718-3afe-dd39b12c44c8:fx';
+    let targetLang = langue;
+
+    let xhr = new XMLHttpRequest();
+    xhr.open('POST', apiUrl, true);
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            let response = JSON.parse(xhr.responseText);
+            document.getElementById('description_en').value = response.translations[0].text;
+        }
+    };
+    xhr.send('auth_key=' + apiKey + '&text=' + inputText + '&target_lang=' + targetLang);
+
+}
+
+function updateSpotInDatabase(langue, idspot, attribute, value) {
+    let xhr = new XMLHttpRequest();
+    xhr.open('POST', '/admin/spot/' + idspot + '/update-translations', true);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.setRequestHeader('X-CSRF-TOKEN', document.querySelector('meta[name="csrf-token"]').getAttribute('content'));
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            console.log('Spot translation updated for ' + attribute);
+        }
+    };
+    xhr.send(JSON.stringify({
+        locale: langue,
+        attribute: attribute,
+        value: value
+    }));
+}
 
 function newPays(event)
 {

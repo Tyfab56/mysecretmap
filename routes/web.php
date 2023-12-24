@@ -137,6 +137,7 @@ Route::get('/admin/spot/latlng/{id}/{lat}/{lng}/', [SpotsController::class, 'lat
 Route::get('/admin/social/{id}', [SpotsController::class, 'social'])->name('admin.social');
 Route::post('/admin/spot/store', [SpotsController::class, 'spotStore'])->name('admin.spot.store')->middleware('App\Http\Middleware\CheckAdmin');
 Route::post('/admin/spot/textstore', [SpotsController::class, 'spotTextStore'])->name('admin.spot.textstore')->middleware('App\Http\Middleware\CheckAdmin');
+Route::post('admin/spot/{spot}/update-translations', [SpotController::class, 'updateTranslations'])->name('admin.spot.updateTranslations');
 
 Route::get('/admin/circuits', [CircuitsController::class, 'index'])->name('admin.circuits')->middleware('App\Http\Middleware\CheckAdmin');
 Route::get('/admin/createzoom', [AdminController::class, 'createzoom'])->name('admin.createzoom')->middleware('App\Http\Middleware\CheckAdmin');

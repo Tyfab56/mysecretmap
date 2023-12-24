@@ -968,6 +968,26 @@ public function submitPicture(Request $request)
 }
 
 
+public function updateTranslations(Request $request, $spotId)
+{
+    $spot = Spots::find($spotId);
+    if (!$spot) {
+        return response()->json(['message' => 'Spot not found'], 404);
+    }
+
+    $locale = $request->input('locale'); // La locale de la traduction
+    $attribute = $request->input('attribute'); // L'attribut à mettre à jour
+    $value = $request->input('value'); // La valeur traduite
+
+    if (in_array($attribute, $spot->translatedAttributes)) {
+        $spot->translateOrNew($locale)->$attribute = $value;
+        $spot->save();
+
+        return response()->json(['message' => 'Spot translation updated successfully']);
+    }
+
+    return response()->json(['message' => 'Invalid attribute'], 400);
+}
 
 
 
