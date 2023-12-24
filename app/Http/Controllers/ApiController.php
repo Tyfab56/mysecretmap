@@ -14,16 +14,23 @@ class ApiController extends Controller
         $productId = $request->input('product_id');
  
 
-        $results = DB::select("SELECT email,idproduit,installation
+        $results = DB::select("SELECT id,email,idproduit,installation
         FROM shopifysales
         WHERE email = :email and status ='Paid'
         AND idproduit = :productId 
-        and installation < 2
+        and installation <= 2
         limit 0,1",['email'  => $email,'productId'  => $productId]);   
 
         // TODO : Mise à jour du nombre d'installation pour éviter le piratage d'un email valide
        
         if ($results) {
+
+            $id = $results[0]->id;
+
+            // Mettez à jour la colonne 'installation'
+            DB::table('shopifysales')
+                ->where('id', $id)
+                ->increment('installation', 1);
 
             return response()->json(['status' => 'ok'], 200)
             ->header('Access-Control-Allow-Origin', '*')
