@@ -297,7 +297,7 @@
 
                                 </div>
                                 <div class=" text-xs-right">
-                                    <button id="TransEn" type="button">En</button>
+                                    <button id="transEn" type="button">En</button>
                                 </div>  
                             </div>
                     </form>
