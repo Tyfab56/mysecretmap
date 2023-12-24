@@ -313,8 +313,7 @@ document.getElementById('transEn').addEventListener('click', function() {
     translateField ('en',{{$spot->id}},'description',document.getElementById('description').value)
 });
 
-function translateField (langue,idspot,idfield,textfield)
-{
+function translateField(langue, idspot, idfield, textfield) {
     let inputText = textfield;
     let apiUrl = 'https://api-free.deepl.com/v2/translate';
     let apiKey = '34b13441-b8ff-f718-3afe-dd39b12c44c8:fx';
@@ -326,12 +325,15 @@ function translateField (langue,idspot,idfield,textfield)
     xhr.onreadystatechange = function() {
         if (xhr.readyState === 4 && xhr.status === 200) {
             let response = JSON.parse(xhr.responseText);
-            document.getElementById('description_en').value = response.translations[0].text;
+            let translatedText = response.translations[0].text;
+
+            // Appel à updateSpotInDatabase avec le texte traduit
+            updateSpotInDatabase(langue, idspot, idfield, translatedText);
         }
     };
     xhr.send('auth_key=' + apiKey + '&text=' + inputText + '&target_lang=' + targetLang);
-
 }
+
 
 function updateSpotInDatabase(langue, idspot, attribute, value) {
     let xhr = new XMLHttpRequest();
