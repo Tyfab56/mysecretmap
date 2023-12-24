@@ -12,7 +12,7 @@
 
 
     <div class="container">
-    <div class="row">
+    <div class="row pb-2">
     <a href="{{ route('admin.hotels.create') }}" class="btn btn-primary">Ajouter un nouvel hôtel</a>
     </div>
     <div class="row">
