@@ -310,7 +310,12 @@
 var marker,gpsmarker;
 
 document.getElementById('transEn').addEventListener('click', function() {
-    translateField ('en',{{$spot->id}},'description',document.getElementById('description').value)
+    translateField ('en',{{$spot->id}},'description',document.getElementById('description').value);
+    translateField ('en',{{$spot->id}},'accessibilite',document.getElementById('accessibilite').value);
+    translateField ('en',{{$spot->id}},'chemin',document.getElementById('chemin').value);
+    translateField ('en',{{$spot->id}},'drone',document.getElementById('drone').value);
+    translateField ('en',{{$spot->id}},'lumiere',document.getElementById('lumiere').value);
+    translateField ('en',{{$spot->id}},'secretspot',document.getElementById('secretspot').value);
 });
 
 function translateField(langue, idspot, idfield, textfield) {
