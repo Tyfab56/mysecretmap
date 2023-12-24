@@ -8,36 +8,44 @@
             {{ session('success') }}
         </div>
     @endif
+    
 
-    <a href="{{ route('admin.hotels.create') }}" class="btn btn-primary">Ajouter un nouvel hôtel</a>
 
     <div class="container">
     <div class="row">
+    <a href="{{ route('admin.hotels.create') }}" class="btn btn-primary">Ajouter un nouvel hôtel</a>
+    </div>
+    <div class="row">
         <!-- Colonne pour la table -->
         <div class="col-md-8">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>Nom</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($hotels as $hotel)
-                    <tr>
-                        <td>{{ $hotel->name }}</td>
-                        <td>
-                            {{-- Bouton ou lien pour supprimer un hôtel --}}
-                            <form action="{{ route('admin.hotels.destroy', $hotel->id) }}" method="POST">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-danger">Supprimer</button>
-                            </form>
-                        </td>
-                    </tr>
-                    @endforeach
-                </tbody>
-            </table>
+        <table class="table">
+    <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Ville</th>
+            <th>Pays</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach ($hotels as $hotel)
+        <tr>
+            <td>{{ $hotel->name }}</td>
+            <td>{{ $hotel->city }}</td>
+            <td>{{ $hotel->pays->libelle ?? 'Non spécifié' }}</td>
+            <td>
+                {{-- Bouton ou lien pour supprimer un hôtel --}}
+                <form action="{{ route('admin.hotels.destroy', $hotel->id) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-danger">Supprimer</button>
+                </form>
+            </td>
+        </tr>
+        @endforeach
+    </tbody>
+</table>
+
         </div>
 
         <!-- Colonne pour la carte -->
