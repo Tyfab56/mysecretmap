@@ -2,10 +2,9 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <!-- Colonne pour le formulaire -->
-       
-            <h1>Ajouter un nouvel hôtel</h1>
-
+    <a href="{{ route('admin.hotels') }}" class="btn btn-primary">Retour</a>
+     </div>
+    <div class="row">
             <form action="{{ route('admin.hotels.store') }}" method="POST">
                 @csrf
                 <div class="form-group">
