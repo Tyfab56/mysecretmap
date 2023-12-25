@@ -35,13 +35,14 @@
             <td>{{ $hotel->pays->libelle ?? 'Non spécifié' }}</td>
             <td>
                 <a href="{{ route('admin.hotels.edit', $hotel->id) }}" class="btn btn-sm btn-primary">Modifier</a>
-                {{-- Bouton ou lien pour supprimer un hôtel --}}
-                <form action="{{ route('admin.hotels.destroy', $hotel->id) }}" method="POST">
+                <!-- Formulaire pour supprimer un hôtel -->
+                <form action="{{ route('admin.hotels.destroy', $hotel->id) }}" method="POST" style="display: inline;">
                     @csrf
                     @method('DELETE')
-                    <button type="submit" class="btn btn-danger">Supprimer</button>
+                    <button type="submit" class="btn btn-sm btn-danger">Supprimer</button>
                 </form>
-            </td>
+           </td>
+
         </tr>
         @endforeach
     </tbody>
