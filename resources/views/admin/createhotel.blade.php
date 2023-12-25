@@ -33,8 +33,12 @@
             <div class="form-group">
                 <label for="country_code" class="form-label">Pays</label>
                 <select class="form-control" id="country_code" name="country_code">
-                    {{-- Ici, insérez les options de pays, en sélectionnant celle qui correspond à $hotel->country_code --}}
-                </select>
+    @foreach($countries as $country)
+        <option value="{{ $country->pays_id }}" {{ (isset($hotel) && $hotel->country_code == $country->pays_id) ? 'selected' : '' }}>
+            {{ $country->libelle }}
+        </option>
+    @endforeach
+</select>
             </div>
         </div>
 

@@ -18,9 +18,10 @@ class HotelController extends Controller
 }
 
 public function edit(Hotel $hotel)
-{
-    return view('admin.createhotel', compact('hotel'));
-}
+    {
+        $countries = Pays::where('actif', 1)->get(); // Récupère uniquement les pays actifs
+        return view('admin.createhotel', compact('hotel', 'countries'));
+    }
 
 public function update(Request $request, Hotel $hotel)
 {
@@ -46,11 +47,11 @@ public function update(Request $request, Hotel $hotel)
 
 
 
-    public function create()
-    {
-
-        return view('admin.createhotel');
-    }
+public function create()
+{
+    $countries = Pays::where('actif', 1)->get(); // Récupère uniquement les pays actifs
+    return view('admin.createhotel', compact('countries'));
+}
 
     public function store(Request $request)
 {
