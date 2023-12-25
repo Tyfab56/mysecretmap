@@ -10,58 +10,62 @@
     @if(isset($hotel))
         @method('PUT')
     @endif
+
     <div class="row">
         <!-- Première colonne -->
         <div class="col-lg-6 mb-3">
             <div class="form-group">
                 <label for="name" class="form-label">Nom de l'hôtel</label>
-                <input type="text" class="form-control" id="name" name="name" required>
+                <input type="text" class="form-control" id="name" name="name" value="{{ old('name', $hotel->name ?? '') }}" required>
             </div>
             <div class="form-group">
                 <label for="address" class="form-label">Adresse</label>
-                <input type="text" class="form-control" id="address" name="address">
+                <input type="text" class="form-control" id="address" name="address" value="{{ old('address', $hotel->address ?? '') }}">
             </div>
             <div class="form-group">
                 <label for="city" class="form-label">Ville</label>
-                <input type="text" class="form-control" id="city" name="city">
+                <input type="text" class="form-control" id="city" name="city" value="{{ old('city', $hotel->city ?? '') }}">
             </div>
             <div class="form-group">
                 <label for="postal_code" class="form-label">Code Postal</label>
-                <input type="text" class="form-control" id="postal_code" name="postal_code">
+                <input type="text" class="form-control" id="postal_code" name="postal_code" value="{{ old('postal_code', $hotel->postal_code ?? '') }}">
             </div>
             <div class="form-group">
                 <label for="country_code" class="form-label">Pays</label>
                 <select class="form-control" id="country_code" name="country_code">
-                    {{-- Options de pays --}}
+                    {{-- Ici, insérez les options de pays, en sélectionnant celle qui correspond à $hotel->country_code --}}
                 </select>
             </div>
         </div>
+
         <!-- Deuxième colonne -->
         <div class="col-lg-6 mb-3">
             <div class="form-group">
                 <label for="latitude" class="form-label">Latitude</label>
-                <input type="text" class="form-control" id="latitude" name="latitude">
+                <input type="text" class="form-control" id="latitude" name="latitude" value="{{ old('latitude', $hotel->latitude ?? '') }}">
             </div>
             <div class="form-group">
                 <label for="longitude" class="form-label">Longitude</label>
-                <input type="text" class="form-control" id="longitude" name="longitude">
+                <input type="text" class="form-control" id="longitude" name="longitude" value="{{ old('longitude', $hotel->longitude ?? '') }}">
             </div>
             <div class="form-group">
                 <label for="description" class="form-label">Description</label>
-                <textarea class="form-control" id="description" name="description"></textarea>
+                <textarea class="form-control" id="description" name="description">{{ old('description', $hotel->description ?? '') }}</textarea>
             </div>
             <div class="form-group">
                 <label for="image_url" class="form-label">URL de l'image</label>
-                <input type="text" class="form-control" id="image_url" name="image_url">
+                <input type="text" class="form-control" id="image_url" name="image_url" value="{{ old('image_url', $hotel->image_url ?? '') }}">
             </div>
             <div class="form-group">
                 <label for="website_url" class="form-label">URL du site web</label>
-                <input type="text" class="form-control" id="website_url" name="website_url">
+                <input type="text" class="form-control" id="website_url" name="website_url" value="{{ old('website_url', $hotel->website_url ?? '') }}">
             </div>
         </div>
     </div>
-    <button type="submit" class="btn btn-custom mt-2">Ajouter</button>
+
+    <button type="submit" class="btn btn-custom mt-2">{{ isset($hotel) ? 'Mettre à jour' : 'Ajouter' }}</button>
 </form>
+
 
 
 
