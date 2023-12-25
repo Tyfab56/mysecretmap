@@ -35,7 +35,7 @@
                 <select class="form-control" id="country_code" name="country_code">
     @foreach($countries as $country)
         <option value="{{ $country->pays_id }}" {{ (isset($hotel) && $hotel->country_code == $country->pays_id) ? 'selected' : '' }}>
-            {{ $country->libelle }}
+            {{ $country->pays }}
         </option>
     @endforeach
 </select>
