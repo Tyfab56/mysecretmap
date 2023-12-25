@@ -17,8 +17,38 @@ class HotelController extends Controller
     return view('admin.hotels', compact('hotels'));
 }
 
+public function edit(Hotel $hotel)
+{
+    return view('admin.createhotel', compact('hotel'));
+}
+
+public function update(Request $request, Hotel $hotel)
+{
+    $validatedData = $request->validate([
+        'name' => 'required|max:255',
+        'address' => 'nullable|max:255',
+        'city' => 'nullable|max:255',
+        'postal_code' => 'nullable|max:20',
+        'country_code' => 'nullable|max:2',
+        'latitude' => 'nullable|numeric',
+        'longitude' => 'nullable|numeric',
+        'description' => 'nullable',
+        'image_url' => 'nullable|url',
+        'website_url' => 'nullable|url'
+    ]);
+
+    // Mettre à jour l'hôtel avec les données validées
+    $hotel->update($validatedData);
+
+    // Redirection vers la liste des hôtels avec un message de succès
+    return redirect()->route('admin.hotels')->with('success', 'Hôtel mis à jour avec succès.');
+}
+
+
+
     public function create()
     {
+
         return view('admin.createhotel');
     }
 

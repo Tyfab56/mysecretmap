@@ -5,8 +5,11 @@
     <a href="{{ route('admin.hotels') }}" class="btn btn-primary">Retour</a>
      </div>
     <div class="row">
-    <form action="{{ route('admin.hotels.store') }}" method="POST" class="w100 form-custom">
+    <form action="{{ isset($hotel) ? route('admin.hotels.update', $hotel->id) : route('admin.hotels.store') }}" method="POST" class="w100 form-custom">
     @csrf
+    @if(isset($hotel))
+        @method('PUT')
+    @endif
     <div class="row">
         <!-- Première colonne -->
         <div class="col-lg-6 mb-3">

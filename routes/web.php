@@ -127,6 +127,9 @@ Route::get('/admin/hotels/create', [HotelController::class, 'create'])->name('ad
 Route::post('/admin/hotels', [HotelController::class, 'store'])->name('admin.hotels.store')->middleware('App\Http\Middleware\CheckAdmin');
 Route::get('/admin/hotels', [HotelController::class, 'index'])->name('admin.hotels')->middleware('App\Http\Middleware\CheckAdmin');
 Route::delete('/hotels/{hotel}', [HotelController::class, 'destroy'])->name('admin.hotels.destroy')->middleware('App\Http\Middleware\CheckAdmin');
+Route::get('admin/hotels/{hotel}/edit', [HotelController::class, 'edit'])->name('admin.hotels.edit')->middleware('App\Http\Middleware\CheckAdmin');
+Route::put('admin/hotels/{hotel}', [HotelController::class, 'update'])->name('admin.hotels.update')->middleware('App\Http\Middleware\CheckAdmin');
+
 Route::get('/admin/listspots/', [SpotsController::class, 'index'])->name('admin.listspots')->middleware('App\Http\Middleware\CheckAdmin');
 Route::get('/admin/filterspots/', [SpotsController::class, 'filter'])->name('admin.filterspots')->middleware('App\Http\Middleware\CheckAdmin');
 Route::get('/admin/addspot', [SpotsController::class, 'addspot'])->name('admin.addspot')->middleware('App\Http\Middleware\CheckAdmin');

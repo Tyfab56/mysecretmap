@@ -34,6 +34,7 @@
             <td>{{ $hotel->city }}</td>
             <td>{{ $hotel->pays->libelle ?? 'Non spécifié' }}</td>
             <td>
+                <a href="{{ route('admin.hotel.edit', $hotel->id) }}" class="btn btn-primary mb-2">Modifier</a>
                 {{-- Bouton ou lien pour supprimer un hôtel --}}
                 <form action="{{ route('admin.hotels.destroy', $hotel->id) }}" method="POST">
                     @csrf
