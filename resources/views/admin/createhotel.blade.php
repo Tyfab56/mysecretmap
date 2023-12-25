@@ -5,7 +5,7 @@
     <a href="{{ route('admin.hotels') }}" class="btn btn-primary">Retour</a>
      </div>
     <div class="row">
-    <form action="{{ route('admin.hotels.store') }}" method="POST" class="form-custom">
+    <form action="{{ route('admin.hotels.store') }}" method="POST" class="w100 form-custom">
     @csrf
     <div class="row">
         <!-- Première colonne -->
