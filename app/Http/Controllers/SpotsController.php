@@ -207,7 +207,7 @@ class SpotsController extends Controller
         $spot->translateOrNew($lang)->drone = $request->drone;
         $spot->translateOrNew($lang)->lumiere = $request->lumiere;
         $spot->translateOrNew($lang)->secretspot = $request->secretspot;
-        $spot->translateOrNew($lang)->video1 = $request->svideo1;
+        $spot->translateOrNew($lang)->video1 = $request->video1;
         $spot->translateOrNew($lang)->blog = $request->blog;
         $spot->save();
         return back()->with('message', 'Texte modifié');
