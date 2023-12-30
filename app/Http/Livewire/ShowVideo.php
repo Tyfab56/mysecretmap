@@ -8,7 +8,7 @@ use App\Models\SpotsTranslation;
 
 class ShowVideo extends Component
 {
-    public $idspot;
+    public $idspot,$traduction;
 
     protected $listeners = [
         'SpotVideo'
