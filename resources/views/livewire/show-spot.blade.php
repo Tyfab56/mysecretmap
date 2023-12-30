@@ -9,7 +9,7 @@
     <p><b>{{ __('index.Randotime') }} : </b><span  style="color:grey">{{ $randotime??''}}</span><br><b>{{ __('index.Timeonsite') }} : </b><span  style="color:grey">{{ $timeonsite??''}}</span></p>
     <div class="mt-3"><b>{{ __('index.Drone') }}</b> : <span  style="color:grey">{{$traduction->drone?? ''}}</span></div>
     <div class="mt-3"><b>{{ __('index.Lumiere') }}</b> : <span  style="color:grey">{{$traduction->lumiere?? ''}}</span></div>
-    <div class="mt-3"><b>{{ __('index.Secretspot') }}</b> : <span  style="color:grey">{{$traduction->secretspot?? ''}}</span></div>
+    <div class="mt-3"><b>{{ __('index.Secretspot') }}</b> : <span  style="color:grey">{{$traduction->video1?? ''}}</span></div>
     @else
     <b>{{ __('destination.useTitle') }}</b><br>
     {{ __('destination.usePart1') }} <br>
