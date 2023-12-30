@@ -196,4 +196,15 @@
 @section('scripts')
 @include ('frontend.mapdestinationjs');
 
+
+document.getElementById('sunToggle').addEventListener('change', function() {
+        var sunDiv = document.getElementById('sun');
+        if (this.checked) {
+            sunDiv.style.display = 'block';
+        } else {
+            sunDiv.style.display = 'none';
+        }
+    });
+
+
 @endsection
