@@ -18,10 +18,11 @@
 <section id="ts-features" class="ts-features">
     <div class="container">
         <div class="row">
-             <h1> <a href='{{ route($pays->route) }}'>{{$pays->pays}}</a></h1>
+            
         </div>
         <div class="row">
-    <div class="col-lg-3">                            
+    <div class="col-lg-3">    
+        <h1> <a href='{{ route($pays->route) }}'>{{$pays->pays}}</a></h1>                        
         <a class="btn btn-primary m5" href="{{ url('thewall') }}/{{ $idpays}}">{{__('destination.cherchespot')}}</a>
     </div>
 
