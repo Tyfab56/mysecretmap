@@ -84,9 +84,13 @@
 
 
                                       @foreach ($spots as $spot)
+                                      <?php
+                                        // Vérifier si une traduction en français existe
+                                        $hasFrenchTranslation = $spot->hasTranslation('fr');
+                                        ?>
 
                                       <tr onclick="updateMap({{$spot->id}},{{$spot->lat}},{{$spot->lng}})">
-                                          <th scope="row">{{$spot->id}}({{$spot->nbdistance}})</th>
+                                          <th scope="row" style="{{$hasFrenchTranslation ? '' : 'background-color: red;'}}">{{$spot->id}}({{$spot->nbdistance}})</th>
                                           <td>{{$spot->pays->pays}}</td>
                                           <td>{{$spot->name}}</td>
                                           <td><img src="{{$spot->imgpanosmall}}"></td>
