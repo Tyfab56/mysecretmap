@@ -57,7 +57,7 @@
                               <div class="col-sm-12"><input type="checkbox" id="sunToggle" class="js-switch"><span class="p5" >Sun Settings</span></div>
                               </div>
                               
-                              <div id="sun" class="row min100">
+                              <div id="sun" class="row min100 hidden">
                                 
                                     <div class="col-sm-6"> 
                                           <div style="padding : 5px"><b>{{__('destination.choiceday')}} :</b> <span id="theday"></span></div>
@@ -199,11 +199,7 @@
 
 document.getElementById('sunToggle').addEventListener('change', function() {
         var sunDiv = document.getElementById('sun');
-        if (this.checked) {
-            sunDiv.style.display = 'block';
-        } else {
-            sunDiv.style.display = 'none';
-        }
+        sunDiv.classList.toggle('hidden', !this.checked);
     });
 
 
