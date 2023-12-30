@@ -86,7 +86,10 @@
                           <div class="row pt-1 pb-1 pr-1 pl-1 bgregbox min100">  
                                 <div class="col-lg-12 pt-1 pb-1  pr-1 pl-1"><livewire:show-map-globale /></div>
                           </div> 
-                          <div id="mapzoom"></div>
+                       
+                          <div class="row pt-1 pb-1 pr-1 pl-1 bgregbox min100">  
+                                <div class="col-lg-12 pt-1 pb-1  pr-1 pl-1"><livewire:show-video /></div>
+                          </div> 
 
                           <div class="row pt-1 pb-1 pr-1 pl-1 bgregbox min100">  
                             <div class="col-lg-12 center pt-1 pb-1 pr-1 pl-1"><div id="mapzoom"></div></div>
@@ -96,11 +99,14 @@
                            
                             <div class="col-lg-12 center pt-1 pb-1 pr-1 pl-1"><livewire:show-img-region /></div>
                           </div> 
+                          <div class="row pt-1 pb-1 pr-1 pl-1 bgregbox min100">  
+                           
+                           <div class="col-lg-12 center pt-1 pb-1 pr-1 pl-1"><livewire:show-video /></div>
+                         </div> 
+                         
                           
 
-                          <div class="row pt-1 pb-1 pr-1 pl-1 bgregbox min100">  
-                            <div class="col-lg-6 pt-1 pb-1  pr-1 pl-1"><livewire:show-peak-region /></div>
-                          </div>             
+                                  
                         
                     </div>
 
