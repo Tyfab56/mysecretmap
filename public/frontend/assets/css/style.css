@@ -4197,3 +4197,7 @@ font-size : 25px;
   max-width: 80%;
   margin: 10px;
 }
+
+.hidden {
+  display: none;
+}
