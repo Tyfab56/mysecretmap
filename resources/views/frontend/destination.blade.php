@@ -26,10 +26,10 @@
     </div>
 
     <!-- Nouveau bandeau sur la droite -->
-    <div class="col-lg-9">
-        <div style="width: 720px; height: 90px; background-color: #ddd;">
+    <div class="col-lg-9" style="display: flex; justify-content: center; align-items: center; height: 90px;">
+        
         <img src="{{ asset('frontend/assets/images/blog/pub1.jpg')}}" alt="Publicité" style="width: 720px; height: 90px;">
-        </div>
+       
     </div>
 </div>
         <div class="row">        
