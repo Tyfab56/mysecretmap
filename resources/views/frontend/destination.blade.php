@@ -21,10 +21,17 @@
              <h1> <a href='{{ route($pays->route) }}'>{{$pays->pays}}</a></h1>
         </div>
         <div class="row">
-               <div class="col-lg-3">                            
-                   <a class="btn btn-primary m5" href="{{ url('thewall') }}/{{ $idpays}}">{{__('destination.cherchespot')}} </a>
-               </div>
-        </div>   
+    <div class="col-lg-3">                            
+        <a class="btn btn-primary m5" href="{{ url('thewall') }}/{{ $idpays}}">{{__('destination.cherchespot')}}</a>
+    </div>
+
+    <!-- Nouveau bandeau sur la droite -->
+    <div class="col-lg-9">
+        <div style="width: 720px; height: 90px; background-color: #ddd;">
+        <img src="{{ asset('frontend/assets/images/blog/pub1.jpg')}}" alt="Publicité" style="width: 720px; height: 90px;">
+        </div>
+    </div>
+</div>
         <div class="row">        
                <div class="col-lg-9">
                      <div class="row">
