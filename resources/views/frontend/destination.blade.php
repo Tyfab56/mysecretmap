@@ -21,18 +21,18 @@
             
         </div>
         <div class="row">
-    <div class="col-lg-3">    
+    <div class="col-lg-4">    
         <h1> <a href='{{ route($pays->route) }}'>{{$pays->pays}}</a></h1>                        
         <a class="btn btn-primary m5" href="{{ url('thewall') }}/{{ $idpays}}">{{__('destination.cherchespot')}}</a>
     </div>
 
     <!-- Nouveau bandeau sur la droite -->
-    <div class="col-lg-6" style="display: flex; justify-content: center; align-items: center; height: 90px;">
+    <div class="col-lg-4" style="display: flex; justify-content: center; align-items: center; height: 90px;">
         
         <img src="{{ asset('frontend/assets/images/blog/pub1.jpg')}}" alt="Publicité" style="width: 720px; height: 90px;">
        
     </div>
-    <div class="col-lg-3"> 
+    <div class="col-lg-4"> 
     </div>
 </div>
         <div class="row">        
