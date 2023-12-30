@@ -9,7 +9,7 @@ class SpotsTranslation extends Model
 {
     use HasFactory;
     public $timestamps = false;
-    protected $fillable = ['description', 'accessibilite', 'chemin', 'drone','lumiere','secretspot'];
+    protected $fillable = ['description', 'accessibilite', 'chemin', 'drone','lumiere','secretspot','video1','blog'];
 
 
 

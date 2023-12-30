@@ -14,7 +14,7 @@ class Spots extends Model implements TranslatableContract
 
 
     public $translatedAttributes = [
-        'description', 'accessibilite', 'chemin', 'drone', 'lumiere', 'secretspot'
+        'description', 'accessibilite', 'chemin', 'drone', 'lumiere', 'secretspot','video1','blog'
     ];
     protected $fillable = [
         'name',

@@ -292,6 +292,14 @@
                                     <label class="info-title" for="secretspot">Secret spot<span class="text-danger">*</span></label>
                                     <input type="text" id="secretspot" name="secretspot" value="{{$spot->translate($spotlang)->secretspot ?? ''}}" class="form-control unicase-form-control text-input">
                                 </div>
+                                <div class="form-group">
+                                    <label class="info-title" for="video1">Script Video 1<span class="text-danger"></span></label>
+                                    <input type="text" id="video1" name="video1" value="{{$spot->translate($spotlang)->svideo1 ?? ''}}" class="form-control unicase-form-control text-input">
+                                </div>
+                                <div class="form-group">
+                                    <label class="info-title" for="blog">Blog<span class="text-danger"></span></label>
+                                    <input type="text" id="blog" name="blog" value="{{$spot->translate($spotlang)->blog ?? ''}}" class="form-control unicase-form-control text-input">
+                                </div>
                                 <div class=" text-xs-right">
                                     <input type="submit" name="file" class="btn btn-rounded btn-primary mb-5" value="Validation texte">
 
