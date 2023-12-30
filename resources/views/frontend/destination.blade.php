@@ -32,7 +32,7 @@
             
         </div>
         <div class="row">
-    <div class="col-lg-4">    
+    <div class="col-lg-3">    
         <h1> <a href='{{ route($pays->route) }}'>{{$pays->pays}}</a></h1>                        
         <a class="btn btn-primary m5" href="{{ url('thewall') }}/{{ $idpays}}">{{__('destination.cherchespot')}}</a>
     </div>
@@ -43,7 +43,7 @@
        <a href="https://www.villa-laurina.com" target="_blank"> <img src="{{ asset('frontend/assets/images/blog/pub1.jpg')}}" alt="Publicité" style="width: 720px; height: 90px;"></a>
        
     </div>
-    <div class="col-lg-4"> 
+    <div class="col-lg-5"> 
     </div>
 </div>
         <div class="row">        
@@ -176,10 +176,7 @@
         </div>
         <a class="btn btn-primary m5" href="https://www.getyourguide.fr/lagon-bleu-l5049/lagon-bleu-billet-d-entree-avec-boisson-serviette-et-masque-de-boue-t393203/?partner_id=ZBTCHLM&utm_medium=online_publisher&placement=content-middle ">{{__('destination.cherchespot')}} </a>
                         
-        <smartvideo class="swarm-fluid" controls playsinline
-            width="1080" height="1080"
-            src="swarmify://f36459da25d6ede59009748b8b3d70dbfa90a59e7f102e6b492a251bd5aad659">
-</smartvideo>
+       
        </div>
 
       
