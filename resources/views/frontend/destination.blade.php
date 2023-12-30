@@ -12,6 +12,17 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/switchery/0.8.2/switchery.min.css" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/switchery/0.8.2/switchery.js"></script>
 <link rel="stylesheet" href="{{ asset('frontend/assets/css/GridOverflow3D.css')}}" />
+
+<script data-cfasync="false">
+    var swarmoptions = {
+        swarmcdnkey: "213fbcf5-edab-4f21-a4c5-caa151d8b988",
+        iframeReplacement: "iframe",
+        autoreplace: {
+            youtube: true
+        }
+    };
+</script>
+<script async data-cfasync="false" src="https://assets.swarmcdn.com/cross/swarmdetect.js"></script>
 @endsection
 
 @section('content')
@@ -165,7 +176,10 @@
         </div>
         <a class="btn btn-primary m5" href="https://www.getyourguide.fr/lagon-bleu-l5049/lagon-bleu-billet-d-entree-avec-boisson-serviette-et-masque-de-boue-t393203/?partner_id=ZBTCHLM&utm_medium=online_publisher&placement=content-middle ">{{__('destination.cherchespot')}} </a>
                         
-
+        <smartvideo class="swarm-fluid" controls playsinline
+            width="1080" height="1080"
+            src="swarmify://f36459da25d6ede59009748b8b3d70dbfa90a59e7f102e6b492a251bd5aad659">
+</smartvideo>
        </div>
 
       
