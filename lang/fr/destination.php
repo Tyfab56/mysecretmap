@@ -35,5 +35,6 @@ return [
     "CompleteGallery" => "Voir la galerie complète",
     'Etape'=>"Etape",
     'TempsSurSite' => "Temps sur site",
-    'TempsTotal' => "Temps total"
+    'TempsTotal' => "Temps total",
+    'sunsetting'=> "Règlages solaire : changer le jour et l'heure",
 ];

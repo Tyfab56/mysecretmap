@@ -54,7 +54,7 @@
                                   <a href="https://www.maptiler.com" style="position:absolute;left:10px;bottom:10px;z-index:999;"><img src="https://api.maptiler.com/resources/logo.svg" alt="MapTiler logo"></a>
                               </div>
                               <div class="row">
-                              <div class="col-sm-12"><input type="checkbox" id="sunToggle" class="js-switch"><span class="p5" >Sun Settings</span></div>
+                              <div class="col-sm-12"><input type="checkbox" id="sunToggle" class="js-switch"><span class="p5" >{{__('destination.sunsetting')}}</span></div>
                               </div>
                               
                               <div id="sun" class="row min100 hidden">
