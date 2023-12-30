@@ -281,6 +281,7 @@ var mapzoom = L.map('mapzoom',{
 var gl = L.mapboxGL({
 style: 'https://api.maptiler.com/tiles/satellite-v2/?key=iooFuVAppzuUB4nSQMl6'
 }).addTo(mapzoom);
+
 mapzoom.removeControl(mapzoom.zoomControl);
 
 var Mark1 = L.ExtraMarkers.icon({
