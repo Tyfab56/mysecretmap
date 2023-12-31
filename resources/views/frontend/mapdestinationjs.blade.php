@@ -526,7 +526,9 @@ function goImage()
 }
 
 var myImages = document.querySelectorAll('.img-image');
-// Changment variant_date_to_timestampwindow.addEventListener('videoChanged', event => {
+// Changment video 
+
+window.addEventListener('videoChanged', event => {
     reloadSwarmifyScript();
 });
 
