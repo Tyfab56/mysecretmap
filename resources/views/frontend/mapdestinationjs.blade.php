@@ -376,6 +376,7 @@ window.addEventListener('load', function () {
     Livewire.emit('AfficheVideo',currentMarker);
     Livewire.emit('ImgMap',currentMarker);
     Livewire.emit('ImgPeak',currentMarker);
+    Livewire.emit('SpotVideo',currentMarker);
     Livewire.emit('PictureDestination',currentMarker);
     Livewire.emit('RefreshCircuit',currentCircuit);
     Livewire.emit('initWindy',currentLat, currentLng );
