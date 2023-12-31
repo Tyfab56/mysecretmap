@@ -22,7 +22,7 @@
         }
     };
 </script>
-<script async data-cfasync="false" src="https://assets.swarmcdn.com/cross/swarmdetect.js"></script>
+<script async data-cfasync="false" src="  "></script>
 @endsection
 
 @section('content')

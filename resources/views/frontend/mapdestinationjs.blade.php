@@ -526,6 +526,24 @@ function goImage()
 }
 
 var myImages = document.querySelectorAll('.img-image');
+// Changment variant_date_to_timestampwindow.addEventListener('videoChanged', event => {
+    reloadSwarmifyScript();
+});
+
+function reloadSwarmifyScript() {
+    // Supprimer l'ancien script si présent
+    var oldScript = document.querySelector('script[src="https://assets.swarmcdn.com/cross/swarmdetect.js"]');
+    if (oldScript) {
+        oldScript.remove();
+    }
+
+    // Créer et ajouter le nouveau script
+    var script = document.createElement('script');
+    script.src = "https://assets.swarmcdn.com/cross/swarmdetect.js";
+    document.body.appendChild(script);
+}
+
+
 
 // Initialisez Zooming
 var zooming = new Zooming({
