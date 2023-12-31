@@ -537,6 +537,7 @@ function reloadSwarmifyScript() {
     var oldScript = document.querySelector('script[src="https://assets.swarmcdn.com/cross/swarmdetect.js"]');
     if (oldScript) {
         oldScript.remove();
+        alert('ici');
     }
 
     // Créer et ajouter le nouveau script
