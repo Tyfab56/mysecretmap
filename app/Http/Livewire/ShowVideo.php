@@ -22,7 +22,7 @@ class ShowVideo extends Component
     }
     public function render()
     {
-        $this->test = 1;
+        $this->test = $this->idspot;
         if ($this->idspot) {
         $this->traduction = SpotsTranslation::where('spots_id', '=', $this->idspot)
                 ->where('locale', '=', app()->getlocale())
