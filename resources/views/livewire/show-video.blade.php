@@ -1,3 +1,3 @@
 <div>
-   Video {{$traduction->description?? ''}}{{$idspot}}
+   Video {{$traduction->description?? ''}}{{$test}}
 </div>
