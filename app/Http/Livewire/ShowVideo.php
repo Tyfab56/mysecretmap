@@ -8,7 +8,7 @@ use App\Models\SpotsTranslation;
 
 class ShowVideo extends Component
 {
-    public $idspot,$traduction,$test;
+    public $idspot,$traduction;
 
     protected $listeners = [
         'SpotVideo'
@@ -18,12 +18,12 @@ class ShowVideo extends Component
     {
         if (!is_null($value)) {
             $this->idspot = $value;
-            $this->dispatchBrowserEvent('videoChanged');
+            // $this->dispatchBrowserEvent('videoChanged');
         }
     }
     public function render()
     {
-        $this->test = $this->idspot;
+
         if ($this->idspot) {
         $this->traduction = SpotsTranslation::where('spots_id', '=', $this->idspot)
                 ->where('locale', '=', app()->getlocale())
