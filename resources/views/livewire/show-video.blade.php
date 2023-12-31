@@ -1,3 +1,3 @@
 <div>
-   dfsdfsdfs  {{$traduction->video1?? ''}}
+   Video {{$traduction->description?? ''}}{{$idspot}}
 </div>
