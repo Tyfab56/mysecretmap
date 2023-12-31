@@ -529,22 +529,11 @@ var myImages = document.querySelectorAll('.img-image');
 // Changment video 
 
 window.addEventListener('videoChanged', event => {
-    reloadSwarmifyScript();
+             var videoId = 'main_video';
+            swarmify.swarmifyVideo(videoId);
 });
 
-function reloadSwarmifyScript() {
-    // Supprimer l'ancien script si présent
-    var oldScript = document.querySelector('script[src="https://assets.swarmcdn.com/cross/swarmdetect.js"]');
-    if (oldScript) {
-        oldScript.remove();
-        alert('ici');
-    }
 
-    // Créer et ajouter le nouveau script
-    var script = document.createElement('script');
-    script.src = "https://assets.swarmcdn.com/cross/swarmdetect.js";
-    document.body.appendChild(script);
-}
 
 
 
