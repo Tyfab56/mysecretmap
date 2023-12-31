@@ -526,11 +526,11 @@ function goImage()
 }
 
 var myImages = document.querySelectorAll('.img-image');
+
 // Changment video 
 
 window.addEventListener('videoChanged', event => {
-             var videoId = 'main_video';
-            swarmify.swarmifyVideo(videoId);
+           
 });
 
 
