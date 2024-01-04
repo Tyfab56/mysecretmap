@@ -18,7 +18,7 @@ class ShowVideo extends Component
     {
         if (!is_null($value)) {
             $this->idspot = $value;
-            $this->dispatchBrowserEvent('videoChanged');
+          
         }
     }
     public function render()
@@ -30,6 +30,7 @@ class ShowVideo extends Component
                 ->where('locale', '=', app()->getlocale())
                 ->first();
         }
+        $this->dispatchBrowserEvent('videoChanged');
         return view('livewire.show-video');
     }
 }
