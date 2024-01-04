@@ -574,7 +574,7 @@ function popimage(name,e,lat,lng) {
             const containerVideo = document.getElementById('container_video');
             containerVideo.innerHTML = data.videoCode;
             // Initialisez le lecteur Swarmify si nécessaire
-            swarmify.swarmifyVideo('main_video_html5_api', {
+            swarmify.swarmifyVideo('main_video', {
                 preload: false,
                 controls: true
             });
