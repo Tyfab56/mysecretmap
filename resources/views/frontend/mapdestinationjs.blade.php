@@ -565,7 +565,18 @@ function popimage(name,e,lat,lng) {
   redrawOverlay();
   }
 
+  document.addEventListener('livewire:load', function() {
+    window.addEventListener('videoChanged', function() {
+        // Ici, insérez le code pour gérer le changement de vidéo.
+        // Par exemple, recharger le lecteur vidéo ou mettre à jour l'URL de la vidéo.
+       
+        swarmify.swarmifyVideo("main_video", {
+              preload: false,  // Précharge la vidéo dès que possible
+              controls: true    // Affiche les contrôles de lecture sur le lecteur vidéo
+          });
 
+    });
+});
 
 mapdest.on('moveend', function() {
 
