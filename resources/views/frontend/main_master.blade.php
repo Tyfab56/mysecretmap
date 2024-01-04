@@ -27,8 +27,17 @@
             <!-- Colorbox -->
             <link rel="stylesheet" href="{{  asset('frontend/assets/plugins/colorbox/colorbox.css') }}">
             <!-- Template styles-->
-           
-            
+            <script data-cfasync="false">
+            var swarmoptions = {
+                swarmcdnkey: "votre_clé_cdncdn",
+                iframeReplacement: "iframe",
+                autoreplace: {
+                    youtube: true
+                }
+            };
+             </script>
+             <script async data-cfasync="false" src="https://assets.swarmcdn.com/cross/swarmdetect.js"></script>
+  
             @yield('css')
             <link rel="stylesheet" href="{{  asset('frontend/assets/css/style.css') }}">
             @yield('fincss')

@@ -14,17 +14,8 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
 
         <!-- Initialisation de Swarmify -->
-    <script data-cfasync="false">
-        var swarmoptions = {
-            swarmcdnkey: "votre_clé_cdncdn",
-            iframeReplacement: "iframe",
-            autoreplace: {
-                youtube: true
-            }
-        };
-    </script>
-    <script async data-cfasync="false" src="https://assets.swarmcdn.com/cross/swarmdetect.js"></script>
-    
+   
+
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">
