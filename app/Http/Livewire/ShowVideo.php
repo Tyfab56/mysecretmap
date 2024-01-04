@@ -18,16 +18,19 @@ class ShowVideo extends Component
     {
         if (!is_null($value)) {
             $this->idspot = $value;
-            dd($value);
+           
         }
     }
     public function render()
     {
 
         if ($this->idspot) {
+           
         $this->traduction = SpotsTranslation::where('spots_id', '=', $this->idspot)
                 ->where('locale', '=', app()->getlocale())
                 ->first();
+
+                dd($this->traduction);
         }
         return view('livewire.show-video');
     }
