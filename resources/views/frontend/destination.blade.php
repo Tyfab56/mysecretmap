@@ -169,7 +169,10 @@
        
        </div>
 
-       <smartvideo id="main_video" class="swarm-fluid" controls playsinline width="1920" height="1080" src="swarmify://85b819a2c1ae19a67669825e49bfef07c8d017013c469b0efabf65ae478dfe33"> </smartvideo>
+       <smartvideo class="swarm-fluid" controls playsinline
+            width="1920" height="1080"
+            src="swarmify://a5c40744474c932d432f09f12fac9d80d0476e8d563cf504ed47eb52e7562d3e">
+</smartvideo>
   
   
         </div>
