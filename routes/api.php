@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ApiController;
+use App\Http\Controllers\VideoController;
 use App\Http\Controllers\ShopifyWebhookController;
 
 /*
@@ -23,3 +24,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::post('/shopify-webhook', [ShopifyWebhookController::class, 'handleWebhook']);
 
 Route::get('/testapi/{idspot}/',[ApiController::class, 'AfficheVideo']);
+Route::get('/video/{id}/{locale}', [VideoController::class, 'show']);

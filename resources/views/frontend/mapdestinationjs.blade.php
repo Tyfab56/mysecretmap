@@ -191,7 +191,7 @@ Livewire.emit('InfoDestination',e.sourceTarget.options.id,null,null);
 Livewire.emit('ImgRegion',e.sourceTarget.options.id);
 Livewire.emit('AfficheVideo',e.sourceTarget.options.id);
 Livewire.emit('ImgMap',e.sourceTarget.options.id);
-Livewire.emit('SpotVideo',e.sourceTarget.options.id);
+chargerEtAfficherVideo(e.sourceTarget.options.id, {{app()->getLocale()}})
 Livewire.emit('PictureDestination',e.sourceTarget.options.id);
 Livewire.emit('initWindy', e.latlng.lat, e.latlng.lng );
 currentMarker = e.sourceTarget.options.id;
@@ -378,7 +378,7 @@ window.addEventListener('load', function () {
     Livewire.emit('AfficheVideo',currentMarker);
     Livewire.emit('ImgMap',currentMarker);
     Livewire.emit('ImgPeak',currentMarker);
-    Livewire.emit('SpotVideo',currentMarker);
+    chargerEtAfficherVideo(currentMarker, {{app()->getLocale()}})
     Livewire.emit('PictureDestination',currentMarker);
     Livewire.emit('RefreshCircuit',currentCircuit);
     Livewire.emit('initWindy',currentLat, currentLng );
@@ -565,16 +565,20 @@ function popimage(name,e,lat,lng) {
   redrawOverlay();
   }
 
-  document.addEventListener('livewire:load', function() {
-    window.addEventListener('videoChanged', function() {
-      
-        swarmify.swarmifyVideo("main_video", {
-              preload: false,  
-              controls: true    
-          });
-
-    });
-});
+  function chargerEtAfficherVideo(id, locale) {
+    fetch(`URL_DE_VOTRE_API/video/${id}/${locale}`)
+        .then(response => response.json())
+        .then(data => {
+            const containerVideo = document.getElementById('container_video');
+            containerVideo.innerHTML = data.videoCode;
+            // Initialisez le lecteur Swarmify si nécessaire
+            swarmify.swarmifyVideo('id_de_votre_element_video', {
+                preload: false,
+                controls: true
+            });
+        })
+        .catch(error => console.error('Erreur:', error));
+} 
 
 mapdest.on('moveend', function() {
 
