@@ -78,7 +78,7 @@
                           </div> 
                        
                           <div class="row pt-1 pb-1 pr-1 pl-1 bgregbox min100">  
-                                <div class="col-lg-12 pt-1 pb-1  pr-1 pl-1"><livewire:show-video /></div>
+                                  <div id="container_video"></div>
                           </div> 
 
                           
