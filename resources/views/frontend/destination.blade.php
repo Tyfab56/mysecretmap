@@ -78,7 +78,7 @@
                           </div> 
                        
                           <div class="row pt-1 pb-1 pr-1 pl-1 bgregbox min100">  
-                                  <div id="container_video"></div>
+                                
                           </div> 
 
                           
@@ -169,10 +169,7 @@
        
        </div>
 
-       <smartvideo class="swarm-fluid" controls playsinline
-            width="1920" height="1080"
-            src="swarmify://a5c40744474c932d432f09f12fac9d80d0476e8d563cf504ed47eb52e7562d3e">
-</smartvideo>
+       <div id="container_video"></div>
   
   
         </div>
