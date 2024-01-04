@@ -191,7 +191,7 @@ Livewire.emit('InfoDestination',e.sourceTarget.options.id,null,null);
 Livewire.emit('ImgRegion',e.sourceTarget.options.id);
 Livewire.emit('AfficheVideo',e.sourceTarget.options.id);
 Livewire.emit('ImgMap',e.sourceTarget.options.id);
-chargerEtAfficherVideo(e.sourceTarget.options.id, {{app()->getLocale()}})
+chargerEtAfficherVideo(e.sourceTarget.options.id, '{{app()->getLocale()}}' )
 Livewire.emit('PictureDestination',e.sourceTarget.options.id);
 Livewire.emit('initWindy', e.latlng.lat, e.latlng.lng );
 currentMarker = e.sourceTarget.options.id;
@@ -378,7 +378,7 @@ window.addEventListener('load', function () {
     Livewire.emit('AfficheVideo',currentMarker);
     Livewire.emit('ImgMap',currentMarker);
     Livewire.emit('ImgPeak',currentMarker);
-    chargerEtAfficherVideo(currentMarker, {{app()->getLocale()}})
+    chargerEtAfficherVideo(currentMarker, '{{app()->getLocale()}}' )
     Livewire.emit('PictureDestination',currentMarker);
     Livewire.emit('RefreshCircuit',currentCircuit);
     Livewire.emit('initWindy',currentLat, currentLng );
