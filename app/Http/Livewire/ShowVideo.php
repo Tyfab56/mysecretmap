@@ -29,8 +29,6 @@ class ShowVideo extends Component
         $this->traduction = SpotsTranslation::where('spots_id', '=', $this->idspot)
                 ->where('locale', '=', app()->getlocale())
                 ->first();
-
-                dd($this->traduction);
         }
         return view('livewire.show-video');
     }
