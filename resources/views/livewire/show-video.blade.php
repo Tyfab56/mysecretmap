@@ -1,3 +1,3 @@
 <div>
-  videos {{$traduction->video1?? ''}}
+  videossw {{$traduction->video1?? ''}}
 </div>
