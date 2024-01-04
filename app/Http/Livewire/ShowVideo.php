@@ -18,7 +18,7 @@ class ShowVideo extends Component
     {
         if (!is_null($value)) {
             $this->idspot = $value;
-           
+            dd($value);
         }
     }
     public function render()
