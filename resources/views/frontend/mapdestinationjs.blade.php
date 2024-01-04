@@ -566,9 +566,11 @@ function popimage(name,e,lat,lng) {
   }
 
   function chargerEtAfficherVideo(id, locale) {
-    fetch('https://mysecretmap.com/api/video/${id}/${locale}')
-        .then(response => response.json())
-        .then(data => {
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', 'https://mysecretmap.com/api/video/' + id + '/' + locale, true);
+    xhr.onload = function() {
+        if (xhr.status === 200) {
+            var data = JSON.parse(xhr.responseText);
             const containerVideo = document.getElementById('container_video');
             containerVideo.innerHTML = data.videoCode;
             // Initialisez le lecteur Swarmify si nécessaire
@@ -576,9 +578,16 @@ function popimage(name,e,lat,lng) {
                 preload: false,
                 controls: true
             });
-        })
-        .catch(error => console.error('Erreur:', error));
-} 
+        } else {
+            console.error('Erreur:', xhr.statusText);
+        }
+    };
+    xhr.onerror = function() {
+        console.error('Erreur réseau');
+    };
+    xhr.send();
+}
+
 
 mapdest.on('moveend', function() {
 
