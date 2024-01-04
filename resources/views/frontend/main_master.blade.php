@@ -29,7 +29,7 @@
             <!-- Template styles-->
             <script data-cfasync="false">
             var swarmoptions = {
-                swarmcdnkey: "votre_clé_cdncdn",
+                swarmcdnkey: "213fbcf5-edab-4f21-a4c5-caa151d8b988",
                 iframeReplacement: "iframe",
                 autoreplace: {
                     youtube: true
