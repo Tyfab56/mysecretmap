@@ -566,7 +566,7 @@ function popimage(name,e,lat,lng) {
   }
 
   function chargerEtAfficherVideo(id, locale) {
-    fetch(`www.mysecretmap.com/video/${id}/${locale}`)
+    fetch('https://mysecretmap.com/api/video/${id}/${locale}')
         .then(response => response.json())
         .then(data => {
             const containerVideo = document.getElementById('container_video');
