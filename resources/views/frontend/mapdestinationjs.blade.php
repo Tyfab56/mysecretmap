@@ -573,11 +573,7 @@ function popimage(name,e,lat,lng) {
             var data = JSON.parse(xhr.responseText);
             const containerVideo = document.getElementById('container_video');
             containerVideo.innerHTML = data.videoCode;
-            // Initialisez le lecteur Swarmify si nécessaire
-            swarmify.swarmifyVideo('main_video', {
-                preload: false,
-                controls: true
-            });
+            
         } else {
             console.error('Erreur:', xhr.statusText);
         }
