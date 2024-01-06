@@ -38,4 +38,5 @@ return [
     'TempsTotal' => "Temps total",
     'sunsetting'=> "Règlages solaire : changer le jour et l'heure",
     'alentours'=> "Les autres spots aux alentours (dezoomer la carte)",
+    'clickmap'=>"Choisissez un spot surla carte",
 ];

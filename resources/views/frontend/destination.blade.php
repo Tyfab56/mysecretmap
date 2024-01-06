@@ -47,9 +47,11 @@
                                </div>
                            </div>
                      </div>    
-                     <div class="row w100">
-                     <p>{{__('destination.alentours')}}</p>
+                     <div class="row bgregbox w100">
+                     <div class="col-lg-12">
+                     <p>{{__('destination.clickmap')}}</p>
                            <div class="leaflet-map">
+                     </div>      
                      </div>
                        
                           <div class="row">

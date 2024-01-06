@@ -38,5 +38,6 @@ return [
     'TempsTotal' => "Total time",
     'sunsetting'=> "Sun Settings : change day and hour",
     'alentours'=>"Other spots in the surroundings (zoom out map)",
+    'clickmap'=>"Choose a spot on the map",
 
 ];
