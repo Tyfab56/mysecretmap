@@ -28,14 +28,12 @@
     </div>
 
     <!-- Modified Bandeau on the right -->
-    <div class="col-lg-4" style="display: flex; justify-content: center; align-items: center;">
+    <div class="col-lg-10" style="display: flex; justify-content: center; align-items: center;">
         <a href="https://www.villa-laurina.com" target="_blank">
             <img src="{{ asset('frontend/assets/images/blog/pub1.jpg')}}" alt="Publicité" class="img-fluid">
         </a>
     </div>
-    <div class="col-lg-5"> 
-        <!-- Content for this column -->
-    </div>
+
 </div>
 
         <div class="row">        
