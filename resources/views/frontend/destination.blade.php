@@ -47,7 +47,7 @@
                                </div>
                            </div>
                      </div>    
-                     <div class="row">
+                     <div class="row w100">
                            <div class="leaflet-map">
                      </div>
                        
