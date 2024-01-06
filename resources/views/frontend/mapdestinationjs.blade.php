@@ -570,9 +570,9 @@ function popimage(name,e,lat,lng) {
     xhr.open('GET', 'https://mysecretmap.com/api/video/' + id + '/' + locale, true);
     xhr.onload = function() {
         if (xhr.status === 200) {
-            var data = JSON.parse(xhr.responseText);
+            var data = xhr.responseText;
             const containerVideo = document.getElementById('container_video');
-            containerVideo.innerHTML = data.videoCode;
+            containerVideo.innerHTML = '<div id="main_video" src="'+ data + '" width="800" height="600"  controls="controls" preload="auto"></div>';
             
         } else {
             console.error('Erreur:', xhr.statusText);
