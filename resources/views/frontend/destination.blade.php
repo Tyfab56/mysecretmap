@@ -48,6 +48,7 @@
                            </div>
                      </div>    
                      <div class="row w100">
+                     <p>{{__('destination.alentours')}}</p>
                            <div class="leaflet-map">
                      </div>
                        
