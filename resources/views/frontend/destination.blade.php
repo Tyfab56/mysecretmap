@@ -43,7 +43,7 @@
                             <div class="row bgregbox w100">
                                <div class="col-lg-12">
                                 <p>{{__('destination.alentours')}}</p>
-                                  <div id="medias"></div>
+                                  <div id="medias" class="mb5"></div>
                                </div>
                            </div>
                      </div>    
