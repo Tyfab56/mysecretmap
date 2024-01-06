@@ -47,14 +47,16 @@
                                </div>
                            </div>
                      </div>    
-                     <div class="row bgregbox w100">
-                     <div class="col-lg-12">
-                     <p>{{__('destination.clickmap')}}</p>
-                           <div class="leaflet-map">
-                     </div>      
-                     </div>
-                       
-                          <div class="row">
+                     <div class="row">
+                             <div class="row bgregbox w100">
+                              <div class="col-lg-12">
+                              <p>{{__('destination.clickmap')}}</p>
+                                    <div class="leaflet-map">
+                                    </div>      
+                              </div>
+                            </div>   
+                      </div> 
+                      <div class="row">
 
                               <a name="mapPos" style="position:absolute; top:+100px;"></a>
                               <div id="mapdest">
