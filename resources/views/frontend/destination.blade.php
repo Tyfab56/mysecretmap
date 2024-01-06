@@ -21,11 +21,12 @@
         <div class="row">
             
         </div>
-        <div class="row">
-    <div class="col-lg-3">    
-        <h1> <a href='{{ route($pays->route) }}'>{{$pays->pays}}</a></h1>                        
-        <a class="btn btn-primary m5" href="{{ url('thewall') }}/{{ $idpays}}">{{__('destination.cherchespot')}}</a>
-    </div>
+        <div class="row mt5 mb5">
+        <div class="col-lg-2 d-flex flex-column justify-content-center align-items-center">    
+    <h1><a href='{{ route($pays->route) }}'>{{$pays->pays}}</a></h1>                        
+    <a class="btn btn-primary m5" href="{{ url('thewall') }}/{{ $idpays}}">{{__('destination.cherchespot')}}</a>
+</div>
+
 
     <!-- Modified Bandeau on the right -->
     <div class="col-lg-10" style="display: flex; justify-content: center; align-items: center;">
