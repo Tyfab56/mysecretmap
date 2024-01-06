@@ -37,4 +37,5 @@ return [
     'TempsSurSite' => "Temps sur site",
     'TempsTotal' => "Temps total",
     'sunsetting'=> "Règlages solaire : changer le jour et l'heure",
+    'alentours'=> "Les autres spots aux alentours",
 ];
