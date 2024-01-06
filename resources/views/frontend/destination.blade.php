@@ -41,7 +41,7 @@
                <div class="col-lg-9">
                      <div class="row">
                             <div class="row bgregbox w100">
-                               <div class="col-lg-12">
+                                <div class="col-lg-12">
                                 <p>{{__('destination.alentours')}}</p>
                                   <div id="medias" class="mb5"></div>
                                </div>
@@ -49,13 +49,13 @@
                      </div>    
                      <div class="row">
                              <div class="row bgregbox w100">
-                              <div class="col-lg-12">
-                              <p>{{__('destination.clickmap')}}</p>
-                                    <div class="leaflet-map">
-                                    </div>      
-                              </div>
-                            </div>   
-                      </div> 
+                                <div class="col-lg-12">
+                                  <p>{{__('destination.clickmap')}}</p>
+                                        <div class="leaflet-map">  </div>    
+                                        
+                                </div>
+                             
+                               </div> 
                       <div class="row">
 
                               <a name="mapPos" style="position:absolute; top:+100px;"></a>
@@ -85,7 +85,7 @@
                                 <div class="col-lg-12 pt-1 pb-1  pr-1 pl-1"><livewire:show-map-globale /></div>
                           </div> 
                        
-                          <div class="row pt-1 pb-1 pr-1 pl-1 bgregbox min100">  
+                          <div id ="wrap_video" class="row pt-1 pb-1 pr-1 pl-1 bgregbox min100">  
                                 <div id="container_video" ></div>
                           </div> 
 
@@ -104,12 +104,12 @@
 
                </div>
                <div class="col-lg-3 bgbox">           
-                  <livewire:show-map-spot />
+                        <livewire:show-map-spot />
                </div>
         </div>
 
         <div class="row bgregbox min100">  
-             <livewire:windy-widget />
+            
        </div>
          
        <div class="row bgregbox min100">  
@@ -183,14 +183,14 @@
         </div>
     </div>
     <style>
-    #container_video {
+    #wrap_video {
         display: flex;
         justify-content: center;
         align-items: center;
         height: 100%; /* Adjust the height as needed */
     }
-</style>
-  </section>
+   </style>
+   </section>
 @endsection
 @section('fullscripts')
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.3/leaflet.js"></script>
