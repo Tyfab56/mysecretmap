@@ -168,7 +168,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 100%; /* Adjust the height as needed */
+       
     }
    </style>
    </section>
