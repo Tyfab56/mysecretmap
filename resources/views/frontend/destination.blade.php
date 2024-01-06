@@ -27,15 +27,17 @@
         <a class="btn btn-primary m5" href="{{ url('thewall') }}/{{ $idpays}}">{{__('destination.cherchespot')}}</a>
     </div>
 
-    <!-- Nouveau bandeau sur la droite -->
-    <div class="col-lg-4" style="display: flex; justify-content: center; align-items: center; height: 90px;">
-        
-       <a href="https://www.villa-laurina.com" target="_blank"> <img src="{{ asset('frontend/assets/images/blog/pub1.jpg')}}" alt="Publicité" style="width: 720px; height: 90px;"></a>
-       
+    <!-- Modified Bandeau on the right -->
+    <div class="col-lg-4" style="display: flex; justify-content: center; align-items: center;">
+        <a href="https://www.villa-laurina.com" target="_blank">
+            <img src="{{ asset('frontend/assets/images/blog/pub1.jpg')}}" alt="Publicité" class="img-fluid">
+        </a>
     </div>
     <div class="col-lg-5"> 
+        <!-- Content for this column -->
     </div>
 </div>
+
         <div class="row">        
                <div class="col-lg-9">
                      <div class="row">
