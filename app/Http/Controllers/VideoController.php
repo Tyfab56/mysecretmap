@@ -12,8 +12,6 @@ class VideoController extends Controller
                                 ->where('locale', '=', $locale)
                                 ->first();
 
-            return response()->json([
-                'videoCode' => $traduction->video1 ?? ''
-            ]);
+            return $traduction->video1 ?? '';
         }   
 }
