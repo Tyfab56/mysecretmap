@@ -42,6 +42,7 @@
                      <div class="row">
                             <div class="row bgregbox w100">
                                <div class="col-lg-12">
+                                <p>Les autres spots aux alentours</p>
                                   <div id="medias"></div>
                                </div>
                            </div>
