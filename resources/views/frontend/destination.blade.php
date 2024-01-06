@@ -47,8 +47,9 @@
                                </div>
                            </div>
                      </div>    
-
-                     <div class="leaflet-map">
+                     <div class="row">
+                           <div class="leaflet-map">
+                     </div>
                        
                           <div class="row">
 
