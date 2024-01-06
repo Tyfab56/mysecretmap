@@ -81,8 +81,9 @@
                                         <div class="col-lg-12 center pt-1 pb-1 pr-1 pl-1"><livewire:show-img-region /></div>
                                        </div>                      
                                  </div>
-                              </div>
-                       </div>      
+                               </div>
+                             </div>      
+                      </div>       
                <div class="col-lg-3 bgbox">           
                         <livewire:show-map-spot />
                </div>
