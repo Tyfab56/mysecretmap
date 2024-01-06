@@ -574,8 +574,8 @@ function popimage(name,e,lat,lng) {
             const containerVideo = document.getElementById('container_video');
             containerVideo.innerHTML = '<div id="main_video" width="50%" src="'+ data + '"   controls="controls" preload="auto"></div>';
             swarmify.swarmifyVideo("main_video",{
-            width: '500px', 
-            });
+            width: '640px',
+              });
             
         } else {
             console.error('Erreur:', xhr.statusText);
