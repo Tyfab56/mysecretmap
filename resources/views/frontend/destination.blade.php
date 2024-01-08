@@ -74,7 +74,7 @@
                                           </div>
                                         </div>                   
                                         <div id ="wrap_video" class="row pt-1 pb-1 pr-1 pl-1 bgregbox min100">  
-                                            <div id="container_video" ></div>
+                                            <div id="container_video" style="width: 640px" ></div>
                                        </div>                          
                                        <div class="row pt-1 pb-1 pr-1 pl-1 bgregbox min100">  
                                       
