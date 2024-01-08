@@ -572,7 +572,7 @@ function popimage(name,e,lat,lng) {
         if (xhr.status === 200) {
             var data = xhr.responseText;
             const containerVideo = document.getElementById('container_video');
-            containerVideo.innerHTML = '<div id="main_video" src="'+ data + '"  width="640" height="360"  controls="controls" preload="auto"></div>';
+            containerVideo.innerHTML = '<div id="main_video" src="'+ data + '"  width="640" height="360" class="swarm-fluid"  controls="controls" preload="auto"></div>';
             swarmify.swarmifyVideo("main_video",{
             width: '640px',
               });
