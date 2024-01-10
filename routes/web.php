@@ -165,7 +165,7 @@ Route::view('/audioguide', 'frontend.audioguide')->name('audioguide');
 Route::view('/audioguides', 'frontend.audioguides')->name('audioguides');
 Route::view('/changeavatar', 'frontend.loadavatar')->name('changeavatar');
 
-Route::get('/addotspots', [IndexController::class, 'addotspot'])->name('addotspot');
+Route::get('/add-ot-spots', [IndexController::class, 'addotspot'])->name('addotspot');
 
 Route::view('/guide_iceland_en','frontend.guide_iceland_en')->name('guide_iceland_en');
 
