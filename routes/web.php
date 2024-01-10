@@ -156,6 +156,7 @@ Route::post('addavatar/store', [IndexController::class, 'avatarstore'])->name('a
 
 Route::view('/rodrigues','frontend.destinations.rodrigues')->name('rodrigues');
 Route::view('/iceland', 'frontend.destinations.iceland')->name('iceland');
+Route::view('/comoros','frontend.destinations.comoros')->name('comoros');
 Route::view('/iceland/geology', 'frontend.destinations.iceland-geologie')->name('iceland.geology');
 Route::view('/blog', 'frontend.destinations.blog')->name('blog');
 Route::view('/blog/hotspot', 'frontend.destinations.blog-hotspot')->name('blog.hotspot');
