@@ -17,6 +17,11 @@
   
 <section id="news" class="news">
     <div class="container">
+    <header class="tourism-header">
+        <h1>Offices du tourisme : ajoutez vos plus beaux spots</h1>
+        <p>Découvrez comment mettre en valeur votre région sur notre carte interactive.</p>
+        <a href="{{ route('addotspot') }}" class="btn-call-to-action">Ajoutez vos spots</a>
+    </header>
       <div class="row text-center">
           <div class="col-lg-6 col-md-12">
             <h2 class="section-sub-title">{{__('index.Top1Line1')}}</h2>
@@ -362,6 +367,34 @@
       </div><!-- Row end -->
     </div><!-- Container end -->
   </section><!-- Feature are end -->    
+  <style>
+   .tourism-header {
+    background-color: #f2f2f2; /* ou toute autre couleur */
+    text-align: center;
+    padding: 20px;
+}
+
+.tourism-header h1 {
+    color: #333; /* ou toute autre couleur */
+    margin-bottom: 10px;
+}
+
+.tourism-header p {
+    color: #666; /* ou toute autre couleur */
+}
+
+.btn-call-to-action {
+    background-color: #008cba; /* ou toute autre couleur */
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.btn-call-to-action:hover {
+    background-color: #005f73; /* ou toute autre couleur */
+}
+</style> 
 @endsection
 
 @section('fullscripts')

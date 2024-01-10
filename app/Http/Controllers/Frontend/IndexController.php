@@ -713,4 +713,8 @@ class IndexController extends Controller
     {
         return view('frontend.croisiere');
     }
+    public function addotspot()
+    {
+        return view('add-ot-spots');
+    }
 }
