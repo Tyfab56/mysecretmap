@@ -147,8 +147,18 @@ class IndexController extends Controller
 
                
 
-                // Inserer le point par defaut
-                $idspotdefaut = Default_spots::where('pays_id','=',$idpays)->first()->spot_id;
+                
+               
+
+                $defaultSpot = Default_spots::where('pays_id', '=', $idpays)->first();
+
+                if ($defaultSpot) {
+                    $idspotdefaut = $defaultSpot->spot_id;
+                } else {
+                    // Handle the case when there is no default spot
+                    // For example, set a default value or take an alternative action
+                    $idspotdefaut = null; // or any default value or action you prefer
+                }
                 // Creation du premier point
                 $firstpoint = new Circuits_details();
 
