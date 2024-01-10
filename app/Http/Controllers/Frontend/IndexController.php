@@ -725,6 +725,6 @@ class IndexController extends Controller
     }
     public function addotspot()
     {
-        return view('addotspots');
+        return view('addotspot');
     }
 }
