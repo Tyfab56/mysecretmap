@@ -18,9 +18,9 @@
 <section id="news" class="news">
     <div class="container">
     <header class="tourism-header">
-        <h1>Offices du tourisme : ajoutez vos plus beaux spots</h1>
-        <p>Découvrez comment mettre en valeur votre région sur notre carte interactive.</p>
-        <a href="{{ route('addotspot') }}" class="btn-call-to-action">Ajoutez vos spots</a>
+        <h1>{{__('index.calltoaction1')}}</h1>
+        <p>{{__('index.calltoaction2')}}</p>
+        <a href="{{ route('addotspot') }}" class="btn-call-to-action">{{__('index.calltoaction3')}}</a>
     </header>
       <div class="row text-center">
           <div class="col-lg-6 col-md-12">

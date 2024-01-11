@@ -86,6 +86,9 @@ return [
     "CodeVideo" =>  '<iframe width="560" height="315" src="https://www.youtube.com/embed/diClSEWYZ8I" title="Audio Guide Islande" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>',
     "LienVideo" =>  'Discover the audio guide', 
     "ActuBref" =>  'News in brief', 
+    "calltoaction1" => "Tourist Offices: Add Your Most Beautiful Spots",
+    "calltoaction2" => "Discover How to Showcase Your Region on Our Interactive Map.",
+    "calltoaction3" => "Add Your Spots"
     
 
 ];

@@ -87,5 +87,8 @@ return [
     "CodeVideo" =>  '<iframe width="100%" max-height="215" src="https://www.youtube.com/embed/diClSEWYZ8I" title="Audio Guide Islande" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>',
     "LienVideo" =>  'Découvrir le guide audio', 
     "ActuBref" =>  'Actus en bref', 
+    "calltoaction1"=>"Offices du tourisme : ajoutez vos plus beaux spots",
+    "calltoaction2"=>"Découvrez comment mettre en valeur votre région sur notre carte interactive.",
+    "calltoaction3"=>"Ajoutez vos spots",
     
 ];
