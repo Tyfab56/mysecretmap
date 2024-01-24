@@ -17,9 +17,9 @@ return [
     ",
     "OtSpot8"=>"<b>Sur les réseaux sociaux</b>, nous sommes en mode “découverte”. Nous concevons des campagnes de communication avec un enchainement de Quiz, photos et vidéos d’explications en relation avec l’audioguide.",
     "OtSpot9"=>"Pourquoi et comment Participer ?",
-    "OtSpot10"=>"<b>Pour atteindre une Audience Engagée</b>: Notre communauté de voyageurs et de photographes est à la recherche de nouvelles découvertes.",
-    "OtSpot11"=>"<b>Pour mettre en Lumière Votre Région: placez les merveilles cachées de votre destination sur notre carte",
-    "OtSpotContact"=>"Contactez-nous pour débuter une collaboration enrichissante. Transformons ensemble la découverte touristique.",
+    "OtSpot10"=>"<b>Pour atteindre une audience engagée</b>: notre communauté de voyageurs et de photographes est à la recherche de nouvelles découvertes.",
+    "OtSpot11"=>"<b>Pour mettre en lumière votre région: placez les merveilles cachées de votre destination sur notre carte",
+    "OtSpotContact"=>"Contactez-nous pour débuter une discuter d'une collaboration.",
 
 
 
