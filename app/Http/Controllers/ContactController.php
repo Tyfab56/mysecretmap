@@ -53,6 +53,6 @@ class ContactController extends Controller
 
 
         // Rediriger l'utilisateur vers une page de confirmation ou autre
-        return redirect('frontend.confirmation');
+        return view('frontend/confirmation');
     }
 }
