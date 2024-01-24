@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Confirmation de soumission de formulaire</title>
+    <title>{{ __('mail.contactTitre') }}</title>
 </head>
 <body>
-    <h1>Merci pour votre soumission !</h1>
-    <p>Votre formulaire de contact a été soumis avec succès avec les détails suivants :</p>
+    <h1>{{ __('mail.contactMerci') }}</h1>
+    <p>{{ __('mail.contactSucces') }}Votre formulaire de contact a été soumis avec succès avec les détails suivants :</p>
     <ul>
-        <li><strong>Nom:</strong> {{ $nom }}</li>
-        <li><strong>Prénom:</strong> {{ $prenom }}</li>
-        <li><strong>Email:</strong> {{ $email }}</li>
-        <li><strong>Message:</strong> {{ $texte }}</li>
+        <li><strong>{{ __('mail.contactNom') }}</strong> {{ $nom }}</li>
+        <li><strong>{{ __('mail.contactPrenom') }}</strong> {{ $prenom }}</li>
+        <li><strong>{{ __('mail.contactEmail') }}</strong> {{ $email }}</li>
+        <li><strong>{{ __('mail.contactMessage') }}</strong> {{ $texte }}</li>
     </ul>
-    <p>Nous vous répondrons dès que possible.</p>
+    <p>{{ __('mail.contactBack') }}</p>
 </body>
 </html>
