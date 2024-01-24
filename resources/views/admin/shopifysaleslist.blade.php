@@ -36,6 +36,7 @@
                 @endforeach
             </tbody>
         </table>
+        {{ $shopifysales->links() }}
     @endif
 </div>
 

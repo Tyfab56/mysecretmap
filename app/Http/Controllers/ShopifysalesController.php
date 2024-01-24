@@ -16,8 +16,7 @@ class ShopifysalesController extends Controller
     
     public function index()
     {
-        $shopifysales = Shopifysales::orderBy('created_at', 'desc')->get();
-
+        $shopifysales = Shopifysales::orderBy('created_at', 'desc')->paginate(20);
         return view('admin.shopifysaleslist', ['shopifysales' => $shopifysales]);
     }
 
