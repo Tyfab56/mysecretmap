@@ -10,14 +10,14 @@
         <p>{!! __('blog.OtSpot6') !!}</p>
         <p>{!! __('blog.OtSpot7') !!}</p>
         <p>{!! __('blog.OtSpot8') !!}</p>
+        <h3>{!! __('blog.OtSpot9') !!}</h3>
         <ul>
-            <li><strong>Atteignez une Audience Engagée</strong>: Notre communauté est à la recherche de nouvelles découvertes.</li>
-            <li><strong>Mettez en Lumière Votre Région</strong>: Valorisez les merveilles cachées de votre localité.</li>
-            <li><strong>Participez à une Aventure en Expansion</strong>: Rejoignez une plateforme en pleine croissance.</li>
-            <li><strong>Collaborez pour des Contenus Innovants</strong>: Créez des guides enrichis pour une expérience utilisateur unique.</li>
+            <li>{!! __('blog.OtSpot10') !!}</li>
+            <li>{!! __('blog.OtSpot11') !!}</li>
         </ul>
-        <h3>Comment Participer ?</h3>
-        <p>Contactez-nous pour débuter une collaboration enrichissante. Transformons ensemble la découverte touristique.</p>
-        <!-- Inclure un formulaire de contact ou un bouton d'appel à l'action -->
+       
+        <p>{!! __('blog.OtSpotContact') !!}</p>
+        <a href="{{ route('contact') }}" class="btn btn-primary">{!! __('blog.OtSpotContact') !!}</a>
+
     </div>
 @endsection

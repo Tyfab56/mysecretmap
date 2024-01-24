@@ -16,6 +16,12 @@ return [
     "OtSpot7"=>"<b>Sur l'application audioguide 'Charly'</b>, chaque lieu bénéficie d'une présentation concise et géolocalisée. Ainsi, les utilisateurs peuvent écouter des explications en temps réel lorsqu'ils sont sur place. De nombreux voyageurs l'apprécient pour la découverte de sites en voiture, écoutant via l'autoradio et sélectionnant les spots qui retiennent le plus leur attention.
     ",
     "OtSpot8"=>"<b>Sur les réseaux sociaux</b>, nous sommes en mode “découverte”. Nous concevons des campagnes de communication avec un enchainement de Quiz, photos et vidéos d’explications en relation avec l’audioguide.",
+    "OtSpot9"=>"Pourquoi et comment Participer ?",
+    "OtSpot10"=>"<b>Pour atteindre une Audience Engagée</b>: Notre communauté de voyageurs et de photographes est à la recherche de nouvelles découvertes.",
+    "OtSpot11"=>"<b>Pour mettre en Lumière Votre Région: placez les merveilles cachées de votre destination sur notre carte",
+    "OtSpotContact"=>"Contactez-nous pour débuter une collaboration enrichissante. Transformons ensemble la découverte touristique.",
+
+
 
 
     
