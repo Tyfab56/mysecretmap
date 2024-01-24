@@ -56,7 +56,7 @@ class ContactFormConfirmation extends Mailable
     public function content()
     {
         return new Content(
-            view: 'view.name',
+            view: 'frontend.confirmation',
         );
     }
 
