@@ -22,7 +22,7 @@ class ContactFormConfirmation extends Mailable
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($nom, $prenom, $email, $texte)
     {
         $this->nom = $nom;
         $this->prenom = $prenom;
