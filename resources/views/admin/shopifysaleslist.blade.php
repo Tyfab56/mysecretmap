@@ -18,7 +18,7 @@
                     <th>Status</th>
                     <th>Product ID</th>
                     <th>Created At</th>
-                    <th>Actions</th>
+                    <th>Install</th>
                 </tr>
             </thead>
             <tbody>
@@ -30,10 +30,8 @@
                         <td>{{ $sale->currency }}</td>
                         <td>{{ $sale->status }}</td>
                         <td>{{ $sale->idproduit }}</td>
+                        <td>{{ $sale->created_at }}</td>
                         <td>{{ $sale->installation }}</td>
-                        <td>
-                            
-                        </td>
                     </tr>
                 @endforeach
             </tbody>
