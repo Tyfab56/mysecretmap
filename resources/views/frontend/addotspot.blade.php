@@ -7,9 +7,23 @@
         <p>{!! __('blog.OtSpot4') !!}</p>
         <p></p>
         <p>{!! __('blog.OtSpot5') !!}</p>
+        <div class="card">
+    <div class="card-body">
         <p>{!! __('blog.OtSpot6') !!}</p>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body">
         <p>{!! __('blog.OtSpot7') !!}</p>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body">
         <p>{!! __('blog.OtSpot8') !!}</p>
+    </div>
+</div>
         <h3>{!! __('blog.OtSpot9') !!}</h3>
         <ul>
             <li>{!! __('blog.OtSpot10') !!}</li>
