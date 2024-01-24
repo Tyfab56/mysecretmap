@@ -7,31 +7,40 @@
         <p>{!! __('blog.OtSpot4') !!}</p>
         <p></p>
         <p>{!! __('blog.OtSpot5') !!}</p>
-        <div class="card">
-    <div class="card-body">
-        <p>{!! __('blog.OtSpot6') !!}</p>
-    </div>
-</div>
+        <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <p>{!! __('blog.OtSpot6') !!}</p>
+                        </div>
+                    </div>
+                </div>
 
-<div class="card">
-    <div class="card-body">
-        <p>{!! __('blog.OtSpot7') !!}</p>
-    </div>
-</div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <p>{!! __('blog.OtSpot7') !!}</p>
+                        </div>
+                    </div>
+                </div>
 
-<div class="card">
-    <div class="card-body">
-        <p>{!! __('blog.OtSpot8') !!}</p>
-    </div>
-</div>
-        <h3>{!! __('blog.OtSpot9') !!}</h3>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <p>{!! __('blog.OtSpot8') !!}</p>
+                        </div>
+                    </div>
+                </div>
+        </div>
+
+        <h4>{!! __('blog.OtSpot9') !!}</h4>
         <ul>
             <li>{!! __('blog.OtSpot10') !!}</li>
             <li>{!! __('blog.OtSpot11') !!}</li>
         </ul>
        
         <p>{!! __('blog.OtSpotContact') !!}</p>
-        <a href="{{ route('contact') }}" class="btn btn-primary">{!! __('blog.OtSpotContact') !!}</a>
+        <a href="{{ route('contact') }}" class="btn btn-primary">{!! __('menu.Contact') !!}</a>
 
     </div>
 @endsection
