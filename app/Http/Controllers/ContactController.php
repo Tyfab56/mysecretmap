@@ -28,6 +28,6 @@ class ContactController extends Controller
         ]);
 
         // Rediriger l'utilisateur vers une page de confirmation ou autre
-        return redirect('/confirmation');
+        return redirect('frontend.confirmation');
     }
 }
