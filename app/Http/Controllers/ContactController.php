@@ -40,13 +40,17 @@ class ContactController extends Controller
         ]);
 
         // Envoie de l'e-mail de confirmation
-            Mail::to($request->input('email'))
+        
+            Mail::to('fabrice@my-lovely-planet.com','Requete Internet MSM')
             ->send(new ContactFormConfirmation(
                 $request->input('nom'),
                 $request->input('prenom'),
                 $request->input('email'),
                 $request->input('texte')
             ));
+
+          
+
 
         // Rediriger l'utilisateur vers une page de confirmation ou autre
         return redirect('frontend.confirmation');
