@@ -11,13 +11,22 @@ class ContactController extends Controller
 
     public function submitContactForm(Request $request)
     {
-        // Valider les données du formulaire
-        $request->validate([
-            'nom' => 'required|string',
-            'prenom' => 'required|string',
-            'email' => 'required|email|unique:contacts',
-            'texte' => 'required',
+       
+
+
+        $validator = Validator::make($request->all(), [
+            'nom' => 'required|string|max:255',
+            'prenom' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'texte' => 'required|string|max:1000',
         ]);
+    
+        if ($validator->fails()) {
+            return redirect('contact')
+                ->withErrors($validator)
+                ->withInput();
+        }
+
 
         // Créer une nouvelle instance de Contact et la sauvegarder
         Contact::create([
@@ -26,6 +35,15 @@ class ContactController extends Controller
             'email' => $request->input('email'),
             'texte' => $request->input('texte'),
         ]);
+
+        // Envoie de l'e-mail de confirmation
+            Mail::to($request->input('email'))
+            ->send(new ContactFormConfirmation(
+                $request->input('nom'),
+                $request->input('prenom'),
+                $request->input('email'),
+                $request->input('texte')
+            ));
 
         // Rediriger l'utilisateur vers une page de confirmation ou autre
         return redirect('frontend.confirmation');
