@@ -30,7 +30,7 @@
                         <td>{{ $sale->currency }}</td>
                         <td>{{ $sale->status }}</td>
                         <td>{{ $sale->idproduit }}</td>
-                        <td>{{ $sale->created_at }}</td>
+                        <td>{{ $sale->installation }}</td>
                         <td>
                             
                         </td>
