@@ -53,12 +53,7 @@ class ContactFormConfirmation extends Mailable
      *
      * @return \Illuminate\Mail\Mailables\Content
      */
-    public function content()
-    {
-        return new Content(
-            view: 'frontend.confirmation',
-        );
-    }
+    
 
     /**
      * Get the attachments for the message.
