@@ -17,32 +17,23 @@ class ContactFormConfirmation extends Mailable
     public $prenom;
     public $email;
     public $texte;
-    /**
-     * Create a new message instance.
-     *
-     * @return void
-     */
+
     public function __construct($nom, $prenom, $email, $texte)
     {
         $this->nom = $nom;
         $this->prenom = $prenom;
         $this->email = $email;
         $this->texte = $texte;
+
+        $this->to($email, $prenom . ' ' . $nom);
     }
 
-    public function to($recipientEmail, $recipientName)
+    public function build()
     {
         return $this->subject('Confirmation de soumission de formulaire de contact')
-                    ->view('emails.contact-form-confirmation')
-                    ->to($recipientEmail, $recipientName);
+                    ->view('emails.contact-form-confirmation');
     }
-    
 
-    /**
-     * Get the message envelope.
-     *
-     * @return \Illuminate\Mail\Mailables\Envelope
-     */
     public function envelope()
     {
         return new Envelope(
@@ -50,18 +41,6 @@ class ContactFormConfirmation extends Mailable
         );
     }
 
-    /**
-     * Get the message content definition.
-     *
-     * @return \Illuminate\Mail\Mailables\Content
-     */
-    
-
-    /**
-     * Get the attachments for the message.
-     *
-     * @return array
-     */
     public function attachments()
     {
         return [];
