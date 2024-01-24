@@ -31,12 +31,12 @@ class ContactFormConfirmation extends Mailable
     }
 
     public function to($recipientEmail, $recipientName)
-{
-    return $this->to($recipientEmail, $recipientName)
-                ->subject('Confirmation de soumission de formulaire de contact')
-                ->view('emails.contact-form-confirmation');
-}
-
+    {
+        return $this->subject('Confirmation de soumission de formulaire de contact')
+                    ->view('emails.contact-form-confirmation')
+                    ->to($recipientEmail, $recipientName);
+    }
+    
 
     /**
      * Get the message envelope.
