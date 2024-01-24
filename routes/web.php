@@ -19,7 +19,7 @@ use App\Http\Controllers\TestController;
 use App\Http\Controllers\HotelController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ShopifysalesController;
-
+use App\Http\Controllers\ContactController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
