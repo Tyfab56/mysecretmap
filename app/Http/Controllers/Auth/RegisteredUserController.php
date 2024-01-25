@@ -43,7 +43,7 @@ class RegisteredUserController extends Controller
         $recaptcha = new \ReCaptcha\ReCaptcha(env('RECAPTCHA_V3_SECRET'));
         $result = $recaptcha->setExpectedAction('register')->verify($response);
 
-  
+        dd($response);
 
         if (!$result->isSuccess()) {
         // Échec de la validation reCAPTCHA v3
