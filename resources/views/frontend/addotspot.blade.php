@@ -40,7 +40,9 @@
         </ul>
        
         <p>{!! __('blog.OtSpotContact') !!}</p>
-        <a href="{{ route('contact') }}" class="btn btn-primary">{!! __('menu.Contact') !!}</a>
+        <div class="center"
+             <a href="{{ route('contact') }}" class="btn btn-primary">{!! __('menu.Contact') !!}</a>
+       </div>
 
     </div>
 @endsection
