@@ -12,4 +12,9 @@ return [
     "contactEmail" => "Email:",
     "contactMessage" => "Message:",
     "contactBack" => "We will get back to you as soon as possible.",
+    "contactSubmit" => "Send",
+    "contactBack" => "We will get back to you as soon as possible",
+    "contactConfirmation" => "Contact Confirmation",
+    "contactConfirmationSucces" => "Thank you for submitting the contact form. Your message has been received successfully.",
+    "contactConfirmationAssoon" => "We will get back to you as soon as possible",
 ];

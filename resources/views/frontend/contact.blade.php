@@ -12,23 +12,23 @@
         <form id='contactform' method="POST" action="/contact">
             @csrf
             <div class="mb-3">
-                <label for="nom" class="form-label">Nom</label>
+                <label for="nom" class="form-label">{{ __('mail.contactNom') }}</label>
                 <input type="text" class="form-control" id="nom" name="nom" required>
             </div>
             <div class="mb-3">
-                <label for="prenom" class="form-label">Prénom</label>
+                <label for="prenom" class="form-label">{{ __('mail.contactPrenom') }}</label>
                 <input type="text" class="form-control" id="prenom" name="prenom" required>
             </div>
             <div class="mb-3">
-                <label for="email" class="form-label">Email</label>
+                <label for="email" class="form-label">{{ __('mail.contactEmail') }}</label>
                 <input type="email" class="form-control" id="email" name="email" required>
             </div>
             <div class="mb-3">
-                <label for="texte" class="form-label">Texte</label>
+                <label for="texte" class="form-label">{{ __('mail.contactMessage') }}</label>
                 <textarea class="form-control" id="texte" name="texte" required></textarea>
             </div>
             <input type="hidden" name="recaptcha_v3_token" id="recaptcha_v3_token">
-            <button type="submit" class="btn btn-primary mb-5 mt-5">Envoyer</button>
+            <button type="submit" class="btn btn-primary mb-5 mt-5">{{ __('mail.contactSubmit') }}</button>
         </form>
     </div>
     <div id="spinner" style="display: none;">
