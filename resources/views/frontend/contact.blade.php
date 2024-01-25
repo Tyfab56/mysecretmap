@@ -118,8 +118,11 @@
 @endsection
 @section('fincss')
 <script>
-    document.getElementById('contactform').onsubmit = function(){
-    document.getElementById('spinner').style.display = 'block';
+   document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('contactform').addEventListener('submit', function () {
+        document.getElementById('spinner').style.display = 'block';
+    });
+});
 };
 </script>
 <script src="https://www.google.com/recaptcha/api.js?render=6LfGlhgoAAAAAIy5hyp6rpWRdOZteIFQ5s9fm0VU"></script>
