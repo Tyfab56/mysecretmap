@@ -7,7 +7,7 @@ return [
     "contactNom" => "Nom :",
     "contactPrenom" => "Prenom :",
     "contactEmail" => "Email :",
-    "contactText" => "Message :",
-    "cobtactback" => "Nous vous répondrons dès que possible.",
+    "contactMessage" => "Message :",
+    "contactback" => "Nous vous répondrons dès que possible.",
 
 ];

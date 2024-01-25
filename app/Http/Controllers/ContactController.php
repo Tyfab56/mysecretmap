@@ -41,13 +41,13 @@ class ContactController extends Controller
 
         // Envoie de l'e-mail de confirmation
         
-            Mail::to('fabrice@my-lovely-planet.com','Requete Internet MSM')
+         /*   Mail::to('fabrice@my-lovely-planet.com','Requete Internet MSM')
             ->send(new ContactFormConfirmation(
                 $request->input('nom'),
                 $request->input('prenom'),
                 $request->input('email'),
                 $request->input('texte')
-            ));
+            ));*/
 
           
 
