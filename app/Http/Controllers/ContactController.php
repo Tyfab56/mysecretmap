@@ -19,7 +19,7 @@ class ContactController extends Controller
         $recaptcha = new \ReCaptcha\ReCaptcha(env('RECAPTCHA_V3_SECRET'));
         $result = $recaptcha->setExpectedAction('contact')->verify($response);
 
-
+        dd($result);
 
         if (!$result->isSuccess()) {
         // Échec de la validation reCAPTCHA v3
