@@ -27,7 +27,8 @@
                 <label for="texte" class="form-label">Texte</label>
                 <textarea class="form-control" id="texte" name="texte" required></textarea>
             </div>
-            <button type="submit" class="btn btn-primary pb-5 pt-5">Envoyer</button>
+            <input type="hidden" name="recaptcha_v3_token" id="recaptcha_v3_token">
+            <button type="submit" class="btn btn-primary mb-5 mt-5">Envoyer</button>
         </form>
     </div>
 </div>
