@@ -2,7 +2,7 @@
 @section('content')
 <div class="row justify-content-center">
     <div class="col-md-6">
-        <h1>{{ __('mail.contactForm') }</h1>
+        <h1>{{ __('mail.contactForm') }}</h1>
         @if ($errors->has('reCAPTCHA'))
             <div class="alert alert-danger">
                 {{ $errors->first('reCAPTCHA') }}
