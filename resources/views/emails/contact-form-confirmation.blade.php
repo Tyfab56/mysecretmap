@@ -5,7 +5,7 @@
 </head>
 <body>
     <h1>{{ __('mail.contactMerci') }}</h1>
-    <p>{{ __('mail.contactSucces') }}Votre formulaire de contact a été soumis avec succès avec les détails suivants :</p>
+    <p>{{ __('mail.contactSucces') }}</p>
     <ul>
         <li><strong>{{ __('mail.contactNom') }}</strong> {{ $nom }}</li>
         <li><strong>{{ __('mail.contactPrenom') }}</strong> {{ $prenom }}</li>
