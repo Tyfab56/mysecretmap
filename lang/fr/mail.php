@@ -1,6 +1,7 @@
 <?php
 
 return [
+    "contactForm"=>"Formulaire de contact",
     "contactTitre'" => "Confirmation de soumission de formulaire",
     "contactMerci" => "Merci pour votre soumission !",
     "contactSucces" => "Votre formulaire de contact a été soumis avec succès avec les détails suivants :",

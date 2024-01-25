@@ -1,9 +1,7 @@
+<?php
 
-Here is the translation of the right side of the code into English:
-
-php
-Copy code
 return [
+    "contactForm" => "Contact Form",
     "contactTitre" => "Contact Form Submission Confirmation",
     "contactMerci" => "Thank you for your submission!",
     "contactSucces" => "Your contact form has been successfully submitted with the following details:",
