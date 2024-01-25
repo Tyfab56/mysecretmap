@@ -20,6 +20,7 @@ return [
     "OtSpot10"=>"<b>Pour atteindre une audience engagée</b>: notre communauté de voyageurs et de photographes est à la recherche de nouvelles découvertes.",
     "OtSpot11"=>"<b>Pour mettre en lumière votre région: placez les merveilles cachées de votre destination sur notre carte",
     "OtSpotContact"=>"Contactez-nous pour débuter une discuter d'une collaboration.",
+    "submitContact"=>"Formulaire de contact",
 
 
 

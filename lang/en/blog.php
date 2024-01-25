@@ -18,5 +18,6 @@ return [
     "OtSpot10" => "<b>To reach an Engaged Audience</b>: Our community of travelers and photographers...",
     "OtSpot11" => "<b>To Highlight Your Region</b>: Place the hidden wonders of your destination on our map.",
     "OtSpotContact" => "Contact us to start a rewarding collaboration. Let's transform tourist discovery together.",
+    "submitContact"=>"Contact Form",
     
 ];

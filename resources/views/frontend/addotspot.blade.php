@@ -41,7 +41,7 @@
        
         <p>{!! __('blog.OtSpotContact') !!}</p>
         <div class="center">
-             <a href="{{ route('contact') }}" class="btn btn-primary">{!! __('menu.Contact') !!}</a>
+             <a href="{{ route('contact') }}" class="btn btn-primary mb-5">{!! __('blog.submitContact') !!}</a>
        </div>
 
     </div>
