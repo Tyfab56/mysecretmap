@@ -8,6 +8,6 @@ return [
     "contactPrenom" => "Prenom :",
     "contactEmail" => "Email :",
     "contactMessage" => "Message :",
-    "contactback" => "Nous vous répondrons dès que possible.",
+    "contactBack" => "Nous vous répondrons dès que possible.",
 
 ];

@@ -3,6 +3,12 @@
 <div class="row justify-content-center">
     <div class="col-md-6">
         <h1>Formulaire de contact</h1>
+        @if ($errors->has('reCAPTCHA'))
+            <div class="alert alert-danger">
+                {{ $errors->first('reCAPTCHA') }}
+            </div>
+       
+        @endif
         <form method="POST" action="/contact">
             @csrf
             <div class="mb-3">
@@ -21,8 +27,18 @@
                 <label for="texte" class="form-label">Texte</label>
                 <textarea class="form-control" id="texte" name="texte" required></textarea>
             </div>
-            <button type="submit" class="btn btn-primary">Envoyer</button>
+            <button type="submit" class="btn btn-primary pb-5 pt-5">Envoyer</button>
         </form>
     </div>
 </div>
+@endsection
+@section('fincss')
+<script src="https://www.google.com/recaptcha/api.js?render=6LfGlhgoAAAAAIy5hyp6rpWRdOZteIFQ5s9fm0VU"></script>
+<script>
+    grecaptcha.ready(function() {
+        grecaptcha.execute('6LfGlhgoAAAAAIy5hyp6rpWRdOZteIFQ5s9fm0VU', { action: 'contact' }).then(function(token) {
+            document.getElementById('recaptcha_v3_token').value = token;
+        });
+    });
+</script>
 @endsection

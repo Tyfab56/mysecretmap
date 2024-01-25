@@ -15,7 +15,16 @@ class ContactController extends Controller
     public function submitContactForm(Request $request)
     {
        
+        $response = $request->input('recaptcha_v3_token');
+        $recaptcha = new \ReCaptcha\ReCaptcha(env('RECAPTCHA_V3_SECRET'));
+        $result = $recaptcha->setExpectedAction('contact')->verify($response);
 
+  
+
+        if (!$result->isSuccess()) {
+        // Échec de la validation reCAPTCHA v3
+        return redirect()->back()->withErrors(['reCAPTCHA' => 'La validation reCAPTCHA a échoué.']);
+         }
 
         $validator = Validator::make($request->all(), [
             'nom' => 'required|string|max:255',
@@ -41,13 +50,13 @@ class ContactController extends Controller
 
         // Envoie de l'e-mail de confirmation
         
-         /*   Mail::to('fabrice@my-lovely-planet.com','Requete Internet MSM')
+           Mail::to('fabrice@my-lovely-planet.com','Requete Internet MSM')
             ->send(new ContactFormConfirmation(
                 $request->input('nom'),
                 $request->input('prenom'),
                 $request->input('email'),
                 $request->input('texte')
-            ));*/
+            ));
 
           
 
