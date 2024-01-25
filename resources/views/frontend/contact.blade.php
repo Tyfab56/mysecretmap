@@ -40,6 +40,14 @@
    </div>
 </div>
 <style>
+    #spinner {
+    display: none;
+    position: fixed; /* Utilisez fixed pour le placer par rapport à la fenêtre du navigateur */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* Ajoutez ici d'autres styles pour votre spinner (taille, couleur, etc.) */
+   }
     .orbit-spinner, .orbit-spinner * {
       box-sizing: border-box;
     }
