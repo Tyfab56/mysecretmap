@@ -94,24 +94,22 @@
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
 <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
 
-<<script>
+<script>
     var map;
     var marker;
 
     document.getElementById('openMapModal').addEventListener('click', function() {
         $('#mapModal').modal('show');
+    });
 
-        // Vérifie si la carte a déjà été initialisée
+    $('#mapModal').on('shown.bs.modal', function () {
         if (!map) {
-            // Initialisation de la carte
-            map = L.map('mapid').setView([0, 0], 2); // Modifiez ces valeurs selon vos besoins
-
+            map = L.map('mapid').setView([0, 0], 2);
             L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 maxZoom: 19,
                 attribution: '© OpenStreetMap'
             }).addTo(map);
 
-            // Événement de clic sur la carte
             map.on('click', function(e) {
                 var latlng = e.latlng;
 
@@ -121,13 +119,15 @@
                     marker = L.marker(latlng).addTo(map);
                 }
 
-                // Mise à jour des champs de latitude et longitude
                 document.getElementById('latitude').value = latlng.lat;
                 document.getElementById('longitude').value = latlng.lng;
             });
         }
+
+        map.invalidateSize(); // Ajuste la taille de la carte
     });
 </script>
+
 
 <style>
     .form-custom {
