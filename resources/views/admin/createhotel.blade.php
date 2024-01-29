@@ -95,21 +95,25 @@
 <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
 
 <script>
+   $(document).ready(function() {
     var map;
     var marker;
 
-    document.getElementById('openMapModal').addEventListener('click', function() {
+    // Gestionnaire de clic pour ouvrir la modal
+    $('#openMapModal').click(function() {
         $('#mapModal').modal('show');
     });
 
-    jQuery('#mapModal').on('shown.bs.modal', function () {
+    // Initialisation de la carte Leaflet après que la modal est affichée
+    $('#mapModal').on('shown.bs.modal', function () {
         if (!map) {
-            map = L.map('mapid').setView([0, 0], 2);
+            map = L.map('mapid').setView([0, 0], 2); // Utilisez vos propres valeurs par défaut
             L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 maxZoom: 19,
                 attribution: '© OpenStreetMap'
             }).addTo(map);
 
+            // Événement de clic sur la carte
             map.on('click', function(e) {
                 var latlng = e.latlng;
 
@@ -119,13 +123,17 @@
                     marker = L.marker(latlng).addTo(map);
                 }
 
-                document.getElementById('latitude').value = latlng.lat;
-                document.getElementById('longitude').value = latlng.lng;
+                // Mise à jour des champs de latitude et longitude
+                $('#latitude').val(latlng.lat);
+                $('#longitude').val(latlng.lng);
             });
         }
 
-        map.invalidateSize(); // Ajuste la taille de la carte
+        // Ajuster la taille de la carte lors de l'ouverture de la modal
+        map.invalidateSize();
     });
+});
+
 </script>
 
 
