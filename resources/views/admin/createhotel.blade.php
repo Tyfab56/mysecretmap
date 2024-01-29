@@ -102,7 +102,7 @@
         $('#mapModal').modal('show');
     });
 
-    $('#mapModal').on('shown.bs.modal', function () {
+    jQuery('#mapModal').on('shown.bs.modal', function () {
         if (!map) {
             map = L.map('mapid').setView([0, 0], 2);
             L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
