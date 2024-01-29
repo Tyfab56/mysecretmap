@@ -94,35 +94,41 @@
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
 <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
 
-<script>
+<<script>
+    var map;
+    var marker;
+
     document.getElementById('openMapModal').addEventListener('click', function() {
         $('#mapModal').modal('show');
 
-        // Initialiser Leaflet
-        var map = L.map('mapid').setView([0, 0], 2); // Modifiez les valeurs par défaut selon vos besoins
+        // Vérifie si la carte a déjà été initialisée
+        if (!map) {
+            // Initialisation de la carte
+            map = L.map('mapid').setView([0, 0], 2); // Modifiez ces valeurs selon vos besoins
 
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            maxZoom: 19,
-            attribution: '© OpenStreetMap'
-        }).addTo(map);
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 19,
+                attribution: '© OpenStreetMap'
+            }).addTo(map);
 
-        var marker;
+            // Événement de clic sur la carte
+            map.on('click', function(e) {
+                var latlng = e.latlng;
 
-        map.on('click', function(e) {
-            var latlng = e.latlng;
+                if (marker) {
+                    marker.setLatLng(latlng);
+                } else {
+                    marker = L.marker(latlng).addTo(map);
+                }
 
-            if (marker) {
-                marker.setLatLng(latlng);
-            } else {
-                marker = L.marker(latlng).addTo(map);
-            }
-
-            // Mise à jour des champs de latitude et longitude
-            document.getElementById('latitude').value = latlng.lat;
-            document.getElementById('longitude').value = latlng.lng;
-        });
+                // Mise à jour des champs de latitude et longitude
+                document.getElementById('latitude').value = latlng.lat;
+                document.getElementById('longitude').value = latlng.lng;
+            });
+        }
     });
 </script>
+
 <style>
     .form-custom {
     background-color: #fff;
