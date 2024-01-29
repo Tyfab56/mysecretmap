@@ -45,7 +45,7 @@
         <!-- Deuxième colonne -->
         <div class="col-lg-6 mb-3">
             <div class="form-group">
-                <label for="latitude" class="form-label">Latitude</label>
+                <label for="latitude" class="form-label">Latitude</label><button type="button" id="openMapModal">Choisir Lat/Long</button>
                 <input type="text" class="form-control" id="latitude" name="latitude" value="{{ old('latitude', $hotel->latitude ?? '') }}">
             </div>
             <div class="form-group">
@@ -70,13 +70,56 @@
     <button type="submit" class="btn btn-custom mt-2">{{ isset($hotel) ? 'Mettre à jour' : 'Ajouter' }}</button>
 </form>
 
-
+<div class="modal fade" id="mapModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Sélectionnez une position</h5>
+                <button type="button" class="close" data-dismiss="modal">
+                    <span>&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div id="mapid" style="height: 400px;"></div> <!-- Container pour la carte Leaflet -->
+            </div>
+        </div>
+    </div>
+</div>
 
 
         <!-- Colonne pour la carte -->
        
     </div>
 </div>
+<script>
+    document.getElementById('openMapModal').addEventListener('click', function() {
+        $('#mapModal').modal('show');
+
+        // Initialiser Leaflet
+        var map = L.map('mapid').setView([0, 0], 2); // Modifiez les valeurs par défaut selon vos besoins
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '© OpenStreetMap'
+        }).addTo(map);
+
+        var marker;
+
+        map.on('click', function(e) {
+            var latlng = e.latlng;
+
+            if (marker) {
+                marker.setLatLng(latlng);
+            } else {
+                marker = L.marker(latlng).addTo(map);
+            }
+
+            // Mise à jour des champs de latitude et longitude
+            document.getElementById('latitude').value = latlng.lat;
+            document.getElementById('longitude').value = latlng.lng;
+        });
+    });
+</script>
 <style>
     .form-custom {
     background-color: #fff;
