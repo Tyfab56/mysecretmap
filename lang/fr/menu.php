@@ -8,6 +8,7 @@ return [
     "Iceland" => "Islande",
     "Reunion" => "La Réunion",
     "Maurice" => "Ile Maurice",
+    "Comores" => "Comores",
     "Rodrigues" => "Rodrigues",
     'Mode' =>  'Choix du Mode',
     'Photomode' => 'Mode photo',

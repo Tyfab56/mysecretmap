@@ -7,6 +7,7 @@ return [
     "Reunion" => "Reunion Island",
     "Europe" => "Europe",
     "Iceland" => "Iceland",
+    "Comores" => "Comoros",
     "Maurice" => "Mauritius",
     "Rodrigues" => "Rodrigues",
     'Mode' => 'Mode Choice',
