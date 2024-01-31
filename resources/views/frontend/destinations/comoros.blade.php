@@ -19,7 +19,7 @@
       <div class="col-md-5">
         <h3>{!! __('comores.option1Titre') !!}</h3>
         <p><{!! __('comores.option1Description')!!}/p>
-        <a class="btn btn-primary" href="#">View Project</a>
+        <a class="btn btn-primary" href="#">Contactez nous</a>
       </div>
     </div>
     <!-- /.row -->
