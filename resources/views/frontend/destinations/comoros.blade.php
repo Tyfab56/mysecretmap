@@ -4,8 +4,9 @@
 <div class="container">
 
     <!-- Page Heading -->
-    <h1 class="my-4">Page Heading
-      <small>Secondary Text</small>
+    <h1 class="my-4">{!! __('comores.titre') !!}
+      <small>{!! __('comores.message') !!}</small>
+      <small>{!! __('comores.besoins') !!}</small>
     </h1>
 
     <!-- Project One -->
@@ -16,8 +17,8 @@
         </a>
       </div>
       <div class="col-md-5">
-        <h3>Project One</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium veniam exercitationem expedita laborum at voluptate. Labore, voluptates totam at aut nemo deserunt rem magni pariatur quos perspiciatis atque eveniet unde.</p>
+        <h3>{!! __('comores.option1Titre') !!}</h3>
+        <p><{!! __('comores.option1Description')!!}/p>
         <a class="btn btn-primary" href="#">View Project</a>
       </div>
     </div>
