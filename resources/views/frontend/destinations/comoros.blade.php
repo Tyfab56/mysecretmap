@@ -18,7 +18,7 @@
       </div>
       <div class="col-md-5">
         <h3>{!! __('comores.option1Titre') !!}</h3>
-        <p><{!! __('comores.option1Description')!!}/p>
+        <p>{!! __('comores.option1Description')!!}</p>
         <a class="btn btn-primary" href="#">Contactez nous</a>
       </div>
     </div>
@@ -35,7 +35,8 @@
       </div>
       <div class="col-md-5">
       <h3>{!! __('comores.option2Titre') !!}</h3>
-        <p><{!! __('comores.option2Description')!!}/p><a class="btn btn-primary" href="#">View Project</a>
+        <p>{!! __('comores.option2Description')!!}</p>
+        <a class="btn btn-primary" href="#">View Project</a>
       </div>
     </div>
     <!-- /.row -->
@@ -51,7 +52,8 @@
       </div>
       <div class="col-md-5">
       <h3>{!! __('comores.option3Titre') !!}</h3>
-        <p><{!! __('comores.option3Description')!!}/p> <a class="btn btn-primary" href="#">View Project</a>
+        <p>{!! __('comores.option3Description')!!}</p>
+         <a class="btn btn-primary" href="#">View Project</a>
       </div>
     </div>
     <!-- /.row -->
