@@ -34,9 +34,8 @@
         </a>
       </div>
       <div class="col-md-5">
-        <h3>Project Two</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, odit velit cumque vero doloremque repellendus distinctio maiores rem expedita a nam vitae modi quidem similique ducimus! Velit, esse totam tempore.</p>
-        <a class="btn btn-primary" href="#">View Project</a>
+      <h3>{!! __('comores.option2Titre') !!}</h3>
+        <p><{!! __('comores.option2Description')!!}/p><a class="btn btn-primary" href="#">View Project</a>
       </div>
     </div>
     <!-- /.row -->
@@ -51,9 +50,8 @@
         </a>
       </div>
       <div class="col-md-5">
-        <h3>Project Three</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis, temporibus, dolores, at, praesentium ut unde repudiandae voluptatum sit ab debitis suscipit fugiat natus velit excepturi amet commodi deleniti alias possimus!</p>
-        <a class="btn btn-primary" href="#">View Project</a>
+      <h3>{!! __('comores.option3Titre') !!}</h3>
+        <p><{!! __('comores.option3Description')!!}/p> <a class="btn btn-primary" href="#">View Project</a>
       </div>
     </div>
     <!-- /.row -->
