@@ -4,10 +4,10 @@
 <div class="container">
 
     <!-- Page Heading -->
-    <h1 class="my-4">{!! __('comores.titre') !!}
+    <h1 class="my-4">{!! __('comores.titre') !!}</h1>
       <small>{!! __('comores.message') !!}</small>
       <small>{!! __('comores.besoins') !!}</small>
-    </h1>
+    
 
     <!-- Project One -->
     <div class="row">
