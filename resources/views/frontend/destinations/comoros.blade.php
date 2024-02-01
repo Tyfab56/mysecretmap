@@ -13,7 +13,7 @@
     <div class="row">
       <div class="col-md-7">
         <a href="#">
-          <img class="img-fluid rounded mb-3 mb-md-0" src="https://via.placeholder.com/700x300" alt="">
+        <img class="img-fluid rounded mb-3 mb-md-0" src="{{ asset('frontend/assets/images/comores1.jpg')}}" alt="">
         </a>
       </div>
       <div class="col-md-5">
@@ -30,7 +30,7 @@
     <div class="row">
       <div class="col-md-7">
         <a href="#">
-          <img class="img-fluid rounded mb-3 mb-md-0" src="https://via.placeholder.com/700x300" alt="">
+        <img class="img-fluid rounded mb-3 mb-md-0" src="{{ asset('frontend/assets/images/comores2.jpg')}}" alt="">
         </a>
       </div>
       <div class="col-md-5">
@@ -47,7 +47,7 @@
     <div class="row">
       <div class="col-md-7">
         <a href="#">
-          <img class="img-fluid rounded mb-3 mb-md-0" src="https://via.placeholder.com/700x300" alt="">
+        <img class="img-fluid rounded mb-3 mb-md-0" src="{{ asset('frontend/assets/images/comores3.jpg')}}" alt="">
         </a>
       </div>
       <div class="col-md-5">
