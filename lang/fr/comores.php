@@ -8,7 +8,7 @@ return [
     chambre (1 pax).</br>
     A chaque reportage, nous passerons 4-5 jours sur chaque ile (Grande Comores/Moheli/Anjouan)</br>
     <h2>Planification des Nuitées</h2>
-<button class='accordion'>28 nuitées HB (2 chambres par nuit) du 28/2 au 13/3 à répartir sur les îles</button>
+<button class='accordion'>28 nuitées HB (2 chambres par nuit) du 28/2 au 13/3 à répartir sur les îles <i class='fas fa-chevron-down'></i></button>
 <div class='panel'>
   <p>- 2 chambres à Grande Comores : 4 jours du 28 février au 3 mars au matin</p>
   <p>- 2 Chambres à Mohéli : 5 jours du 3 mars au 8 mars au matin</p>
@@ -16,7 +16,7 @@ return [
   <p>- 2 chambres à Grande Comores le 12 mars</p>
 </div>
     </br>
-    <button class='accordion'>14 nuitées HB du 17 avril au 01 mai à répartir sur les îles</button>
+    <button class='accordion'>14 nuitées HB du 17 avril au 01 mai à répartir sur les îles<i class='fas fa-chevron-down'></i></button>
     <div class='panel'>
      
       <p>1 chambre à Grande Comores : 4 jours du 17 avril au 21 avril au matin</p>
@@ -25,21 +25,21 @@ return [
       <p>1 chambre à Grande Comores le 30 avril</p>
     </div>
      </br>
-     <button class='accordion'>Véhicule (guide) : 14 jours du 28/2 au 13/3</button>
+     <button class='accordion'>Véhicule (guide) : 14 jours du 28/2 au 13/3 <i class='fas fa-chevron-down'></i></button>
      <div class='panel'>
      <p>- 1 véhicule à Grande Comores : 4 jours du 28 février au 3 mars au matin</p>
      <p>- 1 véhicule à Mohéli : 5 jours du 3 mars au 8 mars au matin</p>
      <p>- 1 véhicule à Anjouan : 4 jours du 8 mars au 12 mars au matin</p>
      <p>- 1 véhicule à Grande Comores le 12 mars</p>
      </div>
-     <button class='accordion'>Véhicule (guide) : 14 jours du 17 avril au 01 mai</button>
+     <button class='accordion'>Véhicule (guide) : 14 jours du 17 avril au 01 mai <i class='fas fa-chevron-down'></i></button>
      <div class='panel'>
      <p>- 1 véhicule à Grande Comores : 4 jours du 17 avril au 21 avril au matin</p>
      <p>- 1 véhicule à Mohéli : 5 jours du 21 avril au 26 avril au matin</p>
      <p>- 1 véhicule à Anjouan : 4 jours du 26 avril au 30 avril au matin</p>
      <p>- 1 véhicule à Grande Comores le 12 mars</p>
      </div>
-     <button class='accordion'>Transfert inter-île : 15 billets</button>
+     <button class='accordion'>Transfert inter-île : 15 billets <i class='fas fa-chevron-down'></i></button>
      <div class='panel'>
     - 4 billets avion : Grande Comores - Mohéli le 3 mars</br>
     - 4 billets avion : Mohéli - Anjouan le 8 mars</br>
@@ -49,7 +49,7 @@ return [
     - 1 Billet avion : Anjouan - Grande Comores le 30 avril</br>
     </div>
     <br>
-    <button class='accordion'>Bateau visite îles Mohéli : 5 à 15 billets</button>
+    <button class='accordion'>Bateau visite îles Mohéli : 5 à 15 billets <i class='fas fa-chevron-down'></i></button>
     <div class='panel'>
     - Objectif : couverture video de chaque ile avec activité touriste. Prise de vue sur chaque ile.
     </div>

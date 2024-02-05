@@ -113,14 +113,23 @@
   <script>
 $(document).ready(function(){
   $(".accordion").click(function() {
-    // Ceci permet de fermer tous les panels ouverts sauf celui lié à l'accordéon cliqué
+    // Ferme tous les panels ouverts sauf celui lié à l'accordéon cliqué et réinitialise leurs icônes
     $(".panel").not($(this).next()).slideUp('slow');
-    $(".accordion").not($(this)).removeClass("active");
+    $(".accordion").not($(this)).removeClass("active").find("i").removeClass("fa-chevron-up").addClass("fa-chevron-down");
     
-    // Toggle sur le panel suivant (sous l'accordéon cliqué) avec un effet de slide
-    $(this).toggleClass("active").next(".panel").slideToggle("slow");
+    // Bascule l'état actif de l'accordéon cliqué et son icône
+    $(this).toggleClass("active");
+    if ($(this).hasClass("active")) {
+      $(this).find("i").removeClass("fa-chevron-down").addClass("fa-chevron-up");
+    } else {
+      $(this).find("i").removeClass("fa-chevron-up").addClass("fa-chevron-down");
+    }
+    
+    // Bascule le panel suivant (sous l'accordéon cliqué) avec un effet de slide
+    $(this).next(".panel").slideToggle("slow");
   });
 });
+
 </script>
 <style>
     .accordion {
