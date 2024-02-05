@@ -23,7 +23,7 @@
       <div class="col-md-5">
         <h3>{!! __('comores.option1Titre') !!}</h3>
         <p>{!! __('comores.option1Description')!!}</p>
-        <a class="btn btn-primary" href="#">Contactez nous</a>
+        <a class="btn btn-primary" href="{{ route('contact') }}">{!! __('comores.contact')!!}</a>
       </div>
     </div>
     <!-- /.row -->
@@ -40,7 +40,7 @@
       <div class="col-md-5">
       <h3>{!! __('comores.option2Titre') !!}</h3>
         <p>{!! __('comores.option2Description')!!}</p>
-        <a class="btn btn-primary" href="#">View Project</a>
+        <a class="btn btn-primary" href="{{ route('contact') }}">{!! __('comores.contact')!!}</a>
       </div>
     </div>
     <!-- /.row -->
@@ -57,7 +57,7 @@
       <div class="col-md-5">
       <h3>{!! __('comores.option3Titre') !!}</h3>
         <p>{!! __('comores.option3Description')!!}</p>
-         <a class="btn btn-primary" href="#">View Project</a>
+         <a class="btn btn-primary" href="{{ route('contact') }}">{!! __('comores.contact')!!}</a>
       </div>
     </div>
     <!-- /.row -->
@@ -69,13 +69,13 @@
 
       <div class="col-md-7">
         <a href="#">
-          <img class="img-fluid rounded mb-3 mb-md-0" src="{{ asset('frontend/assets/images/comores1.jpg')}}" alt="">
+          <img class="img-fluid rounded mb-3 mb-md-0" src="{{ asset('frontend/assets/images/comores4.jpg')}}" alt="">
         </a>
       </div>
       <div class="col-md-5">
-        <h3>Project Four</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, quidem, consectetur, officia rem officiis illum aliquam perspiciatis aspernatur quod modi hic nemo qui soluta aut eius fugit quam in suscipit?</p>
-        <a class="btn btn-primary" href="#">View Project</a>
+      <h3>{!! __('comores.option4Titre') !!}</h3>
+        <p>{!! __('comores.option4Description')!!}</p>
+        <a class="btn btn-primary" href="{{ route('contact') }}">{!! __('comores.contact')!!}t</a>
       </div>
     </div>
     <!-- /.row -->

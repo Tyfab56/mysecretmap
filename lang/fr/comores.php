@@ -64,5 +64,7 @@ return [
     "option3Description"=>"- Parrainage du film de présentation du spot sur les réseaux sociaux
     (Facebook : mylovelyplanet / mysecretmap.en) Logo en fin de film + remerciement avec lien vers votre compte Facebook.
     - Instagram / Twitter / Blue Sky : remerciement (shoutout de votre compte) sur les publications concernant ce spot.",
-    
+    "option4Titre"=>"Partenariat à la carte",
+    "option4Description"=>"Vous avez besoin d'une prestation particulière, nous sommes à votre écoute. Nous sommes ouvert à la création de partenariat innovants.",
+    "contact"=>"Contactez nous",
 ];
