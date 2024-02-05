@@ -54,12 +54,15 @@ return [
     - Objectif : couverture video de chaque ile avec activité touriste. Prise de vue sur chaque ile.
     </div>
     ",
-    "optionObtenez"=>"Obtenez ces contre-parties",
+    "optionObtenez"=>"Obtenez ces avantages",
     "option1Titre"=>"Médias",
     "option1Description"=>"Pour chaque prestation fournie : nous vous offrons 3 photos et 2 vidéos de 10 secondes prise par drone, avec l’autorisation de les utiliser pour votre propre communication durant 7 ans.",
     "option2Titre"=>"Visibilité sur site internet",
     "option2Description"=>"Vous obtenez 1 espace publicitaire en haut de la page de chaque spot parrainé : taille -> 728 x 90
     avec possibilité de changement par backoffice. Lien direct vers votre site - Statistique de clic - durée 2 ans.",
-
-
+    "option3Titre"=>" Campagne de promotion de 3 mois attachée à l’opération",
+    "option3Description"=>"- Parrainage du film de présentation du spot sur les réseaux sociaux
+    (Facebook : mylovelyplanet / mysecretmap.en) Logo en fin de film + remerciement avec lien vers votre compte Facebook.
+    - Instagram / Twitter / Blue Sky : remerciement (shoutout de votre compte) sur les publications concernant ce spot.",
+    
 ];
