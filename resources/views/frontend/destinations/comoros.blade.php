@@ -109,18 +109,20 @@
   </div>
   <!-- /.container -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
- 
- <script>
+  <script>
 $(document).ready(function(){
-  $(".accordion").each(function() {
-    $(this).click(function(){
-      $(this).toggleClass("active").next(".panel").slideToggle("slow");
-    });
+  $(".accordion").click(function() {
+    // Ceci permet de fermer tous les panels ouverts sauf celui lié à l'accordéon cliqué
+    $(".panel").not($(this).next()).slideUp('slow');
+    $(".accordion").not($(this)).removeClass("active");
+    
+    // Toggle sur le panel suivant (sous l'accordéon cliqué) avec un effet de slide
+    $(this).toggleClass("active").next(".panel").slideToggle("slow");
   });
 });
 </script>
-<style>
-    .accordéon {
+  <style>
+    .accordion {
       background-color: #f2f2f2; /* Fond gris */
       color: #444;
       cursor: pointer;
@@ -133,7 +135,7 @@ $(document).ready(function(){
       transition: 0.4s;
     }
 
-    .active, .accordéon:hover {
+    .active, .accordion:hover {
       background-color: #ddd; /* Plus foncé au survol */
     }
 
