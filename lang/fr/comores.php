@@ -2,8 +2,8 @@
 
 return [
     "titre"=>"Plan de partenariat",
-    "titre2"=>"VOLORISER LES COMORES PAR L'IMAGE",
-    "message"=>"Nous proposons aux professionels du tourisme de participer avec nous à la <b>promotion de la destination<b>.</br> Lors de nos reportagne de février à Mai 2024, <b>nous allons documenter 100 spots des Comores</b>. </br>A chaque spot sera attaché un partenaire en fonction de sa participation dans la phase de reportage. </br>Voici les options qui s'offrent à vous :",
+    "titre2"=>"VALORISER LES COMORES PAR L'IMAGE",
+    "message"=>"Nous proposons aux professionels du tourisme de participer à la <b>promotion de la destination<b>.</br> Lors de nos reportagne de février à Mai 2024, <b>nous allons documenter 100 spots des Comores</b>. </br>A chaque spot sera attaché un partenaire en fonction de sa participation dans la phase de reportage. </br>Voici les options qui s'offrent à vous :",
     "besoins"=>"<br>Nous réalisons deux reportages, l’un nécessite 2 chambres (4 pax) , l’autre 1
     chambre (1 pax).</br>
     A chaque reportage, nous passerons 4-5 jours sur chaque ile (Grande Comores/Moheli/Anjouan)</br>
@@ -52,7 +52,7 @@ return [
     <button class='accordion'>Bateau visite îles Mohéli : 5 à 15 billets</button>
     <div class='panel'>
     - Objectif : couverture video de chaque ile avec activité touriste. Prise de vue sur chaque ile.
-    <div class='panel'>
+    </div>
     ",
     "option1Titre"=>"Médias",
     "option1Description"=>"Pour chaque prestation fournie : nous vous offrons 3 photos et 2 vidéos de 10 secondes prise par drone, avec l’autorisation de les utiliser pour votre propre communication durant 7 ans.",
