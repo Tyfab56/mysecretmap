@@ -7,11 +7,14 @@ return [
     "besoins"=>"<b>Nos besoins sont</b> :<br>Nous réalisons deux reportages, l’un nécessite 2 chambres (4 pax) , l’autre 1
     chambre (1 pax).</br>
     A chaque reportage, nous passerons 4-5 jours sur chaque ile (Grande Comores/Moheli/Anjouan)</br>
-    - <b>28 nuitées HB (2 chambres par nuit) du 28/2 au 13/3 à répartir sur les iles.</b></br>
-    >>>> 2 chambres à Grande Comores : 4 jours du 28 février au 3 mars au matin</br>
-    >>>> 2 Chambres à Mohéli : 5 jours du  3 mars au 8 mars au matin</br>
-    >>>> 2 chambres à Anjouan : 4 jours de 8 mars au 12 mars au matin</br>
-    >>>> 2 chambre à Grande Comores le 12 mars</br>
+    <h2>Planification des Nuitées</h2>
+<button class='accordéon'>28 nuitées HB (2 chambres par nuit) du 28/2 au 13/3 à répartir sur les îles</button>
+<div class='panel'>
+  <p>- 2 chambres à Grande Comores : 4 jours du 28 février au 3 mars au matin</p>
+  <p>- 2 Chambres à Mohéli : 5 jours du 3 mars au 8 mars au matin</p>
+  <p>- 2 chambres à Anjouan : 4 jours du 8 mars au 12 mars au matin</p>
+  <p>- 2 chambres à Grande Comores le 12 mars</p>
+</div>
     </br>
     - <b>14 nuitées HB du 17 avril au 01 mai à répartir sur les iles.</b></br>
     >>>> 1 chambre à Grande Comores : 4 jours du 17 avril au 21 avril au matin</br>
