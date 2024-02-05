@@ -65,6 +65,6 @@ return [
     (Facebook : mylovelyplanet / mysecretmap.en) Logo en fin de film + remerciement avec lien vers votre compte Facebook.
     - Instagram / Twitter / Blue Sky : remerciement (shoutout de votre compte) sur les publications concernant ce spot.",
     "option4Titre"=>"Partenariat à la carte",
-    "option4Description"=>"Vous avez besoin d'une prestation particulière, nous sommes à votre écoute. Nous sommes ouvert à la création de partenariat innovants.",
+    "option4Description"=>"Vous avez besoin d'une prestation particulière, nous sommes à votre écoute. Nous sommes ouvert à la création de partenariats innovants.",
     "contact"=>"Contactez nous",
 ];
