@@ -2,6 +2,7 @@
 
 return [
     "titre"=>"Plan de partenariat",
+    "titre2"=>"VOLORISER LES COMORES PAR L'IMAGE",
     "message"=>"Nous proposons aux professionels du tourisme de participer avec nous à la <b>promotion de la destination<b>.</br> Lors de nos reportagne de février à Mai 2024, <b>nous allons documenter 100 spots des Comores</b>. </br>A chaque spot sera attaché un partenaire en fonction de sa participation dans la phase de reportage. </br>Voici les options qui s'offrent à vous :",
     "besoins"=>"<b>Nos besoins sont</b> :<br>Nous réalisons deux reportages, l’un nécessite 2 chambres (4 pax) , l’autre 1
     chambre (1 pax).</br>

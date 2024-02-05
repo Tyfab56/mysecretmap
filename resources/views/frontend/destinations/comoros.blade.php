@@ -4,7 +4,10 @@
 <div class="container">
 
     <!-- Page Heading -->
+    <div class="center">
     <h1 class="my-4">{!! __('comores.titre') !!}</h1>
+    <h1 class="my-4">{!! __('comores.titre2') !!}</h1>
+    <div>
       <small>{!! __('comores.message') !!}</small>
       <small>{!! __('comores.besoins') !!}</small>
     
