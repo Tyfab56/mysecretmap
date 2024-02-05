@@ -11,7 +11,7 @@
       <small>{!! __('comores.message') !!}</small>
       <small>{!! __('comores.besoins') !!}</small>
     
-   <div class="row mt5 mb5">  <h1 class="my-4">{!! __('comores.obtenez') !!}</h1></div>
+   <div class="row mt5 mb5 center">  <h1 class="my-4">{!! __('comores.optionObtenez') !!}</h1></div>
     <!-- Project One -->
     <div class="row">
 
