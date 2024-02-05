@@ -27,26 +27,33 @@ return [
      </br>
      <button class='accordion'>Véhicule (guide) : 14 jours du 28/2 au 13/3</button>
      <div class='panel'>
-     <p>- 1 véhicules à Grande Comores : 4 jours du 28 février au 3 mars au matin</p>
+     <p>- 1 véhicule à Grande Comores : 4 jours du 28 février au 3 mars au matin</p>
      <p>- 1 véhicule à Mohéli : 5 jours du 3 mars au 8 mars au matin</p>
      <p>- 1 véhicule à Anjouan : 4 jours du 8 mars au 12 mars au matin</p>
      <p>- 1 véhicule à Grande Comores le 12 mars</p>
      </div>
-    >>>> Même calendrier de dates que les chambres</br>
-    - <b>Véhicule (guide) : 14 jours du 28/2 au 13/3</b></br>
-    >>>> Même calendrier de dates que les chambres</br>
-    </br>
-    - <b>Transfert inter-île : 15 billets</b></br>
-    >>>> 4 billets avion : Grande Comores - Mohéli le 3 mars</br>
-    >>>> 4 billets avion : Mohéli - Anjouan le 8 mars</br>
-    >>>> 4 Billets avion : Anjouan - Grande Comores le 12 mars</br>
-    >>>> 1 billet avion : Grande Comores - Mohéli le 21 avril</br>
-    >>>> 1 billet avion : Mohéli - Anjouan le 26 avril</br>
-    >>>> 1 Billet avion : Anjouan - Grande Comores le 30 avril</br>
+     <button class='accordion'>Véhicule (guide) : 14 jours du 17 avril au 01 mai</button>
+     <div class='panel'>
+     <p>- 1 véhicule à Grande Comores : 4 jours du 17 avril au 21 avril au matin</p>
+     <p>- 1 véhicule à Mohéli : 5 jours du 21 avril au 26 avril au matin</p>
+     <p>- 1 véhicule à Anjouan : 4 jours du 26 avril au 30 avril au matin</p>
+     <p>- 1 véhicule à Grande Comores le 12 mars</p>
+     </div>
+     <button class='accordion'>Transfert inter-île : 15 billets</button>
+     <div class='panel'>
+    - 4 billets avion : Grande Comores - Mohéli le 3 mars</br>
+    - 4 billets avion : Mohéli - Anjouan le 8 mars</br>
+    - 4 Billets avion : Anjouan - Grande Comores le 12 mars</br>
+    - 1 billet avion : Grande Comores - Mohéli le 21 avril</br>
+    - 1 billet avion : Mohéli - Anjouan le 26 avril</br>
+    - 1 Billet avion : Anjouan - Grande Comores le 30 avril</br>
+    </div>
     <br>
-    - <b>Bateau visite îles Mohéli : 10 à 15 billets</b></br>
-    >>>> Objectif : couverture video de chaque ile avec activité touriste
-    >>>> ",
+    <button class='accordion'>Bateau visite îles Mohéli : 5 à 15 billets</button>
+    <div class='panel'>
+    - Objectif : couverture video de chaque ile avec activité touriste. Prise de vue sur chaque ile.
+    <div class='panel'>
+    ",
     "option1Titre"=>"Médias",
     "option1Description"=>"Pour chaque prestation fournie : nous vous offrons 3 photos et 2 vidéos de 10 secondes prise par drone, avec l’autorisation de les utiliser pour votre propre communication durant 7 ans.",
     "option2Titre"=>"Visibilité sur site internet",
