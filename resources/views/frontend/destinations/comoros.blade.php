@@ -121,7 +121,7 @@ $(document).ready(function(){
   });
 });
 </script>
-  <style>
+<style>
     .accordion {
       background-color: #f2f2f2; /* Fond gris */
       color: #444;
@@ -135,7 +135,7 @@ $(document).ready(function(){
       transition: 0.4s;
     }
 
-    .active, .accordion:hover {
+    .accordion:hover, .accordion.active {
       background-color: #ddd; /* Plus foncé au survol */
     }
 

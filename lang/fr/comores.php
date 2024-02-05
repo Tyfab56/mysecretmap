@@ -8,7 +8,7 @@ return [
     chambre (1 pax).</br>
     A chaque reportage, nous passerons 4-5 jours sur chaque ile (Grande Comores/Moheli/Anjouan)</br>
     <h2>Planification des Nuitées</h2>
-<button class='accordéon'>28 nuitées HB (2 chambres par nuit) du 28/2 au 13/3 à répartir sur les îles</button>
+<button class='accordion'>28 nuitées HB (2 chambres par nuit) du 28/2 au 13/3 à répartir sur les îles</button>
 <div class='panel'>
   <p>- 2 chambres à Grande Comores : 4 jours du 28 février au 3 mars au matin</p>
   <p>- 2 Chambres à Mohéli : 5 jours du 3 mars au 8 mars au matin</p>
