@@ -111,12 +111,11 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
  
  <script>
-
 $(document).ready(function(){
-  $(".accordéon").click(function(){
-    $(this).toggleClass("active");
-    var panel = $(this).next(".panel");
-    panel.slideToggle("slow");
+  $(".accordion").each(function() {
+    $(this).click(function(){
+      $(this).toggleClass("active").next(".panel").slideToggle("slow");
+    });
   });
 });
 </script>
