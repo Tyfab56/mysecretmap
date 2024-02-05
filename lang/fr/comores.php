@@ -18,14 +18,20 @@ return [
     </br>
     <button class='accordion'>14 nuitées HB du 17 avril au 01 mai à répartir sur les îles</button>
     <div class='panel'>
-      <p><b>14 nuitées HB du 17 avril au 01 mai à répartir sur les îles.</b></p>
+     
       <p>1 chambre à Grande Comores : 4 jours du 17 avril au 21 avril au matin</p>
       <p>1 Chambre à Mohéli : 5 jours du 21 avril au 26 avril au matin</p>
       <p>1 chambre à Anjouan : 4 jours du 26 avril au 30 avril au matin</p>
       <p>1 chambre à Grande Comores le 30 avril</p>
     </div>
      </br>
-    - <b>Véhicule (guide) : 14 jours du 28/2 au 13/3</b></br>
+     <button class='accordion'>Véhicule (guide) : 14 jours du 28/2 au 13/3</button>
+     <div class='panel'>
+     <p>- 1 véhicules à Grande Comores : 4 jours du 28 février au 3 mars au matin</p>
+     <p>- 1 véhicule à Mohéli : 5 jours du 3 mars au 8 mars au matin</p>
+     <p>- 1 véhicule à Anjouan : 4 jours du 8 mars au 12 mars au matin</p>
+     <p>- 1 véhicule à Grande Comores le 12 mars</p>
+     </div>
     >>>> Même calendrier de dates que les chambres</br>
     - <b>Véhicule (guide) : 14 jours du 28/2 au 13/3</b></br>
     >>>> Même calendrier de dates que les chambres</br>
