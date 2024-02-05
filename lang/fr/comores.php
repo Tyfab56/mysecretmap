@@ -54,6 +54,7 @@ return [
     - Objectif : couverture video de chaque ile avec activité touriste. Prise de vue sur chaque ile.
     </div>
     ",
+    "optionObtenez"=>"Obtenez ces contre-parties",
     "option1Titre"=>"Médias",
     "option1Description"=>"Pour chaque prestation fournie : nous vous offrons 3 photos et 2 vidéos de 10 secondes prise par drone, avec l’autorisation de les utiliser pour votre propre communication durant 7 ans.",
     "option2Titre"=>"Visibilité sur site internet",

@@ -11,9 +11,10 @@
       <small>{!! __('comores.message') !!}</small>
       <small>{!! __('comores.besoins') !!}</small>
     
-
+   <div class="row mt5 mb5">  <h1 class="my-4">{!! __('comores.obtenez') !!}</h1></div>
     <!-- Project One -->
     <div class="row">
+
       <div class="col-md-7">
         <a href="#">
         <img class="img-fluid rounded mb-3 mb-md-0" src="{{ asset('frontend/assets/images/comores1.jpg')}}" alt="">
