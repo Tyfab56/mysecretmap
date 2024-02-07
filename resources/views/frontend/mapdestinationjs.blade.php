@@ -194,6 +194,7 @@ Livewire.emit('ImgMap',e.sourceTarget.options.id);
 chargerEtAfficherVideo(e.sourceTarget.options.id, '{{app()->getLocale()}}' )
 Livewire.emit('PictureDestination',e.sourceTarget.options.id);
 Livewire.emit('initWindy', e.latlng.lat, e.latlng.lng );
+Livewire.emit('loadHotels', e.latlng.lat, e.latlng.lng);
 currentMarker = e.sourceTarget.options.id;
 currentTitle = e.sourceTarget.options.title; 
 currentLat = e.latlng.lat;
@@ -382,6 +383,7 @@ window.addEventListener('load', function () {
     Livewire.emit('PictureDestination',currentMarker);
     Livewire.emit('RefreshCircuit',currentCircuit);
     Livewire.emit('initWindy',currentLat, currentLng );
+    Livewire.emit('loadHotels', currentLat, currentLng);
     var myDate = new Date();
     var dayInYear = Math.floor((myDate - new Date(myDate.getFullYear(), 0, 0)) / (1000 * 60 * 60 * 24));
     document.getElementById("dayofyear").value = dayInYear ;
