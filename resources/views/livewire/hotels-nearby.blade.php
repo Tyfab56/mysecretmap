@@ -1,5 +1,5 @@
 <div>
-@if($hotels->isNotEmpty())
+@if(!empty($hotels))
     <div style="display: flex; flex-wrap: wrap; background-color: #f5f5f5; padding: 20px;">
         @foreach ($hotels as $hotel)
             <div style="flex: 1; min-width: 20%; max-width: 20%; box-shadow: 0 2px 4px rgba(0,0,0,0.1); margin: 10px; background-color: #ffffff;">
@@ -14,5 +14,6 @@
         @endforeach
     </div>
 @endif
+
 
 </div>
