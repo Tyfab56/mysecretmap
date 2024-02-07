@@ -183,5 +183,14 @@
 }
 </style>
 @endsection
+@section('fullscripts')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mapbox-gl/1.13.1/mapbox-gl.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mapbox-gl-leaflet/0.0.15/leaflet-mapbox-gl.min.js"></script>
 
+  <script src="{{asset('frontend/assets/js/Control.FullScreen.js')}}"></script>
+
+
+ 
+@endsection
 
