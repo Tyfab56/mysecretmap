@@ -165,6 +165,7 @@ Route::view('/reunion', 'frontend.destinations.reunion')->name('reunion');
 Route::view('/audioguide', 'frontend.audioguide')->name('audioguide');
 Route::view('/audioguides', 'frontend.audioguides')->name('audioguides');
 Route::view('/changeavatar', 'frontend.loadavatar')->name('changeavatar');
+Route::view('/affiliate', 'frontend.affiliate')->name('affiliate');
 
 Route::get('/add-ot-spots', [IndexController::class, 'addotspot'])->name('addotspot');
 

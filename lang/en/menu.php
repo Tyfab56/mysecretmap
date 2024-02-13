@@ -35,5 +35,7 @@ return [
     'Medias' => 'Medias management',
     'Hotels' => 'Hotels',
     'Contact'=>'Contact',
+    'Affiliate'=>"Affiliate",
+];
 
 ];

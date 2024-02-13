@@ -35,5 +35,6 @@ return [
     'Medias' => 'Gestion des médias',
     'Hotels' => 'Hotels',
     'Contact'=>'Contact',
+    'Affiliate'=>"Affiliation",
 ];
 
