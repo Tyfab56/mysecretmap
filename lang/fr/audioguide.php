@@ -42,8 +42,8 @@ return [
     "AffiliateFaq1"=>"<strong>Combien d'argent puis-je gagner ?</strong> Nous offrons des taux de commission compétitifs : minimum 10%.",
     "AffiliateFaq2"=>"<strong>Que dois-je promouvoir ?</strong> Nos produits principaux sont des assistants numériques de voyage.",
     "AffiliateFaq3"=>"<strong>Ai-je accès aux promotions et aux réductions spéciales ?</strong> Oui, en tant que partenaire affilié, nous vous proposons régulièrement des coupons complémentaires pour votre communauté.",
-    "AffilaiteFaq4"=>"<strong>Combien de temps faut-il pour commencer ?</strong> Inscrivez-vous aujourd'hui, c'est immédiat.",
-    "AffilaiteFaq5"=>"<strong>Comment sont suivies les ventes ?</strong> Nous utilisons la plateforme Bixgrow.",
+    "AffiliateFaq4"=>"<strong>Combien de temps faut-il pour commencer ?</strong> Inscrivez-vous aujourd'hui, c'est immédiat.",
+    "AffiliateFaq5"=>"<strong>Comment sont suivies les ventes ?</strong> Nous utilisons la plateforme Bixgrow.",
 
 
 
