@@ -3,37 +3,38 @@
 <div class="ud-main-content">
     <!-- Introduction au Programme d'Affiliation -->
     <div class="intro-affiliation">
-        <p>Rejoignez le programme d'affiliation de MySecretMap et aidez votre communauté à découvrir les plus belles destinations grâce à nos audioguides. Ensemble, explorons, apprenons et prospérons.</p>
-        <a href="https://mysecretmap.bixgrow.com" class="ud-btn ud-btn-large ud-btn-brand">Rejoignez-nous Maintenant !</a>
+        <p> {{ __('audioguide.AffiliateTitre') }}</p>
+        <a href="https://mysecretmap.bixgrow.com" class="ud-btn ud-btn-large ud-btn-brand">{{ __('audioguide.AffiliateJoin') }}</a>
        
     </div>
 
     <!-- Avantages de Devenir Partenaire Affilié -->
     <div class="avantages-affiliation">
         <ul>
-            <li>Chaque année nous ajoutons 2 nouvelles destinations à notre catalogue</li>
-            <li>Un contenu à forte valeur ajouté pour votre communauté</li>
-            <li>Générez des revenus grâce à des commissions compétitives.</li>
+            <li>{{ __('audioguide.AffiliateBonus1') }}</li>
+            <li>{{ __('audioguide.AffiliateBonus2) }}</li>
+            <li>{{ __('audioguide.AffiliateBonus3') }}</li>
         </ul>
     </div>
 
     <!-- Ressources pour les Affiliés -->
     <div class="ressources-affiliation">
-        <h4>Ressources affiliées</h4>
+       
         <ul>
-            <li><a href="https://mysecretmap.bixgrow.com">Comment s'inscrire</a></li>
+            <li><a href="https://mysecretmap.bixgrow.com">{{ __('audioguide.AffiliateHow') }}</a></li>
         </ul>
     </div>
 
     <!-- FAQ du Programme d'Affiliation -->
     <div class="faq-affiliation">
-        <h4>FAQ du programme d'affiliation</h4>
+        <h4>{{ __('audioguide.AffiliateHow') }}</h4>
         <ul>
-            <li><strong>Combien d'argent puis-je gagner ?</strong> Nous offrons des taux de commission compétitifs : minimum 10%.</li>
-            <li><strong>Que dois-je promouvoir ?</strong> Nos produits principaux sont des assistants numériques de voyage</li>
-            <li><strong>Ai-je accès aux promotions et aux réductions spéciales ?</strong> Oui, en tant que partenaire affilié nous vous propopsons réguliérement des coupons complémentaires pour votre communauté</li>
-            <li><strong>Combien de temps faut-il pour commencer ?</strong> Inscrivez-vous aujourd'hui, c'est immédiat</li>
-            <li><strong>Combien sont suivies les ventes ?</strong> Nous utilisons la plateforme Bixgrow</li>
+        <li>{! __('audioguide.AffiliateFaq1') !}</li>
+        <li>{! __('audioguide.AffiliateFaq2') !}</li>
+        <li>{! __('audioguide.AffiliateFaq3') !}</li>
+        <li>{! __('audioguide.AffiliateFaq4') !}</li>
+        <li>{! __('audioguide.AffiliateFaq5') !}</li>
+
         </ul>
     </div>
 </div>

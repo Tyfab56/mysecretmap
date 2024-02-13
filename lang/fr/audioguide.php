@@ -32,6 +32,20 @@ return [
     "CroisiereTitre" => "Des idées pour votre audioguide 'croisière'",
     "HotelTitre" => "Découvrez Charly, l'assistant de voyage et l'audioguide sur l'Islande",
     "HotelSousTitre" => "Enrichissez l'expérience de vos clients <br>avec un guide audio inédit sur les merveilles de l'Islande.",
+    "AffiliateTitre"=> "Rejoignez le programme d'affiliation de MySecretMap et aidez votre communauté à découvrir les plus belles destinations grâce à nos audioguides. Ensemble, explorons, apprenons et prospérons.",
+    "AffiliateJoin"=>"Rejoignez-nous Maintenant !",
+    "AffiliateBonus1"=>"Chaque année nous ajoutons 2 nouvelles destinations à notre catalogue.",
+    "AffiliateBonus2"=>"Un contenu à forte valeur ajouté pour votre communauté.",
+    "AffiliateBonus3"=>"Générez des revenus grâce à des commissions compétitives.",
+    "AffiliateHow"=>"Comment s'inscrire",
+    "AffiliateFaq"=>"FAQ du programme d'affiliation",
+    "AffiliateFaq1"=>"<strong>Combien d'argent puis-je gagner ?</strong> Nous offrons des taux de commission compétitifs : minimum 10%.",
+    "AffiliateFaq2"=>"<strong>Que dois-je promouvoir ?</strong> Nos produits principaux sont des assistants numériques de voyage.",
+    "AffiliateFaq3"=>"<strong>Ai-je accès aux promotions et aux réductions spéciales ?</strong> Oui, en tant que partenaire affilié, nous vous proposons régulièrement des coupons complémentaires pour votre communauté.",
+    "AffilaiteFaq4"=>"<strong>Combien de temps faut-il pour commencer ?</strong> Inscrivez-vous aujourd'hui, c'est immédiat.",
+    "AffilaiteFaq5"=>"<strong>Comment sont suivies les ventes ?</strong> Nous utilisons la plateforme Bixgrow.",
+
+
 
 
     
