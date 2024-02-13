@@ -27,7 +27,7 @@
 
     <!-- FAQ du Programme d'Affiliation -->
     <div class="faq-affiliation">
-        <h4>{{ __('audioguide.AffiliateHow') }}</h4>
+        <h4>{{ __('audioguide.AffiliateFaq') }}</h4>
         <ul>
         <li>{!! __('audioguide.AffiliateFaq1') !!}</li>
         <li>{!! __('audioguide.AffiliateFaq2') !!}</li>
