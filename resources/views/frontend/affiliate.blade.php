@@ -29,10 +29,11 @@
     <div class="faq-affiliation">
         <h4>FAQ du programme d'affiliation</h4>
         <ul>
-            <li><strong>Combien d'argent puis-je gagner ?</strong> Nous offrons des taux de commission compétitifs.</li>
-            <li><strong>Que dois-je promouvoir ?</strong> C'est vous qui décidez ! Vous choisissez les cours et les liens.</li>
-            <li><strong>Ai-je accès aux promotions et aux réductions spéciales ?</strong> Oui, en tant que partenaire affilié.</li>
-            <li><strong>Combien de temps faut-il pour commencer ?</strong> Inscrivez-vous aujourd'hui, et nous étudierons votre demande.</li>
+            <li><strong>Combien d'argent puis-je gagner ?</strong> Nous offrons des taux de commission compétitifs : minimum 10%.</li>
+            <li><strong>Que dois-je promouvoir ?</strong> Nos produits principaux sont des assistants numériques de voyage</li>
+            <li><strong>Ai-je accès aux promotions et aux réductions spéciales ?</strong> Oui, en tant que partenaire affilié nous vous propopsons réguliérement des coupons complémentaires pour votre communauté</li>
+            <li><strong>Combien de temps faut-il pour commencer ?</strong> Inscrivez-vous aujourd'hui, c'est immédiat</li>
+            <li><strong>Combien sont suivies les ventes ?</strong> Nous utilisons la plateforme Bixgrow</li>
         </ul>
     </div>
 </div>
