@@ -4,7 +4,7 @@
     <!-- Introduction au Programme d'Affiliation -->
     <div class="intro-affiliation">
         <p> {{ __('audioguide.AffiliateTitre') }}</p>
-        <img src="{{ asset('frontend/assets/images/affiliate.jpg')}}">
+        <img src="{{ app()->getLocale() }}-{{ asset('frontend/assets/images/affiliate.jpg')}}" class="w100">
         <a href="https://mysecretmap.bixgrow.com" class="ud-btn ud-btn-large ud-btn-brand">{{ __('audioguide.AffiliateJoin') }}</a>
        
     </div>
