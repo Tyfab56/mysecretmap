@@ -20,4 +20,17 @@ return [
 "Image5" => "The app guides you directly to the spots you've chosen from your current location.",
 "Image6" => "Discover dozens of activities near where you are.",
 "OurProducts" => "Our products",
+"AffiliateTitre"=> "Join the MySecretMap affiliate program and help your community discover the most beautiful destinations with our audio guides. Together, let's explore, learn, and thrive.",
+"AffiliateJoin"=>"Join Us Now!",
+"AffiliateBonus1"=>"Each year we add 2 new destinations to our catalog.",
+"AffiliateBonus2"=>"High-value content for your community.",
+"AffiliateBonus3"=>"Earn revenue through competitive commissions.",
+"AffiliateHow"=>"How to sign up",
+"AffiliateFaq"=>"Affiliate program FAQ",
+"AffiliateFaq1"=>"<strong>How much money can I earn?</strong> We offer competitive commission rates: a minimum of 10%.",
+"AffiliateFaq2"=>"<strong>What should I promote?</strong> Our main products are digital travel assistants.",
+"AffiliateFaq3"=>"<strong>Do I have access to special promotions and discounts?</strong> Yes, as an affiliate partner, we regularly offer you additional coupons for your community.",
+"AffiliateFaq4"=>"<strong>How long does it take to get started?</strong> Sign up today, it's immediate.",
+"AffiliateFaq5"=>"<strong>How are sales tracked?</strong> We use the Bixgrow platform.",
+
 ];
