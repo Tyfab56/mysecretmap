@@ -11,8 +11,8 @@
     <!-- Avantages de Devenir Partenaire Affilié -->
     <div class="avantages-affiliation">
         <ul>
-            <li>Accès à des milliers de cours dans une variété de sujets.</li>
-            <li>Promotion de contenu de qualité pour vos abonnés.</li>
+            <li>Chaque année nous ajoutons 2 nouvelles destinations à notre catalogue</li>
+            <li>Un contenu à forte valeur ajouté pour votre communauté</li>
             <li>Générez des revenus grâce à des commissions compétitives.</li>
         </ul>
     </div>
@@ -21,8 +21,7 @@
     <div class="ressources-affiliation">
         <h4>Ressources affiliées</h4>
         <ul>
-            <li><a href="https://affiliatesupport.udemy.com/hc/en-us/articles/360049411833-What-are-the-requirements-to-join-the-Udemy-Affiliate-Program-">Comment s'inscrire</a></li>
-            <li><a href="https://affiliatesupport.udemy.com/hc/en-us/articles/360048655014-How-do-I-join-the-Udemy-Affiliate-Program-">Inscrivez-vous dès maintenant</a></li>
+            <li><a href="https://mysecretmap.bixgrow.com">Comment s'inscrire</a></li>
         </ul>
     </div>
 
@@ -82,20 +81,7 @@ ul li:last-child {
     border-bottom: none;
 }
 
-/* Bouton principal */
-.ud-btn {
-    display: inline-block;
-    background-color: #007bff;
-    color: #ffffff;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 20px;
-}
 
-.ud-btn:hover {
-    background-color: #0056b3;
-}
 
 /* Styles spécifiques pour certaines sections */
 .intro-affiliation p {
