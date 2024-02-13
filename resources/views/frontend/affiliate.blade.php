@@ -12,7 +12,7 @@
     <div class="avantages-affiliation">
         <ul>
             <li>{{ __('audioguide.AffiliateBonus1') }}</li>
-            <li>{{ __('audioguide.AffiliateBonus2) }}</li>
+            <li>{{ __('audioguide.AffiliateBonus2') }}</li>
             <li>{{ __('audioguide.AffiliateBonus3') }}</li>
         </ul>
     </div>
