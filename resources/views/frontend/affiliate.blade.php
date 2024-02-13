@@ -37,5 +37,84 @@
         </ul>
     </div>
 </div>
+<style>
+
+/* Styles pour les liens */
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Styles pour le contenu principal */
+.ud-main-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin: 20px auto;
+    max-width: 800px;
+}
+
+/* Styles pour les titres */
+h4 {
+    color: #444;
+    margin-top: 20px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+/* Styles pour les listes */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+ul li:last-child {
+    border-bottom: none;
+}
+
+/* Bouton principal */
+.ud-btn {
+    display: inline-block;
+    background-color: #007bff;
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.ud-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Styles spécifiques pour certaines sections */
+.intro-affiliation p {
+    font-size: 1.1em;
+}
+
+.avantages-affiliation, .ressources-affiliation {
+    margin-top: 20px;
+}
+
+/* FAQ spécifique */
+.faq-affiliation ul {
+    margin-top: 10px;
+}
+
+.faq-affiliation li strong {
+    font-weight: bold;
+}
+
+</style>
 
 @endsection
