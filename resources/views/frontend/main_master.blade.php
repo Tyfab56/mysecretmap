@@ -289,7 +289,7 @@
                           <ul class="dropdown-menu" role="menu">
                           @foreach (Config::get('languages') as $lang => $language)
                               @if ($lang != App::getLocale())
-                                      <li><img src="{{ asset('frontend/assets/images/'.$lang.'flag.jpg') }}" class="mr-1" style="width: 20px; height: 14px;"> <a class="dropdown-item" href="{{ route('lang.switch', $lang) }}"> {{$language}}</a></li>
+                                      <li> <a class="dropdown-item" href="{{ route('lang.switch', $lang) }}"> <img src="{{ asset('frontend/assets/images/'.$lang.'flag.jpg') }}" class="mr-1" style="width: 20px; height: 14px;"> {{$language}}</a></li>
                               @endif
                           @endforeach
                           </ul>
