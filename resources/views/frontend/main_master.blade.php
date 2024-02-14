@@ -26,7 +26,7 @@
             <link rel="stylesheet" href="{{  asset('frontend/assets/plugins/slick/slick-theme.css') }}">
             <!-- Colorbox -->
             <link rel="stylesheet" href="{{  asset('frontend/assets/plugins/colorbox/colorbox.css') }}">
-            <link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" rel="stylesheet">
+          
             <!-- Template styles-->
             <script data-cfasync="false">
             var swarmoptions = {
@@ -282,24 +282,24 @@
 
 
 
-                        <li class="nav-item dropdown">
-    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
-        <span class="flag-icon flag-icon-{{Config::get('languages_flags')[App::getLocale()]}}"></span> <!-- Icône du drapeau pour la langue actuelle -->
-        {{ Config::get('languages')[App::getLocale()] }} <i class="fa fa-angle-down"></i>
-    </a>
-    <ul class="dropdown-menu" role="menu">
-        @foreach (Config::get('languages') as $lang => $language)
-            @if ($lang != App::getLocale())
-                <li>
-                    <a class="dropdown-item" href="{{ route('lang.switch', $lang) }}">
-                        <span class="flag-icon flag-icon-{{Config::get('languages_flags')[$lang]}}"></span> <!-- Icône du drapeau pour chaque langue -->
-                        {{$language}}
-                    </a>
-                </li>
-            @endif
-        @endforeach
-    </ul>
-</li>
+                      <li class="nav-item dropdown">
+                          <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+                              <span class="flag-icon flag-icon-{{Config::get('languages_flags')[App::getLocale()]}}"></span> 
+                              {{ Config::get('languages')[App::getLocale()] }} <i class="fa fa-angle-down"></i>
+                          </a>
+                          <ul class="dropdown-menu" role="menu">
+                              @foreach (Config::get('languages') as $lang => $language)
+                                  @if ($lang != App::getLocale())
+                                      <li>
+                                          <a class="dropdown-item" href="{{ route('lang.switch', $lang) }}">
+                                              <span class="flag-icon flag-icon-{{Config::get('languages_flags')[$lang]}}"></span> 
+                                              {{$language}}
+                                          </a>
+                                      </li>
+                                  @endif
+                              @endforeach
+                      </ul>
+                     </li>
 
 
                       @auth
