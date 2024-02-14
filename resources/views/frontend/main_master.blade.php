@@ -282,24 +282,18 @@
 
 
 
-                      <li class="nav-item dropdown">
-                          <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
-                              <span class="flag-icon flag-icon-{{Config::get('languages_flags')[App::getLocale()]}}"></span> 
-                              {{ Config::get('languages')[App::getLocale()] }} <i class="fa fa-angle-down"></i>
-                          </a>
+              
+
+                     <li class="nav-item dropdown">
+                          <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">{{ Config::get('languages')[App::getLocale()] }} <i class="fa fa-angle-down"></i></a>
                           <ul class="dropdown-menu" role="menu">
-                              @foreach (Config::get('languages') as $lang => $language)
-                                  @if ($lang != App::getLocale())
-                                      <li>
-                                          <a class="dropdown-item" href="{{ route('lang.switch', $lang) }}">
-                                              <span class="flag-icon flag-icon-{{Config::get('languages_flags')[$lang]}}"></span> 
-                                              {{$language}}
-                                          </a>
-                                      </li>
-                                  @endif
-                              @endforeach
-                      </ul>
-                     </li>
+                          @foreach (Config::get('languages') as $lang => $language)
+                              @if ($lang != App::getLocale())
+                                      <li><a class="dropdown-item" href="{{ route('lang.switch', $lang) }}"> {{$language}}</a></li>
+                              @endif
+                          @endforeach
+                          </ul>
+                      </li>
 
 
                       @auth
