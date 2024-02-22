@@ -20,6 +20,7 @@ use App\Http\Controllers\HotelController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ShopifysalesController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\RandoController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
