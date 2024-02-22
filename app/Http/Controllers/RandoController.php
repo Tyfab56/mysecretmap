@@ -7,9 +7,9 @@ use Illuminate\Http\Request;
 
 class RandoController extends Controller
 {
-    public function listRando()
-    {
-        $query = RandoSpot::query();
+    public function listRandos(Request $request)
+{
+    $query = RandoSpot::query();
 
     if ($request->input('search')) {
         $query->where('name', 'like', '%' . $request->search . '%');
@@ -18,7 +18,7 @@ class RandoController extends Controller
     $randos = $query->paginate(10); // Modifiez le nombre selon le nombre d'items que vous souhaitez par page
 
     return view('admin.randos.listrandos', compact('randos'));
-    }
+}
 
     public function create()
     {
