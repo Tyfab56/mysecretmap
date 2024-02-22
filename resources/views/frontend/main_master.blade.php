@@ -426,7 +426,7 @@
   ================================================== -->
 
   <!-- initialize jQuery Library -->
-  <script src="{{  asset('frontend/assets/plugins/jQuery/jquery.min.js') }}"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <!-- Bootstrap jQuery -->
   <script src="{{  asset('frontend/assets/plugins/bootstrap/bootstrap.min.js') }}" defer></script>
   <!-- Slick Carousel -->
@@ -441,6 +441,7 @@
   <script src="{{  asset('frontend/assets/js/script.js') }}"></script>
   <script src="https://cdn.jsdelivr.net/npm/luxon@2.4.0/build/global/luxon.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
 
   
   
