@@ -40,6 +40,7 @@
             };
              </script>
              <script async data-cfasync="false" src="https://assets.swarmcdn.com/cross/swarmdetect.js"></script>
+             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   
             @yield('css')
             <link rel="stylesheet" href="{{  asset('frontend/assets/css/style.css') }}">
@@ -426,7 +427,7 @@
   ================================================== -->
 
   <!-- initialize jQuery Library -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
   <!-- Bootstrap jQuery -->
   <script src="{{  asset('frontend/assets/plugins/bootstrap/bootstrap.min.js') }}" defer></script>
   <!-- Slick Carousel -->
