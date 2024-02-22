@@ -991,6 +991,17 @@ public function updateTranslations(Request $request, $spotId)
     return response()->json(['message' => 'Invalid attribute'], 400);
 }
 
+public function search(Request $request)
+{
+    $query = $request->get('query');
+    $spots = Spot::where('name', 'LIKE', "%{$query}%")->get();
 
+    $html = '';
+    foreach ($spots as $spot) {
+        $html .= '<option value="'.$spot->id.'">'.$spot->name.'</option>';
+    }
+
+    return response()->json(['html' => $html]);
+}
 
 }
