@@ -29,7 +29,7 @@ class RandoController extends Controller
     {
         $request->validate([
             'spot_id' => 'required|integer|exists:spots,id', // Assurez-vous que le spot existe
-            'video_link' => 'nullable|url', // Valide si fourni
+            'video_link' => 'required', // Valide si fourni
         ]);
     
         $rando = new RandoSpot([
