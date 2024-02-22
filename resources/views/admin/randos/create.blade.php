@@ -60,31 +60,30 @@
 
         {{-- Premier formulaire pour les champs principaux --}}
         <div class="form-section">
-              <form id="baseInfoForm" action="{{ route('admin.randos.store') }}" method="post">
-                @csrf
+        <form id="baseInfoForm" action="{{ route('admin.randos.storeBaseInfo') }}" method="post">
+            @csrf
 
-                <div class="form-group">
-                    <label for="spot_search">Recherche de Spot :</label>
-                    <input type="text" id="spot_search" class="form-control" placeholder="Commencez à taper le nom du spot...">
-                </div>
+            <div class="form-group">
+                <label for="spot_search">Recherche de Spot :</label>
+                <input type="text" id="spot_search" class="form-control" placeholder="Commencez à taper le nom du spot...">
+            </div>
 
-                <div class="form-group">
-                    <label for="spot_id">Spot ID :</label>
-                    <select name="spot_id" id="spot_id" class="form-control">
-                        <option value="">Sélectionnez un spot</option>
-                        <!-- Les options seront ajoutées ici par jQuery -->
-                    </select>
-                </div>
+            <div class="form-group">
+                <label for="spot_id">Spot ID :</label>
+                <select name="spot_id" id="spot_id" class="form-control">
+                    <option value="">Sélectionnez un spot</option>
+                    <!-- Les options seront ajoutées ici par jQuery -->
+                </select>
+            </div>
 
-               
-                <div class="form-group">
-                    <label for="video_link">Lien Vidéo :</label>
-                    <input type="text" name="video_link" id="video_link" class="form-control">
-                </div>
-                <button type="submit" class="btn btn-primary">Enregistrer les Informations de Base</button>
-              
-            </form>
-        </div>
+            <div class="form-group">
+                <label for="video_link">Lien Vidéo :</label>
+                <input type="text" name="video_link" id="video_link" class="form-control">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Enregistrer les Informations de Base</button>
+        </form>
+    </div>
 
         {{-- Second formulaire pour les traductions --}}
         <div id="translationForm" class="form-section" style="display:none;">
