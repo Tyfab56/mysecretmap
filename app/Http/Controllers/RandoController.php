@@ -58,7 +58,7 @@ class RandoController extends Controller
 
     // Assumer que vous utilisez un package ou une logique pour gérer les traductions
     // Exemple d'ajout de traductions
-    $rando->translateOrNew($request->language)->titre = $request->titre;
+    $rando->translateOrNew($request->language)->nom = $request->titre;
     $rando->translateOrNew($request->language)->description = $request->description;
     $rando->save();
 
