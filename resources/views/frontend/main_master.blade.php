@@ -26,6 +26,8 @@
             <link rel="stylesheet" href="{{  asset('frontend/assets/plugins/slick/slick-theme.css') }}">
             <!-- Colorbox -->
             <link rel="stylesheet" href="{{  asset('frontend/assets/plugins/colorbox/colorbox.css') }}">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+
           
             <!-- Template styles-->
             <script data-cfasync="false">
@@ -410,7 +412,15 @@
       </div><!-- Container end -->
     </div><!-- Copyright end -->
   </footer><!-- Footer end -->
+  <script>
+    @if(session('success'))
+        toastr.success('{{ session('success') }}');
+    @endif
 
+    @if(session('error'))
+        toastr.error('{{ session('error') }}');
+    @endif
+</script>
 
   <!-- Javascript Files
   ================================================== -->
@@ -430,6 +440,7 @@
   <!-- Template custom -->
   <script src="{{  asset('frontend/assets/js/script.js') }}"></script>
   <script src="https://cdn.jsdelivr.net/npm/luxon@2.4.0/build/global/luxon.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
   
   

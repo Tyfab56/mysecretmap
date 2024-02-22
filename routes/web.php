@@ -155,7 +155,13 @@ Route::post('/shopifysales/store', [ShopifysalesController::class, 'store'])->na
 Route::get('/shopifysales', [ShopifysalesController::class, 'form'])->name('admin.shopifysales')->middleware('App\Http\Middleware\CheckAdmin');;
 Route::get('/shopifysaleslist', [ShopifysalesController::class, 'index'])->name('admin.shopifysaleslist')->middleware('App\Http\Middleware\CheckAdmin');;
 Route::post('addavatar/store', [IndexController::class, 'avatarstore'])->name('addavatar.store');
-Route::get('/admin/randos/listrando', [RandoController::class, 'listrando'])->name('admin.randos.listrando')->middleware('App\Http\Middleware\CheckAdmin');
+
+Route::prefix('admin')->name('admin.')->group(function () {
+    Route::resource('randos', RandoController::class)->except(['index']);
+    Route::get('randos/listrandos', [RandoController::class, 'listRando'])->name('randos.listrandos');
+})->middleware('App\Http\Middleware\CheckAdmin');
+
+
 
 Route::view('/rodrigues','frontend.destinations.rodrigues')->name('rodrigues');
 Route::view('/iceland', 'frontend.destinations.iceland')->name('iceland');
