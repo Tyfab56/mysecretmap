@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class RandoSpotTranslation extends Model
 {
     public $timestamps = false; // Pas de timestamps pour la table de traductions
+    protected $table = 'rando_spot_translations'; 
 
     protected $fillable = [
         'nom', // Le champ pour le nom traduit de la randonnée
