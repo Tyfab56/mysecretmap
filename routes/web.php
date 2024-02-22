@@ -162,6 +162,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
 })->middleware('App\Http\Middleware\CheckAdmin');
 
 Route::get('/admin/spots/search', [SpotsController::class, 'search'])->name('admin.spots.search');
+Route::post('/admin/randos/storeBaseInfo', [RandoController::class, 'storeBaseInfo'])->name('admin.randos.storeBaseInfo');
 Route::view('/rodrigues','frontend.destinations.rodrigues')->name('rodrigues');
 Route::view('/iceland', 'frontend.destinations.iceland')->name('iceland');
 Route::view('/comoros','frontend.destinations.comoros')->name('comoros');

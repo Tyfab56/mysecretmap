@@ -91,5 +91,29 @@ class RandoController extends Controller
         return redirect()->route('admin.randos.listrandos')->with('success', 'Randonnée supprimée avec succès.');
     }
 
+
+    public function storeBaseInfo(Request $request)
+{
+    // Validation des données du formulaire
+    $validated = $request->validate([
+        'spot_id' => 'required|integer|exists:spots,id', // Assurez-vous que le spot existe dans la base de données
+        'video_link' => 'nullable|url', // Valide si fourni
+    ]);
+
+    // Création de la nouvelle randonnée avec les données validées
+    $rando = new RandoSpot();
+    $rando->spot_id = $validated['spot_id'];
+    $rando->video_link = $validated['video_link'] ?? null; // Utilisez null si vide
+    // Vous pouvez ajouter ici d'autres champs selon votre modèle RandoSpot
+
+    $rando->save(); // Sauvegarde de la randonnée dans la base de données
+
+    // Retour d'une réponse JSON en cas de succès
+    return response()->json([
+        'success' => 'Informations de base enregistrées avec succès.',
+        'randoId' => $rando->id, // Retourne l'ID de la randonnée pour utilisation ultérieure si nécessaire
+    ]);
+}
+
     
 }

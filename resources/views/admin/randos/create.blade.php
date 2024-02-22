@@ -60,7 +60,7 @@
 
         {{-- Premier formulaire pour les champs principaux --}}
         <div class="form-section">
-            <form action="{{ route('admin.randos.store') }}" method="post">
+              <form id="baseInfoForm" action="{{ route('admin.randos.store') }}" method="post">
                 @csrf
 
                 <div class="form-group">
@@ -81,8 +81,8 @@
                     <label for="video_link">Lien Vidéo :</label>
                     <input type="text" name="video_link" id="video_link" class="form-control">
                 </div>
-
-                <button type="button" class="btn btn-primary" onclick="toggleTranslationForm()">Ajouter des Traductions</button>
+                <button type="submit" class="btn btn-primary">Enregistrer les Informations de Base</button>
+              
             </form>
         </div>
 
@@ -116,12 +116,7 @@
         </div>
     </div>
 
-    <script>
-        function toggleTranslationForm() {
-            var x = document.getElementById("translationForm");
-            x.style.display = x.style.display === "none" ? "block" : "none";
-        }
-    </script>
+   
     <script>
 $(document).ready(function() {
     $('#spot_search').on('keyup', function() {
@@ -141,6 +136,26 @@ $(document).ready(function() {
         }
     });
 });
+
+$('#baseInfoForm').on('submit', function(e) {
+    e.preventDefault(); // Empêcher la soumission standard du formulaire
+
+    $.ajax({
+        url: $(this).attr('action'),
+        type: "POST",
+        data: $(this).serialize(), // Sérialiser les données du formulaire
+        success: function(response) {
+            // Afficher la section des traductions si la soumission est réussie
+            $('#translationForm').show();
+        },
+        error: function(xhr, status, error) {
+            // Gérer l'erreur
+            alert("Une erreur est survenue. Veuillez réessayer.");
+        }
+    });
+});
 </script>
+
+
 
 @endsection
