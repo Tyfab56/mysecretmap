@@ -9,7 +9,7 @@ class RandoSpot extends Model
 {
     use Translatable;
 
-    public $translatedAttributes = ['description'];
+    public $translatedAttributes = ['nom,description'];
     protected $table = 'randos_spots';
     // Définissez ici d'autres propriétés et méthodes selon votre besoin
 }
