@@ -159,6 +159,7 @@ Route::post('addavatar/store', [IndexController::class, 'avatarstore'])->name('a
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::resource('randos', RandoController::class)->except(['index']);
     Route::get('randos/listrandos', [RandoController::class, 'listRandos'])->name('randos.listrandos');
+    Route::resource('admin/randos', RandoController::class)->except(['show']);
 })->middleware('App\Http\Middleware\CheckAdmin');
 
 
