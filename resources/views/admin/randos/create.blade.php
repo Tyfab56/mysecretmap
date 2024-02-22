@@ -127,7 +127,16 @@ $(document).ready(function() {
             data: {'query': query},
             success: function(data) {
                 $('#spot_id').html(data.html);
-            }
+            },
+            error: function(xhr) {
+    // Affichage des messages d'erreur de validation
+    if (xhr.status === 422) { // Vérification du code de statut 422
+        let errors = xhr.responseJSON.errors;
+        console.error(errors);
+        // Traiter et afficher les messages d'erreur ici
+        // Par exemple, vous pourriez vouloir afficher ces messages à côté des champs concernés
+    }
+}
         });
         // Empêchez l'envoi de formulaire si le champ est vide
         if (query == '') {
