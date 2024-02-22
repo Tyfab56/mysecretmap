@@ -26,25 +26,22 @@ class RandoController extends Controller
     }
 
     public function store(Request $request)
-{
-    // Valider les données reçues du formulaire
-    $validatedData = $request->validate([
-        'spot_id' => 'required|integer',
-        'pays_id' => 'required|string|max:255',
-        'rang' => 'required|integer',
-        'video_link' => 'nullable|url',
-        // Ajoutez ici d'autres validations selon les champs de votre modèle
-    ]);
-
-    // Création de la nouvelle randonnée avec les données validées
-    $rando = new RandoSpot($validatedData);
-    $rando->save();
-
-    // Ici, vous pouvez choisir de rediriger vers le formulaire de traduction
-    // et de passer l'ID de la randonnée créée, ou simplement retourner à la liste des randonnées
-    // Exemple de redirection vers la liste des randonnées avec un message de succès
-    return redirect()->route('admin.randos.listrandos')->with('success', 'Nouvelle randonnée ajoutée avec succès. Veuillez ajouter les traductions maintenant.');
-}
+    {
+        $request->validate([
+            'spot_id' => 'required|integer|exists:spots,id', // Assurez-vous que le spot existe
+            'video_link' => 'nullable|url', // Valide si fourni
+        ]);
+    
+        $rando = new RandoSpot([
+            'spot_id' => $request->spot_id,
+            'video_link' => $request->video_link,
+            // Ajoutez ici d'autres champs selon votre modèle
+        ]);
+    
+        $rando->save();
+    
+        return redirect()->route('admin.randos.listrandos')->with('success', 'Nouvelle randonnée ajoutée avec succès.');
+    }
 
     public function storeTranslations(Request $request)
 {

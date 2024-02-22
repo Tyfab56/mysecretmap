@@ -76,16 +76,7 @@
                     </select>
                 </div>
 
-                <div class="form-group">
-                    <label for="pays_id">Pays ID :</label>
-                    <input type="text" name="pays_id" id="pays_id" class="form-control">
-                </div>
-
-                <div class="form-group">
-                    <label for="rang">Rang :</label>
-                    <input type="text" name="rang" id="rang" class="form-control">
-                </div>
-
+               
                 <div class="form-group">
                     <label for="video_link">Lien Vidéo :</label>
                     <input type="text" name="video_link" id="video_link" class="form-control">
