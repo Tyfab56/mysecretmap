@@ -64,8 +64,16 @@
                 @csrf
 
                 <div class="form-group">
+                    <label for="spot_search">Recherche de Spot :</label>
+                    <input type="text" id="spot_search" class="form-control" placeholder="Commencez à taper le nom du spot...">
+                </div>
+
+                <div class="form-group">
                     <label for="spot_id">Spot ID :</label>
-                    <input type="text" name="spot_id" id="spot_id" class="form-control">
+                    <select name="spot_id" id="spot_id" class="form-control">
+                        <option value="">Sélectionnez un spot</option>
+                        <!-- Les options seront ajoutées ici par jQuery -->
+                    </select>
                 </div>
 
                 <div class="form-group">
@@ -123,5 +131,25 @@
             x.style.display = x.style.display === "none" ? "block" : "none";
         }
     </script>
+    <script>
+$(document).ready(function() {
+    $('#spot_search').on('keyup', function() {
+        var query = $(this).val();
+
+        $.ajax({
+            url: "{{ route('admin.spots.search') }}",
+            type: "GET",
+            data: {'query': query},
+            success: function(data) {
+                $('#spot_id').html(data.html);
+            }
+        });
+        // Empêchez l'envoi de formulaire si le champ est vide
+        if (query == '') {
+            $('#spot_id').html('<option value="">Sélectionnez un spot</option>');
+        }
+    });
+});
+</script>
 
 @endsection

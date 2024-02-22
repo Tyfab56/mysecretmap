@@ -93,4 +93,17 @@ class RandoController extends Controller
 
         return redirect()->route('admin.randos.listrandos')->with('success', 'Randonnée supprimée avec succès.');
     }
+
+    public function search(Request $request)
+{
+    $query = $request->get('query');
+    $spots = Spot::where('name', 'LIKE', "%{$query}%")->get();
+
+    $html = '';
+    foreach ($spots as $spot) {
+        $html .= '<option value="'.$spot->id.'">'.$spot->name.'</option>';
+    }
+
+    return response()->json(['html' => $html]);
+}
 }

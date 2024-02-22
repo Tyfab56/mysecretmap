@@ -161,7 +161,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::post('randos/storeTranslations', [RandoController::class, 'storeTranslations'])->name('randos.storeTranslations');
 })->middleware('App\Http\Middleware\CheckAdmin');
 
-
+Route::get('/admin/spots/search', 'SpotController@search')->name('admin.spots.search');
 Route::view('/rodrigues','frontend.destinations.rodrigues')->name('rodrigues');
 Route::view('/iceland', 'frontend.destinations.iceland')->name('iceland');
 Route::view('/comoros','frontend.destinations.comoros')->name('comoros');
