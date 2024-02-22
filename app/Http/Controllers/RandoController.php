@@ -63,7 +63,9 @@ class RandoController extends Controller
     $rando->save();
 
     // Rediriger vers une page appropriée avec un message de succès
-    return redirect()->route('admin.randos.listrandos')->with('success', 'Traductions ajoutées avec succès.');
+    return redirect()->route('admin.randos.create')
+    ->with('success', 'Traduction ajoutée avec succès. Vous pouvez maintenant ajouter une traduction dans une autre langue.')
+    ->with('previous_language', $request->language);
 }
 
     public function edit($id)
