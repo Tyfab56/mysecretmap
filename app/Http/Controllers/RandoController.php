@@ -96,8 +96,8 @@ class RandoController extends Controller
 {
     // Validation des données du formulaire
     $validated = $request->validate([
-        'spot_id' => 'required|integer|exists:spots,id', // Assurez-vous que le spot existe dans la base de données
-        'video_link' => 'nullable', // Valide si fourni
+        'spot_id' => 'required|integer|exists:spots,id', 
+        'video_link' => 'required' 
     ]);
 
     // Création de la nouvelle randonnée avec les données validées
