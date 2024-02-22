@@ -310,7 +310,7 @@
                              <li><a class="dropdown-item" href="{{ route('admin.shopifysaleslist') }}"> Gestion Shopify Sales</a></li>
                              <li><a class="dropdown-item" href="{{ route('admin.createzoom') }}">image Zoom</a></li>
                              <li><a class="dropdown-item" href="{{ route('admin.timeline') }}">Timeline</a></li>
-                             <li><a class="dropdown-item" href="{{ route('admin.randos.listrando') }}">Gestion des randonnées</a></li>
+                             <li><a class="dropdown-item" href="{{ route('admin.randos.listrandos') }}">Gestion des randonnées</a></li>
 
                         </ul>
                     </li>
