@@ -63,6 +63,7 @@ $(document).ready(function() {
     // Écouter le changement de langue
     $('#languageSelect').change(function() {
         var selectedLang = $(this).val();
+        console.log(selectedLang);
         loadTranslations(selectedLang);
     });
 
