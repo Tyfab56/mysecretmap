@@ -78,30 +78,33 @@ class RandoController extends Controller
     }
 
     public function update(Request $request, $id)
-    {
-        $selectedLang = $request->input('selected_lang'); // Récupère la langue sélectionnée
+{
+    $rando = RandoSpot::findOrFail($id);
     
-        $rando = RandoSpot::findOrFail($id);
-    
-        // Validation des données reçues du formulaire
-        // Assurez-vous d'ajuster les règles de validation selon vos besoins
-        $validated = $request->validate([
-            'video_link' => 'required|url',
-            "translations.{$selectedLang}.title" => 'required|string|max:255',
-            "translations.{$selectedLang}.description" => 'required|string',
-        ]);
-    
-        // Mise à jour des informations générales
-        $rando->video_link = $validated['video_link'];
-    
-        // Mise à jour de la traduction pour la langue sélectionnée
-        $rando->translateOrNew($selectedLang)->title = $request->input("translations.{$selectedLang}.title");
-        $rando->translateOrNew($selectedLang)->description = $request->input("translations.{$selectedLang}.description");
-    
-        $rando->save();
-    
-        return redirect()->route('admin.randos.index')->with('success', 'Randonnée mise à jour avec succès.');
-    }
+    // Validation des données reçues du formulaire
+    $validated = $request->validate([
+        'selected_lang' => 'required|string',
+        'title' => 'required|string|max:255',
+        'description' => 'required|string',
+        'video_link' => 'required|url',
+    ]);
+
+    // Mise à jour du lien vidéo
+    $rando->video_link = $validated['video_link'];
+    $rando->save();
+
+    // Récupération de la langue sélectionnée
+    $selectedLang = $validated['selected_lang'];
+
+    // Mise à jour ou création de la traduction pour la langue sélectionnée
+    $translation = $rando->translateOrNew($selectedLang);
+    $translation->title = $validated['title'];
+    $translation->description = $validated['description'];
+    $translation->save();
+
+    return back()->with('success', 'Randonnée mise à jour avec succès.');
+}
+
     
 
     public function destroy($id)
