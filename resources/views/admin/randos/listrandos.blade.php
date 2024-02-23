@@ -20,7 +20,7 @@
             <tr>
                 <td>{{ $rando->id }}</td>
                 <td> {{ $rando->spot->name }}</td>
-                <td>{{ $rando->description }}</td>
+                <td>{{ $rando->translate(app()->getLocale())->description }}</td>
                 <td>
                     {{-- Supposons que vous avez des liens ou des boutons pour les actions --}}
                     <a href="{{ route('admin.randos.edit', $rando->id) }}">Éditer</a>
