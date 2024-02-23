@@ -82,7 +82,7 @@ class RandoController extends Controller
 {
 
     $rando = RandoSpot::findOrFail($id);
-    dd($id);
+    dd($request);
     // Validation des données reçues du formulaire
     $validated = $request->validate([
         'selected_lang' => 'required|string',
