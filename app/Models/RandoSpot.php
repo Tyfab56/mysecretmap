@@ -12,4 +12,10 @@ class RandoSpot extends Model
     public $translatedAttributes = ['nom,description'];
     protected $table = 'randos_spots';
     // Définissez ici d'autres propriétés et méthodes selon votre besoin
+
+    public function spot()
+{
+    return $this->belongsTo(Spot::class, 'spot_id');
+}
+
 }

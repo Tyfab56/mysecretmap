@@ -19,7 +19,7 @@
         @foreach($randos as $rando)
             <tr>
                 <td>{{ $rando->id }}</td>
-                <td>{{ $rando->name }}</td>
+                <td> {{ $rando->spot->name }}</td>
                 <td>{{ $rando->description }}</td>
                 <td>
                     {{-- Supposons que vous avez des liens ou des boutons pour les actions --}}
