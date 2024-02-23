@@ -70,8 +70,13 @@ class RandoController extends Controller
 
     public function edit($id)
     {
-        $rando = RandoSpot::findOrFail($id);
-        return view('admin.randos.edit', compact('rando'));
+        $randoSpot = RandoSpot::with('translations')->findOrFail($id);
+
+        // Ici, vous pourriez également vouloir passer une liste des langues disponibles à la vue
+        // Pour cet exemple, nous supposons que 'en' et 'fr' sont les langues disponibles
+        $langs = ['en', 'fr'];
+    
+        return view('admin.randos.edit', compact('randoSpot', 'langs'));
     }
 
     public function update(Request $request, $id)
