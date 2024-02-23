@@ -96,7 +96,7 @@ class RandoController extends Controller
 
     $selectedLang = $request->input('selected_lang');
 
-    $rando->translateOrNew($selectedLang)->title = $validated['title'];
+    $rando->translateOrNew($selectedLang)->nom = $validated['title'];
     $rando->translateOrNew($selectedLang)->description = $validated['description'];
     $rando->save();
 
