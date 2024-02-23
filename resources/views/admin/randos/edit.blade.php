@@ -8,30 +8,28 @@
         @csrf
         @method('PUT')
 
-        {{-- Sélecteur de Langue --}}
         <div class="form-group">
             <label for="languageSelect">Langue:</label>
-            <select id="languageSelect" name="selected_lang" class="form-control">
-                <option value="en">Anglais</option>
-                <option value="fr">Français</option>
+            <select id="languageSelect" class="form-control" name="selected_lang">
+                @foreach($langs as $lang)
+                    <option value="{{ $lang }}">{{ strtoupper($lang) }}</option>
+                @endforeach
             </select>
         </div>
 
-        {{-- Champ pour le Lien Vidéo --}}
-        <div class="form-group">
-            <label for="video_link">Lien Vidéo:</label>
-            <input type="text" class="form-control" id="video_link" name="video_link" value="{{ $rando->video_link }}">
-        </div>
-
-        {{-- Champs Dynamiques pour Titre et Description --}}
         <div class="form-group">
             <label for="title">Titre:</label>
-            <input type="text" class="form-control" id="title" name="translations[title]">
+            <input type="text" class="form-control" id="title" name="title" value="">
         </div>
 
         <div class="form-group">
             <label for="description">Description:</label>
-            <textarea class="form-control" id="description" name="translations[description]"></textarea>
+            <textarea class="form-control" id="description" name="description"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="video_link">Lien Vidéo:</label>
+            <input type="text" class="form-control" id="video_link" name="video_link" value="{{ $rando->video_link }}">
         </div>
 
         <button type="submit" class="btn btn-primary">Mettre à jour</button>
@@ -92,35 +90,18 @@
 </style>
 
 <script>
-$(document).ready(function() {
-    // Fonction pour charger les traductions
-    function loadTranslations(lang) {
-        // Exemple : Charger les traductions depuis un objet JavaScript. 
-        // Dans une application réelle, vous pouvez charger ces données via AJAX depuis le serveur.
-        var translations = {
-            'en': {
-                'title': '{{ $rando->getTranslation('title', 'en') }}',
-                'description': '{{ $rando->getTranslation('description', 'en') }}'
-            },
-            'fr': {
-                'title': '{{ $rando->getTranslation('title', 'fr') }}',
-                'description': '{{ $rando->getTranslation('description', 'fr') }}'
-            }
-        };
+document.addEventListener('DOMContentLoaded', function() {
+    var translations = @json($rando->translations->keyBy('locale')->toArray());
+    var languageSelect = document.getElementById('languageSelect');
 
-        $('#title').val(translations[lang].title);
-        $('#description').val(translations[lang].description);
+    function updateFields() {
+        var selectedLang = languageSelect.value;
+        document.getElementById('title').value = translations[selectedLang] ? translations[selectedLang].title : '';
+        document.getElementById('description').value = translations[selectedLang] ? translations[selectedLang].description : '';
     }
 
-    // Écouter le changement de langue
-    $('#languageSelect').change(function() {
-        var selectedLang = $(this).val();
-        console.log(selectedLang);
-        loadTranslations(selectedLang);
-    });
-
-    // Charger initialement les traductions pour la langue sélectionnée
-    loadTranslations($('#languageSelect').val());
+    languageSelect.addEventListener('change', updateFields);
+    updateFields(); // Update fields on initial load
 });
 </script>
 
