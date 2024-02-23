@@ -11,7 +11,7 @@
         {{-- Sélecteur de Langue --}}
         <div class="form-group">
             <label for="languageSelect">Langue:</label>
-            <select id="languageSelect" class="form-control">
+            <select id="languageSelect" name="selected_lang" class="form-control">
                 <option value="en">Anglais</option>
                 <option value="fr">Français</option>
             </select>

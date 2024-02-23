@@ -70,12 +70,8 @@ class RandoController extends Controller
 
     public function edit($id)
     {
-        $rando = RandoSpot::findOrFail($id);
-        return view('admin.randos.edit', compact('rando'));
-
-        $rando = RandoSpot::with('translations')->findOrFail($id);
-
-   
+        
+    $rando = RandoSpot::with('translations')->findOrFail($id);
     $langs = ['en', 'fr'];
 
     return view('admin.randos.edit', compact('rando', 'langs'));
@@ -83,14 +79,30 @@ class RandoController extends Controller
 
     public function update(Request $request, $id)
     {
-        $validatedData = $request->validate([
-            'name' => 'required|max:255',
-            // Include other fields as necessary
+        $selectedLang = $request->input('selected_lang'); // Récupère la langue sélectionnée
+    
+        $rando = Rando::findOrFail($id);
+    
+        // Validation des données reçues du formulaire
+        // Assurez-vous d'ajuster les règles de validation selon vos besoins
+        $validated = $request->validate([
+            'video_link' => 'required|url',
+            "translations.{$selectedLang}.title" => 'required|string|max:255',
+            "translations.{$selectedLang}.description" => 'required|string',
         ]);
-
-        RandoSpot::whereId($id)->update($validatedData);
-        return redirect()->route('admin.randos.listrandos')->with('success', 'Randonnée mise à jour avec succès.');
+    
+        // Mise à jour des informations générales
+        $rando->video_link = $validated['video_link'];
+    
+        // Mise à jour de la traduction pour la langue sélectionnée
+        $rando->translateOrNew($selectedLang)->title = $request->input("translations.{$selectedLang}.title");
+        $rando->translateOrNew($selectedLang)->description = $request->input("translations.{$selectedLang}.description");
+    
+        $rando->save();
+    
+        return redirect()->route('admin.randos.index')->with('success', 'Randonnée mise à jour avec succès.');
     }
+    
 
     public function destroy($id)
     {
