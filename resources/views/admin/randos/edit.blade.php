@@ -3,7 +3,7 @@
 
 <div class="container">
     <h2>Éditer la Randonnée</h2>
-    <h4>Nom du Spot: {{ $rando->spot->name }}</h4>
+    <h4> {{ $rando->spot->name }}</h4>
     <form id="editForm" action="{{ route('admin.randos.update', $rando->id) }}" method="POST">
         @csrf
         @method('PUT')
@@ -38,7 +38,7 @@
     </form>
 </div>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 <script>
 $(document).ready(function() {
     // Fonction pour charger les traductions
