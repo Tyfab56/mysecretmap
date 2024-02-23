@@ -3,6 +3,7 @@
 
 <div class="container">
     <h2>Éditer la Randonnée</h2>
+    <h4>Nom du Spot: {{ $rando->spot->name }}</h4>
     <form id="editForm" action="{{ route('admin.randos.update', $rando->id) }}" method="POST">
         @csrf
         @method('PUT')
