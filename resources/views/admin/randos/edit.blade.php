@@ -1,6 +1,10 @@
 @extends('frontend.main_master')
 @section('content')
-
+<script>
+    @if(session('success'))
+        toastr.success("{{ session('success') }}");
+    @endif
+</script>
 <div class="container">
     <h2>Éditer la Randonnée</h2>
     <h4> {{ $rando->spot->name }}</h4>

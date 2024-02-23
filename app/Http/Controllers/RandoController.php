@@ -82,7 +82,7 @@ class RandoController extends Controller
 {
 
     $rando = RandoSpot::findOrFail($id);
-    dd($request);
+   
     // Validation des données reçues du formulaire
     $validated = $request->validate([
         'selected_lang' => 'required|string',
@@ -100,7 +100,7 @@ class RandoController extends Controller
 
     // Mise à jour ou création de la traduction pour la langue sélectionnée
     $translation = $rando->translateOrNew($selectedLang);
-    $translation->title = $validated['title'];
+    $translation->nom = $validated['title'];
     $translation->description = $validated['description'];
     $translation->save();
 
