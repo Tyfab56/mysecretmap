@@ -81,7 +81,7 @@ class RandoController extends Controller
     {
         $selectedLang = $request->input('selected_lang'); // Récupère la langue sélectionnée
     
-        $rando = Rando::findOrFail($id);
+        $rando = RandoSpot::findOrFail($id);
     
         // Validation des données reçues du formulaire
         // Assurez-vous d'ajuster les règles de validation selon vos besoins
