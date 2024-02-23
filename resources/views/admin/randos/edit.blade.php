@@ -100,7 +100,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function updateFields() {
         var selectedLang = languageSelect.value;
-        document.getElementById('title').value = translations[selectedLang] ? translations[selectedLang].title : '';
+        document.getElementById('title').value = translations[selectedLang] ? translations[selectedLang].nom: '';
         document.getElementById('description').value = translations[selectedLang] ? translations[selectedLang].description : '';
     }
 
