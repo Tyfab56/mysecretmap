@@ -83,7 +83,6 @@ class RandoController extends Controller
 
     $rando = RandoSpot::findOrFail($id);
    
-    // Validation des données reçues du formulaire
     $validated = $request->validate([
         'selected_lang' => 'required|string',
         'title' => 'required|string|max:255',
@@ -91,18 +90,14 @@ class RandoController extends Controller
         'video_link' => 'required|url',
     ]);
 
-    // Mise à jour du lien vidéo
     $rando->video_link = $validated['video_link'];
     $rando->save();
 
-    // Récupération de la langue sélectionnée
-    $selectedLang = $validated['selected_lang'];
+    $selectedLang = $request->input('selected_lang');
 
-    // Mise à jour ou création de la traduction pour la langue sélectionnée
-    $translation = $rando->translateOrNew($selectedLang);
-    $translation->nom = $validated['title'];
-    $translation->description = $validated['description'];
-    $translation->save();
+    $rando->translateOrNew($selectedLang)->title = $validated['title'];
+    $rando->translateOrNew($selectedLang)->description = $validated['description'];
+    $rando->save();
 
     return back()->with('success', 'Randonnée mise à jour avec succès.');
 }
