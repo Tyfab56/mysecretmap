@@ -82,13 +82,13 @@ class RandoController extends Controller
 {
 
     $rando = RandoSpot::findOrFail($id);
-    dd($rando);
+
    
     $validated = $request->validate([
         'selected_lang' => 'required|string',
-        'title' => 'required|string|max:255',
-        'description' => 'required|string',
-        'video_link' => 'required|url',
+        'title' => 'required|string',
+        'description' => 'required',
+        'video_link' => 'required',
     ]);
 
     $rando->video_link = $validated['video_link'];
