@@ -1,27 +1,58 @@
 @extends('frontend.main_master')
 @section('content')
-h2>Éditer la randonnée</h2>
 
-@if ($errors->any())
-    <div>
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
+<div class="container">
+    <h2>Éditer la Randonnée</h2>
+    
+    {{-- Sélecteur de Langue --}}
+    <div class="form-group">
+        <label for="languageSelect">Choisir la Langue :</label>
+        <select id="languageSelect" class="form-control">
+            @foreach(config('translatable.locales') as $locale)
+                <option value="{{ $locale }}" {{ app()->getLocale() == $locale ? 'selected' : '' }}>{{ strtoupper($locale) }}</option>
             @endforeach
-        </ul>
+        </select>
     </div>
-@endif
 
-<form action="{{ route('admin.randos.update', $rando->id) }}" method="POST">
-    @csrf
-    @method('PUT')
-    <div>
-        <label for="name">Nom de la randonnée:</label>
-        <input type="text" name="name" id="name" value="{{ $rando->name }}" required>
-    </div>
-    <!-- Ajoutez d'autres champs selon votre modèle RandoSpot -->
-    <button type="submit">Mettre à jour</button>
-</form>
+    <form action="{{ route('admin.randos.update', $rando->id) }}" method="post">
+        @csrf
+        @method('PUT')
+        
+        {{-- Champ pour le Lien Vidéo --}}
+        <div class="form-group">
+            <label for="video_link">Lien Vidéo</label>
+            <input type="text" name="video_link" id="video_link" class="form-control" value="{{ $rando->video_link ?? '' }}">
+        </div>
+        
+        {{-- Champs de Nom et Description pour la Langue Sélectionnée --}}
+        @foreach(config('translatable.locales') as $locale)
+            <div class="form-group localeField" id="locale_{{ $locale }}" style="display: none;">
+                <label for="title_{{ $locale }}">Titre ({{ strtoupper($locale) }})</label>
+                <input type="text" name="translations[{{ $locale }}][title]" class="form-control" value="{{ $rando->translate($locale)->title ?? '' }}">
 
-<a href="{{ route('admin.randos.listrandos') }}">Retour à la liste des randonnées</a>
+                <label for="description_{{ $locale }}">Description ({{ strtoupper($locale) }})</label>
+                <textarea name="translations[{{ $locale }}][description]" class="form-control">{{ $rando->translate($locale)->description ?? '' }}</textarea>
+            </div>
+        @endforeach
+
+        <button type="submit" class="btn btn-primary">Mettre à jour</button>
+    </form>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const selectedLang = document.getElementById('languageSelect').value;
+    document.getElementById(`locale_${selectedLang}`).style.display = '';
+
+    document.getElementById('languageSelect').addEventListener('change', function() {
+        const language = this.value;
+        document.querySelectorAll('.localeField').forEach(function(el) {
+            el.style.display = 'none';
+        });
+        document.getElementById(`locale_${language}`).style.display = '';
+    });
+});
+</script>
+
 @endsection
+
