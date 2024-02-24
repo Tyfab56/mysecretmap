@@ -10,9 +10,9 @@ class RandoSpotTranslation extends Model
     protected $table = 'randos_spots_translations'; 
 
     protected $fillable = [
-        'nom', // Le champ pour le nom traduit de la randonnée
-        'description', // Admettons que vous avez aussi une description traduisible
-        // Ajoutez d'autres champs traduisibles ici selon vos besoins
+        'nom', 
+        'description', 
+        'video_link',
     ];
 
     // Pas besoin de définir des relations ici, elles sont gérées par le modèle principal de RandoSpot

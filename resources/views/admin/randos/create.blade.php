@@ -76,10 +76,7 @@
                 </select>
             </div>
 
-            <div class="form-group">
-                <label for="video_link">Lien Vidéo :</label>
-                <input type="text" name="video_link" id="video_link" class="form-control">
-            </div>
+           
 
             <button type="submit" class="btn btn-primary">Enregistrer les Informations de Base</button>
         </form>
@@ -108,6 +105,11 @@
                 <div class="form-group">
                     <label for="description">Description :</label>
                     <textarea name="description" id="description" rows="5" class="form-control"></textarea>
+                </div>
+
+                <div class="form-group">
+                        <label for="video_link">Lien Vidéo :</label>
+                        <input type="text" name="video_link" id="video_link" class="form-control">
                 </div>
 
                 <button type="submit" class="btn btn-primary">Enregistrer les Traductions</button>

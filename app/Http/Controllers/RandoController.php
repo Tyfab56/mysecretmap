@@ -37,12 +37,12 @@ class RandoController extends Controller
     {
         $request->validate([
             'spot_id' => 'required|integer|exists:spots,id', // Assurez-vous que le spot existe
-            'video_link' => 'required', // Valide si fourni
+          
         ]);
     
         $rando = new RandoSpot([
             'spot_id' => $request->spot_id,
-            'video_link' => $request->video_link,
+        
             // Ajoutez ici d'autres champs selon votre modèle
         ]);
     
@@ -58,7 +58,8 @@ class RandoController extends Controller
         'language' => 'required|string',
         'titre' => 'required|string|max:255',
         'description' => 'required|string',
-        // Ajouter d'autres champs de validation si nécessaire
+        'video_link' => 'required',
+        
     ]);
 
     // Trouver la randonnée créée précédemment ou utiliser une autre logique selon votre application
@@ -68,6 +69,7 @@ class RandoController extends Controller
     // Exemple d'ajout de traductions
     $rando->translateOrNew($request->language)->nom = $request->titre;
     $rando->translateOrNew($request->language)->description = $request->description;
+    $rando->translateOrNew($request->language)->video_link = $request->video_link;
     $rando->save();
 
     // Rediriger vers une page appropriée avec un message de succès
@@ -104,6 +106,7 @@ class RandoController extends Controller
 
         $rando->translateOrNew($selectedLang)->nom = $validated['title'];
         $rando->translateOrNew($selectedLang)->description = $validated['description'];
+        $rando->translateOrNew($selectedLang)->video_link = $validated['video_link'];
         $rando->save();
 
         return back()->with('success', 'Randonnée mise à jour avec succès.');
@@ -125,13 +128,13 @@ class RandoController extends Controller
     // Validation des données du formulaire
     $validated = $request->validate([
         'spot_id' => 'required|integer|exists:spots,id', 
-        'video_link' => 'required' 
+      
     ]);
 
     // Création de la nouvelle randonnée avec les données validées
     $rando = new RandoSpot();
     $rando->spot_id = $validated['spot_id'];
-    $rando->video_link = $validated['video_link'] ?? null; // Utilisez null si vide
+    
     // Vous pouvez ajouter ici d'autres champs selon votre modèle RandoSpot
 
     $rando->save(); // Sauvegarde de la randonnée dans la base de données
