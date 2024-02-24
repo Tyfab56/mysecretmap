@@ -46,7 +46,7 @@
   }
 
 </style>
-
+{{ $latestVideoLink }}
 <div class="container">
     <div id="container_video">
         {{-- Le lecteur vidéo sera inséré ici --}}
