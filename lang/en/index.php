@@ -89,8 +89,9 @@ return [
     "calltoaction1" => "Tourist Offices: Add Your Most Beautiful Spots",
     "calltoaction2" => "Discover How to Showcase Your Region on Our Interactive Map.",
     "calltoaction3" => "Add Your Spots",
-    "pierrerando" => "Exclusively for My Secret Map, discover the hiking paths close to our spots.",
+    "pierrerando" => "Exclusively for My Secret Map, discover the hiking paths close to our spots. This service is open only to our subscribers. For visitors, you will only see the latest video.",
     "randonnez"=>"Hike with Pierre",
+    "pierreguide"=>"Pierre is your guide",
     
 
 ];
