@@ -204,7 +204,20 @@
       </div>
     </div>   
   </section>
-
+  <section id="ts-features" class="ts-features">
+        <div class="testimonial-card">
+        <div style="display: flex; gap: 1rem; /* space-x-4 */">
+          <img src="https://placehold.co/100x100.png" alt="Portrait of Aliya, a client, wearing sunglasses and a floral outfit">
+          <div style="display: flex; flex-direction: column; justify-content: center;">
+            <p class="name">Aliya</p>
+            <p class="title">Client</p>
+          </div>
+        </div>
+        <div style="margin-top: 1rem; /* mt-4 */">
+          <p>{{ $index->pierrerando }}</p>
+        </div>
+      </div>
+</section>
 <style>
   body {
     font-family: 'Inter', sans-serif;
