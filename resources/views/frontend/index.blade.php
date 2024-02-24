@@ -214,7 +214,7 @@
           </div>
         </div>
         <div style="margin-top: 1rem; /* mt-4 */">
-          <p>{{ $index->pierrerando }}</p>
+          <p></p>
         </div>
       </div>
 </section>
