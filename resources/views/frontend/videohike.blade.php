@@ -48,20 +48,10 @@
 </style>
 
 <div class="container">
-    <div id="container_video">
-        {{-- Le lecteur vidéo sera inséré ici --}}
-    </div>
+    <video id="main_video" width="640" height="360" controls preload="auto">
+        <source src="{{ $latestVideoLink }}" type="video/mp4">
+        Votre navigateur ne supporte pas les balises vidéo.
+    </video>
 </div>
 
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const videoLink = "{{ $latestVideoLink }}";
-    const containerVideo = document.getElementById('container_video');
-    containerVideo.innerHTML = `<video id="main_video" width="640" height="360" controls preload="auto"><source src="${videoLink}" type="video/mp4"></video>`;
-    
-    // Initialisez Swarmify ici, si nécessaire
-    swarmify.load({swarmKey: "votre_swarm_key"});
-    swarmify.swarmifyVideo(document.getElementById("main_video"));
-});
-</script>
 @endsection
