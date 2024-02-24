@@ -88,6 +88,21 @@
 </div>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
+
+    const video = document.getElementById('main_video');
+    const overlay = document.querySelector('.video-overlay');
+
+    overlay.addEventListener('click', function() {
+        // Vérifie si la vidéo est déjà en train de jouer
+        if (video.paused) {
+            video.play();
+            overlay.style.display = 'none'; // Cache l'overlay après avoir cliqué pour jouer
+        } else {
+            video.pause(); // Optionnel : permet de mettre la vidéo en pause si elle est déjà en lecture
+        }
+    });
+
+
     const videoLink = "{{ $latestVideoLink }}";
     const containerVideo = document.getElementById('container_video');
     
