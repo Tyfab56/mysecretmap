@@ -102,6 +102,12 @@ class IndexController extends Controller
         return view('frontend.searchspot', compact('spots', 'query'));
     }
 
+
+       public function videohike()
+    {
+       
+        return view('frontend.videohike');
+    }
     public function godestination(Request $request)
     {
         $idpays = $request->idpays;
