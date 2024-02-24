@@ -48,10 +48,11 @@
 </style>
 
 <div class="container">
-    <video id="main_video" width="640" height="360" controls preload="auto">
-        <source src="{{ $latestVideoLink }}" type="video/mp4">
-        Votre navigateur ne supporte pas les balises vidéo.
-    </video>
+<smartvideo class="swarm-fluid" controls playsinline
+            width="1920" height="1080"
+            src="{{ $latestVideoLink }}">
+</smartvideo>
+   
 </div>
 
 @endsection
