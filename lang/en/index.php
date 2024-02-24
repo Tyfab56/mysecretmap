@@ -92,6 +92,7 @@ return [
     "pierrerando" => "Exclusively for My Secret Map, discover the hiking paths close to our spots. This service is open only to our subscribers. For visitors, you will only see the latest video.",
     "randonnez"=>"Hike with Pierre",
     "pierreguide"=>"The most beautiful hikes in videos",
+    "seevideohike"=>"Watch the videos",
     
 
 ];
