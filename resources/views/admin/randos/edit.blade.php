@@ -33,7 +33,7 @@
 
         <div class="form-group">
             <label for="video_link">Lien Vidéo:</label>
-            <input type="text" class="form-control" id="video_link" name="video_link" value="{{ $rando->video_link }}">
+            <input type="text" class="form-control" id="video_link" name="video_link">
         </div>
 
         <button type="submit" class="btn btn-primary">Mettre à jour</button>
@@ -52,6 +52,7 @@ document.addEventListener('DOMContentLoaded', function() {
         var selectedLang = languageSelect.value;
         document.getElementById('title').value = translations[selectedLang] ? translations[selectedLang].nom: '';
         document.getElementById('description').value = translations[selectedLang] ? translations[selectedLang].description : '';
+        document.getElementById('video_link').value = translations[selectedLang] ? translations[selectedLang].video_link : '';
     }
 
     languageSelect.addEventListener('change', updateFields);
