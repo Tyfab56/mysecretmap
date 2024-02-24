@@ -24,6 +24,14 @@ class RandoController extends Controller
     {
         return view('admin.randos.create');
     }
+    public function videohike()
+    {
+       
+        $latestVideoLink = RandoSpot::latest('created_at')->first()->video_link;
+        return view('frontend.videohike', compact('latestVideoLink'));
+    }
+    
+
 
     public function store(Request $request)
     {
@@ -73,35 +81,33 @@ class RandoController extends Controller
         
     $rando = RandoSpot::with('translations')->findOrFail($id);
     $langs = ['en', 'fr'];
-
     return view('admin.randos.edit', compact('rando', 'langs'));
     }
 
     public function update(Request $request, $id)
 
-{
+     {
 
-    $rando = RandoSpot::findOrFail($id);
-
+        $rando = RandoSpot::findOrFail($id);
    
-    $validated = $request->validate([
-        'selected_lang' => 'required|string',
-        'title' => 'required|string',
-        'description' => 'required',
-        'video_link' => 'required',
-    ]);
+        $validated = $request->validate([
+            'selected_lang' => 'required|string',
+            'title' => 'required|string',
+            'description' => 'required',
+            'video_link' => 'required',
+        ]);
 
-    $rando->video_link = $validated['video_link'];
-    $rando->save();
+        $rando->video_link = $validated['video_link'];
+        $rando->save();
 
-    $selectedLang = $request->input('selected_lang');
+        $selectedLang = $request->input('selected_lang');
 
-    $rando->translateOrNew($selectedLang)->nom = $validated['title'];
-    $rando->translateOrNew($selectedLang)->description = $validated['description'];
-    $rando->save();
+        $rando->translateOrNew($selectedLang)->nom = $validated['title'];
+        $rando->translateOrNew($selectedLang)->description = $validated['description'];
+        $rando->save();
 
-    return back()->with('success', 'Randonnée mise à jour avec succès.');
-}
+        return back()->with('success', 'Randonnée mise à jour avec succès.');
+      }
 
     
 

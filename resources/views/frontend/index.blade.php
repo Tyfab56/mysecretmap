@@ -215,7 +215,9 @@
         </div>
         <div style="margin-top: 1rem; /* mt-4 */">
           <p>{{__('index.pierrerando')}}</p>
-          <a class="btn btn-primary indexbtn" href="{{ url('videohike') }}"">{{ __('index.seevideohike') }}</a>
+          <div class="center">
+             <a class="btn btn-primary indexbtn" href="{{ url('videohike') }}"">{{ __('index.seevideohike') }}</a>
+          </div>
         </div>
       </div>
 </section>
