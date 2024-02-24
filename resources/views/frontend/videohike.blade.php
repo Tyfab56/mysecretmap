@@ -50,11 +50,40 @@
     align-items: center; /* Centre verticalement */
     height: 100vh; /* Exemple de hauteur, ajustez selon le besoin */
 }
+.video-container {
+    position: relative;
+    width: 640px; /* Assurez-vous que cela correspond à la largeur de votre vidéo */
+    height: 360px; /* Assurez-vous que cela correspond à la hauteur de votre vidéo */
+}
+
+.video-container video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Assurez-vous que la vidéo couvre tout le conteneur */
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: white; /* Couleur du texte */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5); /* Fond semi-transparent pour la lisibilité */
+}
 </style>
 
 <div class="container video-center">
     <div id="container_video">
         {{-- Le lecteur vidéo sera inséré ici --}}
+    </div>
+    <div class="video-overlay">
+        <h3>Titre de la Randonnée</h3>
+        <p>Description de la randonnée...</p>
     </div>
 </div>
 <script>
