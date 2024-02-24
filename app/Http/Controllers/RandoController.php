@@ -99,8 +99,7 @@ class RandoController extends Controller
             'video_link' => 'required',
         ]);
 
-        $rando->video_link = $validated['video_link'];
-        $rando->save();
+      
 
         $selectedLang = $request->input('selected_lang');
 
