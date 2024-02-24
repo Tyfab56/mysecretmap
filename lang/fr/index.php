@@ -92,6 +92,6 @@ return [
     "calltoaction3"=>"Ajoutez vos spots",
     "randonnez"=>"Randonnez avec Pierre",
     "pierrerando"=>"En exclusivité pour My Secret Map, découvrez les chemins de randonnées proches de nos spots.Ce service est ouvert uniquement à nos abonnés. Pour les visiteurs, vous verrez uniquement la dernière vidéo.",
-    "pierreguide"=>"Pierre est votre guide",
+    "pierreguide"=>"Les plus belles randonnées en vidéos",
     
 ];
