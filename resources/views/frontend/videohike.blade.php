@@ -48,11 +48,21 @@
 </style>
 
 <div class="container">
-<smartvideo class="swarm-fluid" controls playsinline
-            width="1920" height="1080"
-            src="{{ $latestVideoLink }}">
-</smartvideo>
-   
+    <div id="container_video">
+        {{-- Le lecteur vidéo sera inséré ici --}}
+    </div>
 </div>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    const videoLink = "{{ $latestVideoLink }}";
+    const containerVideo = document.getElementById('container_video');
+    
+    containerVideo.innerHTML = '<div id="main_video" src="'+ videoLink + '"  width="640" height="360"  controls="controls" preload="auto"></div>';
+            swarmify.swarmifyVideo("main_video",{
+            width: '640px',
+              });
+    })
+
+</script>
 
 @endsection
