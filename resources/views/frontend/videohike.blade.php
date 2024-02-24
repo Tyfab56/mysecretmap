@@ -44,10 +44,15 @@
   .testimonial-card p {
     color: #4b5563; /* text-gray-600 */
   }
-
+  .video-center {
+    display: flex;
+    justify-content: center; /* Centre horizontalement */
+    align-items: center; /* Centre verticalement */
+    height: 100vh; /* Exemple de hauteur, ajustez selon le besoin */
+}
 </style>
 
-<div class="container center">
+<div class="container video-center">
     <div id="container_video">
         {{-- Le lecteur vidéo sera inséré ici --}}
     </div>
