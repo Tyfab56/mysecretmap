@@ -89,7 +89,8 @@ return [
     "calltoaction1" => "Tourist Offices: Add Your Most Beautiful Spots",
     "calltoaction2" => "Discover How to Showcase Your Region on Our Interactive Map.",
     "calltoaction3" => "Add Your Spots",
-    "pierrerando" => "Exclusively for My Secret Map, discover the hiking paths close to our spots."
+    "pierrerando" => "Exclusively for My Secret Map, discover the hiking paths close to our spots.",
+    "randonnez"=>"Hike with Pierre",
     
 
 ];

@@ -210,11 +210,11 @@
           <img src="https://placehold.co/100x100.png" alt="Portrait of Aliya, a client, wearing sunglasses and a floral outfit">
           <div style="display: flex; flex-direction: column; justify-content: center;">
             <p class="name">Aliya</p>
-            <p class="title">Client</p>
+            <p class="title">{{__('index.randonnez')}}</p>
           </div>
         </div>
         <div style="margin-top: 1rem; /* mt-4 */">
-          <p></p>
+          <p>{{__('index.pierrerando')}}</p>
         </div>
       </div>
 </section>

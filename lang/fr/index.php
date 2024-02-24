@@ -90,6 +90,7 @@ return [
     "calltoaction1"=>"Offices du tourisme : ajoutez vos plus beaux spots",
     "calltoaction2"=>"Découvrez comment mettre en valeur votre région sur notre carte interactive.",
     "calltoaction3"=>"Ajoutez vos spots",
+    "randonnez"=>"Randonnez avec Pierre",
     "pierrerando"=>"En exclusivité pour My Secret Map, découvrez les chemins de randonnées proches de nos spots.",
     
 ];
