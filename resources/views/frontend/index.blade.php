@@ -215,6 +215,9 @@
         </div>
         <div style="margin-top: 1rem; /* mt-4 */">
           <p>{{__('index.pierrerando')}}</p>
+          <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                          {{ __('index.Patron') }}
+                        </button>
         </div>
       </div>
 </section>
