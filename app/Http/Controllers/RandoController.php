@@ -26,8 +26,19 @@ class RandoController extends Controller
     }
     public function videohike()
     {
-       
-        $latestVideoLink = RandoSpot::latest('created_at')->first()->video_link;
+        // Assumons que vous voulez récupérer la vidéo pour la langue actuellement définie dans l'application
+        $locale = app()->getLocale();
+    
+        // Récupérer la dernière randonnée ajoutée et sa traduction pour la langue spécifiée
+        $latestRando = RandoSpot::whereHas('translations', function ($query) use ($locale) {
+                            $query->where('locale', $locale);
+                        })
+                        ->latest('created_at')
+                        ->first();
+    
+        // Si une randonnée a été trouvée, récupérer le video_link de sa traduction
+        $latestVideoLink = optional($latestRando->translate($locale))->video_link;
+    
         return view('frontend.videohike', compact('latestVideoLink'));
     }
     
