@@ -97,7 +97,7 @@ class RandoController extends Controller
 
     // Ajout du nouveau poster
     $file = $request->file('poster');
-    dd($request);
+ 
     $extension = $file->getClientOriginalExtension();
     $imgname =  $file->getClientOriginalName();;
     $imgname = str_replace(' ', '-', $imgpanoname);
