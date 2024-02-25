@@ -74,6 +74,7 @@
         width: '640px',
         poster: "{{ $poster }}"
     });
+ });
 
     
 
