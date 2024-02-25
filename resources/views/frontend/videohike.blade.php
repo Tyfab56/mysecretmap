@@ -75,23 +75,7 @@
         poster: "{{ poster }}"
     });
 
-    var swarmifyPlayer = Swarmify.getPlayer();
-
-        // Écoutez l'événement de lecture
-        swarmifyPlayer.on('play', function() {
-            // Cachez le texte lorsque la vidéo commence à jouer
-            document.getElementById('videoText').style.display = 'none';
-        });
-
-        var swarmifyPlayer = Swarmify.getPlayer();
-
-        // Écoutez l'événement de lecture
-        swarmifyPlayer.on('play', function() {
-            // Cachez le texte lorsque la vidéo commence à jouer
-            document.getElementById('videoText').style.display = 'none';
-        });
-
-    });
+    
 
 </script>
 
