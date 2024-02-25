@@ -8,18 +8,19 @@ use Intervention\Image\Facades\Image;
 
 class RandoController extends Controller
 {
+    
     public function listRandos(Request $request)
-{
-    $query = RandoSpot::query();
+    {
+        $query = RandoSpot::query();
+        if ($request->input('search')) 
+            {
+                $query->where('name', 'like', '%' . $request->search . '%');
+            }
 
-    if ($request->input('search')) {
-        $query->where('name', 'like', '%' . $request->search . '%');
+        $randos = $query->paginate(10); // Modifiez le nombre selon le nombre d'items que vous souhaitez par page
+
+        return view('admin.randos.listrandos', compact('randos'));
     }
-
-    $randos = $query->paginate(10); // Modifiez le nombre selon le nombre d'items que vous souhaitez par page
-
-    return view('admin.randos.listrandos', compact('randos'));
-}
 
     public function create()
     {
@@ -83,6 +84,8 @@ class RandoController extends Controller
     $rando->translateOrNew($request->language)->description = $request->description;
     $rando->translateOrNew($request->language)->video_link = $request->video_link;
 
+    dd($rando);
+    
     // Vérification qu'un poster n'est pas deja enregistré
     if (!empty($rando->translateOrNew($request->language)->poster)) {
         $bucket = 'mysecretmap';
@@ -119,12 +122,6 @@ class RandoController extends Controller
 
     $disk->put('/large/large-' . $imgname, (string) $canvas, 'public');
     $imgname = $disk->url('large/large-' . $imgname);
-
-
-
-
-
-
     $rando->translateOrNew($request->language)->poster = $imgname;
     $rando->save();
 
@@ -132,7 +129,7 @@ class RandoController extends Controller
     return redirect()->route('admin.randos.create')
     ->with('success', 'Traduction ajoutée avec succès. Vous pouvez maintenant ajouter une traduction dans une autre langue.')
     ->with('previous_language', $request->language);
-}
+    }
 
     public function edit($id)
     {
