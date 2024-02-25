@@ -67,6 +67,8 @@ class RandoController extends Controller
     public function storeTranslations(Request $request)
 {
     // Valider la requête
+
+    dd($request);
     $request->validate([
         'language' => 'required|string',
         'titre' => 'required|string|max:255',
@@ -85,7 +87,7 @@ class RandoController extends Controller
     $rando->translateOrNew($request->language)->video_link = $request->video_link;
 
     dd($rando);
-    
+
     // Vérification qu'un poster n'est pas deja enregistré
     if (!empty($rando->translateOrNew($request->language)->poster)) {
         $bucket = 'mysecretmap';
