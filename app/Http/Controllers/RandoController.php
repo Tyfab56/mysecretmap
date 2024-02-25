@@ -149,7 +149,7 @@ class RandoController extends Controller
    
         $validated = $request->validate([
             'selected_lang' => 'required|string',
-            'title' => 'required|string',
+            'titre' => 'required|string',
             'description' => 'required',
             'video_link' => 'required',
           
@@ -159,7 +159,7 @@ class RandoController extends Controller
 
         $selectedLang = $request->input('selected_lang');
 
-        $rando->translateOrNew($selectedLang)->nom = $validated['title'];
+        $rando->translateOrNew($selectedLang)->nom = $validated['titre'];
         $rando->translateOrNew($selectedLang)->description = $validated['description'];
         $rando->translateOrNew($selectedLang)->video_link = $validated['video_link'];
 
