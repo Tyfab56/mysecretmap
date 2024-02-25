@@ -41,7 +41,9 @@ class RandoController extends Controller
         // Si une randonnée a été trouvée, récupérer le video_link de sa traduction
         $latestVideoLink = optional($latestRando->translate($locale))->video_link;
         $poster = optional($latestRando->translate($locale))->poster;
-        return view('frontend.videohike', compact('latestVideoLink','poster'));
+        $nom = optional($latestRando->translate($locale))->nom;
+        $description = optional($latestRando->translate($locale))->description;
+        return view('frontend.videohike', compact('latestVideoLink','poster','nom','description'));
     }
     
 
