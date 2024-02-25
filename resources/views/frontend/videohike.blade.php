@@ -70,9 +70,12 @@
     <div id="container_video">
         {{-- Le lecteur vidéo sera inséré ici --}}
     </div>
-    <h2>{{ $nom }}"</h2>
-    <h3>{{ $description}}"</h3>
+    
 
+</div>
+<div>
+    <h5>{{ $nom }}"</h5>
+    <p>{{ $description}}"</p>
 </div>
 <section id="ts-features" class="ts-features center">
     <h2> ESPACE ABONNES</h2>
