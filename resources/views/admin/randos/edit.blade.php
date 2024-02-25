@@ -8,7 +8,7 @@
 <div class="container">
     <h2>Éditer la Randonnée</h2>
     <h4> {{ $rando->spot->name }}</h4>
-    <form id="editForm" action="{{ route('admin.randos.update', $rando->id) }}" method="POST">
+    <form id="editForm" action="{{ route('admin.randos.update', $rando->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
 
