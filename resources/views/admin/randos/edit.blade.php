@@ -1,16 +1,12 @@
 @extends('frontend.main_master')
 @section('content')
-<script>
-    @if(session('success'))
-        toastr.success("{{ session('success') }}");
-    @endif
-</script>
+
 <div class="container">
     <h2>Éditer la Randonnée</h2>
     <h4> {{ $rando->spot->name }}</h4>
     <form id="editForm" action="{{ route('admin.randos.update', $rando->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
-        @method('POST')
+        @method('PUT')
 
         <div class="form-group">
             <label for="languageSelect">Langue:</label>
@@ -64,5 +60,9 @@ document.addEventListener('DOMContentLoaded', function() {
     updateFields(); // Update fields on initial load
 });
 </script>
-
+<script>
+    @if(session('success'))
+        toastr.success("{{ session('success') }}");
+    @endif
+</script>
 @endsection
