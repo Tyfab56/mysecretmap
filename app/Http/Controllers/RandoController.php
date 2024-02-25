@@ -74,7 +74,7 @@ class RandoController extends Controller
         'titre' => 'required|string|max:255',
         'description' => 'required|string',
         'video_link' => 'required',
-        'poster' => 'image|mimes:jpeg,jpg|max:10048',
+        
     ]);
 
     // Trouver la randonnée créée précédemment ou utiliser une autre logique selon votre application
