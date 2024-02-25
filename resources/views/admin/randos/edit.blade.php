@@ -38,7 +38,7 @@
 
         <div class="form-group">
                         <label for="poster">Image :</label>
-                        <input type="text" name="poster" id="poster" class="form-control">
+                        <input type="file" name="poster" id="poster">
                 </div>
 
         <button type="submit" class="btn btn-primary">Mettre à jour</button>
