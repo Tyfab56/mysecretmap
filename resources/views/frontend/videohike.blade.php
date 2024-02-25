@@ -72,7 +72,7 @@
     
     swarmify.swarmifyVideo("main_video", {
         width: '640px',
-        poster: "{{ asset('frontend/assets/images/pierre250.png') }}"
+        poster: "{{ poster }}"
     });
 
     var swarmifyPlayer = Swarmify.getPlayer();
