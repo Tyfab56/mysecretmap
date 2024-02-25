@@ -153,9 +153,10 @@ class RandoController extends Controller
           
         ]);
 
-      
+       dd($request);
 
         $selectedLang = $request->input('selected_lang');
+        $poster = $request->input('poster');
 
         $rando->translateOrNew($selectedLang)->nom = $validated['titre'];
         $rando->translateOrNew($selectedLang)->description = $validated['description'];
@@ -173,7 +174,7 @@ class RandoController extends Controller
             $file = $request->file('poster');
         
             $extension = $file->getClientOriginalExtension();
-            $imgname =  $file->getClientOriginalName();;
+            $imgname =  $file->getClientOriginalName();
             $imgname = str_replace(' ', '-', $imgname);
             $imgname = uniqid() . "_" . $request->payslist . "_" . $imgname;
             $disk = Storage::disk('wasabi');
