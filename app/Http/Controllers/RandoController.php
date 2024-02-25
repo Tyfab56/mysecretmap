@@ -68,7 +68,7 @@ class RandoController extends Controller
 {
     // Valider la requête
 
-    dd($request);
+ 
     $request->validate([
         'language' => 'required|string',
         'titre' => 'required|string|max:255',
