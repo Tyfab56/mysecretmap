@@ -86,8 +86,7 @@ class RandoController extends Controller
     $rando->translateOrNew($request->language)->description = $request->description;
     $rando->translateOrNew($request->language)->video_link = $request->video_link;
 
-    dd($rando);
-
+ 
     // Vérification qu'un poster n'est pas deja enregistré
     if (!empty($rando->translateOrNew($request->language)->poster)) {
         $bucket = 'mysecretmap';
