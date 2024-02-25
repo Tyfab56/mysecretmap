@@ -1,4 +1,18 @@
 @extends('frontend.main_master')
+@section('css')
+
+<!-- Template styles-->
+<script data-cfasync="false">
+    var swarmoptions = {
+        swarmcdnkey: "213fbcf5-edab-4f21-a4c5-caa151d8b988",
+        iframeReplacement: "iframe",
+        autoreplace: {
+            youtube: true
+        }
+    };
+        </script>
+        <script async data-cfasync="false" src="https://assets.swarmcdn.com/cross/swarmdetect.js"></script>
+ @endsection 
 @section('scripts')
 $(document).ready(function() {
     $('.ellipsis').on('click', function() {
