@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\RandoSpot;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Facades\Image;
 
 class RandoController extends Controller
 {
@@ -95,7 +97,7 @@ class RandoController extends Controller
     $extension = $file->getClientOriginalExtension();
     $imgname =  $file->getClientOriginalName();;
     $imgname = str_replace(' ', '-', $imgpanoname);
-    $imgname = uniqid() . "_" . $id . "_" . $request->payslist . "_" . $imgpanoname;
+    $imgname = uniqid() . "_" . $request->payslist . "_" . $imgname;
     $disk = Storage::disk('wasabi');
     $bucket = 'mysecretmap';
     $width = 960;
