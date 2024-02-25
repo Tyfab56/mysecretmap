@@ -165,7 +165,7 @@ class RandoController extends Controller
 
         // Vérification qu'un poster n'est pas deja enregistré
 
-        dd($rando->translateOrNew($request->language)->poster);
+   
         if (!empty($rando->translateOrNew($request->language)->poster)) {
             $bucket = 'mysecretmap';
             $disk = Storage::disk('wasabi');
