@@ -100,7 +100,7 @@ class RandoController extends Controller
  
     $extension = $file->getClientOriginalExtension();
     $imgname =  $file->getClientOriginalName();;
-    $imgname = str_replace(' ', '-', $imgpanoname);
+    $imgname = str_replace(' ', '-', $imgname);
     $imgname = uniqid() . "_" . $request->payslist . "_" . $imgname;
     $disk = Storage::disk('wasabi');
     $bucket = 'mysecretmap';
