@@ -59,6 +59,7 @@
 </div>
 <section id="ts-features" class="ts-features">
     <h2> ESPACE ABONNES</h2>
+    <img src="{{ $poster }}"/>
 </section>
 
 <script>
