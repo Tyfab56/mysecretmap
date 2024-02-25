@@ -70,7 +70,7 @@ class RandoController extends Controller
         'titre' => 'required|string|max:255',
         'description' => 'required|string',
         'video_link' => 'required',
-        
+        'poster' => 'image|mimes:jpeg,jpg|max:10048',
     ]);
 
     // Trouver la randonnée créée précédemment ou utiliser une autre logique selon votre application
@@ -81,6 +81,50 @@ class RandoController extends Controller
     $rando->translateOrNew($request->language)->nom = $request->titre;
     $rando->translateOrNew($request->language)->description = $request->description;
     $rando->translateOrNew($request->language)->video_link = $request->video_link;
+
+    // Vérification qu'un poster n'est pas deja enregistré
+    if (!empty($rando->translateOrNew($request->language)->poster)) {
+        $bucket = 'mysecretmap';
+        $disk = Storage::disk('wasabi');
+        $filedelete = parse_url($rando->translateOrNew($request->language)->poster);
+        $disk->delete($filedelete);
+    }
+
+    // Ajout du nouveau poster
+    $file = $request->file('poster');
+    $extension = $file->getClientOriginalExtension();
+    $imgname =  $file->getClientOriginalName();;
+    $imgname = str_replace(' ', '-', $imgpanoname);
+    $imgname = uniqid() . "_" . $id . "_" . $request->payslist . "_" . $imgpanoname;
+    $disk = Storage::disk('wasabi');
+    $bucket = 'mysecretmap';
+    $width = 960;
+    $height = 480;
+    $canvas = Image::canvas($width, $height);
+
+    $imagefinale  = Image::make($file)->resize(
+        $width,
+        null,
+        function ($constraint) {
+            $constraint->aspectRatio();
+        }
+    );
+
+    $canvas->insert(
+        $imagefinale,
+        'center'
+    );
+    $canvas->encode($extension);
+
+    $disk->put('/large/large-' . $imgname, (string) $canvas, 'public');
+    $imgname = $disk->url('large/large-' . $imgname);
+
+
+
+
+
+
+    $rando->translateOrNew($request->language)->poster = $imgname;
     $rando->save();
 
     // Rediriger vers une page appropriée avec un message de succès
@@ -108,6 +152,7 @@ class RandoController extends Controller
             'title' => 'required|string',
             'description' => 'required',
             'video_link' => 'required',
+            'poster' => 'required',
         ]);
 
       
@@ -117,6 +162,7 @@ class RandoController extends Controller
         $rando->translateOrNew($selectedLang)->nom = $validated['title'];
         $rando->translateOrNew($selectedLang)->description = $validated['description'];
         $rando->translateOrNew($selectedLang)->video_link = $validated['video_link'];
+        $rando->translateOrNew($selectedLang)->poster = $validated['poster'];
         $rando->save();
 
         return back()->with('success', 'Randonnée mise à jour avec succès.');

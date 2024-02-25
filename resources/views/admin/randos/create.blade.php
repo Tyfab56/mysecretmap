@@ -112,6 +112,11 @@
                         <input type="text" name="video_link" id="video_link" class="form-control">
                 </div>
 
+                <div class="form-group">
+                        <label for="poster">Image :</label>
+                        <input type="file" name="poster" id="poster">
+                </div>
+
                 <button type="submit" class="btn btn-primary">Enregistrer les Traductions</button>
             </form>
         </div>

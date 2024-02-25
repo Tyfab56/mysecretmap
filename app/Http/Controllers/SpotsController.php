@@ -994,7 +994,7 @@ public function updateTranslations(Request $request, $spotId)
 public function search(Request $request)
 {
     $query = $request->get('query');
-    $spots = Spots::where('name', 'LIKE', "%{$query}%")->get();
+    $spots = Spot::where('name', 'LIKE', "%{$query}%")->get();
 
     $html = '';
     foreach ($spots as $spot) {

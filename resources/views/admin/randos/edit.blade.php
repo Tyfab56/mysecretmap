@@ -36,6 +36,11 @@
             <input type="text" class="form-control" id="video_link" name="video_link">
         </div>
 
+        <div class="form-group">
+                        <label for="poster">Image :</label>
+                        <input type="text" name="poster" id="poster" class="form-control">
+                </div>
+
         <button type="submit" class="btn btn-primary">Mettre à jour</button>
     </form>
 </div>

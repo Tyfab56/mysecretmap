@@ -59,15 +59,35 @@
 </div>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
+
     const videoLink = "{{ $latestVideoLink }}";
+
     const containerVideo = document.getElementById('container_video');
     
     containerVideo.innerHTML = '<div id="main_video" src="'+ videoLink + '"  width="640" height="360"  controls="controls" preload="auto"></div>';
-    swarmify.swarmifyVideo("main_video",{
-            width: '640px',
-            poster: "{{ asset('frontend/assets/images/pierre250.png')}}",
-              });
-    })
+    
+    swarmify.swarmifyVideo("main_video", {
+        width: '640px',
+        poster: "{{ asset('frontend/assets/images/pierre250.png') }}"
+    });
+
+    var swarmifyPlayer = Swarmify.getPlayer();
+
+        // Écoutez l'événement de lecture
+        swarmifyPlayer.on('play', function() {
+            // Cachez le texte lorsque la vidéo commence à jouer
+            document.getElementById('videoText').style.display = 'none';
+        });
+
+        var swarmifyPlayer = Swarmify.getPlayer();
+
+        // Écoutez l'événement de lecture
+        swarmifyPlayer.on('play', function() {
+            // Cachez le texte lorsque la vidéo commence à jouer
+            document.getElementById('videoText').style.display = 'none';
+        });
+
+    });
 
 </script>
 
