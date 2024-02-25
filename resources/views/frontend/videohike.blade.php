@@ -62,7 +62,10 @@
     display: flex;
     justify-content: center; /* Centre horizontalement */
     align-items: center; /* Centre verticalement */
-    
+    flex-direction: column; 
+    width: 640px; /* Assurez-vous que cette valeur correspond à la largeur de votre vidéo */
+    margin-left: auto;
+    margin-right: auto;
 }
 </style>
 
