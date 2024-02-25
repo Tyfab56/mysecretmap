@@ -48,7 +48,7 @@
     display: flex;
     justify-content: center; /* Centre horizontalement */
     align-items: center; /* Centre verticalement */
-    height: 100vh; /* Exemple de hauteur, ajustez selon le besoin */
+    
 }
 </style>
 
@@ -57,6 +57,10 @@
         {{-- Le lecteur vidéo sera inséré ici --}}
     </div>
 </div>
+<section id="ts-features" class="ts-features">
+    <h2> ESPACE ABONNES</h2>
+</section>
+
 <script>
     document.addEventListener('DOMContentLoaded', function() {
 
