@@ -77,22 +77,17 @@
 </section>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-
+window.onload = function() {
     const videoLink = "{{ $latestVideoLink }}";
-
     const containerVideo = document.getElementById('container_video');
-    
-    containerVideo.innerHTML = '<div id="main_video" src="'+ videoLink + '"  width="640" height="360"  controls="controls" preload="auto"></div>';
-    
+
+ 
+    containerVideo.innerHTML = '<video id="main_video" width="640" height="360" controls preload="auto" src="' + videoLink + '"></video>';
+ 
     swarmify.swarmifyVideo("main_video", {
         width: '640px',
         poster: "{{ $poster }}"
     });
- });
-
-    
-
+};
 </script>
-
 @endsection
