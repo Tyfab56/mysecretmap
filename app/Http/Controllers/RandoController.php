@@ -156,14 +156,16 @@ class RandoController extends Controller
 
 
         $selectedLang = $request->input('selected_lang');
-        dd($rando);
-        
+    
+
 
         $rando->translateOrNew($selectedLang)->nom = $validated['titre'];
         $rando->translateOrNew($selectedLang)->description = $validated['description'];
         $rando->translateOrNew($selectedLang)->video_link = $validated['video_link'];
 
         // Vérification qu'un poster n'est pas deja enregistré
+
+        dd($rando->translateOrNew($request->language)->poster);
         if (!empty($rando->translateOrNew($request->language)->poster)) {
             $bucket = 'mysecretmap';
             $disk = Storage::disk('wasabi');
