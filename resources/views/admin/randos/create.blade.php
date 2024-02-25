@@ -85,7 +85,7 @@
         {{-- Second formulaire pour les traductions --}}
         <div id="translationForm" class="form-section" style="display:none;">
             <h3>Traductions</h3>
-            <form action="{{ route('admin.randos.storeTranslations') }}" method="post">
+            <form action="{{ route('admin.randos.storeTranslations') }}" method="post" enctype="multipart/form-data">
                 @csrf
 
                 <div class="form-group">
