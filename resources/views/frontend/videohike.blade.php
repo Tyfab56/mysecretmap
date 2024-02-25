@@ -73,7 +73,7 @@
     
 
 </div>
-<div>
+<div class="container video-center">
     <h5>{{ $nom }}"</h5>
     <p>{{ $description}}"</p>
 </div>
