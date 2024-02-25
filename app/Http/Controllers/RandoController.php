@@ -153,10 +153,11 @@ class RandoController extends Controller
           
         ]);
 
-       dd($request);
+
 
         $selectedLang = $request->input('selected_lang');
-        $poster = $request->input('poster');
+        dd($rando);
+        
 
         $rando->translateOrNew($selectedLang)->nom = $validated['titre'];
         $rando->translateOrNew($selectedLang)->description = $validated['description'];
