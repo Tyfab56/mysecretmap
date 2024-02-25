@@ -72,7 +72,7 @@
     
     swarmify.swarmifyVideo("main_video", {
         width: '640px',
-        poster: "{{ poster }}"
+        poster: "{{ $poster }}"
     });
 
     
