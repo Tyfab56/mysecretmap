@@ -77,7 +77,7 @@
 
 </div>
 <div class="container video-center">
-    <h5>{{ $nom }}"</h5>
+    <h4>{{ $nom }}"</h4>
     <p>{{ $description}}"</p>
 </div>
 <section id="ts-features" class="ts-features center">
