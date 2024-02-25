@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function updateFields() {
         var selectedLang = languageSelect.value;
-        document.getElementById('title').value = translations[selectedLang] ? translations[selectedLang].nom: '';
+        document.getElementById('titre').value = translations[selectedLang] ? translations[selectedLang].nom: '';
         document.getElementById('description').value = translations[selectedLang] ? translations[selectedLang].description : '';
         document.getElementById('video_link').value = translations[selectedLang] ? translations[selectedLang].video_link : '';
     }
