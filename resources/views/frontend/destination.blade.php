@@ -12,6 +12,17 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/switchery/0.8.2/switchery.min.css" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/switchery/0.8.2/switchery.js"></script>
 <link rel="stylesheet" href="{{ asset('frontend/assets/css/GridOverflow3D.css')}}" />
+<!-- Template styles-->
+<script data-cfasync="false">
+    var swarmoptions = {
+        swarmcdnkey: "213fbcf5-edab-4f21-a4c5-caa151d8b988",
+        iframeReplacement: "iframe",
+        autoreplace: {
+            youtube: true
+        }
+    };
+        </script>
+        <script async data-cfasync="false" src="https://assets.swarmcdn.com/cross/swarmdetect.js"></script>
 
 @endsection
 
