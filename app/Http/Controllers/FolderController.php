@@ -31,7 +31,7 @@ class FolderController extends Controller
 
         Folder::create($request->all());
 
-        return redirect()->route('folders.index')
+        return redirect()->route('admin.folders.index')
                          ->with('success', 'Dossier créé avec succès.');
     }
 
@@ -53,7 +53,7 @@ class FolderController extends Controller
         $folder = Folder::findOrFail($id);
         $folder->update($request->all());
 
-        return redirect()->route('folders.index')
+        return redirect()->route('admin.folders.index')
                          ->with('success', 'Dossier mis à jour avec succès.');
     }
 
@@ -63,7 +63,7 @@ class FolderController extends Controller
         $folder = Folder::findOrFail($id);
         $folder->delete();
 
-        return redirect()->route('folders.index')
+        return redirect()->route('admin.folders.index')
                          ->with('success', 'Dossier supprimé avec succès.');
     }
 }
