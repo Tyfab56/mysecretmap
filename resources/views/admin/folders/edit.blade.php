@@ -5,7 +5,7 @@
 @section('content')
 <div class="container">
     <h1>Modifier le dossier</h1>
-    <form action="{{ route('folders.update', $folder->id) }}" method="POST">
+    <form action="{{ route('admin.folders.update', $folder->id) }}" method="POST">
         @csrf
         @method('PUT')
         <div class="form-group">
@@ -13,7 +13,7 @@
             <input type="text" class="form-control" id="name" name="name" value="{{ $folder->name }}" required>
         </div>
         <button type="submit" class="btn btn-primary">Mettre à jour</button>
-        <a href="{{ route('folders.index') }}" class="btn btn-secondary">Annuler</a>
+        <a href="{{ route('admin.folders.index') }}" class="btn btn-secondary">Annuler</a>
     </form>
 </div>
 @endsection

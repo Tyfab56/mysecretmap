@@ -9,8 +9,8 @@
         @forelse ($folders as $folder)
             <li class="list-group-item">
                 {{ $folder->name }}
-                <a href="{{ route('folders.edit', $folder->id) }}" class="btn btn-secondary btn-sm">Modifier</a>
-                <form action="{{ route('folders.destroy', $folder->id) }}" method="POST" style="display:inline;">
+                <a href="{{ route('admin.folders.edit', $folder->id) }}" class="btn btn-secondary btn-sm">Modifier</a>
+                <form action="{{ route('admin.folders.destroy', $folder->id) }}" method="POST" style="display:inline;">
                     @csrf
                     @method('DELETE')
                     <button type="submit" class="btn btn-danger btn-sm">Supprimer</button>
