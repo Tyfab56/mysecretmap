@@ -12,6 +12,7 @@ use Laravel\Sanctum\HasApiTokens;
 
 use Astrotomic\Translatable\Contracts\Translatable as TranslatableContract;
 use Astrotomic\Translatable\Translatable;
+use App\Models\Folder;
 
 class User extends Authenticatable implements MustVerifyEmail, TranslatableContract
 
@@ -108,5 +109,10 @@ class User extends Authenticatable implements MustVerifyEmail, TranslatableContr
     public function pays()
     {
         return $this->belongsTo(Pays::class, 'mypays_id', 'pays_id');
+    }
+
+    public function folders()
+    {
+        return $this->belongsToMany(Folder::class, 'folder_user');
     }
 }

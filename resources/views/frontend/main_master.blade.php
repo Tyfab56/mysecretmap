@@ -298,6 +298,7 @@
                              <li><a class="dropdown-item" href="{{ route('admin.hotels') }}"> Gestion Hotels</a></li>
                              <li><a class="dropdown-item" href="{{ route('admin.charly-posts.listposts') }}"> Gestion Charly Posts</a></li>
                              <li><a class="dropdown-item" href="{{ route('admin.circuits') }}"> Gestion Circuits</a></li>
+                             <li><a class="dropdown-item" href="{{ route('admin.folderroot') }}"> Partage de médias</a></li>
                              <li><a class="dropdown-item" href="{{ route('admin.shopifysaleslist') }}"> Gestion Shopify Sales</a></li>
                              <li><a class="dropdown-item" href="{{ route('admin.createzoom') }}">image Zoom</a></li>
                              <li><a class="dropdown-item" href="{{ route('admin.timeline') }}">Timeline</a></li>

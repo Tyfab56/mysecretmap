@@ -21,6 +21,8 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ShopifysalesController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\RandoController;
+use App\Http\Controllers\FolderController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -185,5 +187,22 @@ Route::get('/test', [TestController::class, 'index'])->name('test');
 
 Route::post('/getspot', [TimelineController::class, 'getSpot'])->name('getspot');
 //Route::get('/check-product/{email}/{product_id}', [ApiController::class, 'checkProduct'])->name('check-product');
+
+
+Route::middleware(['auth'])->group(function () {
+    Route::prefix('admin')->group(function () {
+        Route::get('/folders', [FolderController::class, 'index'])->name('admin.folders.index');
+        Route::get('/folders/create', [FolderController::class, 'create'])->name('admin.folders.create');
+        Route::post('/folders', [FolderController::class, 'store'])->name('admin.folders.store');
+        Route::get('/folders/{folder}/edit', [FolderController::class, 'edit'])->name('admin.folders.edit');
+        Route::put('/folders/{folder}', [FolderController::class, 'update'])->name('admin.folders.update');
+        Route::delete('/folders/{folder}', [FolderController::class, 'destroy'])->name('admin.folders.destroy');
+    });
+
+    // Si 'folderroot' est aussi considéré comme une partie de l'administration :
+    Route::get('/folderroot', function () {
+        return view('admin.folderroot');
+    })->name('admin.folderroot')->middleware('App\Http\Middleware\CheckAdmin');
+});
 
 require __DIR__ . '/auth.php';
