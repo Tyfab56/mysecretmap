@@ -4,7 +4,7 @@
 @section('content')
 <div class="container">
     <h1>Dossiers</h1>
-    <a href="{{ route('folders.create') }}" class="btn btn-primary">Créer un nouveau dossier</a>
+    <a href="{{ route('admin.folders.create') }}" class="btn btn-primary">Créer un nouveau dossier</a>
     <ul class="list-group mt-3">
         @forelse ($folders as $folder)
             <li class="list-group-item">
