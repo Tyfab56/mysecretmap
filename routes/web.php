@@ -22,6 +22,7 @@ use App\Http\Controllers\ShopifysalesController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\RandoController;
 use App\Http\Controllers\FolderController;
+use App\Http\Controllers\ShareMediaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -204,5 +205,20 @@ Route::middleware(['auth'])->group(function () {
         return view('admin.folderroot');
     })->name('admin.folderroot')->middleware('App\Http\Middleware\CheckAdmin');
 });
+
+Route::middleware(['auth'])->group(function () {
+    // Préfixer toutes les routes de gestion des médias par 'admin'
+    Route::prefix('admin')->group(function () {
+        Route::resource('sharemedias', ShareMediaController::class)->names([
+            'index' => 'admin.sharemedias.index',
+            'create' => 'admin.sharemedias.create',
+            'store' => 'admin.sharemedias.store',
+            'edit' => 'admin.sharemedias.edit',
+            'update' => 'admin.sharemedias.update',
+            'destroy' => 'admin.sharemedias.destroy',
+        ]);
+    });
+});
+
 
 require __DIR__ . '/auth.php';
