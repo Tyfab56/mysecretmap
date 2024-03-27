@@ -22,8 +22,8 @@
                 <td>{{ $media->media_type }}</td>
                 <td>{{ $media->credits }}</td>
                 <td>
-                    @if ($media->thumbnail_link) <!-- Vérifiez que le lien de la vignette existe -->
-                        <img src="{{ $media->thumbnail_link }}" alt="Vignette" style="width: 100px; height: auto;">
+                    @if ($media->media_link) <!-- Vérifiez que le lien de la vignette existe -->
+                        <img src="{{ $media->media_link }}" alt="Vignette" style="width: 100px; height: auto;">
                     @else
                         Pas de vignette
                     @endif
