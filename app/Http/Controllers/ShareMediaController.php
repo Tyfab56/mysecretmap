@@ -90,10 +90,32 @@ class ShareMediaController extends Controller
     public function destroy($id)
     {
         $shareMedia = ShareMedia::findOrFail($id);
+        
+        // Préparation pour supprimer les fichiers sur S3
+        $disk = Storage::disk('wasabi'); // Assurez-vous que 'wasabi' est correctement configuré dans config/filesystems.php
+        
+        // Extrait les chemins relatifs des URLs complètes stockées dans la base de données
+        $mediaPath = parse_url($shareMedia->media_link, PHP_URL_PATH);
+        $thumbnailPath = $shareMedia->thumbnail_link ? parse_url($shareMedia->thumbnail_link, PHP_URL_PATH) : null;
+        $previewPath = isset($shareMedia->preview_link) ? parse_url($shareMedia->preview_path, PHP_URL_PATH) : null;
+    
+        // Supprimer les fichiers sur S3
+        if ($mediaPath) {
+            $disk->delete(ltrim($mediaPath, '/')); // Supprime le média principal
+        }
+        if ($thumbnailPath) {
+            $disk->delete(ltrim($thumbnailPath, '/')); // Supprime la vignette si elle existe
+        }
+        if ($previewPath) {
+            $disk->delete(ltrim($previewPath, '/')); // Supprime la vidéo de prévisualisation si elle existe
+        }
+    
+        // Suppression de l'enregistrement dans la base de données
         $shareMedia->delete();
-
+    
         return redirect()->route('admin.sharemedias.index')
                          ->with('success', 'Média supprimé avec succès.');
     }
+    
 }
 
