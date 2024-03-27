@@ -33,7 +33,8 @@ class ProcessPhoto implements ShouldQueue
 
         // Télécharger l'image originale sur S3
         $originalImagePathOnS3 = 'images/original/'.$filename;
-        $diskS3->put($originalImagePathOnS3, fopen($localImagePath, 'r+'));
+        $diskS3->put($originalImagePathOnS3, fopen($localImagePath, 'public'));
+  
 
         // Créer et sauvegarder la vignette
         $image = Image::make($localImagePath)->resize(600, null, function ($constraint) {
@@ -50,7 +51,7 @@ class ProcessPhoto implements ShouldQueue
         $image->save($processedImagePath);
 
         // Télécharger la vignette sur S3
-        $diskS3->put($thumbnailPathOnS3, fopen($processedImagePath, 'r+'));
+        $diskS3->put($thumbnailPathOnS3, fopen($processedImagePath, 'public'));
 
         // Sauvegarde des informations dans la base de données
         ShareMedia::create([
