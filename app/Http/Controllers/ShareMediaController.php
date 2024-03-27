@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\ShareMedia;
 use App\Models\Folder;
 use Illuminate\Http\Request;
-use App\Jobs\GenerateVideoThumbnail;
+use App\Jobs\ProcessPhoto;
+use App\Jobs\ProcessVideoForPreview;
 
 class ShareMediaController extends Controller
 {
