@@ -17,6 +17,7 @@
         "laravel/tinker": "^2.7",
         "league/flysystem-aws-s3-v3": "3.0",
         "livewire/livewire": "^2.10",
+        "php-ffmpeg/php-ffmpeg": "^1.2",
         "willvincent/laravel-rateable": "^3.2"
     },
     "require-dev": {

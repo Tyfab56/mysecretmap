@@ -20,8 +20,8 @@
             <input type="text" class="form-control" id="title" name="title" required>
         </div>
         <div class="form-group">
-            <label for="media_link">Lien du Média</label>
-            <input type="text" class="form-control" id="media_link" name="media_link" required>
+            <label for="media">Fichier Média</label>
+            <input type="file" class="form-control-file" id="media" name="media" required>
         </div>
         <div class="form-group">
             <label for="media_type">Type de Média</label>
