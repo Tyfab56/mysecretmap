@@ -73,19 +73,49 @@ class ShareMediaController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'folder_id' => 'required|exists:folders,id',
+            'folder_id' => 'required',
             'title' => 'required|string|max:255',
-            'media_link' => 'required',
-            'media_type' => 'required|in:photo,video,film',
-            'credits' => 'integer|min:1'
+            'media_type' => 'required',
+            'credits' => 'required|numeric',
+            'thumbnail' => 'nullable|image', // S'assurer que le champ thumbnail est bien une image
         ]);
-
+    
         $shareMedia = ShareMedia::findOrFail($id);
-        $shareMedia->update($request->all());
-
-        return redirect()->route('admin.sharemedias.index')
-                         ->with('success', 'Média mis à jour avec succès.');
+        $disk = Storage::disk('wasabi');
+    
+        // Mise à jour des informations générales
+        $shareMedia->folder_id = $request->folder_id;
+        $shareMedia->title = $request->title;
+        $shareMedia->media_type = $request->media_type;
+        $shareMedia->credits = $request->credits;
+    
+        // Traitement spécifique pour les médias de type 'photo'
+        if ($request->media_type === 'photo' && $request->hasFile('thumbnail')) {
+            // Suppression de l'ancienne vignette si elle existe
+            if ($shareMedia->thumbnail_link) {
+                $oldThumbnailPath = parse_url($shareMedia->thumbnail_link, PHP_URL_PATH);
+                $disk->delete(ltrim($oldThumbnailPath, '/'));
+            }
+    
+            // Préparation des données pour ProcessPhoto
+            $temporaryPath = $request->file('thumbnail')->store('temp', 'local');
+    
+            // Dispatch du job ProcessPhoto
+            ProcessPhoto::dispatch($temporaryPath, [
+                'shareMediaId' => $shareMedia->id,
+                'folder_id' => $request->folder_id,
+                'title' => $request->title,
+                'media_type' => $request->media_type,
+                'credits' => $request->credits,
+                // Ajoutez d'autres paramètres nécessaires pour le job
+            ]);
+        }
+    
+        $shareMedia->save();
+    
+        return redirect()->route('admin.sharemedias.index')->with('success', 'Média mis à jour avec succès.');
     }
+    
 
     // Supprime un média de la base de données
     public function destroy($id)
