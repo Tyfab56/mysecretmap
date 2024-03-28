@@ -12,5 +12,10 @@ class ShareMedia extends Model
         'folder_id', 'title', 'media_link', 'thumbnail_link', 'media_type',
         // Ajoutez tous les autres champs que vous souhaitez pouvoir assigner en masse
     ];
+
+    public function folder()
+    {
+        return $this->belongsTo(Folder::class, 'folder_id');
+    }
 }
 
