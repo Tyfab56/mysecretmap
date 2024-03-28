@@ -39,6 +39,8 @@
                 </td>
             </tr>
             @endforeach
+
+            {{ $shareMedias->links() }}
         </tbody>
     </table>
 </div>

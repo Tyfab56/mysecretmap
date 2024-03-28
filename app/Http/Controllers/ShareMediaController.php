@@ -14,7 +14,8 @@ class ShareMediaController extends Controller
     // Liste tous les médias
     public function index()
     {
-        $shareMedias = ShareMedia::with('folder')->orderBy('created_at', 'desc')->get();
+        $shareMedias = ShareMedia::with('folder')->orderBy('created_at', 'desc')->paginate(10);
+
    
         return view('admin.sharemedias.index', compact('shareMedias'));
     }
