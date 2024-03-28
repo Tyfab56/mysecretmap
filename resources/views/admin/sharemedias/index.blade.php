@@ -40,8 +40,9 @@
             </tr>
             @endforeach
 
-            {{ $shareMedias->links() }}
+           
         </tbody>
     </table>
+    {{ $shareMedias->links() }}
 </div>
 @endsection
