@@ -12,11 +12,11 @@
     </div>
     
     <div class="grid">
-        @foreach($folder->medias as $media)
+    @foreach($folder->shareMedias as $media)
         <div class="grid-item {{ $media->media_type }}">
             <p>{{ $media->title }}</p>
             @if($media->thumbnail_link)
-                <img src="{{ $media->thumbnail_link }}" alt="Image de {{ $media->title }}" style="width: 100%; display: block;">
+                <img src="{{ $media->thumbnail_link }}" alt="{{ $media->title }}" style="width: 100%; display: block;">
             @endif
         </div>
         @endforeach
