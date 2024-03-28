@@ -158,7 +158,8 @@ class ShareMediaController extends Controller
     {
         $folder = Folder::with('shareMedias')->findOrFail($folderId);
        
-    
+        dd($folder->shareMedias);
+        
         // Vérifier si l'utilisateur est admin ou a accès au dossier
         $user = Auth::user();
         if (!$user->isAdmin() && !$folder->users->contains('id', $user->id)) {
