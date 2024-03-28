@@ -33,8 +33,9 @@
              <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   
             @yield('css')
-            <link rel="stylesheet" href="{{  asset('frontend/assets/css/style.css') }}">
             <script src="https://cdn.tailwindcss.com"></script>
+            <link rel="stylesheet" href="{{  asset('frontend/assets/css/style.css') }}">
+           
             @yield('fincss')
             @livewireStyles
            
