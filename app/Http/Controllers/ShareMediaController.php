@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use App\Jobs\ProcessPhoto;
 use App\Jobs\ProcessVideoForPreview;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
+
 
 class ShareMediaController extends Controller
 {
