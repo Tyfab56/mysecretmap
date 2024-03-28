@@ -219,6 +219,6 @@ Route::middleware(['auth'])->group(function () {
         ]);
     });
 });
-
+Route::get('/folders/{folderId}/medias', [ShareMediaController::class, 'showByFolder'])->name('folders.medias');
 
 require __DIR__ . '/auth.php';

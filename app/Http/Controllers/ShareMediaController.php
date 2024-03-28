@@ -149,6 +149,21 @@ class ShareMediaController extends Controller
         return redirect()->route('admin.sharemedias.index')
                          ->with('success', 'Média supprimé avec succès.');
     }
+
+    public function showByFolder($folderId)
+        {
+            $folder = Folder::with(['medias' => function($query) {
+                $query->orderBy('created_at', 'desc');
+            }])->findOrFail($folderId);
+
+            // Vérifier si l'utilisateur est admin ou a accès au dossier
+            $user = Auth::user();
+            if (!$user->isAdmin() && !$folder->users->contains($user->id)) {
+                abort(403, "Vous n'avez pas l'autorisation d'accéder à ce dossier.");
+            }
+
+            return view('frontend.ShowByFolder', compact('folder'));
+        }
     
 }
 
