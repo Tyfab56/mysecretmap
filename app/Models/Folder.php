@@ -18,7 +18,7 @@ class Folder extends Model
 
     public function shareMedias()
     {
-        return $this->hasMany(ShareMedia::class);
+        return $this->hasMany(ShareMedia::class, 'folder_id');
     }
 
 

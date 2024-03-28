@@ -17,5 +17,7 @@ class ShareMedia extends Model
     {
         return $this->belongsTo(Folder::class, 'folder_id');
     }
+
+
 }
 
