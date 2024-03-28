@@ -166,7 +166,7 @@ class ShareMediaController extends Controller
             abort(403, "Vous n'avez pas l'autorisation d'accéder à ce dossier.");
         }
     
-        return view('frontend.showByFolder', compact('folder'));
+        return view('frontend.showbyfolder', compact('folder'));
     }
     
     
