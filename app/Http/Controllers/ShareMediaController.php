@@ -14,7 +14,7 @@ class ShareMediaController extends Controller
     // Liste tous les médias
     public function index()
     {
-        $shareMedias = ShareMedia::all();
+        $shareMedias = ShareMedia::with('folder')->get();
         return view('admin.sharemedias.index', compact('shareMedias'));
     }
 

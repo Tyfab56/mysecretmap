@@ -18,6 +18,7 @@
         <tbody>
             @foreach ($shareMedias as $media)
             <tr>
+                <td>{{ $media->folder->name ?? 'Dossier non spécifié' }}</td> <!-- Ajout du nom du dossier -->
                 <td>{{ $media->title }}</td>
                 <td>{{ $media->media_type }}</td>
                 <td>{{ $media->credits }}</td>
