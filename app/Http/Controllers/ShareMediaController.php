@@ -175,7 +175,7 @@ class ShareMediaController extends Controller
         {
             $user = Auth::user();
             $media = ShareMedia::findOrFail($mediaId);
-            $credit = UserCredit::where('user_id', $user->id)->where('media_type', $media->type)->first();
+            $credit = UserCredit::where('user_id', $user->id)->where('media_type', $media->media_type)->first();
 
             if ($credit && $credit->credits > 0) {
                 // Déduire un crédit
