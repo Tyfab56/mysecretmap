@@ -23,7 +23,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\RandoController;
 use App\Http\Controllers\FolderController;
 use App\Http\Controllers\ShareMediaController;
-
+use App\Http\Controllers\UserCreditController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
