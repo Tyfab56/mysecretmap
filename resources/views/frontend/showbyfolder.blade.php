@@ -37,11 +37,16 @@
                 <div class="group">
                 <img src="{{ $media->thumbnail_link }}" alt="{{ $media->title }}" class="rounded-md w-full">
                     <div class="description-box">
-                        <div class="icon-wrapper">
-                            <a href="{{ $media->thumbnail_link }}" class="image-popup"><i class="fa-solid fa-camera"></i></a>
-                        </div>
+                       
                         <div>
-                            <p class="category-text">Choisir ce médias</p>
+                                @if($userCredits->where('media_type', $media->type)->first()->credits ?? 0 > 0)
+                                <form action="{{ route('media.order', $media->id) }}" method="POST">
+                                    @csrf
+                                    <button type="submit" class="btn btn-primary">Commander avec 1 crédit</button>
+                                </form>
+                            @else
+                                <a href="{{ route('credits.purchase') }}" class="btn btn-warning">Acheter des crédits</a>
+                            @endif
                             <a href="#" class="title-link">{{ $media->title }}</a>
                         </div>
                     </div>
