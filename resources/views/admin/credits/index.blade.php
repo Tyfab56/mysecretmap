@@ -20,7 +20,8 @@
             <div class="col-md-4 mb-4">
                 <div class="card">
                     <div class="card-header">
-                        {{ $user->name }}
+                           {{ $user->prenom}} {{ $user->name }} <br>
+                            <small>{{ $user->email }}</small>
                     </div>
                     <div class="card-body">
                         <form action="{{ route('admin.credits.update', $user->id) }}" method="POST">
