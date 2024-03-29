@@ -9,10 +9,18 @@ use Illuminate\Http\Request;
 class UserCreditController extends Controller
 {
     // Affiche la liste des utilisateurs et leurs crédits
-    public function index()
+    public function index(Request $request)
     {
-        $users = User::with('credits')->get(); // Charge les utilisateurs et leurs crédits associés
-        return view('admin.credits.index', compact('users')); // Retourne la vue avec les données des utilisateurs
+        $searchTerm = $request->input('search', ''); // Récupère le terme de recherche depuis la requête, '' par défaut
+    
+        // Utilise la méthode when pour conditionnellement appliquer un filtre de recherche si searchTerm est présent
+        $users = User::with('credits')
+                     ->where('email', 'LIKE', '%' . $searchTerm . '%')
+                     ->orWhere('first_name', 'LIKE', '%' . $searchTerm . '%') // Supposons que vous avez un champ first_name
+                     ->orWhere('last_name', 'LIKE', '%' . $searchTerm . '%') // Supposons que vous avez un champ last_name
+                     ->paginate(9); // Paginer les résultats pour afficher 9 utilisateurs par page
+    
+        return view('admin.credits.index', compact('users', 'searchTerm'));
     }
 
     // Met à jour les crédits pour un utilisateur spécifique

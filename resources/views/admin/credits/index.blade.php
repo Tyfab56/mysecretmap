@@ -4,6 +4,17 @@
 @section('content')
 <div class="container mt-4">
     <h1>Gestion des Crédits Utilisateurs</h1>
+
+    {{-- Formulaire de recherche --}}
+    <form method="GET" action="{{ route('admin.credits.index') }}">
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Rechercher par email, prénom, nom..." name="search" value="{{ $searchTerm }}">
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="submit">Rechercher</button>
+            </div>
+        </div>
+    </form>
+
     <div class="row">
         @foreach($users as $user)
             <div class="col-md-4 mb-4">
@@ -29,6 +40,11 @@
                 </div>
             </div>
         @endforeach
+    </div>
+    
+    {{-- Pagination --}}
+    <div class="d-flex justify-content-center">
+        {!! $users->appends(['search' => $searchTerm])->links() !!}
     </div>
 </div>
 @endsection
