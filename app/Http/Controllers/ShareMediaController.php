@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\ShareMedia;
 use App\Models\Folder;
+use App\Models\UserCredit;
 use Illuminate\Http\Request;
 use App\Jobs\ProcessPhoto;
 use App\Jobs\ProcessVideoForPreview;
