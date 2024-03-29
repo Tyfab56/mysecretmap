@@ -63,7 +63,7 @@
 
 @media (min-width: 640px) { /* sm */
   .picture-item {
-    width: 50%; /* sm:w-1/2, Ajustement pour Masonry */
+    width: 33%; /* sm:w-1/2, Ajustement pour Masonry */
   }
 }
 
@@ -134,12 +134,12 @@
 
 $(document).ready(function() {
     var $grid = $('#gallery-wrapper').imagesLoaded(function() {
-        // Initialise Masonry après le chargement de toutes les images
-        $grid.masonry({
-            itemSelector: '.picture-item',
-            percentPosition: true
-        });
+    $grid.masonry({
+        itemSelector: '.picture-item',
+        percentPosition: true,
+        columnWidth: '.picture-item' // S'assurer que cela correspond à vos éléments de grille
     });
+});
 
     // Filtrer les éléments lors d'un clic sur un bouton
     $('.media-filters').on('click', '.filter-button', function() {
