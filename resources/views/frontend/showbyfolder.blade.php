@@ -40,7 +40,7 @@
                        
                         <div>
                             @if($userCredits->where('media_type', $media->media_type)->first()->credits ?? 0 > 0)
-                                <form action="{{ route('media.order', $media->id) }}" method="POST">
+                                <form action="{{ route('sharemedia.order', $media->id) }}" method="POST">
                                     @csrf
                                     <button type="submit" class="btn btn-primary">Commander avec 1 crédit</button>
                                 </form>
