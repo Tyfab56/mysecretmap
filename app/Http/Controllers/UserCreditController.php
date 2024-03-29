@@ -16,8 +16,8 @@ class UserCreditController extends Controller
         // Utilise la méthode when pour conditionnellement appliquer un filtre de recherche si searchTerm est présent
         $users = User::with('credits')
                      ->where('email', 'LIKE', '%' . $searchTerm . '%')
-                     ->orWhere('first_name', 'LIKE', '%' . $searchTerm . '%') // Supposons que vous avez un champ first_name
-                     ->orWhere('last_name', 'LIKE', '%' . $searchTerm . '%') // Supposons que vous avez un champ last_name
+                     ->orWhere('prenom', 'LIKE', '%' . $searchTerm . '%') // Supposons que vous avez un champ first_name
+                     ->orWhere('name', 'LIKE', '%' . $searchTerm . '%') // Supposons que vous avez un champ last_name
                      ->paginate(9); // Paginer les résultats pour afficher 9 utilisateurs par page
     
         return view('admin.credits.index', compact('users', 'searchTerm'));
