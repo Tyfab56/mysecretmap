@@ -2,21 +2,21 @@
 
 @section('content')
 <div class="container">
-    <h4>Médias du dossier : {{ $folder->name }}</h4>
+    <h4>{{ __('sharemedia.titre') }} : {{ $folder->name }}</h4>
 
 <div class="container">
-    <h5>Crédits disponibles</h5>
+    <h4>{{ __('sharemedia.creditdispo') }}</h4>
     <div class="d-flex justify-content-start align-items-center mb-4">
         <div class="mr-3">
-            <span class="font-weight-bold">Photos :</span>
+            <span class="font-weight-bold">{{ __('sharemedia.photos') }} :</span>
             <span class="badge badge-primary">{{ $userCredits->where('media_type', 'photo')->first()->credits ?? '0' }}</span>
         </div>
         <div class="mr-3">
-            <span class="font-weight-bold">Vidéos :</span>
+            <span class="font-weight-bold">{{ __('sharemedia.videos') }}:</span>
             <span class="badge badge-success">{{ $userCredits->where('media_type', 'video')->first()->credits ?? '0' }}</span>
         </div>
         <div>
-            <span class="font-weight-bold">Films :</span>
+            <span class="font-weight-bold">{{ __('sharemedia.films') }} :</span>
             <span class="badge badge-danger">{{ $userCredits->where('media_type', 'film')->first()->credits ?? '0' }}</span>
         </div>
     </div>
