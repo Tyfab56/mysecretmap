@@ -224,5 +224,8 @@ Route::get('/folders/{folderId}/medias', [ShareMediaController::class, 'showByFo
 Route::get('/admin/credits', [UserCreditController::class, 'index'])->name('admin.credits.index')->middleware('App\Http\Middleware\CheckAdmin');;
 Route::put('/admin/credits/{user}', [UserCreditController::class, 'update'])->name('admin.credits.update')->middleware('App\Http\Middleware\CheckAdmin');;
 
+Route::post('/sharemedia/{mediaId}/order', [ShareMediaController::class, 'orderMedia'])
+    ->middleware('auth')
+    ->name('sharemedia.order');
 
 require __DIR__ . '/auth.php';

@@ -170,6 +170,28 @@ class ShareMediaController extends Controller
     
         return view('frontend.showbyfolder', compact('folder', 'userCredits'));
     }
+
+    public function orderMedia($mediaId)
+        {
+            $user = Auth::user();
+            $media = ShareMedia::findOrFail($mediaId);
+            $credit = UserCredit::where('user_id', $user->id)->where('media_type', $media->type)->first();
+
+            if ($credit && $credit->credits > 0) {
+                // Déduire un crédit
+                $credit->decrement('credits');
+
+                // Envoyer le média par email
+                // Assurez-vous de configurer votre application pour envoyer des emails
+                Mail::send('emails.media', compact('media'), function ($message) use ($user) {
+                    $message->to($user->email)->subject('Votre média commandé');
+                });
+
+                return back()->with('success', 'Média envoyé par email.');
+            }
+
+            return back()->with('error', 'Crédits insuffisants.');
+        }
     
     
 }

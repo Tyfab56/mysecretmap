@@ -45,7 +45,7 @@
                                     <button type="submit" class="btn btn-primary">Commander avec 1 crédit</button>
                                 </form>
                             @else
-                                <a href="{{ route('credits.purchase') }}" class="btn btn-warning">Acheter des crédits</a>
+                                <a href="" class="btn btn-warning">Acheter des crédits</a>
                             @endif
                             <a href="#" class="title-link">{{ $media->title }}</a>
                         </div>
