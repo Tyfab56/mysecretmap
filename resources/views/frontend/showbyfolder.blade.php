@@ -40,7 +40,7 @@
 </div>
 <style>
    #gallery-wrapper {
-
+  /* display: flex; Supprimé pour éviter les conflits avec Masonry */
   justify-content: center;
   margin-left: auto;
   margin-right: auto;
@@ -51,18 +51,19 @@
   position: relative;
   padding: 0.25rem; /* p-1 */
   overflow: hidden;
+  width: 100%; /* Assurez-vous que la largeur par défaut est définie, peut-être ajustée par media queries */
 }
 
 /* Tailles responsives */
 @media (min-width: 1024px) { /* lg */
   .picture-item {
-    width: 33.333%; /* lg:w-1/3 */
+    width: 33.333%; /* lg:w-1/3, Ajustement pour Masonry */
   }
 }
 
 @media (min-width: 640px) { /* sm */
   .picture-item {
-    width: 50%; /* sm:w-1/2 */
+    width: 50%; /* sm:w-1/2, Ajustement pour Masonry */
   }
 }
 
@@ -71,9 +72,9 @@
   width: 100%; /* w-full */
 }
 
-.group .absolute {
+.description-box {
   position: absolute;
-  bottom: -13rem; /* -bottom-52 */
+  bottom: -13rem; /* Ajusté pour plus de clarté */
   left: 0.5rem; /* start-2 */
   right: 0.5rem; /* end-2 */
   background-color: #ffffff; /* bg-white */
@@ -83,7 +84,7 @@
   transition: all 0.5s; /* transition-all duration-500 */
 }
 
-.group:hover .absolute {
+.group:hover .description-box {
   bottom: 0.5rem; /* group-hover:bottom-2 */
 }
 
@@ -121,9 +122,8 @@
 .text-blue-500:hover {
   color: #000000; /* hover:text-black */
 }
-
-
 </style>
+
 @endsection
 
 @push('scripts')
