@@ -2,10 +2,10 @@
 
 @section('content')
 <div class="container">
-    <h1>Médias du dossier : {{ $folder->name }}</h1>
+    <h4>Médias du dossier : {{ $folder->name }}</h4>
 
 <div class="container">
-    <h3>Crédits disponibles</h3>
+    <h5>Crédits disponibles</h5>
     <div class="d-flex justify-content-start align-items-center mb-4">
         <div class="mr-3">
             <span class="font-weight-bold">Photos :</span>
