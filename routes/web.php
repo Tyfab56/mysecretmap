@@ -221,4 +221,8 @@ Route::middleware(['auth'])->group(function () {
 });
 Route::get('/folders/{folderId}/medias', [ShareMediaController::class, 'showByFolder'])->name('folders.medias');
 
+Route::get('/admin/credits', [UserCreditController::class, 'index'])->name('admin.credits.index')->middleware('App\Http\Middleware\CheckAdmin');;
+Route::put('/admin/credits/{user}', [UserCreditController::class, 'update'])->name('admin.credits.update')->middleware('App\Http\Middleware\CheckAdmin');;
+
+
 require __DIR__ . '/auth.php';

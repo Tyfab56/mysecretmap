@@ -115,4 +115,9 @@ class User extends Authenticatable implements MustVerifyEmail, TranslatableContr
     {
         return $this->belongsToMany(Folder::class, 'folder_user');
     }
+
+    public function credits()
+    {
+        return $this->hasMany(UserCredit::class);
+    }
 }
