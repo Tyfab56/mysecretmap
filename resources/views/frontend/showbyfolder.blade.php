@@ -144,24 +144,25 @@ $(document).ready(function() {
     });
 });
 
-    // Filtrer les éléments lors d'un clic sur un bouton
-    $('.media-filters').on('click', '.filter-button', function() {
+$('.media-filters').on('click', '.filter-button', function() {
         var filterValue = $(this).attr('data-filter');
 
         // Afficher tous les éléments si le filtre est "*"
         if (filterValue == '*') {
-            $grid.masonry('layout');
+            // Montrer tous les éléments
+            $('.picture-item').show();
         } else {
             // Sinon, masquer tous les éléments qui ne correspondent pas au filtre et afficher ceux qui correspondent
             $('#gallery-wrapper .picture-item').each(function() {
-                if ($(this).data('groups') == filterValue || filterValue == '*') {
+                if ($(this).data('groups') == filterValue) {
                     $(this).show();
                 } else {
                     $(this).hide();
                 }
             });
-            $grid.masonry('layout');
         }
+        // Relancer le layout Masonry après le filtrage
+        $grid.masonry('layout');
     });
 });
 </script>
