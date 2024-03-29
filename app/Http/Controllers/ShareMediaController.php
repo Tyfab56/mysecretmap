@@ -157,14 +157,17 @@ class ShareMediaController extends Controller
     public function showByFolder($folderId)
     {
         $folder = Folder::with('shareMedias')->findOrFail($folderId);
-
+    
         // Vérifier si l'utilisateur est admin ou a accès au dossier
         $user = Auth::user();
         if (!$user->isAdmin() && !$folder->users->contains('id', $user->id)) {
             abort(403, "Vous n'avez pas l'autorisation d'accéder à ce dossier.");
         }
     
-        return view('frontend.showbyfolder', compact('folder'));
+        // Récupérer les crédits de l'utilisateur en cours
+        $userCredits = UserCredit::where('user_id', $user->id)->get();
+    
+        return view('frontend.showbyfolder', compact('folder', 'userCredits'));
     }
     
     

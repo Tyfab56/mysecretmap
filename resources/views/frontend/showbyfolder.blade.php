@@ -3,6 +3,23 @@
 @section('content')
 <div class="container">
     <h1>Médias du dossier : {{ $folder->name }}</h1>
+
+<div class="container">
+    <h3>Crédits disponibles</h3>
+    <div class="d-flex justify-content-start align-items-center mb-4">
+        <div class="mr-3">
+            <span class="font-weight-bold">Photos :</span>
+            <span class="badge badge-primary">{{ $userCredits->where('media_type', 'photo')->first()->credits ?? '0' }}</span>
+        </div>
+        <div class="mr-3">
+            <span class="font-weight-bold">Vidéos :</span>
+            <span class="badge badge-success">{{ $userCredits->where('media_type', 'video')->first()->credits ?? '0' }}</span>
+        </div>
+        <div>
+            <span class="font-weight-bold">Films :</span>
+            <span class="badge badge-danger">{{ $userCredits->where('media_type', 'film')->first()->credits ?? '0' }}</span>
+        </div>
+    </div>
     
     <div class="media-filters">
         <button class="filter-button" data-filter="*">Tous</button>
