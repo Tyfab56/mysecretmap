@@ -40,7 +40,7 @@
                             <i class="fas fa-image"></i> {{-- Icône pour les photos --}}
                             @break
                         @case('video')
-                            <i class="fas fa-video"></i> {{-- Icône pour les vidéos --}}
+                           <i class="fas fa-folder"></i> {{-- Icône pour les vidéos --}}
                             @break
                         @case('film')
                             <i class="fas fa-film"></i> {{-- Icône pour les films --}}
