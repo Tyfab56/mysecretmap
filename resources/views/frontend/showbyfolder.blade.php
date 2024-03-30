@@ -57,7 +57,7 @@
                         
                         <!-- Video Preview -->
                         <video class="media-video" muted preload="none" style="display: none;">
-                            <source src="{{ $media->preview_link }}" type="video/mp4">
+                            <source src="{{ $media->preview_path }}" type="video/mp4">
                             Votre navigateur ne supporte pas la balise vidéo.
                         </video>
                     @else
@@ -213,6 +213,10 @@
     right: 0;
     padding: 10px; /* Ajustez selon vos besoins */
     color: #fff; /* Couleur de l'icône, ajustez selon le fond */
+}
+.group img, .media-video {
+    border-radius: 0.375rem; /* rounded-md */
+    width: 100%; /* Assure que l'image/vidéo remplit l'espace */
 }
 </style>
 
