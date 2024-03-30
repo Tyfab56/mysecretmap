@@ -12,7 +12,8 @@ use App\Jobs\ProcessVideoForPreview;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
-use Aws\S3\S3Client; 
+use Aws\S3\S3Client;
+use Aws\S3\Exception\S3Exception;
 
 
 class ShareMediaController extends Controller
@@ -200,24 +201,45 @@ class ShareMediaController extends Controller
         }
 
         public function download(Request $request, $mediaId)
-        {
-            $user = auth()->user();
-            $media = ShareMedia::findOrFail($mediaId);
+{
+    $user = Auth::user();
+    $media = ShareMedia::findOrFail($mediaId);
 
-            $customFileName = "UserID{$user->id}_" . Str::slug($media->title) . '.' . pathinfo($media->file_path, PATHINFO_EXTENSION);
+    // Vérifiez que vous avez une colonne ou une méthode getExtension() pour récupérer l'extension de fichier
+    // Si 'media_link' est une URL complète, vous devrez extraire le chemin du fichier de cette URL
+    $path = parse_url($media->media_link, PHP_URL_PATH);
+    $extension = pathinfo($path, PATHINFO_EXTENSION);
 
-            $s3Client = Storage::disk('wasabi')->getDriver()->getAdapter()->getClient();
-            $command = $s3Client->getCommand('GetObject', [
-                'Bucket' => config('filesystems.disks.wasabi.bucket'),
-                'Key'    => $media->file_path,
-                'ResponseContentDisposition' => "attachment; filename=\"{$customFileName}\"",
-            ]);
+    // Création d'une instance du client S3 pour Wasabi
+    $client = new S3Client([
+        'version' => 'latest',
+        'region'  => config('filesystems.disks.wasabi.region'),
+        'endpoint' => config('filesystems.disks.wasabi.endpoint'),
+        'credentials' => [
+            'key'    => config('filesystems.disks.wasabi.key'),
+            'secret' => config('filesystems.disks.wasabi.secret'),
+        ],
+        'use_path_style_endpoint' => true,
+    ]);
 
-            $request = $s3Client->createPresignedRequest($command, '+10 minutes');
-            $presignedUrl = (string) $request->getUri();
+    $customFileName = "UserID{$user->id}_{$media->title}.{$extension}";
 
-            return redirect($presignedUrl);
-        }
+    try {
+        $cmd = $client->getCommand('GetObject', [
+            'Bucket' => config('filesystems.disks.wasabi.bucket'),
+            'Key'    => ltrim($path, '/'), // Assurez-vous de supprimer le slash de début si présent
+            'ResponseContentDisposition' => "attachment; filename=\"{$customFileName}\"",
+        ]);
+
+        $request = $client->createPresignedRequest($cmd, '+10 minutes');
+        $presignedUrl = (string) $request->getUri();
+
+        return redirect($presignedUrl);
+    } catch (AwsException $e) {
+        // Gérer l'exception
+        return back()->withError('Error generating download link');
+    }
+}
                 
         
             
