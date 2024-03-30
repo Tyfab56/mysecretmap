@@ -137,7 +137,7 @@ class ShareMediaController extends Controller
         // Extrait les chemins relatifs des URLs complètes stockées dans la base de données
         $mediaPath = parse_url($shareMedia->media_link, PHP_URL_PATH);
         $thumbnailPath = $shareMedia->thumbnail_link ? parse_url($shareMedia->thumbnail_link, PHP_URL_PATH) : null;
-        $previewPath = isset($shareMedia->preview_link) ? parse_url($shareMedia->preview_path, PHP_URL_PATH) : null;
+        $previewPath = isset($shareMedia->preview_link) ? parse_url($shareMedia->preview_link, PHP_URL_PATH) : null;
     
         // Supprimer les fichiers sur S3
         if ($mediaPath) {
