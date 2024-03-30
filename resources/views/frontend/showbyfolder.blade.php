@@ -2,7 +2,8 @@
 
 @section('content')
 <div class="container">
-    <h4>{{ __('sharemedia.titre') }} : {{ $folder->name }}</h4>
+    <h4>{{ __('sharemedia.titre') }} : {{ $folder->name }}</h4><i class="fas fa-folder"></i>
+
 
 <div class="container">
     <h4>{{ __('sharemedia.creditdispo') }}</h4>
