@@ -114,15 +114,22 @@
 }
 
 .description-box {
-  position: absolute;
-  bottom: -13rem; /* Ajusté pour plus de clarté */
-  left: 0.5rem; /* start-2 */
-  right: 0.5rem; /* end-2 */
-  background-color: #ffffff; /* bg-white */
-  padding: 1rem; /* p-4 */
-  border-radius: 0.375rem; /* rounded */
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow */
-  transition: all 0.5s; /* transition-all duration-500 */
+    position: absolute;
+    bottom: -13rem;
+    left: 0.5rem;
+    right: 0.5rem;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 0.5rem; /* Padding réduit */
+    border-radius: 0.375rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    transition: all 0.5s;
+    max-height: 100px; /* Hauteur maximale spécifiée */
+    overflow: auto; /* Permet le défilement */
+}
+
+.description-box .text-slate-600, .description-box .text-base, .description-box .font-medium, .description-box a {
+    font-size: 0.75rem;
+    margin-bottom: 0.25rem;
 }
 
 .group:hover .description-box {
