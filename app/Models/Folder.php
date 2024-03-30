@@ -9,7 +9,7 @@ use App\Models\User;
 class Folder extends Model
 {
     use HasFactory;
-    protected $fillable = ['name'];
+    protected $fillable = ['name','country_id','status'];
 
     public function users()
     {
@@ -21,5 +21,20 @@ class Folder extends Model
         return $this->hasMany(ShareMedia::class, 'folder_id');
     }
 
+    public function pays()
+    {
+        return $this->belongsTo(Pays::class, 'country_id', 'pays_id');
+    }
 
+     // Scope pour les dossiers publics
+     public function scopePublic($query)
+     {
+         return $query->where('status', 'public');
+     }
+ 
+     // Scope pour les dossiers privés
+     public function scopePrivate($query)
+     {
+         return $query->where('status', 'private');
+     }
 }

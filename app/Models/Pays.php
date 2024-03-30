@@ -34,4 +34,9 @@ class Pays extends Model implements TranslatableContract
     {
         return $this->hasMany(User::class, 'mypays_id', 'pays_id');
     }
+
+    public function folders()
+    {
+        return $this->hasMany(Folder::class, 'country_id', 'pays_id');
+    }
 }
