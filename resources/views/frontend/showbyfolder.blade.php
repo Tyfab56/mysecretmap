@@ -59,7 +59,7 @@
                                 {{-- L'utilisateur a suffisamment de crédits pour acheter le média --}}
                                 <form action="{{ route('sharemedia.order', $media->id) }}" method="POST">
                                     @csrf                                   
-                                    <button type="submit" class="btn btn-primary">{{ __('sharemedia.buy') }}/<button>
+                                    <button type="submit" class="btn btn-primary">{{ __('sharemedia.buy') }}</button>
                                 </form>
                             @else
                                 {{-- L'utilisateur n'a pas suffisamment de crédits --}}
@@ -226,7 +226,7 @@ $('.media-filters').on('click', '.filter-button', function() {
 
 
 document.addEventListener("DOMContentLoaded", function() {
-    const mediaItems = document.querySelectorAll('.media-item');
+    const mediaItems = document.querySelectorAll('.picture-item');
 
     mediaItems.forEach(item => {
         const video = item.querySelector('.media-video');
@@ -246,6 +246,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 });
+
 
 </script>
 
