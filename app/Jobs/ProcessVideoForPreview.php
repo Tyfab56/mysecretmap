@@ -2,6 +2,8 @@
 namespace App\Jobs;
 
 use FFMpeg;
+use FFMpeg\Coordinate\TimeCode;
+use FFMpeg\Format\Video\X264;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
@@ -27,45 +29,58 @@ class ProcessVideoForPreview implements ShouldQueue
     {
         $diskLocal = Storage::disk('local');
         $diskS3 = Storage::disk('wasabi');
-
+    
         $localVideoPath = $diskLocal->path($this->temporaryPath);
         $filename = basename($this->temporaryPath);
-       
-
-        // Utilisez FFmpeg pour ouvrir la vidéo
+    
+        // Préparation du répertoire pour les vignettes
+        $thumbnailDir = storage_path('app/public/thumbnails');
+        if (!file_exists($thumbnailDir)) {
+            mkdir($thumbnailDir, 0755, true);
+        }
+    
+        // Chemin absolu de la vignette
+        $thumbnailPath = $thumbnailDir . '/' . pathinfo($this->temporaryPath, PATHINFO_FILENAME) . '.jpg';
+    
+        // Utiliser FFmpeg pour ouvrir la vidéo et générer la vignette
         $ffmpeg = FFMpeg\FFMpeg::create();
         $video = $ffmpeg->open($localVideoPath);
-
-        // Générer la vignette
-        $thumbnailPath = 'thumbnails/' . pathinfo($this->temporaryPath, PATHINFO_FILENAME) . '.jpg';
-        dd($thumbnailPath);
-
-        $video->frame(FFMpeg\Coordinate\TimeCode::fromSeconds(1))->save($thumbnailPath);
-        $diskS3->put($thumbnailPath, fopen($thumbnailPath, 'r+'));
-
-        // Générer une version réduite pour prévisualisation
-        $previewPath = 'previews/' . pathinfo($this->temporaryPath, PATHINFO_FILENAME) . '_preview.mp4';
-        $format = new FFMpeg\Format\Video\X264('aac', 'libx264');
+        $video->frame(TimeCode::fromSeconds(1))->save($thumbnailPath);
+    
+        // Téléchargement de la vignette sur S3
+        $diskS3->put('thumbnails/' . basename($thumbnailPath), fopen($thumbnailPath, 'r+'));
+    
+        // Préparation du répertoire pour les aperçus
+        $previewDir = storage_path('app/public/previews');
+        if (!file_exists($previewDir)) {
+            mkdir($previewDir, 0755, true);
+        }
+    
+        // Chemin absolu pour l'aperçu
+        $previewPath = $previewDir . '/' . pathinfo($this->temporaryPath, PATHINFO_FILENAME) . '_preview.mp4';
+    
+        // Générer une version réduite pour prévisualisation et la télécharger sur S3
+        $format = new X264('aac', 'libx264');
         $format->setKiloBitrate(500);
         $video->save($format, $previewPath);
-        $diskS3->put($previewPath, fopen($previewPath, 'r+'));
-
+        $diskS3->put('previews/' . basename($previewPath), fopen($previewPath, 'r+'));
+    
         // Télécharger le fichier vidéo original sur S3
         $diskS3->put('videos/'.$filename, fopen($localVideoPath, 'r+'));
-
+    
         // Sauvegarde des informations dans la base de données
         ShareMedia::create([
             'folder_id' => $this->requestData['folder_id'],
             'title' => $this->requestData['title'],
             'media_link' => $diskS3->url('videos/'.$filename),
-            'thumbnail_path' => $diskS3->url($thumbnailPath),
-            'preview_path' => $diskS3->url($previewPath),
+            'thumbnail_path' => $diskS3->url('thumbnails/' . basename($thumbnailPath)),
+            'preview_path' => $diskS3->url('previews/' . basename($previewPath)),
             'media_type' => $this->requestData['media_type'],
         ]);
-
+    
         // Suppression des fichiers temporaires locaux
-        unlink($localVideoPath);
-        unlink($thumbnailPath);
-        unlink($previewPath);
+        @unlink($localVideoPath);
+        @unlink($thumbnailPath);
+        @unlink($previewPath);
     }
 }
