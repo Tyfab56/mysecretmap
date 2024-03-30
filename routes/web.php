@@ -230,5 +230,6 @@ Route::post('/sharemedia/{mediaId}/order', [ShareMediaController::class, 'orderM
     ->name('sharemedia.order');
 
     Route::get('/credits/purchase', [CreditController::class, 'purchase'])->name('credits.purchase')->middleware('auth');
+    Route::get('/media/{media}/download', [ShareMediaController::class, 'download'])->name('media.download')->middleware('auth');
 
 require __DIR__ . '/auth.php';

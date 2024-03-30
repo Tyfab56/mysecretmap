@@ -196,7 +196,59 @@ class ShareMediaController extends Controller
 
             return back()->with('error', 'Crédits insuffisants.');
         }
+
+        public function download(Request $request, ShareMedia $media)
+        {
+            $user = Auth::user();
+        
+            // Supposons que $media->file_path contient le chemin complet du fichier, y compris l'extension
+            $filePath = $media->file_path;
+            $fileName = basename($filePath); // Extrait le nom du fichier avec l'extension
+        
+            // Extraire l'extension du fichier
+            $fileExtension = pathinfo($fileName, PATHINFO_EXTENSION);
+        
+            // Générer le nom de fichier personnalisé avec l'extension d'origine
+            $safeTitle = str_slug($media->title); // Nettoyer le titre pour le rendre sûr comme nom de fichier
+            $customFileName = "UserID{$user->id}_{$safeTitle}.{$fileExtension}";
+        
+            // Générer l'URL présignée pour le téléchargement depuis Wasabi
+            $disk = Storage::disk('wasabi');
+            $command = $disk->getDriver()->getAdapter()->getClient()->getCommand('GetObject', [
+                'Bucket' => config('filesystems.disks.wasabi.bucket'),
+                'Key'    => $filePath,
+                'ResponseContentDisposition' => "attachment; filename=\"{$customFileName}\""
+            ]);
+        
+            $request = $disk->getDriver()->getAdapter()->getClient()->createPresignedRequest($command, '+10 minutes');
+            
+            return redirect((string) $request->getUri());
+        }
+        
+        
+            
     
-    
+    private function generatePresignedUrl($filePath, $user, $mediaTitle) {
+            // Récupération du client S3 à partir du système de fichiers Laravel
+            $s3Client = Storage::disk('s3')->getDriver()->getAdapter()->getClient();
+        
+            // Nettoyage du titre du média pour le nom de fichier
+            $safeTitle = str_slug($mediaTitle);
+        
+            // Formatage du nom de fichier personnalisé
+            $customFileName = "UserID{$user->id}_{$safeTitle}.ext"; // Remplacez '.ext' par l'extension de fichier réelle
+        
+            // Préparation de la commande pour obtenir un objet S3
+            $command = $s3Client->getCommand('GetObject', [
+                'Bucket' => config('filesystems.disks.s3.bucket'),
+                'Key'    => $filePath,
+                'ResponseContentDisposition' => "attachment; filename=\"{$customFileName}\""
+            ]);
+        
+            // Génération de l'URL présignée
+            $request = $s3Client->createPresignedRequest($command, '+10 minutes'); // Lien valide pour 10 minutes
+        
+            return (string) $request->getUri();
+        } 
 }
 
