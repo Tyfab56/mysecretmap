@@ -31,7 +31,9 @@ class ShareMediaController extends Controller
     public function create()
     {
         $folders = Folder::all(); // Récupère tous les dossiers pour les sélectionner dans le formulaire
-        return view('admin.sharemedias.create', compact('folders'));
+        $lastMedia = ShareMedia::latest()->first();
+        $defaultTitle = $lastMedia ? $lastMedia->title : '';
+        return view('admin.sharemedias.create', compact('folders','defaultTitle'));
     }
 
     // Enregistre un nouveau média dans la base de données
