@@ -32,7 +32,22 @@
     <div id="gallery-wrapper" class="gallery-wrapper">
     @foreach($folder->shareMedias as $media)
     
-      
+            <div class="picture-item" data-groups='{{ $media->media_type }}'>
+                <div class="media-icon">
+                    @switch($media->media_type)
+                        @case('photo')
+                            <i class="fas fa-image"></i> {{-- Icône pour les photos --}}
+                            @break
+                        @case('video')
+                            <i class="fas fa-video"></i> {{-- Icône pour les vidéos --}}
+                            @break
+                        @case('film')
+                            <i class="fas fa-film"></i> {{-- Icône pour les films --}}
+                            @break
+                    @endswitch
+                </div>
+                {{-- Votre code existant pour afficher le média --}}
+            </div>
             <div class="picture-item" data-groups='{{ $media->media_type }}'>
                 <div class="group">
 
@@ -186,6 +201,18 @@
 .media-thumbnail {
     width: 100%;
     display: block; /* Assure que l'image remplit l'espace */
+}
+.picture-item {
+    position: relative;
+    /* Votre CSS existant */
+}
+
+.media-icon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 10px; /* Ajustez selon vos besoins */
+    color: #fff; /* Couleur de l'icône, ajustez selon le fond */
 }
 </style>
 
