@@ -199,7 +199,7 @@ class ShareMediaController extends Controller
             return back()->with('error', 'Crédits insuffisants.');
         }
 
-        use Aws\S3\S3Client; 
+    
         
         
             
