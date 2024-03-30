@@ -12,6 +12,7 @@ use App\Jobs\ProcessVideoForPreview;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
+use Aws\S3\S3Client; 
 
 
 class ShareMediaController extends Controller
@@ -198,33 +199,7 @@ class ShareMediaController extends Controller
             return back()->with('error', 'Crédits insuffisants.');
         }
 
-        public function download(Request $request, ShareMedia $media)
-        {
-            $user = Auth::user();
-        
-            // Supposons que $media->file_path contient le chemin complet du fichier, y compris l'extension
-            $filePath = $media->file_path;
-            $fileName = basename($filePath); // Extrait le nom du fichier avec l'extension
-        
-            // Extraire l'extension du fichier
-            $fileExtension = pathinfo($fileName, PATHINFO_EXTENSION);
-        
-            // Générer le nom de fichier personnalisé avec l'extension d'origine
-            $safeTitle = Str::slug($media->title); // Nettoyer le titre pour le rendre sûr comme nom de fichier
-            $customFileName = "UserID{$user->id}_{$safeTitle}.{$fileExtension}";
-        
-            // Générer l'URL présignée pour le téléchargement depuis Wasabi
-            $disk = Storage::disk('wasabi');
-            $command = $disk->getDriver()->getAdapter()->getClient()->getCommand('GetObject', [
-                'Bucket' => config('filesystems.disks.wasabi.bucket'),
-                'Key'    => $filePath,
-                'ResponseContentDisposition' => "attachment; filename=\"{$customFileName}\""
-            ]);
-        
-            $request = $disk->getDriver()->getAdapter()->getClient()->createPresignedRequest($command, '+10 minutes');
-            
-            return redirect((string) $request->getUri());
-        }
+        use Aws\S3\S3Client; 
         
         
             
