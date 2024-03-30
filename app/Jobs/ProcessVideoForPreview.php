@@ -67,7 +67,8 @@ class ProcessVideoForPreview implements ShouldQueue
     
         // Télécharger le fichier vidéo original sur S3
         $diskS3->put('videos/original/'.$filename, fopen($localVideoPath, 'r+'),'public');
-    
+        dd($diskS3->url('videos/previews/' . basename($previewPath))) ;
+        
         // Sauvegarde des informations dans la base de données
         ShareMedia::create([
             'folder_id' => $this->requestData['folder_id'],
