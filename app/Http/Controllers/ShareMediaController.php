@@ -222,7 +222,7 @@ class ShareMediaController extends Controller
         'use_path_style_endpoint' => true,
     ]);
 
-    $customFileName = "MySecretMap_{$média->id}_{$media->title}.{$extension}";
+    $customFileName = "MySecretMap_{$media->id}_{$media->title}.{$extension}";
 
     try {
         $cmd = $client->getCommand('GetObject', [
