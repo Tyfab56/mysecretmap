@@ -22,10 +22,10 @@
     </div>
     
     <div class="media-filters">
-        <button class="filter-button" data-filter="*">Tous</button>
-        <button class="filter-button" data-filter="photo">Photos</button>
-        <button class="filter-button" data-filter="video">Vidéos</button>
-        <button class="filter-button" data-filter="film">Films</button>
+        <button class="filter-button" data-filter="*">{{ __('sharemedia.tous') }}</button>
+        <button class="filter-button" data-filter="photo">{{ __('sharemedia.photos') }}</button>
+        <button class="filter-button" data-filter="video">{{ __('sharemedia.videos') }}</button>
+        <button class="filter-button" data-filter="film">{{ __('sharemedia.films') }}</button>
     </div>
     
   
@@ -41,16 +41,16 @@
                         <div>
                         @if(in_array($media->id, $purchasedMediaIds))
                                 {{-- Le média a déjà été acheté --}}
-                                <a href="#" class="btn btn-success">Télécharger le média</a>
+                                <a href="#" class="btn btn-success">{{ __('sharemedia.download') }}</a>
                             @elseif($userCredits->where('media_type', $media->media_type)->first()->credits ?? 0 > 0)
                                 {{-- L'utilisateur a suffisamment de crédits pour acheter le média --}}
                                 <form action="{{ route('sharemedia.order', $media->id) }}" method="POST">
                                     @csrf
-                                    <button type="submit" class="btn btn-primary">Commander avec 1 crédit</button>
+                                    <button type="submit" class="btn btn-primary">{{ __('sharemedia.buy') }}/button>
                                 </form>
                             @else
                                 {{-- L'utilisateur n'a pas suffisamment de crédits --}}
-                                <a href="{{ route('credits.purchase') }}" class="btn btn-warning">Acheter des crédits</a>
+                                <a href="{{ route('credits.purchase') }}" class="btn btn-warning">{{ __('sharemedia.get') }}</a>
                             @endif
 
                             <a href="#" class="title-link">{{ $media->title }}</a>
