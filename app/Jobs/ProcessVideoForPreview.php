@@ -30,6 +30,7 @@ class ProcessVideoForPreview implements ShouldQueue
 
         $localVideoPath = $diskLocal->path($this->temporaryPath);
         $filename = basename($this->temporaryPath);
+        dd($localVideoPath);
 
         // Utilisez FFmpeg pour ouvrir la vidéo
         $ffmpeg = FFMpeg\FFMpeg::create();
