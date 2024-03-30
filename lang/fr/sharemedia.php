@@ -9,7 +9,7 @@ return [
     "films"=>"Films",
     "all"=>"Tous",
     "download"=>"Télécharger le média",
-    "buy"=>"Commander avec 1 crédit",
+    "buy"=>"Obtenir ce média",
     "get"=>"Obtenir des crédits",
 
 

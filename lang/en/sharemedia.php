@@ -9,7 +9,7 @@ return [
     "films" => "Movies",
     "all" => "All",
     "download" => "Download the media",
-    "buy" => "Order with 1 credit",
+    "buy" => "Get this media",
     "get" => "Get credits",
 
 
