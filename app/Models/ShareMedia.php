@@ -9,7 +9,7 @@ class ShareMedia extends Model
     protected $table = 'sharemedias';
 
     protected $fillable = [
-        'folder_id', 'title', 'media_link', 'thumbnail_link','preview_link','media_type',
+        'folder_id', 'title', 'media_link', 'thumbnail_link','preview_link','media_type','width','height',
         // Ajoutez tous les autres champs que vous souhaitez pouvoir assigner en masse
     ];
 

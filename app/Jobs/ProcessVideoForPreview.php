@@ -45,6 +45,15 @@ class ProcessVideoForPreview implements ShouldQueue
         // Utiliser FFmpeg pour ouvrir la vidéo et générer la vignette
         $ffmpeg = FFMpeg\FFMpeg::create();
         $video = $ffmpeg->open($localVideoPath);
+
+
+        // Obtenir les dimensions de la vidéo
+        $ffprobe = FFMpeg\FFProbe::create();
+        $dimension = $ffprobe->streams($localVideoPath)->videos()->first()->getDimensions();
+        $width = $dimension->getWidth();
+        $height = $dimension->getHeight();
+
+
         $video->frame(TimeCode::fromSeconds(1))->save($thumbnailPath);
     
         // Téléchargement de la vignette sur S3
@@ -77,6 +86,8 @@ class ProcessVideoForPreview implements ShouldQueue
             'thumbnail_link' => $diskS3->url('videos/thumbnails/' . basename($thumbnailPath)),
             'preview_link' => $diskS3->url('videos/previews/' . basename($previewPath)),
             'media_type' => $this->requestData['media_type'],
+            'width' => $width,  // Largeur de la vidéo
+            'height' => $height, // Hauteur de la vidéo
         ]);
     
         // Suppression des fichiers temporaires locaux

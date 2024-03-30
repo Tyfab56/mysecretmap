@@ -34,7 +34,13 @@ class ProcessPhoto implements ShouldQueue
         // Télécharger l'image originale sur S3
         $originalImagePathOnS3 = 'images/original/'.$filename;
         $diskS3->put($originalImagePathOnS3, fopen($localImagePath, 'r+'),'public');
-     
+        
+        // Charger l'image avec Intervention Image
+        $image = Image::make($localImagePath);
+    
+        // Obtenir les dimensions de l'image
+        $width = $image->width();
+        $height = $image->height();
 
         // Créer et sauvegarder la vignette
         $image = Image::make($localImagePath)->resize(600, null, function ($constraint) {
@@ -60,6 +66,8 @@ class ProcessPhoto implements ShouldQueue
             'media_link' => $diskS3->url($originalImagePathOnS3), // URL de l'image originale sur S3
             'thumbnail_link' => $diskS3->url($thumbnailPathOnS3), // URL de la vignette sur S3
             'media_type' => $this->requestData['media_type'],
+            'width' => $width,  // Largeur de l'image
+            'height' => $height, // Hauteur de l'image
         ]);
 
         // Suppression des fichiers temporaires locaux
