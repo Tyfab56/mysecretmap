@@ -120,4 +120,8 @@ class User extends Authenticatable implements MustVerifyEmail, TranslatableContr
     {
         return $this->hasMany(UserCredit::class);
     }
+    public function mediaPurchases()
+    {
+        return $this->hasMany(UserMediaPurchase::class);
+    }
 }
