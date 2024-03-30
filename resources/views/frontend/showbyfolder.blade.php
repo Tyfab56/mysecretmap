@@ -118,12 +118,12 @@
     bottom: -13rem;
     left: 0.5rem;
     right: 0.5rem;
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(255, 255, 255, 0.8);
     padding: 0.5rem; /* Padding réduit */
     border-radius: 0.375rem;
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
     transition: all 0.5s;
-    max-height: 100px; /* Hauteur maximale spécifiée */
+    max-height: 80px; /* Hauteur maximale spécifiée */
     overflow: auto; /* Permet le défilement */
 }
 
