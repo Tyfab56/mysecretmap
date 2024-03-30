@@ -48,7 +48,7 @@ class ProcessVideoForPreview implements ShouldQueue
         $video->frame(TimeCode::fromSeconds(1))->save($thumbnailPath);
     
         // Téléchargement de la vignette sur S3
-        $diskS3->put('thumbnails/' . basename($thumbnailPath), fopen($thumbnailPath, 'r+'),'public');
+        $diskS3->put('videos/thumbnails/' . basename($thumbnailPath), fopen($thumbnailPath, 'r+'),'public');
     
         // Préparation du répertoire pour les aperçus
         $previewDir = storage_path('app/public/previews');
@@ -63,18 +63,18 @@ class ProcessVideoForPreview implements ShouldQueue
         $format = new X264('aac', 'libx264');
         $format->setKiloBitrate(500);
         $video->save($format, $previewPath);
-        $diskS3->put('previews/' . basename($previewPath), fopen($previewPath, 'r+'),'public');
+        $diskS3->put('videos/previews/' . basename($previewPath), fopen($previewPath, 'r+'),'public');
     
         // Télécharger le fichier vidéo original sur S3
-        $diskS3->put('videos/'.$filename, fopen($localVideoPath, 'r+'),'public');
+        $diskS3->put('videos/original/'.$filename, fopen($localVideoPath, 'r+'),'public');
     
         // Sauvegarde des informations dans la base de données
         ShareMedia::create([
             'folder_id' => $this->requestData['folder_id'],
             'title' => $this->requestData['title'],
-            'media_link' => $diskS3->url('videos/'.$filename),
-            'thumbnail_link' => $diskS3->url('thumbnails/' . basename($thumbnailPath)),
-            'preview_link' => $diskS3->url('previews/' . basename($previewPath)),
+            'media_link' => $diskS3->url('videos/original/'.$filename),
+            'thumbnail_link' => $diskS3->url('videos/thumbnails/' . basename($thumbnailPath)),
+            'preview_link' => $diskS3->url('videos/previews/' . basename($previewPath)),
             'media_type' => $this->requestData['media_type'],
         ]);
     
