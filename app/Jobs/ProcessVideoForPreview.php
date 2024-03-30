@@ -30,7 +30,7 @@ class ProcessVideoForPreview implements ShouldQueue
 
         $localVideoPath = $diskLocal->path($this->temporaryPath);
         $filename = basename($this->temporaryPath);
-        dd($localVideoPath);
+       
 
         // Utilisez FFmpeg pour ouvrir la vidéo
         $ffmpeg = FFMpeg\FFMpeg::create();
@@ -38,6 +38,8 @@ class ProcessVideoForPreview implements ShouldQueue
 
         // Générer la vignette
         $thumbnailPath = 'thumbnails/' . pathinfo($this->temporaryPath, PATHINFO_FILENAME) . '.jpg';
+        dd($thumbnailPath);
+
         $video->frame(FFMpeg\Coordinate\TimeCode::fromSeconds(1))->save($thumbnailPath);
         $diskS3->put($thumbnailPath, fopen($thumbnailPath, 'r+'));
 
