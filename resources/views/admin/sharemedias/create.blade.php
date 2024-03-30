@@ -4,7 +4,7 @@
 @section('content')
 <div class="container">
     <h1>Ajouter un Nouveau Média</h1>
-    <a href="{{ route('media.index') }}" class="btn btn-secondary">Retour à la liste</a>
+    <a href="{{ route('admin.sharemedias.index') }}" class="btn btn-primary">Retour à la liste</a>
 
     <form action="{{ route('admin.sharemedias.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
