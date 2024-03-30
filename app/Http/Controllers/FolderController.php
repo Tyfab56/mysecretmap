@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Folder;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Pays;
 
 class FolderController extends Controller
 {
