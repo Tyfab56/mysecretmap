@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\ShareMedia;
 use App\Models\Folder;
 use App\Models\UserCredit;
+use App\Models\UserMediaPurchase;
 use Illuminate\Http\Request;
 use App\Jobs\ProcessPhoto;
 use App\Jobs\ProcessVideoForPreview;
@@ -181,11 +182,11 @@ class ShareMediaController extends Controller
                 // Déduire un crédit
                 $credit->decrement('credits');
 
-                // Envoyer le média par email
-                // Assurez-vous de configurer votre application pour envoyer des emails
-                Mail::send('emails.media', compact('media'), function ($message) use ($user) {
-                    $message->to($user->email)->subject('Votre média commandé');
-                });
+                UserMediaPurchase::create([
+                    'user_id' => $user->id,
+                    'media_id' => $mediaId,
+                    'purchased_at' => now(),
+                ]);
 
                 return back()->with('success', 'Média envoyé par email.');
             }
