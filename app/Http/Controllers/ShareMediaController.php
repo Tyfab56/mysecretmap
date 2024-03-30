@@ -12,7 +12,7 @@ use App\Jobs\ProcessVideoForPreview;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
-use Aws\S3\S3Client; 
+use Aws\S3\S3Client;
 
 
 class ShareMediaController extends Controller
