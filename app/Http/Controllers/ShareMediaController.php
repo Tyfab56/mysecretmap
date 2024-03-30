@@ -210,7 +210,7 @@ class ShareMediaController extends Controller
             $fileExtension = pathinfo($fileName, PATHINFO_EXTENSION);
         
             // Générer le nom de fichier personnalisé avec l'extension d'origine
-            $safeTitle = str_slug($media->title); // Nettoyer le titre pour le rendre sûr comme nom de fichier
+            $safeTitle = Str::slug($media->title); // Nettoyer le titre pour le rendre sûr comme nom de fichier
             $customFileName = "UserID{$user->id}_{$safeTitle}.{$fileExtension}";
         
             // Générer l'URL présignée pour le téléchargement depuis Wasabi
