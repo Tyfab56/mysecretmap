@@ -11,6 +11,7 @@ use App\Jobs\ProcessPhoto;
 use App\Jobs\ProcessVideoForPreview;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 
 class ShareMediaController extends Controller
