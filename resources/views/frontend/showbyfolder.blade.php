@@ -22,7 +22,7 @@
     </div>
     
     <div class="media-filters">
-        <button class="filter-button" data-filter="*">{{ __('sharemedia.tous') }}</button>
+        <button class="filter-button" data-filter="*">{{ __('sharemedia.all') }}</button>
         <button class="filter-button" data-filter="photo">{{ __('sharemedia.photos') }}</button>
         <button class="filter-button" data-filter="video">{{ __('sharemedia.videos') }}</button>
         <button class="filter-button" data-filter="film">{{ __('sharemedia.films') }}</button>

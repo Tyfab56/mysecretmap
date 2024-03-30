@@ -26,7 +26,7 @@ class ProcessVideoForPreview implements ShouldQueue
     public function handle()
     {
         $diskLocal = Storage::disk('local');
-        $diskS3 = Storage::disk('s3');
+        $diskS3 = Storage::disk('wasabi');
 
         $localVideoPath = $diskLocal->path($this->temporaryPath);
         $filename = basename($this->temporaryPath);
