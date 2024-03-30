@@ -168,8 +168,11 @@ class ShareMediaController extends Controller
     
         // Récupérer les crédits de l'utilisateur en cours
         $userCredits = UserCredit::where('user_id', $user->id)->get();
-    
-        return view('frontend.showbyfolder', compact('folder', 'userCredits'));
+        
+        // Récupérer les IDs des médias déjà achetés par l'utilisateur
+        $purchasedMediaIds = $user->mediaPurchases()->pluck('media_id')->toArray();
+
+        return view('frontend.showbyfolder', compact('folder', 'userCredits', 'purchasedMediaIds'));
     }
 
     public function orderMedia($mediaId)

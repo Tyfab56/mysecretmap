@@ -39,14 +39,20 @@
                     <div class="description-box">
                        
                         <div>
-                            @if($userCredits->where('media_type', $media->media_type)->first()->credits ?? 0 > 0)
+                        @if(in_array($media->id, $purchasedMediaIds))
+                                {{-- Le média a déjà été acheté --}}
+                                <a href="#" class="btn btn-success">Télécharger le média</a>
+                            @elseif($userCredits->where('media_type', $media->media_type)->first()->credits ?? 0 > 0)
+                                {{-- L'utilisateur a suffisamment de crédits pour acheter le média --}}
                                 <form action="{{ route('sharemedia.order', $media->id) }}" method="POST">
                                     @csrf
                                     <button type="submit" class="btn btn-primary">Commander avec 1 crédit</button>
                                 </form>
                             @else
-                                <a href="" class="btn btn-warning">Acheter des crédits</a>
+                                {{-- L'utilisateur n'a pas suffisamment de crédits --}}
+                                <a href="{{ route('credits.purchase') }}" class="btn btn-warning">Acheter des crédits</a>
                             @endif
+
                             <a href="#" class="title-link">{{ $media->title }}</a>
                         </div>
                     </div>
