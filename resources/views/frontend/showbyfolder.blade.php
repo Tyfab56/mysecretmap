@@ -35,7 +35,20 @@
       
             <div class="picture-item" data-groups='{{ $media->media_type }}'>
                 <div class="group">
-                <img src="{{ $media->thumbnail_link }}" alt="{{ $media->title }}" class="rounded-md w-full">
+
+                    @if($media->media_type == 'video')
+                        <!-- Thumbnail -->
+                        <img src="{{ $media->thumbnail_link }}" alt="{{ $media->title }}" class="media-thumbnail">
+                        
+                        <!-- Video Preview -->
+                        <video class="media-video" muted preload="none" style="display: none;">
+                            <source src="{{ $media->preview_path }}" type="video/mp4">
+                            Votre navigateur ne supporte pas la balise vidéo.
+                        </video>
+                    @else
+                        <img src="{{ $media->thumbnail_link }}" alt="{{ $media->title }}" class="media-thumbnail">
+                    @endif
+              
                     <div class="description-box">
                        
                         <div>
@@ -46,7 +59,7 @@
                                 {{-- L'utilisateur a suffisamment de crédits pour acheter le média --}}
                                 <form action="{{ route('sharemedia.order', $media->id) }}" method="POST">
                                     @csrf                                   
-                                    <button type="submit" class="btn btn-primary">{{ __('sharemedia.buy') }}/button>
+                                    <button type="submit" class="btn btn-primary">{{ __('sharemedia.buy') }}/<button>
                                 </form>
                             @else
                                 {{-- L'utilisateur n'a pas suffisamment de crédits --}}
@@ -150,6 +163,23 @@
 .text-blue-500:hover {
   color: #000000; /* hover:text-black */
 }
+.media-content {
+    position: relative;
+}
+
+.media-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none; /* Masquée par défaut */
+}
+
+.media-thumbnail {
+    width: 100%;
+    display: block; /* Assure que l'image remplit l'espace */
+}
 </style>
 
 
@@ -193,6 +223,30 @@ $('.media-filters').on('click', '.filter-button', function() {
         $grid.masonry('layout');
     });
 });
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    const mediaItems = document.querySelectorAll('.media-item');
+
+    mediaItems.forEach(item => {
+        const video = item.querySelector('.media-video');
+        const image = item.querySelector('.media-thumbnail');
+
+        if (video) {
+            item.addEventListener('mouseover', () => {
+                video.style.display = 'block';
+                video.play();
+            });
+
+            item.addEventListener('mouseout', () => {
+                video.style.display = 'none';
+                video.pause();
+                video.currentTime = 0;
+            });
+        }
+    });
+});
+
 </script>
 
 
