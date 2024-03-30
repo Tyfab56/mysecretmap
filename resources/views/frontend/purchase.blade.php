@@ -5,7 +5,7 @@
     <h2>Acheter des Crédits</h2>
     <p>Utilisez le formulaire ci-dessous pour acheter des crédits supplémentaires.</p>
 
-    <form action="{{ route('credits.buy') }}" method="POST">
+    <form action="#" method="POST">
         @csrf
         <div class="mb-3">
             <label for="creditAmount" class="form-label">Nombre de crédits à acheter</label>
