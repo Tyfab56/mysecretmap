@@ -73,8 +73,8 @@ class ProcessVideoForPreview implements ShouldQueue
             'folder_id' => $this->requestData['folder_id'],
             'title' => $this->requestData['title'],
             'media_link' => $diskS3->url('videos/'.$filename),
-            'thumbnail_path' => $diskS3->url('thumbnails/' . basename($thumbnailPath)),
-            'preview_path' => $diskS3->url('previews/' . basename($previewPath)),
+            'thumbnail_link' => $diskS3->url('thumbnails/' . basename($thumbnailPath)),
+            'preview_link' => $diskS3->url('previews/' . basename($previewPath)),
             'media_type' => $this->requestData['media_type'],
         ]);
     
