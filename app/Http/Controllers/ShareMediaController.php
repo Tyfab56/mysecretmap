@@ -12,7 +12,7 @@ use App\Jobs\ProcessVideoForPreview;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
-use Aws\S3\S3Client;
+use Aws\S3\S3Client; 
 
 
 class ShareMediaController extends Controller
@@ -199,32 +199,29 @@ class ShareMediaController extends Controller
             return back()->with('error', 'Crédits insuffisants.');
         }
 
-    
-        
+        public function download(Request $request, $mediaId)
+        {
+            $user = auth()->user();
+            $media = ShareMedia::findOrFail($mediaId);
+
+            $customFileName = "UserID{$user->id}_" . Str::slug($media->title) . '.' . pathinfo($media->file_path, PATHINFO_EXTENSION);
+
+            $s3Client = Storage::disk('wasabi')->getDriver()->getAdapter()->getClient();
+            $command = $s3Client->getCommand('GetObject', [
+                'Bucket' => config('filesystems.disks.wasabi.bucket'),
+                'Key'    => $media->file_path,
+                'ResponseContentDisposition' => "attachment; filename=\"{$customFileName}\"",
+            ]);
+
+            $request = $s3Client->createPresignedRequest($command, '+10 minutes');
+            $presignedUrl = (string) $request->getUri();
+
+            return redirect($presignedUrl);
+        }
+                
         
             
     
-    private function generatePresignedUrl($filePath, $user, $mediaTitle) {
-            // Récupération du client S3 à partir du système de fichiers Laravel
-            $s3Client = Storage::disk('s3')->getDriver()->getAdapter()->getClient();
-        
-            // Nettoyage du titre du média pour le nom de fichier
-            $safeTitle = str_slug($mediaTitle);
-        
-            // Formatage du nom de fichier personnalisé
-            $customFileName = "UserID{$user->id}_{$safeTitle}.ext"; // Remplacez '.ext' par l'extension de fichier réelle
-        
-            // Préparation de la commande pour obtenir un objet S3
-            $command = $s3Client->getCommand('GetObject', [
-                'Bucket' => config('filesystems.disks.s3.bucket'),
-                'Key'    => $filePath,
-                'ResponseContentDisposition' => "attachment; filename=\"{$customFileName}\""
-            ]);
-        
-            // Génération de l'URL présignée
-            $request = $s3Client->createPresignedRequest($command, '+10 minutes'); // Lien valide pour 10 minutes
-        
-            return (string) $request->getUri();
-        } 
+ 
 }
 
