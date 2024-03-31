@@ -752,20 +752,23 @@ public function mesMedias(Request $request)
 
 public function publicFolders($countryId = null)
 {
-    $activeCountries = Pays::where('actif', 1)->get(); // Récupérer tous les pays actifs
+    // Récupérer tous les pays actifs
+    $activeCountries = Pays::where('actif', 1)->get();
 
-   // Récupération de countryId depuis la requête ou une valeur par défaut
-   $countryId = $request->input('countryId');
+    // Sélectionner le pays actif ou utiliser le premier pays actif par défaut
+    $selectedCountryId = $countryId ?? $activeCountries->first()->pays_id;
 
-   // Utiliser le premier pays actif par défaut si aucun pays n'est spécifié ou si $countryId est invalide
-   $selectedCountryId = $countryId ?? $activeCountries->first()->pays_id;
-   
-    $publicFolders = Folder::whereHas('pays', function ($query) use ($selectedCountryId) {
-        $query->where('pays_id', $selectedCountryId);
-    })->where('status', 'public')
-    ->whereHas('shareMedias') // S'assurer que le dossier a au moins un média partagé
-    ->with('shareMedias')
-    ->get();
+    // S'assurer que le pays sélectionné est actif; sinon, utiliser le premier pays actif
+    if (!$activeCountries->pluck('pays_id')->contains($selectedCountryId)) {
+        $selectedCountryId = $activeCountries->first()->pays_id;
+    }
+
+    // Récupérer les dossiers publics du pays sélectionné ayant au moins un média
+    $publicFolders = Folder::where('country_id', $selectedCountryId)
+                            ->where('status', 'public')
+                            ->whereHas('shareMedias')
+                            ->with('shareMedias')
+                            ->get();
 
     return view('frontend.publicfolders', compact('publicFolders', 'activeCountries', 'selectedCountryId'));
 }
