@@ -743,7 +743,7 @@ public function mesMedias(Request $request)
     $user = Auth::user();
     // Récupérer les crédits de l'utilisateur en cours
     $userCredits = UserCredit::where('user_id', $user->id)->get();
-    
+
     $mode = $request->query('mode', 'achetes'); // 'achetes' est la valeur par défaut
 
     switch ($mode) {
@@ -755,7 +755,7 @@ public function mesMedias(Request $request)
             break;
         case 'achetes':
         default:
-            $purchasedmedias = $user->purchasedMedias; /
+            $purchasedmedias = $user->purchasedMedias; 
             break;
     }
 
