@@ -738,6 +738,10 @@ class IndexController extends Controller
 
     public function mesMedias()
 {
+    $user = Auth::user();
+    if (!$user->isAdmin() && !$folder->users->contains('id', $user->id)) {
+        abort(403, "Vous n'avez pas l'autorisation d'accéder à ce dossier.");
+    }
     // Récupère tous les médias achetés par l'utilisateur authentifié
     $medias = auth()->user()->purchasedMedias()->get();
      // Récupérer les crédits de l'utilisateur en cours
