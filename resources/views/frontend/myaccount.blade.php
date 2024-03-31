@@ -78,28 +78,7 @@ function submitForm() {
     document.getElementById('whoiamForm').submit();
 }
 
-$(function () {
-    $('.hint-toggle').click(function(e) {
-        e.preventDefault(); 
 
-        var targetId = $(this).data('target');
-        var targetElement = $(targetId);
-        
-        if(targetElement.css('opacity') == '0') {
-            targetElement.css({
-                'opacity': '1',
-                'max-height': '200px' // ou toute autre valeur maximale pour afficher le contenu
-            });
-            $(this).parent().addClass('hint-visible');
-        } else {
-            targetElement.css({
-                'opacity': '0',
-                'max-height': '0'
-            });
-            $(this).parent().removeClass('hint-visible');
-        }
-    });
-});
 
 $('#save-info-button').click(function() {
         $.ajax({
@@ -117,27 +96,7 @@ $('#save-info-button').click(function() {
         });
     });
 
-    $(document).ready(function () {
-        $('#language').change(function () {
-            // Récupérez la langue sélectionnée
-            var selectedLanguage = $(this).val();
-
-            // Effectuez une requête AJAX pour récupérer les informations correspondantes
-            $.ajax({
-                url: '/get-photographer-info',
-                type: 'GET',
-                data: { language: selectedLanguage },
-                success: function (data) {
-                    // Mettez à jour les champs du formulaire avec les informations récupérées
-                    $('#photographer_title').val(data.photographer_title);
-                    $('#photographer_description').val(data.photographer_description);
-                },
-                error: function () {
-                    // Gérez les erreurs si nécessaire
-                }
-            });
-        });
-    });
+   
 </script>
 
 @endsection
@@ -366,6 +325,19 @@ $('#save-info-button').click(function() {
 
         <div class="col-lg-6">
             <div class="sidebar sidebar-right">
+              <div class="widget">
+                        <h3 class="widget-title">Mes Médias</h3>
+                        <!-- Bouton Mes Médias avec le nombre total -->
+                        <a href="{{ route('mes-medias') }}" class="btn btn-primary">
+                            Mes médias ({{ $userMediaCount }})
+                        </a>
+                        <!-- Liens supplémentaires comme demandé -->
+                        <div class="additional-links mt-3">
+                            <a href="{{ route('banque-medias') }}" class="d-block">Banque de médias</a>
+                            <a href="{{ route('dossiers-publics') }}" class="d-block">Consulter les dossiers publics</a>
+                            <a href="{{ route('mes-dossiers-prives') }}" class="d-block">Consulter mes dossiers privés</a>
+                        </div>
+                </div>
                 <div class="widget recent-posts">
                     <h3 class="widget-title">Bienvenue sur My Secret Map</h3>
                     <p>Cette page vous permet de modifier vos informations, le niveaux de vos abonnements et de saisir les paramètres de vos circuits.</p>
