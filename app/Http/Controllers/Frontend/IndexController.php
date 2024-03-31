@@ -759,9 +759,9 @@ public function mesMedias(Request $request)
             break;
     }
 
-    $purchasedMediasIds = $user->purchasedMedias; 
+    $purchasedMediaIds = $user->purchasedMedias; 
 
-    return view('frontend.mesmedias', compact('medias', 'mode','purchasedMediasIds','userCredits'));
+    return view('frontend.mesmedias', compact('medias', 'mode','purchasedMediaIds','userCredits'));
 }
 
 
