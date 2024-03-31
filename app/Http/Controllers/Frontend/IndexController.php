@@ -252,7 +252,8 @@ class IndexController extends Controller
         // Recupération du tatal des médias
         //$userMediaCount = ShareMedia::where('user_id', auth()->id())->count();
     
-        return view('frontend/myaccount', compact('user', 'pays','payslist', 'whoiams','userMediaCount'));
+        //return view('frontend/myaccount', compact('user', 'pays','payslist', 'whoiams','userMediaCount'));
+        return view('frontend/myaccount', compact('user', 'pays','payslist', 'whoiams'));
     }
 
     public function addimagespotstore(Request $request)
