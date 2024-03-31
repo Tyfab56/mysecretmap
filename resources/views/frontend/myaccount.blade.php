@@ -146,8 +146,9 @@ $('#save-info-button').click(function() {
 @auth
 <section id="main-container" class="main-container">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-6">
+      
+        <div class="col-lg-6">
+            <div class="row">
                 <form id="whoiamForm" action="{{ route('whoiam.update') }}" method="POST" class="mt-3">
                     @csrf
                     @method('PUT')
@@ -167,10 +168,9 @@ $('#save-info-button').click(function() {
                     </div>
                 </form>
             </div>
-        </div>
-
+       
       
-            <div class="col-lg-6">
+            <div class="row">
                 <h3 class="border-title border-left mar-t0">{{ __('compte.MonCompte') }}</h3>
                 <div class="accordion accordion-group accordion-classic" id="construction-accordion">
                     <div class="card">
@@ -257,7 +257,7 @@ $('#save-info-button').click(function() {
                 </div>
             </div>
     
-
+        </div>
         <div class="col-lg-6">
             <div class="sidebar sidebar-right">
                 <div class="widget recent-posts">
