@@ -73,20 +73,8 @@
                     <div class="description-box">
                        
                         <div>
-                        @if(in_array($media->id, $purchasedMediaIds))
-                                {{-- Le média a déjà été acheté --}}
-                                <a href="{{ route('media.download', $media->id) }}" class="btn btn-success">{{ __('sharemedia.download') }}</a>
-                            @elseif($userCredits->where('media_type', $media->media_type)->first()->credits ?? 0 > 0)
-                                {{-- L'utilisateur a suffisamment de crédits pour acheter le média --}}
-                                <form action="{{ route('sharemedia.order', $media->id) }}" method="POST">
-                                    @csrf                                   
-                                    <button type="submit" class="btn btn-primary">{{ __('sharemedia.buy') }}</button>
-                                </form>
-                            @else
-                                {{-- L'utilisateur n'a pas suffisamment de crédits --}}
-                                <a href="{{ route('credits.purchase') }}" class="btn btn-warning">{{ __('sharemedia.get') }}</a>
-                            @endif
-
+                    
+                           <a href="{{ route('media.download', $media->id) }}" class="btn btn-success">{{ __('sharemedia.download') }}</a>
                             <a href="#" class="title-link">{{ $media->title }}</a>
                         </div>
                     </div>

@@ -744,24 +744,14 @@ public function mesMedias(Request $request)
     // Récupérer les crédits de l'utilisateur en cours
     $userCredits = UserCredit::where('user_id', $user->id)->get();
 
-    $mode = $request->query('mode', 'achetes'); // 'achetes' est la valeur par défaut
+    
+  
+    $medias = ShareMedia::where('status', 'public')->get();
+           
 
-    switch ($mode) {
-        case 'prives':
-            $medias = ShareMedia::where('user_id', $user->id)->where('status', 'private')->get();
-            break;
-        case 'publics':
-            $medias = ShareMedia::where('status', 'public')->get();
-            break;
-        case 'achetes':
-        default:
-            $medias = $user->purchasedMedias; 
-            break;
-    }
 
-    $purchasedMediaIds = $user->purchasedMedias()->pluck('media_id')->toArray();
 
-    return view('frontend.mesmedias', compact('medias', 'mode','purchasedMediaIds','userCredits'));
+    return view('frontend.mesmedias', compact('medias','userCredits'));
 }
 
 
