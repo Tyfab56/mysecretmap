@@ -10,11 +10,11 @@
         @csrf
         <div class="form-group">
             <label for="folder_id">Dossier</label>
-            <select class="form-control" id="folder_id" name="folder_id">
-                @foreach ($folders as $folder)
-                <option value="{{ $folder->id }}">{{ $folder->name }}</option>
+            <select class="form-control" name="folder_id" id="folder_id">
+                @foreach($folders as $folder)
+                    <option value="{{ $folder->id }}" {{ $folder->id == $defaultFolderId ? 'selected' : '' }}>{{ $folder->name }}</option>
                 @endforeach
-            </select>
+        </select>
         </div>
         <div class="form-group">
             <label for="title">Titre</label>
@@ -27,10 +27,11 @@
         <div class="form-group">
             <label for="media_type">Type de Média</label>
             <select class="form-control" id="media_type" name="media_type">
-                <option value="photo">Photo</option>
-                <option value="video">Vidéo</option>
-                <option value="film">Film</option>
+                <option value="photo" {{ $defaultMediaType == 'photo' ? 'selected' : '' }}>Photo</option>
+                <option value="video" {{ $defaultMediaType == 'video' ? 'selected' : '' }}>Vidéo</option>
+                <option value="film" {{ $defaultMediaType == 'film' ? 'selected' : '' }}>Film</option>
             </select>
+
         </div>
         <div class="form-group">
             <label for="credits">Crédits</label>
