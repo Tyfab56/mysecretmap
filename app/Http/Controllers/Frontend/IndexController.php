@@ -758,8 +758,8 @@ public function publicFolders($countryId = null)
 
     $publicFolders = Folder::whereHas('pays', function ($query) use ($selectedCountryId) {
         $query->where('pays_id', $selectedCountryId);
-    })->where('status', 'public') // Assumer que vous avez un champ 'status' pour le statut public/privé
-    ->whereNotNull('shareMedias') // Assurez-vous que le dossier a des médias partagés
+    })->where('status', 'public')
+    ->whereHas('shareMedias') // S'assurer que le dossier a au moins un média partagé
     ->with('shareMedias')
     ->get();
 
