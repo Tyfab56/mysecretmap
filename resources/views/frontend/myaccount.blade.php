@@ -147,223 +147,221 @@ $('#save-info-button').click(function() {
 <section id="main-container" class="main-container">
     <div class="container">
       
-        <div class="col-lg-6">
-            
-      
-            <div class="row">
+        <div class="col-lg-6">      
+               <div class="row">
                     <h3 class="border-title border-left mar-t0">{{ __('compte.MonCompte') }}</h3>
                     <div class="accordion accordion-group accordion-classic" id="construction-accordion">
-                        <div class="card">
-                            <div class="card-header p-0 bg-transparent" id="headingOne">
-                                <h2 class="mb-0">
-                                    <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                        {{ __('compte.MesInfos') }}
-                                    </button>
-                                </h2>
-                            </div>
+                                <div class="card">
+                                    <div class="card-header p-0 bg-transparent" id="headingOne">
+                                        <h2 class="mb-0">
+                                            <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                {{ __('compte.MesInfos') }}
+                                            </button>
+                                        </h2>
+                                    </div>
 
-                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#construction-accordion">
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-md-3 center-flex">
-                                            <div class="">
-                                                @if($user->profile_photo_path)
-                                                <img id="avatar-preview" class="mw-150 avatar-r100" src="{{ $user->profile_photo_path }}" alt="Avatar" />
-                                                @else
-                                                <img id="avatar-preview" class="mw-150 avatar-r100" src="{{asset('frontend/assets/images/avatar.jpg')}}" alt="Avatar" />
-                                                @endif
+                                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#construction-accordion">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-md-3 center-flex">
+                                                    <div class="">
+                                                        @if($user->profile_photo_path)
+                                                        <img id="avatar-preview" class="mw-150 avatar-r100" src="{{ $user->profile_photo_path }}" alt="Avatar" />
+                                                        @else
+                                                        <img id="avatar-preview" class="mw-150 avatar-r100" src="{{asset('frontend/assets/images/avatar.jpg')}}" alt="Avatar" />
+                                                        @endif
+                                                    </div>
+                                                    <a href="{{route('changeavatar')}}">
+                                                        <button class="btn btn-primary mb-1" style="background-color: #ffb600; color: white; border-radius: 5px; font-size: 12px;">{{ __('compte.ChangeAvatar') }}</button>
+                                                    </a>
+                                                </div>
+                                                <div class="col-md-9">
+                                                    @if(session('successUser'))
+                                                    <div class="alert alert-success">
+                                                        {{ session('successUser') }}
+                                                    </div>
+                                                    @endif
+                                                    <form action="{{ route('user.update', $user->id) }}" method="POST" class="user-update-form">
+                                                        @csrf
+                                                        @method('PUT')
+                                                        <p><b>{{ __('compte.Email') }} : </b> {{$user->email}}</p>
+                                                        <div class="input-w">
+                                                            <label for="name"><p><b>{{ __('compte.Name') }} :</b></p></label>
+                                                            <input type="text" name="name" id="name" value="{{$user->name}}" />
+                                                        </div>
+                                                        @error('name')
+                                                        <div class="text-right text-danger">
+                                                            {{ $message }}
+                                                        </div>
+                                                        @enderror
+                                                        <div class="input-w">
+                                                            <label for="prenom"><p><b>{{ __('compte.Prenom') }} :</b></p></label>
+                                                            <input type="text" name="prenom" id="prenom" value="{{$user->prenom}}" />
+                                                        </div>
+                                                        @error('prenom')
+                                                        <div class="text-right text-danger">
+                                                            {{ $message }}
+                                                        </div>
+                                                        @enderror
+                                                        <div class="input-w">
+                                                            <label for="pseudo"><p><b>{{ __('compte.Pseudo') }} :</b></p></label>
+                                                            <input type="text" name="pseudo" id="pseudo" value="{{$user->pseudo}}" />
+                                                        </div>
+                                                        @error('pseudo')
+                                                        <div class="text-right text-danger">
+                                                            {{ $message }}
+                                                        </div>
+                                                        @enderror
+                                                        <div class="input-w">
+                                                            <label for="mypays_id"><p><b>{{ __('compte.Pays') }} :</b></p></label>
+                                                            <select name="mypays_id" id="mypays_id">
+                                                                @foreach($pays as $pay)
+                                                                <option value="{{ $pay->pays_id }}" @if($user->mypays_id == $pay->pays_id) selected @endif>{{ $pay->pays }}</option>
+                                                                @endforeach
+                                                            </select>
+                                                        </div>
+                                                        @error('mypays_id')
+                                                        <div class="text-right text-danger">
+                                                            {{ $message }}
+                                                        </div>
+                                                        @enderror
+                                                        <button type="submit" class="cool-btn">{{ __('compte.savechange') }}</button>
+                                                    </form>
+                                                </div>
                                             </div>
-                                            <a href="{{route('changeavatar')}}">
-                                                <button class="btn btn-primary mb-1" style="background-color: #ffb600; color: white; border-radius: 5px; font-size: 12px;">{{ __('compte.ChangeAvatar') }}</button>
-                                            </a>
-                                        </div>
-                                        <div class="col-md-9">
-                                            @if(session('successUser'))
-                                            <div class="alert alert-success">
-                                                {{ session('successUser') }}
-                                            </div>
-                                            @endif
-                                            <form action="{{ route('user.update', $user->id) }}" method="POST" class="user-update-form">
-                                                @csrf
-                                                @method('PUT')
-                                                <p><b>{{ __('compte.Email') }} : </b> {{$user->email}}</p>
-                                                <div class="input-w">
-                                                    <label for="name"><p><b>{{ __('compte.Name') }} :</b></p></label>
-                                                    <input type="text" name="name" id="name" value="{{$user->name}}" />
-                                                </div>
-                                                @error('name')
-                                                <div class="text-right text-danger">
-                                                    {{ $message }}
-                                                </div>
-                                                @enderror
-                                                <div class="input-w">
-                                                    <label for="prenom"><p><b>{{ __('compte.Prenom') }} :</b></p></label>
-                                                    <input type="text" name="prenom" id="prenom" value="{{$user->prenom}}" />
-                                                </div>
-                                                @error('prenom')
-                                                <div class="text-right text-danger">
-                                                    {{ $message }}
-                                                </div>
-                                                @enderror
-                                                <div class="input-w">
-                                                    <label for="pseudo"><p><b>{{ __('compte.Pseudo') }} :</b></p></label>
-                                                    <input type="text" name="pseudo" id="pseudo" value="{{$user->pseudo}}" />
-                                                </div>
-                                                @error('pseudo')
-                                                <div class="text-right text-danger">
-                                                    {{ $message }}
-                                                </div>
-                                                @enderror
-                                                <div class="input-w">
-                                                    <label for="mypays_id"><p><b>{{ __('compte.Pays') }} :</b></p></label>
-                                                    <select name="mypays_id" id="mypays_id">
-                                                        @foreach($pays as $pay)
-                                                        <option value="{{ $pay->pays_id }}" @if($user->mypays_id == $pay->pays_id) selected @endif>{{ $pay->pays }}</option>
-                                                        @endforeach
-                                                    </select>
-                                                </div>
-                                                @error('mypays_id')
-                                                <div class="text-right text-danger">
-                                                    {{ $message }}
-                                                </div>
-                                                @enderror
-                                                <button type="submit" class="cool-btn">{{ __('compte.savechange') }}</button>
-                                            </form>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
                             @if ($user->whoiam_id !== 1)
                                 <div class="card">
-                                            <div class="card-header p-0 bg-transparent" id="headingThree">
-                                                <h2 class="mb-0">
+                                    <div class="card-header p-0 bg-transparent" id="headingThree">
+                                            <h2 class="mb-0">
                                                 <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse"
                                                     data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                                                     {{ __('compte.MesReseaux') }}
                                                 </button>
-                                                </h2>
-                                            </div>
-                                            
-                                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#construction-accordion">
-                                    <div class="card-body">
-                                        @if(session('successSocial'))
-                                            <div class="alert alert-success">
-                                                {{ session('successSocial') }}
-                                            </div>
-                                        @endif
-                                    <form action="{{ route('user.updateSocial', $user->id) }}" method="POST">
-                                            @csrf
-                                            @method('PUT')
-                                            
-                                            <div class="input-w">
-                                                <label for="internet" class="social-label">
-                                                    <div class="label-text"><b>{{ __('compte.Web') }} :</b></div>
-                                                    <div class="label-icon"><i class="fas fa-globe"></i></div>
-                                                    <div class="label-input"><input type="text" name="internet" id="internet" value="{{$user->internet}}" /></div>
-                                                </label>
-                                                @error('internet')
-                                                            <div class="text-right text-danger">
-                                                                                    {{ $message }}
-                                                            </div>
-                                                            @enderror
-                                            </div>
-                                            
-                                            <div class="input-w">
-                                                <label for="facebook" class="social-label">
-                                                    <div class="label-text"><b>{{ __('compte.Facebook') }} :</b></div> 
-                                                    <div class="label-icon"><i class="fab fa-facebook-square"></i></div>
-                                                    <div class="label-input"><input type="text" name="facebook" id="facebook" value="{{$user->facebook}}" /></div>
-                                                </label>
-                                                @error('facebook')
-                                                            <div class="text-right text-danger">
-                                                                                    {{ $message }}
-                                                            </div>
-                                                            @enderror
-                                            </div>
-                                            
-                                            <div class="input-w">
-                                                <label for="instagram" class="social-label">
-                                                    <div class="label-text"><b>{{ __('compte.Instagram') }} :</b></div>
-                                                    <div class="label-icon"><i class="fab fa-instagram"></i></div> 
-                                                    <div class="label-input"><input type="text" name="instagram" id="instagram" value="{{$user->instagram}}" /></div>
-                                                </label>
-                                                @error('instagram')
-                                                            <div class="text-right text-danger">
-                                                                                    {{ $message }}
-                                                            </div>
-                                                            @enderror
-                                            </div>
-
-                                            <!-- Twitter -->
-                                            <div class="input-w">
-                                                <label for="twitter" class="social-label">
-                                                    <div class="label-text"><b>{{ __('compte.Twitter') }} :</b></div>
-                                                    <div class="label-icon"><i class="fab fa-twitter"></i></div>
-                                                    <div class="label-input"><input type="text" name="twitter" id="twitter" value="{{$user->twitter}}" /></div>
-                                                </label>
-                                                @error('twitter')
-                                                            <div class="text-right text-danger">
-                                                                                    {{ $message }}
-                                                            </div>
-                                                @enderror
-                                            </div>
-
-                                            <!-- 500px -->
-                                            <div class="input-w">
-                                                <label for="five_hundred_px" class="social-label">
-                                                    <div class="label-text"><b>{{ __('compte.500px') }} :</b></div>
-                                                    <div class="label-icon"><i class="fab fa-500px"></i></div>
-                                                    <div class="label-input"><input type="text" name="five_hundred_px" id="five_hundred_px" value="{{$user->five_hundred_px}}" /></div>
-                                                </label>
-                                                            @error('five_hundred_px')
-                                                            <div class="text-right text-danger">
-                                                                                    {{ $message }}
-                                                            </div>
-                                                            @enderror
-                                            </div>
-
-                                            <!-- TikTok -->
-                                            <div class="input-w">
-                                                <label for="tiktok" class="social-label">
-                                                    <div class="label-text"><b>{{ __('compte.TikTok') }} :</b></div>
-                                                    <div class="label-icon"><i class="fab fa-tiktok"></i></div>
-                                                    <div class="label-input"><input type="text" name="tiktok" id="tiktok" value="{{$user->tiktok}}" /></div>
-                                                </label>
-                                                            @error('tiktok')
-                                                            <div class="text-right text-danger">
-                                                                                    {{ $message }}
-                                                            </div>
-                                                            @enderror
-                                            </div>
-
-                                            <!-- Mastodon -->
-                                            <div class="input-w">
-                                                <label for="mastodon" class="social-label">
-                                                    <div class="label-text"><b>{{ __('compte.Mastodon') }} :</b></div>
-                                                    <div class="label-icon"><i class="fab fa-mastodon"></i></div>
-                                                    <div class="label-input"><input type="text" name="mastodon" id="mastodon" value="{{$user->mastodon}}" /></div>
-                                                </label>
-                                                @error('mastodon')
-                                                            <div class="text-right text-danger">
-                                                                                    {{ $message }}
-                                                            </div>
-                                                            @enderror
-                                            </div>
-
-                                            <!-- Save Button -->
-                                            <button type="submit" class="cool-btn">{{ __('compte.savechange') }}</button>
-
-                                    </form>
-
+                                            </h2>
                                     </div>
-                                </div>
+                                                
+                                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#construction-accordion">
+                                        <div class="card-body">
+                                            @if(session('successSocial'))
+                                                <div class="alert alert-success">
+                                                    {{ session('successSocial') }}
+                                                </div>
+                                            @endif
+                                        <form action="{{ route('user.updateSocial', $user->id) }}" method="POST">
+                                                @csrf
+                                                @method('PUT')
+                                                
+                                                <div class="input-w">
+                                                    <label for="internet" class="social-label">
+                                                        <div class="label-text"><b>{{ __('compte.Web') }} :</b></div>
+                                                        <div class="label-icon"><i class="fas fa-globe"></i></div>
+                                                        <div class="label-input"><input type="text" name="internet" id="internet" value="{{$user->internet}}" /></div>
+                                                    </label>
+                                                    @error('internet')
+                                                                <div class="text-right text-danger">
+                                                                                        {{ $message }}
+                                                                </div>
+                                                                @enderror
+                                                </div>
+                                                
+                                                <div class="input-w">
+                                                    <label for="facebook" class="social-label">
+                                                        <div class="label-text"><b>{{ __('compte.Facebook') }} :</b></div> 
+                                                        <div class="label-icon"><i class="fab fa-facebook-square"></i></div>
+                                                        <div class="label-input"><input type="text" name="facebook" id="facebook" value="{{$user->facebook}}" /></div>
+                                                    </label>
+                                                    @error('facebook')
+                                                                <div class="text-right text-danger">
+                                                                                        {{ $message }}
+                                                                </div>
+                                                                @enderror
+                                                </div>
+                                                
+                                                <div class="input-w">
+                                                    <label for="instagram" class="social-label">
+                                                        <div class="label-text"><b>{{ __('compte.Instagram') }} :</b></div>
+                                                        <div class="label-icon"><i class="fab fa-instagram"></i></div> 
+                                                        <div class="label-input"><input type="text" name="instagram" id="instagram" value="{{$user->instagram}}" /></div>
+                                                    </label>
+                                                    @error('instagram')
+                                                                <div class="text-right text-danger">
+                                                                                        {{ $message }}
+                                                                </div>
+                                                                @enderror
+                                                </div>
+
+                                                <!-- Twitter -->
+                                                <div class="input-w">
+                                                    <label for="twitter" class="social-label">
+                                                        <div class="label-text"><b>{{ __('compte.Twitter') }} :</b></div>
+                                                        <div class="label-icon"><i class="fab fa-twitter"></i></div>
+                                                        <div class="label-input"><input type="text" name="twitter" id="twitter" value="{{$user->twitter}}" /></div>
+                                                    </label>
+                                                    @error('twitter')
+                                                                <div class="text-right text-danger">
+                                                                                        {{ $message }}
+                                                                </div>
+                                                    @enderror
+                                                </div>
+
+                                                <!-- 500px -->
+                                                <div class="input-w">
+                                                    <label for="five_hundred_px" class="social-label">
+                                                        <div class="label-text"><b>{{ __('compte.500px') }} :</b></div>
+                                                        <div class="label-icon"><i class="fab fa-500px"></i></div>
+                                                        <div class="label-input"><input type="text" name="five_hundred_px" id="five_hundred_px" value="{{$user->five_hundred_px}}" /></div>
+                                                    </label>
+                                                                @error('five_hundred_px')
+                                                                <div class="text-right text-danger">
+                                                                                        {{ $message }}
+                                                                </div>
+                                                                @enderror
+                                                </div>
+
+                                                <!-- TikTok -->
+                                                <div class="input-w">
+                                                    <label for="tiktok" class="social-label">
+                                                        <div class="label-text"><b>{{ __('compte.TikTok') }} :</b></div>
+                                                        <div class="label-icon"><i class="fab fa-tiktok"></i></div>
+                                                        <div class="label-input"><input type="text" name="tiktok" id="tiktok" value="{{$user->tiktok}}" /></div>
+                                                    </label>
+                                                                @error('tiktok')
+                                                                <div class="text-right text-danger">
+                                                                                        {{ $message }}
+                                                                </div>
+                                                                @enderror
+                                                </div>
+
+                                                <!-- Mastodon -->
+                                                <div class="input-w">
+                                                    <label for="mastodon" class="social-label">
+                                                        <div class="label-text"><b>{{ __('compte.Mastodon') }} :</b></div>
+                                                        <div class="label-icon"><i class="fab fa-mastodon"></i></div>
+                                                        <div class="label-input"><input type="text" name="mastodon" id="mastodon" value="{{$user->mastodon}}" /></div>
+                                                    </label>
+                                                    @error('mastodon')
+                                                                <div class="text-right text-danger">
+                                                                                        {{ $message }}
+                                                                </div>
+                                                                @enderror
+                                                </div>
+
+                                                <!-- Save Button -->
+                                                <button type="submit" class="cool-btn">{{ __('compte.savechange') }}</button>
+
+                                        </form>
+
+                                        </div>
+                                    </div>
                                 </div>
                             @endif
                     </div>
                 </div>
-            </div>
         </div>
+       
        
 
         <div class="col-lg-6">
