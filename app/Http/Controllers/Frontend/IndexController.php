@@ -750,7 +750,7 @@ public function mesMedias(Request $request)
     return view('frontend.mesmedias', compact('medias','userCredits'));
 }
 
-public function showPublicFoldersByCountry($countryId = null)
+public function publicFolders($countryId = null)
 {
     $activeCountries = Pays::where('actif', 1)->get(); // Récupérer tous les pays actifs
 
