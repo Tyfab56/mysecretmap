@@ -759,7 +759,7 @@ public function mesMedias(Request $request)
             break;
     }
 
-    $purchasedMediaIds = $user->purchasedMedias; 
+    $purchasedMediaIds = $user->purchasedMedias()->pluck('media_id')->toArray();
 
     return view('frontend.mesmedias', compact('medias', 'mode','purchasedMediaIds','userCredits'));
 }
