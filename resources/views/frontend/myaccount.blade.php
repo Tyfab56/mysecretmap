@@ -146,7 +146,7 @@ $('#save-info-button').click(function() {
 @auth
 <section id="main-container" class="main-container">
     <div class="container">
-      
+      <div class="row">
         <div class="col-lg-6">      
                <div class="row">
                     <h3 class="border-title border-left mar-t0">{{ __('compte.MonCompte') }}</h3>
@@ -373,6 +373,7 @@ $('#save-info-button').click(function() {
                 </div>
             </div>
         </div>
+      </div>
     </div>
 </section>
 
