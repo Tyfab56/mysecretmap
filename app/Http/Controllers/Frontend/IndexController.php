@@ -763,7 +763,7 @@ public function publicFolders($countryId = null)
     ->with('shareMedias')
     ->get();
 
-    return view('frontend.publicFolders', compact('publicFolders', 'activeCountries', 'selectedCountryId'));
+    return view('frontend.publicfolders', compact('publicFolders', 'activeCountries', 'selectedCountryId'));
 }
 
 
