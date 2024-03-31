@@ -5,9 +5,9 @@
     <h4>{{ __('sharemedia.titre') }}</h4><i class="fas fa-folder"></i>
 
 <div class="btn-group mb-3">
-    <a href="{{ route('mes-medias', ['mode' => 'achetes']) }}" class="btn {{ $mode === 'achetes' ? 'btn-primary' : 'btn-outline-primary' }}">Achetés</a>
-    <a href="{{ route('mes-medias', ['mode' => 'prives']) }}" class="btn {{ $mode === 'prives' ? 'btn-primary' : 'btn-outline-primary' }}">Privés</a>
-    <a href="{{ route('mes-medias', ['mode' => 'publics']) }}" class="btn {{ $mode === 'publics' ? 'btn-primary' : 'btn-outline-primary' }}">Publics</a>
+    <a href="{{ route('mes-medias'}}" class="btn {{ $mode === 'achetes' ? 'btn-primary' : 'btn-outline-primary' }}">Achetés</a>
+    <a href="" class="btn {{ $mode === 'prives' ? 'btn-primary' : 'btn-outline-primary' }}">Privés</a>
+    <a href="" class="btn {{ $mode === 'publics' ? 'btn-primary' : 'btn-outline-primary' }}">Publics</a>
 </div>
 
 <div class="container">
