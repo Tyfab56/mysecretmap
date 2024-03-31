@@ -755,7 +755,7 @@ public function mesMedias(Request $request)
             break;
         case 'achetes':
         default:
-            $purchasedmedias = $user->purchasedMedias; 
+            $medias = $user->purchasedMedias; 
             break;
     }
 
