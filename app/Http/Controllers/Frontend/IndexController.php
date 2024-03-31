@@ -16,6 +16,7 @@ use App\Models\Timelines;
 use App\Models\Whoiam;
 use App\Models\ShareMedia;
 use App\Models\UserCredit;
+use App\Models\Folder;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -747,6 +748,22 @@ public function mesMedias(Request $request)
     $medias = $user->purchasedMedias; 
 
     return view('frontend.mesmedias', compact('medias','userCredits'));
+}
+
+public function showPublicFoldersByCountry($countryId = null)
+{
+    $activeCountries = Pays::where('actif', 1)->get(); // Récupérer tous les pays actifs
+
+    $selectedCountryId = $countryId ?: $activeCountries->first()->pays_id; // Utiliser le premier pays actif par défaut si aucun pays n'est spécifié
+
+    $publicFolders = Folder::whereHas('pays', function ($query) use ($selectedCountryId) {
+        $query->where('pays_id', $selectedCountryId);
+    })->where('status', 'public') // Assumer que vous avez un champ 'status' pour le statut public/privé
+    ->whereNotNull('shareMedias') // Assurez-vous que le dossier a des médias partagés
+    ->with('shareMedias')
+    ->get();
+
+    return view('frontend.publicFolders', compact('publicFolders', 'activeCountries', 'selectedCountryId'));
 }
 
 
