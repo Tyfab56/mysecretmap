@@ -147,369 +147,129 @@ $('#save-info-button').click(function() {
 <section id="main-container" class="main-container">
     <div class="container">
         <div class="row">
-         <div class="col-lg-6">
+            <div class="col-lg-6">
                 <form id="whoiamForm" action="{{ route('whoiam.update') }}" method="POST" class="mt-3">
-                        @csrf
-                        @method('PUT')
-
-                        <h2>{{ __('compte.ChoixProfil') }}</h2>
-                        <h5 >{{ __('compte.ChoixProfilDesc') }}</h5>
-                        <div class="radio-box">
-
-
+                    @csrf
+                    @method('PUT')
+                    <h2>{{ __('compte.ChoixProfil') }}</h2>
+                    <h5>{{ __('compte.ChoixProfilDesc') }}</h5>
+                    <div class="radio-box">
                         @foreach($whoiams as $whoiam)
-                                <div class="form-check ml-5">
-                                    <input class="form-check-input" type="radio" name="whoiam_id" id="whoiam_{{ $whoiam->id }}" value="{{ $whoiam->id }}" {{ $user->whoiam_id == $whoiam->id ? 'checked' : '' }} onchange="this.form.submit()">
-                                    <label class="form-check-label" for="whoiam_{{ $whoiam->id }}">
-                                        {{ $whoiam->name }}
-                                        <button class="hint-toggle ml-2" type="button" data-target="#hint_{{ $whoiam->id }}">
-                                            ▼
-                                        </button>
-                                    </label>
-                                    <div id="hint_{{ $whoiam->id }}" class="hint-content">
-                                        {{ $whoiam->description }}
-                                    </div>
-                                </div>
+                        <div class="form-check ml-5">
+                            <input class="form-check-input" type="radio" name="whoiam_id" id="whoiam_{{ $whoiam->id }}" value="{{ $whoiam->id }}" {{ $user->whoiam_id == $whoiam->id ? 'checked' : '' }} onchange="this.form.submit()">
+                            <label class="form-check-label" for="whoiam_{{ $whoiam->id }}">
+                                {{ $whoiam->name }}
+                                <button class="hint-toggle ml-2" type="button" data-target="#hint_{{ $whoiam->id }}">▼</button>
+                            </label>
+                            <div id="hint_{{ $whoiam->id }}" class="hint-content">{{ $whoiam->description }}</div>
+                        </div>
                         @endforeach
+                    </div>
+                </form>
+            </div>
+        </div>
 
+      
+            <div class="col-lg-6">
+                <h3 class="border-title border-left mar-t0">{{ __('compte.MonCompte') }}</h3>
+                <div class="accordion accordion-group accordion-classic" id="construction-accordion">
+                    <div class="card">
+                        <div class="card-header p-0 bg-transparent" id="headingOne">
+                            <h2 class="mb-0">
+                                <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    {{ __('compte.MesInfos') }}
+                                </button>
+                            </h2>
                         </div>
 
-
-                </form>
-          </div>
-        </div>
-  
-      <div class="row">
-        <div class="col-lg-6">
-          <h3 class="border-title border-left mar-t0">{{ __('compte.MonCompte') }}</h3>
-   <div class="accordion accordion-group accordion-classic" id="construction-accordion">
-            <div class="card">
-              <div class="card-header p-0 bg-transparent" id="headingOne">
-                <h2 class="mb-0">
-                  <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne"
-                    aria-expanded="true" aria-controls="collapseOne">
-                    {{ __('compte.MesInfos') }}
-                  </button>
-                </h2>
-              </div>
-  
-     <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#construction-accordion">
-     <div class="card-body">
-    <div class="row">
-        <div class="col-md-3 center-flex">
-            <div class="">
-                @if($user->profile_photo_path)
-                    <img id="avatar-preview" class="mw-150 avatar-r100" src="{{ $user->profile_photo_path }}" alt="Avatar" />
-                @else
-                    <img id="avatar-preview" class="mw-150 avatar-r100" src="{{asset('frontend/assets/images/avatar.jpg')}}" alt="Avatar" />
-                @endif
-            </div>
-            <a href="{{route('changeavatar')}}">
-                <button class="btn btn-primary mb-1" style="background-color: #ffb600; color: white; border-radius: 5px; font-size: 12px;">{{ __('compte.ChangeAvatar') }}</button>
-            </a>
-        </div>
-        <div class="col-md-9">
-            @if(session('successUser'))
-                <div class="alert alert-success">
-                    {{ session('successUser') }}
-                </div>
-            @endif
-            <form action="{{ route('user.update', $user->id) }}" method="POST" class="user-update-form">
-        @csrf
-        @method('PUT')
-        <!-- Email -->
-        <p><b>{{ __('compte.Email') }} : </b> {{$user->email}}</p>
-
-        <!-- Name -->
-        <div class="input-w">
-            <label for="name"><p><b>{{ __('compte.Name') }} :</b></p> </label>
-            <input type="text" name="name" id="name" value="{{$user->name}}" />
-        </div>
-        @error('name')
-        <div class="text-right text-danger">
-            {{ $message }}
-        </div>
-        @enderror
-
-        <!-- Prenom -->
-        <div class="input-w">
-            <label for="prenom"><p><b>{{ __('compte.Prenom') }} :</b></p> </label>
-            <input type="text" name="prenom" id="prenom" value="{{$user->prenom}}" />
-        </div>
-        @error('prenom')
-        <div class="text-right text-danger">
-            {{ $message }}
-        </div>
-        @enderror
-
-        <!-- Pseudo -->
-        <div class="input-w">
-            <label for="pseudo"><p><b>{{ __('compte.Pseudo') }} :</b></p> </label>
-            <input type="text" name="pseudo" id="pseudo" value="{{$user->pseudo}}" />
-        </div>
-        @error('pseudo')
-        <div class="text-right text-danger">
-            {{ $message }}
-        </div>
-        @enderror
-        <!-- Pays Selection -->
-        <div class="input-w">
-            <label for="mypays_id"><p><b>{{ __('compte.Pays') }} :</b></p> </label>
-            <select name="mypays_id" id="mypays_id">
-                @foreach($pays as $pay)
-                    <option value="{{ $pay->pays_id }}" @if($user->mypays_id == $pay->pays_id) selected @endif>{{ $pay->pays }}</option>
-                @endforeach
-            </select>
-        </div>
-        @error('mypays_id')
-        <div class="text-right text-danger">
-            {{ $message }}
-        </div>
-        @enderror
-    
-
-        <!-- Save Button -->
-        <button type="submit" class="cool-btn">{{ __('compte.savechange') }}</button>
-    </form>
-        </div>
-    </div>
-</div>
-
-</div>
-
-
-</div>
-@if ($user->whoiam_id == 2)
-<div class="card">
-              <div class="card-header p-0 bg-transparent" id="headingTwo">
-                <h2 class="mb-0">
-                  <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse"
-                    data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                    {{ __('compte.InfosPhotos') }}
-                  </button>
-                </h2>
-              </div>
-            
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#construction-accordion">
-                    <div class="card-body">
-                       
-                        <form id="update-info-photo" action="{{ route('update.photographer.info') }}" method="POST">
-                             @csrf
-                            
-                            <div class="form-group">
-                                <label for="language">Language:</label>
-                                <select name="language" id="language" class="form-control">
-                                  <option value="">Choix de la langue</option>
-                                    <option value="en">English</option>
-                                    <option value="fr">Français</option>
-                                    <!-- Ajoutez d'autres langues au besoin -->
-                                </select>
+                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#construction-accordion">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-3 center-flex">
+                                        <div class="">
+                                            @if($user->profile_photo_path)
+                                            <img id="avatar-preview" class="mw-150 avatar-r100" src="{{ $user->profile_photo_path }}" alt="Avatar" />
+                                            @else
+                                            <img id="avatar-preview" class="mw-150 avatar-r100" src="{{asset('frontend/assets/images/avatar.jpg')}}" alt="Avatar" />
+                                            @endif
+                                        </div>
+                                        <a href="{{route('changeavatar')}}">
+                                            <button class="btn btn-primary mb-1" style="background-color: #ffb600; color: white; border-radius: 5px; font-size: 12px;">{{ __('compte.ChangeAvatar') }}</button>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-9">
+                                        @if(session('successUser'))
+                                        <div class="alert alert-success">
+                                            {{ session('successUser') }}
+                                        </div>
+                                        @endif
+                                        <form action="{{ route('user.update', $user->id) }}" method="POST" class="user-update-form">
+                                            @csrf
+                                            @method('PUT')
+                                            <p><b>{{ __('compte.Email') }} : </b> {{$user->email}}</p>
+                                            <div class="input-w">
+                                                <label for="name"><p><b>{{ __('compte.Name') }} :</b></p></label>
+                                                <input type="text" name="name" id="name" value="{{$user->name}}" />
+                                            </div>
+                                            @error('name')
+                                            <div class="text-right text-danger">
+                                                {{ $message }}
+                                            </div>
+                                            @enderror
+                                            <div class="input-w">
+                                                <label for="prenom"><p><b>{{ __('compte.Prenom') }} :</b></p></label>
+                                                <input type="text" name="prenom" id="prenom" value="{{$user->prenom}}" />
+                                            </div>
+                                            @error('prenom')
+                                            <div class="text-right text-danger">
+                                                {{ $message }}
+                                            </div>
+                                            @enderror
+                                            <div class="input-w">
+                                                <label for="pseudo"><p><b>{{ __('compte.Pseudo') }} :</b></p></label>
+                                                <input type="text" name="pseudo" id="pseudo" value="{{$user->pseudo}}" />
+                                            </div>
+                                            @error('pseudo')
+                                            <div class="text-right text-danger">
+                                                {{ $message }}
+                                            </div>
+                                            @enderror
+                                            <div class="input-w">
+                                                <label for="mypays_id"><p><b>{{ __('compte.Pays') }} :</b></p></label>
+                                                <select name="mypays_id" id="mypays_id">
+                                                    @foreach($pays as $pay)
+                                                    <option value="{{ $pay->pays_id }}" @if($user->mypays_id == $pay->pays_id) selected @endif>{{ $pay->pays }}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                            @error('mypays_id')
+                                            <div class="text-right text-danger">
+                                                {{ $message }}
+                                            </div>
+                                            @enderror
+                                            <button type="submit" class="cool-btn">{{ __('compte.savechange') }}</button>
+                                        </form>
+                                    </div>
+                                </div>
                             </div>
-
-                            <div class="form-group">
-                                <label for="photographer_title">Photographer Title:</label>
-                                <input type="text" name="photographer_title" id="photographer_title" class="form-control">
-                            </div>
-
-                            <div class="form-group">
-                                <label for="photographer_description">Photographer Description:</label>
-                                <textarea name="photographer_description" id="photographer_description" class="form-control"></textarea>
-                            </div>
-
-                           
-
-                            <button type="button" id="save-info-button" class="btn btn-primary">Save</button>
-                        </form>
-                        <label for="myDropzone">Banner For Photographer page:</label>
-                        <form action="{{ route('addimageprofil') }}" class="dropzone" id="myDropzone">
-                            @csrf
-                          
-                        </form>
-                       <div id="progressbar" class="progress m5">
-                        <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
-                      </div>
-
-
+                        </div>
                     </div>
                 </div>
-</div>
-@endif
-@if ($user->whoiam_id !== 1)
-<div class="card">
-              <div class="card-header p-0 bg-transparent" id="headingThree">
-                <h2 class="mb-0">
-                  <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse"
-                    data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                    {{ __('compte.MesReseaux') }}
-                  </button>
-                </h2>
-              </div>
-            
-<div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#construction-accordion">
-    <div class="card-body">
-          @if(session('successSocial'))
-              <div class="alert alert-success">
-                  {{ session('successSocial') }}
-              </div>
-          @endif
-    <form action="{{ route('user.updateSocial', $user->id) }}" method="POST">
-            @csrf
-            @method('PUT')
-            
-            <div class="input-w">
-                <label for="internet" class="social-label">
-                    <div class="label-text"><b>{{ __('compte.Web') }} :</b></div>
-                    <div class="label-icon"><i class="fas fa-globe"></i></div>
-                    <div class="label-input"><input type="text" name="internet" id="internet" value="{{$user->internet}}" /></div>
-                </label>
-                @error('internet')
-                            <div class="text-right text-danger">
-                                                    {{ $message }}
-                            </div>
-                             @enderror
             </div>
-            
-            <div class="input-w">
-                <label for="facebook" class="social-label">
-                    <div class="label-text"><b>{{ __('compte.Facebook') }} :</b></div> 
-                    <div class="label-icon"><i class="fab fa-facebook-square"></i></div>
-                    <div class="label-input"><input type="text" name="facebook" id="facebook" value="{{$user->facebook}}" /></div>
-                </label>
-                @error('facebook')
-                            <div class="text-right text-danger">
-                                                    {{ $message }}
-                            </div>
-                             @enderror
-            </div>
-            
-            <div class="input-w">
-                <label for="instagram" class="social-label">
-                    <div class="label-text"><b>{{ __('compte.Instagram') }} :</b></div>
-                    <div class="label-icon"><i class="fab fa-instagram"></i></div> 
-                    <div class="label-input"><input type="text" name="instagram" id="instagram" value="{{$user->instagram}}" /></div>
-                </label>
-                @error('instagram')
-                            <div class="text-right text-danger">
-                                                    {{ $message }}
-                            </div>
-                             @enderror
-            </div>
-
-            <!-- Twitter -->
-            <div class="input-w">
-                <label for="twitter" class="social-label">
-                    <div class="label-text"><b>{{ __('compte.Twitter') }} :</b></div>
-                    <div class="label-icon"><i class="fab fa-twitter"></i></div>
-                    <div class="label-input"><input type="text" name="twitter" id="twitter" value="{{$user->twitter}}" /></div>
-                </label>
-                @error('twitter')
-                            <div class="text-right text-danger">
-                                                    {{ $message }}
-                            </div>
-                @enderror
-            </div>
-
-            <!-- 500px -->
-            <div class="input-w">
-                <label for="five_hundred_px" class="social-label">
-                    <div class="label-text"><b>{{ __('compte.500px') }} :</b></div>
-                    <div class="label-icon"><i class="fab fa-500px"></i></div>
-                    <div class="label-input"><input type="text" name="five_hundred_px" id="five_hundred_px" value="{{$user->five_hundred_px}}" /></div>
-                </label>
-                            @error('five_hundred_px')
-                            <div class="text-right text-danger">
-                                                    {{ $message }}
-                            </div>
-                             @enderror
-            </div>
-
-            <!-- TikTok -->
-            <div class="input-w">
-                <label for="tiktok" class="social-label">
-                    <div class="label-text"><b>{{ __('compte.TikTok') }} :</b></div>
-                    <div class="label-icon"><i class="fab fa-tiktok"></i></div>
-                    <div class="label-input"><input type="text" name="tiktok" id="tiktok" value="{{$user->tiktok}}" /></div>
-                </label>
-                            @error('tiktok')
-                            <div class="text-right text-danger">
-                                                    {{ $message }}
-                            </div>
-                             @enderror
-            </div>
-
-            <!-- Mastodon -->
-            <div class="input-w">
-                <label for="mastodon" class="social-label">
-                    <div class="label-text"><b>{{ __('compte.Mastodon') }} :</b></div>
-                    <div class="label-icon"><i class="fab fa-mastodon"></i></div>
-                    <div class="label-input"><input type="text" name="mastodon" id="mastodon" value="{{$user->mastodon}}" /></div>
-                </label>
-                @error('mastodon')
-                            <div class="text-right text-danger">
-                                                    {{ $message }}
-                            </div>
-                             @enderror
-            </div>
-
-            <!-- Save Button -->
-            <button type="submit" class="cool-btn">{{ __('compte.savechange') }}</button>
-
-     </form>
-
-    </div>
-</div>
-</div>
-@endif
-@if (auth()->user()->isAdmin())
-            <div class="card">
-              <div class="card-header p-0 bg-transparent" id="headingFour">
-                <h2 class="mb-0">
-                  <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse"
-                    data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                    {{ __('compte.MesCircuits') }}
-                  </button>
-                </h2>
-              </div>
-              <div id="collapseFour" class="collapse" aria-labelledby="headingFour"
-                data-parent="#construction-accordion">
-                <div class="card-body">
-                  Vous pouvez gerez vos circuits ici en choisissant vos destinations. Les membres abonnés au club Patreon disposent de 5 circuits par destination.
-                  <select class="form-control mb5" id="idpays" name="idpays" onChange="this.form.submit()">
-                        <option value="">{{__('destination.SelectDest')}}</option>
-                    
-                        @foreach($payslist as $pay)
-                        <option value="{{$pay->pays_id}}">{{$pay->pays}}</option>
-                        @endforeach
-                    </select>
-                  <div class="list-group">
-                            <a href="#" class="list-group-item list-group-item-action">The current link item</a>
-                            <a href="#" class="list-group-item list-group-item-action">A second link item</a>
-                            <a href="#" class="list-group-item list-group-item-action">A third link item</a>
-                            <a href="#" class="list-group-item list-group-item-action">A fourth link item</a>
-                            <a href="#" class="list-group-item list-group-item-action ">A disabled link item</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!--/ Accordion end -->
-        </div>
-@endif
+    
 
         <div class="col-lg-6">
-
             <div class="sidebar sidebar-right">
-              <div class="widget recent-posts">
-                <h3 class="widget-title">Bienvenue sur My Secret Map</h3>
-                <p>Cette page vous permet de modifier vos informations, le niveaux de vos abonnements et de saisir les paramètres de vos circuits.</p>
-                <p><b>Rejoindre le club : </b>Si vous souhaitez <a href="https://www.patreon.com/fabriceh" target="_blank" >rejoindre le club des voyageurs</a>, vous trouverez sur cet lien toutes les informations utiles.</p>
-              </div><!-- Recent post end -->
-            </div><!-- Sidebar end -->
-    
-          </div><!-- Col end -->
-      </div>
+                <div class="widget recent-posts">
+                    <h3 class="widget-title">Bienvenue sur My Secret Map</h3>
+                    <p>Cette page vous permet de modifier vos informations, le niveaux de vos abonnements et de saisir les paramètres de vos circuits.</p>
+                    <p><b>Rejoindre le club : </b>Si vous souhaitez <a href="https://www.patreon.com/fabriceh" target="_blank">rejoindre le club des voyageurs</a>, vous trouverez sur cet lien toutes les informations utiles.</p>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
+
 <style>
 
 .radio-box {

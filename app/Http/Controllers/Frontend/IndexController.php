@@ -14,6 +14,7 @@ use App\Models\Noscircuits;
 use App\Models\TimelineCat;
 use App\Models\Timelines;
 use App\Models\Whoiam;
+use App\Models\ShareMedia;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -247,8 +248,11 @@ class IndexController extends Controller
     
         // Récupération des profils et de leurs traductions
         $whoiams = Whoiam::with('translations')->get();
+
+        // Recupération du tatal des médias
+        $userMediaCount = ShareMedia::where('user_id', auth()->id())->count();
     
-        return view('frontend/myaccount', compact('user', 'pays','payslist', 'whoiams'));
+        return view('frontend/myaccount', compact('user', 'pays','payslist', 'whoiams','userMediaCount'));
     }
 
     public function addimagespotstore(Request $request)
