@@ -5,9 +5,9 @@
     <h4>{{ __('sharemedia.titre') }}</h4><i class="fas fa-folder"></i>
 
 <div class="btn-group mb-3">
-    <a href="{{ route('mes-medias'}}" class="btn btn-primary'">Achetés</a>
-    <a href="" class="btn btn-primary' : 'btn-outline-primary' }}">Privés</a>
-    <a href="" class="btn btn-primary' }}">Publics</a>
+    <a href="{{ route('mes-medias'}}" class="btn btn-primary">Achetés</a>
+    <a href="" class="btn btn-primary'">Privés</a>
+    <a href="" class="btn btn-primary">Publics</a>
 </div>
 
 <div class="container">
