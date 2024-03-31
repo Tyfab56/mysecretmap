@@ -754,8 +754,12 @@ public function publicFolders($countryId = null)
 {
     $activeCountries = Pays::where('actif', 1)->get(); // Récupérer tous les pays actifs
 
-    $selectedCountryId = $countryId ?: $activeCountries->first()->pays_id; // Utiliser le premier pays actif par défaut si aucun pays n'est spécifié
+   // Récupération de countryId depuis la requête ou une valeur par défaut
+   $countryId = $request->input('countryId');
 
+   // Utiliser le premier pays actif par défaut si aucun pays n'est spécifié ou si $countryId est invalide
+   $selectedCountryId = $countryId ?? $activeCountries->first()->pays_id;
+   
     $publicFolders = Folder::whereHas('pays', function ($query) use ($selectedCountryId) {
         $query->where('pays_id', $selectedCountryId);
     })->where('status', 'public')
