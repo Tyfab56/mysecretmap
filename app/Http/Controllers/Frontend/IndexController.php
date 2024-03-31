@@ -744,12 +744,7 @@ public function mesMedias(Request $request)
     // Récupérer les crédits de l'utilisateur en cours
     $userCredits = UserCredit::where('user_id', $user->id)->get();
 
-    
-  
-    $medias = ShareMedia::where('status', 'public')->get();
-           
-
-
+    $medias = $user->purchasedMedias; 
 
     return view('frontend.mesmedias', compact('medias','userCredits'));
 }
