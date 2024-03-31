@@ -736,10 +736,11 @@ class IndexController extends Controller
     }
 
     public function mesMedias()
-    {
-        $medias = ShareMedia::where('user_id', auth()->id())->get();
-        
-        
-        return view('mesmedias', compact('medias'));
-    }
+{
+    // Récupère tous les médias achetés par l'utilisateur authentifié
+    $medias = auth()->user()->purchasedMedias()->get();
+    
+    return view('mesmedias', compact('medias'));
+}
+
 }
