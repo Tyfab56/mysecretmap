@@ -736,21 +736,33 @@ class IndexController extends Controller
         return view('frontend.addotspot');
     }
 
-    public function mesMedias()
+     
+
+public function mesMedias(Request $request)
 {
     $user = Auth::user();
-    if (!$user->isAdmin() && !$folder->users->contains('id', $user->id)) {
-        abort(403, "Vous n'avez pas l'autorisation d'accéder à ce dossier.");
-    }
-    // Récupère tous les médias achetés par l'utilisateur authentifié
-    $medias = auth()->user()->purchasedMedias()->get();
-     // Récupérer les crédits de l'utilisateur en cours
-     $userCredits = UserCredit::where('user_id', $user->id)->get();
-        
-     // Récupérer les IDs des médias déjà achetés par l'utilisateur
-     $purchasedMediaIds = $user->mediaPurchases()->pluck('media_id')->toArray();
+    // Récupérer les crédits de l'utilisateur en cours
+    $userCredits = UserCredit::where('user_id', $user->id)->get();
     
-    return view('frontend.mesmedias', compact('medias','userCredits','purchasedMediaIds'));
+    $mode = $request->query('mode', 'achetes'); // 'achetes' est la valeur par défaut
+
+    switch ($mode) {
+        case 'prives':
+            $medias = ShareMedia::where('user_id', $user->id)->where('status', 'private')->get();
+            break;
+        case 'publics':
+            $medias = ShareMedia::where('status', 'public')->get();
+            break;
+        case 'achetes':
+        default:
+            $purchasedmedias = $user->purchasedMedias; /
+            break;
+    }
+
+    $purchasedMediasIds = $user->purchasedMedias; 
+
+    return view('frontend.mesmedias', compact('medias', 'mode','purchasedMediasIds','userCredits'));
 }
+
 
 }

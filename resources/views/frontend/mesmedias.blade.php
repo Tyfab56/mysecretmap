@@ -4,6 +4,11 @@
 <div class="container">
     <h4>{{ __('sharemedia.titre') }}</h4><i class="fas fa-folder"></i>
 
+<div class="btn-group mb-3">
+    <a href="{{ route('mes-medias', ['mode' => 'achetes']) }}" class="btn {{ $mode === 'achetes' ? 'btn-primary' : 'btn-outline-primary' }}">Achetés</a>
+    <a href="{{ route('mes-medias', ['mode' => 'prives']) }}" class="btn {{ $mode === 'prives' ? 'btn-primary' : 'btn-outline-primary' }}">Privés</a>
+    <a href="{{ route('mes-medias', ['mode' => 'publics']) }}" class="btn {{ $mode === 'publics' ? 'btn-primary' : 'btn-outline-primary' }}">Publics</a>
+</div>
 
 <div class="container">
     <h4>{{ __('sharemedia.creditdispo') }}</h4>
@@ -31,7 +36,7 @@
     
   
     <div id="gallery-wrapper" class="gallery-wrapper">
-    @foreach($folder->shareMedias as $media)
+    @foreach($medias as $media)
     
             <div class="picture-item" data-groups='{{ $media->media_type }}'>
                 <div class="media-icon">
