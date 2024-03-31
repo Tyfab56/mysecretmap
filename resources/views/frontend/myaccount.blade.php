@@ -332,11 +332,7 @@ $('#save-info-button').click(function() {
                             Mes médias ({{ $userMediaCount }})
                         </a>
                         <!-- Liens supplémentaires comme demandé -->
-                        <div class="additional-links mt-3">
-                            <a href="{{ route('banque-medias') }}" class="d-block">Banque de médias</a>
-                            <a href="{{ route('dossiers-publics') }}" class="d-block">Consulter les dossiers publics</a>
-                            <a href="{{ route('mes-dossiers-prives') }}" class="d-block">Consulter mes dossiers privés</a>
-                        </div>
+                        
                 </div>
                 <div class="widget recent-posts">
                     <h3 class="widget-title">Bienvenue sur My Secret Map</h3>
