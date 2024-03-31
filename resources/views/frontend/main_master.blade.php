@@ -406,15 +406,7 @@
       </div><!-- Container end -->
     </div><!-- Copyright end -->
   </footer><!-- Footer end -->
-  <script>
-    @if(session('success'))
-        toastr.success('{{ session('success') }}');
-    @endif
-
-    @if(session('error'))
-        toastr.error('{{ session('error') }}');
-    @endif
-</script>
+  
 
   <!-- Javascript Files
   ================================================== -->
@@ -437,7 +429,7 @@
   <script src="https://cdn.jsdelivr.net/npm/luxon@2.4.0/build/global/luxon.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
-
+  
   
   
   @yield('fullscripts')
