@@ -15,7 +15,7 @@
     </form>
 
     {{-- Affichage des dossiers --}}
-    @if($publicfolders->isNotEmpty())
+    @if($publicFolders->isNotEmpty())
         @foreach($publicFolders as $folder)
             <div class="folder">
                 <h3>{{ $folder->name }}</h3>
