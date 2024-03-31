@@ -9,7 +9,7 @@
         <select name="country_id" onchange="this.form.submit()">
             <option value="">Sélectionnez un pays</option>
             @foreach($activeCountries as $country)
-                <option value="{{ $country->pays_id }}" {{ $selectedCountryId == $country->pays_id) ? 'selected' : '' }}>{{ $country->pays }}</option>
+               <option value="{{ $country->pays_id }}" {{ ($selectedCountryId == $country->pays_id) ? 'selected' : '' }}>{{ $country->pays }}</option>
             @endforeach
         </select>
     </form>
