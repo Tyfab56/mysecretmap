@@ -8,15 +8,15 @@
     <form action="{{ route('public-folders') }}" method="GET">
         <select name="country_id" onchange="this.form.submit()">
             <option value="">Sélectionnez un pays</option>
-            @foreach($countries as $country)
-                <option value="{{ $country->pays_id }}" {{ ($countryId == $country->pays_id) ? 'selected' : '' }}>{{ $country->pays }}</option>
+            @foreach($activeCountries as $country)
+                <option value="{{ $country->pays_id }}" {{ $selectedCountryId == $country->pays_id) ? 'selected' : '' }}>{{ $country->pays }}</option>
             @endforeach
         </select>
     </form>
 
     {{-- Affichage des dossiers --}}
     @if($folders->isNotEmpty())
-        @foreach($folders as $folder)
+        @foreach($publicFolders as $folder)
             <div class="folder">
                 <h3>{{ $folder->name }}</h3>
                 <p>Nombre de médias : {{ $folder->shareMedias->count() }}</p>
