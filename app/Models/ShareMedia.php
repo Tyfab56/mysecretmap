@@ -17,10 +17,7 @@ class ShareMedia extends Model
     {
         return $this->belongsTo(Folder::class, 'folder_id');
     }
-    public function users()
-    {
-        return $this->belongsToMany(User::class, 'user_media', 'share_media_id', 'user_id');
-    }
+    
 
 
 }

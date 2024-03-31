@@ -124,8 +124,10 @@ class User extends Authenticatable implements MustVerifyEmail, TranslatableContr
     {
         return $this->hasMany(UserMediaPurchase::class);
     }
-    public function shareMedias()
+    public function purchasedMedias()
     {
-        return $this->belongsToMany(ShareMedia::class, 'user_media', 'user_id', 'share_media_id');
+        return $this->belongsToMany(ShareMedia::class, 'user_media_purchases', 'user_id', 'media_id')
+                    ->withTimestamps(); // Si votre table user_media_purchases contient les timestamps
     }
+
 }
