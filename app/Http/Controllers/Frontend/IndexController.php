@@ -740,7 +740,7 @@ class IndexController extends Controller
     // Récupère tous les médias achetés par l'utilisateur authentifié
     $medias = auth()->user()->purchasedMedias()->get();
     
-    return view('mesmedias', compact('medias'));
+    return view('frontend.mesmedias', compact('medias'));
 }
 
 }
