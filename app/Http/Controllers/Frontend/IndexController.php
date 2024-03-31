@@ -739,8 +739,13 @@ class IndexController extends Controller
 {
     // Récupère tous les médias achetés par l'utilisateur authentifié
     $medias = auth()->user()->purchasedMedias()->get();
+     // Récupérer les crédits de l'utilisateur en cours
+     $userCredits = UserCredit::where('user_id', $user->id)->get();
+        
+     // Récupérer les IDs des médias déjà achetés par l'utilisateur
+     $purchasedMediaIds = $user->mediaPurchases()->pluck('media_id')->toArray();
     
-    return view('frontend.mesmedias', compact('medias'));
+    return view('frontend.mesmedias', compact('medias','userCredits','purchasedMediaIds'));
 }
 
 }
