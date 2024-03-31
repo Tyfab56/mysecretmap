@@ -250,7 +250,7 @@ class IndexController extends Controller
         $whoiams = Whoiam::with('translations')->get();
 
         // Recupération du tatal des médias
-        $userMediaCount = ShareMedia::where('user_id', auth()->id())->count();
+        $userMediaCount = auth()->user()->shareMedias()->count();
     
         return view('frontend/myaccount', compact('user', 'pays','payslist', 'whoiams','userMediaCount'));
         //return view('frontend/myaccount', compact('user', 'pays','payslist', 'whoiams'));
