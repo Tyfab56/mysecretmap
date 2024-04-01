@@ -21,7 +21,7 @@
                 <h3>{{ $folder->name }}</h3>
                 <p>Nombre de médias : {{ $folder->shareMedias->count() }}</p>
                 {{-- Ajouter un lien vers la vue détaillée du dossier si nécessaire --}}
-                <a href="{{ route('showbyfolder', $folder->id) }}">Voir le dossier</a>
+                <a href="">Voir le dossier</a>
             </div>
         @endforeach
     @else
