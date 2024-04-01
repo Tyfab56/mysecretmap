@@ -31,13 +31,7 @@ class FolderUserController extends Controller
         return view('admin.userfolder.index', compact('users', 'folders', 'searchTerm'));
     }
 
-    // Renvoie les dossiers actuellement affectés à l'utilisateur
-    public function getUserFolders(Request $request)
-    {
-        $userId = $request->userId;
-        $userFolders = User::find($userId)->folders;
-        return response()->json($userFolders);
-    }
+
 
     // Affecte un dossier à un utilisateur
     public function addUserFolder(Request $request)
