@@ -25,7 +25,7 @@ use App\Http\Controllers\FolderController;
 use App\Http\Controllers\ShareMediaController;
 use App\Http\Controllers\UserCreditController;
 use App\Http\Controllers\CreditController;
-use App\Http\Controllers\UserFolderController;
+use App\Http\Controllers\FolderUserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -240,9 +240,9 @@ Route::middleware(['auth'])->group(function () {
     // Préfixer toutes les routes de gestion des utilisateurs et dossiers par 'admin'
     Route::prefix('admin')->group(function () {
         // Routes pour la gestion des associations entre utilisateurs et dossiers
-        Route::get('/userfolder', [UserFolderController::class, 'index'])->name('admin.userfolder.index');
-        Route::post('/userfolder/add/{userId}/{folderId}', [UserFolderController::class, 'addFolderToUser'])->name('admin.userfolder.add');
-        Route::delete('/userfolder/remove/{userId}/{folderId}', [UserFolderController::class, 'removeFolderFromUser'])->name('admin.userfolder.remove');
+        Route::get('/userfolder', [FolderUserController::class, 'index'])->name('admin.userfolder.index');
+        Route::post('/userfolder/add/{userId}/{folderId}', [FolderUserController::class, 'addFolderToUser'])->name('admin.userfolder.add');
+        Route::delete('/userfolder/remove/{userId}/{folderId}', [FolderUserController::class, 'removeFolderFromUser'])->name('admin.userfolder.remove');
     });
 });
 
