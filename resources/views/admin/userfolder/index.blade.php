@@ -20,7 +20,7 @@
 @endsection
 
 @section('scripts')
-<script>
+
 document.addEventListener('DOMContentLoaded', function() {
     const userSelect = document.getElementById('userSelect');
     const foldersContainer = document.getElementById('foldersContainer');
@@ -86,5 +86,5 @@ document.addEventListener('DOMContentLoaded', function() {
 }
 
 });
-</script>
+
 @endsection
