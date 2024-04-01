@@ -16,7 +16,7 @@
 
     {{-- Affichage des dossiers --}}
     @if($publicFolders->isNotEmpty())
-        @foreach($publicFolders as $folder)
+        <div class="row">
         @foreach($publicFolders as $folder)
             <div class="card" style="width: 18rem; float: left; margin: 10px;">
                 <img src="{{ $folder->shareMedias->first()->thumbnail_link ?? 'placeholder-image-url' }}" class="card-img-top" alt="...">
@@ -26,8 +26,9 @@
                     <a href="" class="btn btn-primary">Voir le dossier</a>
                 </div>
             </div>
-    @endforeach
+   
         @endforeach
+        </div>
     @else
         <p>Aucun dossier public disponible pour ce pays.</p>
     @endif
