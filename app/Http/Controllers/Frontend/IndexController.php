@@ -757,7 +757,7 @@ public function publicFolders($countryId = null)
 
     // Sélectionner le pays actif ou utiliser le premier pays actif par défaut
     $selectedCountryId = $countryId ?? $activeCountries->first()->pays_id;
-
+    dd( $selectedCountryId);
     // S'assurer que le pays sélectionné est actif; sinon, utiliser le premier pays actif
     if (!$activeCountries->pluck('pays_id')->contains($selectedCountryId)) {
         $selectedCountryId = $activeCountries->first()->pays_id;
@@ -769,7 +769,7 @@ public function publicFolders($countryId = null)
                             ->whereHas('shareMedias')
                             ->with('shareMedias')
                             ->get();
-    dd( $selectedCountryId);
+  
     return view('frontend.publicfolders', compact('publicFolders', 'activeCountries', 'selectedCountryId'));
 }
 
