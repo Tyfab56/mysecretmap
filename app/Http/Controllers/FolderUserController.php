@@ -87,4 +87,14 @@ public function removeFolderFromUser(Request $request, $userId, $folderId)
 
     return response()->json(['message' => 'Le dossier n’est pas associé à cet utilisateur.'], 400);
 }
+
+public function getUserFolders($userId)
+{
+    $user = User::findOrFail($userId);
+    $folders = $user->folders; // Assurez-vous que la relation folders() est définie dans le modèle User
+
+    return view('admin.userfolder.partials.userfolders', compact('folders'));
+}
+
+
 }

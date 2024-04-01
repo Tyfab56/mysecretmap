@@ -246,4 +246,7 @@ Route::middleware(['auth'])->group(function () {
     });
 });
 
+Route::get('/admin/userfolder/{userId}/folders', [FolderUserController::class, 'getUserFolders'])->name('admin.userfolder.folders');
+
+
 require __DIR__ . '/auth.php';
