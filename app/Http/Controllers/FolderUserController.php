@@ -86,7 +86,7 @@ public function getUserFolders($userId)
 {
     $user = User::findOrFail($userId);
     $folders = $user->folders; // Assurez-vous que la relation folders() est définie dans le modèle User
-    dd(folders);
+    dd($folders);
     return view('admin.userfolder.partials.userfolders', compact('folders'));
 }
 
