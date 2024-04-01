@@ -9,11 +9,26 @@ use App\Models\Folder;
 class FolderUserController extends Controller
 {
     // Affiche la vue principale pour l'affectation des dossiers
-    public function index()
+    public function index(Request $request)
     {
-        $users = User::all(); // Ou une pagination si vous avez beaucoup d'utilisateurs
-        $folders = Folder::all(); // Idem pour les dossiers
-        return view('admin.userfolder.index', compact('users', 'folders'));
+        // Si un terme de recherche est fourni
+        $searchTerm = $request->input('search');
+
+        if (!empty($searchTerm)) {
+            // Recherche des utilisateurs basée sur le terme de recherche
+            $users = User::where('email', 'LIKE', "%{$searchTerm}%")
+                         ->orWhere('prenom', 'LIKE', "%{$searchTerm}%")
+                         ->orWhere('name', 'LIKE', "%{$searchTerm}%")
+                         ->get(); // Vous pouvez également utiliser paginate() si vous avez beaucoup d'utilisateurs
+        } else {
+            // Aucun terme de recherche, retourner tous les utilisateurs
+            $users = User::all();
+        }
+
+        $folders = Folder::all(); // Récupère tous les dossiers, ajustez selon besoin
+        
+        // Renvoie à la vue avec les utilisateurs (filtrés ou non) et tous les dossiers
+        return view('admin.userfolder.index', compact('users', 'folders', 'searchTerm'));
     }
 
     // Renvoie les dossiers actuellement affectés à l'utilisateur
