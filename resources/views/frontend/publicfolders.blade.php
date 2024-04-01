@@ -17,12 +17,16 @@
     {{-- Affichage des dossiers --}}
     @if($publicFolders->isNotEmpty())
         @foreach($publicFolders as $folder)
-            <div class="folder">
-                <h3>{{ $folder->name }}</h3>
-                <p>Nombre de médias : {{ $folder->shareMedias->count() }}</p>
-                {{-- Ajouter un lien vers la vue détaillée du dossier si nécessaire --}}
-                <a href="">Voir le dossier</a>
+        @foreach($publicFolders as $folder)
+            <div class="card" style="width: 18rem; float: left; margin: 10px;">
+                <img src="{{ $folder->shareMedias->first()->thumbnail_link ?? 'placeholder-image-url' }}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{ $folder->name }}</h5>
+                    <p class="card-text">Nombre de médias : {{ $folder->shareMedias->count() }}</p>
+                    <a href="" class="btn btn-primary">Voir le dossier</a>
+                </div>
             </div>
+    @endforeach
         @endforeach
     @else
         <p>Aucun dossier public disponible pour ce pays.</p>
