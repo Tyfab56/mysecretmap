@@ -776,4 +776,19 @@ public function publicFolders(Request $request)
     return view('frontend.publicfolders', compact('publicFolders', 'activeCountries', 'selectedCountryId'));
 }
 
+public function privateFolders()
+{
+    $user = Auth::user();
+
+    // Récupérer les dossiers privés attachés à cet utilisateur et ayant au moins un média
+    $privateFolders = Folder::whereHas('users', function ($query) use ($user) {
+        $query->where('users.id', $user->id);
+    })->where('status', 'private')
+      ->whereHas('shareMedias')
+      ->with('shareMedias')
+      ->get();
+
+    return view('frontend.privatefolders', compact('privateFolders'));
+}
+
 }

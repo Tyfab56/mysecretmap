@@ -25,6 +25,7 @@ use App\Http\Controllers\FolderController;
 use App\Http\Controllers\ShareMediaController;
 use App\Http\Controllers\UserCreditController;
 use App\Http\Controllers\CreditController;
+use App\Http\Controllers\UserFolderController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -59,7 +60,7 @@ Route::get('patreon', [IndexController::class, 'contact'])->name('patreon');
 Route::get('aboutus', [IndexController::class, 'aboutus'])->name('aboutus');
 Route::get('mes-medias', [IndexController::class, 'mesMedias'])->name('mes-medias')->middleware('auth');
 Route::get('public-folders', [IndexController::class, 'publicFolders'])->name('public-folders')->middleware('auth');
-
+Route::get('private-folders', [IndexController::class, 'privateFolders'])->name('private-folders')->middleware('auth');
 Route::get('medias/{idspot?}', [IndexController::class, 'medias'])->name('medias');
 Route::get('timeline', [IndexController::class, 'timeline'])->name('timeline');
 Route::post('/contact', [ContactController::class, 'submitContactForm'])->name('contact.submit');
@@ -232,7 +233,17 @@ Route::post('/sharemedia/{mediaId}/order', [ShareMediaController::class, 'orderM
     ->middleware('auth')
     ->name('sharemedia.order');
 
-    Route::get('/credits/purchase', [CreditController::class, 'purchase'])->name('credits.purchase')->middleware('auth');
-    Route::get('/media/{media}/download', [ShareMediaController::class, 'download'])->name('media.download')->middleware('auth');
+Route::get('/credits/purchase', [CreditController::class, 'purchase'])->name('credits.purchase')->middleware('auth');
+Route::get('/media/{media}/download', [ShareMediaController::class, 'download'])->name('media.download')->middleware('auth');
+
+Route::middleware(['auth'])->group(function () {
+    // Préfixer toutes les routes de gestion des utilisateurs et dossiers par 'admin'
+    Route::prefix('admin')->group(function () {
+        // Routes pour la gestion des associations entre utilisateurs et dossiers
+        Route::get('/userfolder', [UserFolderController::class, 'index'])->name('admin.userfolder.index');
+        Route::post('/userfolder/add/{userId}/{folderId}', [UserFolderController::class, 'addFolderToUser'])->name('admin.userfolder.add');
+        Route::delete('/userfolder/remove/{userId}/{folderId}', [UserFolderController::class, 'removeFolderFromUser'])->name('admin.userfolder.remove');
+    });
+});
 
 require __DIR__ . '/auth.php';
