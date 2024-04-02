@@ -27,7 +27,8 @@ $(document).ready(function() {
         },
         success: function(response) {
             // Gérez la réponse en cas de succès
-            alert(response.success);
+            toastr.success(response.success);
+
             // Peut-être rafraîchir la liste des dossiers pour cet utilisateur
             // Rafraîchir la liste des dossiers pour cet utilisateur
             loadUserFolders(userId);
