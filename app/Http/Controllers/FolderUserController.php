@@ -89,8 +89,7 @@ public function getUserFolders($userId)
     return view('admin.userfolder.partials.userfolders', compact('folders'));
 }
 
-class FolderUserController extends Controller
-{
+
     public function searchFolders(Request $request)
     {
         $searchTerm = $request->search;
@@ -114,7 +113,6 @@ class FolderUserController extends Controller
         // Assurez-vous que la vue existe et est correctement configurée pour afficher les dossiers
         return view('admin.userfolder.partials.folderlist', compact('folders'));
     }
-}
 
 
 }
