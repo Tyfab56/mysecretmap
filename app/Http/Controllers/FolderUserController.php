@@ -86,9 +86,6 @@ public function getUserFolders($userId)
 {
     $user = User::findOrFail($userId);
     $folders = $user->folders; 
-    
-    dd($folders);
-
     return view('admin.userfolder.partials.userfolders', compact('folders'));
 }
 
