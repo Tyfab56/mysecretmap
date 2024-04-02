@@ -44,62 +44,70 @@
     </div>
 </div>
 <script>
+
 $(document).ready(function() {
-    $(document).ready(function() {
     // Gestion du clic sur un utilisateur
     $('.user-item').click(function(e) {
-        e.preventDefault();
-        var userId = $(this).data('user-id');
-       
-        // Mémoriser l'ID utilisateur sélectionné pour un usage ultérieur
-        $('#detailColumn').data('selected-user-id', userId);
-        fetchUserFolders(userId);
-    });
+            e.preventDefault();
+            var userId = $(this).data('user-id');
+        
+            // Mémoriser l'ID utilisateur sélectionné pour un usage ultérieur
+            $('#detailColumn').data('selected-user-id', userId);
+            fetchUserFolders(userId);
+        });
 
-    // Recherche dynamique de dossiers
-    $('#folderSearchInput').keyup(function() {
-        var searchQuery = $(this).val().trim();
-        var userId = $('#detailColumn').data('selected-user-id'); // Récupérer l'ID utilisateur sélectionné
-        fetchFolders(searchQuery, userId);
-    });
-});
+        // Recherche dynamique de dossiers
+        $('#folderSearchInput').keyup(function() {
+            var searchQuery = $(this).val().trim();
+            var userId = $('#detailColumn').data('selected-user-id'); // Récupérer l'ID utilisateur sélectionné
+            fetchFolders(searchQuery, userId);
+        });
+
 
 function fetchUserFolders(userId) {
-    $.ajax({
-        url: `/admin/userfolder/${userId}/folders`,
-        type: 'GET',
-        success: function(data) {
-            $('#folderColumn').html(data);
-        },
-        error: function(error) {
-            console.error(error);
-            alert('Une erreur s\'est produite lors de la récupération des dossiers.');
+            $.ajax({
+                url: `/admin/userfolder/${userId}/folders`,
+                type: 'GET',
+                success: function(data) {
+                    $('#folderColumn').html(data);
+                },
+                error: function(error) {
+                    console.error(error);
+                    alert('Une erreur s\'est produite lors de la récupération des dossiers.');
+                }
+            });
         }
-    });
-}
 
 function fetchFolders(searchQuery, userId) {
-    $.ajax({
-        url: `/admin/userfolder/folders/search`, // URL à adapter selon votre application
-        type: 'GET',
-        data: { search: searchQuery, userId: userId }, // Envoyer la requête de recherche et l'ID de l'utilisateur
-        success: function(data) {
-            $('#folderList').html(data);
-        },
-        error: function(error) {
-            console.error(error);
-            alert('Une erreur s\'est produite lors de la recherche des dossiers.');
+            $.ajax({
+                url: `/admin/userfolder/folders/search`, // URL à adapter selon votre application
+                type: 'GET',
+                data: { search: searchQuery, userId: userId }, // Envoyer la requête de recherche et l'ID de l'utilisateur
+                success: function(data) {
+                    $('#folderList').html(data);
+                    // Rafraîchir la liste des dossiers pour cet utilisateur
+                    loadUserFolders(userId);
+                },
+                error: function(error) {
+                    console.error(error);
+                    alert('Une erreur s\'est produite lors de la recherche des dossiers.');
+                }
+            });
         }
-    });
-}
 
-// Vous devrez également implémenter la logique pour ajouter un dossier à un utilisateur
-// et rafraîchir la liste des dossiers associés à l'utilisateur sélectionné après l'ajout.
-
-
-
-
-
+    function loadUserFolders(userId) {
+        $.ajax({
+            url: `/admin/userfolder/${userId}/folders`, // Assurez-vous que l'URL est correcte
+            type: 'GET',
+            success: function(data) {
+                $('#folderColumn').html(data);
+            },
+            error: function(error) {
+                console.error(error);
+                alert('Une erreur s\'est produite lors de la récupération des dossiers.');
+            }
+        });
+    }
    
 });
 </script>
