@@ -5,6 +5,7 @@
     <div class="row">
         <!-- Colonne de filtrage des utilisateurs -->
             <div class="col-md-4">
+            <h3>Utilisateurs</h3>
                 <form action="{{ route('admin.userfolder.index') }}" method="GET">
                     <div class="input-group mb-3">
                         <input type="text" class="form-control" placeholder="Rechercher un utilisateur..." name="search" value="{{ request('search') }}">
@@ -43,21 +44,61 @@
 </div>
 <script>
 $(document).ready(function() {
+    $(document).ready(function() {
+    // Gestion du clic sur un utilisateur
     $('.user-item').click(function(e) {
         e.preventDefault();
         var userId = $(this).data('user-id');
-        $.ajax({
-            url: `/admin/userfolder/${userId}/folders`, // Modifiez l'URL selon vos routes
-            type: 'GET',
-            success: function(data) {
-                $('#folderColumn').html(data);
-            },
-            error: function(error) {
-                console.error(error);
-                alert('Une erreur s\'est produite lors de la récupération des dossiers.');
-            }
-        });
+        // Mémoriser l'ID utilisateur sélectionné pour un usage ultérieur
+        $('#detailColumn').data('selected-user-id', userId);
+        fetchUserFolders(userId);
     });
+
+    // Recherche dynamique de dossiers
+    $('#folderSearchInput').keyup(function() {
+        var searchQuery = $(this).val().trim();
+        var userId = $('#detailColumn').data('selected-user-id'); // Récupérer l'ID utilisateur sélectionné
+        fetchFolders(searchQuery, userId);
+    });
+});
+
+function fetchUserFolders(userId) {
+    $.ajax({
+        url: `/admin/userfolder/${userId}/folders`,
+        type: 'GET',
+        success: function(data) {
+            $('#folderColumn').html(data);
+        },
+        error: function(error) {
+            console.error(error);
+            alert('Une erreur s\'est produite lors de la récupération des dossiers.');
+        }
+    });
+}
+
+function fetchFolders(searchQuery, userId) {
+    $.ajax({
+        url: `/admin/userfolder/folders/search`, // URL à adapter selon votre application
+        type: 'GET',
+        data: { search: searchQuery, userId: userId }, // Envoyer la requête de recherche et l'ID de l'utilisateur
+        success: function(data) {
+            $('#folderList').html(data);
+        },
+        error: function(error) {
+            console.error(error);
+            alert('Une erreur s\'est produite lors de la recherche des dossiers.');
+        }
+    });
+}
+
+// Vous devrez également implémenter la logique pour ajouter un dossier à un utilisateur
+// et rafraîchir la liste des dossiers associés à l'utilisateur sélectionné après l'ajout.
+
+
+
+
+
+   
 });
 </script>
 @endsection
