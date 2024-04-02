@@ -1,4 +1,4 @@
-use Illuminate\Support\Facades\Request;
+
 @extends('frontend.main_master')
 
 @section('content')
