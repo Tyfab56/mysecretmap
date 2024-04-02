@@ -3,7 +3,7 @@
 @section('content')
 <div class="container mt-4">
 <h1>Dossiers Privés</h1>
-    @include('partials.navmedias')
+   @include('partials.navmedias')
     @foreach($privateFolders as $folder)
         <div class="card" style="width: 18rem; float: left; margin: 10px;">
             <img src="{{ $folder->shareMedias->first()->thumbnail_link ?? 'placeholder-image-url' }}" class="card-img-top" alt="Thumbnail">
