@@ -29,6 +29,8 @@ $(document).ready(function() {
             // Gérez la réponse en cas de succès
             alert(response.success);
             // Peut-être rafraîchir la liste des dossiers pour cet utilisateur
+            // Rafraîchir la liste des dossiers pour cet utilisateur
+            loadUserFolders(userId);
         },
         error: function(xhr, status, error) {
             // Gérez les erreurs
@@ -37,5 +39,19 @@ $(document).ready(function() {
         }
     });
 });
+
+function loadUserFolders(userId) {
+        $.ajax({
+            url: `/admin/userfolder/${userId}/folders`, // Assurez-vous que l'URL est correcte
+            type: 'GET',
+            success: function(data) {
+                $('#folderColumn').html(data);
+            },
+            error: function(error) {
+                console.error(error);
+                alert('Une erreur s\'est produite lors de la récupération des dossiers.');
+            }
+        });
+    }
 });
 </script>

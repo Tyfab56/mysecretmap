@@ -57,7 +57,7 @@ $(document).ready(function() {
         });
 
         // Recherche dynamique de dossiers
-        $('#folderSearchInput').keyup(function() {
+    $('#folderSearchInput').keyup(function() {
             var searchQuery = $(this).val().trim();
             var userId = $('#detailColumn').data('selected-user-id'); // Récupérer l'ID utilisateur sélectionné
             fetchFolders(searchQuery, userId);
@@ -85,8 +85,7 @@ function fetchFolders(searchQuery, userId) {
                 data: { search: searchQuery, userId: userId }, // Envoyer la requête de recherche et l'ID de l'utilisateur
                 success: function(data) {
                     $('#folderList').html(data);
-                    // Rafraîchir la liste des dossiers pour cet utilisateur
-                    loadUserFolders(userId);
+                    
                 },
                 error: function(error) {
                     console.error(error);
@@ -95,19 +94,7 @@ function fetchFolders(searchQuery, userId) {
             });
         }
 
-    function loadUserFolders(userId) {
-        $.ajax({
-            url: `/admin/userfolder/${userId}/folders`, // Assurez-vous que l'URL est correcte
-            type: 'GET',
-            success: function(data) {
-                $('#folderColumn').html(data);
-            },
-            error: function(error) {
-                console.error(error);
-                alert('Une erreur s\'est produite lors de la récupération des dossiers.');
-            }
-        });
-    }
+  
    
 });
 </script>
