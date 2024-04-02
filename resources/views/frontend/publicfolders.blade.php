@@ -23,7 +23,7 @@
                 <div class="card-body">
                     <h5 class="card-title">{{ $folder->name }}</h5>
                     <p class="card-text">Nombre de médias : {{ $folder->shareMedias->count() }}</p>
-                    <a href="" class="btn btn-primary">Voir le dossier</a>
+                    <a href="{{ route('show-folder', $folder->id) }}" class="btn btn-primary">Voir le dossier</a>
                 </div>
             </div>
    

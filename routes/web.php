@@ -225,6 +225,7 @@ Route::middleware(['auth'])->group(function () {
     });
 });
 Route::get('/folders/{folderId}/medias', [ShareMediaController::class, 'showByFolder'])->name('folders.medias');
+Route::get('/show-folder/{folderId}', [IndexControlleur::class, 'showByFolder'])->name('show-folder')->middleware('auth');
 
 Route::get('/admin/credits', [UserCreditController::class, 'index'])->name('admin.credits.index')->middleware('App\Http\Middleware\CheckAdmin');;
 Route::put('/admin/credits/{user}', [UserCreditController::class, 'update'])->name('admin.credits.update')->middleware('App\Http\Middleware\CheckAdmin');;
