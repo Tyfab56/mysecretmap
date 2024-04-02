@@ -1,9 +1,12 @@
+use Illuminate\Support\Facades\Request;
 @extends('frontend.main_master')
 
 @section('content')
 <div class="container">
     <h4>{{ __('sharemedia.titre') }} : {{ $folder->name }}</h4>
-
+@if(Request::route()->getName() == 'show-folder')
+@include('partials.navmedias')
+@endif
 
 <div class="container">
     <h4>{{ __('sharemedia.creditdispo') }}</h4>
