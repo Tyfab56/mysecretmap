@@ -85,7 +85,7 @@ public function removeFolderFromUser(Request $request, $userId, $folderId)
 public function getUserFolders($userId)
 {
     $user = User::findOrFail($userId);
-    $folders = $user->folders()->where('status', 'private')->get();
+    $folders = $user->folders()->where('folders.status', 'private')->get();
     return view('admin.userfolder.partials.userfolders', compact('folders'));
 }
 
