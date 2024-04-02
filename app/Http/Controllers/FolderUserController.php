@@ -96,7 +96,7 @@ public function getUserFolders($userId)
         $userId = $request->userId; // ID de l'utilisateur pour lequel ajouter des dossiers
 
         // Exemple basique de recherche par titre de dossier
-        $query = Folder::query()->where('title', 'LIKE', '%' . $searchTerm . '%');
+        $query = Folder::query()->where('name', 'LIKE', '%' . $searchTerm . '%');
 
         // Si un userId est fourni, ajustez la requête pour exclure les dossiers déjà associés à cet utilisateur
         if (!empty($userId)) {
