@@ -85,7 +85,12 @@ public function removeFolderFromUser(Request $request, $userId, $folderId)
 public function getUserFolders($userId)
 {
     $user = User::findOrFail($userId);
-    $folders = $user->folders; 
+    $folders = Folder::whereHas('users', function ($query) use ($user) {
+        $query->where('users.id', $user->id);
+    })->where('status', 'private')
+      ->whereHas('shareMedias')
+      ->with('shareMedias')
+      ->get();
     dd($folders);
     return view('admin.userfolder.partials.userfolders', compact('folders'));
 }
