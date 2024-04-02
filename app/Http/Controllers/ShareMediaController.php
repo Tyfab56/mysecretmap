@@ -173,7 +173,8 @@ class ShareMediaController extends Controller
     
         // Vérifier si l'utilisateur est admin ou a accès au dossier
         $user = Auth::user();
-        if (!$user->isAdmin() && !$folder->users->contains('id', $user->id)) {
+        // Check if the folder is private before applying the access restrictions
+        if ($folder->status == 'private' && !$user->isAdmin() && !$folder->users->contains('id', $user->id)) {
             abort(403, "Vous n'avez pas l'autorisation d'accéder à ce dossier.");
         }
     
