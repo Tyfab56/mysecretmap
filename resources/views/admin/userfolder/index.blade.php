@@ -110,7 +110,7 @@ function fetchFolders(searchQuery, userId) {
                 _token: $('meta[name="csrf-token"]').attr('content') // CSRF token
             },
             success: function(response) {
-                alert(response.success);
+                toastr.success(response.success);
                 // Rafraîchir la liste des dossiers pour l'utilisateur courant
                 fetchUserFolders(userId);
             },
