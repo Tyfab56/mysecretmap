@@ -79,7 +79,9 @@
             </div>
      
         @empty
+        <div class="row">
             <div class="alert alert-info">Aucun média disponible dans ce dossier (cliquez sur dossiers Publics ou Privés).</div>
+        </div>    
         @endforelse
         </div>
 </div>
