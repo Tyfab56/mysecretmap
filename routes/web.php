@@ -242,11 +242,13 @@ Route::middleware(['auth'])->group(function () {
         // Routes pour la gestion des associations entre utilisateurs et dossiers
         Route::get('/userfolder', [FolderUserController::class, 'index'])->name('admin.userfolder.index');
         Route::post('/userfolder/add/{userId}/{folderId}', [FolderUserController::class, 'addFolderToUser'])->name('admin.userfolder.add');
+        Route::post('/userfolder/addFolderToUser', [FolderUserController::class, 'addUserFolder'])->name('admin.userfolder.addFolderToUser');
         Route::delete('/userfolder/remove/{userId}/{folderId}', [FolderUserController::class, 'removeFolderFromUser'])->name('admin.userfolder.remove');
     });
 });
 
 Route::get('/admin/userfolder/{userId}/folders', [FolderUserController::class, 'getUserFolders'])->name('admin.userfolder.folders');
 
+Route::get('/admin/userfolder/folders/search', [FolderUserController::class, 'searchFolders'])->name('userfolder.folders.search');
 
 require __DIR__ . '/auth.php';

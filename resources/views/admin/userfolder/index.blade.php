@@ -2,6 +2,7 @@
 
 @section('content')
 <div class="container">
+   
     <div class="row">
         <!-- Colonne de filtrage des utilisateurs -->
             <div class="col-md-4">
@@ -49,6 +50,7 @@ $(document).ready(function() {
     $('.user-item').click(function(e) {
         e.preventDefault();
         var userId = $(this).data('user-id');
+       
         // Mémoriser l'ID utilisateur sélectionné pour un usage ultérieur
         $('#detailColumn').data('selected-user-id', userId);
         fetchUserFolders(userId);

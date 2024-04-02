@@ -89,5 +89,32 @@ public function getUserFolders($userId)
     return view('admin.userfolder.partials.userfolders', compact('folders'));
 }
 
+class FolderUserController extends Controller
+{
+    public function searchFolders(Request $request)
+    {
+        $searchTerm = $request->search;
+        $userId = $request->userId; // ID de l'utilisateur pour lequel ajouter des dossiers
+
+        // Exemple basique de recherche par titre de dossier
+        $query = Folder::query()->where('title', 'LIKE', '%' . $searchTerm . '%');
+
+        // Si un userId est fourni, ajustez la requête pour exclure les dossiers déjà associés à cet utilisateur
+        if (!empty($userId)) {
+            // Assurez-vous de filtrer correctement selon votre logique d'association
+            // Ceci est juste un exemple basique
+            $query->whereDoesntHave('users', function($q) use ($userId) {
+                $q->where('users.id', $userId);
+            });
+        }
+
+        $folders = $query->get();
+
+        // Retourne une vue partielle avec les résultats de la recherche
+        // Assurez-vous que la vue existe et est correctement configurée pour afficher les dossiers
+        return view('admin.userfolder.partials.folderlist', compact('folders'));
+    }
+}
+
 
 }
