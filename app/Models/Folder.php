@@ -13,7 +13,7 @@ class Folder extends Model
 
     public function users()
     {
-        return $this->belongsToMany(User::class, 'folder_user');
+        return $this->belongsToMany(User::class, 'user_folders');
     }   
 
     public function shareMedias()
