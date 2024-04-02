@@ -33,7 +33,7 @@
     
   
     <div id="gallery-wrapper" class="gallery-wrapper">
-    @foreach($medias as $media)
+    @forelse($medias as $media)
     
             <div class="picture-item" data-groups='{{ $media->media_type }}'>
                 <div class="media-icon">
@@ -78,11 +78,9 @@
                 </div>
             </div>
      
-
-
-
-
-        @endforeach
+        @empty
+            <div class="alert alert-info">Aucun média disponible dans ce dossier (cliquez sur dossiers Publics ou Privés).</div>
+        @endforelse
         </div>
 </div>
 <style>
