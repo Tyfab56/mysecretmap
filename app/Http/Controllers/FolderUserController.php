@@ -88,8 +88,7 @@ public function getUserFolders($userId)
     $folders = Folder::whereHas('users', function ($query) use ($user) {
         $query->where('users.id', $user->id);
     })->where('status', 'private')
-      ->whereHas('shareMedias')
-      ->with('shareMedias')
+      ->with('shareMedias') // Conservez cette ligne si vous souhaitez toujours charger les médias liés pour d'autres raisons
       ->get();
     dd($folders);
     return view('admin.userfolder.partials.userfolders', compact('folders'));
