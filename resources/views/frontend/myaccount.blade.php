@@ -327,6 +327,7 @@ $('#save-info-button').click(function() {
             <div class="sidebar sidebar-right">
               <div class="widget">
                         <h3 class="widget-title">Mes Médias</h3>
+                        <p>Si vous avez des crédits vous pouvez télécharger ici nos médias</p>
                         <!-- Bouton Mes Médias avec le nombre total -->
                         <a href="{{ route('mes-medias') }}" class="btn btn-primary">
                             Mes médias ({{ $userMediaCount }})
