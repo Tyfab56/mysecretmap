@@ -5,7 +5,7 @@
 <h1>Dossiers Privés</h1>
    @include('partials.navmedias')
    <div class="row">
-    @foreach($privateFolders as $folder)
+    @forelse($privateFolders as $folder)
     <div class="card" style="width: 18rem; float: left; margin: 10px;">
                 <img src="{{ $folder->shareMedias->first()->thumbnail_link ?? 'placeholder-image-url' }}" class="card-img-top" alt="...">
                 <div class="card-body">
@@ -15,7 +15,12 @@
                 </div>
             </div>
         </div>
-    @endforeach
+
+      @empty
+        <div class="row">
+            <div class="alert alert-info">Si vous venez de vous inscrire, patientez un peu, le temps que nous activions vos médias privés (24h). Vous recevez un message dès que c'est fait.</div>
+        </div>    
+        @endforelse
 </div>
 </div>
 @endsection
