@@ -92,6 +92,7 @@
   margin-left: auto;
   margin-right: auto;
   margin-top: 2.5rem; /* mt-10 */
+  min-height:100px;
 }
 
 .picture-item {
