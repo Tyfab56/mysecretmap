@@ -43,16 +43,7 @@ class FolderUserController extends Controller
         return response()->json(['success' => 'Dossier affecté avec succès']);
     }
 
-    // Retire un dossier d'un utilisateur
-    public function removeUserFolder(Request $request)
-    {
-        $userId = $request->userId;
-        $folderId = $request->folderId;
-        $user = User::find($userId);
-        $user->folders()->detach($folderId);
-        return response()->json(['success' => 'Dossier retiré avec succès']);
-    }
-
+   
 
     public function addFolderToUser(Request $request, $userId, $folderId)
 {
