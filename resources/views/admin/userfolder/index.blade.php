@@ -95,7 +95,32 @@ function fetchFolders(searchQuery, userId) {
         }
 
   
-   
+        $(document).on('click', '.remove-folder-btn', function(e) {
+    e.preventDefault();
+    var userId = $('#detailColumn').data('selected-user-id'); // Assurez-vous d'avoir cet ID stocké
+    var folderId = $(this).data('folder-id');
+
+    if (confirm('Êtes-vous sûr de vouloir supprimer cette association ?')) {
+        $.ajax({
+            url: '/admin/userfolder/remove', // URL de votre route
+            type: 'POST',
+            data: {
+                userId: userId,
+                folderId: folderId,
+                _token: $('meta[name="csrf-token"]').attr('content') // CSRF token
+            },
+            success: function(response) {
+                alert(response.success);
+                // Rafraîchir la liste des dossiers pour l'utilisateur courant
+                fetchUserFolders(userId);
+            },
+            error: function(response) {
+                alert('Erreur lors de la suppression de l\'association.');
+            }
+        });
+    }
+});  
+
 });
 </script>
 @endsection

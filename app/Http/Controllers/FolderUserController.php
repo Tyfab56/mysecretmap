@@ -68,19 +68,19 @@ class FolderUserController extends Controller
 
     return response()->json(['message' => 'L’utilisateur possède déjà ce dossier.'], 400);
 }
-
-public function removeFolderFromUser(Request $request, $userId, $folderId)
+public function removeUserFolder(Request $request)
 {
-    $user = User::findOrFail($userId);
-    $folder = Folder::findOrFail($folderId);
-
-    if ($user->folders()->find($folderId)) {
-        $user->folders()->detach($folderId); // Detach si existant
-        return response()->json(['message' => 'Dossier retiré avec succès.']);
+    $userId = $request->userId;
+    $folderId = $request->folderId;
+    $user = User::find($userId);
+    if ($user) {
+        $user->folders()->detach($folderId);
+        return response()->json(['success' => 'Association supprimée avec succès']);
     }
 
-    return response()->json(['message' => 'Le dossier n’est pas associé à cet utilisateur.'], 400);
+    return response()->json(['error' => 'Une erreur s\'est produite'], 422);
 }
+
 
 public function getUserFolders($userId)
 {

@@ -243,7 +243,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/userfolder', [FolderUserController::class, 'index'])->name('admin.userfolder.index');
         Route::post('/userfolder/add/{userId}/{folderId}', [FolderUserController::class, 'addFolderToUser'])->name('admin.userfolder.add');
         Route::post('/userfolder/addFolderToUser', [FolderUserController::class, 'addUserFolder'])->name('admin.userfolder.addFolderToUser');
-        Route::delete('/userfolder/remove/{userId}/{folderId}', [FolderUserController::class, 'removeFolderFromUser'])->name('admin.userfolder.remove');
+        Route::post('/userfolder/remove', [FolderUserController::class, 'removeUserFolder'])->name('admin.userfolder.remove');
     });
 });
 
