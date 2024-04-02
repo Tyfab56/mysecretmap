@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row">
         <!-- Colonne de filtrage des utilisateurs -->
-            <div class="col">
+            <div class="col-md-4">
                 <form action="{{ route('admin.userfolder.index') }}" method="GET">
                     <div class="input-group mb-3">
                         <input type="text" class="form-control" placeholder="Rechercher un utilisateur..." name="search" value="{{ request('search') }}">
@@ -24,13 +24,20 @@
             </div>
 
         <!-- Colonne pour les dossiers associés à l'utilisateur sélectionné -->
-        <div class="col" id="folderColumn">
-            <!-- Les dossiers de l'utilisateur sélectionné s'afficheront ici -->
+        <div class="col-md-4" >
+        <h3>Dossiers associés</h3>
+            <div id="folderColumn"><!-- Les dossiers de l'utilisateur sélectionné s'afficheront ici -->
+            </div >
         </div>
 
         <!-- Colonne pour les détails ou actions supplémentaires -->
-        <div class="col" id="detailColumn">
-            <!-- Détails ou actions pour le dossier sélectionné s'afficheront ici -->
+       
+        <div class="col-md-4" id="detailColumn">
+            <h3>Ajouter des dossiers</h3>
+            <input type="text" id="folderSearchInput" class="form-control mb-2" placeholder="Recherche par titre de dossier">
+            <div id="folderList" class="list-group">
+                <!-- Liste des dossiers filtrés -->
+            </div>
         </div>
     </div>
 </div>
