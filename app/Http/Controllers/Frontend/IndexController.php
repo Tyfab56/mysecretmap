@@ -787,7 +787,7 @@ public function privateFolders()
       ->whereHas('shareMedias')
       ->with('shareMedias')
       ->get();
-
+    dd($privateFolders);
     return view('frontend.privatefolders', compact('privateFolders'));
 }
 
