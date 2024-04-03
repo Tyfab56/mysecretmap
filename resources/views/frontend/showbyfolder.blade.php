@@ -26,10 +26,17 @@
         </div>
         
         <div class="media-filters">
-    <a href="{{ route('show-folder', ['folderId' => $folder->id, 'type' => 'photo']) }}" class="btn btn-primary">{{ __('sharemedia.photos') }}</a>
-    <a href="{{ route('show-folder', ['folderId' => $folder->id, 'type' => 'video']) }}" class="btn btn-primary">{{ __('sharemedia.videos') }}</a>
-    <a href="{{ route('show-folder', ['folderId' => $folder->id, 'type' => 'film']) }}" class="btn btn-primary">{{ __('sharemedia.films') }}</a>
-</div>
+                    <a href="{{ route('show-folder', ['folderId' => $folder->id, 'type' => 'photo']) }}" class="btn btn-primary">
+                {{ __('sharemedia.photos') }} <span class="badge badge-light">{{ $photosCount }}</span>
+            </a>
+            <a href="{{ route('show-folder', ['folderId' => $folder->id, 'type' => 'video']) }}" class="btn btn-primary">
+                {{ __('sharemedia.videos') }} <span class="badge badge-light">{{ $videosCount }}</span>
+            </a>
+            <a href="{{ route('show-folder', ['folderId' => $folder->id, 'type' => 'film']) }}" class="btn btn-primary">
+                {{ __('sharemedia.films') }} <span class="badge badge-light">{{ $filmsCount }}</span>
+            </a>
+
+            </div>
         
     
         <div id="gallery-wrapper" class="gallery-wrapper">
@@ -232,7 +239,7 @@
     });
 
     const mediaItems = document.querySelectorAll('.picture-item');
-     alert('ici');
+    
 
         mediaItems.forEach(item => {
             const video = item.querySelector('.media-video');

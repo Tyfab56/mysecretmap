@@ -793,6 +793,11 @@ public function privateFolders()
 public function showByFolder(Request $request, $folderId)
 {
     $folder = Folder::findOrFail($folderId);
+// Calculer le nombre de chaque type de média
+$photosCount = $folder->medias->where('media_type', 'photo')->count();
+$videosCount = $folder->medias->where('media_type', 'video')->count();
+$filmsCount = $folder->medias->where('media_type', 'film')->count();
+
     if ($request->has('type')) {
         $mediaType = $request->query('type');
     } else {
@@ -816,7 +821,7 @@ public function showByFolder(Request $request, $folderId)
     // Récupérer les IDs des médias déjà achetés par l'utilisateur
     $purchasedMediaIds = $user->mediaPurchases()->pluck('media_id')->toArray();
 
-    return view('frontend.showbyfolder', compact('folder', 'shareMedias', 'userCredits', 'purchasedMediaIds'));
+    return view('frontend.showbyfolder', compact('folder', 'shareMedias', 'userCredits', 'purchasedMediaIds','photosCount', 'videosCount', 'filmsCount')));
 }
 
 
