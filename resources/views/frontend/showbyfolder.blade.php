@@ -35,22 +35,7 @@
         <div id="gallery-wrapper" class="gallery-wrapper">
         @foreach($shareMedias as $media)
         
-                <div class="picture-item" data-groups='{{ $media->media_type }}'>
-                    <div class="media-icon">
-                        @switch($media->media_type)
-                            @case('photo')
-                                <i class="fas fa-image"></i> {{-- Icône pour les photos --}}
-                                @break
-                            @case('video')
-                            <i class="fas fa-folder"></i> {{-- Icône pour les vidéos --}}
-                                @break
-                            @case('film')
-                                <i class="fas fa-film"></i> {{-- Icône pour les films --}}
-                                @break
-                        @endswitch
-                    </div>
-                    {{-- Votre code existant pour afficher le média --}}
-                </div>
+                
                 <div class="picture-item" data-groups='{{ $media->media_type }}'>
                     <div class="group">
 
