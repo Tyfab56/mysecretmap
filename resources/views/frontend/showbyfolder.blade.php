@@ -232,10 +232,12 @@
   
     $(document).ready(function() {
 
-    var $grid = $('#gallery-wrapper').masonry({
-        // options de masonry
-        itemSelector: '.picture-item',
-        percentPosition: true
+    var $gallery = $('#gallery-wrapper').imagesLoaded(function() {
+        // Initialiser Masonry après que les images ont été chargées
+        $gallery.masonry({
+            itemSelector: '.picture-item',
+            percentPosition: true
+        });
     });
 
     const mediaItems = document.querySelectorAll('.picture-item');
