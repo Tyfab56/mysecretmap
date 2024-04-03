@@ -26,11 +26,10 @@
         </div>
         
         <div class="media-filters">
-           
-            <button class="filter-button" data-filter="photo">{{ __('sharemedia.photos') }}</button>
-            <button class="filter-button" data-filter="video">{{ __('sharemedia.videos') }}</button>
-            <button class="filter-button" data-filter="film">{{ __('sharemedia.films') }}</button>
-        </div>
+    <a href="{{ route('show-folder', ['folderId' => $folder->id, 'type' => 'photo']) }}" class="btn btn-primary">{{ __('sharemedia.photos') }}</a>
+    <a href="{{ route('show-folder', ['folderId' => $folder->id, 'type' => 'video']) }}" class="btn btn-primary">{{ __('sharemedia.videos') }}</a>
+    <a href="{{ route('show-folder', ['folderId' => $folder->id, 'type' => 'film']) }}" class="btn btn-primary">{{ __('sharemedia.films') }}</a>
+</div>
         
     
         <div id="gallery-wrapper" class="gallery-wrapper">
@@ -247,32 +246,7 @@
         percentPosition: true
     });
 
-    $('.media-filters').on('click', '.filter-button', function() {
-        var filterValue = $(this).data('filter'); 
-        var folderId = $('#folderId').val(); // Assurez-vous que l'ID du dossier est stocké dans un input caché
-
-        $.ajax({
-            url: '/show-type/' + folderId + '?type=' + filterValue,
-            type: 'GET',
-            success: function(response) {
-                // Remplacer le contenu de #gallery-wrapper par les nouveaux éléments
-                $('#gallery-wrapper').html(response);
-
-                // Attendre que les images soient chargées pour relancer le layout Masonry
-                $('#gallery-wrapper').imagesLoaded().done(function() {
-                    $grid.masonry('destroy'); 
-                    $grid = $('#gallery-wrapper').masonry({
-                        itemSelector: '.picture-item',
-                        percentPosition: true
-                    });
-                });
-            },
-            error: function(error) {
-                console.error(error);
-                alert('Erreur lors du chargement des médias.');
-            }
-        });
-    });
+    
 
 
 
