@@ -107,28 +107,29 @@
     margin-top: 2.5rem; /* mt-10 */
     }
 
-  
-
-
     .picture-item {
-  box-sizing: border-box;
-  float: left; /* Ensure items line up horizontally */
-  width: 33.33%; /* 1/3 of the container width */
-  padding: 10px; /* Adjust padding as needed */
-  overflow: hidden;
-}
+    position: relative;
+    float: left; /* Ensure items line up horizontally */
+    padding: 0.25rem; /* p-1 */
+    overflow: hidden;
+    width: 100%; /* Assurez-vous que la largeur par défaut est définie, peut-être ajustée par media queries */
+    }
 
-@media (max-width: 767px) {
-  .picture-item {
-    width: 50%; /* Adjust for smaller screens */
-  }
-}
+    /* Tailles responsives */
+    @media (min-width: 1024px) { /* lg */
+    .picture-item {
+        width: 33.333%; /* lg:w-1/3, Ajustement pour Masonry */
+    }
+    }
 
-@media (max-width: 480px) {
-  .picture-item {
-    width: 100%; /* Adjust for very small screens */
-  }
-}
+    @media (min-width: 640px) { /* sm */
+    .picture-item {
+        width: 33%; /* sm:w-1/2, Ajustement pour Masonry */
+    }
+    }
+
+
+    
 
     .group img {
     border-radius: 0.375rem; /* rounded-md */
