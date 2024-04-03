@@ -238,8 +238,9 @@
 
 
     <script>
-    var $grid;
+  
     $(document).ready(function() {
+
     var $grid = $('#gallery-wrapper').masonry({
         // options de masonry
         itemSelector: '.picture-item',
@@ -300,7 +301,7 @@
             }
         });
     });
-
+});
 
     </script>
 
