@@ -33,7 +33,7 @@
         
     
         <div id="gallery-wrapper" class="gallery-wrapper">
-        @foreach($folder->shareMedias as $media)
+        @foreach($shareMedias as $media)
         
                 <div class="picture-item" data-groups='{{ $media->media_type }}'>
                     <div class="media-icon">
