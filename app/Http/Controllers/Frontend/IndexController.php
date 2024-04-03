@@ -792,11 +792,18 @@ public function privateFolders()
 
 public function showByFolder(Request $request, $folderId)
 {
-    $folder = Folder::findOrFail($folderId);
+    $folder = Folder::withCount(['shareMedias as photos_count' => function ($query) {
+        $query->where('media_type', 'photo');
+    }, 'shareMedias as videos_count' => function ($query) {
+        $query->where('media_type', 'video');
+    }, 'shareMedias as films_count' => function ($query) {
+        $query->where('media_type', 'film');
+    }])->findOrFail($folderId);
+
 // Calculer le nombre de chaque type de média
-$photosCount = $folder->medias->where('media_type', 'photo')->count();
-$videosCount = $folder->medias->where('media_type', 'video')->count();
-$filmsCount = $folder->medias->where('media_type', 'film')->count();
+$photosCount = $folder->photos_count;
+$videosCount = $folder->videos_count;
+$filmsCount = $folder->films_count;
 
     if ($request->has('type')) {
         $mediaType = $request->query('type');
