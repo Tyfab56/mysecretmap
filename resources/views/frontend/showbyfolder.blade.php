@@ -252,7 +252,7 @@
         var folderId = $('#folderId').val(); // Assurez-vous que l'ID du dossier est stocké dans un input caché
 
         $.ajax({
-            url: '/show-folder/' + folderId + '?type=' + filterValue,
+            url: '/show-type/' + folderId + '?type=' + filterValue,
             type: 'GET',
             success: function(response) {
                 // Remplacer le contenu de #gallery-wrapper par les nouveaux éléments
