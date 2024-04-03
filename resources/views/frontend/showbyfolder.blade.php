@@ -246,13 +246,8 @@
         percentPosition: true
     });
 
-    
-
-
-
-    document.addEventListener("DOMContentLoaded", function() {
-        const mediaItems = document.querySelectorAll('.picture-item');
-        alert('ici');
+    const mediaItems = document.querySelectorAll('.picture-item');
+     alert('ici');
 
         mediaItems.forEach(item => {
             const video = item.querySelector('.media-video');
@@ -271,7 +266,7 @@
                 });
             }
         });
-    });
+    
 });
 
     </script>
