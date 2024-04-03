@@ -7,7 +7,7 @@
     @if(Request::route()->getName() == 'show-folder')
     @include('partials.navmedias')
     @endif
-
+    <input type="hidden" id="folderId" value="{{ $folder->id }}" />
     <div class="container">
         <h4>{{ __('sharemedia.creditdispo') }}</h4>
         <div class="d-flex justify-content-start align-items-center mb-4">
@@ -26,7 +26,7 @@
         </div>
         
         <div class="media-filters">
-            <button class="filter-button" data-filter="*">{{ __('sharemedia.all') }}</button>
+           
             <button class="filter-button" data-filter="photo">{{ __('sharemedia.photos') }}</button>
             <button class="filter-button" data-filter="video">{{ __('sharemedia.videos') }}</button>
             <button class="filter-button" data-filter="film">{{ __('sharemedia.films') }}</button>
@@ -248,7 +248,7 @@
     });
 
     $('.media-filters').on('click', '.filter-button', function() {
-        var filterValue = $(this).data('filter'); // Utiliser data-filter pour cohérence avec HTML
+        var filterValue = $(this).data('filter'); 
         var folderId = $('#folderId').val(); // Assurez-vous que l'ID du dossier est stocké dans un input caché
 
         $.ajax({
