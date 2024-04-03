@@ -821,7 +821,7 @@ $filmsCount = $folder->medias->where('media_type', 'film')->count();
     // Récupérer les IDs des médias déjà achetés par l'utilisateur
     $purchasedMediaIds = $user->mediaPurchases()->pluck('media_id')->toArray();
 
-    return view('frontend.showbyfolder', compact('folder', 'shareMedias', 'userCredits', 'purchasedMediaIds','photosCount', 'videosCount', 'filmsCount')));
+    return view('frontend.showbyfolder', compact('folder', 'shareMedias', 'userCredits', 'purchasedMediaIds','photosCount', 'videosCount', 'filmsCount'));
 }
 
 
