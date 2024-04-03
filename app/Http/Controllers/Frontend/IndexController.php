@@ -790,9 +790,10 @@ public function privateFolders()
     return view('frontend.privatefolders', compact('privateFolders'));
 }
 
-public function showByFolder($folderId)
+public function showByFolder(Request $request, $folderId)
 {
-    $folder = Folder::with('shareMedias')->findOrFail($folderId);
+    $folder = Folder::findOrFail($folderId);
+    $mediaType = $request->query('type', 'photo'); 
 
     // Vérifier si l'utilisateur est admin ou a accès au dossier
     $user = Auth::user();
@@ -800,13 +801,18 @@ public function showByFolder($folderId)
         abort(403, "Vous n'avez pas l'autorisation d'accéder à ce dossier.");
     }
 
+    // Filtrer les médias en fonction du type si spécifié
+    $shareMedias = $folder->shareMedias()->when($mediaType, function($query) use ($mediaType) {
+        return $query->where('media_type', $mediaType);
+    })->get();
+
     // Récupérer les crédits de l'utilisateur en cours
     $userCredits = UserCredit::where('user_id', $user->id)->get();
-    
+
     // Récupérer les IDs des médias déjà achetés par l'utilisateur
     $purchasedMediaIds = $user->mediaPurchases()->pluck('media_id')->toArray();
 
-    return view('frontend.showbyfolder', compact('folder', 'userCredits', 'purchasedMediaIds'));
+    return view('frontend.showbyfolder', compact('folder', 'shareMedias', 'userCredits', 'purchasedMediaIds'));
 }
 
 

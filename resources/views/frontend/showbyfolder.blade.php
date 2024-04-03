@@ -240,37 +240,43 @@
     <script>
     var $grid;
     $(document).ready(function() {
-        $grid = $('#gallery-wrapper').imagesLoaded(function() {
-        $grid.masonry({
-            itemSelector: '.picture-item',
-            percentPosition: true,
-        
-        });
+    var $grid = $('#gallery-wrapper').masonry({
+        // options de masonry
+        itemSelector: '.picture-item',
+        percentPosition: true
     });
 
     $('.media-filters').on('click', '.filter-button', function() {
-            var filterValue = $(this).attr('data-filter');
+        var filterValue = $(this).data('filter'); // Utiliser data-filter pour cohérence avec HTML
+        var folderId = $('#folderId').val(); // Assurez-vous que l'ID du dossier est stocké dans un input caché
 
-            // Afficher tous les éléments si le filtre est "*"
-            if (filterValue == '*') {
-                // Montrer tous les éléments
-                $('.picture-item').show();
-            } else {
-                // Sinon, masquer tous les éléments qui ne correspondent pas au filtre et afficher ceux qui correspondent
-                $('#gallery-wrapper .picture-item').each(function() {
-                    if ($(this).data('groups') == filterValue) {
-                        $(this).show();
-                    } else {
-                        $(this).hide();
-                    }
+        $.ajax({
+            var url = `/show-folder/${folderId}?type=${filterValue}`;
+            type: 'GET',
+            data: {
+                folderId: folderId,
+                type: filterValue // Envoyer le type de média comme paramètre
+            },
+            success: function(response) {
+                // Remplacer le contenu de #gallery-wrapper par les nouveaux éléments
+                $('#gallery-wrapper').html(response);
+
+                // Attendre que les images soient chargées pour relancer le layout Masonry
+                $('#gallery-wrapper').imagesLoaded().done(function() {
+                    $grid.masonry('destroy'); // Détruire l'instance Masonry avant de la recréer
+                    $grid = $('#gallery-wrapper').masonry({
+                        itemSelector: '.picture-item',
+                        percentPosition: true
+                    });
                 });
+            },
+            error: function(error) {
+                console.error(error);
+                alert('Erreur lors du chargement des médias.');
             }
-            // Relancer le layout Masonry après le filtrage
-                    $('#gallery-wrapper').imagesLoaded().done(function() {
-                    $grid.masonry('layout');
-                });
         });
     });
+
 
 
     document.addEventListener("DOMContentLoaded", function() {
