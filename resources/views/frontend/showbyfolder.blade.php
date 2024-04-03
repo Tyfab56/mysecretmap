@@ -254,17 +254,13 @@
         $.ajax({
             url: '/show-folder/' + folderId + '?type=' + filterValue,
             type: 'GET',
-            data: {
-                folderId: folderId,
-                type: filterValue // Envoyer le type de média comme paramètre
-            },
             success: function(response) {
                 // Remplacer le contenu de #gallery-wrapper par les nouveaux éléments
                 $('#gallery-wrapper').html(response);
 
                 // Attendre que les images soient chargées pour relancer le layout Masonry
                 $('#gallery-wrapper').imagesLoaded().done(function() {
-                    $grid.masonry('destroy'); // Détruire l'instance Masonry avant de la recréer
+                    $grid.masonry('destroy'); 
                     $grid = $('#gallery-wrapper').masonry({
                         itemSelector: '.picture-item',
                         percentPosition: true
