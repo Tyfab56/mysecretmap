@@ -47,7 +47,7 @@
                 
                 <div class="picture-item" data-groups='{{ $media->media_type }}'>
                     <div class="group">
-
+                    <div class="overlay-text">Votre Texte Ici</div>
                         @if($media->media_type == 'video')
                             <!-- Thumbnail -->
                             <img src="{{ $media->thumbnail_link }}" alt="{{ $media->title }}" class="media-thumbnail">
@@ -162,7 +162,17 @@
     align-items: center;
     justify-content: center;
     }
-
+    .overlay-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fond semi-transparent noir */
+    color: white; /* Couleur du texte */
+    padding: 5px; /* Espacement autour du texte */
+    font-size: 0.9em; /* Taille du texte */
+    z-index: 2; /* S'assurer que le texte reste au-dessus de l'image/vidéo */
+}
     .image-popup:hover {
     background-color: #000000; /* hover:bg-black */
     }
