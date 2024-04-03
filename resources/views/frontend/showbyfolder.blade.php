@@ -47,7 +47,7 @@
                 
                 <div class="picture-item" data-groups='{{ $media->media_type }}'>
                     <div class="group">
-                    <div class="overlay-text">Votre Texte Ici</div>
+                    <div class="overlay-text">{{ $media->width }} x {{ $media->height }}</div>
                         @if($media->media_type == 'video')
                             <!-- Thumbnail -->
                             <img src="{{ $media->thumbnail_link }}" alt="{{ $media->title }}" class="media-thumbnail">
@@ -167,7 +167,7 @@
     top: 0;
     left: 0;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Fond semi-transparent noir */
+    background-color: rgba(0, 0, 0, 0); /* Fond semi-transparent noir */
     color: white; /* Couleur du texte */
     padding: 5px; /* Espacement autour du texte */
     font-size: 0.9em; /* Taille du texte */
