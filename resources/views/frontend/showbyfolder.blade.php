@@ -47,7 +47,7 @@
                 
                 <div class="picture-item" data-groups='{{ $media->media_type }}'>
                     <div class="group">
-                    <div class="overlay-text">{{ $media->width }} x {{ $media->height }}</div>
+                    <div class="ml-2 overlay-text">{{ $media->width }} x {{ $media->height }}</div>
                         @if($media->media_type == 'video')
                             <!-- Thumbnail -->
                             <img src="{{ $media->thumbnail_link }}" alt="{{ $media->title }}" class="media-thumbnail">
