@@ -798,7 +798,7 @@ public function showByFolder(Request $request, $folderId)
     } else {
         $mediaType = 'photo';
     }
-   dd($mediaType);
+
     // Vérifier si l'utilisateur est admin ou a accès au dossier
     $user = Auth::user();
     if ($folder->status == 'private' && !$user->isAdmin() && !$folder->users->contains('id', $user->id)) {
@@ -809,7 +809,7 @@ public function showByFolder(Request $request, $folderId)
     $shareMedias = $folder->shareMedias()->when($mediaType, function($query) use ($mediaType) {
         return $query->where('media_type', $mediaType);
     })->get();
-
+ dd($shareMedias);
     // Récupérer les crédits de l'utilisateur en cours
     $userCredits = UserCredit::where('user_id', $user->id)->get();
 
