@@ -109,6 +109,7 @@
 
 .picture-item {
   position: relative;
+  float: left; /* Ensure items line up horizontally */
   padding: 0.25rem; /* p-1 */
   overflow: hidden;
   width: 100%; /* Assurez-vous que la largeur par défaut est définie, peut-être ajustée par media queries */
@@ -240,7 +241,7 @@ $(document).ready(function() {
     $grid.masonry({
         itemSelector: '.picture-item',
         percentPosition: true,
-        columnWidth: '.picture-item' // S'assurer que cela correspond à vos éléments de grille
+      
     });
 });
 
