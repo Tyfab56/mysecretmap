@@ -262,7 +262,9 @@ $('.media-filters').on('click', '.filter-button', function() {
             });
         }
         // Relancer le layout Masonry après le filtrage
-        $grid.masonry('layout');
+                $('#gallery-wrapper').imagesLoaded().done(function() {
+                $grid.masonry('layout');
+            });
     });
 });
 
