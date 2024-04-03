@@ -798,7 +798,7 @@ public function showByFolder(Request $request, $folderId)
     } else {
         $mediaType = 'photo';
     }
-   dd($mediatype);
+   dd($mediaType);
     // Vérifier si l'utilisateur est admin ou a accès au dossier
     $user = Auth::user();
     if ($folder->status == 'private' && !$user->isAdmin() && !$folder->users->contains('id', $user->id)) {
