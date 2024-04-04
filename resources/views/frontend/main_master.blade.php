@@ -82,7 +82,7 @@
                         <span class="social-icon"><i class="fab fa-github"></i></span>
                     </a>
                     <div class="messages-notification">
-                      <a href="{{ route('frontend.messages.index') }}">
+                      <a href="{{ route('messages.index') }}">
                           <i class="fas fa-envelope"></i>
                           @if($unreadMessagesCount > 0)
                               <span class="badge badge-danger">{{ $unreadMessagesCount }}</span>
