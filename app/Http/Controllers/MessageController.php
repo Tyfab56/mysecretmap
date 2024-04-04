@@ -35,7 +35,7 @@ class MessageController extends Controller
             $message->read_at = now();
             $message->save();
 
-            return redirect()->route('frontend.messages.index')->with('success', 'Message marked as read.');
+            return redirect()->route('messages.index')->with('success', 'Message marked as read.');
         }
 
         return back()->with('error', 'Unauthorized access.');
