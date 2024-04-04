@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="{{Lang::locale()}}">
 
@@ -43,6 +44,10 @@
            
     </head>
     <body>
+    @php
+    $messageController = resolve('App\Http\Controllers\MessageController');
+    $unreadMessagesCount = $messageController->getUnreadMessagesCount();
+    @endphp
         <div class="body-inner">
       
           <div id="top-bar" class="top-bar">

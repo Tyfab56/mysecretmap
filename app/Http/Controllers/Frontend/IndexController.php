@@ -94,10 +94,8 @@ class IndexController extends Controller
 
         $timelines = Timelines::orderBy('date', 'desc')->take(5)->get();   
 
-        // Récupération du nombre de messages non lus de l'utilisateur connecté
-    $unreadMessagesCount = Message::where('to_id', auth()->id())
-    ->whereNull('read_at')
-    ->count();
+
+  
            
 
         return view('frontend/index', compact('lastPays', 'idpays', 'pays', 'payslist', 'payslng', 'payslat', 'payszoom', 'paysoffset', 'spot', 'lastspots', 'noscircuits','markerspays','pictures','timelines', 'unreadMessagesCount'));

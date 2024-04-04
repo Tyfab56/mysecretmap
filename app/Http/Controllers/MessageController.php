@@ -79,4 +79,13 @@ class MessageController extends Controller
 
             return back()->with('success', 'Votre message a été envoyé avec succès à l\'administrateur.');
         }
+
+        public function getUnreadMessagesCount()
+        {
+            $unreadMessagesCount = Message::where('to_id', auth()->id())
+                ->whereNull('read_at')
+                ->count();
+    
+            return $unreadMessagesCount;
+        }
 }
