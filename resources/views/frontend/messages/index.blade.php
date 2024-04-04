@@ -2,6 +2,21 @@
 @section('content')
 <section class="messages-list-section">
     <div class="container">
+
+    <h2>Envoyer un Message à l'Administrateur</h2>
+        <form action="{{ route('messages.store') }}" method="POST">
+            @csrf
+            <div class="form-group">
+                <label for="subject">Sujet :</label>
+                <input type="text" class="form-control" id="subject" name="subject" required>
+            </div>
+            <div class="form-group">
+                <label for="body">Message :</label>
+                <textarea class="form-control" id="body" name="body" rows="3" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Envoyer</button>
+        </form>
+        
         <h2>Messages</h2>
         @if(session('success'))
             <div class="alert alert-success">{{ session('success') }}</div>

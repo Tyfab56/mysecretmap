@@ -9,6 +9,7 @@
         "aimeos/aimeos-laravel": "~2023.04",
         "astrotomic/laravel-translatable": "^11.11",
         "aws/aws-sdk-php": "^3.302",
+        "ezyang/htmlpurifier": "^4.17",
         "google/recaptcha": "^1.3",
         "guzzlehttp/guzzle": "^7.2",
         "intervention/image": "^2.7",

@@ -263,6 +263,7 @@ Route::middleware(['auth'])->group(function () {
 
     // Route pour marquer un message comme lu
     Route::patch('frontend/messages/{message}/read', [MessageController::class, 'markAsRead'])->name('messages.markAsRead');
+    Route::post('/messages', [MessageController::class, 'store'])->name('messages.store');
 });
 
 
