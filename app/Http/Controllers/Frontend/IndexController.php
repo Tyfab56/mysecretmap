@@ -257,6 +257,7 @@ class IndexController extends Controller
         
          // Recupération du tatal des message non lu
         $unreadMessages = Message::where('to_id', $user->id)
+        ->orderBy('created_at', 'desc')
         ->whereNull('read_at')
         ->get();
     

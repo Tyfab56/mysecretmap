@@ -336,22 +336,33 @@ $('#save-info-button').click(function() {
                         
                 </div>
                 <div class="widget">
-                    <h3 class="widget-title">Messages Non Lus</h3>
-                    @if($unreadMessages->count() > 0)
-                        <ul>
-                            @foreach($unreadMessages as $message)
-                                <li>
-                                    De : {{ $message->sender->name }}<br>
-                                    Sujet : {{ $message->subject }}<br>
-                                    <a href="{{ route('messages.show', $message->id) }}">Lire le message</a>
-                                </li>
-                            @endforeach
-                        </ul>
-                    @else
-                        <p>Aucun message non lu.</p>
-                    @endif
-                    <a href="{{ route('messages.index') }}" class="btn btn-primary">Voir tous les messages</a>
-                </div>
+                    <div class="container">
+                        <h4>Messages Non Lus</h4>
+                        @if($unreadMessages->count() > 0)
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Sujet</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($unreadMessages as $message)
+                                <tr>
+                                    <td>{{ $message->subject }}</td>
+                                    <td>
+                                        <a href="{{ route('messages.show', $message->id) }}" class="btn btn-primary btn-sm">Voir le message</a>
+                                    </td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                        @else
+                            <p>Vous n'avez aucun message non lu.</p>
+                        @endif
+                </div>  <!-- Container -->
+                        
+                </div><!-- Widget -->
 
                 <div class="widget recent-posts">
                     <h3 class="widget-title">Bienvenue sur My Secret Map</h3>
