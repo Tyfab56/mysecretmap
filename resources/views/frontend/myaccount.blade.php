@@ -357,11 +357,7 @@ $('#save-info-button').click(function() {
                         <td>{{ $message->created_at->format('d/m/Y H:i') }}</td>
                         <td>
                             <a href="{{ route('messages.show', $message->id) }}" class="btn btn-sm btn-info">Voir</a>
-                            <form action="{{ route('messages.markAsRead', $message->id) }}" method="POST" style="display: inline-block;">
-                                @csrf
-                                @method('PATCH')
-                                <button type="submit" class="btn btn-sm btn-success">Marquer comme lu</button>
-                            </form>
+                            
                         </td>
                     </tr>
                                 @endforeach

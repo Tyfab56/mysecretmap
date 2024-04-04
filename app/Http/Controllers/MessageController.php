@@ -23,6 +23,12 @@ class MessageController extends Controller
         ->orderBy('created_at', 'desc')
         ->get();
 
+        // Formatez la date dans le format "il y a x temps"
+    $messages->transform(function ($message) {
+        $message->formatted_created_at = $message->created_at->diffForHumans();
+        return $message;
+    });
+
         return view('frontend.messages.index', compact('messages'));
     }
 
