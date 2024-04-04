@@ -150,7 +150,7 @@ class User extends Authenticatable implements MustVerifyEmail, TranslatableContr
         }
 
         // Retourne un avatar par défaut si aucun avatar n'est défini
-        return {{asset('frontend/assets/images/avatar.jpg')}};
+        return asset('frontend/assets/images/avatar.jpg');
     }
 
 }
