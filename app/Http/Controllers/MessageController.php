@@ -13,6 +13,9 @@ class MessageController extends Controller
     // Afficher la liste des messages
     public function index()
     {
+
+        $userId = auth()->id();
+        
         $messages = Message::where(function($query) use ($userId) {
             $query->where('from_id', $userId)
                   ->orWhere('to_id', $userId);
