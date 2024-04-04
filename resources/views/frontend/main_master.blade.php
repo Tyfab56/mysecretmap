@@ -72,6 +72,14 @@
 </div>
 
         <div class="col-lg-4 col-md-4 top-social text-center text-md-right">
+        <div class="messages-notification">
+                      <a href="{{ route('messages.index') }}">
+                          <i class="fas fa-envelope"></i>
+                          @if($unreadMessagesCount > 0)
+                              <span class="badge badge-danger">{{ $unreadMessagesCount }}</span>
+                          @endif
+                      </a>
+                    </div>
             <ul class="list-unstyled">
                 <li>
                     <a title="Facebook" href="https://www.facebook.com/mysecretmap.fr/">
@@ -90,7 +98,7 @@
                    
                 </li>
             </ul>
-            @yield('message')
+           
         </div>
         <!--/ Top social end -->
     </div>
