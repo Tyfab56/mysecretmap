@@ -80,24 +80,7 @@
                           @endif
                       </a>
                     </div>
-            <ul class="list-unstyled">
-                <li>
-                    <a title="Facebook" href="https://www.facebook.com/mysecretmap.fr/">
-                        <span class="social-icon"><i class="fab fa-facebook-f"></i></span>
-                    </a>
-                    <a title="Twitter" href="https://twitter.com/FabriceH_photo">
-                        <span class="social-icon"><i class="fab fa-twitter"></i></span>
-                    </a>
-                    <a title="Instagram" href="https://www.instagram.com/my_secret_map/">
-                        <span class="social-icon"><i class="fab fa-instagram"></i></span>
-                    </a>
-                    <a title="Linkdin" href="https://www.linkedin.com/in/fabrice-h-03bb1a84/">
-                        <span class="social-icon"><i class="fab fa-github"></i></span>
-                    </a>
-                   
-                   
-                </li>
-            </ul>
+            
            
         </div>
         <!--/ Top social end -->
