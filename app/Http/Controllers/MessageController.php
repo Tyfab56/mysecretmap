@@ -12,7 +12,7 @@ class MessageController extends Controller
     public function index()
     {
         $messages = Message::where('to_id', Auth::id())->get();
-        return view('messages.index', compact('messages'));
+        return view('frontend.messages.index', compact('messages'));
     }
 
     // Afficher un message spécifique
@@ -23,7 +23,7 @@ class MessageController extends Controller
             abort(403);
         }
 
-        return view('messages.show', compact('message'));
+        return view('frontend.messages.show', compact('message'));
     }
 
     // Marquer un message comme lu
@@ -33,7 +33,7 @@ class MessageController extends Controller
             $message->read_at = now();
             $message->save();
 
-            return redirect()->route('messages.index')->with('success', 'Message marked as read.');
+            return redirect()->route('frontend.messages.index')->with('success', 'Message marked as read.');
         }
 
         return back()->with('error', 'Unauthorized access.');
