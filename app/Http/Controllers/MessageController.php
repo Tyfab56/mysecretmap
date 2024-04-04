@@ -15,12 +15,12 @@ class MessageController extends Controller
     {
 
         $userId = auth()->id();
-        
+
         $messages = Message::where(function($query) use ($userId) {
             $query->where('from_id', $userId)
                   ->orWhere('to_id', $userId);
         })
-        ->orderBy('created_at', 'asc')
+        ->orderBy('created_at', 'desc')
         ->get();
 
         return view('frontend.messages.index', compact('messages'));
