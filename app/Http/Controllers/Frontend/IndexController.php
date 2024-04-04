@@ -93,9 +93,14 @@ class IndexController extends Controller
                     ->paginate(30);
 
         $timelines = Timelines::orderBy('date', 'desc')->take(5)->get();   
+
+        // Récupération du nombre de messages non lus de l'utilisateur connecté
+    $unreadMessagesCount = Message::where('to_id', auth()->id())
+    ->whereNull('read_at')
+    ->count();
            
 
-        return view('frontend/index', compact('lastPays', 'idpays', 'pays', 'payslist', 'payslng', 'payslat', 'payszoom', 'paysoffset', 'spot', 'lastspots', 'noscircuits','markerspays','pictures','timelines'));
+        return view('frontend/index', compact('lastPays', 'idpays', 'pays', 'payslist', 'payslng', 'payslat', 'payszoom', 'paysoffset', 'spot', 'lastspots', 'noscircuits','markerspays','pictures','timelines', 'unreadMessagesCount'));
     }
 
     public function search(Request $request)

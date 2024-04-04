@@ -81,6 +81,14 @@
                     <a title="Linkdin" href="https://www.linkedin.com/in/fabrice-h-03bb1a84/">
                         <span class="social-icon"><i class="fab fa-github"></i></span>
                     </a>
+                    <div class="messages-notification">
+                      <a href="{{ route('frontend.messages.index') }}">
+                          <i class="fas fa-envelope"></i>
+                          @if($unreadMessagesCount > 0)
+                              <span class="badge badge-danger">{{ $unreadMessagesCount }}</span>
+                          @endif
+                      </a>
+                    </div>
                 </li>
             </ul>
         </div>
