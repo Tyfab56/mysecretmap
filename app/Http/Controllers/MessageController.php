@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use HTMLPurifier;
 use HTMLPurifier_Config;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Carbon;
 
 class MessageController extends Controller
 {
