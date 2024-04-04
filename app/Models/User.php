@@ -142,4 +142,15 @@ class User extends Authenticatable implements MustVerifyEmail, TranslatableContr
         return $this->hasMany(Message::class, 'to_id');
     }
 
+    public function getAvatarUrlAttribute()
+    {
+        if ($this->avatar) {
+            // Si vous stockez le chemin de l'avatar dans l'attribut 'avatar', ajustez le retour ci-dessous
+            return $this->avatar;
+        }
+
+        // Retourne un avatar par défaut si aucun avatar n'est défini
+        return {{asset('frontend/assets/images/avatar.jpg')}};
+    }
+
 }

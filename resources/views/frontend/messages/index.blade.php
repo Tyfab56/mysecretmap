@@ -31,9 +31,12 @@
                 </tr>
             </thead>
             <tbody>
-                @forelse($messages as $message)
-                <tr class="{{ is_null($message->read_at) ? 'table-warning' : '' }}">
-                        <td>{{ Str::limit($message->body, 200) }}</td>
+               @forelse($messages as $message)
+                    <tr class="{{ is_null($message->read_at) ? 'table-warning' : '' }}">
+                        <td>
+                            <img src="{{ $message->sender->avatar ?? asset('path/to/default/avatar.jpg') }}" alt="avatar" style="width: 30px; height: 30px; border-radius: 50%;">
+                            {{ Str::limit($message->body, 200) }}
+                        </td>
                         <td>{{ $message->sender->name ?? 'Administrateur' }}</td>
                         <td>{{ $message->created_at->format('d/m/Y H:i') }}</td>
                         <td>

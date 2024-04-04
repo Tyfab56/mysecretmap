@@ -13,9 +13,13 @@ class MessageController extends Controller
     // Afficher la liste des messages
     public function index()
     {
-        $messages = Message::where('to_id', Auth::id())
-                       ->orderBy('created_at', 'desc')
-                       ->get();
+        $messages = Message::where(function($query) use ($userId) {
+            $query->where('from_id', $userId)
+                  ->orWhere('to_id', $userId);
+        })
+        ->orderBy('created_at', 'asc')
+        ->get();
+
         return view('frontend.messages.index', compact('messages'));
     }
 
