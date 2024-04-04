@@ -35,7 +35,7 @@
                             {{ Str::limit($message->body, 200) }}
                         </td>
                         <td>{{ $message->sender->name ?? 'Administrateur' }}</td>
-                        <td>{{ $message->created_at->format('d/m/Y H:i') }}</td>
+                        <td>{{ $message->created_at }}</td>
                         <td>
                             <a href="{{ route('messages.show', $message->id) }}" class="btn btn-sm btn-info">Voir</a>
                             <form action="{{ route('messages.markAsRead', $message->id) }}" method="POST" style="display: inline-block;">
