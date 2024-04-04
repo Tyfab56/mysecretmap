@@ -17,6 +17,7 @@ use App\Models\Whoiam;
 use App\Models\ShareMedia;
 use App\Models\UserCredit;
 use App\Models\Folder;
+use App\Models\Message;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -253,8 +254,13 @@ class IndexController extends Controller
 
         // Recupération du tatal des médias
         $userMediaCount = auth()->user()->purchasedMedias()->count();
+        
+         // Recupération du tatal des message non lu
+        $unreadMessages = Message::where('to_id', $user->id)
+        ->whereNull('read_at')
+        ->get();
     
-        return view('frontend/myaccount', compact('user', 'pays','payslist', 'whoiams','userMediaCount'));
+        return view('frontend/myaccount', compact('user', 'pays','payslist', 'whoiams','userMediaCount','unreadMessages'));
         //return view('frontend/myaccount', compact('user', 'pays','payslist', 'whoiams'));
     }
 

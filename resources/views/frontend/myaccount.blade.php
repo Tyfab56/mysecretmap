@@ -332,9 +332,27 @@ $('#save-info-button').click(function() {
                         <a href="{{ route('mes-medias') }}" class="btn btn-primary">
                             Mes médias ({{ $userMediaCount }})
                         </a>
-                        <!-- Liens supplémentaires comme demandé -->
+                       
                         
                 </div>
+                <div class="widget">
+                    <h3 class="widget-title">Messages Non Lus</h3>
+                    @if($unreadMessages->count() > 0)
+                        <ul>
+                            @foreach($unreadMessages as $message)
+                                <li>
+                                    De : {{ $message->sender->name }}<br>
+                                    Sujet : {{ $message->subject }}<br>
+                                    <a href="{{ route('messages.show', $message->id) }}">Lire le message</a>
+                                </li>
+                            @endforeach
+                        </ul>
+                    @else
+                        <p>Aucun message non lu.</p>
+                    @endif
+                    <a href="{{ route('messages.index') }}" class="btn btn-primary">Voir tous les messages</a>
+                </div>
+
                 <div class="widget recent-posts">
                     <h3 class="widget-title">Bienvenue sur My Secret Map</h3>
                     <p>Cette page vous permet de modifier vos informations, le niveaux de vos abonnements et de saisir les paramètres de vos circuits.</p>

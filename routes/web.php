@@ -26,6 +26,7 @@ use App\Http\Controllers\ShareMediaController;
 use App\Http\Controllers\UserCreditController;
 use App\Http\Controllers\CreditController;
 use App\Http\Controllers\FolderUserController;
+use App\Http\Controllers\MessageController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -252,5 +253,17 @@ Route::middleware(['auth'])->group(function () {
 Route::get('/admin/userfolder/{userId}/folders', [FolderUserController::class, 'getUserFolders'])->name('admin.userfolder.folders');
 
 Route::get('/admin/userfolder/folders/search', [FolderUserController::class, 'searchFolders'])->name('userfolder.folders.search');
+
+Route::middleware(['auth'])->group(function () {
+    // Route pour afficher la liste des messages
+    Route::get('frontend/messages', [MessageController::class, 'index'])->name('messages.index');
+
+    // Route pour afficher un message spécifique
+    Route::get('frontend/messages/{message}', [MessageController::class, 'show'])->name('messages.show');
+
+    // Route pour marquer un message comme lu
+    Route::patch('frontend/messages/{message}/read', [MessageController::class, 'markAsRead'])->name('messages.markAsRead');
+});
+
 
 require __DIR__ . '/auth.php';
