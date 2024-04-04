@@ -348,12 +348,22 @@ $('#save-info-button').click(function() {
                             </thead>
                             <tbody>
                                 @foreach($unreadMessages as $message)
-                                <tr>
-                                    <td>{{ Str::limit($message->body, 200) }}</td>
-                                    <td>
-                                        <a href="{{ route('messages.show', $message->id) }}" class="btn btn-primary btn-sm">Voir le message</a>
-                                    </td>
-                                </tr>
+                                <tr class="{{ is_null($message->read_at) ? 'table-warning' : '' }}">
+                        <td>
+                            <img src="{{ $message->sender->avatar ?? asset('path/to/default/avatar.jpg') }}" alt="avatar" style="width: 30px; height: 30px; border-radius: 50%;">
+                            {{ Str::limit($message->body, 200) }}
+                        </td>
+                        <td>{{ $message->sender->name ?? 'Administrateur' }}</td>
+                        <td>{{ $message->created_at->format('d/m/Y H:i') }}</td>
+                        <td>
+                            <a href="{{ route('messages.show', $message->id) }}" class="btn btn-sm btn-info">Voir</a>
+                            <form action="{{ route('messages.markAsRead', $message->id) }}" method="POST" style="display: inline-block;">
+                                @csrf
+                                @method('PATCH')
+                                <button type="submit" class="btn btn-sm btn-success">Marquer comme lu</button>
+                            </form>
+                        </td>
+                    </tr>
                                 @endforeach
                             </tbody>
                         </table>
