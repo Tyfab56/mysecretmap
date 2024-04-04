@@ -24,7 +24,7 @@ class MessageController extends Controller
         ->get();
 
         // Formatez la date dans le format "il y a x temps"
-    $messages->transform(function ($message) {
+        $messages = $messages->transform(function ($message) {
         $message->formatted_created_at = $message->created_at->diffForHumans();
         return $message;
     });
