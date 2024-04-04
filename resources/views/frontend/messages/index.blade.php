@@ -16,27 +16,42 @@
             </div>
             <button type="submit" class="btn btn-primary">Envoyer</button>
         </form>
-        
-        <h2>Messages</h2>
         @if(session('success'))
             <div class="alert alert-success">{{ session('success') }}</div>
         @endif
-        <div class="messages">
-            @forelse($messages as $message)
-                <div class="message">
-                    <h3>{{ $message->subject }}</h3>
-                    <p>De : {{ $message->sender->name ?? 'Inconnu' }}</p>
-                    <a href="{{ route('messages.show', $message->id) }}">Lire le message</a>
-                    <form action="{{ route('messages.markAsRead', $message->id) }}" method="POST" style="display: inline-block;">
-                        @csrf
-                        @method('PATCH')
-                        <button type="submit" class="btn btn-primary">Marquer comme lu</button>
-                    </form>
-                </div>
-            @empty
-                <p>Aucun message à afficher.</p>
-            @endforelse
-        </div>
+        <h2>Messages</h2>
+       
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Sujet</th>
+                    <th>De</th>
+                    <th>Date</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @forelse($messages as $message)
+                    <tr>
+                        <td>{{ $message->subject }}</td>
+                        <td>{{ $message->sender->name ?? 'Administrateur' }}</td>
+                        <td>{{ $message->created_at->format('d/m/Y H:i') }}</td>
+                        <td>
+                            <a href="{{ route('messages.show', $message->id) }}" class="btn btn-sm btn-info">Voir</a>
+                            <form action="{{ route('messages.markAsRead', $message->id) }}" method="POST" style="display: inline-block;">
+                                @csrf
+                                @method('PATCH')
+                                <button type="submit" class="btn btn-sm btn-success">Marquer comme lu</button>
+                            </form>
+                        </td>
+                    </tr>
+                @empty
+                    <tr>
+                        <td colspan="4">Aucun message à afficher.</td>
+                    </tr>
+                @endforelse
+            </tbody>
+        </table>
     </div>
 </section>
 @endsection
