@@ -360,6 +360,7 @@ $('#save-info-button').click(function() {
                         @else
                             <p>Vous n'avez aucun message non lu.</p>
                         @endif
+                        <a href="{{ route('messages.index') }}" class="btn btn-primary btn-sm">Voir ltous les messages</a>
                 </div>  <!-- Container -->
                         
                 </div><!-- Widget -->
