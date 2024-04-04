@@ -354,7 +354,7 @@ $('#save-info-button').click(function() {
                             {{ Str::limit($message->body, 200) }}
                         </td>
                         <td>{{ $message->sender->pseudo ?? 'Administrateur' }}</td>
-                        <td>{{ $message->formatted_created_at' }}</td>
+                        <td>{{ $message->formatted_created_at}}</td>
                         <td>
                             <a href="{{ route('messages.show', $message->id) }}" class="btn btn-sm btn-info">Voir</a>
                             
