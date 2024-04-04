@@ -82,6 +82,7 @@
                         <span class="social-icon"><i class="fab fa-github"></i></span>
                     </a>
                    
+                    @yield('message')
                 </li>
             </ul>
         </div>
