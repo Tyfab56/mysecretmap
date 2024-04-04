@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="{{ asset('frontend/assets/css/GridOverflow3D.css')}}" />
 
 @endsection
-@section ('message')
+@section('message')
                     <div class="messages-notification">
                       <a href="{{ route('messages.index') }}">
                           <i class="fas fa-envelope"></i>
