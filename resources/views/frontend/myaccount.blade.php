@@ -349,7 +349,7 @@ $('#save-info-button').click(function() {
                             <tbody>
                                 @foreach($unreadMessages as $message)
                                 <tr>
-                                    <td>{{ $message->subject }}</td>
+                                    <td>{{ Str::limit($message->body, 200) }}</td>
                                     <td>
                                         <a href="{{ route('messages.show', $message->id) }}" class="btn btn-primary btn-sm">Voir le message</a>
                                     </td>
@@ -432,19 +432,7 @@ $('#save-info-button').click(function() {
     width: 100%; /* Faire en sorte que l'input occupe toute la largeur de son conteneur */
 }
 
-button[type="submit"] {
-    background-color: #6f7895;;
-    color: white;
-    padding: 5px 15px;  /* Réduire le padding pour réduire la taille du bouton */
-    font-size: 14px;  /* Taille du texte plus petite */
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    float: right;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    transition: background-color 0.3s;
-}
+
 
 button[type="submit"]:hover {
     background-color: #000000;

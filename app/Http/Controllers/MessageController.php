@@ -26,6 +26,10 @@ class MessageController extends Controller
         if ($message->to_id !== Auth::id()) {
             abort(403);
         }
+        if ($message->to_id === Auth::id() && is_null($message->read_at)) {
+            $message->read_at = now();
+            $message->save();
+        }
 
         return view('frontend.messages.show', compact('message'));
     }
@@ -46,7 +50,6 @@ class MessageController extends Controller
             public function store(Request $request)
         {
             $request->validate([
-                'subject' => 'required|string|max:255',
                 'body' => 'required|string',
             ]);
 
@@ -57,7 +60,6 @@ class MessageController extends Controller
             Message::create([
                 'from_id' => Auth::id(),
                 'to_id' => 1,
-                'subject' => $request->subject,
                 'body' => $cleanBody,
             ]);
 
