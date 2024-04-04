@@ -260,6 +260,11 @@ class IndexController extends Controller
         ->orderBy('created_at', 'desc')
         ->whereNull('read_at')
         ->get();
+
+        $unreadMessages->transform(function ($message) {
+            $message->formatted_created_at = $message->created_at->diffForHumans();
+            return $message;
+        });
     
         return view('frontend/myaccount', compact('user', 'pays','payslist', 'whoiams','userMediaCount','unreadMessages'));
         //return view('frontend/myaccount', compact('user', 'pays','payslist', 'whoiams'));

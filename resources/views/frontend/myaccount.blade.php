@@ -353,8 +353,8 @@ $('#save-info-button').click(function() {
                             <img src="{{ $message->sender->avatar ?? asset('path/to/default/avatar.jpg') }}" alt="avatar" style="width: 30px; height: 30px; border-radius: 50%;">
                             {{ Str::limit($message->body, 200) }}
                         </td>
-                        <td>{{ $message->sender->name ?? 'Administrateur' }}</td>
-                        <td>{{ $message->created_at->format('d/m/Y H:i') }}</td>
+                        <td>{{ $message->sender->pseudo ?? 'Administrateur' }}</td>
+                        <td>{{ $message->formatted_created_at' }}</td>
                         <td>
                             <a href="{{ route('messages.show', $message->id) }}" class="btn btn-sm btn-info">Voir</a>
                             
