@@ -36,7 +36,7 @@
             <tbody>
                 @foreach ($messages as $message)
                    <tr class="clickable-row" data-user-id="{{ $message->from_id }}">
-                        <td><img src="{{ $message->sender->getAvatarUrlAttribute() }}" alt="Avatar" style="width: 50px; height: auto;">
+                        <td ><img src="{{ $message->sender->getAvatarUrlAttribute() }}" alt="Avatar" style="width: 50px; height: auto;">
                         <img src="{{ $message->recipient->getAvatarUrlAttribute() }}" alt="Avatar" style="width: 50px; height: auto;">
                         @if(empty($message->sender->pseudo))
                                 <!-- Si le pseudonyme est vide, affichez le prénom et le nom -->
@@ -44,6 +44,14 @@
                             @else
                                 <!-- Sinon, affichez simplement le pseudonyme -->
                                 {{ $message->sender->pseudo }}
+                            @endif 
+                            -> 
+                            @if(empty($message->recipient->pseudo))
+                                <!-- Si le pseudonyme est vide, affichez le prénom et le nom -->
+                                {{ $message->recipient->prenom }} {{ $message->recipient->name }}
+                            @else
+                                <!-- Sinon, affichez simplement le pseudonyme -->
+                                {{ $message->recipient->pseudo }}
                             @endif
                        </td>
                         <td>{{ Str::limit($message->body, 200) }}</td>
