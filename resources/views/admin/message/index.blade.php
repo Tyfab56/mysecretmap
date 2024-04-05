@@ -21,6 +21,7 @@
         <hr>
 
         <h2>Liste des messages</h2>
+        <a href="{{ route('admin.messages.index') }}" class="btn btn-primary">Voir tous les messages</a>
         <table class="table">
             <thead>
                 <tr>
