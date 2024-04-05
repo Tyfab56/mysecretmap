@@ -8,7 +8,9 @@
             <div class="form-group">
                 <label for="recipient">Destinataire :</label>
                 <select id="recipient" name="recipient" class="form-control">
-                   
+                 @if(isset($selectedUserId))
+                    <option value="{{ $selectedUserId }}" selected>{{ $selectedUser->pseudo ?: $selectedUser->prenom . ' ' . $selectedUser->name }} {{$selectedUser->pseudo}}</option>
+                @endif
                 </select>
             </div>
             <div class="form-group">
