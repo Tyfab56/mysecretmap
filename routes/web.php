@@ -268,8 +268,9 @@ Route::middleware(['auth'])->group(function () {
 });
 
 Route::prefix('admin')->group(function () {
-    Route::get('messages', [MessageAdminController::class, 'index'])->name('admin.messages.index');
-    // Ajoutez d'autres routes pour les actions supplémentaires si nécessaire
+    Route::get('messages', [MessageAdminController::class, 'index'])->name('admin.messages.index')->middleware('App\Http\Middleware\CheckAdmin');;
+    Route::post('messages/store', [MessageAdminController::class, 'store'])->name('admin.messages.store')->middleware('App\Http\Middleware\CheckAdmin');;
+   
 });
 
 require __DIR__ . '/auth.php';
