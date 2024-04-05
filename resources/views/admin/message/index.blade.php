@@ -33,7 +33,15 @@
             <tbody>
                 @foreach ($messages as $message)
                    <tr class="clickable-row" data-user-id="{{ $message->from_id }}">
-                        <td><img src="{{ $message->sender->avatar_url }}" alt="Avatar" style="width: 50px; height: auto;">{{ $message->sender->pseudo }}</td>
+                        <td><img src="{{ $message->sender->avatar_url }}" alt="Avatar" style="width: 50px; height: auto;">
+                        @if(empty($message->sender->pseudo))
+                                <!-- Si le pseudonyme est vide, affichez le prénom et le nom -->
+                                {{ $message->sender->prenom }} {{ $message->sender->nom }}
+                            @else
+                                <!-- Sinon, affichez simplement le pseudonyme -->
+                                {{ $message->sender->pseudo }}
+                            @endif
+                       </td>
                         <td>{{ Str::limit($message->body, 200) }}</td>
                         <td>{{ $message->created_at->diffForHumans() }}</td>
                         <td>
