@@ -12,8 +12,8 @@ class MessageAdminController extends Controller
     public function index()
     {
         $messages = Message::latest()->get();
-        $users = User::all(); // Récupère tous les utilisateurs
-        return view('admin.message.index', compact('messages','users'));
+      
+        return view('admin.message.index', compact('messages'));
     }
 
     public function store(Request $request)
