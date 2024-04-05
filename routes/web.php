@@ -270,7 +270,7 @@ Route::middleware(['auth'])->group(function () {
 Route::prefix('admin')->group(function () {
     Route::get('messages', [MessageAdminController::class, 'index'])->name('admin.messages.index')->middleware('App\Http\Middleware\CheckAdmin');;
     Route::post('messages/store', [MessageAdminController::class, 'store'])->name('admin.messages.store')->middleware('App\Http\Middleware\CheckAdmin');;
-   
+    Route::patch('messages/{message}/markAsRead', [MessageAdminController::class, 'markAsRead'])->name('admin.messages.markAsRead')->middleware('App\Http\Middleware\CheckAdmin');
 });
 
 require __DIR__ . '/auth.php';
