@@ -18,11 +18,11 @@ class MessageAdminController extends Controller
             $selectedUser = User::findOrFail($userId); 
             $messages = Message::orderBy('created_at', 'desc')->where('to_id', $userId)->paginate(20);
             // Passer l'ID de l'utilisateur sélectionné à la vue
-            return view('frontend.messages.index', ['messages' => $messages, 'selectedUserId' => $userId,'selectedUser' => $selectedUser]);
+            return view('admin.messages.index', ['messages' => $messages, 'selectedUserId' => $userId,'selectedUser' => $selectedUser]);
         } else {
             // Sinon, récupérez tous les messages
             $messages = Message::orderBy('created_at', 'desc')->paginate(20);
-            return view('frontend.messages.index', ['messages' => $messages]);
+            return view('admin.messages.index', ['messages' => $messages]);
         }
     }
 
