@@ -13,14 +13,14 @@ class MessageAdminController extends Controller
     {
         $messages = Message::latest()->get();
         $users = User::all(); // Récupère tous les utilisateurs
-        return view('admin.messages.index', compact('messages','users'));
+        return view('admin.message.index', compact('messages','users'));
     }
 
     // Afficher un message spécifique
     public function show($id)
     {
         $message = Message::findOrFail($id);
-        return view('admin.messages.show', compact('message'));
+        return view('admin.message.show', compact('message'));
     }
 
     // Marquer un message comme lu
