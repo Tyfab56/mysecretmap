@@ -256,18 +256,27 @@ public function updatePhotoProfil (Request $request)
 
 
     public function search(Request $request)
-    {
-        $search = $request->get('search');
+{
+    $search = $request->get('search');
 
-        $users = User::where('name', 'like', '%' . $search . '%')
-                     ->orWhere('email', 'like', '%' . $search . '%') // Vous pouvez supprimer cette ligne si vous ne voulez pas chercher par email
-                     ->limit(10) // Limiter le nombre de résultats pour améliorer les performances
-                     ->get(['id', 'name as text']); // Select2 attend que les clés des objets JSON soient 'id' et 'text'
+    $users = User::where('name', 'like', '%' . $search . '%')
+                 ->orWhere('email', 'like', '%' . $search . '%')
+                 ->orWhere('prenom', 'like', '%' . $search . '%')
+                 ->orWhere('pseudo', 'like', '%' . $search . '%')
+                 ->limit(10)
+                 ->get(['id', 'name', 'prenom', 'email', 'pseudo']);
 
-                     dd($users)
-;
-        return response()->json($users);
-    }
+    // Transformer les données pour Select2
+    $formattedUsers = $users->map(function ($user) {
+        return [
+            'id' => $user->id,
+            'text' => $user->name . ' (' . $user->email . ')' // Combinez ici les champs que vous voulez montrer
+        ];
+    });
+
+    return response()->json($formattedUsers);
+}
+
 
 
 
