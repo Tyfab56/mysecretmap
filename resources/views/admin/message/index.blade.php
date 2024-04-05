@@ -36,7 +36,7 @@
                         <td><img src="{{ $message->sender->avatar_url }}" alt="Avatar" style="width: 50px; height: auto;">
                         @if(empty($message->sender->pseudo))
                                 <!-- Si le pseudonyme est vide, affichez le prénom et le nom -->
-                                {{ $message->sender->prenom }} {{ $message->sender->nom }}
+                                {{ $message->sender->prenom }} {{ $message->sender->name }}
                             @else
                                 <!-- Sinon, affichez simplement le pseudonyme -->
                                 {{ $message->sender->pseudo }}
