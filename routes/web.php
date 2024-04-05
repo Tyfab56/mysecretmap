@@ -27,6 +27,7 @@ use App\Http\Controllers\UserCreditController;
 use App\Http\Controllers\CreditController;
 use App\Http\Controllers\FolderUserController;
 use App\Http\Controllers\MessageController;
+use App\Http\Controllers\MessageAdminController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -266,5 +267,9 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/messages', [MessageController::class, 'store'])->name('messages.store');
 });
 
+Route::prefix('admin')->group(function () {
+    Route::get('messages', [MessageAdminController::class, 'index'])->name('admin.messages.index');
+    // Ajoutez d'autres routes pour les actions supplémentaires si nécessaire
+});
 
 require __DIR__ . '/auth.php';

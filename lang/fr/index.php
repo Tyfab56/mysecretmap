@@ -3,7 +3,7 @@
 return [
     'Newspots' => 'Nouveaux Spots',
     'Newdestination' => 'NOUVELLES DESTINATIONS',
-    'Newdestination2' => '2023 : la Réunion, Ile Maurice',
+    'Newdestination2' => '2024 : la Réunion, Comores',
     'InfoSpot' => 'Découvrez de nombreuses autres  informations et la possibilité de créer votre circuit',
     'NoSpot' => 'Cliquez sur la carte',
     'Description' => 'Description',
