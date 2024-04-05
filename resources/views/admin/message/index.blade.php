@@ -8,9 +8,7 @@
             <div class="form-group">
                 <label for="recipient">Destinataire :</label>
                 <select id="recipient" name="recipient" class="form-control">
-                    @foreach($users as $user)
-                        <option value="{{ $user->id }}">{{ $user->name }}{{ $user->prenom }}-{{ $user->email}}</option>
-                    @endforeach
+                   
                 </select>
             </div>
             <div class="form-group">
