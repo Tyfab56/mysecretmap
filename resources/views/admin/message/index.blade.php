@@ -86,6 +86,12 @@
     });
 });
 
+$('#recipient').on('change', function() {
+            var userId = $(this).val(); // Récupère l'ID de l'utilisateur sélectionné
+            var baseUrl = "{{ route('admin.messages.index') }}";
+            window.location.href = baseUrl + "?userId=" + userId; // Redirige vers l'URL avec l'ID de l'utilisateur sélectionné
+        });
+
 
 $('.clickable-row').click(function() {
         var userId = $(this).data('user-id'); // Récupère l'ID de l'utilisateur
