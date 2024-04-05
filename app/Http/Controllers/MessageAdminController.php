@@ -14,7 +14,7 @@ class MessageAdminController extends Controller
         $userId = $request->query('userId');
         $query = Message::orderBy('created_at', 'desc');
         if ($userId) {
-            $messages->where('from_id', $userId); // Ou votre logique de filtrage appropriée
+            $query->where('from_id', $userId);
         }
         $messages = $query->paginate(20);
 
