@@ -35,7 +35,7 @@
             </thead>
             <tbody>
                 @foreach ($messages as $message)
-                   <tr class="clickable-row" data-user-id="{{ $message->from_id }}">
+                   <tr class="clickable-row {{ is_null($message->read_at) ? 'table-warning' : '' }}" data-user-id="{{ $message->from_id }}">
                         <td ><img src="{{ $message->sender->getAvatarUrlAttribute() }}" alt="Avatar" style="width: 50px; height: auto;">
                         <img src="{{ $message->recipient->getAvatarUrlAttribute() }}" alt="Avatar" style="width: 50px; height: auto;">
                         @if(empty($message->sender->pseudo))
@@ -58,6 +58,11 @@
                         <td>{{ $message->created_at->diffForHumans() }}</td>
                         <td>
                             <a href="#" class="btn btn-info">Voir</a>
+                            <form action="{{ route('admin.messages.destroy', $message->id) }}" method="POST" style="display: inline-block;">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger">Supprimer</button>
+                            </form>
                             @if ($message->to_id === auth()->id() && is_null($message->read_at))
                                 <form action="{{ route('admin.messages.markAsRead', $message->id) }}" method="POST" style="display: inline-block;">
                                     @csrf
