@@ -67,9 +67,7 @@
             },
             processResults: function (data) {
                 return {
-                    results: data.map(function(user){
-                        return {id: user.id, text: user.name}; // Mappage du résultat pour qu'il soit conforme aux attentes de Select2
-                    })
+                    results: data
                 };
             },
             cache: true

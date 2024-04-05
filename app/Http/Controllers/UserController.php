@@ -268,9 +268,13 @@ public function updatePhotoProfil (Request $request)
 
     // Transformer les données pour Select2
     $formattedUsers = $users->map(function ($user) {
+        // Vérifie si le pseudo est vide. Si oui, utilise le prénom et le nom ; sinon, utilise le pseudo.
+        $displayName = $user->pseudo ?: $user->prenom . ' ' . $user->name;
+    
         return [
             'id' => $user->id,
-            'text' => $user->name . ' (' . $user->email . ')' // Combinez ici les champs que vous voulez montrer
+            // Utilise le nom d'affichage choisi ci-dessus et combine-le avec l'email
+            'text' => $displayName . ' (' . $user->email . ')'
         ];
     });
 
