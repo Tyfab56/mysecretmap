@@ -307,6 +307,7 @@
                              <li><a class="dropdown-item" href="{{ route('admin.createzoom') }}">image Zoom</a></li>
                              <li><a class="dropdown-item" href="{{ route('admin.timeline') }}">Timeline</a></li>
                              <li><a class="dropdown-item" href="{{ route('admin.randos.listrandos') }}">Gestion des randonnées</a></li>
+                             <li><a class="dropdown-item" href="{{ route('admin.messages.index') }}">Gestion des messages</a></li>
 
                         </ul>
                     </li>
