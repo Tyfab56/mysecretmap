@@ -26,7 +26,7 @@ class MessageAdminController extends Controller
 {
     // Validation des données
     $validated = $request->validate([
-        'recipient' => 'required|exists:users,id', // Assurez-vous que le destinataire existe
+        'recipient' => 'required', // Assurez-vous que le destinataire existe
         'message' => 'required|string',
     ]);
 
