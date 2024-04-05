@@ -57,7 +57,27 @@
 
     // Initialiser Select2 pour le champ de sélection des destinataires
     $(document).ready(function() {
-        $('#recipient').select2();
+    $('#recipient').select2({
+        ajax: {
+            url: '{{ route("admin.users.search") }}', // URL de la route qui gère la recherche AJAX
+            dataType: 'json',
+            delay: 250, // Temps d'attente après la dernière frappe de touche avant de lancer la requête
+            data: function (params) {
+                return {
+                    search: params.term // terme de recherche entré par l'utilisateur
+                };
+            },
+            processResults: function (data) {
+                return {
+                    results: data.map(function(user){
+                        return {id: user.id, text: user.name}; // Mappage du résultat pour qu'il soit conforme aux attentes de Select2
+                    })
+                };
+            },
+            cache: true
+        },
+        minimumInputLength: 1, // Nombre minimal de caractères avant de déclencher la recherche
     });
+});
 </script>
 @endsection

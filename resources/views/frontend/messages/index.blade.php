@@ -38,11 +38,18 @@
                         <td>{{ $message->formatted_created_at }}</td>
                         <td>
                             <a href="{{ route('messages.show', $message->id) }}" class="btn btn-sm btn-info">Voir</a>
+
+                           
+                                
+
+                            @if ($message->to_id === auth()->id() && is_null($message->read_at))
                             <form action="{{ route('messages.markAsRead', $message->id) }}" method="POST" style="display: inline-block;">
                                 @csrf
                                 @method('PATCH')
+                                
                                 <button type="submit" class="btn btn-sm btn-success">Marquer comme lu</button>
                             </form>
+                            @endif
                         </td>
                     </tr>
                 @empty

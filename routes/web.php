@@ -272,5 +272,5 @@ Route::prefix('admin')->group(function () {
     Route::post('messages/store', [MessageAdminController::class, 'store'])->name('admin.messages.store')->middleware('App\Http\Middleware\CheckAdmin');;
     Route::patch('messages/{message}/markAsRead', [MessageAdminController::class, 'markAsRead'])->name('admin.messages.markAsRead')->middleware('App\Http\Middleware\CheckAdmin');
 });
-
+Route::get('/admin/users/search', [UserController::class, 'search'])->name('admin.users.search')->middleware('App\Http\Middleware\CheckAdmin');
 require __DIR__ . '/auth.php';

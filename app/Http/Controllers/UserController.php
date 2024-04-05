@@ -255,7 +255,17 @@ public function updatePhotoProfil (Request $request)
     }
 
 
+    public function search(Request $request)
+    {
+        $search = $request->get('search');
 
+        $users = User::where('name', 'like', '%' . $search . '%')
+                     ->orWhere('email', 'like', '%' . $search . '%') // Vous pouvez supprimer cette ligne si vous ne voulez pas chercher par email
+                     ->limit(10) // Limiter le nombre de résultats pour améliorer les performances
+                     ->get(['id', 'name as text']); // Select2 attend que les clés des objets JSON soient 'id' et 'text'
+
+        return response()->json($users);
+    }
 
 
 
