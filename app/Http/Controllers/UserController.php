@@ -264,6 +264,8 @@ public function updatePhotoProfil (Request $request)
                      ->limit(10) // Limiter le nombre de résultats pour améliorer les performances
                      ->get(['id', 'name as text']); // Select2 attend que les clés des objets JSON soient 'id' et 'text'
 
+                     dd($users)
+;
         return response()->json($users);
     }
 
