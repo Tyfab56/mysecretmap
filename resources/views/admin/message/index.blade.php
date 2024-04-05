@@ -32,7 +32,7 @@
             </thead>
             <tbody>
                 @foreach ($messages as $message)
-                    <tr>
+                   <tr class="clickable-row" data-user-id="{{ $message->from_id }}">
                         <td><!-- Avatar de l'utilisateur --></td>
                         <td>{{ Str::limit($message->body, 200) }}</td>
                         <td>{{ $message->created_at->diffForHumans() }}</td>
@@ -48,6 +48,7 @@
                         </td>
                     </tr>
                 @endforeach
+                {{ $messages->links() }}
             </tbody>
         </table>
     </div>
@@ -75,5 +76,12 @@
         minimumInputLength: 1, // Nombre minimal de caractères avant de déclencher la recherche
     });
 });
+
+
+$('.clickable-row').click(function() {
+        var userId = $(this).data('user-id'); // Récupère l'ID de l'utilisateur
+        var baseUrl = "{{ route('admin.messages.index') }}?userId=";
+        window.location.href = baseUrl + userId; // Redirige vers l'URL avec l'ID de l'utilisateur
+    });
 </script>
 @endsection

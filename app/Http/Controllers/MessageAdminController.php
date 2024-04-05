@@ -9,9 +9,15 @@ use App\Models\User;
 class MessageAdminController extends Controller
 {
     // Afficher tous les messages
-    public function index()
+    public function index(Request $request)
     {
-        $messages = Message::latest()->get();
+        $userId = $request->query('userId');
+        $query = Message::orderBy('created_at', 'desc');
+        if ($userId) {
+            $messages->where('from_id', $userId); // Ou votre logique de filtrage appropriée
+        }
+        $messages = $query->paginate(20);
+
       
         return view('admin.message.index', compact('messages'));
     }
