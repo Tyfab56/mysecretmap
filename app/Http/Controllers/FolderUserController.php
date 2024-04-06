@@ -108,5 +108,15 @@ public function getUserFolders($userId)
         return view('admin.userfolder.partials.folderlist', compact('folders'));
     }
 
+    public function allPurchases()
+    {
+        // Récupérer les derniers achats de médias avec les informations sur les utilisateurs
+        $purchases = User::latest()
+            ->with('mediaPurchases') // Charger la relation mediaPurchases pour chaque utilisateur
+            ->paginate(10);
+    
+        return view('admin.sharermedias.purchases', compact('purchases'));
+    }
+
 
 }

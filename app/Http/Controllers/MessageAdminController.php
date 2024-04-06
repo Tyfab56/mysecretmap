@@ -72,5 +72,5 @@ class MessageAdminController extends Controller
         return redirect()->back()->with('success', 'Message supprimé avec succès.');
     }
 
-    // Autres méthodes pour gérer les actions administratives sur les messages...
+
 }

@@ -255,6 +255,8 @@ Route::get('/admin/userfolder/{userId}/folders', [FolderUserController::class, '
 
 Route::get('/admin/userfolder/folders/search', [FolderUserController::class, 'searchFolders'])->name('userfolder.folders.search');
 
+Route::get('purchases', [FolderUserController::class, 'allPurchases'])->name('admin.purchases.all');
+
 Route::middleware(['auth'])->group(function () {
     // Route pour afficher la liste des messages
     Route::get('frontend/messages', [MessageController::class, 'index'])->name('messages.index');
@@ -272,6 +274,9 @@ Route::prefix('admin')->group(function () {
     Route::post('messages/store', [MessageAdminController::class, 'store'])->name('admin.messages.store')->middleware('App\Http\Middleware\CheckAdmin');;
     Route::patch('messages/{message}/markAsRead', [MessageAdminController::class, 'markAsRead'])->name('admin.messages.markAsRead')->middleware('App\Http\Middleware\CheckAdmin');
     Route::delete('messages/{id}', [MessageAdminController::class, 'destroy'])->name('admin.messages.destroy')->middleware('App\Http\Middleware\CheckAdmin');
+   
 });
 Route::get('/admin/users/search', [UserController::class, 'search'])->name('admin.users.search')->middleware('App\Http\Middleware\CheckAdmin');
+
+
 require __DIR__ . '/auth.php';

@@ -8,6 +8,7 @@
     <a href="{{ route('admin.sharemedias.index') }}" class="btn btn-primary">Gérer les Médias</a>
     <a href="{{ route('admin.credits.index') }}" class="btn btn-primary">Gérer les crédits</a>
     <a href="{{ route('admin.userfolder.index') }}" class="btn btn-primary">Associer les dossiers</a>
+    <a href="{{ route('admin.purchases.all') }}" class="btn btn-primary">Suivi des téléchargments</a>
    
     <!-- Vous pouvez ajouter d'autres boutons ou liens ici -->
 </div>
