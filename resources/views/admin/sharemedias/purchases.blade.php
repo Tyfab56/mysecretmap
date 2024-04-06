@@ -14,17 +14,19 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($purchases as $user)
-                    @foreach ($user->mediaPurchases as $purchase)
+            @foreach ($purchases as $user)
+                    @foreach ($user->purchasedMedias as $purchase)
                         <tr>
                             <td>{{ $user->name }}</td>
                             <td>{{ $purchase->title }}</td>
-                            <td>@if ($purchase->thumbnail_link) <!-- Vérifiez que le lien de la vignette existe -->
-                                <img src="{{ $media->thumbnail_link }}" alt="Vignette" style="width: 200px; height: auto;">
-                            @else
-                                Pas de vignette
-                            @endif
-                           </td>
+                            <td>
+                                @if ($purchase->thumbnail_link)
+                                    <!-- Vérifiez que le lien de la vignette existe -->
+                                    <img src="{{ $purchase->thumbnail_link }}" alt="Vignette" style="width: 200px; height: auto;">
+                                @else
+                                    Pas de vignette
+                                @endif
+                            </td>
                             <td>{{ $purchase->created_at->format('d/m/Y') }}</td>
                         </tr>
                     @endforeach
