@@ -8,6 +8,7 @@
             <thead>
                 <tr>
                     <th>Utilisateur</th>
+                    <th>Type du média</th>
                     <th>Média</th>
                     <th>Vignette</th>
                     <th>Date d'achat</th>
@@ -18,6 +19,7 @@
                     @foreach ($user->purchasedMedias as $purchase)
                         <tr>
                             <td>{{ $user->name }}</td>
+                            <td>{{ $purchase->media_type }}</td> 
                             <td>{{ $purchase->title }}</td>
                             <td>
                                 @if ($purchase->thumbnail_link)
