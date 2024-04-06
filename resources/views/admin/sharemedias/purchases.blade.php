@@ -19,7 +19,7 @@
                         <tr>
                             <td>{{ $user->name }}</td>
                             <td>{{ $purchase->title }}</td>
-                            <td>@if ($media->thumbnail_link) <!-- Vérifiez que le lien de la vignette existe -->
+                            <td>@if ($purchase->thumbnail_link) <!-- Vérifiez que le lien de la vignette existe -->
                                 <img src="{{ $media->thumbnail_link }}" alt="Vignette" style="width: 200px; height: auto;">
                             @else
                                 Pas de vignette
