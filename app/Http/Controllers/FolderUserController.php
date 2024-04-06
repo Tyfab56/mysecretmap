@@ -115,7 +115,7 @@ public function getUserFolders($userId)
             ->with('mediaPurchases') // Charger la relation mediaPurchases pour chaque utilisateur
             ->paginate(10);
     
-        return view('admin.sharermedias.purchases', compact('purchases'));
+        return view('admin.sharemedias.purchases', compact('purchases'));
     }
 
 
