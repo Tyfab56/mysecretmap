@@ -285,6 +285,11 @@
   100% { transform: rotate(360deg); }
 }
 
+.disabled-button {
+    opacity: 0.5; /* Réduit l'opacité pour indiquer que le bouton est désactivé */
+    cursor: not-allowed; /* Change le curseur pour indiquer que le bouton est désactivé */
+}
+
     </style>
 
 
@@ -299,6 +304,13 @@
     <script>
   
     $(document).ready(function() {
+
+    document.getElementById("submit-button").addEventListener("click", function() {
+        // Désactiver le bouton
+        this.disabled = true;
+        // Ajouter une classe pour styliser le bouton désactivé (facultatif)
+        this.classList.add("disabled-button");
+    });
 
     var $gallery = $('#gallery-wrapper').imagesLoaded(function() {
         // Initialiser Masonry après que les images ont été chargées
