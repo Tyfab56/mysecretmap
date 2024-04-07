@@ -305,12 +305,9 @@
   
     $(document).ready(function() {
 
-    document.getElementById("submit_button").addEventListener("click", function() {
-        // Désactiver le bouton
-        this.disabled = true;
-        // Ajouter une classe pour styliser le bouton désactivé (facultatif)
-        this.classList.add("disabled-button");
-    });
+    $('.buy-button').click(function() {
+                $(this).prop('disabled', true).addClass('disabled-button');
+            });
 
     var $gallery = $('#gallery-wrapper').imagesLoaded(function() {
         // Initialiser Masonry après que les images ont été chargées
