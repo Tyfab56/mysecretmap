@@ -194,20 +194,32 @@ class ShareMediaController extends Controller
             $media = ShareMedia::findOrFail($mediaId);
             $credit = UserCredit::where('user_id', $user->id)->where('media_type', $media->media_type)->first();
 
-            if ($credit && $credit->credits > 0) {
-                // Déduire un crédit
-                $credit->decrement('credits');
+            // Vérifiez si l'utilisateur a déjà acheté ce média
+            $isPurchased = UserMediaPurchase::where('user_id', $user->id)
+            ->where('media_id', $mediaId)
+            ->exists();
 
-                UserMediaPurchase::create([
-                    'user_id' => $user->id,
-                    'media_id' => $mediaId,
-                    'purchased_at' => now(),
-                ]);
+            if (!$isPurchased) {
+                    if ($credit && $credit->credits > 0) {
+                        // Déduire un crédit
+                        $credit->decrement('credits');
 
-                return back()->with('success', 'Média envoyé par email.');
+                        UserMediaPurchase::create([
+                            'user_id' => $user->id,
+                            'media_id' => $mediaId,
+                            'purchased_at' => now(),
+                        ]);
+
+                        return back()->with('success', 'Média ajouté à votre liste.');
+                    }
+                    else {
+                return back()->with('error', 'Crédits insuffisants.');
+                }
+            } 
+            else {
+                // L'utilisateur a déjà acheté ce média
+                return back()->with('error', 'Vous avez déjà acheté ce média.');
             }
-
-            return back()->with('error', 'Crédits insuffisants.');
         }
 
         public function download(Request $request, $mediaId)
