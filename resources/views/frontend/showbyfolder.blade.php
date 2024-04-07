@@ -69,10 +69,11 @@
                                     <a href="{{ route('media.download', $media->id) }}" class="btn btn-success">{{ __('sharemedia.download') }}</a>
                                 @elseif($userCredits->where('media_type', $media->media_type)->first()->credits ?? 0 > 0)
                                     {{-- L'utilisateur a suffisamment de crédits pour acheter le média --}}
-                                    <form action="{{ route('sharemedia.order', $media->id) }}" method="POST">
+                                    <form id="purchaseForm{{ $media->id }}" action="{{ route('sharemedia.order', $media->id) }}" method="POST">
                                         @csrf                                   
-                                        <button onclick="disableButton(this)" class="btn btn-primary">{{ __('sharemedia.buy') }}</button>
+                                        <button onclick="submitForm(event, {{ $media->id }})" class="btn btn-primary">{{ __('sharemedia.buy') }}</button>
                                     </form>
+                                       
                                 @else
                                     {{-- L'utilisateur n'a pas suffisamment de crédits --}}
                                     <a href="{{ route('credits.purchase') }}" class="btn btn-warning">{{ __('sharemedia.get') }}</a>
@@ -305,12 +306,17 @@
   
     $(document).ready(function() {
 
-        function disableButtonAndSubmitForm(button) {
-    // Désactiver le bouton
-    button.disabled = true;
-    // Soumettre le formulaire parent du bouton
-    button.closest('form').submit();
-}
+        function submitForm(event, mediaId) {
+        // Empêchez le comportement par défaut du formulaire (soumission du formulaire)
+        event.preventDefault();
+        
+        // Désactivez le bouton pour éviter les doubles clics
+        const button = document.querySelector(`#purchaseForm${mediaId} button`);
+        button.disabled = true;
+
+        // Soumettez le formulaire
+        document.getElementById(`purchaseForm${mediaId}`).submit();
+    }
 
     var $gallery = $('#gallery-wrapper').imagesLoaded(function() {
         // Initialiser Masonry après que les images ont été chargées
