@@ -71,7 +71,7 @@
                                     {{-- L'utilisateur a suffisamment de crédits pour acheter le média --}}
                                     <form action="{{ route('sharemedia.order', $media->id) }}" method="POST">
                                         @csrf                                   
-                                        <button type="submit" class="btn btn-primary">{{ __('sharemedia.buy') }}</button>
+                                        <button id="submit_button" type="submit" class="btn btn-primary">{{ __('sharemedia.buy') }}</button>
                                     </form>
                                 @else
                                     {{-- L'utilisateur n'a pas suffisamment de crédits --}}
@@ -305,7 +305,7 @@
   
     $(document).ready(function() {
 
-    document.getElementById("submit-button").addEventListener("click", function() {
+    document.getElementById("submit_button").addEventListener("click", function() {
         // Désactiver le bouton
         this.disabled = true;
         // Ajouter une classe pour styliser le bouton désactivé (facultatif)
