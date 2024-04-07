@@ -71,7 +71,7 @@
                                     {{-- L'utilisateur a suffisamment de crédits pour acheter le média --}}
                                     <form action="{{ route('sharemedia.order', $media->id) }}" method="POST">
                                         @csrf                                   
-                                        <button id="submit_button" type="submit" class="btn btn-primary">{{ __('sharemedia.buy') }}</button>
+                                        <button onclick="disableButton(this)" type="submit" class="btn btn-primary">{{ __('sharemedia.buy') }}</button>
                                     </form>
                                 @else
                                     {{-- L'utilisateur n'a pas suffisamment de crédits --}}
@@ -305,9 +305,9 @@
   
     $(document).ready(function() {
 
-    $('.buy-button').click(function() {
-                $(this).prop('disabled', true).addClass('disabled-button');
-            });
+        function disableButton(button) {
+        button.disabled = true;
+        }
 
     var $gallery = $('#gallery-wrapper').imagesLoaded(function() {
         // Initialiser Masonry après que les images ont été chargées
