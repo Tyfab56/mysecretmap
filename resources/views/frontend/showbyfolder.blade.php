@@ -53,7 +53,7 @@
                             <img src="{{ $media->thumbnail_link }}" alt="{{ $media->title }}" class="media-thumbnail">
                             
                             <!-- Video Preview -->
-                            <video class="media-video" muted preload="none" style="display: none;">
+                            <video class="media-video"  preload="none" style="display: none;">
                                 <source src="{{ $media->preview_link }}" type="video/mp4">
                                 Votre navigateur ne supporte pas la balise vidéo.
                             </video>
