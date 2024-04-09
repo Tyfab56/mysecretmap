@@ -96,7 +96,7 @@ Dropzone.options.mediaDropzone = {
                 body: formData,
                 headers: {
                     'X-Requested-With': 'XMLHttpRequest',
-                   
+                    'X-CSRF-TOKEN': csrfToken
                 },
             })
             .then(response => response.json())
