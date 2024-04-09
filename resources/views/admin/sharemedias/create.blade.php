@@ -1,5 +1,13 @@
 @extends('frontend.main_master')
+@section('css')
+<link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
 
+@endsection
+@section('fullscripts')
+
+<script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
+
+@endsection
 
 @section('content')
 <div class="container">
@@ -30,13 +38,17 @@
             </select>
 
         </div>
+        <div class="dropzone" id="mediaDropzone"></div>
+        <div id="progress" class="progress">
+              <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
         <div class="form-group">
             <label for="credits">Crédits</label>
             <input type="number" class="form-control" id="credits" name="credits" value="1">
         </div>
         <button type="submit" class="btn btn-primary">Enregistrer</button>
 
-        <div class="dropzone" id="mediaDropzone"></div>
+       
 
     </form>
 </div>
@@ -51,6 +63,12 @@ Dropzone.options.mediaDropzone = {
     addRemoveLinks: true,
     init: function() {
         var myDropzone = this;
+        this.on("totaluploadprogress", function(progress) {
+                document.querySelector("#progress .progress-bar").style.width = progress + "%";
+            });
+        this.on("queuecomplete", function() {
+                document.querySelector("#progress .progress-bar").style.width = "0%";
+            });
 
         // Écoutez l'événement 'success' pour chaque fichier téléchargé
         this.on("success", function(file, response) {
