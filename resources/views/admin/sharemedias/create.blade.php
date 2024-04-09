@@ -55,7 +55,7 @@
 <script>
 document.addEventListener('DOMContentLoaded', function () {
 
-    var csrfToken = document.querySelector('input[name="_token"]').value;
+
 
 Dropzone.options.mediaDropzone = {
     url: "{{ route('admin.sharemedias.store') }}",
@@ -67,6 +67,11 @@ Dropzone.options.mediaDropzone = {
     addRemoveLinks: true,
     init: function() {
         var myDropzone = this;
+    
+    this.on("sending", function(file, xhr, formData) {
+        // Ajoutez le token CSRF aux en-têtes de la requête
+        xhr.setRequestHeader('X-CSRF-TOKEN', document.querySelector('meta[name="csrf-token"]').getAttribute('content'));
+    });
         this.on("totaluploadprogress", function(progress) {
                 document.querySelector("#progress .progress-bar").style.width = progress + "%";
             });
@@ -88,15 +93,13 @@ Dropzone.options.mediaDropzone = {
             // Ajoutez le fichier téléchargé (si nécessaire, selon la façon dont votre backend est configuré pour traiter les téléchargements)
             formData.append('media', file);
 
-            formData.append('_token', csrfToken);
-
             // Envoyez la requête AJAX
             fetch("{{ route('admin.sharemedias.store') }}", {
                 method: 'POST',
                 body: formData,
                 headers: {
                     'X-Requested-With': 'XMLHttpRequest',
-                    'X-CSRF-TOKEN': csrfToken
+                    
                 },
             })
             .then(response => response.json())
