@@ -88,10 +88,7 @@ Dropzone.options.mediaDropzone = {
             this.on("success", function(file, response) {
                 // Ici, vous pourriez traiter la réponse du serveur
                 console.log("Réponse du serveur :", response);
-                // Afficher un message de succès ou mettre à jour l'interface utilisateur
-                alert("Fichier téléchargé avec succès !");
-                // Par exemple, si la réponse contient des données à afficher
-                // updateUI(response);
+               
             });
 
     }
