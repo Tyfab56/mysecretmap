@@ -68,10 +68,16 @@ Dropzone.options.mediaDropzone = {
     init: function() {
         var myDropzone = this;
     
-    this.on("sending", function(file, xhr, formData) {
-        // Ajoutez le token CSRF aux en-têtes de la requête
-        xhr.setRequestHeader('X-CSRF-TOKEN', document.querySelector('meta[name="csrf-token"]').getAttribute('content'));
-    });
+        this.on("sending", function(file, xhr, formData) {
+                // Ajouter le token CSRF dans les headers est correct
+                xhr.setRequestHeader('X-CSRF-TOKEN', document.querySelector('meta[name="csrf-token"]').getAttribute('content'));
+
+                // Assurez-vous d'ajouter également les autres données de formulaire
+                formData.append('folder_id', document.getElementById('folder_id').value);
+                formData.append('title', document.getElementById('title').value);
+                formData.append('media_type', document.getElementById('media_type').value);
+                formData.append('credits', document.getElementById('credits').value);
+            });
         this.on("totaluploadprogress", function(progress) {
                 document.querySelector("#progress .progress-bar").style.width = progress + "%";
             });
@@ -79,39 +85,15 @@ Dropzone.options.mediaDropzone = {
                 document.querySelector("#progress .progress-bar").style.width = "0%";
             });
 
-        // Écoutez l'événement 'success' pour chaque fichier téléchargé
-        this.on("success", function(file, response) {
-            // Ici, vous pouvez soit soumettre le formulaire entier via AJAX,
-            // soit envoyer une requête AJAX avec les données nécessaires pour chaque fichier téléchargé
-            var formData = new FormData();
-            // Ajoutez d'autres données du formulaire si nécessaire
-            formData.append('folder_id', document.getElementById('folder_id').value);
-            formData.append('title', document.getElementById('title').value);
-            formData.append('media_type', document.getElementById('media_type').value);
-            formData.append('credits', document.getElementById('credits').value);
-            
-            // Ajoutez le fichier téléchargé (si nécessaire, selon la façon dont votre backend est configuré pour traiter les téléchargements)
-            formData.append('media', file);
-
-            // Envoyez la requête AJAX
-            fetch("{{ route('admin.sharemedias.store') }}", {
-                method: 'POST',
-                body: formData,
-                headers: {
-                    'X-Requested-With': 'XMLHttpRequest',
-                    
-                },
-            })
-            .then(response => response.json())
-            .then(data => {
-                console.log(data); // Gérez la réponse ici
-            })
-            .catch(error => {
-                console.error('Erreur:', error);
+            this.on("success", function(file, response) {
+                // Ici, vous pourriez traiter la réponse du serveur
+                console.log("Réponse du serveur :", response);
+                // Afficher un message de succès ou mettre à jour l'interface utilisateur
+                alert("Fichier téléchargé avec succès !");
+                // Par exemple, si la réponse contient des données à afficher
+                // updateUI(response);
             });
-        });
 
-        // Plus d'événements Dropzone ici si nécessaire...
     }
 };
 });
