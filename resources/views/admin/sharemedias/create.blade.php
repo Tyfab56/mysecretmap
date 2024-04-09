@@ -54,6 +54,9 @@
 </div>
 <script>
 document.addEventListener('DOMContentLoaded', function () {
+
+    var csrfToken = document.querySelector('input[name="_token"]').value;
+
 Dropzone.options.mediaDropzone = {
     url: "{{ route('admin.sharemedias.store') }}",
     uploadMultiple: false, // Changez cela pour forcer le traitement des fichiers individuellement
@@ -85,13 +88,15 @@ Dropzone.options.mediaDropzone = {
             // Ajoutez le fichier téléchargé (si nécessaire, selon la façon dont votre backend est configuré pour traiter les téléchargements)
             formData.append('media', file);
 
+            formData.append('_token', csrfToken);
+
             // Envoyez la requête AJAX
             fetch("{{ route('admin.sharemedias.store') }}", {
                 method: 'POST',
                 body: formData,
                 headers: {
                     'X-Requested-With': 'XMLHttpRequest',
-                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                   
                 },
             })
             .then(response => response.json())
