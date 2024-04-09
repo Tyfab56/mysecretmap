@@ -49,10 +49,13 @@ class ShareMediaController extends Controller
         $request->validate([
             'folder_id' => 'required|exists:folders,id',
             'title' => 'required|string|max:255',
+            // Notez que nous validons 'media' comme un seul fichier maintenant, car chaque requête concerne un seul fichier
             'media' => 'required|file',
             'media_type' => 'required|in:photo,video,film',
+            'credits' => 'required|numeric', // Assurez-vous que cette validation correspond à vos attentes
         ]);
     
+           
         // Stockage temporaire du fichier média localement
         $mediaFile = $request->file('media');
         $temporaryPath = $mediaFile->store('temp', 'local');
@@ -63,6 +66,7 @@ class ShareMediaController extends Controller
             'folder_id' => $request->input('folder_id'),
             'title' => $request->input('title'),
             'media_type' => $mediaType,
+            'credits' => $request->input('credits'),
         ];
     
         if ($mediaType === 'photo') {
@@ -74,7 +78,10 @@ class ShareMediaController extends Controller
             ProcessVideoForPreview::dispatch($temporaryPath, $commonData);
         }
     
-        return redirect()->route('admin.sharemedias.index')->with('success', 'Média en cours de traitement.');
+        return response()->json([
+            'success' => 'Média téléchargé et en cours de traitement.',
+           
+        ]);
     }
     
 
