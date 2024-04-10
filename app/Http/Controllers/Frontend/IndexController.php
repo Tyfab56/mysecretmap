@@ -783,10 +783,11 @@ public function publicFolders(Request $request)
 
     // Récupérer les dossiers publics du pays sélectionné ayant au moins un média
     $publicFolders = Folder::where('country_id', $selectedCountryId)
-                            ->where('status', 'public')
-                            ->whereHas('shareMedias')
-                            ->with('shareMedias')
-                            ->get();
+    ->where('status', 'public')
+    ->whereHas('shareMedias')
+    ->with('shareMedias')
+    ->orderBy('name') 
+    ->get();
 
     return view('frontend.publicfolders', compact('publicFolders', 'activeCountries', 'selectedCountryId'));
 }
