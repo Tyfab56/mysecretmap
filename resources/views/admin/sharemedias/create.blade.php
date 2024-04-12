@@ -54,9 +54,6 @@
 </div>
 <script>
 document.addEventListener('DOMContentLoaded', function () {
-
-
-
 Dropzone.options.mediaDropzone = {
     url: "{{ route('admin.sharemedias.store') }}",
     uploadMultiple: false, // Changez cela pour forcer le traitement des fichiers individuellement

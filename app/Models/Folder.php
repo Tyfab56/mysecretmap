@@ -35,6 +35,6 @@ class Folder extends Model
      // Scope pour les dossiers privés
      public function scopePrivate($query)
      {
-         return $query->where('status', 'private');
+         return $query->where('status', 'private'); 
      }
 }
