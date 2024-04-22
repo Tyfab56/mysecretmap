@@ -1,12 +1,12 @@
 @extends('frontend.main_master')
 @section ('fullscripts')
-<script src="{{ asset('frontend/assets/js/pannellum.js')}}"></script>
+
 
 @endsection
 @section('content')
 <!-- Conteneur pour les images -->
 <div id="panoramas" style="display: flex; flex-wrap: wrap;"></div>
-
+<script src="{{ asset('frontend/assets/js/pannellum.js')}}"></script>
 <script>
     var panoramasData = [
         { id: "panorama1", image: "{{ asset('frontend/assets/images/360-GC-Khartala1-sd.jpg')}}" },
