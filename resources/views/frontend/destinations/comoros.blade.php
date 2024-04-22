@@ -16,6 +16,7 @@
         width: 80%;
         height: 80vh; /* Ajustez ceci selon les besoins pour maintenir la proportion */
         margin: auto; /* Centre la colonne horizontalement */
+        overflow-y: auto;
     }
     /* Définissez la largeur et la hauteur des div pour Pannellum pour couvrir tout le conteneur */
     #panoramas {
