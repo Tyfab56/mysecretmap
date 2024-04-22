@@ -1,6 +1,6 @@
 @extends('frontend.main_master')
 @section ('fullscripts')
-<script src="https://ajax.googleapis.com/ajax/libs/pannellum/2.5.3/pannellum.js"></script>
+<script src="{{ asset('frontend/assets/js/pannellum.js')}}"></script>
 
 @endsection
 @section('content')
