@@ -34,7 +34,7 @@
         { id: "panorama1", image: "{{ asset('frontend/assets/images/360-GC-Khartala1-sd.jpg') }}", title: "Pentes du Karthala" },
         { id: "panorama2", image: "{{ asset('frontend/assets/images/360-GC-Khartala2-sd.jpg') }}", title: "Cratère du Karthala" },
         { id: "panorama3", image: "{{ asset('frontend/assets/images/360-GC-Mangrove1-sd.jpg') }}", title: "Mangrove Aeroport" },
-        { id: "panorama4", image: "{{ asset('frontend/assets/images/ 360-GC-Khartala1-sd.jpg') }}", title: "Cratère" },
+        { id: "panorama4", image: "{{ asset('frontend/assets/images/360-GC-crateresud1-sd.jpg') }}", title: "Cratère" },
        
         // Ajoutez d'autres images ici au besoin
     ];
