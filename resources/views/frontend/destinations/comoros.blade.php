@@ -61,6 +61,6 @@
                 "hfov": 100  // Ajustez cette valeur pour contrôler le zoom initial
             });
         });
-    });
+    
 </script>
 @endsection
