@@ -31,16 +31,20 @@
         // Ajoutez d'autres images ici au besoin
     ];
 
-    panoramasData.forEach(function(panorama) {
-        var div = document.createElement('div');
-        div.id = panorama.id;
-        document.getElementById('panoramas').appendChild(div);
+    document.addEventListener('DOMContentLoaded', function() {
+        panoramasData.forEach(function(panorama) {
+            var div = document.createElement('div');
+            div.id = panorama.id;
+            div.style.width = '100%';
+            div.style.height = '100%';
+            document.getElementById('panoramas').appendChild(div);
 
-        pannellum.viewer(div.id, {
-            "type": "equirectangular",
-            "panorama": panorama.image,
-            autoLoad: true, // Assurez-vous que l'image commence à charger dès que possible
-            preload: true   // Précharge l'image pour qu'elle soit prête à l'affichage
+            pannellum.viewer(div.id, {
+                "type": "equirectangular",
+                "panorama": panorama.image,
+                autoLoad: true,
+                preload: true
+            });
         });
     });
 </script>
