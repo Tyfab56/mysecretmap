@@ -15,6 +15,7 @@
     .image-column {
         width: 80%;
         margin: auto; /* Centre la colonne horizontalement */
+        min-height: 400px;
     }
     /* Définissez la largeur et la hauteur des images panoramiques */
     .panorama-image {
