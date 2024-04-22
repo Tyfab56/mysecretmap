@@ -1,12 +1,27 @@
 @extends('frontend.main_master')
-@section ('fullscripts')
-
-
+@section ('css')
+<link rel="stylesheet" href="{{ asset('frontend/assets/css/pannellum.css')}}">
 @endsection
 @section('content')
 <!-- Conteneur pour les images -->
-<div id="panoramas" style="display: flex; flex-wrap: wrap;"></div>
+<div class="image-column">
+        <div id="panoramas"></div>
+    </div>
+
 <script src="{{ asset('frontend/assets/js/pannellum.js')}}"></script>
+<style>
+        /* Définissez la largeur de la colonne à 80% */
+        .image-column {
+            width: 80%;
+            margin: 0 auto; /* Centre la colonne horizontalement */
+        }
+        /* Définissez la largeur et la hauteur des images */
+        .panorama-image {
+            width: 100%;
+            height: auto;
+            margin-bottom: 20px; /* Espace entre chaque image */
+        }
+    </style>
 <script>
     var panoramasData = [
         { id: "panorama1", image: "{{ asset('frontend/assets/images/360-GC-Khartala1-sd.jpg')}}" },
@@ -16,17 +31,15 @@
     ];
 
     panoramasData.forEach(function(panorama) {
-        var div = document.createElement('div');
-        div.id = panorama.id;
-        div.style.width = "400px";
-        div.style.height = "300px";
-        document.getElementById('panoramas').appendChild(div);
+            var div = document.createElement('div');
+            div.id = panorama.id;
+            document.getElementById('panoramas').appendChild(div);
 
-        pannellum.viewer(panorama.id, {
-            "type": "equirectangular",
-            "panorama": panorama.image
+            pannellum.viewer(panorama.id, {
+                "type": "equirectangular",
+                "panorama": panorama.image
+            });
         });
-    });
 </script>
 
 
