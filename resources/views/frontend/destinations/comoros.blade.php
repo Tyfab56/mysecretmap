@@ -39,7 +39,9 @@
 
         pannellum.viewer(div.id, {
             "type": "equirectangular",
-            "panorama": panorama.image
+            "panorama": panorama.image,
+            autoLoad: true, // Assurez-vous que l'image commence à charger dès que possible
+            preload: true   
         });
     });
 </script>
