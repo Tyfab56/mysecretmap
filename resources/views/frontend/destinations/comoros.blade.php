@@ -31,7 +31,7 @@
 </style>
 <script>
     var panoramasData = [
-        { id: "panorama1", image: "{{ asset('frontend/assets/images/360-GC-Khartala1-sd.jpg') }}",, title: "Pentes du Khartala" },
+        { id: "panorama1", image: "{{ asset('frontend/assets/images/360-GC-Khartala1-sd.jpg') }}", title: "Pentes du Khartala" },
         { id: "panorama2", image: "{{ asset('frontend/assets/images/360-GC-Khartala2-sd.jpg') }}", title: "Cratère du Kharatala" }
  
         // Ajoutez d'autres images ici au besoin
