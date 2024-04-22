@@ -6,22 +6,21 @@
 @section('content')
 <!-- Conteneur pour les images -->
 <div class="image-column">
-    <div id="panoramas"></div>
+    <div id="panoramas" style="width: 100%; height: 100%;"></div>
 </div>
 
 <script src="{{ asset('frontend/assets/js/pannellum.js') }}"></script>
 <style>
-    /* Définissez la largeur de la colonne à 80% */
+    /* Définissez la largeur de la colonne à 80% et la hauteur minimale pour éviter hauteur à 0 */
     .image-column {
         width: 80%;
+        height: 80vh; /* Ajustez ceci selon les besoins pour maintenir la proportion */
         margin: auto; /* Centre la colonne horizontalement */
-        min-height: 400px;
     }
-    /* Définissez la largeur et la hauteur des images panoramiques */
-    .panorama-image {
+    /* Définissez la largeur et la hauteur des div pour Pannellum pour couvrir tout le conteneur */
+    #panoramas {
         width: 100%;
-        height: auto;
-        margin-bottom: 40px; /* Espace entre chaque image */
+        height: 100%;
     }
 </style>
 <script>
@@ -41,7 +40,7 @@
             "type": "equirectangular",
             "panorama": panorama.image,
             autoLoad: true, // Assurez-vous que l'image commence à charger dès que possible
-            preload: true   
+            preload: true   // Précharge l'image pour qu'elle soit prête à l'affichage
         });
     });
 </script>
