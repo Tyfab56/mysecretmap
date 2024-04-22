@@ -2,7 +2,7 @@
 @section('content')
 <!-- Conteneur pour les images -->
 <div id="panoramas" style="display: flex; flex-wrap: wrap;"></div>
-
+<script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.3/dist/pannellum.js"></script>
 <script>
     var panoramasData = [
         { id: "panorama1", image: "{{ asset('frontend/assets/images/360-GC-Khartala1-sd.jpg')}}" },
