@@ -60,7 +60,7 @@
                 "panorama": panorama.image,
                 "autoLoad": true,
                 "preload": true,
-                "autoRotate": 2,
+                "autoRotate": -2,
                 "pitch" : -30,
                 "hfov": 120  // Ajustez cette valeur pour contrôler le zoom initial
             });
