@@ -11,40 +11,54 @@
 
 <script src="{{ asset('frontend/assets/js/pannellum.js') }}"></script>
 <style>
-    /* Définissez la largeur de la colonne à 80% et la hauteur minimale pour éviter hauteur à 0 */
-    .image-column {
+ .image-column {
         width: 80%;
-        height: 80vh; /* Ajustez ceci selon les besoins pour maintenir la proportion */
-        margin: auto; /* Centre la colonne horizontalement */
+        margin: auto;
+        min-height: 400px;
         overflow-y: auto;
     }
-    /* Définissez la largeur et la hauteur des div pour Pannellum pour couvrir tout le conteneur */
-    #panoramas {
+    .panorama-container {
         width: 100%;
-        height: 100%;
+        height: 500px;
+        margin-bottom: 40px;
+    }
+    .panorama-title {
+        font-size: 20px;
+        font-weight: bold;
+        color: #333;
+        padding: 10px 0;
     }
 </style>
 <script>
     var panoramasData = [
-        { id: "panorama1", image: "{{ asset('frontend/assets/images/360-GC-Khartala1-sd.jpg') }}" },
-        { id: "panorama2", image: "{{ asset('frontend/assets/images/360-GC-Khartala2-sd.jpg') }}" },
-        { id: "panorama3", image: "{{ asset('frontend/assets/images/image3.jpg') }}" }
+        { id: "panorama1", image: "{{ asset('frontend/assets/images/360-GC-Khartala1-sd.jpg') }}",, title: "Pentes du Khartala" },
+        { id: "panorama2", image: "{{ asset('frontend/assets/images/360-GC-Khartala2-sd.jpg') }}", title: "Cratère du Kharatala" }
+ 
         // Ajoutez d'autres images ici au besoin
     ];
 
-    document.addEventListener('DOMContentLoaded', function() {
-        panoramasData.forEach(function(panorama) {
+    panoramasData.forEach(function(panorama) {
+            var container = document.createElement('div');
+            container.className = 'panorama-container';
+            
+            var title = document.createElement('div');
+            title.className = 'panorama-title';
+            title.textContent = panorama.title;
+            container.appendChild(title);
+            
             var div = document.createElement('div');
-            div.id = panorama.id;
             div.style.width = '100%';
             div.style.height = '100%';
-            document.getElementById('panoramas').appendChild(div);
+            container.appendChild(div);
+            
+            document.getElementById('panoramas').appendChild(container);
 
-            pannellum.viewer(div.id, {
+            pannellum.viewer(div, {
                 "type": "equirectangular",
                 "panorama": panorama.image,
-                autoLoad: true,
-                preload: true
+                "autoLoad": true,
+                "preload": true,
+                "hfov": 100  // Ajustez cette valeur pour contrôler le zoom initial
             });
         });
     });
