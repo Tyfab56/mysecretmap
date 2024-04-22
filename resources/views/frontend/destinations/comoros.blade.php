@@ -31,8 +31,9 @@
 </style>
 <script>
     var panoramasData = [
-        { id: "panorama1", image: "{{ asset('frontend/assets/images/360-GC-Khartala1-sd.jpg') }}", title: "Pentes du Khartala" },
-        { id: "panorama2", image: "{{ asset('frontend/assets/images/360-GC-Khartala2-sd.jpg') }}", title: "Cratère du Kharatala" }
+        { id: "panorama1", image: "{{ asset('frontend/assets/images/360-GC-Khartala1-sd.jpg') }}", title: "Pentes du Karthala" },
+        { id: "panorama2", image: "{{ asset('frontend/assets/images/360-GC-Khartala2-sd.jpg') }}", title: "Cratère du Karthala" },
+        { id: "panorama3", image: "{{ asset('frontend/assets/images/360-GC-Mangrove1-sd.jpg') }}", title: "Mangrove Aeroport" },
  
         // Ajoutez d'autres images ici au besoin
     ];
