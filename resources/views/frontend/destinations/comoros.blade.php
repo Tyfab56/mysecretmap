@@ -8,7 +8,8 @@
 <div class="image-column">
     <div id="panoramas" style="width: 100%; height: 100%;"></div>
 </div>
-
+<br>
+<p class="mb5"></p>
 <script src="{{ asset('frontend/assets/js/pannellum.js') }}"></script>
 <style>
  .image-column {
