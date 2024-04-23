@@ -4,7 +4,7 @@
 @endsection
 
 @section('content')
-<!-- Conteneur pour les images -->
+<h6>Cliquez sur les images pour changer d'angle de vue</h6>
 <div class="image-column">
     <div id="panoramas" style="width: 100%; height: 100%;"></div>
 </div>
