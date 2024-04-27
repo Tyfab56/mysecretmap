@@ -59,6 +59,7 @@ Dropzone.options.mediaDropzone = {
     uploadMultiple: false, // Changez cela pour forcer le traitement des fichiers individuellement
     parallelUploads: 1,
     maxFiles: 100,
+    timeout:0,
     paramName: "media", // Ce sera utilisé pour nommer l'input des fichiers
     acceptedFiles: 'image/*,video/*',
     addRemoveLinks: true,
