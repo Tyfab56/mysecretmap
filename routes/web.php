@@ -67,7 +67,7 @@ Route::get('medias/{idspot?}', [IndexController::class, 'medias'])->name('medias
 Route::get('timeline', [IndexController::class, 'timeline'])->name('timeline');
 Route::post('/contact', [ContactController::class, 'submitContactForm'])->name('contact.submit');
 
-Route::get('myaccount', [IndexController::class, 'myaccount'])->name('myaccount');
+Route::get('myaccount', [IndexController::class, 'myaccount'])->name('myaccount')->middleware('auth');
 
 Route::get('delimagespot/{id}', [IndexController::class, 'delimagespot'])->name('delimagespot');
 Route::post('addimagespot/store', [IndexController::class, 'addimagespotstore'])->name('addimagespot.store');
