@@ -36,6 +36,7 @@ return [
     'Hotels' => 'Hotels',
     'Contact'=>'Contact',
     'Affiliate'=>"Affiliate",
+    'Portfolio'=>"Media Portfolio",
 ];
 
 

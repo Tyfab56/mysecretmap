@@ -277,6 +277,6 @@ Route::prefix('admin')->group(function () {
    
 });
 Route::get('/admin/users/search', [UserController::class, 'search'])->name('admin.users.search')->middleware('App\Http\Middleware\CheckAdmin');
-
+Route::get('/portfolio', 'PortfolioController@index')->name('portfolio.index');
 
 require __DIR__ . '/auth.php';
