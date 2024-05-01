@@ -251,6 +251,7 @@
     const modalVideo = document.createElement('video');  // Créer un élément vidéo
     const modalVideoContainer = document.getElementById('videoContainer');  // Conteneur pour la vidéo dans le modal
     const captionText = document.getElementById('caption');
+    var altText;
     
     // Nettoyer le contenu précédent du modal
     modalVideoContainer.innerHTML = '';
@@ -260,7 +261,7 @@
         modalImg.src = element.src;  // Utiliser directement l'attribut src de l'image cliquée
         modalImg.style.display = 'block';
         modalVideo.style.display = 'none';
-        const altText = element.alt;
+        altText = element.alt;
     } else if (element.tagName.toLowerCase() === 'video') {
         modalImg.style.display = 'none';
         modalVideo.src = element.querySelector('source').src;  // Obtenir la source de la vidéo
@@ -269,7 +270,7 @@
         modalVideo.style.display = 'block';
         modalVideo.style.width = '100%';
         modalVideoContainer.appendChild(modalVideo);  // Ajouter la vidéo au conteneur
-        const altText = element.getAttribute('alt');
+        altText = element.getAttribute('alt');
     }
 
     captionText.innerHTML = altText || 'No title available';
