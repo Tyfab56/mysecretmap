@@ -28,7 +28,7 @@ use App\Http\Controllers\CreditController;
 use App\Http\Controllers\FolderUserController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\MessageAdminController;
-use App\Http\Controllers\PortfolioController;
+use App\Http\Controllers\Frontend\PortfolioController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
