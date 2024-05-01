@@ -245,7 +245,7 @@
     });
 
     function openModal(element) {
-        console.log(element);
+      
     const modal = document.getElementById('mediaModal');
     const modalImg = document.getElementById('img01');
     const modalVideo = document.createElement('video');  // Créer un élément vidéo
@@ -269,6 +269,15 @@
         modalVideo.autoplay = true;
         modalVideo.style.display = 'block';
         modalVideo.style.width = '100%';
+        // Créer un élément source pour la vidéo
+        const source = document.createElement('source');
+        source.src = element.querySelector('source').src; // Obtenez la source de la vidéo
+        source.type = 'video/mp4'; // Définir le type de média de la source
+
+        // Ajouter la source à l'élément vidéo
+        modalVideo.appendChild(source);
+
+   
         modalVideoContainer.appendChild(modalVideo);  // Ajouter la vidéo au conteneur
         console.log(modalVideo);
         altText = element.getAttribute('alt');
