@@ -260,6 +260,7 @@
         modalImg.src = element.src;  // Utiliser directement l'attribut src de l'image cliquée
         modalImg.style.display = 'block';
         modalVideo.style.display = 'none';
+        const altText = element.alt;
     } else if (element.tagName.toLowerCase() === 'video') {
         modalImg.style.display = 'none';
         modalVideo.src = element.querySelector('source').src;  // Obtenir la source de la vidéo
@@ -268,9 +269,10 @@
         modalVideo.style.display = 'block';
         modalVideo.style.width = '100%';
         modalVideoContainer.appendChild(modalVideo);  // Ajouter la vidéo au conteneur
+        const altText = element.getAttribute('alt');
     }
 
-    captionText.innerHTML = element.alt || 'No title available';  // Utiliser l'attribut alt pour le titre
+    captionText.innerHTML = altText || 'No title available';
     modal.style.display = "block";  // Afficher le modal
 
     // Ajout des gestionnaires pour fermer le modal
