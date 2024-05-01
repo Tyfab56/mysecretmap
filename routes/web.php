@@ -28,7 +28,7 @@ use App\Http\Controllers\CreditController;
 use App\Http\Controllers\FolderUserController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\MessageAdminController;
-use App\Http\Controllers\Frontend\PortfolioController;
+use App\Http\Controllers\PortfolioController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -278,6 +278,6 @@ Route::prefix('admin')->group(function () {
    
 });
 Route::get('/admin/users/search', [UserController::class, 'search'])->name('admin.users.search')->middleware('App\Http\Middleware\CheckAdmin');
-Route::get('/portfolio', 'PortfolioController@index')->name('portfolio.index');
+Route::get('/portfolio', [PorfolioController::class, 'index'])->name('portfolio.index');
 
 require __DIR__ . '/auth.php';
