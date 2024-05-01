@@ -267,7 +267,7 @@
         modalImg.style.display = 'none';
         modalVideo.controls = true;
         modalVideo.autoplay = true;
-        modalVideo.style.display = 'block';
+        modalVideo.style.display = 'none';
         
         modalVideo.style.width = '100%';
         // Créer un élément source pour la vidéo
