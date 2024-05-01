@@ -245,7 +245,7 @@
     });
 
     function openModal(element) {
-        console.log(element.alt);
+        console.log(element);
     const modal = document.getElementById('mediaModal');
     const modalImg = document.getElementById('img01');
     const modalVideo = document.createElement('video');  // Créer un élément vidéo
