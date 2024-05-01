@@ -35,7 +35,7 @@
 <div class="gallery-wrapper" id="gallery-wrapper">
         @foreach ($shareMedias as $media)
                     <div class="picture-item" data-groups="{{ $media->media_type }}">
-                    <img src="{{ $media->thumbnail_link }}" alt="{{ $media->title }}" class="media-thumbnail" data-id="{{ $media->id }}" onclick="openModal(this)">
+                    <img src="{{ $media->thumbnail_link }}" alt="{{ $media->title }}" class="media-thumbnail" data-id="{{ $media->id }}" data-type="{{ $media->media_type }}" onclick="openModal(this)">
                         @if ($media->media_type === 'video' || $media->media_type === 'film')
                             <video class="media-video" preload="none" style="display: none;">
                                 <source src="{{ $media->preview_link }}" type="video/mp4">
@@ -56,7 +56,8 @@
 </div>
 <div id="mediaModal" class="modal">
     <span class="close" onclick="closeModal()">&times;</span>
-    <img class="modal-content" id="img01">
+    <img class="modal-content" id="img01" style="display: none;">
+    <div id="videoContainer"></div>  <!-- Conteneur pour la vidéo -->
     <div id="caption"></div>
 </div>
 <style>
@@ -152,6 +153,8 @@
     animation-duration: 0.6s;
 }
 
+
+
 /* Ajouter une animation de zoom pour l'apparition du modal */
 @keyframes zoom {
     from {transform: translate(-50%, -50%) scale(0)} 
@@ -219,14 +222,33 @@
         });
     });
 
-    function openModal(imageElement) {
-    var modal = document.getElementById('mediaModal');
-    var modalImg = document.getElementById('img01');
-    var captionText = document.getElementById('caption');
+    function openModal(element) {
+    const modal = document.getElementById('mediaModal');
+    const modalImg = document.getElementById('img01');
+    const modalVideo = document.createElement('video');  // Créer un élément vidéo
+    const modalVideoContainer = document.getElementById('videoContainer');  // Conteneur pour la vidéo dans le modal
+    const captionText = document.getElementById('caption');
+    
+    // Nettoyer le contenu précédent du modal
+    modalVideoContainer.innerHTML = '';
 
-    modal.style.display = "block";
-    modalImg.src = imageElement.src;  // Utilisez directement l'attribut src de l'image cliquée
-    captionText.innerHTML = imageElement.alt;  // Utilisez l'attribut alt de l'image pour le titre
+    // Déterminer si l'élément cliqué est une image ou une vidéo
+    if (element.tagName.toLowerCase() === 'img') {
+        modalImg.src = element.src;  // Utiliser directement l'attribut src de l'image cliquée
+        modalImg.style.display = 'block';
+        modalVideo.style.display = 'none';
+    } else if (element.tagName.toLowerCase() === 'video') {
+        modalImg.style.display = 'none';
+        modalVideo.src = element.querySelector('source').src;  // Obtenir la source de la vidéo
+        modalVideo.controls = true;
+        modalVideo.autoplay = true;
+        modalVideo.style.display = 'block';
+        modalVideo.style.width = '100%';
+        modalVideoContainer.appendChild(modalVideo);  // Ajouter la vidéo au conteneur
+    }
+
+    captionText.innerHTML = element.alt || 'No title available';  // Utiliser l'attribut alt pour le titre
+    modal.style.display = "block";  // Afficher le modal
 
     // Ajout des gestionnaires pour fermer le modal
     var span = document.getElementsByClassName("close")[0];
