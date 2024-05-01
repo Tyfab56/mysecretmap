@@ -35,7 +35,7 @@
 <div class="gallery-wrapper" id="gallery-wrapper">
         @foreach ($shareMedias as $media)
                     <div class="picture-item" data-groups="{{ $media->media_type }}">
-                        <img src="{{ $media->thumbnail_link }}" alt="{{ $media->title }}" class="media-thumbnail" onclick="openModal('{{ $media->id }}')">
+                    <img src="{{ $media->thumbnail_link }}" alt="{{ $media->title }}" class="media-thumbnail" data-id="{{ $media->id }}" onclick="openModal(this)">
                         @if ($media->media_type === 'video' || $media->media_type === 'film')
                             <video class="media-video" preload="none" style="display: none;">
                                 <source src="{{ $media->preview_link }}" type="video/mp4">
@@ -153,20 +153,22 @@
         });
     });
 
-    function openModal(mediaId) {
+    function openModal(imageElement) {
     var modal = document.getElementById('mediaModal');
-    var img = document.getElementById('img01');
+    var modalImg = document.getElementById('img01');
     var captionText = document.getElementById('caption');
-    var src = document.querySelector(`[data-id="${mediaId}"] img`).src;
-    var title = document.querySelector(`[data-id="${mediaId}"] .info h5`).textContent;
-    img.src = src;
-    captionText.innerHTML = title;
+
     modal.style.display = "block";
+    modalImg.src = imageElement.src;  // Utilisez directement l'attribut src de l'image cliquée
+    captionText.innerHTML = imageElement.alt;  // Utilisez l'attribut alt de l'image pour le titre
+
+    // Ajout des gestionnaires pour fermer le modal
+    var span = document.getElementsByClassName("close")[0];
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
 }
 
-function closeModal() {
-    var modal = document.getElementById('mediaModal');
-    modal.style.display = "none";
-}
+
 </script>
 @endsection
