@@ -109,7 +109,7 @@
     bottom: 0;
     left: 0;
     width: 100%;
-    background: rgba(0, 0, 0, 0.5); /* Fond semi-transparent pour la lisibilité */
+   
     color: white;
     text-align: center;
     padding: 10px;
