@@ -261,12 +261,14 @@
         modalImg.src = element.src;  // Utiliser directement l'attribut src de l'image cliquée
         modalImg.style.display = 'block';
         modalVideo.style.display = 'none';
+        modalVideoContainer.style.display = 'none';
         altText = element.alt;
     } else if (element.tagName.toLowerCase() === 'video') {
         modalImg.style.display = 'none';
         modalVideo.controls = true;
         modalVideo.autoplay = true;
         modalVideo.style.display = 'block';
+        modalVideoContainer.style.display = 'block';
         modalVideo.style.width = '100%';
         // Créer un élément source pour la vidéo
         const source = document.createElement('source');
