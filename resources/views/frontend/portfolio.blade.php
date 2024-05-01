@@ -270,6 +270,7 @@
         modalVideo.style.display = 'block';
         modalVideo.style.width = '100%';
         modalVideoContainer.appendChild(modalVideo);  // Ajouter la vidéo au conteneur
+        console.log(modalVideo);
         altText = element.getAttribute('alt');
     }
 
