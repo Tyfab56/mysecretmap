@@ -277,10 +277,11 @@
 
         // Ajouter la source à l'élément vidéo
         modalVideo.appendChild(source);
-        modalVideoContainer.style.display = 'block';
+        
    
         modalVideoContainer.appendChild(modalVideo);  // Ajouter la vidéo au conteneur
-        console.log(modalVideo);
+        modalVideoContainer.style.display = 'block';
+      
         altText = element.getAttribute('alt');
     }
 
