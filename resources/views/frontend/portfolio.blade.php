@@ -58,6 +58,36 @@
     .btn-primary {
         background-color: #0056b3; /* Couleur principale de votre thème */
     }
+    .gallery-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Crée des colonnes qui s'adaptent à la largeur de l'écran */
+    grid-gap: 10px; /* Espace entre les éléments de la grille */
+}
+
+.picture-item {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 200px; /* Hauteur fixe pour tous les éléments */
+}
+
+.picture-item img {
+    max-width: 100%; /* Largeur maximale de 100% */
+    max-height: 100%; /* Hauteur maximale de 100% */
+    object-fit: cover; /* Assure que l'image couvre le div sans distorsion */
+}
+
+.media-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none; /* Masquée par défaut */
+}
+
 </style>
 @endsection
 @section('fullscripts')
