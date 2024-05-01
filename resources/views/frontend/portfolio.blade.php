@@ -149,7 +149,8 @@
             }
         });
     });
-    unction openModal(mediaId) {
+    
+    function openModal(mediaId) {
     var modal = document.getElementById('mediaModal');
     var img = document.getElementById('img01');
     var captionText = document.getElementById('caption');
