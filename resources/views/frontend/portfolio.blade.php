@@ -264,7 +264,6 @@
         altText = element.alt;
     } else if (element.tagName.toLowerCase() === 'video') {
         modalImg.style.display = 'none';
-        modalVideo.src = element.querySelector('source').src;  // Obtenir la source de la vidéo
         modalVideo.controls = true;
         modalVideo.autoplay = true;
         modalVideo.style.display = 'block';
