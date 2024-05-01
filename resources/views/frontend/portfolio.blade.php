@@ -60,10 +60,7 @@
     <div id="caption"></div>
 </div>
 <style>
-    .info {
-        text-align: center;
-        padding: 10px;
-    }
+ 
     .form-control, .custom-select {
         max-width: 100%;
     }
@@ -72,7 +69,7 @@
     }
     .gallery-wrapper {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 colonnes sur les écrans larges */
+    grid-template-columns: repeat(4, 1fr);
     grid-gap: 10px;
 }
 
@@ -85,10 +82,10 @@
     height: 200px; /* Hauteur fixe pour tous les éléments */
 }
 
-.picture-item img {
-    width: 100%; /* Largeur maximale de 100% */
-    height: 100%; /* Hauteur maximale de 100% */
-    object-fit: cover; /* Assure que l'image couvre le div sans distorsion */
+.picture-item img, .picture-item video {
+    width: 100%;
+    max-height: 100%;
+    object-fit: contain; /* Assure que tout le contenu de l'image est visible */
 }
 
 .media-video {
@@ -97,9 +94,19 @@
     left: 0;
     width: 100%;
     height: 100%;
-    display: none; /* Masquée par défaut */
+    display: none;
 }
 
+.info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Fond semi-transparent pour la lisibilité */
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
 /* Responsive adjustments */
 @media (max-width: 1200px) { /* Taille moyenne */
     .gallery-wrapper {
