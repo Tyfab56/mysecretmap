@@ -56,9 +56,11 @@
 </div>
 <div id="mediaModal" class="modal">
     <span class="close" onclick="closeModal()">&times;</span>
-    <img class="modal-content" id="img01" style="display: none;">
-    <div id="videoContainer"></div>  <!-- Conteneur pour la vidéo -->
-    <div id="caption"></div>
+    <div id="modalContent" class="modal-content">
+        <img id="img01" style="display: none;">
+        <div id="videoContainer" style="display: none;"></div>
+        <div id="caption"></div>
+    </div>
 </div>
 <style>
  
@@ -153,7 +155,14 @@
     animation-duration: 0.6s;
 }
 
+#videoContainer {
+    display: none; /* Pour cacher par défaut */
+}
 
+#videoContainer video {
+    max-width: 100%;
+    height: auto;
+}
 
 /* Ajouter une animation de zoom pour l'apparition du modal */
 @keyframes zoom {
