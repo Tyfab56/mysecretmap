@@ -32,16 +32,17 @@
 </form>
 
 
-    <div class="row">
+<div class="gallery-wrapper" id="gallery-wrapper">
         @foreach ($shareMedias as $media)
-            <div class="col-md-4">
-                <div class="card mb-4">
-                    <img src="{{ $media->thumbnail_link }}" alt="{{ $media->title }}" class="card-img-top">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ $media->title }}</h5>
-                        <p class="card-text">{{ $media->credits ? 'Credits: '.$media->credits : '' }}</p>
-                    </div>
-                </div>
+            <div class="picture-item" data-groups="{{ $media->media_type }}">
+                <img src="{{ $media->thumbnail_link }}" alt="{{ $media->title }}" class="media-thumbnail">
+                @if ($media->media_type === 'video' || $media->media_type === 'film')
+                    <!-- Vidéo cachée jusqu'au survol -->
+                    <video class="media-video" preload="none" style="display: none;">
+                        <source src="{{ $media->preview_link }}" type="video/mp4">
+                        Votre navigateur ne supporte pas la balise vidéo.
+                    </video>
+                @endif
             </div>
         @endforeach
     </div>
@@ -58,4 +59,29 @@
         background-color: #0056b3; /* Couleur principale de votre thème */
     }
 </style>
+@endsection
+@section('fullscripts')
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const mediaItems = document.querySelectorAll('.picture-item');
+
+        mediaItems.forEach(item => {
+            const video = item.querySelector('.media-video');
+            const image = item.querySelector('.media-thumbnail');
+
+            if (video) {
+                item.addEventListener('mouseover', () => {
+                    video.style.display = 'block';
+                    video.play();
+                });
+
+                item.addEventListener('mouseout', () => {
+                    video.style.display = 'none';
+                    video.pause();
+                    video.currentTime = 0;
+                });
+            }
+        });
+    });
+</script>
 @endsection
