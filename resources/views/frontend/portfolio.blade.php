@@ -156,12 +156,25 @@
 }
 
 #videoContainer {
+    position: relative; /* Ajouter cette propriété pour que les éléments enfants soient positionnés par rapport à ce conteneur */
     display: none; /* Pour cacher par défaut */
 }
 
 #videoContainer video {
     max-width: 100%;
     height: auto;
+}
+
+/* Ajouter une animation de zoom pour l'apparition du contenu vidéo dans le modal */
+#videoContainer video {
+    animation-name: zoom; /* Utiliser l'animation de zoom */
+    animation-duration: 0.6s;
+}
+
+/* Ajouter une animation de zoom pour l'apparition du contenu vidéo dans le modal */
+@keyframes zoom {
+    from {transform: translate(-50%, -50%) scale(0)} 
+    to {transform: translate(-50%, -50%) scale(1)}
 }
 
 /* Ajouter une animation de zoom pour l'apparition du modal */
