@@ -125,6 +125,55 @@
         grid-template-columns: 1fr; /* 1 colonne pour les très petits écrans */
     }
 }
+/* Style pour le fond obscurci */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Style pour le contenu du modal */
+.modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid #888;
+    width: 60%; /* Could be more or less, depending on screen size */
+    max-width: 800px; /* Optional: for large screens */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+/* Ajouter une animation de zoom pour l'apparition du modal */
+@keyframes zoom {
+    from {transform: translate(-50%, -50%) scale(0)} 
+    to {transform: translate(-50%, -50%) scale(1)}
+}
+
+/* Style pour la fermeture du modal */
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
 
 
 </style>
