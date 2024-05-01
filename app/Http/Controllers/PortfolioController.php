@@ -33,7 +33,16 @@ class PortfolioController extends Controller
             });
         }
 
-        $shareMedias = $query->orderBy('sharemedias.created_at', 'desc')->paginate(40);
+     
+
+        $shareMedias = $query->orderBy('sharemedias.created_at', 'desc')
+        ->paginate(40)
+        ->appends([
+           'media_type' => $request->media_type,
+           'pays_id' => $request->pays_id,
+           'search' => $request->search
+        ]); 
+
         $activePays = Pays::where('actif', 1)->get();
 
         return view('frontend.portfolio', compact('shareMedias', 'activePays'));
