@@ -259,7 +259,6 @@
     if (element.tagName.toLowerCase() === 'img') {
         modalImg.src = element.src;  // Utiliser directement l'attribut src de l'image cliquée
         modalImg.style.display = 'block';
-        modalVideo.style.display = 'none';
         modalVideoContainer.style.display = 'none';
         altText = element.alt;
     } else if (element.tagName.toLowerCase() === 'video') {
