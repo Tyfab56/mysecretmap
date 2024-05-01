@@ -281,6 +281,7 @@
    
         modalVideoContainer.appendChild(modalVideo);  // Ajouter la vidéo au conteneur
         modalVideoContainer.style.display = 'block';
+        modalVideo.style.display = 'block';
       
         altText = element.getAttribute('alt');
     }
