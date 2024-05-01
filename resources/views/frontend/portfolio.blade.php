@@ -43,7 +43,7 @@
                             </video>
                         @endif
                         <div class="info">
-                            <h5>{{ $media->title }}</h5>
+                            <P>{{ $media->title }}
                             <p>{{ ucfirst($media->media_type) }} - {{ $media->width }} x {{ $media->height }}</p>
                         </div>
                     </div>
