@@ -58,7 +58,12 @@
     <span class="close" onclick="closeModal()">&times;</span>
     <div id="modalContent" class="modal-content">
         <img id="img01" style="display: none;">
-        <div id="videoContainer" style="display: none;"></div>
+        <div id="videoContainer" style="display: none;">
+            <video id="modalVideo" controls autoplay style="display: none;">
+                <source src="" type="video/mp4">
+                Votre navigateur ne supporte pas la balise vidéo.
+            </video>
+        </div>
         <div id="caption"></div>
     </div>
 </div>
@@ -248,12 +253,13 @@
       
     const modal = document.getElementById('mediaModal');
     const modalImg = document.getElementById('img01');
+    const modalVideo = document.getElementById('modalVideo');
     const modalVideoContainer = document.getElementById('videoContainer');  // Conteneur pour la vidéo dans le modal
     const captionText = document.getElementById('caption');
     var altText;
     
     // Nettoyer le contenu précédent du modal
-    modalVideoContainer.innerHTML = '';
+    modalVideo.src = '';
 
     // Déterminer si l'élément cliqué est une image ou une vidéo
     if (element.tagName.toLowerCase() === 'img') {
@@ -263,27 +269,11 @@
         altText = element.alt;
     } else if (element.tagName.toLowerCase() === 'video') {
         modalImg.style.display = 'none';
-
-        // Créer un élément vidéo et configurer ses propriétés
-        const modalVideo = document.createElement('video');
         modalVideo.controls = true;
         modalVideo.autoplay = true;
-        modalVideo.style.width = '100%';
-
-        // Créer un élément source pour la vidéo
-        const source = document.createElement('source');
-        source.src = element.querySelector('source').src; // Obtenez la source de la vidéo
-        source.type = 'video/mp4'; // Définir le type de média de la source
-
-        // Ajouter la source à l'élément vidéo
-        modalVideo.appendChild(source);
-
-        // Ajouter la vidéo au conteneur de la modal
-        modalVideoContainer.appendChild(modalVideo);
-
-        // Afficher le conteneur de la modal
+        modalVideo.style.display = 'block';
         modalVideoContainer.style.display = 'block';
-
+        modalVideo.src = element.querySelector('source').src; // Modifier la source de la vidéo
         altText = element.getAttribute('alt');
 
     }
