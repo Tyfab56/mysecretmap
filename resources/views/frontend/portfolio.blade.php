@@ -34,24 +34,20 @@
 
 <div class="gallery-wrapper" id="gallery-wrapper">
         @foreach ($shareMedias as $media)
-            <div class="picture-item" data-groups="{{ $media->media_type }}">
-                <img src="{{ $media->thumbnail_link }}" alt="{{ $media->title }}" class="media-thumbnail">
-                @if ($media->media_type === 'video' || $media->media_type === 'film')
-                    <!-- Vidéo cachée jusqu'au survol -->
-                    <video class="media-video" preload="none" style="display: none;">
-                        <source src="{{ $media->preview_link }}" type="video/mp4">
-                        Votre navigateur ne supporte pas la balise vidéo.
-                    </video>
-                @endif
-            </div>
-        <div class="picture-item" data-groups="{{ $media->media_type }}">
-            <img src="{{ $media->thumbnail_link }}" alt="{{ $media->title }}" class="media-thumbnail" onclick="openModal('{{ $media->id }}')">
-            <div class="info">
-                <h5>{{ $media->title }}</h5>
-                <p>{{ ucfirst($media->media_type) }} - {{ $media->width }} x {{ $media->height }}</p>
-        </div>
-    </div>
-        @endforeach
+                    <div class="picture-item" data-groups="{{ $media->media_type }}">
+                        <img src="{{ $media->thumbnail_link }}" alt="{{ $media->title }}" class="media-thumbnail" onclick="openModal('{{ $media->id }}')">
+                        @if ($media->media_type === 'video' || $media->media_type === 'film')
+                            <video class="media-video" preload="none" style="display: none;">
+                                <source src="{{ $media->preview_link }}" type="video/mp4">
+                                Votre navigateur ne supporte pas la balise vidéo.
+                            </video>
+                        @endif
+                        <div class="info">
+                            <h5>{{ $media->title }}</h5>
+                            <p>{{ ucfirst($media->media_type) }} - {{ $media->width }} x {{ $media->height }}</p>
+                        </div>
+                    </div>
+                @endforeach
     </div>
 
     <div class="mt-4">
@@ -149,7 +145,7 @@
             }
         });
     });
-    
+
     function openModal(mediaId) {
     var modal = document.getElementById('mediaModal');
     var img = document.getElementById('img01');
