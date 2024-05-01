@@ -178,11 +178,7 @@
 
 
 
-/* Ajouter une animation de zoom pour l'apparition du modal */
-@keyframes zoom {
-    from {transform: translate(-50%, -50%) scale(0)} 
-    to {transform: translate(-50%, -50%) scale(1)}
-}
+
 
 /* Style pour la fermeture du modal */
 .close {
