@@ -181,6 +181,23 @@
 @section('fullscripts')
 <script>
     document.addEventListener('DOMContentLoaded', function() {
+
+        const modal = document.getElementById('mediaModal');
+        const modalContent = document.querySelector('.modal-content');
+
+            // Ferme le modal si l'utilisateur clique en dehors du contenu du modal
+            modal.addEventListener('click', function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            });
+
+            // Ferme le modal si l'utilisateur clique sur la croix
+            var span = document.getElementsByClassName("close")[0];
+            span.onclick = function() {
+                modal.style.display = "none";
+            }
+
         const mediaItems = document.querySelectorAll('.picture-item');
 
         mediaItems.forEach(item => {
