@@ -44,6 +44,13 @@
                     </video>
                 @endif
             </div>
+        <div class="picture-item" data-groups="{{ $media->media_type }}">
+            <img src="{{ $media->thumbnail_link }}" alt="{{ $media->title }}" class="media-thumbnail" onclick="openModal('{{ $media->id }}')">
+            <div class="info">
+                <h5>{{ $media->title }}</h5>
+                <p>{{ ucfirst($media->media_type) }} - {{ $media->width }} x {{ $media->height }}</p>
+        </div>
+    </div>
         @endforeach
     </div>
 
@@ -51,7 +58,16 @@
         {{ $shareMedias->links() }}
     </div>
 </div>
+<div id="mediaModal" class="modal">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <img class="modal-content" id="img01">
+    <div id="caption"></div>
+</div>
 <style>
+    .info {
+        text-align: center;
+        padding: 10px;
+    }
     .form-control, .custom-select {
         max-width: 100%;
     }
@@ -133,5 +149,20 @@
             }
         });
     });
+    unction openModal(mediaId) {
+    var modal = document.getElementById('mediaModal');
+    var img = document.getElementById('img01');
+    var captionText = document.getElementById('caption');
+    var src = document.querySelector(`[data-id="${mediaId}"] img`).src;
+    var title = document.querySelector(`[data-id="${mediaId}"] .info h5`).textContent;
+    img.src = src;
+    captionText.innerHTML = title;
+    modal.style.display = "block";
+}
+
+function closeModal() {
+    var modal = document.getElementById('mediaModal');
+    modal.style.display = "none";
+}
 </script>
 @endsection
