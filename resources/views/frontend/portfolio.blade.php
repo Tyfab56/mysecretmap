@@ -5,10 +5,10 @@
     <h1>Portfolio de Médias</h1>
 
     <form action="{{ route('portfolio.index') }}" method="GET">
-        <select name="country_id" onchange="this.form.submit()">
+        <select name="pays_id" onchange="this.form.submit()">
             <option value="">Sélectionnez un pays</option>
-            @foreach($countries as $country)
-                <option value="{{ $country->id }}" {{ (request('country_id') == $country->id) ? 'selected' : '' }}>{{ $country->name }}</option>
+            @foreach($activePays as $pays)
+                <option value="{{ $pays->pays_id }}" {{ (request('pays_id') == $pays->pays_id) ? 'selected' : '' }}>{{ $pays->pays }}</option>
             @endforeach
         </select>
         <select name="media_type" onchange="this.form.submit()">
