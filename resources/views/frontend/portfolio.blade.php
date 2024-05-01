@@ -268,7 +268,7 @@
         modalVideo.controls = true;
         modalVideo.autoplay = true;
         modalVideo.style.display = 'block';
-        modalVideoContainer.style.display = 'block';
+        
         modalVideo.style.width = '100%';
         // Créer un élément source pour la vidéo
         const source = document.createElement('source');
@@ -277,7 +277,7 @@
 
         // Ajouter la source à l'élément vidéo
         modalVideo.appendChild(source);
-
+        modalVideoContainer.style.display = 'block';
    
         modalVideoContainer.appendChild(modalVideo);  // Ajouter la vidéo au conteneur
         console.log(modalVideo);
