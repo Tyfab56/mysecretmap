@@ -32,5 +32,9 @@
             </div>
         @endforeach
     </div>
+
+    <div class="mt-4">
+        {{ $shareMedias->links() }}
+    </div>
 </div>
 @endsection
