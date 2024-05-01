@@ -60,8 +60,8 @@
     }
     .gallery-wrapper {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Crée des colonnes qui s'adaptent à la largeur de l'écran */
-    grid-gap: 10px; /* Espace entre les éléments de la grille */
+    grid-template-columns: repeat(4, 1fr); /* 4 colonnes sur les écrans larges */
+    grid-gap: 10px;
 }
 
 .picture-item {
@@ -74,8 +74,8 @@
 }
 
 .picture-item img {
-    max-width: 100%; /* Largeur maximale de 100% */
-    max-height: 100%; /* Hauteur maximale de 100% */
+    width: 100%; /* Largeur maximale de 100% */
+    height: 100%; /* Hauteur maximale de 100% */
     object-fit: cover; /* Assure que l'image couvre le div sans distorsion */
 }
 
@@ -87,6 +87,26 @@
     height: 100%;
     display: none; /* Masquée par défaut */
 }
+
+/* Responsive adjustments */
+@media (max-width: 1200px) { /* Taille moyenne */
+    .gallery-wrapper {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) { /* Taille des tablettes */
+    .gallery-wrapper {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) { /* Taille des téléphones mobiles */
+    .gallery-wrapper {
+        grid-template-columns: 1fr; /* 1 colonne pour les très petits écrans */
+    }
+}
+
 
 </style>
 @endsection
