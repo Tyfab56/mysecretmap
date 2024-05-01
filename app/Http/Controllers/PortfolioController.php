@@ -22,10 +22,19 @@ class PortfolioController extends Controller
         if ($request->has('pays_id') && $request->pays_id != '') {
             $query->where('folders.country_id', $request->pays_id);
         }
-        $shareMedias = $query->orderBy('sharemedias.created_at', 'desc')
-        ->paginate(40); // Pagination à 40 éléments par page
-        
-        $activePays = Pays::where('actif', 1)->get(); // Récupération des pays actifs
+
+        if ($request->has('search') && $request->search != '') {
+            $search = $request->search;
+            $query->where(function ($query) use ($search) {
+                $query->where('sharemedias.title', 'like', '%' . $search . '%')
+                      ->orWhereHas('folder', function ($query) use ($search) {
+                          $query->where('name', 'like', '%' . $search . '%');
+                      });
+            });
+        }
+
+        $shareMedias = $query->orderBy('sharemedias.created_at', 'desc')->paginate(40);
+        $activePays = Pays::where('actif', 1)->get();
 
         return view('frontend.portfolio', compact('shareMedias', 'activePays'));
     }
