@@ -248,7 +248,6 @@
       
     const modal = document.getElementById('mediaModal');
     const modalImg = document.getElementById('img01');
-    const modalVideo = document.createElement('video');  // Créer un élément vidéo
     const modalVideoContainer = document.getElementById('videoContainer');  // Conteneur pour la vidéo dans le modal
     const captionText = document.getElementById('caption');
     var altText;
@@ -265,11 +264,13 @@
         altText = element.alt;
     } else if (element.tagName.toLowerCase() === 'video') {
         modalImg.style.display = 'none';
+
+        // Créer un élément vidéo et configurer ses propriétés
+        const modalVideo = document.createElement('video');
         modalVideo.controls = true;
         modalVideo.autoplay = true;
-        modalVideo.style.display = 'none';
-        
         modalVideo.style.width = '100%';
+
         // Créer un élément source pour la vidéo
         const source = document.createElement('source');
         source.src = element.querySelector('source').src; // Obtenez la source de la vidéo
@@ -277,13 +278,15 @@
 
         // Ajouter la source à l'élément vidéo
         modalVideo.appendChild(source);
-        
-   
-        modalVideoContainer.appendChild(modalVideo);  // Ajouter la vidéo au conteneur
+
+        // Ajouter la vidéo au conteneur de la modal
+        modalVideoContainer.appendChild(modalVideo);
+
+        // Afficher le conteneur de la modal
         modalVideoContainer.style.display = 'block';
-        modalVideo.style.display = 'block';
-      
+
         altText = element.getAttribute('alt');
+
     }
 
     captionText.innerHTML = altText || 'No title available';
