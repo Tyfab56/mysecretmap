@@ -271,8 +271,7 @@
         modalImg.style.display = 'none';
         modalVideo.controls = true;
         modalVideo.autoplay = true;
-        modalVideo.style.display = 'block';
-        modalVideoContainer.style.display = 'block';
+        
         modalVideo.src = element.querySelector('source').src; // Modifier la source de la vidéo
         altText = element.getAttribute('alt');
 
@@ -280,7 +279,11 @@
 
     captionText.innerHTML = altText || 'No title available';
     modal.style.display = "block";  // Afficher le modal
-
+    if (element.tagName.toLowerCase() === 'video') 
+    {
+        modalVideo.style.display = 'block';
+        modalVideoContainer.style.display = 'block';
+    }
     // Ajout des gestionnaires pour fermer le modal
     var span = document.getElementsByClassName("close")[0];
     span.onclick = function() {
