@@ -1,6 +1,5 @@
 @extends('frontend.main_master')
 
-
 @section('content')
 <h1>{{ isset($banner) ? 'Modifier le Bandeau' : 'Ajouter un Bandeau' }}</h1>
 <form action="{{ isset($banner) ? route('banners.update', $banner->id) : route('banners.store') }}" method="POST" enctype="multipart/form-data">
@@ -10,10 +9,7 @@
     @endif
     <div class="form-group">
         <label for="user_id">Utilisateur :</label>
-        <select name="user_id" id="user_id" class="form-control select2" required>
-            @foreach($users as $user)
-                <option value="{{ $user->id }}">{{ $user->name }}</option>
-            @endforeach
+        <select name="user_id" id="user_id" class="form-control select2 select2-search" required>
         </select>
     </div>
     <div class="form-group">
@@ -36,8 +32,27 @@
     <button type="submit" class="btn btn-success">{{ isset($banner) ? 'Mettre à jour' : 'Créer' }}</button>
 </form>
 <script>
-        $(document).ready(function() {
-            $('.select2').select2();
-        });
-    </script>
+$(document).ready(function() {
+    $('.select2-search').select2({
+        ajax: {
+            url: '/get-users', // URL de votre route pour récupérer les utilisateurs
+            dataType: 'json',
+            delay: 250,
+            processResults: function(data) {
+                return {
+                    results: $.map(data, function(user) {
+                        return {
+                            id: user.id,
+                            text: user.name
+                        };
+                    })
+                };
+            },
+            cache: true
+        },
+        placeholder: 'Recherchez un utilisateur...',
+        minimumInputLength: 2 // Nombre minimum de caractères pour déclencher la recherche
+    });
+});
+</script>
 @endsection
