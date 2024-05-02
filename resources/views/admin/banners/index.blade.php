@@ -5,6 +5,7 @@
 
 <h1>Liste des Bandeaux</h1>
 <a href="{{ route('banners.create') }}" class="btn btn-primary">Ajouter un Bandeau</a>
+<div class="mx-3"> 
 <table class="table">
     <thead>
         <tr>
@@ -34,4 +35,5 @@
         @endforeach
     </tbody>
 </table>
+</div>
 @endsection
