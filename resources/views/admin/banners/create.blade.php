@@ -40,10 +40,10 @@ $(document).ready(function() {
             delay: 250,
             processResults: function(data) {
                 return {
-                    results: $.map(data, function(user) {
+                    results: data.map(function(user) {
                         return {
                             id: user.id,
-                            text: user.name
+                            text: user.text
                         };
                     })
                 };
