@@ -25,12 +25,13 @@ class BannerController extends Controller
             'user_id' => 'required',
             'title' => 'required',
             'image_url' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Taille maximale de 2 Mo pour l'image
-            'redirect_url' => 'required|url',
+            'redirect_url' => 'required',
             'active' => 'nullable|boolean',
         ]);
         
 
         $imagePath = $request->file('image_url')->store('temp');
+        dd($imagePath);
         $localImagePath = storage_path('app/' . $imagePath);
     
         // Connexion au disque Wasabi S3
