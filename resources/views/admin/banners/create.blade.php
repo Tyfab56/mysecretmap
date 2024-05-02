@@ -9,6 +9,14 @@
         @method('PUT')
     @endif
     <div class="form-group">
+        <label for="user_id">Utilisateur :</label>
+        <select name="user_id" id="user_id" class="form-control select2" required>
+            @foreach($users as $user)
+                <option value="{{ $user->id }}">{{ $user->name }}</option>
+            @endforeach
+        </select>
+    </div>
+    <div class="form-group">
         <label for="title">Titre:</label>
         <input type="text" class="form-control" name="title" value="{{ $banner->title ?? '' }}" required>
     </div>
@@ -27,4 +35,9 @@
     </div>
     <button type="submit" class="btn btn-success">{{ isset($banner) ? 'Mettre à jour' : 'Créer' }}</button>
 </form>
+<script>
+        $(document).ready(function() {
+            $('.select2').select2();
+        });
+    </script>
 @endsection

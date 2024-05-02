@@ -9,10 +9,16 @@ class Banner extends Model
     protected $table = 'banners';
 
     protected $fillable = [
-        'title', 'image_url', 'redirect_url', 'active'
+        'title', 'image_url', 'redirect_url', 'active','user_id'
     ];
 
     public $timestamps = true;
 
-    // Vous pouvez ajouter ici des relations si nécessaire, par exemple avec des spots
+    
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+   
 }
