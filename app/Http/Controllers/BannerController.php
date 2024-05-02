@@ -21,7 +21,10 @@ class BannerController extends Controller
 
     public function store(Request $request)
     {
-        $validatedData = $request->validate([
+       
+        dd($request);
+        
+         $validatedData = $request->validate([
             'user_id' => 'required',
             'title' => 'required',
             'image_url' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Taille maximale de 2 Mo pour l'image
