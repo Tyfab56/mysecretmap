@@ -21,7 +21,7 @@
         @foreach ($banners as $banner)
         <tr>
             <td>{{ $banner->id }}</td>
-            <td>{{ $banner->user->name }}</td>
+            <td>{{ $banner->user->name }} {{ $banner->user->prenom }}</td>
             <td>{{ $banner->title }}</td>
             <td><img src="{{ $banner->image_url }}" alt="banner image" width="100"></td>
             <td>{{ $banner->active ? 'Oui' : 'Non' }}</td>

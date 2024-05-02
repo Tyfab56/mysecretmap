@@ -30,7 +30,7 @@ class BannerController extends Controller
             'title' => 'required',
             'image_url' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Taille maximale de 2 Mo pour l'image
             'redirect_url' => 'required',
-            'active' => 'nullable|boolean',
+            
         ]);
         
 
