@@ -1,6 +1,9 @@
 @extends('frontend.main_master')
 
 @section('content')
+<div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
 <h1>{{ isset($banner) ? 'Modifier le Bandeau' : 'Ajouter un Bandeau' }}</h1>
     <form action="{{ isset($banner) ? route('banners.update', $banner->id) : route('banners.store') }}" method="POST" enctype="multipart/form-data" class="needs-validation" novalidate>
         @csrf
@@ -35,6 +38,9 @@
         </div>
         <button type="submit" class="btn btn-success">{{ isset($banner) ? 'Mettre à jour' : 'Créer' }}</button>
     </form>
+      </div>
+    </div>
+</div>
 <script>
 $(document).ready(function() {
     $('.select2-search').select2({
