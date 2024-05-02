@@ -34,7 +34,7 @@ class BannerController extends Controller
         
 
         $imagePath = $request->file('image_url')->store('temp');
-        dd($imagePath);
+        
         $localImagePath = storage_path('app/' . $imagePath);
     
         // Connexion au disque Wasabi S3
