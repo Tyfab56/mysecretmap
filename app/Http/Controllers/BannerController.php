@@ -22,8 +22,8 @@ class BannerController extends Controller
     public function store(Request $request)
     {
        
-        dd($request);
-        
+       
+
          $validatedData = $request->validate([
             'user_id' => 'required',
             'title' => 'required',
