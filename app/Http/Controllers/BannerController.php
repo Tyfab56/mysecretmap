@@ -50,7 +50,7 @@ class BannerController extends Controller
         $banner = new Banner();
         $banner->user_id = $validatedData['user_id'];
         $banner->title = $validatedData['title'];
-        $banner->image_url = $imagePath; // Stocker le chemin de l'image
+        $banner->image_url = $diskS3->url($originalImagePathOnS3); // Stocker le chemin de l'image
         $banner->redirect_url = $validatedData['redirect_url'];
         $banner->active = isset($validatedData['active']) ? $validatedData['active'] : false; 
         $banner->save();
