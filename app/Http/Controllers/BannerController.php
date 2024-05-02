@@ -21,14 +21,37 @@ class BannerController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
-            'title' => 'required|string|max:255',
-            'image_url' => 'required|url',
+        $validatedData = $request->validate([
+            'user_id' => 'required',
+            'title' => 'required',
+            'image_url' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Taille maximale de 2 Mo pour l'image
             'redirect_url' => 'required|url',
-            'active' => 'sometimes|boolean'
+            'active' => 'nullable|boolean',
         ]);
+        
 
-        $banner = Banner::create($request->all());
+        $imagePath = $request->file('image_url')->store('temp');
+        $localImagePath = storage_path('app/' . $imagePath);
+    
+        // Connexion au disque Wasabi S3
+        $diskS3 = Storage::disk('wasabi');
+        $originalImagePathOnS3 = 'images/original/' . $request->file('image_url')->getClientOriginalName();
+        $diskS3->put($originalImagePathOnS3, fopen($localImagePath, 'r+'), 'public');
+    
+        // Supprimer l'image temporaire stockée localement
+        Storage::delete($imagePath);
+  
+        // Créer le nouvel objet Banner avec les données validées
+        $banner = new Banner();
+        $banner->user_id = $validatedData['user_id'];
+        $banner->title = $validatedData['title'];
+        $banner->image_url = $imagePath; // Stocker le chemin de l'image
+        $banner->redirect_url = $validatedData['redirect_url'];
+        $banner->active = isset($validatedData['active']) ? $validatedData['active'] : false; 
+        $banner->save();
+
+
+        
         return redirect()->route('admin.banners.index')->with('success', 'Banner ajouté avec succès.');
     }
 
