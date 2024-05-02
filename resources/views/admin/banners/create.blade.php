@@ -35,7 +35,7 @@
 $(document).ready(function() {
     $('.select2-search').select2({
         ajax: {
-            url: '/get-users', // URL de votre route pour récupérer les utilisateurs
+            url: '/search', // URL de votre route pour récupérer les utilisateurs
             dataType: 'json',
             delay: 250,
             processResults: function(data) {
