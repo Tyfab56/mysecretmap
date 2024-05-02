@@ -3,8 +3,8 @@
 
 @section('content')
 
-<h1>Liste des Bandeaux</h1>
-<a href="{{ route('banners.create') }}" class="btn btn-primary">Ajouter un Bandeau</a>
+<h1 class="mx-3" >Liste des Bandeaux</h1>
+<a href="{{ route('banners.create') }}" class="btn btn-primary mx-3">Ajouter un Bandeau</a>
 <div class="mx-3"> 
 <table class="table">
     <thead>
