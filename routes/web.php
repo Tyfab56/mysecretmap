@@ -280,7 +280,7 @@ Route::prefix('admin')->group(function () {
     Route::delete('messages/{id}', [MessageAdminController::class, 'destroy'])->name('admin.messages.destroy')->middleware('App\Http\Middleware\CheckAdmin');
    
 });
-Route::get('/admin/users/search', [UserController::class, 'search'])->name('admin.users.search')->middleware('App\Http\Middleware\CheckAdmin');
+Route::get('/admin/users/search', [UserController::class, 'search'])->name('admin.users.search');
 Route::get('/portfolio', [PortfolioController::class, 'index'])->name('portfolio.index');
 
 Route::middleware(['App\Http\Middleware\CheckAdmin'])->group(function () {
