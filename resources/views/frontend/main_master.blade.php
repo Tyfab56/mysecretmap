@@ -309,7 +309,7 @@
                              <li><a class="dropdown-item" href="{{ route('admin.timeline') }}">Timeline</a></li>
                              <li><a class="dropdown-item" href="{{ route('admin.randos.listrandos') }}">Gestion des randonnées</a></li>
                              <li><a class="dropdown-item" href="{{ route('admin.messages.index') }}">Gestion des messages</a></li>
-                             <li><a class="dropdown-item" href="{{ route('spots.banners.index') }}">Gestion des Bannières</a></li>
+                             <li><a class="dropdown-item" href="{{ route('banners.index') }}">Gestion des Bannières</a></li>
 
                         </ul>
                     </li>

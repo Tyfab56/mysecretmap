@@ -284,8 +284,7 @@ Route::get('/admin/users/search', [UserController::class, 'search'])->name('admi
 Route::get('/portfolio', [PortfolioController::class, 'index'])->name('portfolio.index');
 
 Route::middleware(['App\Http\Middleware\CheckAdmin'])->group(function () {
-    Route::resource('banners', BannerController::class);
-
+    Route::get('banners', [BannerController::class, 'index'])->name('banners.index');
     Route::post('spots/{spot}/banners/{banner}/attach', [SpotBannerUserController::class, 'attachBanner'])->name('spots.banners.attach');
     Route::delete('spots/{spot}/banners/{banner}/detach', [SpotBannerUserController::class, 'detachBanner'])->name('spots.banners.detach');
     Route::get('spots/{spot}/banners', [SpotBannerUserController::class, 'getBanners'])->name('spots.banners.index');
