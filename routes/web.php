@@ -29,6 +29,8 @@ use App\Http\Controllers\FolderUserController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\MessageAdminController;
 use App\Http\Controllers\PortfolioController;
+use App\Http\Controllers\BannerController;
+use App\Http\Controllers\SpotBannerUserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -280,5 +282,13 @@ Route::prefix('admin')->group(function () {
 });
 Route::get('/admin/users/search', [UserController::class, 'search'])->name('admin.users.search')->middleware('App\Http\Middleware\CheckAdmin');
 Route::get('/portfolio', [PortfolioController::class, 'index'])->name('portfolio.index');
+
+Route::middleware(['App\Http\Middleware\CheckAdmin'])->group(function () {
+    Route::resource('banners', BannerController::class);
+
+    Route::post('spots/{spot}/banners/{banner}/attach', [SpotBannerUserController::class, 'attachBanner'])->name('spots.banners.attach');
+    Route::delete('spots/{spot}/banners/{banner}/detach', [SpotBannerUserController::class, 'detachBanner'])->name('spots.banners.detach');
+    Route::get('spots/{spot}/banners', [SpotBannerUserController::class, 'getBanners'])->name('spots.banners.index');
+});
 
 require __DIR__ . '/auth.php';
