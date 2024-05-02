@@ -57,7 +57,7 @@ class BannerController extends Controller
 
 
         
-        return redirect()->route('admin.banners.index')->with('success', 'Banner ajouté avec succès.');
+        return redirect()->route('banners.index')->with('success', 'Banner ajouté avec succès.');
     }
 
     public function show(Banner $banner)
@@ -80,7 +80,7 @@ class BannerController extends Controller
         ]);
 
         $banner->update($request->all());
-        return redirect()->route('admin.banners.index')->with('success', 'Banner mis à jour avec succès.');
+        return redirect()->route('banners.index')->with('success', 'Banner mis à jour avec succès.');
     }
 
     public function destroy($id)
@@ -88,7 +88,7 @@ class BannerController extends Controller
     $banner = Banner::find($id);
 
     if (!$banner) {
-        return redirect()->route('admin.banners.index')->with('error', 'Bannière introuvable.');
+        return redirect()->route('banners.index')->with('error', 'Bannière introuvable.');
     }
 
     // Supprimez la bannière du stockage ou de tout autre endroit où elle est stockée, si nécessaire
