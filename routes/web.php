@@ -286,7 +286,7 @@ Route::get('/portfolio', [PortfolioController::class, 'index'])->name('portfolio
 Route::middleware(['App\Http\Middleware\CheckAdmin'])->group(function () {
     Route::get('banners', [BannerController::class, 'index'])->name('banners.index');
     Route::get('banners/create', [BannerController::class, 'create'])->name('banners.create');
-    Route::get('banners/store', [BannerController::class, 'store'])->name('banners.store');
+    Route::post('banners/store', [BannerController::class, 'store'])->name('banners.store');
     Route::post('spots/{spot}/banners/{banner}/attach', [SpotBannerUserController::class, 'attachBanner'])->name('spots.banners.attach');
     Route::delete('spots/{spot}/banners/{banner}/detach', [SpotBannerUserController::class, 'detachBanner'])->name('spots.banners.detach');
     Route::get('spots/{spot}/banners', [SpotBannerUserController::class, 'getBanners'])->name('spots.banners.index');
