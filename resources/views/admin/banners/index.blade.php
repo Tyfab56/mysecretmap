@@ -10,6 +10,7 @@
     <thead>
         <tr>
             <th>ID</th>
+            <th>Utilisateur</th>
             <th>Titre</th>
             <th>Image</th>
             <th>Actif</th>
@@ -20,6 +21,7 @@
         @foreach ($banners as $banner)
         <tr>
             <td>{{ $banner->id }}</td>
+            <td>{{ $banner->user->name }}</td>
             <td>{{ $banner->title }}</td>
             <td><img src="{{ $banner->image_url }}" alt="banner image" width="100"></td>
             <td>{{ $banner->active ? 'Oui' : 'Non' }}</td>
