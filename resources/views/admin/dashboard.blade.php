@@ -39,10 +39,19 @@
             <div class="card-body">
                 <a href="{{ route('admin.randos.listrandos') }}" class="btn btn-primary btn-block">Gestion des randonnées</a>
                 <a href="{{ route('admin.messages.index') }}" class="btn btn-primary btn-block">Gestion des messages</a>
-                <a href="{{ route('banners.index') }}" class="btn btn-primary btn-block">Gestion des Bannières</a>
+       
             </div>
         </div>
     </div>
+    <div class="col-md-4 mb-4">
+        <div class="card">
+            <div class="card-body">
+                <a href="{{ route('banners.index') }}" class="btn btn-primary btn-block">Gestion des Bannières</a>
+                <a href="{{ route('banners.create') }}" class="btn btn-primary btn-block">Ajouter une Bannière</a>
+            </div>
+        </div>
+    </div>
+   
 </div>
 
 @endsection
