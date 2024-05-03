@@ -77,6 +77,12 @@ $(document).ready(function() {
         dropdownParent: $('#userFilter').parent(),
     });
 
+    $.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+       } 
+    });
+
     // Action lors de la sélection d'un utilisateur
     $('#userFilter').on('change', function() {
         var selectedUser = $(this).val();
