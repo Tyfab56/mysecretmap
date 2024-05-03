@@ -34,14 +34,14 @@
             <h3>Associer un Spot à une Bannière</h3>
             <div class="form-group">
                 <label for="userBanners">Sélectionner une Bannière :</label>
-                <select name="userBanners" id="userBanners" class="form-control select2" style="width: 100%;" required>
+                <select name="userBanners" id="userBanners" class="form-control" style="width: 100%;" required>
                     <option value="">Sélectionner une bannière</option>
                     
                 </select>
             </div>
             <div class="form-group">
                 <label for="filteredSpots">Sélectionner un Spot :</label>
-                <select name="filteredSpots" id="filteredSpots" class="form-control select2" style="width: 100%;" required>
+                <select name="filteredSpots" id="filteredSpots" class="form-control select2_spots" style="width: 100%;" required>
                     <!-- Les spots filtrés seront chargés ici via AJAX -->
                 </select>
             </div>
@@ -54,6 +54,27 @@
 <script>
 $(document).ready(function() {
     // Initialisation des select2
+    $('#select2_spots').select2({
+        ajax: {
+            url: '/admin/spots/searchbanner', // URL de votre route pour rechercher les spots
+            dataType: 'json',
+            delay: 250,
+            processResults: function(data) {
+                return {
+                    results: data.map(function(spot) {
+                        return {
+                            id: spot.id,
+                            text: spot.name
+                        };
+                    })
+                };
+            },
+            cache: true
+        },
+        placeholder: 'Recherchez un spot...',
+        minimumInputLength: 2 // Nombre minimum de caractères pour déclencher la recherche
+    });
+
     $('.select2-users').select2({
         ajax: {
             url: '/admin/users/search', // URL de votre route pour récupérer les utilisateurs

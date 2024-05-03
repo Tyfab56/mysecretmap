@@ -295,6 +295,7 @@ Route::middleware(['App\Http\Middleware\CheckAdmin'])->group(function () {
     Route::post('banners/{spot}/{banner}/attach', [SpotBannerUserController::class, 'attachBanner'])->name('banners.attach');
     Route::delete('banners/{spot}/{banner}/detach', [SpotBannerUserController::class, 'detachBanner'])->name('banners.detach');
     Route::get('associatebanners', [SpotBannerUserController::class, 'getBanners'])->name('userbanners.index');
+    Route::get('/admin/spots/searchbanner', [SpotController::class, 'searchbanner']);
    
 });
 
