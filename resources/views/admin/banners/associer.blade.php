@@ -79,20 +79,20 @@ $(document).ready(function() {
         select: function (e) {
             var selectedUser = e.params.data.id;
 
-            // Envoi de la requête AJAX pour obtenir les spots associés à l'utilisateur
+            // Envoi de la requête AJAX pour obtenir les bannières associées à l'utilisateur
             $.ajax({
-                url: '/admin/banner/getAssociatedSpots', // URL de votre route pour obtenir les spots associés
+                url: '/admin/banner/getAssociatedBanners', // URL de votre route pour obtenir les bannières associées
                 method: 'POST',
                 data: { user_id: selectedUser },
                 dataType: 'json',
                 success: function(response) {
                     // Effacez d'abord le contenu existant de la table
-                    $('#associatedSpotsBody').empty();
+                    $('#associatedBannersBody').empty();
 
-                    // Ajoutez les spots associés à la table
-                    response.forEach(function(spot) {
-                        var row = '<tr><td>' + spot.spot_name + '</td><td>' + spot.banner_name + '</td><td><button class="btn btn-danger removeSpot" data-spot-id="' + spot.id + '">Supprimer</button></td></tr>';
-                        $('#associatedSpotsBody').append(row);
+                    // Ajoutez les bannières associées à la table
+                    response.forEach(function(banner) {
+                        var row = '<tr><td>' + banner.banner_name + '</td><td>' + banner.spot_name + '</td><td><button class="btn btn-danger removeBanner" data-banner-id="' + banner.id + '">Supprimer</button></td></tr>';
+                        $('#associatedBannersBody').append(row);
                     });
                 },
                 error: function(xhr, status, error) {
