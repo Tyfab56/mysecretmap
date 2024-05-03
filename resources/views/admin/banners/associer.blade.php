@@ -102,31 +102,8 @@ $(document).ready(function() {
         }
     });
 
-    // Initialisation des autres select2
-    $('.select2').select2();
 
-    // Gestion de l'association
-    $('#associateBtn').click(function() {
-        var selectedBanner = $('#userBanners').val();
-        var selectedSpot = $('#filteredSpots').val();
-
-        // Envoi de la requête AJAX pour associer le spot à la bannière
-        $.ajax({
-            url: '/admin/associate/associateSpot',
-            method: 'POST',
-            data: {
-                banner_id: selectedBanner,
-                spot_id: selectedSpot
-            },
-            dataType: 'json',
-            success: function(response) {
-                // Afficher un message de succès ou recharger la page
-            },
-            error: function(xhr, status, error) {
-                console.error(error);
-            }
-        });
-    });
+   
 });
 
 </script>
