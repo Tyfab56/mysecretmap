@@ -36,9 +36,7 @@
                 <label for="userBanners">Sélectionner une Bannière :</label>
                 <select name="userBanners" id="userBanners" class="form-control select2" style="width: 100%;" required>
                     <option value="">Sélectionner une bannière</option>
-                    @foreach($banners as $banner)
-                    <option value="{{ $banner->id }}">{{ $banner->title }}</option>
-                    @endforeach
+                    
                 </select>
             </div>
             <div class="form-group">
