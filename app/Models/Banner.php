@@ -15,7 +15,7 @@ class Banner extends Model
     public $timestamps = true;
 
     
-    public function user()
+    public function users()
     {
         return $this->belongsTo(User::class);
     }
