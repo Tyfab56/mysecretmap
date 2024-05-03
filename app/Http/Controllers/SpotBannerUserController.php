@@ -16,7 +16,7 @@ class SpotBannerUserController extends Controller
         $user = User::find($request->user_id); // Assurez-vous que la valeur de user_id est disponible dans la requête
 
         // Vérifier si le spot et la bannière existent
-        $spot = Spot::find($spotId);
+        $spot = Spots::find($spotId);
         $banner = Banner::find($bannerId);
     
         // Vérifier si l'utilisateur, le spot et la bannière existent
