@@ -75,35 +75,33 @@ $(document).ready(function() {
         minimumInputLength: 2, // Nombre minimum de caractères pour déclencher la recherche
         // Gestion du changement de sélection d'utilisateur
         dropdownParent: $('#userFilter').parent(),
-        // Action lors de la sélection d'un utilisateur
-        select: function (e) {
-            var selectedUser = e.params.data.id;
-
-            // Envoi de la requête AJAX pour obtenir les spots associés à l'utilisateur
-            $.ajax({
-                url: '/admin/users/getAssociatedSpots', // URL de votre route pour obtenir les spots associés
-                method: 'POST',
-                data: { user_id: selectedUser },
-                dataType: 'json',
-                success: function(response) {
-                    // Effacez d'abord le contenu existant de la table
-                    $('#associatedSpotsBody').empty();
-
-                    // Ajoutez les spots associés à la table
-                    response.forEach(function(spot) {
-                        var row = '<tr><td>' + spot.spot_name + '</td><td>' + spot.banner_name + '</td><td><button class="btn btn-danger removeSpot" data-spot-id="' + spot.id + '">Supprimer</button></td></tr>';
-                        $('#associatedSpotsBody').append(row);
-                    });
-                },
-                error: function(xhr, status, error) {
-                    console.error(error);
-                }
-            });
-        }
     });
 
+    // Action lors de la sélection d'un utilisateur
+    $('#userFilter').on('change', function() {
+        var selectedUser = $(this).val();
 
-   
+        // Envoi de la requête AJAX pour obtenir les spots associés à l'utilisateur
+        $.ajax({
+            url: '/admin/users/getAssociatedSpots', // URL de votre route pour obtenir les spots associés
+            method: 'POST',
+            data: { user_id: selectedUser },
+            dataType: 'json',
+            success: function(response) {
+                // Effacez d'abord le contenu existant de la table
+                $('#associatedSpotsBody').empty();
+
+                // Ajoutez les spots associés à la table
+                response.forEach(function(spot) {
+                    var row = '<tr><td>' + spot.spot_name + '</td><td>' + spot.banner_name + '</td><td><button class="btn btn-danger removeSpot" data-spot-id="' + spot.id + '">Supprimer</button></td></tr>';
+                    $('#associatedSpotsBody').append(row);
+                });
+            },
+            error: function(xhr, status, error) {
+                console.error(error);
+            }
+        });
+    });
 });
 
 
