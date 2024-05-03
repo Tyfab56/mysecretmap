@@ -1,86 +1,58 @@
 @extends('frontend.main_master')
 
 @section('content')
-
-<h1>Gestion de l'Association Bannière-Spot</h1>
-
-<div class="row justify-content-center">
-    <div class="col-md-4">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Filtrer les utilisateurs</h5>
-                <select id="userFilter" class="form-control select2" style="width: 100%;" data-placeholder="Sélectionner un utilisateur">
-                    <!-- Options des utilisateurs -->
+<div class="container">
+    <h1>Associer des Bannières aux Spots</h1>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="userFilter">Filtrer par Utilisateur :</label>
+                <select name="userFilter" id="userFilter" class="form-control select2" style="width: 100%;" required>
+                    <option value="">Sélectionner un utilisateur</option>
+                    @foreach($users as $user)
+                    <option value="{{ $user->id }}">{{ $user->name }}</option>
+                    @endforeach
                 </select>
             </div>
         </div>
     </div>
-    <div class="col-md-4">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Bannières associées au Spot</h5>
-                <select id="associatedBanners" class="form-control select2" style="width: 100%;" multiple data-placeholder="Sélectionner une ou plusieurs bannières">
-                    <!-- Options des bannières associées -->
+    <div class="row">
+        <div class="col-md-6">
+            <h3>Spots Associés</h3>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Spot</th>
+                        <th>Bannière</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="associatedSpotsBody">
+                    <!-- Les spots associés seront affichés ici -->
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-6">
+            <h3>Associer un Spot à une Bannière</h3>
+            <div class="form-group">
+                <label for="userBanners">Sélectionner une Bannière :</label>
+                <select name="userBanners" id="userBanners" class="form-control select2" style="width: 100%;" required>
+                    <option value="">Sélectionner une bannière</option>
+                    @foreach($banners as $banner)
+                    <option value="{{ $banner->id }}">{{ $banner->title }}</option>
+                    @endforeach
                 </select>
             </div>
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Spots filtrés</h5>
-                <select id="filteredSpots" class="form-control select2" style="width: 100%;" data-placeholder="Sélectionner un spot">
-                    <!-- Options des spots filtrés -->
+            <div class="form-group">
+                <label for="filteredSpots">Sélectionner un Spot :</label>
+                <select name="filteredSpots" id="filteredSpots" class="form-control select2" style="width: 100%;" required>
+                    <!-- Les spots filtrés seront chargés ici via AJAX -->
                 </select>
+            </div>
+            <div class="form-group">
+                <button id="associateBtn" class="btn btn-primary">Associer</button>
             </div>
         </div>
     </div>
 </div>
-
-<div class="row mt-3 justify-content-center">
-    <div class="col-md-6">
-        <button id="associateBtn" class="btn btn-primary btn-block">Associer</button>
-    </div>
-</div>
-
-<script>
-$(document).ready(function() {
-    // Initialisation des select2
-    $('.select2').select2();
-
-    // Simulation de données pour les options des utilisateurs, des bannières et des spots
-    var users = [{id: 1, text: "Utilisateur 1"}, {id: 2, text: "Utilisateur 2"}];
-    var banners = [{id: 1, text: "Bannière 1"}, {id: 2, text: "Bannière 2"}];
-    var spots = [{id: 1, text: "Spot 1"}, {id: 2, text: "Spot 2"}];
-
-    // Ajout des options dans les select2
-    users.forEach(function(user) {
-        $('#userFilter').append(new Option(user.text, user.id, false, false));
-    });
-
-    banners.forEach(function(banner) {
-        $('#associatedBanners').append(new Option(banner.text, banner.id, false, false));
-    });
-
-    spots.forEach(function(spot) {
-        $('#filteredSpots').append(new Option(spot.text, spot.id, false, false));
-    });
-
-    // Gestion de l'association
-    $('#associateBtn').click(function() {
-        var selectedUser = $('#userFilter').val();
-        var selectedBanners = $('#associatedBanners').val();
-        var selectedSpot = $('#filteredSpots').val();
-
-        // Traitement de l'association
-        console.log('Utilisateur sélectionné:', selectedUser);
-        console.log('Bannières sélectionnées:', selectedBanners);
-        console.log('Spot sélectionné:', selectedSpot);
-        
-        // Réinitialisation des sélections
-        $('.select2').val(null).trigger('change');
-    });
-});
-</script>
-
 @endsection
