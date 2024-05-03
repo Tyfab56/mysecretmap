@@ -33,7 +33,7 @@ class SpotBannerUserController extends Controller
         return back()->with('error', 'Association non trouvée.');
     }
 
-    public function getBanners($spotId)
+    public function getBanners()
     {
        
         return view('admin.banners.associer');
