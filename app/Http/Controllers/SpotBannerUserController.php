@@ -13,21 +13,25 @@ class SpotBannerUserController extends Controller
 {
     public function attachBanner(Request $request, User $user, $spotId, $bannerId)
     {
-        // Récupération du spot, de la bannière et de l'utilisateur
-        $spot = Spots::findOrFail($spotId);
-        $banner = Banner::findOrFail($bannerId);
-        $userId = $request->user_id;
+        $user = User::find($request->user_id); // Assurez-vous que la valeur de user_id est disponible dans la requête
 
-        // Votre logique pour associer le spot, la bannière et l'utilisateur
-
-        // Création de l'association dans la table pivot spot_banner_user
-        $association = new SpotBannerUser();
-        $association->spot_id = $spotId;
-        $association->banner_id = $bannerId;
-        $association->user_id = $userId;
-        $association->save();
-
-        return response()->json(['message' => 'Bannière associée au spot avec succès'], 200);
+        // Vérifier si le spot et la bannière existent
+        $spot = Spot::find($spotId);
+        $banner = Banner::find($bannerId);
+    
+        // Vérifier si l'utilisateur, le spot et la bannière existent
+        if ($user && $spot && $banner) {
+            // Créer une nouvelle entrée dans la table spot_banner_user
+            $spotBannerUser = new SpotBannerUser();
+            $spotBannerUser->spot_id = $spotId;
+            $spotBannerUser->banner_id = $bannerId;
+            $spotBannerUser->user_id = $user->id;
+            $spotBannerUser->save();
+    
+            return response()->json(['success' => true, 'message' => 'Bannière associée avec succès.']);
+        } else {
+            return response()->json(['success' => false, 'message' => 'Impossible d\'associer la bannière avec le spot pour cet utilisateur. Veuillez vérifier les informations fournies.']);
+        }
     }
 
     public function detachBanner($spotId, $bannerId)
