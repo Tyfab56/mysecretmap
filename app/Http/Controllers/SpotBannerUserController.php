@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
 
 class SpotBannerUserController extends Controller
 {
-    public function attachBanner(Request $request, User $user, $spotId, $bannerId)
+    public function attachBanner(Request $request, $spotId, $bannerId, $userId)
     {
         $user = User::find($request->user_id); // Assurez-vous que la valeur de user_id est disponible dans la requête
 
