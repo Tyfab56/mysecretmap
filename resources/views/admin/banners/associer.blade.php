@@ -157,7 +157,7 @@ $(document).ready(function() {
 
         // Envoi de la requête AJAX pour associer le spot et la bannière
         $.ajax({
-                url: '/admin/banners/' + selectedSpot + '/' + selectedBanner + '/' + selectedUser+ '/attach/' +,
+                url: '/admin/banners/' + selectedSpot + '/' + selectedBanner + '/' + selectedUser+ '/attach/',
                 method: 'POST',
                 data: { spot_id: selectedSpot, banner_id: selectedBanner, user_id: selectedUser },
                 dataType: 'json',
