@@ -54,7 +54,7 @@
 <script>
 $(document).ready(function() {
     // Initialisation des select2
-    $('#select2_spots').select2({
+    $('.select2_spots').select2({
         ajax: {
             url: '/admin/spots/searchbanner', // URL de votre route pour rechercher les spots
             dataType: 'json',
