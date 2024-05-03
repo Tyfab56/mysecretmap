@@ -7,11 +7,9 @@
         <div class="col-md-4">
             <div class="form-group">
                 <label for="userFilter">Filtrer par Utilisateur :</label>
-                <select name="userFilter" id="userFilter" class="form-control select2" style="width: 100%;" required>
-                    <option value="">Sélectionner un utilisateur</option>
-                    @foreach($users as $user)
-                    <option value="{{ $user->id }}">{{ $user->name }}</option>
-                    @endforeach
+                <select name="userFilter" id="userFilter" class="form-control select2-users" style="width: 100%;" required>
+                   
+                   
                 </select>
             </div>
         </div>
@@ -55,4 +53,28 @@
         </div>
     </div>
 </div>
+<script>
+$(document).ready(function() {
+    $('.select2-users').select2({
+        ajax: {
+            url: '/admin/users/search', // URL de votre route pour récupérer les utilisateurs
+            dataType: 'json',
+            delay: 250,
+            processResults: function(data) {
+                return {
+                    results: data.map(function(user) {
+                        return {
+                            id: user.id,
+                            text: user.text
+                        };
+                    })
+                };
+            },
+            cache: true
+        },
+        placeholder: 'Recherchez un utilisateur...',
+        minimumInputLength: 2 // Nombre minimum de caractères pour déclencher la recherche
+    });
+});
+</script>
 @endsection
