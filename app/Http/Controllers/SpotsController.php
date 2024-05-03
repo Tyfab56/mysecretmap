@@ -231,6 +231,7 @@ class SpotsController extends Controller
                 'maplist' => 'required',
                 'imgpano' => 'image|mimes:jpeg,jpg|max:10048',
                 'imgsquare' => 'image|mimes:jpeg,jpg|max:10048',
+                'img360' => 'image|mimes:jpeg,jpg|max:10048',
                 'imgregion' => 'image|mimes:jpeg,jpg|max:10048',
                 'imgmap' => 'image|mimes:jpeg,jpg|max:10048',
                 'imgzoom' => 'image|mimes:jpeg,jpg|max:10048',
@@ -285,6 +286,7 @@ class SpotsController extends Controller
         // Test existence d'une nouvelle image
 
         $file = $request->file('imgpano');
+        $file360 = $request->file('img360');
         $filesquare = $request->file('imgsquare');
         $fileregion = $request->file('imgregion');
         $filemap = $request->file('imgmap');
@@ -381,33 +383,126 @@ class SpotsController extends Controller
             $disk->put('/small/small-' . $imgpanoname, (string) $canvas, 'public');
             $smallname = $disk->url('small/small-' . $imgpanoname);
         }
+  // traitement image carré
+  if ($filesquare == null) {
+    // pas de nouvelle image
+    $imagesquarestatus = 0;
+} else {
+    // Recherche si ancienne image et suppression des images coorespondantes
+
+    if ($typeaction == "edit") {
+        if ($spotinfo->imgsquaresmall) {
+            $bucket = $spotinfo->bucket;
+            $disk = Storage::disk('wasabi');
+            $filesmall = parse_url($spotinfo->imgsquaresmall);
+            $filemedium = parse_url($spotinfo->imgsquaremedium);
+            $filelarge = parse_url($spotinfo->imgsquarelarge);
+            $disk->delete($filesmall);
+            $disk->delete($filemedium);
+            $disk->delete($filelarge);
+        }
+    }
+    // nouvelle image
+    $imagesquarestatus = 1;
+    $extension = $filesquare->getClientOriginalExtension();
+    $imgsquarename =  $request->file('imgsquare')->getClientOriginalName();;
+    $imgsquarename = str_replace(' ', '-', $imgsquarename);
+    $imgsquarename = uniqid() . "_" . $id . "_" . $request->payslist . "_" . $imgsquarename;
 
 
-        // traitement image carré
-        if ($filesquare == null) {
+    $disk = Storage::disk('wasabi');
+    $bucket = 'mysecretmap';
+
+    // LARGE
+    // Stockage d'une image large 1100 x 366
+    $width = 1100;
+    $height = 1100;
+    $canvas = Image::canvas($width, $height);
+
+    $imagefinale  = Image::make($filesquare)->resize(
+        $width,
+        null,
+        function ($constraint) {
+            $constraint->aspectRatio();
+        }
+    );
+
+    $canvas->insert(
+        $imagefinale,
+        'center'
+    );
+    $canvas->encode($extension);
+
+    $disk->put('/large/large-' . $imgsquarename, (string) $canvas, 'public');
+    $largesquarename = $disk->url('large/large-' . $imgsquarename);
+
+
+    // MEDIUM
+    // Stockage d'un thumb 408x136
+    $width = 408;
+    $height = 408;
+    $canvas = Image::canvas($width, $height);
+
+    $imagefinale  = Image::make($filesquare)->resize(
+        $width,
+        null,
+        function ($constraint) {
+            $constraint->aspectRatio();
+        }
+    );
+
+    $canvas->insert(
+        $imagefinale,
+        'center'
+    );
+    $canvas->encode($extension);
+
+    $disk->put('/medium/medium-' . $imgsquarename, (string) $canvas, 'public');
+    $mediumsquarename = $disk->url('medium/medium-' . $imgsquarename);
+    // SMALL
+    // Stockage d'une vignette 130x43
+    $width = 130;
+    $height = 130;
+    $canvas = Image::canvas($width, $height);
+
+    $imagefinale  = Image::make($filesquare)->resize(
+        $width,
+        null,
+        function ($constraint) {
+            $constraint->aspectRatio();
+        }
+    );
+
+    $canvas->insert(
+        $imagefinale,
+        'center'
+    );
+    $canvas->encode($extension);
+    $disk->put('/small/small-' . $imgsquarename, (string) $canvas, 'public');
+    $smallsquarename = $disk->url('small/small-' . $imgsquarename);
+}
+
+        // traitement image 360
+        if ($file360 == null) {
             // pas de nouvelle image
-            $imagesquarestatus = 0;
+            $image360status = 0;
         } else {
             // Recherche si ancienne image et suppression des images coorespondantes
 
             if ($typeaction == "edit") {
-                if ($spotinfo->imgsquaresmall) {
+                if ($spotinfo->img360) {
                     $bucket = $spotinfo->bucket;
                     $disk = Storage::disk('wasabi');
-                    $filesmall = parse_url($spotinfo->imgsquaresmall);
-                    $filemedium = parse_url($spotinfo->imgsquaremedium);
-                    $filelarge = parse_url($spotinfo->imgsquarelarge);
-                    $disk->delete($filesmall);
-                    $disk->delete($filemedium);
+                    $filelarge = parse_url($spotinfo->img360);
                     $disk->delete($filelarge);
                 }
             }
             // nouvelle image
-            $imagesquarestatus = 1;
-            $extension = $filesquare->getClientOriginalExtension();
-            $imgsquarename =  $request->file('imgsquare')->getClientOriginalName();;
-            $imgsquarename = str_replace(' ', '-', $imgsquarename);
-            $imgsquarename = uniqid() . "_" . $id . "_" . $request->payslist . "_" . $imgsquarename;
+            $image360status = 1;
+            $extension = $file360->getClientOriginalExtension();
+            $img360name =  $request->file('img360')->getClientOriginalName();;
+            $img360name = str_replace(' ', '-', $img360name);
+            $img360name = uniqid() . "_" . $id . "_" . $request->payslist . "_" . $img360name;
 
 
             $disk = Storage::disk('wasabi');
@@ -419,7 +514,7 @@ class SpotsController extends Controller
             $height = 1100;
             $canvas = Image::canvas($width, $height);
 
-            $imagefinale  = Image::make($filesquare)->resize(
+            $imagefinale  = Image::make($file360)->resize(
                 $width,
                 null,
                 function ($constraint) {
@@ -433,53 +528,11 @@ class SpotsController extends Controller
             );
             $canvas->encode($extension);
 
-            $disk->put('/large/large-' . $imgsquarename, (string) $canvas, 'public');
-            $largesquarename = $disk->url('large/large-' . $imgsquarename);
+            $disk->put('/large/large-' . $img360name, (string) $canvas, 'public');
+            $large360name = $disk->url('large/large-' . $img360name);
 
 
-            // MEDIUM
-            // Stockage d'un thumb 408x136
-            $width = 408;
-            $height = 408;
-            $canvas = Image::canvas($width, $height);
-
-            $imagefinale  = Image::make($filesquare)->resize(
-                $width,
-                null,
-                function ($constraint) {
-                    $constraint->aspectRatio();
-                }
-            );
-
-            $canvas->insert(
-                $imagefinale,
-                'center'
-            );
-            $canvas->encode($extension);
-
-            $disk->put('/medium/medium-' . $imgsquarename, (string) $canvas, 'public');
-            $mediumsquarename = $disk->url('medium/medium-' . $imgsquarename);
-            // SMALL
-            // Stockage d'une vignette 130x43
-            $width = 130;
-            $height = 130;
-            $canvas = Image::canvas($width, $height);
-
-            $imagefinale  = Image::make($filesquare)->resize(
-                $width,
-                null,
-                function ($constraint) {
-                    $constraint->aspectRatio();
-                }
-            );
-
-            $canvas->insert(
-                $imagefinale,
-                'center'
-            );
-            $canvas->encode($extension);
-            $disk->put('/small/small-' . $imgsquarename, (string) $canvas, 'public');
-            $smallsquarename = $disk->url('small/small-' . $imgsquarename);
+           
         }
 
 
@@ -883,6 +936,11 @@ class SpotsController extends Controller
             $spot->imgsquaresmall = $smallsquarename;
             $spot->imgsquaremedium = $mediumsquarename;
             $spot->imgsquarelarge = $largesquarename;
+        }
+
+        if ($image360status == 1) {
+            $spot->bucket = $bucket;
+            $spot->img360 = $large360name;
         }
 
         if ($imageregionstatus == 1) {

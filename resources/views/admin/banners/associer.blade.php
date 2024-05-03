@@ -149,7 +149,25 @@ $(document).ready(function() {
         }
        });
     });
+    $('#associateBtn').on('click', function() {
+        var selectedSpot = $('#filteredSpots').val();
+        var selectedBanner = $('#userBanners').val();
 
+        // Envoi de la requête AJAX pour associer le spot et la bannière
+        $.ajax({
+                url: '/admin/banners/' + spotId + '/' + bannerId + '/attach/' + selectedUser,
+                method: 'POST',
+                data: { spot_id: spotId, banner_id: bannerId, user_id: selectedUser },
+                dataType: 'json',
+                success: function(response) {
+                    console.log(response);
+                    // Réactualiser la liste des spots associés après l'association réussie
+                },
+                error: function(xhr, status, error) {
+                    console.error(error);
+                }
+            });
+    });
 });
 
 

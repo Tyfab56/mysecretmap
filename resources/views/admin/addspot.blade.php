@@ -148,6 +148,20 @@
                             <div class=" text-xs-right  pb-2">
                                 <img src="{{$spot->imgsquaremedium}}">
                             </div>
+                            <div class="form-group">
+                                <label class="info-title" for="imgsquare">Image 360<span class="text-danger">*</span></label>
+                                <div class="controls">
+                                    <input type="file" name="img360" class="form-control" id="img360">
+
+                                    <div class="help-block"></div>
+                                    @error('img360')
+                                    <span class="text-danger"> {{ $message }}</span>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class=" text-xs-right  pb-2">
+                                <img src="{{$spot->imgsquaremedium}}">
+                            </div>
 							<div class="form-group">
                                 <label class="info-title" for="imgsquare">Image vue région<span class="text-danger">*</span></label>
                                 <div class="controls">

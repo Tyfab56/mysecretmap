@@ -10,15 +10,23 @@ use Illuminate\Http\Request;
 
 class SpotBannerUserController extends Controller
 {
-    public function attachBanner(Request $request, $spotId, $bannerId)
+    public function attachBanner(Request $request, User $user, $spotId, $bannerId)
     {
-        $spotBannerUser = SpotBannerUser::create([
-            'spot_id' => $spotId,
-            'banner_id' => $bannerId,
-            'user_id' => $request->user()->id
-        ]);
+        // Récupération du spot, de la bannière et de l'utilisateur
+        $spot = Spot::findOrFail($spotId);
+        $banner = Banner::findOrFail($bannerId);
+        $userId = $request->user_id;
 
-        return back()->with('success', 'Banner attaché au spot avec succès.');
+        // Votre logique pour associer le spot, la bannière et l'utilisateur
+
+        // Création de l'association dans la table pivot spot_banner_user
+        $association = new SpotBannerUser();
+        $association->spot_id = $spotId;
+        $association->banner_id = $bannerId;
+        $association->user_id = $userId;
+        $association->save();
+
+        return response()->json(['message' => 'Bannière associée au spot avec succès'], 200);
     }
 
     public function detachBanner($spotId, $bannerId)
