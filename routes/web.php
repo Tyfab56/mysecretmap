@@ -295,6 +295,6 @@ Route::middleware(['App\Http\Middleware\CheckAdmin'])->group(function () {
    
 });
 
-Route::view('admin.dashbord', 'admin.dashboard')->name('admin.dashboard')->middleware('App\Http\Middleware\CheckAdmin');;
+Route::view('admin.dashboard', 'admin.dashboard')->name('admin.dashboard')->middleware('App\Http\Middleware\CheckAdmin');;
 
 require __DIR__ . '/auth.php';
