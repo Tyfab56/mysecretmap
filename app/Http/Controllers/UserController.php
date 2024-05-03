@@ -287,10 +287,9 @@ public function getAssociatedBanners(Request $request)
     $userId = $request->input('user_id');
 
     // Récupérer les bannières associées à l'utilisateur
-    $associatedBanners = Banner::whereHas('users', function ($query) use ($userId) {
+    $associatedBanners = Banner::whereHas('user', function ($query) use ($userId) {
         $query->where('id', $userId);
     })->select('id', 'title')->get();
-
 
     return response()->json($associatedBanners);
 }
