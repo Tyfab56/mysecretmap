@@ -34,16 +34,18 @@ class SpotBannerUserController extends Controller
         }
     }
 
-    public function detachBanner($spotId, $bannerId)
+    public function detachBanner(Request $request, $spotId)
     {
-        $spotBannerUser = SpotBannerUser::where('spot_id', $spotId)
-                                        ->where('banner_id', $bannerId)
-                                        ->first();
-        if ($spotBannerUser) {
-            $spotBannerUser->delete();
-            return back()->with('success', 'Banner détaché du spot avec succès.');
+        $spotBannerUser = SpotBannerUser::where('id', $spotid)
+            ->first();
+
+        if (!$spotBannerUser) {
+            return response()->json(['error' => 'Association not found'], 404);
         }
-        return back()->with('error', 'Association non trouvée.');
+
+        $spotBannerUser->delete();
+
+        return response()->json(['message' => 'Association deleted successfully'], 200);
     }
 
     public function getBanners()
