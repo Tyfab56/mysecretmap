@@ -55,7 +55,32 @@
 $(document).ready(function() {
     // Initialisation des select2
     var selectedUser;
-
+    
+    $(document).on('click', '.removeSpot', function() {
+        var spotId = $(this).data('spot-id'); // Récupérer la valeur de l'attribut data-spot-id
+        
+        // Requête AJAX pour supprimer l'association entre le spot et la bannière
+        $.ajax({
+            url: '/bannersdetach/' + spotId,
+            type: 'DELETE',
+            data: {
+                _token: '{{ csrf_token() }}', // Assurez-vous que le jeton CSRF soit inclus
+                // Ajoutez d'autres données si nécessaire
+            },
+            success: function(response) {
+                // Afficher un message de succès
+                toastr.success(response.message); // Supposons que votre message de succès soit contenu dans response.message
+                
+                // Actualiser la page ou rafraîchir la liste des spots associés si nécessaire
+                // window.location.reload(); // Actualiser la page
+                // $(this).closest('tr').remove(); // Retirer la ligne de la liste des spots associés
+            },
+            error: function(xhr, status, error) {
+                // Afficher un message d'erreur en cas d'échec de la suppression
+                toastr.error('Erreur lors de la suppression.');
+            }
+        });
+    });
     $('.select2_spots').select2({
         ajax: {
             url: '/admin/spots/searchbanner', // URL de votre route pour rechercher les spots
@@ -109,7 +134,7 @@ $(document).ready(function() {
     // Action lors de la sélection d'un utilisateur
     $('#userFilter').on('change', function() {
         selectedUser = $(this).val();
-
+        
         // Envoi de la requête AJAX pour obtenir les spots associés à l'utilisateur
         $.ajax({
             url: '/admin/users/getAssociatedSpots', // URL de votre route pour obtenir les spots associés
@@ -162,8 +187,13 @@ $(document).ready(function() {
                 data: { spot_id: selectedSpot, banner_id: selectedBanner, user_id: selectedUser },
                 dataType: 'json',
                 success: function(response) {
-                    console.log(response);
-                    // Réactualiser la liste des spots associés après l'association réussie
+                    if (response.success) {
+                        // Succès : afficher un toast vert avec le message de succès
+                        toastr.success(response.message, 'Succès');
+                    } else {
+                        // Échec : afficher un toast rouge avec le message d'erreur
+                        toastr.error(response.message, 'Erreur');
+                    }
                 },
                 error: function(xhr, status, error) {
                     console.error(error);

@@ -293,7 +293,7 @@ Route::middleware(['App\Http\Middleware\CheckAdmin'])->group(function () {
     Route::post('banners/store', [BannerController::class, 'store'])->name('banners.store');
     Route::delete('banners/destroy/{banner}', [BannerController::class, 'destroy'])->name('banners.destroy');
     Route::post('bannersattach/{spot}/{banner}/{user}', [SpotBannerUserController::class, 'attachBanner'])->name('banners.attach');
-    Route::delete('banners/{spot}/{banner}/detach', [SpotBannerUserController::class, 'detachBanner'])->name('banners.detach');
+    Route::delete('bannersdetach/{spot}', [SpotBannerUserController::class, 'detachBanner'])->name('banners.detach');
     Route::get('associatebanners', [SpotBannerUserController::class, 'getBanners'])->name('userbanners.index');
     Route::get('/admin/spots/searchbanner', [SpotsController::class, 'searchbanner']);
    
