@@ -47,9 +47,9 @@ class SpotBannerUserController extends Controller
 
             // Recherchez les spots associés à l'utilisateur spécifié
             $associatedSpots = SpotBannerUser::where('user_id', $userId)
-                ->join('spots', 'spots.id', '=', 'spot_banner_users.spot_id')
-                ->join('banners', 'banners.id', '=', 'spot_banner_users.banner_id')
-                ->select('spot_banner_users.id', 'spots.name as spot_name', 'banners.name as banner_name')
+                ->join('spots', 'spots.id', '=', 'spot_banner_user.spot_id')
+                ->join('banners', 'banners.id', '=', 'spot_banner_user.banner_id')
+                ->select('spot_banner_user.id', 'spots.name as spot_name', 'banners.name as banner_name')
                 ->get();
 
             return response()->json($associatedSpots);
