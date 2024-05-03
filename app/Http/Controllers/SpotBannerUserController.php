@@ -35,7 +35,7 @@ class SpotBannerUserController extends Controller
 
     public function getBanners($spotId)
     {
-        $banners = SpotBannerUser::where('spot_id', $spotId)->get();
-        return view('admin.spots.banners.index', compact('banners'));
+       
+        return view('admin.banners.associer');
     }
 }

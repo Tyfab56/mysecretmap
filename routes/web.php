@@ -289,9 +289,10 @@ Route::middleware(['App\Http\Middleware\CheckAdmin'])->group(function () {
     Route::get('banners/edit', [BannerController::class, 'create'])->name('banners.edit');
     Route::post('banners/store', [BannerController::class, 'store'])->name('banners.store');
     Route::delete('banners/destroy/{banner}', [BannerController::class, 'destroy'])->name('banners.destroy');
-    Route::post('spots/{spot}/banners/{banner}/attach', [SpotBannerUserController::class, 'attachBanner'])->name('spots.banners.attach');
-    Route::delete('spots/{spot}/banners/{banner}/detach', [SpotBannerUserController::class, 'detachBanner'])->name('spots.banners.detach');
-    Route::get('spots/{spot}/banners', [SpotBannerUserController::class, 'getBanners'])->name('spots.banners.index');
+    Route::post('banners/{spot}/{banner}/attach', [SpotBannerUserController::class, 'attachBanner'])->name('banners.attach');
+    Route::delete('banners/{spot}/{banner}/detach', [SpotBannerUserController::class, 'detachBanner'])->name('banners.detach');
+    Route::get('banners/user/{user}', [SpotBannerUserController::class, 'getBanners'])->name('userbanners.index');
+   
 });
 
 Route::view('admin.dashbord', 'admin.dashboard')->name('admin.dashboard')->middleware('App\Http\Middleware\CheckAdmin');;

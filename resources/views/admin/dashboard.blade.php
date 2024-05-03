@@ -47,8 +47,8 @@
         <div class="card">
             <div class="card-body">
                 <a href="{{ route('banners.index') }}" class="btn btn-primary btn-block">Gestion des Bannières</a>
-                <a href="{{ route('banners.create') }}" class="btn btn-primary btn-block">Ajouter une Bannière</a>
-                <a href="#" class="btn btn-primary btn-block">Associer une Bannière</a>
+                <a href="" class="btn btn-primary btn-block">Ajouter une Bannière</a>
+                <a href="{{ route('userbanners.index') }}" class="btn btn-primary btn-block">Associer une Bannière</a>
             </div>
         </div>
     </div>
