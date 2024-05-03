@@ -53,6 +53,7 @@
 </div>
 <script>
 $(document).ready(function() {
+    // Initialisation des select2
     $('.select2-users').select2({
         ajax: {
             url: '/admin/users/search', // URL de votre route pour récupérer les utilisateurs
@@ -71,8 +72,62 @@ $(document).ready(function() {
             cache: true
         },
         placeholder: 'Recherchez un utilisateur...',
-        minimumInputLength: 2 // Nombre minimum de caractères pour déclencher la recherche
+        minimumInputLength: 2, // Nombre minimum de caractères pour déclencher la recherche
+        // Gestion du changement de sélection d'utilisateur
+        dropdownParent: $('#userFilter').parent(),
+        // Action lors de la sélection d'un utilisateur
+        select: function (e) {
+            var selectedUser = e.params.data.id;
+
+            // Envoi de la requête AJAX pour obtenir les spots associés à l'utilisateur
+            $.ajax({
+                url: '/admin/banner/getAssociatedSpots', // URL de votre route pour obtenir les spots associés
+                method: 'POST',
+                data: { user_id: selectedUser },
+                dataType: 'json',
+                success: function(response) {
+                    // Effacez d'abord le contenu existant de la table
+                    $('#associatedSpotsBody').empty();
+
+                    // Ajoutez les spots associés à la table
+                    response.forEach(function(spot) {
+                        var row = '<tr><td>' + spot.spot_name + '</td><td>' + spot.banner_name + '</td><td><button class="btn btn-danger removeSpot" data-spot-id="' + spot.id + '">Supprimer</button></td></tr>';
+                        $('#associatedSpotsBody').append(row);
+                    });
+                },
+                error: function(xhr, status, error) {
+                    console.error(error);
+                }
+            });
+        }
+    });
+
+    // Initialisation des autres select2
+    $('.select2').select2();
+
+    // Gestion de l'association
+    $('#associateBtn').click(function() {
+        var selectedBanner = $('#userBanners').val();
+        var selectedSpot = $('#filteredSpots').val();
+
+        // Envoi de la requête AJAX pour associer le spot à la bannière
+        $.ajax({
+            url: '/admin/associate/associateSpot',
+            method: 'POST',
+            data: {
+                banner_id: selectedBanner,
+                spot_id: selectedSpot
+            },
+            dataType: 'json',
+            success: function(response) {
+                // Afficher un message de succès ou recharger la page
+            },
+            error: function(xhr, status, error) {
+                console.error(error);
+            }
+        });
     });
 });
+
 </script>
 @endsection
