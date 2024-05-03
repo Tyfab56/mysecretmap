@@ -54,6 +54,8 @@
 <script>
 $(document).ready(function() {
     // Initialisation des select2
+    var selectedUser;
+    
     $('.select2_spots').select2({
         ajax: {
             url: '/admin/spots/searchbanner', // URL de votre route pour rechercher les spots
@@ -106,7 +108,7 @@ $(document).ready(function() {
 
     // Action lors de la sélection d'un utilisateur
     $('#userFilter').on('change', function() {
-        var selectedUser = $(this).val();
+        selectedUser = $(this).val();
 
         // Envoi de la requête AJAX pour obtenir les spots associés à l'utilisateur
         $.ajax({
@@ -155,7 +157,7 @@ $(document).ready(function() {
 
         // Envoi de la requête AJAX pour associer le spot et la bannière
         $.ajax({
-                url: '/admin/banners/' + spotId + '/' + bannerId + '/attach/' + selectedUser,
+                url: '/admin/banners/' + selectedSpot + '/' + selectedBanner + '/attach/' + selectedUser,
                 method: 'POST',
                 data: { spot_id: spotId, banner_id: bannerId, user_id: selectedUser },
                 dataType: 'json',
