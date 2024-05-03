@@ -282,6 +282,7 @@ Route::prefix('admin')->group(function () {
 });
 Route::get('/admin/users/search', [UserController::class, 'search'])->name('admin.users.search');
 Route::POST('admin/users/getAssociatedSpots', [SpotBannerUserController::class, 'search']);
+Route::post('users/getAssociatedBanners', [UserController::class, 'getAssociatedBanners']);
 
 Route::get('/portfolio', [PortfolioController::class, 'index'])->name('portfolio.index');
 

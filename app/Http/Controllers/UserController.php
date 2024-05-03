@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User; 
 use App\Models\UserTranslation;
+use App\Models\SpotBannerUser;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
@@ -281,7 +282,19 @@ public function updatePhotoProfil (Request $request)
     return response()->json($formattedUsers);
 }
 
+public function getAssociatedBanners(Request $request)
+{
+    $userId = $request->input('user_id');
 
+    // Récupérer les bannières associées à l'utilisateur
+    $associatedBanners = SpotBannerUser::where('user_id', $userId)
+        ->select('banner_id', 'banners.title')
+        ->join('banners', 'banners.id', '=', 'spot_banner_user.banner_id')
+        ->distinct()
+        ->get();
+
+    return response()->json($associatedBanners);
+}
 
 
 

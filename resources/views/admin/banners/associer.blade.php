@@ -107,7 +107,28 @@ $(document).ready(function() {
                 console.error(error);
             }
         });
+
+        $.ajax({
+        url: '/users/getAssociatedBanners', // URL de votre route pour obtenir les bannières associées
+        method: 'POST',
+        data: { user_id: selectedUser },
+        dataType: 'json',
+        success: function(response) {
+            // Effacez d'abord le contenu existant du select des bannières
+            $('#userBanners').empty();
+
+            // Ajoutez les bannières associées au select
+            response.forEach(function(banner) {
+                var option = '<option value="' + banner.id + '">' + banner.title + '</option>';
+                $('#userBanners').append(option);
+            });
+        },
+        error: function(xhr, status, error) {
+            console.error(error);
+        }
+       });
     });
+
 });
 
 
