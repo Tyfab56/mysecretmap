@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\SpotBannerUser;
-use App\Models\Spot;
+use App\Models\Spots;
+use App\Models\User;
 use App\Models\Banner;
 use Illuminate\Http\Request;
 
@@ -13,7 +14,7 @@ class SpotBannerUserController extends Controller
     public function attachBanner(Request $request, User $user, $spotId, $bannerId)
     {
         // Récupération du spot, de la bannière et de l'utilisateur
-        $spot = Spot::findOrFail($spotId);
+        $spot = Spots::findOrFail($spotId);
         $banner = Banner::findOrFail($bannerId);
         $userId = $request->user_id;
 
