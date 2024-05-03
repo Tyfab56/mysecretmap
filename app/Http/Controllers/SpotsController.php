@@ -1009,7 +1009,7 @@ public function searchbanner(Request $request)
 {
     $query = $request->input('q');
 
-    $spots = Spot::where('name', 'like', "%{$query}%")->get();
+    $spots = Spots::where('name', 'like', "%{$query}%")->get();
 
     return response()->json($spots);
 }
