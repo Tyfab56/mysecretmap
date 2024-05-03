@@ -287,11 +287,12 @@ public function getAssociatedBanners(Request $request)
     $userId = $request->input('user_id');
 
     // Récupérer les bannières associées à l'utilisateur
-    $associatedBanners = SpotBannerUser::where('user_id', $userId)
-        ->select('banner_id', 'banners.title')
-        ->join('banners', 'banners.id', '=', 'spot_banner_user.banner_id')
-        ->distinct()
-        ->get();
+    $associatedBanners = SpotBannerUser::where('spot_banner_user.user_id', $userId)
+    ->select('banners.id', 'banners.title')
+    ->join('banners', 'banners.id', '=', 'spot_banner_user.banner_id')
+    ->distinct()
+    ->get();
+
 
     return response()->json($associatedBanners);
 }
