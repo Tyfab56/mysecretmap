@@ -55,7 +55,7 @@
 $(document).ready(function() {
     // Initialisation des select2
     var selectedUser;
-    
+
     $('.select2_spots').select2({
         ajax: {
             url: '/admin/spots/searchbanner', // URL de votre route pour rechercher les spots
@@ -159,7 +159,7 @@ $(document).ready(function() {
         $.ajax({
                 url: '/admin/banners/' + selectedSpot + '/' + selectedBanner + '/attach/' + selectedUser,
                 method: 'POST',
-                data: { spot_id: spotId, banner_id: bannerId, user_id: selectedUser },
+                data: { spot_id: selectedSpot, banner_id: selectedBanner, user_id: selectedUser },
                 dataType: 'json',
                 success: function(response) {
                     console.log(response);
