@@ -49,7 +49,7 @@ class SpotBannerUserController extends Controller
             $associatedSpots = SpotBannerUser::where('user_id', $userId)
                 ->join('spots', 'spots.id', '=', 'spot_banner_user.spot_id')
                 ->join('banners', 'banners.id', '=', 'spot_banner_user.banner_id')
-                ->select('spot_banner_user.id', 'spots.name as spot_name', 'banners.name as banner_name')
+                ->select('spot_banner_user.id', 'spots.name as spot_name', 'banners.title as banner_name')
                 ->get();
 
             return response()->json($associatedSpots);
