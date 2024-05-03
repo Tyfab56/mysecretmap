@@ -294,4 +294,6 @@ Route::middleware(['App\Http\Middleware\CheckAdmin'])->group(function () {
     Route::get('spots/{spot}/banners', [SpotBannerUserController::class, 'getBanners'])->name('spots.banners.index');
 });
 
+Route::view('admin.dashbord', 'admin.dashboard')->name('admin.dashboard')->middleware('App\Http\Middleware\CheckAdmin');;
+
 require __DIR__ . '/auth.php';

@@ -299,7 +299,8 @@
                       <li class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Admin <i class="fa fa-angle-down"></i></a>
                         <ul class="dropdown-menu" role="menu">
-                             <li><a class="dropdown-item" href="{{ route('admin.listspots') }}"> Tableaux de bord</a></li>
+                             <li><a class="dropdown-item" href="{{ route('admin.dashboard') }}"> Tableaux de bord</a></li>
+                             <li><a class="dropdown-item" href="{{ route('admin.listspots') }}"> Gestion des spots</a></li>
                              <li><a class="dropdown-item" href="{{ route('admin.hotels') }}"> Gestion Hotels</a></li>
                              <li><a class="dropdown-item" href="{{ route('admin.charly-posts.listposts') }}"> Gestion Charly Posts</a></li>
                              <li><a class="dropdown-item" href="{{ route('admin.circuits') }}"> Gestion Circuits</a></li>
