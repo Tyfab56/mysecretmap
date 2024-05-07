@@ -57,7 +57,8 @@
                 <div>   
                     <h6>{{ __('audioguide.OurProducts') }}</h6>
                     <p>- Iceland in English</p>
-                    <p>- Islande en Français (Pré-commande -50%)</p>                    
+                    <p>- Islande en Français </p>   
+                    <p>- Island auf Deutsch (Bald) </p>                   
                 </div>
 
                <!-- Petite image -->
