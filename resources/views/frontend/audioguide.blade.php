@@ -67,10 +67,10 @@
               </div>
 
               <!-- Bouton -->
-              <div class="center">
-              <a href="{{ route('tostore') }}">
-                  <button type="button" class="btn btn-primary">{{ __('destination.pubaudio3') }}</button>
-              </a>
+                        <div class="center">
+                        <button type="button" class="btn btn-primary" onclick="gtag_report_conversion('{{ route('tostore') }}')">
+                    {{ __('destination.pubaudio3') }}
+                </button>
               </div>           
                                     
                                     
@@ -83,6 +83,22 @@
     </div>
 </section>
 
+<!-- Event snippet for Clic sortant conversion page
+In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+<script>
+function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+  };
+  gtag('event', 'conversion', {
+      'send_to': 'AW-11392389513/rXCJCJ_ny60ZEImjqLgq',
+      'event_callback': callback
+  });
+  return false;
+}
+</script>
 
 
 @endsection
