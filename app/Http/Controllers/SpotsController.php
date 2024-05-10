@@ -510,8 +510,8 @@ class SpotsController extends Controller
 
             // LARGE
             // Stockage d'une image large 1100 x 366
-            $width = 1100;
-            $height = 1100;
+            $width = 2040;
+            $height = 1024;
             $canvas = Image::canvas($width, $height);
 
             $imagefinale  = Image::make($file360)->resize(
