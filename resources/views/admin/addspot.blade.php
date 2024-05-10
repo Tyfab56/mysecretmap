@@ -159,8 +159,8 @@
                                     @enderror
                                 </div>
                             </div>
-                            <div class=" text-xs-right  pb-2 mw400">
-                                <img src="{{$spot->img360}}">
+                            <div class=" text-xs-right  pb-2">
+                                <img class="mw400" src="{{$spot->img360}}">
                             </div>
 							<div class="form-group">
                                 <label class="info-title" for="imgsquare">Image vue région<span class="text-danger">*</span></label>
