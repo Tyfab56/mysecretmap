@@ -380,6 +380,7 @@ window.addEventListener('load', function () {
     Livewire.emit('AfficheVideo',currentMarker);
     Livewire.emit('ImgMap',currentMarker);
     Livewire.emit('ImgPeak',currentMarker);
+    Livewire.emit('Img360',currentMarker);
     chargerEtAfficherVideo(currentMarker, '{{app()->getLocale()}}' )
     Livewire.emit('PictureDestination',currentMarker);
     Livewire.emit('RefreshCircuit',currentCircuit);
