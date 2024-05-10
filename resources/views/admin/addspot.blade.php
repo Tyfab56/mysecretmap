@@ -159,7 +159,7 @@
                                     @enderror
                                 </div>
                             </div>
-                            <div class=" text-xs-right  pb-2">
+                            <div class=" text-xs-right  pb-2 mw400">
                                 <img src="{{$spot->img360}}">
                             </div>
 							<div class="form-group">
