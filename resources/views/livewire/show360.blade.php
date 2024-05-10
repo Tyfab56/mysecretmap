@@ -1,6 +1,7 @@
 <div>
-    <div id="panorama" style="width: 100%; height: 500px;"></div>
-    
+    @if($spot && $spot->img360)
+        <div id="panorama" style="width: 100%; height: 500px;"></div>
+    @endif   
     @push('styles')
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum/build/pannellum.css"/>
     @endpush
