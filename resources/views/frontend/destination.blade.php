@@ -83,13 +83,15 @@
                                               </div> 
                                               <p class="center w100"><span style="color:red"><b>{{__('destination.RedLine')}}</b></span> / <span style="color:orange"><b>{{__('destination.OrangeLine')}}</b></span></p><br/>
                                         </div>   
-                                        <div class="row pt-1 pb-1 pr-1 pl-1 bgregbox min100">  
-                                          <div class="col-lg-12 center pt-1 pb-1 pr-1 pl-1"><livewire:show360 /></div>
-                                        </div>     
+                                         
                                         <div class="row pt-1 pb-1 pr-1 pl-1 bgregbox min100">  
                                             <div class="col-lg-12 pt-1 pb-1  pr-1 pl-1"><livewire:hotels-nearby />
                                           </div>
-                                        </div>             
+                                        </div>  
+                                        <div class="row pt-1 pb-1 pr-1 pl-1 bgregbox min100">  
+                                          <div class="col-lg-12 center pt-1 pb-1 pr-1 pl-1"><livewire:show360 /></div>
+                                        </div>  
+                                                   
                                         <div class="row pt-1 pb-1 pr-1 pl-1 bgregbox min100">  
                                             <div class="col-lg-12 pt-1 pb-1  pr-1 pl-1"><livewire:show-map-globale />
                                           </div>
