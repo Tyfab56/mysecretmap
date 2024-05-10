@@ -6,15 +6,17 @@
     @endpush
 
     @push('scripts')
-        <script src="https://cdn.jsdelivr.net/npm/pannellum/build/pannellum.js"></script>
-        <script>
-            document.addEventListener('livewire:load', function () {
-                pannellum.viewer('panorama', {
-                    "type": "equirectangular",
-                    "panorama": "{{$spot->img360}}",
-                    "autoLoad": true
-                });
+    <script src="https://cdn.jsdelivr.net/npm/pannellum/build/pannellum.js"></script>
+    <script>
+        document.addEventListener('livewire:load', function () {
+            @if($spot && $spot->img360)
+            pannellum.viewer('panorama', {
+                "type": "equirectangular",
+                "panorama": "{{ asset('storage/' . $spot->img360) }}",
+                "autoLoad": true
             });
-        </script>
-    @endpush
+            @endif
+        });
+    </script>
+@endpush
 </div>
