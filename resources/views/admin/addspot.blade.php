@@ -160,7 +160,7 @@
                                 </div>
                             </div>
                             <div class=" text-xs-right  pb-2">
-                                <img src="{{$spot->imgsquaremedium}}">
+                                <img src="{{$spot->img360}}">
                             </div>
 							<div class="form-group">
                                 <label class="info-title" for="imgsquare">Image vue région<span class="text-danger">*</span></label>
