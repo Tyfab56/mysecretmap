@@ -12,6 +12,9 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/switchery/0.8.2/switchery.min.css" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/switchery/0.8.2/switchery.js"></script>
 <link rel="stylesheet" href="{{ asset('frontend/assets/css/GridOverflow3D.css')}}" />
+<link rel="stylesheet" href="{{ asset('frontend/assets/css/pannellum.css') }}">
+
+
 <!-- Template styles-->
 <script data-cfasync="false">
     var swarmoptions = {
@@ -79,6 +82,9 @@
                                                   <div style="padding: 5px;"> <input type="range" class="form-range" min="0" max="24" oninput="changeHour(this.value)" onchange="changeHour(this.value)" id="hourofday"></div>
                                               </div> 
                                               <p class="center w100"><span style="color:red"><b>{{__('destination.RedLine')}}</b></span> / <span style="color:orange"><b>{{__('destination.OrangeLine')}}</b></span></p><br/>
+                                        </div>   
+                                        <div class="row pt-1 pb-1 pr-1 pl-1 bgregbox min100">  
+                                          <div class="col-lg-12 center pt-1 pb-1 pr-1 pl-1"><livewire:show360 /></div>
                                         </div>     
                                         <div class="row pt-1 pb-1 pr-1 pl-1 bgregbox min100">  
                                             <div class="col-lg-12 pt-1 pb-1  pr-1 pl-1"><livewire:hotels-nearby />
@@ -204,6 +210,7 @@
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js" integrity="sha512-k2GFCTbp9rQU412BStrcD/rlwv1PYec9SNrkbQlo6RZCf75l6KcC3UwDY8H5n5hl4v77IDtIPwOk9Dqjs/mMBQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="https://unpkg.com/zooming/build/zooming.min.js"></script>
+  <script src="{{ asset('frontend/assets/js/pannellum.js') }}"></script>
 @endsection
 
 @section('scripts')
