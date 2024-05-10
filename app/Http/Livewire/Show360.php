@@ -8,7 +8,7 @@ use App\Models\Spots;
 class Show360 extends Component
 {
 
-    public  $idspot;
+    public  $idspot,$spot;
 
     protected $listeners = [
         'Img360'
