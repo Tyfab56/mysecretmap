@@ -3758,6 +3758,11 @@ max-width: 133px;
   max-width: 350px;
   
  }
+ .mw400
+ {
+  max-width: 350px;
+  
+ }
  .mauto 
  {
   margin: auto;
