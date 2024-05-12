@@ -22,8 +22,12 @@ class Show360 extends Component
 
     public function render()
     {
-        $this->spot = spots::select('id', 'img360')->where('id', '=', $this->idspot)->first();
-        dd($this->spot);
+        if (!is_null($this->idspot)) {
+            $this->spot = Spots::select('id', 'img360')->where('id', $this->idspot)->first();
+        } else {
+            $this->spot = null;
+        }
+        
         return view('livewire.show360', [
             'spot' => $this->spot
         ]);
