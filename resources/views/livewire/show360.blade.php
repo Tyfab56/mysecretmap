@@ -4,16 +4,8 @@
     @endif   
     @push('scripts')
     <script>
-        document.addEventListener('livewire:load', function() {
-            @if($spot)
-            console.log("Livewire:load - Spot object:", @json($spot));  // Log the entire $spot object
-            @else
-            console.log("Livewire:load - No spot object available");
-            @endif
-        });
-
-        Livewire.on('updatePanorama', imageUrl => {
-            console.log("Received new image URL via Livewire.on('updatePanorama'):", imageUrl);
+                document.addEventListener('livewire:load', function() {
+            console.log("Test log without conditions");
         });
     </script>
     @endpush
