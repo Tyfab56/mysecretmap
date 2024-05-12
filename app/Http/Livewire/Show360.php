@@ -18,7 +18,7 @@ class Show360 extends Component
        
         if (!is_null($idspot)) {
             $this->idspot = $idspot;
-            dd($this->idspot);
+            
         }
     }
 
