@@ -4,7 +4,7 @@
     @endif
     <script>
          document.addEventListener('livewire:load', function() {
-        console.log("Livewire is fully loaded.");
+            console.log("Spot object on load:", @json($spot));
     });
     </script>
 </div>
