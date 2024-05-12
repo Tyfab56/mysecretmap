@@ -1,5 +1,5 @@
 <div>
-    @if($spot && $spot->img360)
+    @if($spot && !is_null($spot->img360))
         <div id="panorama" style="width: 100%; height: 500px;"></div>
     @endif   
     @push('styles')
@@ -10,7 +10,7 @@
     <script src="https://cdn.jsdelivr.net/npm/pannellum/build/pannellum.js"></script>
     <script>
         function initializePanorama() {
-            if (document.getElementById('panorama')) {
+            if (document.getElementById('panorama') && "{{ $spot->img360 ?? '' }}".length > 0) {
                 pannellum.viewer('panorama', {
                     "type": "equirectangular",
                     "panorama": "{{ asset('storage/' . $spot->img360) }}",
@@ -21,7 +21,7 @@
 
         document.addEventListener('livewire:load', initializePanorama);
         Livewire.hook('message.processed', (message, component) => {
-            initializePanorama(); // Reinitialize the panorama after Livewire updates
+            initializePanorama(); // Reinitialize the panorama when Livewire updates
         });
     </script>
     @endpush
