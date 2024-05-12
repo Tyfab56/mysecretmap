@@ -10,11 +10,10 @@ class Show360 extends Component
 
     public  $idspot,$spot;
 
-    protected $listeners = [
-        'Img360'
-    ];
+    protected $listeners = ['Img360' => 'img360'];
 
-    public function Img360($idspot)
+    // Renommage de la méthode pour suivre la convention camelCase
+    public function img360($idspot)
     {
         if (!is_null($idspot)) {
             $this->idspot = $idspot;
