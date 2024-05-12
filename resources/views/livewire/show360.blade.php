@@ -9,15 +9,21 @@
     @push('scripts')
     <script src="https://cdn.jsdelivr.net/npm/pannellum/build/pannellum.js"></script>
     <script>
-        document.addEventListener('livewire:load', function () {
-            @if($spot && $spot->img360)
-            pannellum.viewer('panorama', {
-                "type": "equirectangular",
-                "panorama": "{{ asset('storage/' . $spot->img360) }}",
-                "autoLoad": true
-            });
-            @endif
+        function initializePanorama() {
+            if (document.getElementById('panorama')) {
+                pannellum.viewer('panorama', {
+                    "type": "equirectangular",
+                    "panorama": "{{ asset('storage/' . $spot->img360) }}",
+                    "autoLoad": true
+                });
+            }
+        }
+
+        document.addEventListener('livewire:load', initializePanorama);
+        Livewire.hook('message.processed', (message, component) => {
+            initializePanorama(); // Reinitialize the panorama after Livewire updates
         });
     </script>
-@endpush
+    @endpush
 </div>
+
