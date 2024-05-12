@@ -15,9 +15,10 @@ class Show360 extends Component
     // Renommage de la méthode pour suivre la convention camelCase
     public function img360($idspot)
     {
-        dd($idspot);
+       
         if (!is_null($idspot)) {
             $this->idspot = $idspot;
+            dd($this->idspot);
         }
     }
 
