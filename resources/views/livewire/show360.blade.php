@@ -20,6 +20,7 @@
     }
 
     document.addEventListener('livewire:load', function() {
+        console.log("Livewire:load - Spot object:", @json($spot));
         @if($spot && !is_null($spot->img360))
         initializePanorama("{{ asset('storage/' . $spot->img360) }}");
         @endif
