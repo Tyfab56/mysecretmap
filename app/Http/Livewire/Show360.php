@@ -26,7 +26,7 @@ class Show360 extends Component
     {
         if (!is_null($this->idspot)) {
             $this->spot = Spots::select('id', 'img360')->where('id', $this->idspot)->first();
-            dd($this->spot);
+          
         } else {
             $this->spot = null;
         }
