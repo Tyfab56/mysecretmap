@@ -93,17 +93,31 @@
                                           <div id="panorama"></div>
                                           <script>
 document.addEventListener('DOMContentLoaded', function() {
-    var panoramaContainer = document.getElementById('panorama');
-    var panoramaURL = panoramaContainer.getAttribute('data-pano-src');
-    if (panoramaURL) {
+    initializePannellum();
+
+    // Réinitialisation de Pannellum après chaque mise à jour de Livewire
+    Livewire.on('spotLoaded', function(spot) {
+        document.getElementById('panoImage').src = spot.img360;
+        initializePannellum();
+    });
+});
+
+function initializePannellum() {
+    const img = document.getElementById('panoImage');
+    img.onload = function() {
         pannellum.viewer('panorama', {
             "type": "equirectangular",
-            "panorama": panoramaURL,
+            "panorama": img.src,
             "autoLoad": true
         });
+    };
+    // Si l'image est déjà chargée (cache navigateur), initialisez Pannellum immédiatement
+    if (img.complete && img.naturalHeight !== 0) {
+        img.onload();
     }
-});
+}
 </script>
+
                                           </div>
                                         </div>  
 
