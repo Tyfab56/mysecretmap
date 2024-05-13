@@ -122,7 +122,7 @@ function initializePannellum() {
         console.error('Image element not found');
     }
 }
-}
+
 </script>
 
                                           </div>
