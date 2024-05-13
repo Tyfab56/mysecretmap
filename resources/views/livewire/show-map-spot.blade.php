@@ -20,7 +20,7 @@
         </a>
     </div>
     @endif
-    <div class="md-12  white img-relative">
+    <div class="md-12  center mt5 ">
         <img src="{{$spot->imgpanolarge??''}}" class="max100 mb5 responsive intense">
 
     </div>
