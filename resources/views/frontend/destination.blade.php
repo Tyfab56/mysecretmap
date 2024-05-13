@@ -71,7 +71,7 @@
                                     <div class="col-sm-12"><input type="checkbox" id="sunToggle" class="js-switch"><span class="p5 f0-8m">{{__('destination.sunsetting')}}</span></div>
                                 </div>
                             </div>
-                            <div id="sun" class="row min100 hidden">
+                            <div id="sun" class="row min100">
 
                                 <div class="col-sm-6">
                                     <div style="padding : 5px"><b>{{__('destination.choiceday')}} :</b> <span id="theday"></span></div>
