@@ -93,7 +93,7 @@
                                          
                                           <script>
 document.addEventListener('DOMContentLoaded', function() {
-    initializePannellum();
+   
 
     // Réinitialisation de Pannellum après chaque mise à jour de Livewire
     Livewire.on('spotLoaded', function(spot) {
