@@ -103,6 +103,9 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+<div wire:loading.remove>
+          initializePannellum();
+</div>
 
 function initializePannellum() {
     const img = document.getElementById('panoImage');
