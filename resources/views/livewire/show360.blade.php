@@ -11,18 +11,15 @@
 <script src="https://cdn.jsdelivr.net/npm/pannellum/build/pannellum.js"></script>
 @endpush
 <div id="panorama"></div>
+<div wire:loading.remove>
 <script>
-    document.addEventListener('livewire:load', function () {
-    Livewire.hook('message.processed', (message, component) => {
-        pannellum.viewer('panorama', {
+   pannellum.viewer('panorama', {
         "type": "equirectangular",
         "panorama": "{{ $spot->img360 }}",
         "autoLoad": true
     });
-    });
-});
-document.addEventListener('DOMContentLoaded', function() {
-    
-});
-</script>
+</script>   
+</div>
+
+
 </div>
