@@ -97,15 +97,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Réinitialisation de Pannellum après chaque mise à jour de Livewire
     Livewire.on('spotLoaded', function(spot) {
+        initializePannellum();
         document.getElementById('panoImage').src = spot.img360;
         document.addEventListener('livewire:load', function() {
             initializePannellum();
         });
     });
 });
-<div wire:loading.remove>
-          initializePannellum();
-</div>
+
 
 function initializePannellum() {
     const img = document.getElementById('panoImage');
