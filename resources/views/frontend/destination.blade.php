@@ -119,7 +119,7 @@ function initializePannellum() {
             img.onload();
         }
     } else {
-        console.error('Image element not found');
+        console.log('Image element not found');
     }
 }
 
