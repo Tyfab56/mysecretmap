@@ -33,14 +33,14 @@
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
             <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
        
-  
+        
             @yield('css')
-          
+            @stack('styles')
             <link rel="stylesheet" href="{{  asset('frontend/assets/css/style.css') }}">
            
             @yield('fincss')
-            @livewireStyles
-            @stack('styles')
+          
+           
             <script async src="https://www.googletagmanager.com/gtag/js?id=AW-11392389513"></script>
             <script>
               window.dataLayer = window.dataLayer || [];
@@ -442,7 +442,8 @@
   
 </script>
   </div><!-- Body inner end -->
-  @livewireScripts
+    @livewireScripts
+    @stack('scripts')
   </body>
 
   </html>
