@@ -12,6 +12,7 @@
 @endpush
 <script>
 document.addEventListener('livewire:load', function() {
+    console.log("Spot object on load:", @json($spot));
     pannellum.viewer('panorama', {
         "type": "equirectangular",  // Type de panorama, assurez-vous que cela correspond à votre image
         "panorama": "{{ $spot->img360 }}",
