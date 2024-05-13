@@ -35,72 +35,72 @@ const DateTime = luxon.DateTime;
 var textsunrise,textsunset;
 if (sunriseLine !== undefined)
 {
-  sunriseLine.removeFrom(mapdest);
-  
+sunriseLine.removeFrom(mapdest);
+
 }
 //if (sunriseZoom !== undefined)
 //{
-//  sunriseZoom.removeFrom(mapzoom);
+// sunriseZoom.removeFrom(mapzoom);
 //}
 
 if (sunsetLine !== undefined)
 {
-  sunsetLine.removeFrom(mapdest);
- 
+sunsetLine.removeFrom(mapdest);
+
 }
 //if (sunsetZoom !== undefined)
 //{
-//  sunsetZoom.removeFrom(mapzoom);
+// sunsetZoom.removeFrom(mapzoom);
 //}
 var times = SunCalc.getTimes(currentDate,currentLat,currentLng);
 sunriseDate = DateTime.fromJSDate(times.sunrise).setZone("{{$pays->offset}}");
 if (sunriseDate.invalid != null)
 {
-  textsunrise ='no Sunrise';
+textsunrise ='no Sunrise';
 }
-else 
+else
 {
 
-  var sunrisePos = SunCalc.getPosition(sunriseDate, currentLat,currentLng);
-  var sunriseAzimuth = sunrisePos.azimuth * 180 / Math.PI ;
-  var newPoint = bearingDistance(currentLat, currentLng, 500, sunriseAzimuth -180);
-  sunriseLine = L.polyline([], {color: 'red'}).addTo(mapdest);
-  sunriseLine.addLatLng(L.latLng(currentLat, currentLng));
-  sunriseLine.addLatLng(L.latLng(newPoint.latitude, newPoint.longitude));
+var sunrisePos = SunCalc.getPosition(sunriseDate, currentLat,currentLng);
+var sunriseAzimuth = sunrisePos.azimuth * 180 / Math.PI ;
+var newPoint = bearingDistance(currentLat, currentLng, 500, sunriseAzimuth -180);
+sunriseLine = L.polyline([], {color: 'red'}).addTo(mapdest);
+sunriseLine.addLatLng(L.latLng(currentLat, currentLng));
+sunriseLine.addLatLng(L.latLng(newPoint.latitude, newPoint.longitude));
 
-  //sunriseZoom = L.polyline([], {color: 'red'}).addTo(mapzoom);
-  //sunriseZoom.addLatLng(L.latLng(currentLat, currentLng));
-  //sunriseZoom.addLatLng(L.latLng(newPoint.latitude, newPoint.longitude));
+//sunriseZoom = L.polyline([], {color: 'red'}).addTo(mapzoom);
+//sunriseZoom.addLatLng(L.latLng(currentLat, currentLng));
+//sunriseZoom.addLatLng(L.latLng(newPoint.latitude, newPoint.longitude));
 
-  textsunrise = sunriseDate.setLocale("{{app()->getLocale()}}").toFormat("ff");
- 
+textsunrise = sunriseDate.setLocale("{{app()->getLocale()}}").toFormat("ff");
+
 }
 sunsetDate = DateTime.fromJSDate(times.sunset).setZone("{{$pays->offset}}");
 if (sunsetDate.invalid != null)
 {
-  textsunset = 'no Sunset';
+textsunset = 'no Sunset';
 }
-else 
-{ 
-  var sunsetPos = SunCalc.getPosition(sunsetDate, currentLat,currentLng);
-  var sunsetAzimuth = sunsetPos.azimuth * 180 / Math.PI ;
-  var newPoint = bearingDistance(currentLat, currentLng, 500, sunsetAzimuth-180);
-  sunsetLine = L.polyline([], {color: 'orange'}).addTo(mapdest);
-  sunsetLine.addLatLng(L.latLng(currentLat, currentLng));
-  sunsetLine.addLatLng(L.latLng(newPoint.latitude, newPoint.longitude));
+else
+{
+var sunsetPos = SunCalc.getPosition(sunsetDate, currentLat,currentLng);
+var sunsetAzimuth = sunsetPos.azimuth * 180 / Math.PI ;
+var newPoint = bearingDistance(currentLat, currentLng, 500, sunsetAzimuth-180);
+sunsetLine = L.polyline([], {color: 'orange'}).addTo(mapdest);
+sunsetLine.addLatLng(L.latLng(currentLat, currentLng));
+sunsetLine.addLatLng(L.latLng(newPoint.latitude, newPoint.longitude));
 
-  //sunsetZoom = L.polyline([], {color: 'orange'}).addTo(mapzoom);
-  //sunsetZoom.addLatLng(L.latLng(currentLat, currentLng));
-  //sunsetZoom.addLatLng(L.latLng(newPoint.latitude, newPoint.longitude));
+//sunsetZoom = L.polyline([], {color: 'orange'}).addTo(mapzoom);
+//sunsetZoom.addLatLng(L.latLng(currentLat, currentLng));
+//sunsetZoom.addLatLng(L.latLng(newPoint.latitude, newPoint.longitude));
 
-  textsunset = sunsetDate.setLocale("{{app()->getLocale()}}").toFormat("ff");
-  
-} 
+textsunset = sunsetDate.setLocale("{{app()->getLocale()}}").toFormat("ff");
 
-Livewire.emit('InfoDestination',null,textsunrise,textsunset); 
+}
 
-  
-var  hourDate = DateTime.fromJSDate(currentDate).setZone("{{$pays->offset}}").set({ hour: currentTime });
+Livewire.emit('InfoDestination',null,textsunrise,textsunset);
+
+
+var hourDate = DateTime.fromJSDate(currentDate).setZone("{{$pays->offset}}").set({ hour: currentTime });
 
 
 
@@ -111,78 +111,78 @@ var hourAzimuth = hourPos.azimuth * 180 / Math.PI ;
 var newPoint = bearingDistance(currentLat, currentLng, 500, hourAzimuth-180);
 if (hourLine !== undefined)
 {
-  hourLine.removeFrom(mapdest);
+hourLine.removeFrom(mapdest);
 }
 
 //if (hourZoom !== undefined)
 //{
-//  hourZoom.removeFrom(mapzoom);
+// hourZoom.removeFrom(mapzoom);
 //}
 
 
-  hourLine = L.polyline([], {color: 'blue'}).addTo(mapdest);
-  hourLine.addLatLng(L.latLng(currentLat, currentLng));
-  hourLine.addLatLng(L.latLng(newPoint.latitude, newPoint.longitude));
+hourLine = L.polyline([], {color: 'blue'}).addTo(mapdest);
+hourLine.addLatLng(L.latLng(currentLat, currentLng));
+hourLine.addLatLng(L.latLng(newPoint.latitude, newPoint.longitude));
 
- // hourZoom = L.polyline([], {color: 'blue'}).addTo(mapzoom);
- // hourZoom.addLatLng(L.latLng(currentLat, currentLng));
- // hourZoom.addLatLng(L.latLng(newPoint.latitude, newPoint.longitude));
-  
+// hourZoom = L.polyline([], {color: 'blue'}).addTo(mapzoom);
+// hourZoom.addLatLng(L.latLng(currentLat, currentLng));
+// hourZoom.addLatLng(L.latLng(newPoint.latitude, newPoint.longitude));
+
 
 
 
 }
 
 function lngLatArrayToLatLng(lngLatArray) {
-    return lngLatArray.map(lngLatToLatLng);
-  }
-  
+return lngLatArray.map(lngLatToLatLng);
+}
+
 function lngLatToLatLng(lngLat) {
-    return [lngLat[1], lngLat[0]];
-  }
+return [lngLat[1], lngLat[0]];
+}
 
 function changeRange(value)
-  {
-  const DateTime = luxon.DateTime;
-  currentDate = getDateFromDayNum(value);
-  displayDate = DateTime.fromJSDate(currentDate).setLocale("{{app()->getLocale()}}");
-  document.getElementById('theday').innerHTML = displayDate.toLocaleString({ month: 'long', day: 'numeric' });
-  drawSolar();
-  }
-  
+{
+const DateTime = luxon.DateTime;
+currentDate = getDateFromDayNum(value);
+displayDate = DateTime.fromJSDate(currentDate).setLocale("{{app()->getLocale()}}");
+document.getElementById('theday').innerHTML = displayDate.toLocaleString({ month: 'long', day: 'numeric' });
+drawSolar();
+}
+
 function bearingDistance(lat, lon, radius, bearing){
-                const lat1Rads = toRad(lat);
-                const lon1Rads = toRad(lon);
-                const R_KM = 6371; // radius in KM
-                const d = radius/R_KM; //angular distance on earth's surface
-      
-                const bearingRads = toRad(bearing);
-                const lat2Rads = Math.asin(
-                  Math.sin(lat1Rads) * Math.cos(d) + Math.cos(lat1Rads) * Math.sin(d) * Math.cos(bearingRads)
-                );
-      
-                const lon2Rads = lon1Rads + Math.atan2(
-                  Math.sin(bearingRads) * Math.sin(d) * Math.cos(lat1Rads),
-                  Math.cos(d) - Math.sin(lat1Rads) * Math.sin(lat2Rads)
-                );
-      
-                return {
-                  latitude: toDeg(lat2Rads),
-                  longitude: toDeg(lon2Rads)
-                }          
-              }
-      
-  function toRad(degrees){
-                return degrees * Math.PI / 180;
-              }
-      
-  function toDeg(radians){
-                return radians * 180 / Math.PI;
-              }
-       
+const lat1Rads = toRad(lat);
+const lon1Rads = toRad(lon);
+const R_KM = 6371; // radius in KM
+const d = radius/R_KM; //angular distance on earth's surface
+
+const bearingRads = toRad(bearing);
+const lat2Rads = Math.asin(
+Math.sin(lat1Rads) * Math.cos(d) + Math.cos(lat1Rads) * Math.sin(d) * Math.cos(bearingRads)
+);
+
+const lon2Rads = lon1Rads + Math.atan2(
+Math.sin(bearingRads) * Math.sin(d) * Math.cos(lat1Rads),
+Math.cos(d) - Math.sin(lat1Rads) * Math.sin(lat2Rads)
+);
+
+return {
+latitude: toDeg(lat2Rads),
+longitude: toDeg(lon2Rads)
+}
+}
+
+function toRad(degrees){
+return degrees * Math.PI / 180;
+}
+
+function toDeg(radians){
+return radians * 180 / Math.PI;
+}
+
 function affiche()
 {
-  Livewire.emit('AfficheVideo',280);
+Livewire.emit('AfficheVideo',280);
 }
 
 function onmapClick(e) {
@@ -197,7 +197,7 @@ Livewire.emit('Img360',e.sourceTarget.options.id);
 Livewire.emit('initWindy', e.latlng.lat, e.latlng.lng );
 Livewire.emit('loadHotels', e.latlng.lat, e.latlng.lng);
 currentMarker = e.sourceTarget.options.id;
-currentTitle = e.sourceTarget.options.title; 
+currentTitle = e.sourceTarget.options.title;
 currentLat = e.latlng.lat;
 currentLng = e.latlng.lng;
 addUrlToHistory(currentMarker);
@@ -225,46 +225,46 @@ return date;
 
 function redrawOverlay()
 {
-  // Appel de l'image manquante
-    var url='{{route('getzoom',['idspot'])}}';
-    url = url.replace('idspot',currentMarker);
-  $.ajax({
-      type: "GET",
-      url: url
-  }).done(function(msg) 
-  {
-    if (currentOverlay  !== undefined)
-    {
-      currentOverlay.removeFrom(mapdest);
-    
-    }   
-    var bounds = recBounds(currentLat,currentLng);   
- 
+// Appel de l'image manquante
+var url='{{route('getzoom',['idspot'])}}';
+url = url.replace('idspot',currentMarker);
+$.ajax({
+type: "GET",
+url: url
+}).done(function(msg)
+{
+if (currentOverlay !== undefined)
+{
+currentOverlay.removeFrom(mapdest);
 
-  //  if (msg.imgZoomLarge)
-  //  {
-  //    currentOverlay = L.imageOverlay(msg.imgZoomLarge,bounds).addTo(mapzoom);
-  //  }
- 
-         
-  })
+}
+var bounds = recBounds(currentLat,currentLng);
+
+
+// if (msg.imgZoomLarge)
+// {
+// currentOverlay = L.imageOverlay(msg.imgZoomLarge,bounds).addTo(mapzoom);
+// }
+
+
+})
 }
 function recBounds(lat,lng)
 {
 
-   var southWest = L.latLng(lat - 0.004966634076, lng  - 0.02574920654);
-    var northEast = L.latLng(lat + 0.004966634076, lng + 0.02574920654);
-   
-    bounds = L.latLngBounds(southWest, northEast);
-    return bounds;
+var southWest = L.latLng(lat - 0.004966634076, lng - 0.02574920654);
+var northEast = L.latLng(lat + 0.004966634076, lng + 0.02574920654);
+
+bounds = L.latLngBounds(southWest, northEast);
+return bounds;
 }
 
 function changeHour(value)
-  {
-  currentTime = value;
-  document.getElementById('thehour').innerHTML = currentTime;
-  drawSolar();
-  }
+{
+currentTime = value;
+document.getElementById('thehour').innerHTML = currentTime;
+drawSolar();
+}
 
 var currentCircuit = {{$circuitactif}};
 
@@ -279,8 +279,8 @@ var markers = L.markerClusterGroup({chunkedLoading: true,maxClusterRadius: 30});
 
 
 //var mapzoom = L.map('mapzoom',{
-//   dragging: false,
-//   scrollWheelZoom: 'center'
+// dragging: false,
+// scrollWheelZoom: 'center'
 //}).setView([{{$payslat}}, {{$payslng}}],15);
 //var gl = L.mapboxGL({
 //style: 'https://api.maptiler.com/tiles/satellite-v2/?key=iooFuVAppzuUB4nSQMl6'
@@ -289,63 +289,63 @@ var markers = L.markerClusterGroup({chunkedLoading: true,maxClusterRadius: 30});
 //mapzoom.removeControl(mapzoom.zoomControl);
 
 var Mark1 = L.ExtraMarkers.icon({
-    markerColor: 'blue',
-    shape: 'circle',
-    prefix: 'fa'
-    });
-    var Mark2 = L.ExtraMarkers.icon({
-    markerColor: 'blue',
-    shape: 'circle',
-    prefix: 'fa'
-    });
-    var Mark3 = L.ExtraMarkers.icon({
-    markerColor: 'black',
-    shape: 'circle',
-    prefix: 'fa'
-    });
-    
-    var Mark4 = L.ExtraMarkers.icon({
-    markerColor: 'pink',
-    shape: 'circle',
-    prefix: 'fa'
-    });
-    var Mark5 = L.ExtraMarkers.icon({
-    markerColor: 'green',
-    shape: 'circle',
-    prefix: 'fa'
-    });
-    var Mark6 = L.ExtraMarkers.icon({
-    markerColor: 'green',
-    shape: 'circle',
-    prefix: 'fa'
-    });
-    
-    var Mark7 = L.ExtraMarkers.icon({
-    icon : 'fa-umbrella-beach',
-    markerColor: 'yellow',
-    shape: 'circle',
-    prefix: 'fas'
-    });
-    
-    var Mark8 = L.ExtraMarkers.icon({
-    markerColor: 'green',
-    shape: 'circle',
-    prefix: 'fa'
-    });
-    
-    var Mark9 = L.ExtraMarkers.icon({
-    markerColor: 'green',
-    shape: 'circle',
-    prefix: 'fa'
-    });
-    
-    var Mark10 = L.ExtraMarkers.icon({
-    markerColor: 'green',
-    shape: 'circle',
-    prefix: 'fa'
-    });
+markerColor: 'blue',
+shape: 'circle',
+prefix: 'fa'
+});
+var Mark2 = L.ExtraMarkers.icon({
+markerColor: 'blue',
+shape: 'circle',
+prefix: 'fa'
+});
+var Mark3 = L.ExtraMarkers.icon({
+markerColor: 'black',
+shape: 'circle',
+prefix: 'fa'
+});
 
-    
+var Mark4 = L.ExtraMarkers.icon({
+markerColor: 'pink',
+shape: 'circle',
+prefix: 'fa'
+});
+var Mark5 = L.ExtraMarkers.icon({
+markerColor: 'green',
+shape: 'circle',
+prefix: 'fa'
+});
+var Mark6 = L.ExtraMarkers.icon({
+markerColor: 'green',
+shape: 'circle',
+prefix: 'fa'
+});
+
+var Mark7 = L.ExtraMarkers.icon({
+icon : 'fa-umbrella-beach',
+markerColor: 'yellow',
+shape: 'circle',
+prefix: 'fas'
+});
+
+var Mark8 = L.ExtraMarkers.icon({
+markerColor: 'green',
+shape: 'circle',
+prefix: 'fa'
+});
+
+var Mark9 = L.ExtraMarkers.icon({
+markerColor: 'green',
+shape: 'circle',
+prefix: 'fa'
+});
+
+var Mark10 = L.ExtraMarkers.icon({
+markerColor: 'green',
+shape: 'circle',
+prefix: 'fa'
+});
+
+
 mapdest.addLayer(markers);
 
 mapdest.whenReady(function(){
@@ -368,40 +368,40 @@ interactive : true
 
 
 window.addEventListener('load', function () {
-  // Raffraichir la carte
-  mapdest.invalidateSize();
-  //mapzoom.invalidateSize();
+// Raffraichir la carte
+mapdest.invalidateSize();
+//mapzoom.invalidateSize();
 
-  // Initialisation du curseur
-  if (stopMarker == 0 )
-  {
-    Livewire.emit('InfoDestination',currentMarker,null,null);
-    Livewire.emit('ImgRegion',currentMarker);
-    Livewire.emit('AfficheVideo',currentMarker);
-    Livewire.emit('ImgMap',currentMarker);
-    Livewire.emit('ImgPeak',currentMarker);
-    Livewire.emit('Img360',currentMarker);
-    chargerEtAfficherVideo(currentMarker, '{{app()->getLocale()}}' )
-    Livewire.emit('PictureDestination',currentMarker);
-    Livewire.emit('RefreshCircuit',currentCircuit);
-    Livewire.emit('initWindy',currentLat, currentLng );
-    Livewire.emit('loadHotels', currentLat, currentLng);
-    var myDate = new Date();
-    var dayInYear = Math.floor((myDate - new Date(myDate.getFullYear(), 0, 0)) / (1000 * 60 * 60 * 24));
-    document.getElementById("dayofyear").value = dayInYear ;
-    currentDate = myDate;
-    currentTime = 12;
-    const DateTime = luxon.DateTime;
-    displayDate = DateTime.fromJSDate(currentDate).setLocale("{{app()->getLocale()}}");
-    document.getElementById('theday').innerHTML = displayDate.toLocaleString({ month: 'long', day: 'numeric' });
-    document.getElementById('thehour').innerHTML = currentTime;
-    // Premier point
+// Initialisation du curseur
+if (stopMarker == 0 )
+{
+Livewire.emit('InfoDestination',currentMarker,null,null);
+Livewire.emit('ImgRegion',currentMarker);
+Livewire.emit('AfficheVideo',currentMarker);
+Livewire.emit('ImgMap',currentMarker);
+Livewire.emit('ImgPeak',currentMarker);
+Livewire.emit('Img360',currentMarker);
+chargerEtAfficherVideo(currentMarker, '{{app()->getLocale()}}' )
+Livewire.emit('PictureDestination',currentMarker);
+Livewire.emit('RefreshCircuit',currentCircuit);
+Livewire.emit('initWindy',currentLat, currentLng );
+Livewire.emit('loadHotels', currentLat, currentLng);
+var myDate = new Date();
+var dayInYear = Math.floor((myDate - new Date(myDate.getFullYear(), 0, 0)) / (1000 * 60 * 60 * 24));
+document.getElementById("dayofyear").value = dayInYear ;
+currentDate = myDate;
+currentTime = 12;
+const DateTime = luxon.DateTime;
+displayDate = DateTime.fromJSDate(currentDate).setLocale("{{app()->getLocale()}}");
+document.getElementById('theday').innerHTML = displayDate.toLocaleString({ month: 'long', day: 'numeric' });
+document.getElementById('thehour').innerHTML = currentTime;
+// Premier point
 
-    popimage('',currentMarker,currentLat,currentLng);
-    drawSolar();
-    drawCircuit(); 
-  }
-  })
+popimage('',currentMarker,currentLat,currentLng);
+drawSolar();
+drawCircuit();
+}
+})
 
 
 
@@ -410,237 +410,234 @@ var suntoggle = document.getElementById('sunToggle');
 var switchery = new Switchery(suntoggle, { size: 'small' });
 
 $("#suntoggle").change(function(){
-    alert("change here");
-  });
+alert("change here");
+});
 
 
 function drawCircuit()
 {
-        if (currentGeometry !== '')
-        {
-        currentGeometry.forEach((element) => 
-        {
-          var color;
-                var r = Math.floor(Math.random() * 255);
-                var g = Math.floor(Math.random() * 255);
-                var b = Math.floor(Math.random() * 255);
-                color= "rgb("+r+" ,"+g+","+ b+")"; 
-          var polyline = L.Polyline.fromEncoded(element);
-          polyline.setStyle(color).addTo(mapdest);
-         
-        });
-      }
+if (currentGeometry !== '')
+{
+currentGeometry.forEach((element) =>
+{
+var color;
+var r = Math.floor(Math.random() * 255);
+var g = Math.floor(Math.random() * 255);
+var b = Math.floor(Math.random() * 255);
+color= "rgb("+r+" ,"+g+","+ b+")";
+var polyline = L.Polyline.fromEncoded(element);
+polyline.setStyle(color).addTo(mapdest);
+
+});
+}
 }
 function jedecode (str, precision) {
-    var index = 0,
-        lat = 0,
-        lng = 0,
-        coordinates = [],
-        shift = 0,
-        result = 0,
-        byte = null,
-        latitude_change,
-        longitude_change,
-        factor = Math.pow(10, Number.isInteger(precision) ? precision : 5);
+var index = 0,
+lat = 0,
+lng = 0,
+coordinates = [],
+shift = 0,
+result = 0,
+byte = null,
+latitude_change,
+longitude_change,
+factor = Math.pow(10, Number.isInteger(precision) ? precision : 5);
 
-    // Coordinates have variable length when encoded, so just keep
-    // track of whether we've hit the end of the string. In each
-    // loop iteration, a single coordinate is decoded.
-    while (index < str.length) {
+// Coordinates have variable length when encoded, so just keep
+// track of whether we've hit the end of the string. In each
+// loop iteration, a single coordinate is decoded.
+while (index < str.length) { // Reset shift, result, and byte byte=null; shift=0; result=0; do { byte=str.charCodeAt(index++) - 63; result |=(byte & 0x1f) << shift; shift +=5; } while (byte>= 0x20);
 
-        // Reset shift, result, and byte
-        byte = null;
-        shift = 0;
-        result = 0;
+  latitude_change = ((result & 1) ? ~(result >> 1) : (result >> 1));
 
-        do {
-            byte = str.charCodeAt(index++) - 63;
-            result |= (byte & 0x1f) << shift;
-            shift += 5;
-        } while (byte >= 0x20);
+  shift = result = 0;
 
-        latitude_change = ((result & 1) ? ~(result >> 1) : (result >> 1));
+  do {
+  byte = str.charCodeAt(index++) - 63;
+  result |= (byte & 0x1f) << shift; shift +=5; } while (byte>= 0x20);
 
-        shift = result = 0;
+    longitude_change = ((result & 1) ? ~(result >> 1) : (result >> 1));
 
-        do {
-            byte = str.charCodeAt(index++) - 63;
-            result |= (byte & 0x1f) << shift;
-            shift += 5;
-        } while (byte >= 0x20);
+    lat += latitude_change;
+    lng += longitude_change;
 
-        longitude_change = ((result & 1) ? ~(result >> 1) : (result >> 1));
-
-        lat += latitude_change;
-        lng += longitude_change;
-
-        coordinates.push([lat / factor, lng / factor]);
+    coordinates.push([lat / factor, lng / factor]);
     }
 
     return coordinates;
-};
+    };
 
 
-function copyGPS (){
-        document.getElementById('id').select();
-        document.execCommand('copy');
+    function copyGPS (){
+    document.getElementById('id').select();
+    document.execCommand('copy');
     }
 
-function addtour (){
-  var url = '{{ route("addtour", [":spotid",":circuitid"]) }}';
-  url = url.replace(':spotid',currentMarker).replace(':circuitid',currentCircuit);
-  window.location.href=url;
+    function addtour (){
+    var url = '{{ route("addtour", [":spotid",":circuitid"]) }}';
+    url = url.replace(':spotid',currentMarker).replace(':circuitid',currentCircuit);
+    window.location.href=url;
 
-  }
+    }
 
-  function centerMap()
-  {
+    function centerMap()
+    {
     window.location.href='#mapdest'
-  }
+    }
 
-  function addUrlToHistory(parametre) {
-  var newUrl = 'https://mysecretmap.com/destination/IS/' + parametre;
-  window.history.pushState({path:newUrl},'',newUrl);
-}
+    function addUrlToHistory(parametre) {
+    var newUrl = 'https://mysecretmap.com/destination/IS/' + parametre;
+    window.history.pushState({path:newUrl},'',newUrl);
+    }
 
-  function addCircuit (spotid){
-  var url = '{{ route("addtour", [":spotid",":circuitid"]) }}';
-  url = url.replace(':spotid',spotid).replace(':circuitid',currentCircuit);
-  window.location.href=url+'#mapPos';
+    function addCircuit (spotid){
+    var url = '{{ route("addtour", [":spotid",":circuitid"]) }}';
+    url = url.replace(':spotid',spotid).replace(':circuitid',currentCircuit);
+    window.location.href=url+'#mapPos';
 
-  } 
+    }
 
-  function removetour (idspot){
-  var url = '{{ route("removetour", [":idspot",":circuitid"]) }}';
-  url = url.replace(':circuitid',currentCircuit).replace(':idspot',idspot);
-  window.location.href=url+'#mapPos';
+    function removetour (idspot){
+    var url = '{{ route("removetour", [":idspot",":circuitid"]) }}';
+    url = url.replace(':circuitid',currentCircuit).replace(':idspot',idspot);
+    window.location.href=url+'#mapPos';
 
-  }
+    }
 
-  function refreshtour (){
-  var url = '{{ route("refreshtour", [":paysid",":circuitid"]) }}';
-  url = url.replace(':paysid','{{$idpays}}').replace(':circuitid',currentCircuit);
-  window.location.href=url+'#mapPos';
-  }
+    function refreshtour (){
+    var url = '{{ route("refreshtour", [":paysid",":circuitid"]) }}';
+    url = url.replace(':paysid','{{$idpays}}').replace(':circuitid',currentCircuit);
+    window.location.href=url+'#mapPos';
+    }
 
-function goImage()
-{
-  var url = '{{ route("addimagespot", ":spotid") }}';
-  url = url.replace(':spotid',currentMarker);
-  window.location.href=url;
+    function goImage()
+    {
+    var url = '{{ route("addimagespot", ":spotid") }}';
+    url = url.replace(':spotid',currentMarker);
+    window.location.href=url;
 
-}
+    }
 
-var myImages = document.querySelectorAll('.img-image');
+    var myImages = document.querySelectorAll('.img-image');
 
-// Changment video 
+    // Changment video
 
-window.addEventListener('videoChanged', event => {
-           
-});
+    window.addEventListener('videoChanged', event => {
 
-
+    });
 
 
 
-// Initialisez Zooming
-var zooming = new Zooming({
-  // Options de configuration (facultatif)
-});
 
-// Associez le zoom à tous les éléments sélectionnés
-zooming.listen(myImages);
 
-function popimage(name,e,lat,lng) {
+    // Initialisez Zooming
+    var zooming = new Zooming({
+    // Options de configuration (facultatif)
+    });
 
-  currentMarker = e;
-  currentLat = lat;
-  currentLng = lng;
+    // Associez le zoom à tous les éléments sélectionnés
+    zooming.listen(myImages);
 
-  Livewire.emit('InfoDestination',e,null,null);
-  Livewire.emit('ImgRegion',e);
-  Livewire.emit('ImgMap',e);
-  var bounds = L.latLng(lat,lng).toBounds(6000);
-  mapdest.fitBounds(bounds);
-  var bounds = L.latLng(lat,lng).toBounds(500);
-  //mapzoom.fitBounds(bounds);
-  //mapzoom.panTo(new L.LatLng(lat,lng));  
-  drawSolar();
-  redrawOverlay();
-  }
+    function popimage(name,e,lat,lng) {
 
-  function chargerEtAfficherVideo(id, locale) {
+    currentMarker = e;
+    currentLat = lat;
+    currentLng = lng;
+
+    Livewire.emit('InfoDestination',e,null,null);
+    Livewire.emit('ImgRegion',e);
+    Livewire.emit('ImgMap',e);
+    var bounds = L.latLng(lat,lng).toBounds(6000);
+    mapdest.fitBounds(bounds);
+    var bounds = L.latLng(lat,lng).toBounds(500);
+    //mapzoom.fitBounds(bounds);
+    //mapzoom.panTo(new L.LatLng(lat,lng));
+    drawSolar();
+    redrawOverlay();
+    }
+
+    function chargerEtAfficherVideo(id, locale) {
     var xhr = new XMLHttpRequest();
     xhr.open('GET', 'https://mysecretmap.com/api/video/' + id + '/' + locale, true);
     xhr.onload = function() {
-        if (xhr.status === 200) {
-            var data = xhr.responseText;
-            const containerVideo = document.getElementById('container_video');
-            containerVideo.innerHTML = '<div id="main_video" src="'+ data + '"  width="640" height="360"  controls="controls" preload="auto"></div>';
-            swarmify.swarmifyVideo("main_video",{
-            width: '640px',
-              });
-            
-        } else {
-            console.error('Erreur:', xhr.statusText);
-        }
+    if (xhr.status === 200) {
+    var data = xhr.responseText;
+    if (data) { // Vérifie si data n'est pas vide
+    const containerVideo = document.getElementById('container_video');
+    containerVideo.innerHTML = '<div id="main_video" src="'+ data + '" width="640" height="360" controls="controls" preload="auto"></div>';
+    swarmify.swarmifyVideo("main_video", {
+    width: '640px',
+    });
+    } else {
+    console.log('La réponse est vide, la vidéo ne sera pas affichée.');
+    }
+    } else {
+    console.error('Erreur:', xhr.statusText);
+    }
     };
     xhr.onerror = function() {
-        console.error('Erreur réseau');
+    console.error('Erreur réseau');
     };
     xhr.send();
-}
+    }
 
 
-mapdest.on('moveend', function() {
+    mapdest.on('moveend', function() {
 
-  var url='{{route('listmarkers',['idpays','nelat','nelng','swlat','swlng'])}}';
-  url = url.replace('idpays','{{$idpays}}').replace('nelat', mapdest.getBounds()._northEast.lat)
-  .replace('nelng', mapdest.getBounds()._northEast.lng).replace('swlat', mapdest.getBounds()._southWest.lat)
-  .replace('swlng',mapdest.getBounds()._southWest.lng);
-  
-  $.ajax({
-      type: "GET",
-      url: url
-  }).done(function(msg) 
-  {
-  
-          var c = '';
-          maxList = 18;
-          const liste = JSON.parse(msg);
-  
-        
-          d = '<div class="swiper"><div class="swiper-wrapper">';
+    var url='{{route('listmarkers',['idpays','nelat','nelng','swlat','swlng'])}}';
+    url = url.replace('idpays','{{$idpays}}').replace('nelat', mapdest.getBounds()._northEast.lat)
+    .replace('nelng', mapdest.getBounds()._northEast.lng).replace('swlat', mapdest.getBounds()._southWest.lat)
+    .replace('swlng',mapdest.getBounds()._southWest.lng);
 
-          if (liste.length == 0)
-            {
-              d = d + '<div class="swiper-slide"><img class="imgbox"  src="{{asset('frontend/assets/images/morepicred.jpg')}}"><div class="bottom-center"><span class="textbox"><b>{{ __('destination.SpotEmpty') }}</b></span></div></div>';
-            }
+    $.ajax({
+    type: "GET",
+    url: url
+    }).done(function(msg)
+    {
 
-          for (var i = 0; i < Math.min(maxList,liste.length); i++) 
-          { 
-            var obj=liste[i]; d=d + '<div class="swiper-slide"><img class="imgbox" onClick="popimage(\'' + obj.name +'\','+ obj.id +','+ obj.lat+','+ obj.lng +')" src="' +obj.imgsquaresmall+'"><div class="top-right"><img class="addit" src="{{asset('frontend/assets/images/addpic.png')}}" onClick="addcircuit()"></div><div class="bottom-center"><span class="textbox"><b>'+obj.name+'</b></span></div></div>';
-          }
-          
+    var c = '';
+    maxList = 18;
+    const liste = JSON.parse(msg);
 
-          if (liste.length > maxList)
-          {
-            d = d + '<div class="swiper-slide"><img class="imgbox"  src="{{asset('frontend/assets/images/morepicred.jpg')}}"><div class="bottom-center"><span class="textbox"><b>{{ __('destination.SpotExceed') }}</b></span></div></div>';
-          }
-          d = d + '</div>'; d = d + '</div>';
-          
-            document.getElementById('medias').innerHTML = d;
-           
-  
-            const swiper = new Swiper('.swiper', {
-           
-              slidesPerView: "auto",
-              freeMode: true,
-              spaceBetween: 3,
-  
-  
-              
-            });
-  
-      })
-   });
+
+    d = '<div class="swiper">
+      <div class="swiper-wrapper">';
+
+        if (liste.length == 0)
+        {
+        d = d + '<div class="swiper-slide"><img class="imgbox" src="{{asset('frontend/assets/images/morepicred.jpg')}}">
+          <div class="bottom-center"><span class="textbox"><b>{{ __('destination.SpotEmpty') }}</b></span></div>
+        </div>';
+        }
+
+        for (var i = 0; i < Math.min(maxList,liste.length); i++) { var obj=liste[i]; d=d + '<div class="swiper-slide"><img class="imgbox" onClick="popimage(\'' + obj.name +' \','+ obj.id +','+ obj.lat+','+ obj.lng +')" src="' +obj.imgsquaresmall+'">
+          <div class="top-right"><img class="addit" src="{{asset('frontend/assets/images/addpic.png')}}" onClick="addcircuit()"></div>
+          <div class="bottom-center"><span class="textbox"><b>'+obj.name+'</b></span></div>
+      </div>';
+      }
+
+
+      if (liste.length > maxList)
+      {
+      d = d + '<div class="swiper-slide"><img class="imgbox" src="{{asset('frontend/assets/images/morepicred.jpg')}}">
+        <div class="bottom-center"><span class="textbox"><b>{{ __('destination.SpotExceed') }}</b></span></div>
+      </div>';
+      }
+      d = d + '
+    </div>'; d = d + '</div>';
+
+    document.getElementById('medias').innerHTML = d;
+
+
+    const swiper = new Swiper('.swiper', {
+
+    slidesPerView: "auto",
+    freeMode: true,
+    spaceBetween: 3,
+
+
+
+    });
+
+    })
+    });
