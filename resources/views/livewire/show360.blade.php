@@ -10,5 +10,11 @@
 @push('scripts')
 <script src="https://cdn.jsdelivr.net/npm/pannellum/build/pannellum.js"></script>
 @endpush
-
+<div id="panorama"></div>
+<script>
+pannellum.viewer('panorama', {
+    "type": "equirectangular",
+    "panorama": "{{ $spot->img360 }}"
+});
+</script>
 </div>
