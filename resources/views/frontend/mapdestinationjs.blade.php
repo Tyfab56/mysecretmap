@@ -597,8 +597,8 @@ while (index < str.length) { // Reset shift, result, and byte byte=null; shift=0
     const liste = JSON.parse(msg);
 
 
-    d = '<div class="swiper">
-      <div class="swiper-wrapper">';
+    d = '<div class="swiper">'
+      +'<div class="swiper-wrapper">';
 
         if (liste.length == 0)
         {
