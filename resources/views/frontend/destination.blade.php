@@ -98,10 +98,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Réinitialisation de Pannellum après chaque mise à jour de Livewire
     Livewire.on('spotLoaded', function(spot) {
         initializePannellum();
-        document.getElementById('panoImage').src = spot.img360;
-        document.addEventListener('livewire:load', function() {
-            initializePannellum();
-        });
+       
     });
 });
 
@@ -113,7 +110,11 @@ function initializePannellum() {
             pannellum.viewer('panorama', {
                 "type": "equirectangular",
                 "panorama": img.src,
-                "autoLoad": true
+                "autoLoad": true,
+                "preload": true,
+                "autoRotate": -2,
+                "pitch" : -30,
+                "hfov": 120  
             });
         };
         // Gérer le cas où l'image est déjà chargée
