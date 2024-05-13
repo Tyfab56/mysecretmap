@@ -96,7 +96,7 @@
                                           <script>
                                             pannellum.viewer('panorama', {
                                                   "type": "equirectangular",
-                                                  "panorama": "",
+                                                  "panorama": "{{ $spot->img360 }}",
                                                   "autoLoad": true
                                               });
                                           </script>   
