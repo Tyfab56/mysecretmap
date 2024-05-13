@@ -12,12 +12,17 @@
 @endpush
 <div id="panorama"></div>
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-    pannellum.viewer('panorama', {
+    document.addEventListener('livewire:load', function () {
+    Livewire.hook('message.processed', (message, component) => {
+        pannellum.viewer('panorama', {
         "type": "equirectangular",
         "panorama": "{{ $spot->img360 }}",
         "autoLoad": true
     });
+    });
+});
+document.addEventListener('DOMContentLoaded', function() {
+    
 });
 </script>
 </div>
