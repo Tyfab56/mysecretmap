@@ -602,9 +602,9 @@ while (index < str.length) { // Reset shift, result, and byte byte=null; shift=0
 
         if (liste.length == 0)
         {
-        d = d + '<div class="swiper-slide"><img class="imgbox" src="{{asset('frontend/assets/images/morepicred.jpg')}}">
-          <div class="bottom-center"><span class="textbox"><b>{{ __('destination.SpotEmpty') }}</b></span></div>
-        </div>';
+        d = d + '<div class="swiper-slide"><img class="imgbox" src="{{asset('frontend/assets/images/morepicred.jpg')}}">'
+          +'<div class="bottom-center"><span class="textbox"><b>{{ __('destination.SpotEmpty') }}</b></span></div>'
+          +'</div>';
         }
 
         for (var i = 0; i < Math.min(maxList,liste.length); i++) { var obj=liste[i]; d=d + '<div class="swiper-slide"><img class="imgbox" onClick="popimage(\'' + obj.name +' \','+ obj.id +','+ obj.lat+','+ obj.lng +')" src="' +obj.imgsquaresmall+'">
