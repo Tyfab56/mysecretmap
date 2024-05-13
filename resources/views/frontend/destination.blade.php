@@ -47,7 +47,7 @@
         </div>
 
         <div class="row">        
-               <div class="col-lg-9">
+               <div class="col-lg-12">
                      <div class="row">
                             <div class="row bgregbox w100">
                                 <div class="col-lg-12">
@@ -92,41 +92,41 @@
                                           <div class="col-lg-12 center pt-1 pb-1 pr-1 pl-1"><livewire:show360 /></div>
                                          
                                           <script>
-document.addEventListener('DOMContentLoaded', function() {
-   
+                                                  document.addEventListener('DOMContentLoaded', function() {
+                                                    
 
-    // Réinitialisation de Pannellum après chaque mise à jour de Livewire
-    Livewire.on('spotLoaded', function(spot) {
-        initializePannellum();
-       
-    });
-});
+                                                      // Réinitialisation de Pannellum après chaque mise à jour de Livewire
+                                                      Livewire.on('spotLoaded', function(spot) {
+                                                          initializePannellum();
+                                                        
+                                                      });
+                                                  });
 
 
-function initializePannellum() {
-    const img = document.getElementById('panoImage');
-    if (img) {
-        img.onload = function() {
-            pannellum.viewer('panorama', {
-                "type": "equirectangular",
-                "panorama": img.src,
-                "autoLoad": true,
-                "preload": true,
-                "autoRotate": -2,
-                "pitch" : -30,
-                "hfov": 120  
-            });
-        };
-        // Gérer le cas où l'image est déjà chargée
-        if (img.complete) {
-            img.onload();
-        }
-    } else {
-        console.log('Image element not found');
-    }
-}
+                                                  function initializePannellum() {
+                                                      const img = document.getElementById('panoImage');
+                                                      if (img) {
+                                                          img.onload = function() {
+                                                              pannellum.viewer('panorama', {
+                                                                  "type": "equirectangular",
+                                                                  "panorama": img.src,
+                                                                  "autoLoad": true,
+                                                                  "preload": true,
+                                                                  "autoRotate": -2,
+                                                                  "pitch" : -30,
+                                                                  "hfov": 120  
+                                                              });
+                                                          };
+                                                          // Gérer le cas où l'image est déjà chargée
+                                                          if (img.complete) {
+                                                              img.onload();
+                                                          }
+                                                      } else {
+                                                          console.log('Image element not found');
+                                                      }
+                                                  }
 
-</script>
+                                                  </script>
 
                                           </div>
                                         </div>  
@@ -146,7 +146,7 @@ function initializePannellum() {
                                </div>
                              </div>      
                       </div>       
-               <div class="col-lg-3 bgbox">           
+               <div class="col-lg-12 bgbox">           
                         <livewire:show-map-spot />
                </div>
         </div>
