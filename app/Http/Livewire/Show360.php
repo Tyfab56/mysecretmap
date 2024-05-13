@@ -18,21 +18,26 @@ class Show360 extends Component
        
         if (!is_null($idspot)) {
             $this->idspot = $idspot;
-            
+            $this->loadSpot();
         }
     }
 
-    public function render()
-    {
-        if (!is_null($this->idspot)) {
+    public function loadSpot()
+        {
             $this->spot = Spots::select('id', 'img360')->where('id', $this->idspot)->first();
-          
-        } else {
-            $this->spot = null;
+
+            if ($this->spot) {
+                $this->emit('spotLoaded', $this->spot); // Émettre l'événement avec les données du spot
+            } else {
+                // Optionnellement, gérer le cas où le spot n'est pas trouvé
+                session()->flash('error', 'Spot not found');
+            }
         }
-        
-        return view('livewire.show360', [
-            'spot' => $this->spot
-        ]);
-    }
+
+    public function render()
+        {
+            return view('livewire.show360', [
+                'spot' => $this->spot
+            ]);
+        }
 }

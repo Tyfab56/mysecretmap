@@ -91,15 +91,19 @@
                                         <div class="row pt-1 pb-1 pr-1 pl-1 bgregbox min100">  
                                           <div class="col-lg-12 center pt-1 pb-1 pr-1 pl-1"><livewire:show360 /></div>
                                           <div id="panorama"></div>
-                                          <div wire:loading.remove>
-                                            chargé
                                           <script>
-                                            pannellum.viewer('panorama', {
-                                                  "type": "equirectangular",
-                                                  "panorama": "{{ $spot->img360 }}",
-                                                  "autoLoad": true
-                                              });
-                                          </script>   
+                                                document.addEventListener('DOMContentLoaded', function() {
+                                                    Livewire.on('spotLoaded', function(spot) {
+                                                        if (spot.img360) {
+                                                            pannellum.viewer('panorama', {
+                                                                "type": "equirectangular",
+                                                                "panorama": spot.img360,
+                                                                "autoLoad": true
+                                                            });
+                                                        }
+                                                    });
+                                                });
+                                                </script>
                                           </div>
                                         </div>  
 
