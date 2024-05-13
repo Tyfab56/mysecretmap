@@ -616,12 +616,12 @@ while (index < str.length) { // Reset shift, result, and byte byte=null; shift=0
 
       if (liste.length > maxList)
       {
-      d = d + '<div class="swiper-slide"><img class="imgbox" src="{{asset('frontend/assets/images/morepicred.jpg')}}">
-        <div class="bottom-center"><span class="textbox"><b>{{ __('destination.SpotExceed') }}</b></span></div>
-      </div>';
+      d = d + '<div class="swiper-slide"><img class="imgbox" src="{{asset('frontend/assets/images/morepicred.jpg')}}">'
+        +'<div class="bottom-center"><span class="textbox"><b>{{ __('destination.SpotExceed') }}</b></span></div>'
+        +'</div>';
       }
-      d = d + '
-    </div>'; d = d + '</div>';
+      d = d
+      +'</div>'; d = d + '</div>';
 
     document.getElementById('medias').innerHTML = d;
 
