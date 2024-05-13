@@ -92,18 +92,18 @@
                                           <div class="col-lg-12 center pt-1 pb-1 pr-1 pl-1"><livewire:show360 /></div>
                                           <div id="panorama"></div>
                                           <script>
-                                                document.addEventListener('DOMContentLoaded', function() {
-                                                    Livewire.on('spotLoaded', function(spot) {
-                                                        if (spot.img360) {
-                                                            pannellum.viewer('panorama', {
-                                                                "type": "equirectangular",
-                                                                "panorama": spot.img360,
-                                                                "autoLoad": true
-                                                            });
-                                                        }
-                                                    });
-                                                });
-                                                </script>
+document.addEventListener('DOMContentLoaded', function() {
+    var panoramaContainer = document.getElementById('panorama');
+    var panoramaURL = panoramaContainer.getAttribute('data-pano-src');
+    if (panoramaURL) {
+        pannellum.viewer('panorama', {
+            "type": "equirectangular",
+            "panorama": panoramaURL,
+            "autoLoad": true
+        });
+    }
+});
+</script>
                                           </div>
                                         </div>  
 
