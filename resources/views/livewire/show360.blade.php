@@ -12,9 +12,12 @@
 @endpush
 <div id="panorama"></div>
 <script>
-pannellum.viewer('panorama', {
-    "type": "equirectangular",
-    "panorama": "{{ $spot->img360 }}"
+document.addEventListener('DOMContentLoaded', function() {
+    pannellum.viewer('panorama', {
+        "type": "equirectangular",
+        "panorama": "{{ $spot->img360 }}",
+        "autoLoad": true
+    });
 });
 </script>
 </div>
