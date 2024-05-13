@@ -10,5 +10,14 @@
 @push('scripts')
 <script src="https://cdn.jsdelivr.net/npm/pannellum/build/pannellum.js"></script>
 @endpush
+<script>
+document.addEventListener('livewire:load', function() {
+    pannellum.viewer('panorama', {
+        "type": "equirectangular",  // Type de panorama, assurez-vous que cela correspond à votre image
+        "panorama": "{{ $spot->img360 }}",
+        "autoLoad": true  // Charge automatiquement le panorama
+    });
+});
+</script>
 
 </div>
