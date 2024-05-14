@@ -562,12 +562,15 @@ while (index < str.length) { // Reset shift, result, and byte byte=null; shift=0
     xhr.onload = function() {
     if (xhr.status === 200) {
     var data = xhr.responseText;
+    if (data) { // Vérifie si data n'est pas vide
     const containerVideo = document.getElementById('container_video');
     containerVideo.innerHTML = '<div id="main_video" src="'+ data + '" width="640" height="360" controls="controls" preload="auto"></div>';
-    swarmify.swarmifyVideo("main_video",{
+    swarmify.swarmifyVideo("main_video", {
     width: '640px',
     });
-
+    } else {
+    console.log('La réponse est vide, la vidéo ne sera pas affichée.');
+    }
     } else {
     console.error('Erreur:', xhr.statusText);
     }
