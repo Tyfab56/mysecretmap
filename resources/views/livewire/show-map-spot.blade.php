@@ -29,7 +29,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6">
-                <b class="white">{{ __('index.Spot') }} : <span class="orange">{{$titre}}</span></b><br>
+
                 <b class="white">Lat : <span class="orange">{{$spot->lat}}</span></b><br>
                 <b class="white">Lng : <span class="orange">{{$spot->lng}}</span></b><br>
                 <div class="mt-3"><b>{{ __('index.Description') }}</b> : <span style="color:white"> {{$traduction->description?? ''}}</span></div>
