@@ -47,11 +47,12 @@
         </div>
 
         <div class="row">
-            <div class="row pt-1 pb-1 pr-1 pl-1 bgregbox min100">
-                <div class="col-lg-12 pt-1 pb-1  pr-1 pl-1"><livewire:show-map-globale />
-                </div>
-            </div>
+
             <div class="col-lg-12">
+                <div class="row pt-1 pb-1 pr-1 pl-1 bgregbox min100">
+                    <div class="col-lg-12 pt-1 pb-1  pr-1 pl-1"><livewire:show-map-globale />
+                    </div>
+                </div>
                 <div class="row">
                     <div class="row bgregbox w100">
                         <div class="col-lg-12">
