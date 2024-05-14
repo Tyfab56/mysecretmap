@@ -50,6 +50,7 @@
 
             <div class="col-lg-12">
                 <div class="row pt-1 pb-1 pr-1 pl-1 bgregbox min100">
+                    Informations
                     <div class="col-lg-12 pt-1 pb-1  pr-1 pl-1"><livewire:show-map-globale />
                     </div>
                 </div>
