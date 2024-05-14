@@ -21,6 +21,7 @@
     </div>
     @endif
     <div class="md-12  center mt5 ">
+        <h1 class="white">{{$titre}}</span></h1><br>
         <img src="{{$spot->imgpanolarge??''}}" class="max100 mb5 responsive intense">
 
     </div>
