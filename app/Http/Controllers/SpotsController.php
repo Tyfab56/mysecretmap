@@ -516,7 +516,8 @@ class SpotsController extends Controller
             $canvas->insert($imagefinale, 'center');
 
             // Encodage de l'image
-            $canvas->encode($extension);
+            $quality = 85;
+            $canvas->encode($extension, $quality);
 
             // Stockage de l'image
             $imagePath = $img360name;
