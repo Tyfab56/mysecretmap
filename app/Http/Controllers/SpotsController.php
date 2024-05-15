@@ -481,51 +481,36 @@ class SpotsController extends Controller
                 if ($spotinfo->img360) {
                     $bucket = $spotinfo->bucket;
                     $disk = Storage::disk('360');
-                    $filelarge = basename(parse_url($spotinfo->img360, PHP_URL_PATH));
+                    $filelarge = parse_url($spotinfo->img360, PHP_URL_PATH);
                     $disk->delete($filelarge);
                 }
             }
-
             // nouvelle image
             $image360status = 1;
             $extension = $file360->getClientOriginalExtension();
-            $img360name = str_replace(' ', '-', $request->file('img360')->getClientOriginalName());
+            $img360name =  $request->file('img360')->getClientOriginalName();
+            $img360name = str_replace(' ', '-', $img360name);
             $img360name = uniqid() . "_" . $id . "_" . $request->payslist . "_" . $img360name;
 
             // Configuration
             $disk = Storage::disk('360'); // Utilisation du disque "360"
-            $bucket = 'mysecretmap';
+            $bucket = '';
+            $path = storage_path('app/public/360/');
 
-            // Dimensions de l'image
-            $width = 7200;
-            $height = 3600;
+            // Vérification et création du dossier si nécessaire
+            if (!file_exists($path)) {
+                mkdir($path, 0777, true);
+            }
 
-            // Création du canevas
-            $canvas = Image::canvas($width, $height);
-
-            // Redimensionnement de l'image
-            $imagefinale = Image::make($file360)->resize(
-                $width,
-                null,
-                function ($constraint) {
-                    $constraint->aspectRatio();
-                }
-            );
-
-            // Insertion de l'image dans le canevas
-            $canvas->insert($imagefinale, 'center');
-
-            // Encodage de l'image
-            $quality = 85;
-            $canvas->encode($extension, $quality);
-
-            // Stockage de l'image
-            $imagePath = $img360name;
-            $disk->put($imagePath, (string) $canvas);
+            // Stockage de l'image directement
+            $imagePath = '360/' . $img360name;
+            $disk->putFileAs('', $file360, $img360name);
 
             // URL de l'image
-            $large360name = config('app.url') . '/storage/360/' . $imagePath;
+            $large360name = config('app.url') . Storage::url($imagePath);
         }
+
+
 
 
 
