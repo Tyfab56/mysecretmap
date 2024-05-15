@@ -13,9 +13,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/switchery/0.8.2/switchery.js"></script>
 <link rel="stylesheet" href="{{ asset('frontend/assets/css/GridOverflow3D.css')}}" />
 <link rel="stylesheet" href="{{ asset('frontend/assets/css/pannellum.css') }}">
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@photo-sphere-viewer/core/index.min.css" />
 
 <!-- Template styles-->
 <script data-cfasync="false">
@@ -96,28 +94,6 @@
                             <div class="row pt-1 pb-1 pr-1 pl-1 bgregbox min100">
                                 <div class="col-lg-12 center pt-1 pb-1 pr-1 pl-1">
                                     <livewire:show360 />
-                                    <!-- the viewer container must have a defined size -->
-                                    <div id="viewer" style="width: 100vw; height: 100vh;"></div>
-
-                                    <script type="importmap">
-                                        {
-        "imports": {
-            "three": "https://cdn.jsdelivr.net/npm/three/build/three.module.js",
-            "@photo-sphere-viewer/core": "https://cdn.jsdelivr.net/npm/@photo-sphere-viewer/core/index.module.js"
-        }
-    }
-</script>
-
-                                    <script type="module">
-                                        import {
-                                            Viewer
-                                        } from '@photo-sphere-viewer/core';
-
-                                        const viewer = new Viewer({
-                                            container: document.querySelector('#viewer'),
-                                            panorama: 'https://mysecretmap.s3.eu-central-1.wasabisys.com/large/large-663df7858e427_1_KM_P6.jpg',
-                                        });
-                                    </script>
                                 </div>
 
                                 <script>
