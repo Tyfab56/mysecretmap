@@ -476,27 +476,24 @@ class SpotsController extends Controller
             // pas de nouvelle image
             $image360status = 0;
         } else {
-            // Recherche si ancienne image et suppression des images coorespondantes
-
+            // Recherche si ancienne image et suppression des images correspondantes
             if ($typeaction == "edit") {
                 if ($spotinfo->img360) {
-                    $bucket = $spotinfo->bucket;
                     $disk = Storage::disk('360');
-                    $filelarge = parse_url($spotinfo->img360);
+                    $filelarge = basename($spotinfo->img360);
                     $disk->delete($filelarge);
                 }
             }
+
             // nouvelle image
             $image360status = 1;
             $extension = $file360->getClientOriginalExtension();
-            $img360name =  $request->file('img360')->getClientOriginalName();;
-            $img360name = str_replace(' ', '-', $img360name);
+            $img360name = str_replace(' ', '-', $request->file('img360')->getClientOriginalName());
             $img360name = uniqid() . "_" . $id . "_" . $request->payslist . "_" . $img360name;
 
             // Configuration
             $disk = Storage::disk('360'); // Utilisation du disque "360"
-            $bucket = '';
-            $path = storage_path('app/public/360/');
+            $path = storage_path('app/360/');
 
             // Vérification et création du dossier si nécessaire
             if (!file_exists($path)) {
@@ -520,10 +517,7 @@ class SpotsController extends Controller
             );
 
             // Insertion de l'image dans le canevas
-            $canvas->insert(
-                $imagefinale,
-                'center'
-            );
+            $canvas->insert($imagefinale, 'center');
 
             // Encodage de l'image
             $canvas->encode($extension);
@@ -533,7 +527,7 @@ class SpotsController extends Controller
             $disk->put($imagePath, (string) $canvas);
 
             // URL de l'image
-            $large360name = config('app.url') . Storage::url('360/' . $imagePath);
+            $large360name = config('app.url') . '/storage/360/' . $imagePath;
         }
 
 
