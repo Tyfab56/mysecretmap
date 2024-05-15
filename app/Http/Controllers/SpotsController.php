@@ -471,7 +471,7 @@ class SpotsController extends Controller
             $smallsquarename = $disk->url('small/small-' . $imgsquarename);
         }
 
-        // traitement image 360
+        // traitement image 360  ////////////////////////////////////////////////////////////////////////
         if ($file360 == null) {
             // pas de nouvelle image
             $image360status = 0;
@@ -495,6 +495,7 @@ class SpotsController extends Controller
 
             // Configuration
             $disk = Storage::disk('360'); // Utilisation du disque "360"
+            $bucket = '';
             $path = storage_path('app/public/360/');
 
             // Vérification et création du dossier si nécessaire
