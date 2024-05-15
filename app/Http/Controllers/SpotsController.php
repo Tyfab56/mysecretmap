@@ -481,7 +481,7 @@ class SpotsController extends Controller
                 if ($spotinfo->img360) {
                     $bucket = $spotinfo->bucket;
                     $disk = Storage::disk('360');
-                    $filelarge = basename($spotinfo->img360);
+                    $filelarge = basename(parse_url($spotinfo->img360, PHP_URL_PATH));
                     $disk->delete($filelarge);
                 }
             }
@@ -495,12 +495,6 @@ class SpotsController extends Controller
             // Configuration
             $disk = Storage::disk('360'); // Utilisation du disque "360"
             $bucket = 'mysecretmap';
-            $path = storage_path('app/360/');
-
-            // Vérification et création du dossier si nécessaire
-            if (!file_exists($path)) {
-                mkdir($path, 0777, true);
-            }
 
             // Dimensions de l'image
             $width = 7200;
@@ -510,7 +504,7 @@ class SpotsController extends Controller
             $canvas = Image::canvas($width, $height);
 
             // Redimensionnement de l'image
-            $imagefinale  = Image::make($file360)->resize(
+            $imagefinale = Image::make($file360)->resize(
                 $width,
                 null,
                 function ($constraint) {
@@ -525,12 +519,13 @@ class SpotsController extends Controller
             $canvas->encode($extension);
 
             // Stockage de l'image
-            $imagePath = '360/' . $img360name;
+            $imagePath = $img360name;
             $disk->put($imagePath, (string) $canvas);
 
             // URL de l'image
-            $large360name = config('app.url') . '/storage/' . $imagePath;
+            $large360name = config('app.url') . '/storage/360/' . $imagePath;
         }
+
 
 
 
