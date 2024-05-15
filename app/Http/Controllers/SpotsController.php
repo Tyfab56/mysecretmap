@@ -533,7 +533,7 @@ class SpotsController extends Controller
             $disk->put($imagePath, (string) $canvas);
 
             // URL de l'image
-            $large360name = $disk->url($imagePath);
+            $large360name = config('app.url') . Storage::url('360/' . $imagePath);
         }
 
 

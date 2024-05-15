@@ -61,7 +61,7 @@ return [
         ],
         '360' => [
             'driver' => 'local',
-            'root' => storage_path('app/public/360'),
+            'root' => storage_path('app/360'),
             'url' => env('APP_URL') . '/storage/360',
             'visibility' => 'public',
         ],
