@@ -479,6 +479,7 @@ class SpotsController extends Controller
             // Recherche si ancienne image et suppression des images correspondantes
             if ($typeaction == "edit") {
                 if ($spotinfo->img360) {
+                    $bucket = $spotinfo->bucket;
                     $disk = Storage::disk('360');
                     $filelarge = basename($spotinfo->img360);
                     $disk->delete($filelarge);
@@ -493,6 +494,7 @@ class SpotsController extends Controller
 
             // Configuration
             $disk = Storage::disk('360'); // Utilisation du disque "360"
+            $bucket = 'mysecretmap';
             $path = storage_path('app/360/');
 
             // Vérification et création du dossier si nécessaire
@@ -523,12 +525,13 @@ class SpotsController extends Controller
             $canvas->encode($extension);
 
             // Stockage de l'image
-            $imagePath = $img360name;
+            $imagePath = '360/' . $img360name;
             $disk->put($imagePath, (string) $canvas);
 
             // URL de l'image
-            $large360name = config('app.url') . '/storage/360/' . $imagePath;
+            $large360name = config('app.url') . '/storage/' . $imagePath;
         }
+
 
 
 
