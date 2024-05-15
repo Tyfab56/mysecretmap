@@ -20,7 +20,7 @@ use function GuzzleHttp\Promise\exception_for;
 
 class SpotsController extends Controller
 {
-    
+
     // Liste les spot sur la premiere page en fonction du type de marqueurs (maps)
     public function filter(Request $request)
     {
@@ -28,61 +28,53 @@ class SpotsController extends Controller
 
         if (is_null($request->maps)) {
             $map = 1;
-        }
-        else
-        {
+        } else {
             $map = $request->maps;
         }
 
-        
+
         // Liste les spots
         $payslist = Pays::where('actif', '=', 1)->orderBy('pays', 'asc')->get();
 
         if (is_null($request->pays)) {
             $pays = null;
-        }
-        else
-        {
+        } else {
             $pays = $request->pays;
         }
-        
+
         $users = User::where('admin', '=', 1)->get();
-        if (is_null($request->search))
-        { 
+        if (is_null($request->search)) {
             $spots = Spots::orderBy('id', 'desc')->where('maps_id', '=', $map)->where('pays_id', '=', $pays)->paginate(15);
+        } else {
+            $spots = Spots::orderBy('id', 'desc')->where('maps_id', '=', $map)->where('pays_id', '=', $pays)->where('name', 'LIKE', "%{$request->search}%")->paginate(15);
         }
-        else
-        {
-            $spots = Spots::orderBy('id', 'desc')->where('maps_id', '=', $map)->where('pays_id', '=', $pays)->where('name','LIKE',"%{$request->search}%")->paginate(15);
-        }
-       
+
         // Liste les type de maps
         $maps = Maps::get();
-   
 
-        return view('admin.spots', compact('payslist','pays', 'users', 'spots','map', 'maps'));
 
+        return view('admin.spots', compact('payslist', 'pays', 'users', 'spots', 'map', 'maps'));
     }
     public function index()
     {
         $maps = Maps::get();
         $map = 1;
-        
 
-        
+
+
         // Liste les spots
         $payslist = Pays::where('actif', '=', 1)->orderBy('pays', 'asc')->get();
         $pays = 'IS';
-        
-        
+
+
         $users = User::where('admin', '=', 1)->get();
         $spots = Spots::orderBy('id', 'desc')->where('maps_id', '=', $map)->where('pays_id', '=', $pays)->paginate(15);
 
         // Liste les type de maps
         $maps = Maps::get();
-   
 
-        return view('admin.spots', compact('payslist','pays', 'users', 'spots','map', 'maps'));
+
+        return view('admin.spots', compact('payslist', 'pays', 'users', 'spots', 'map', 'maps'));
     }
 
     public function edit($id, $lang = null)
@@ -110,7 +102,7 @@ class SpotsController extends Controller
         // Liste les type de maps
         $maps = Maps::get();
 
-        
+
 
         return view('admin.addspot', compact('spot', 'langs', 'pays', 'typepoints', 'timeonsite', 'randotime', 'spotlang', 'previousspot', 'nextspot', 'maps'));
     }
@@ -218,7 +210,7 @@ class SpotsController extends Controller
     public function spotStore(Request $request)
     {
 
-        
+
 
         // Controle du formulaire
         $validatedData = $request->validate(
@@ -238,7 +230,7 @@ class SpotsController extends Controller
 
             ]
         );
-        
+
 
         $id = Auth::id();
         $typeaction = session::get('typeaction');
@@ -257,20 +249,17 @@ class SpotsController extends Controller
         // Si spotid existe rechercher les informations
         $spotinfo = Spots::where('id', '=', $spotid)->first();
 
-  
+
 
         // Verifier que l'emplacement du parking n'a pas changé
-        
-        if (is_null($spotinfo))
-        {
-            $latparking = 0 ;   
-        }
-        else
-        {
+
+        if (is_null($spotinfo)) {
+            $latparking = 0;
+        } else {
             $latparking = $spotinfo->latparking;
         }
 
-        
+
         // traitement du temps sur site
         list($hours, $mins) = explode(':', $request->timeonsite);
         $timeonsite = mktime($hours, $mins, 0) - mktime(0, 0, 0);
@@ -281,7 +270,7 @@ class SpotsController extends Controller
         $actif = $request->has('actif');
         $payant = $request->has('payant');
         $audioguide = $request->has('audioguide');
-        
+
         // traitement de imgpano
         // Test existence d'une nouvelle image
 
@@ -383,126 +372,31 @@ class SpotsController extends Controller
             $disk->put('/small/small-' . $imgpanoname, (string) $canvas, 'public');
             $smallname = $disk->url('small/small-' . $imgpanoname);
         }
-  // traitement image carré
-  if ($filesquare == null) {
-    // pas de nouvelle image
-    $imagesquarestatus = 0;
-} else {
-    // Recherche si ancienne image et suppression des images coorespondantes
-
-    if ($typeaction == "edit") {
-        if ($spotinfo->imgsquaresmall) {
-            $bucket = $spotinfo->bucket;
-            $disk = Storage::disk('wasabi');
-            $filesmall = parse_url($spotinfo->imgsquaresmall);
-            $filemedium = parse_url($spotinfo->imgsquaremedium);
-            $filelarge = parse_url($spotinfo->imgsquarelarge);
-            $disk->delete($filesmall);
-            $disk->delete($filemedium);
-            $disk->delete($filelarge);
-        }
-    }
-    // nouvelle image
-    $imagesquarestatus = 1;
-    $extension = $filesquare->getClientOriginalExtension();
-    $imgsquarename =  $request->file('imgsquare')->getClientOriginalName();;
-    $imgsquarename = str_replace(' ', '-', $imgsquarename);
-    $imgsquarename = uniqid() . "_" . $id . "_" . $request->payslist . "_" . $imgsquarename;
-
-
-    $disk = Storage::disk('wasabi');
-    $bucket = 'mysecretmap';
-
-    // LARGE
-    // Stockage d'une image large 1100 x 366
-    $width = 1100;
-    $height = 1100;
-    $canvas = Image::canvas($width, $height);
-
-    $imagefinale  = Image::make($filesquare)->resize(
-        $width,
-        null,
-        function ($constraint) {
-            $constraint->aspectRatio();
-        }
-    );
-
-    $canvas->insert(
-        $imagefinale,
-        'center'
-    );
-    $canvas->encode($extension);
-
-    $disk->put('/large/large-' . $imgsquarename, (string) $canvas, 'public');
-    $largesquarename = $disk->url('large/large-' . $imgsquarename);
-
-
-    // MEDIUM
-    // Stockage d'un thumb 408x136
-    $width = 408;
-    $height = 408;
-    $canvas = Image::canvas($width, $height);
-
-    $imagefinale  = Image::make($filesquare)->resize(
-        $width,
-        null,
-        function ($constraint) {
-            $constraint->aspectRatio();
-        }
-    );
-
-    $canvas->insert(
-        $imagefinale,
-        'center'
-    );
-    $canvas->encode($extension);
-
-    $disk->put('/medium/medium-' . $imgsquarename, (string) $canvas, 'public');
-    $mediumsquarename = $disk->url('medium/medium-' . $imgsquarename);
-    // SMALL
-    // Stockage d'une vignette 130x43
-    $width = 130;
-    $height = 130;
-    $canvas = Image::canvas($width, $height);
-
-    $imagefinale  = Image::make($filesquare)->resize(
-        $width,
-        null,
-        function ($constraint) {
-            $constraint->aspectRatio();
-        }
-    );
-
-    $canvas->insert(
-        $imagefinale,
-        'center'
-    );
-    $canvas->encode($extension);
-    $disk->put('/small/small-' . $imgsquarename, (string) $canvas, 'public');
-    $smallsquarename = $disk->url('small/small-' . $imgsquarename);
-}
-
-        // traitement image 360
-        if ($file360 == null) {
+        // traitement image carré
+        if ($filesquare == null) {
             // pas de nouvelle image
-            $image360status = 0;
+            $imagesquarestatus = 0;
         } else {
             // Recherche si ancienne image et suppression des images coorespondantes
 
             if ($typeaction == "edit") {
-                if ($spotinfo->img360) {
+                if ($spotinfo->imgsquaresmall) {
                     $bucket = $spotinfo->bucket;
                     $disk = Storage::disk('wasabi');
-                    $filelarge = parse_url($spotinfo->img360);
+                    $filesmall = parse_url($spotinfo->imgsquaresmall);
+                    $filemedium = parse_url($spotinfo->imgsquaremedium);
+                    $filelarge = parse_url($spotinfo->imgsquarelarge);
+                    $disk->delete($filesmall);
+                    $disk->delete($filemedium);
                     $disk->delete($filelarge);
                 }
             }
             // nouvelle image
-            $image360status = 1;
-            $extension = $file360->getClientOriginalExtension();
-            $img360name =  $request->file('img360')->getClientOriginalName();;
-            $img360name = str_replace(' ', '-', $img360name);
-            $img360name = uniqid() . "_" . $id . "_" . $request->payslist . "_" . $img360name;
+            $imagesquarestatus = 1;
+            $extension = $filesquare->getClientOriginalExtension();
+            $imgsquarename =  $request->file('imgsquare')->getClientOriginalName();;
+            $imgsquarename = str_replace(' ', '-', $imgsquarename);
+            $imgsquarename = uniqid() . "_" . $id . "_" . $request->payslist . "_" . $imgsquarename;
 
 
             $disk = Storage::disk('wasabi');
@@ -510,11 +404,11 @@ class SpotsController extends Controller
 
             // LARGE
             // Stockage d'une image large 1100 x 366
-            $width = 7200;
-            $height = 3600;
+            $width = 1100;
+            $height = 1100;
             $canvas = Image::canvas($width, $height);
 
-            $imagefinale  = Image::make($file360)->resize(
+            $imagefinale  = Image::make($filesquare)->resize(
                 $width,
                 null,
                 function ($constraint) {
@@ -528,11 +422,117 @@ class SpotsController extends Controller
             );
             $canvas->encode($extension);
 
-            $disk->put('/large/large-' . $img360name, (string) $canvas, 'public');
-            $large360name = $disk->url('large/large-' . $img360name);
+            $disk->put('/large/large-' . $imgsquarename, (string) $canvas, 'public');
+            $largesquarename = $disk->url('large/large-' . $imgsquarename);
 
 
-           
+            // MEDIUM
+            // Stockage d'un thumb 408x136
+            $width = 408;
+            $height = 408;
+            $canvas = Image::canvas($width, $height);
+
+            $imagefinale  = Image::make($filesquare)->resize(
+                $width,
+                null,
+                function ($constraint) {
+                    $constraint->aspectRatio();
+                }
+            );
+
+            $canvas->insert(
+                $imagefinale,
+                'center'
+            );
+            $canvas->encode($extension);
+
+            $disk->put('/medium/medium-' . $imgsquarename, (string) $canvas, 'public');
+            $mediumsquarename = $disk->url('medium/medium-' . $imgsquarename);
+            // SMALL
+            // Stockage d'une vignette 130x43
+            $width = 130;
+            $height = 130;
+            $canvas = Image::canvas($width, $height);
+
+            $imagefinale  = Image::make($filesquare)->resize(
+                $width,
+                null,
+                function ($constraint) {
+                    $constraint->aspectRatio();
+                }
+            );
+
+            $canvas->insert(
+                $imagefinale,
+                'center'
+            );
+            $canvas->encode($extension);
+            $disk->put('/small/small-' . $imgsquarename, (string) $canvas, 'public');
+            $smallsquarename = $disk->url('small/small-' . $imgsquarename);
+        }
+
+        // traitement image 360
+        if ($file360 == null) {
+            // pas de nouvelle image
+            $image360status = 0;
+        } else {
+            // Recherche si ancienne image et suppression des images coorespondantes
+
+            if ($typeaction == "edit") {
+                if ($spotinfo->img360) {
+                    $bucket = $spotinfo->bucket;
+                    $disk = Storage::disk('360');
+                    $filelarge = parse_url($spotinfo->img360);
+                    $disk->delete($filelarge);
+                }
+            }
+            // nouvelle image
+            $image360status = 1;
+            $extension = $file360->getClientOriginalExtension();
+            $img360name =  $request->file('img360')->getClientOriginalName();;
+            $img360name = str_replace(' ', '-', $img360name);
+            $img360name = uniqid() . "_" . $id . "_" . $request->payslist . "_" . $img360name;
+
+            // Configuration
+            $disk = Storage::disk('360'); // Utilisation du disque "360"
+            $path = storage_path('app/public/360/');
+
+            // Vérification et création du dossier si nécessaire
+            if (!file_exists($path)) {
+                mkdir($path, 0777, true);
+            }
+
+            // Dimensions de l'image
+            $width = 7200;
+            $height = 3600;
+
+            // Création du canevas
+            $canvas = Image::canvas($width, $height);
+
+            // Redimensionnement de l'image
+            $imagefinale  = Image::make($file360)->resize(
+                $width,
+                null,
+                function ($constraint) {
+                    $constraint->aspectRatio();
+                }
+            );
+
+            // Insertion de l'image dans le canevas
+            $canvas->insert(
+                $imagefinale,
+                'center'
+            );
+
+            // Encodage de l'image
+            $canvas->encode($extension);
+
+            // Stockage de l'image
+            $imagePath = $img360name;
+            $disk->put($imagePath, (string) $canvas);
+
+            // URL de l'image
+            $large360name = $disk->url($imagePath);
         }
 
 
@@ -693,8 +693,8 @@ class SpotsController extends Controller
             $mediummapname = $disk->url('medium/medium-' . $imgmapname);
         }
 
-         // traitement image zoom
-         if ($filezoom == null) {
+        // traitement image zoom
+        if ($filezoom == null) {
             // pas de nouvelle image
             $imagezoomstatus = 0;
         } else {
@@ -893,7 +893,7 @@ class SpotsController extends Controller
             $spot = $spotinfo;
         }
 
-     
+
         // Memorisation base de données 
         $spot->name = $request->titre;
         $spot->pays_id = $request->payslist;
@@ -911,10 +911,8 @@ class SpotsController extends Controller
         $spot->audioguide = $audioguide;
 
         // Positionner updategps si la position à changé pour recalculer le trajet
-        if (round($latparking <> 0))
-        {
-            if ($latparking <> $request->latparking)
-            {
+        if (round($latparking <> 0)) {
+            if ($latparking <> $request->latparking) {
                 $spot->updategps = 1;
             }
         }
@@ -1004,72 +1002,71 @@ class SpotsController extends Controller
         }
     }
 
-public function submitPicture(Request $request)
-{
-    $validatedData = $request->validate([
-        'spotid' => 'required|integer',
-        'file' => 'required|mimes:jpg,png,jpeg,gif|max:2048',
-    ]);
+    public function submitPicture(Request $request)
+    {
+        $validatedData = $request->validate([
+            'spotid' => 'required|integer',
+            'file' => 'required|mimes:jpg,png,jpeg,gif|max:2048',
+        ]);
 
-    $spotId = $request->input('spotid');
-    $file = $request->file('file');
+        $spotId = $request->input('spotid');
+        $file = $request->file('file');
 
-    $filename = time() . '_' . $file->getClientOriginalName();
-    $file->storeAs('public/pending_pictures', $filename);  // Stockage dans un dossier séparé pour les images en attente
+        $filename = time() . '_' . $file->getClientOriginalName();
+        $file->storeAs('public/pending_pictures', $filename);  // Stockage dans un dossier séparé pour les images en attente
 
-    $pendingPicture = new PendingPicture([
-        'user_id' => auth()->id(),
-        'spot_id' => $spotId,
-        'filename' => $filename,
-    ]);
-    $pendingPicture->save();
+        $pendingPicture = new PendingPicture([
+            'user_id' => auth()->id(),
+            'spot_id' => $spotId,
+            'filename' => $filename,
+        ]);
+        $pendingPicture->save();
 
-    return response()->json(['message' => 'Image uploaded and waiting for validation.']);
-}
-
-
-public function updateTranslations(Request $request, $spotId)
-{
-    $spot = Spots::find($spotId);
-    if (!$spot) {
-        return response()->json(['message' => 'Spot not found'], 404);
+        return response()->json(['message' => 'Image uploaded and waiting for validation.']);
     }
 
-    $locale = $request->input('locale'); // La locale de la traduction
-    $attribute = $request->input('attribute'); // L'attribut à mettre à jour
-    $value = $request->input('value'); // La valeur traduite
 
-    if (in_array($attribute, $spot->translatedAttributes)) {
-        $spot->translateOrNew($locale)->$attribute = $value;
-        $spot->save();
+    public function updateTranslations(Request $request, $spotId)
+    {
+        $spot = Spots::find($spotId);
+        if (!$spot) {
+            return response()->json(['message' => 'Spot not found'], 404);
+        }
 
-        return response()->json(['message' => 'Spot translation updated successfully']);
+        $locale = $request->input('locale'); // La locale de la traduction
+        $attribute = $request->input('attribute'); // L'attribut à mettre à jour
+        $value = $request->input('value'); // La valeur traduite
+
+        if (in_array($attribute, $spot->translatedAttributes)) {
+            $spot->translateOrNew($locale)->$attribute = $value;
+            $spot->save();
+
+            return response()->json(['message' => 'Spot translation updated successfully']);
+        }
+
+        return response()->json(['message' => 'Invalid attribute'], 400);
     }
 
-    return response()->json(['message' => 'Invalid attribute'], 400);
-}
 
+    public function search(Request $request)
+    {
+        $query = $request->get('query');
+        $spots = Spots::where('name', 'LIKE', "%{$query}%")->get();
 
-public function search(Request $request)
-{
-    $query = $request->get('query');
-    $spots = Spots::where('name', 'LIKE', "%{$query}%")->get();
+        $html = '';
+        foreach ($spots as $spot) {
+            $html .= '<option value="' . $spot->id . '">' . $spot->name . '</option>';
+        }
 
-    $html = '';
-    foreach ($spots as $spot) {
-        $html .= '<option value="'.$spot->id.'">'.$spot->name.'</option>';
+        return response()->json(['html' => $html]);
     }
 
-    return response()->json(['html' => $html]);
-}
+    public function searchbanner(Request $request)
+    {
+        $query = $request->input('q');
 
-public function searchbanner(Request $request)
-{
-    $query = $request->input('q');
+        $spots = Spots::where('name', 'like', "%{$query}%")->get();
 
-    $spots = Spots::where('name', 'like', "%{$query}%")->get();
-
-    return response()->json($spots);
-}
-
+        return response()->json($spots);
+    }
 }

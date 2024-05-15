@@ -59,6 +59,12 @@ return [
             'url' => env('AWS_URL'),
             'endpoint' => 'https://s3.wasabisys.com'
         ],
+        '360' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/360'),
+            'url' => env('APP_URL') . '/storage/360',
+            'visibility' => 'public',
+        ],
 
     ],
 
