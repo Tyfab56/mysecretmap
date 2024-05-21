@@ -1,29 +1,7 @@
 @extends('frontend.main_master')
 @section('content')
 
-
-<title>Join Our Blogger Partnership Program - My Secret Map</title>
 <style>
-    header p {
-        font-size: 1.2em;
-        color: #666;
-    }
-
-    section {
-        margin: 20px 0;
-    }
-
-    section h2 {
-        color: #333;
-        border-bottom: 2px solid #ddd;
-        padding-bottom: 10px;
-    }
-
-    section p {
-        color: #666;
-        line-height: 1.6;
-    }
-
     .cta {
         text-align: center;
         margin: 30px 0;
