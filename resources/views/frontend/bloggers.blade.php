@@ -33,7 +33,7 @@
 <div class="container">
     <div class="row">
         <h1>Join Our Blogger Partnership Program</h1>
-        <p>Help your audience discover the hidden gems of Iceland with Charly Explore Iceland audioguide.</p>
+
     </div>
 
     <section>
