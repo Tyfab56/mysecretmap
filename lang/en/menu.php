@@ -34,9 +34,8 @@ return [
     'Transport' => 'Transport companies',
     'Medias' => 'Medias management',
     'Hotels' => 'Hotels',
-    'Contact'=>'Contact',
-    'Affiliate'=>"Affiliate",
-    'Portfolio'=>"Media Portfolio",
+    'Contact' => 'Contact',
+    'Affiliate' => "Affiliate",
+    'Portfolio' => "Media Portfolio",
+    'Bloggers' => "bloggers"
 ];
-
-

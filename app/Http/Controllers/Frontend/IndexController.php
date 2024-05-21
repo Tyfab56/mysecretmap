@@ -743,6 +743,11 @@ class IndexController extends Controller
         return view('frontend.transporteur');
     }
 
+    public function bloggers()
+    {
+        return view('frontend.bloggers');
+    }
+
     public function croisiere()
     {
         return view('frontend.croisiere');

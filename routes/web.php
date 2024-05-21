@@ -92,6 +92,7 @@ Route::get('/refreshtour/{idspays}/{idcircuit}', [DestinationController::class, 
 Route::get('/circuit/{idcircuit}', [DestinationController::class, 'circuit'])->name('circuit');
 Route::get('/search', [IndexController::class, 'search'])->name('search');
 Route::get('/partner/transport', [IndexController::class, 'transport'])->name('transport');
+Route::get('/partner/bloggers', [IndexController::class, 'bloggers'])->name('bloggers');
 Route::get('/partner/hotel', [HotelController::class, 'partnership'])->name('hotels');
 Route::get('/partner/croisiere', [IndexController::class, 'croisiere'])->name('croisiere');
 
@@ -104,7 +105,7 @@ Route::get('/email/verify/{id}/{hash}', [VerifyEmailController::class, '__invoke
     ->middleware(['signed', 'throttle:6,1'])
     ->name('verification.verify');
 
-Route::middleware('auth','verified')->group(function () {
+Route::middleware('auth', 'verified')->group(function () {
     Route::get('/profile/me', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile/me', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile/me', [ProfileController::class, 'destroy'])->name('profile.destroy');
@@ -112,11 +113,10 @@ Route::middleware('auth','verified')->group(function () {
     Route::put('/user/social/{user}', [UserController::class, 'updateSocial'])->name('user.updateSocial');
     Route::put('/profil/update', [UserController::class, 'updateWhoIAm'])->name('whoiam.update');
     Route::post('/update-photographer-info', [UserController::class, 'updatePhotographerInfo'])
-    ->name('update.photographer.info');
+        ->name('update.photographer.info');
     Route::get('/get-photographer-info', [UserController::class, 'getPhotographerInfo'])->name('get.photographer.info');
     Route::post('/addimageprofil', [UserController::class, 'updatePhotoProfil'])->name('addimageprofil');
     Route::post('/submitpicture', [SpotController::class, 'submitPicture'])->name('submitpicture');
-    
 });
 
 Route::get('language/{locale}', function ($locale) {
@@ -179,9 +179,9 @@ Route::get('/admin/spots/search', [SpotsController::class, 'search'])->name('adm
 Route::get('/videohike', [RandoController::class, 'videohike'])->name('videohike');
 
 Route::post('/admin/randos/storeBaseInfo', [RandoController::class, 'storeBaseInfo'])->name('admin.randos.storeBaseInfo');
-Route::view('/rodrigues','frontend.destinations.rodrigues')->name('rodrigues');
+Route::view('/rodrigues', 'frontend.destinations.rodrigues')->name('rodrigues');
 Route::view('/iceland', 'frontend.destinations.iceland')->name('iceland');
-Route::view('/comoros','frontend.destinations.comoros')->name('comoros');
+Route::view('/comoros', 'frontend.destinations.comoros')->name('comoros');
 Route::view('/iceland/geology', 'frontend.destinations.iceland-geologie')->name('iceland.geology');
 Route::view('/blog', 'frontend.destinations.blog')->name('blog');
 Route::view('/blog/hotspot', 'frontend.destinations.blog-hotspot')->name('blog.hotspot');
@@ -193,7 +193,7 @@ Route::view('/affiliate', 'frontend.affiliate')->name('affiliate');
 
 Route::get('/add-ot-spots', [IndexController::class, 'addotspot'])->name('addotspot');
 
-Route::view('/guide_iceland_en','frontend.guide_iceland_en')->name('guide_iceland_en');
+Route::view('/guide_iceland_en', 'frontend.guide_iceland_en')->name('guide_iceland_en');
 
 Route::get('/test', [TestController::class, 'index'])->name('test');
 
@@ -278,7 +278,6 @@ Route::prefix('admin')->group(function () {
     Route::post('messages/store', [MessageAdminController::class, 'store'])->name('admin.messages.store')->middleware('App\Http\Middleware\CheckAdmin');;
     Route::patch('messages/{message}/markAsRead', [MessageAdminController::class, 'markAsRead'])->name('admin.messages.markAsRead')->middleware('App\Http\Middleware\CheckAdmin');
     Route::delete('messages/{id}', [MessageAdminController::class, 'destroy'])->name('admin.messages.destroy')->middleware('App\Http\Middleware\CheckAdmin');
-   
 });
 Route::get('/admin/users/search', [UserController::class, 'search'])->name('admin.users.search');
 Route::POST('admin/users/getAssociatedSpots', [SpotBannerUserController::class, 'search']);
@@ -296,7 +295,6 @@ Route::middleware(['App\Http\Middleware\CheckAdmin'])->group(function () {
     Route::delete('bannersdetach/{spot}', [SpotBannerUserController::class, 'detachBanner'])->name('banners.detach');
     Route::get('associatebanners', [SpotBannerUserController::class, 'getBanners'])->name('userbanners.index');
     Route::get('/admin/spots/searchbanner', [SpotsController::class, 'searchbanner']);
-   
 });
 
 Route::view('admin.dashboard', 'admin.dashboard')->name('admin.dashboard')->middleware('App\Http\Middleware\CheckAdmin');;
