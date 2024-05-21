@@ -67,3 +67,4 @@
     <footer>
         <p>For more information, visit our <a href="https://www.facebook.com/mysecretmap">Facebook page</a>.</p>
     </footer>
+    @endsection
