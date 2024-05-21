@@ -4,25 +4,6 @@
 
 <title>Join Our Blogger Partnership Program - My Secret Map</title>
 <style>
-    .container {
-        max-width: 800px;
-        margin: 0 auto;
-        background-color: #fff;
-        padding: 20px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-
-    header {
-        text-align: center;
-        padding: 50px 0;
-    }
-
-    header h1 {
-        margin: 0;
-        font-size: 2.5em;
-        color: #333;
-    }
-
     header p {
         font-size: 1.2em;
         color: #666;
@@ -108,9 +89,3 @@
     <footer>
         <p>For more information, visit our <a href="https://www.facebook.com/mysecretmap">Facebook page</a>.</p>
     </footer>
-
-    </html>
-    ```
-
-    This HTML page provides a clear and compelling invitation for bloggers to join your partnership program, detailing the benefits and how the process works, with a strong call to action.
-    @endsection
