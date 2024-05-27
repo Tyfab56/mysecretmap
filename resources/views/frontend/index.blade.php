@@ -10,7 +10,6 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
 <link rel="stylesheet" href="{{ asset('frontend/assets/css/GridOverflow3D.css')}}" />
 
-
 @endsection
 
 
@@ -207,10 +206,6 @@
   </div>
 </section>
 <section id="ts-features" class="ts-features">
-
-
-</section>
-<section id="ts-features" class="ts-features">
   <div class="testimonial-card">
     <div style="display: flex; gap: 1rem; /* space-x-4 */">
       <img src="{{ asset('frontend/assets/images/pierre250.png')}}" alt="Portrait of Aliya, a client, wearing sunglasses and a floral outfit">
@@ -259,8 +254,6 @@
   }
 
 </style>
-
-
   <section id=" ts-features" class="ts-features">
           <div class="container">
             <div class="row">
