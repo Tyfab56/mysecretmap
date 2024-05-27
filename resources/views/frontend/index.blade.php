@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="{{ asset('frontend/assets/css/leaflet.extra-markers.min.css')}}" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
 <link rel="stylesheet" href="{{ asset('frontend/assets/css/GridOverflow3D.css')}}" />
-<link rel="stylesheet" href="{{ asset('frontend/assets/css/pannellum.css') }}">
+
 
 @endsection
 
@@ -207,20 +207,8 @@
   </div>
 </section>
 <section id="ts-features" class="ts-features">
-  <script src="{{ asset('frontend/assets/js/pannellum.js') }}"></script>
-  @if($latestspot)
-  <div class="latest-spot">
-    <h2>Dernier Spot 360 Mis en Ligne</h2>
-    <div id="panorama" style="width: 100%; height: 500px;"></div>
-    <script>
-      pannellum.viewer('panorama', {
-        "type": "equirectangular",
-        "panorama": "{{ $latestspot->img360 }}",
-        "autoLoad": true
-      });
-    </script>
-  </div>
-  @endif
+
+
 </section>
 <section id="ts-features" class="ts-features">
   <div class="testimonial-card">
