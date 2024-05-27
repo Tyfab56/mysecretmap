@@ -51,6 +51,7 @@ class IndexController extends Controller
 
         // Liste des dernier spots
         $lastspots = Spots::orderBy('created_at', 'desc')->where('actif', '=', 1)->take(18)->get();
+        $latestspot = Spot::orderBy('created_at', 'desc')->first();
 
         $pays = Pays::where('pays_id', '=', $idpays)->first();
 
@@ -78,39 +79,39 @@ class IndexController extends Controller
             $spot = null;
         }
 
-      
-        
+
+
         $latestPictures = Pictures::selectRaw('MAX(id) as id')
-        ->groupBy('spot_id')
-        ->orderBy('id', 'desc')
-        ->limit(30)
-        ->get();
-    
+            ->groupBy('spot_id')
+            ->orderBy('id', 'desc')
+            ->limit(30)
+            ->get();
+
         $pictureIds = $latestPictures->pluck('id');
-    
+
         $pictures = Pictures::whereIn('id', $pictureIds)
-                    ->orderBy('created_at', 'desc')
-                    ->paginate(30);
+            ->orderBy('created_at', 'desc')
+            ->paginate(30);
 
-        $timelines = Timelines::orderBy('date', 'desc')->take(5)->get();   
+        $timelines = Timelines::orderBy('date', 'desc')->take(5)->get();
 
 
-  
-           
 
-        return view('frontend/index', compact('lastPays', 'idpays', 'pays', 'payslist', 'payslng', 'payslat', 'payszoom', 'paysoffset', 'spot', 'lastspots', 'noscircuits','markerspays','pictures','timelines'));
+
+
+        return view('frontend/index', compact('lastPays', 'idpays', 'pays', 'payslist', 'payslng', 'payslat', 'payszoom', 'paysoffset', 'spot', 'lastspots', 'noscircuits', 'markerspays', 'pictures', 'timelines', 'latestspot'));
     }
 
     public function search(Request $request)
     {
         $query = $request->input('query');
         $spots = Spots::whereTranslationLike('description', '%' . $query . '%')->get();
-    
+
         return view('frontend.searchspot', compact('spots', 'query'));
     }
 
 
- 
+
     public function godestination(Request $request)
     {
         $idpays = $request->idpays;
@@ -135,7 +136,7 @@ class IndexController extends Controller
 
         // Liste des dernier spots
         $lastspots = Spots::orderBy('created_at', 'desc')->where('actif', '=', 1)->take(18)->get();
-        
+
         // Un user est t'il connecté
         $userid = Auth::user();
         if ($userid) {
@@ -143,21 +144,20 @@ class IndexController extends Controller
             //  Chargement des circuit de cet user pour ce pays
             $circuits = Circuits::where('user_id', '=', $userid->id)->where('pays_id', '=', $idpays)->get();
             $nbcircuit = ($circuits->count());
-    
+
             // Si pas de cictuit en créer un
-            if ($nbcircuit == 0)
-            {
+            if ($nbcircuit == 0) {
                 $circuit = new Circuits();
-               
+
                 $circuit->user_id = $iduser;
                 $circuit->pays_id = $idpays;
                 $circuit->titrecircuit =  $pays->pays;
                 $circuit->save();
 
-               
 
-                
-               
+
+
+
 
                 $defaultSpot = Default_spots::where('pays_id', '=', $idpays)->first();
 
@@ -176,65 +176,54 @@ class IndexController extends Controller
                 $firstpoint->spot_id = $idspotdefaut;
                 $firstpoint->save();
                 $circuits = Circuits::where('user_id', '=', $userid->id)->where('pays_id', '=', $idpays)->get();
-                
+
                 // rendre ce circuit actif
                 Session::put('circuitactif', $circuit->id);
                 $circuitactif = $circuit->id;
-
-            }   
-             else
-             {
+            } else {
                 // Plusieurs circuits possibles
                 // si un circuit est actif pour ce pays on le choisi
                 // Sinon on prend el premier pour ce pays
-                if (Session::get('circuitactif')) 
-                {
+                if (Session::get('circuitactif')) {
                     $circuitatester = Session::get('circuitactif');
                     // verififie qu'il est dans le pays en cours
-                    $existe = Circuits::where('user_id','=',$iduser)->where('pays_id','=',$idpays)->where ('id','=',$circuitatester)->count();
+                    $existe = Circuits::where('user_id', '=', $iduser)->where('pays_id', '=', $idpays)->where('id', '=', $circuitatester)->count();
                     // si le circuit actif est dans le bon pays on valide
                     if ($existe == 1)
-                      // on valide ce circuit comme actif
+                    // on valide ce circuit comme actif
                     {
-                        $circuitactif = $circuitatester;   
-                    }
-                        else
-                        // on prend le premier circuit du nouveau pays
+                        $circuitactif = $circuitatester;
+                    } else
+                    // on prend le premier circuit du nouveau pays
                     {
-                        $premiercircuit = Circuits::where('user_id','=',$iduser)->where('pays_id','=',$idpays)->first();
+                        $premiercircuit = Circuits::where('user_id', '=', $iduser)->where('pays_id', '=', $idpays)->first();
                         Session::put('circuitactif', $premiercircuit->id);
                         $circuitactif = $premiercircuit->id;
-                    }    
-                }
-                else // pas de circuit actif pour le moment on prend le premier
-                { 
-                    $premiercircuit = Circuits::where('user_id','=',$iduser)->where('pays_id','=',$idpays)->first();
+                    }
+                } else // pas de circuit actif pour le moment on prend le premier
+                {
+                    $premiercircuit = Circuits::where('user_id', '=', $iduser)->where('pays_id', '=', $idpays)->first();
                     Session::put('circuitactif', $premiercircuit->id);
                     $circuitactif = $premiercircuit->id;
                 }
-                 // Recuperation du circuit geometrique
-              // Sous forme de plusieurs segments
-              $allgeometry = Circuits_details::where('circuit_id','=',$circuitactif)->where('geometry','<>',null)->get();
-              $geometry = array();
-              foreach ($allgeometry as $geo)
-              {
-               array_push($geometry, $geo->geometry);
-              }
-            
-    
-
-             }   
-
+                // Recuperation du circuit geometrique
+                // Sous forme de plusieurs segments
+                $allgeometry = Circuits_details::where('circuit_id', '=', $circuitactif)->where('geometry', '<>', null)->get();
+                $geometry = array();
+                foreach ($allgeometry as $geo) {
+                    array_push($geometry, $geo->geometry);
+                }
+            }
         } else {
             $circuits = null;
             $circuitactif = 0;
-            $geometry ='';
+            $geometry = '';
         }
         // Si un cictuit est actif, on verifie que c'est dans le bon pays qui est egalement actif
-       // Test du circuit en cours
-       
+        // Test du circuit en cours
 
-        return view('frontend/destination', compact('lastPays', 'idpays', 'markers', 'payslist', 'pays', 'payslng', 'payslat', 'payszoom', 'paysoffset', 'spot','lastspots','circuits','circuitactif','geometry'));
+
+        return view('frontend/destination', compact('lastPays', 'idpays', 'markers', 'payslist', 'pays', 'payslng', 'payslat', 'payszoom', 'paysoffset', 'spot', 'lastspots', 'circuits', 'circuitactif', 'geometry'));
     }
 
     public function nextdestinations()
@@ -246,30 +235,30 @@ class IndexController extends Controller
     {
         // Information sur cet user
         $user = Auth::user();
-    
+
         // Chargement des pays actifs
         $pays = Pays::orderBy('pays', 'asc')->get();
 
         $payslist = Pays::where('actif', '=', 1)->orderBy('pays', 'asc')->get();
-    
+
         // Récupération des profils et de leurs traductions
         $whoiams = Whoiam::with('translations')->get();
 
         // Recupération du tatal des médias
         $userMediaCount = auth()->user()->purchasedMedias()->count();
-        
-         // Recupération du tatal des message non lu
+
+        // Recupération du tatal des message non lu
         $unreadMessages = Message::where('to_id', $user->id)
-        ->orderBy('created_at', 'desc')
-        ->whereNull('read_at')
-        ->get();
+            ->orderBy('created_at', 'desc')
+            ->whereNull('read_at')
+            ->get();
 
         $unreadMessages->transform(function ($message) {
             $message->formatted_created_at = $message->created_at->diffForHumans();
             return $message;
         });
-    
-        return view('frontend/myaccount', compact('user', 'pays','payslist', 'whoiams','userMediaCount','unreadMessages'));
+
+        return view('frontend/myaccount', compact('user', 'pays', 'payslist', 'whoiams', 'userMediaCount', 'unreadMessages'));
         //return view('frontend/myaccount', compact('user', 'pays','payslist', 'whoiams'));
     }
 
@@ -403,7 +392,7 @@ class IndexController extends Controller
         $spotid = $request->spotid;
         $spot = Spots::where('id', '=', $spotid)->first();
         $paysid = $spot->pays_id;
-       
+
 
 
 
@@ -549,7 +538,7 @@ class IndexController extends Controller
     {
         return view('frontend/photographers');
     }
-    public function medias($idspot=null)
+    public function medias($idspot = null)
     {
         // chargement des pays actif
         $pays = Pays::where('actif', '=', 1)->orderBy('pays', 'asc')->get();
@@ -557,11 +546,10 @@ class IndexController extends Controller
         $spot = Spots::find($idspot);
 
         if (!$spot) {
-        $idspot = null;
+            $idspot = null;
         }
 
-        return view('frontend/medias',compact('pays','idspot'));
-
+        return view('frontend/medias', compact('pays', 'idspot'));
     }
 
     public function benefits()
@@ -588,28 +576,27 @@ class IndexController extends Controller
     }
     public function timeline(Request $request)
     {
-            $perPage = 5; // Nombre d'éléments à récupérer par page
-            $page = $request->input('page', 1); // Page actuelle
-            $skip = ($page - 1) * $perPage; // Nombre d'éléments à sauter
-           
-            // Récupérer les éléments de la timeline
-            $items = Timelines::orderBy('id', 'desc')
-                             ->skip($skip)
-                             ->take($perPage)
-                             ->get();
-        
-            // Calculer le nombre total de pages
-            $totalitems = Timelines::count();
-            $totalpages = ceil($totalitems / $perPage);
-        
-            // Retourner les éléments de la page actuelle et les informations de pagination
-            
+        $perPage = 5; // Nombre d'éléments à récupérer par page
+        $page = $request->input('page', 1); // Page actuelle
+        $skip = ($page - 1) * $perPage; // Nombre d'éléments à sauter
 
-            if ($request->ajax()) {
-                $output = '';
-                foreach($items as $spot)
-                {
-                    $output .= '<div class="cd-timeline__block">
+        // Récupérer les éléments de la timeline
+        $items = Timelines::orderBy('id', 'desc')
+            ->skip($skip)
+            ->take($perPage)
+            ->get();
+
+        // Calculer le nombre total de pages
+        $totalitems = Timelines::count();
+        $totalpages = ceil($totalitems / $perPage);
+
+        // Retourner les éléments de la page actuelle et les informations de pagination
+
+
+        if ($request->ajax()) {
+            $output = '';
+            foreach ($items as $spot) {
+                $output .= '<div class="cd-timeline__block">
                         <div class="cd-timeline__img cd-timeline__img--picture">
                             <img src="' . asset('frontend/assets/images/icon-image/' . $spot->timelinescat->icon) . '" alt="Picture">
                         </div> <!-- cd-timeline__img -->
@@ -621,11 +608,11 @@ class IndexController extends Controller
                             </div>
                         </div> <!-- cd-timeline__content -->
                     </div> <!-- cd-timeline__block -->';
-                }
-                return Response($output);
             }
-        
-            return view('frontend.timeline', compact('items','totalpages'));
+            return Response($output);
+        }
+
+        return view('frontend.timeline', compact('items', 'totalpages'));
     }
 
     public function instructions()
@@ -635,7 +622,7 @@ class IndexController extends Controller
 
     public function avatarstore(Request $request)
     {
- 
+
         $avatar = $request->file('file');
 
         // traitement image 
@@ -645,7 +632,7 @@ class IndexController extends Controller
         } else {
             // Recherche si ancienne image et suppression des images coorespondantes
 
-            
+
             // nouvelle image
             $imageavatarstatus = 1;
             $extension = $avatar->getClientOriginalExtension();
@@ -658,9 +645,9 @@ class IndexController extends Controller
             $bucket = 'mysecretmap';
 
             // LARGE
-       
+
             $width = 400;
-            $height = 400   ;
+            $height = 400;
             $canvas = Image::canvas($width, $height);
 
             $imagefinale  = Image::make($avatar)->fit(400, 400, null, 'center', false);
@@ -674,33 +661,32 @@ class IndexController extends Controller
             $disk->put('/large/large-' . $imgavatarname, (string) $canvas, 'public');
             $largeavatarname = $disk->url('large/large-' . $imgavatarname);
 
-        
-            
-            
+
+
+
             // Retrouver le user en cours
             $iduser = Auth::user()->id;
-            $user = User::find($iduser);    
+            $user = User::find($iduser);
 
             // Supprimer l'ancien avatar
             $filelarge = parse_url($user->profile_photo_path);
-            if ($filelarge)
-            {
+            if ($filelarge) {
                 $disk->delete($filelarge);
             }
-      
-        
+
+
             // Enregistrer l'image si elle est fournie
             if ($imageavatarstatus == 1) {
                 $user->profile_photo_path = $largeavatarname;
             }
 
-      
 
-        
+
+
             // AVATAR
-       
+
             $width = 50;
-            $height = 50   ;
+            $height = 50;
             $canvas = Image::canvas($width, $height);
 
             $imagefinale  = Image::make($avatar)->fit($width, $height, null, 'center', false);
@@ -714,25 +700,24 @@ class IndexController extends Controller
             $disk->put('/small/small-' . $imgavatarname, (string) $canvas, 'public');
             $avatarname = $disk->url('small/small-' . $imgavatarname);
 
-        
-            
-          
+
+
+
 
             // Supprimer l'ancien avatar
             $filelarge = parse_url($user->avatar);
-            if ($filelarge)
-            {
+            if ($filelarge) {
                 $disk->delete($filelarge);
             }
-      
-        
+
+
             // Enregistrer l'image si elle est fournie
             if ($imageavatarstatus == 1) {
                 $user->avatar = $avatarname;
             }
-             // enregistrement des deux image
-             $user->save();
-    }
+            // enregistrement des deux image
+            $user->save();
+        }
         return response()->json([
             'message' => 'OK'
         ]);
@@ -757,104 +742,98 @@ class IndexController extends Controller
         return view('frontend.addotspot');
     }
 
-     
 
-public function mesMedias(Request $request)
-{
-    $user = Auth::user();
-    // Récupérer les crédits de l'utilisateur en cours
-    $userCredits = UserCredit::where('user_id', $user->id)->get();
 
-    $medias = $user->purchasedMedias; 
+    public function mesMedias(Request $request)
+    {
+        $user = Auth::user();
+        // Récupérer les crédits de l'utilisateur en cours
+        $userCredits = UserCredit::where('user_id', $user->id)->get();
 
-    return view('frontend.mesmedias', compact('medias','userCredits'));
-}
+        $medias = $user->purchasedMedias;
 
-public function publicFolders(Request $request)
-{
-    // Récupérer tous les pays actifs
-    $activeCountries = Pays::where('actif', 1)->get();
-
-    // Récupérer country_id depuis la chaîne de requête
-    $countryId = $request->query('country_id');
-
-    // Sélectionner le pays actif ou utiliser le premier pays actif par défaut
-    $selectedCountryId = $countryId ?? $activeCountries->first()->pays_id;
-
-    // S'assurer que le pays sélectionné est actif; sinon, utiliser le premier pays actif
-    if (!$activeCountries->pluck('pays_id')->contains($selectedCountryId)) {
-        $selectedCountryId = $activeCountries->first()->pays_id;
+        return view('frontend.mesmedias', compact('medias', 'userCredits'));
     }
 
-    // Récupérer les dossiers publics du pays sélectionné ayant au moins un média
-    $publicFolders = Folder::where('country_id', $selectedCountryId)
-    ->where('status', 'public')
-    ->whereHas('shareMedias')
-    ->with('shareMedias')
-    ->orderBy('name') 
-    ->get();
+    public function publicFolders(Request $request)
+    {
+        // Récupérer tous les pays actifs
+        $activeCountries = Pays::where('actif', 1)->get();
 
-    return view('frontend.publicfolders', compact('publicFolders', 'activeCountries', 'selectedCountryId'));
-}
+        // Récupérer country_id depuis la chaîne de requête
+        $countryId = $request->query('country_id');
 
-public function privateFolders()
-{
-    $user = Auth::user();
+        // Sélectionner le pays actif ou utiliser le premier pays actif par défaut
+        $selectedCountryId = $countryId ?? $activeCountries->first()->pays_id;
 
-    // Récupérer les dossiers privés attachés à cet utilisateur et ayant au moins un média
-    $privateFolders = Folder::whereHas('users', function ($query) use ($user) {
-        $query->where('users.id', $user->id);
-    })->where('status', 'private')
-      ->whereHas('shareMedias')
-      ->with('shareMedias')
-      ->get();
-    return view('frontend.privatefolders', compact('privateFolders'));
-}
+        // S'assurer que le pays sélectionné est actif; sinon, utiliser le premier pays actif
+        if (!$activeCountries->pluck('pays_id')->contains($selectedCountryId)) {
+            $selectedCountryId = $activeCountries->first()->pays_id;
+        }
 
-public function showByFolder(Request $request, $folderId)
-{
-    $folder = Folder::withCount(['shareMedias as photos_count' => function ($query) {
-        $query->where('media_type', 'photo');
-    }, 'shareMedias as videos_count' => function ($query) {
-        $query->where('media_type', 'video');
-    }, 'shareMedias as films_count' => function ($query) {
-        $query->where('media_type', 'film');
-    }])->findOrFail($folderId);
+        // Récupérer les dossiers publics du pays sélectionné ayant au moins un média
+        $publicFolders = Folder::where('country_id', $selectedCountryId)
+            ->where('status', 'public')
+            ->whereHas('shareMedias')
+            ->with('shareMedias')
+            ->orderBy('name')
+            ->get();
 
-// Calculer le nombre de chaque type de média
-$photosCount = $folder->photos_count;
-$videosCount = $folder->videos_count;
-$filmsCount = $folder->films_count;
-
-    if ($request->has('type')) {
-        $mediaType = $request->query('type');
-    } else {
-        $mediaType = 'photo';
+        return view('frontend.publicfolders', compact('publicFolders', 'activeCountries', 'selectedCountryId'));
     }
 
-    // Vérifier si l'utilisateur est admin ou a accès au dossier
-    $user = Auth::user();
-    if ($folder->status == 'private' && !$user->isAdmin() && !$folder->users->contains('id', $user->id)) {
-        abort(403, "Vous n'avez pas l'autorisation d'accéder à ce dossier.");
+    public function privateFolders()
+    {
+        $user = Auth::user();
+
+        // Récupérer les dossiers privés attachés à cet utilisateur et ayant au moins un média
+        $privateFolders = Folder::whereHas('users', function ($query) use ($user) {
+            $query->where('users.id', $user->id);
+        })->where('status', 'private')
+            ->whereHas('shareMedias')
+            ->with('shareMedias')
+            ->get();
+        return view('frontend.privatefolders', compact('privateFolders'));
     }
 
-    // Filtrer les médias en fonction du type si spécifié
-    $shareMedias = $folder->shareMedias()->when($mediaType, function($query) use ($mediaType) {
-        return $query->where('media_type', $mediaType);
-    })->get();
+    public function showByFolder(Request $request, $folderId)
+    {
+        $folder = Folder::withCount(['shareMedias as photos_count' => function ($query) {
+            $query->where('media_type', 'photo');
+        }, 'shareMedias as videos_count' => function ($query) {
+            $query->where('media_type', 'video');
+        }, 'shareMedias as films_count' => function ($query) {
+            $query->where('media_type', 'film');
+        }])->findOrFail($folderId);
 
-    // Récupérer les crédits de l'utilisateur en cours
-    $userCredits = UserCredit::where('user_id', $user->id)->get();
+        // Calculer le nombre de chaque type de média
+        $photosCount = $folder->photos_count;
+        $videosCount = $folder->videos_count;
+        $filmsCount = $folder->films_count;
 
-    // Récupérer les IDs des médias déjà achetés par l'utilisateur
-    $purchasedMediaIds = $user->mediaPurchases()->pluck('media_id')->toArray();
+        if ($request->has('type')) {
+            $mediaType = $request->query('type');
+        } else {
+            $mediaType = 'photo';
+        }
 
-    return view('frontend.showbyfolder', compact('folder', 'shareMedias', 'userCredits', 'purchasedMediaIds','photosCount', 'videosCount', 'filmsCount'));
-}
+        // Vérifier si l'utilisateur est admin ou a accès au dossier
+        $user = Auth::user();
+        if ($folder->status == 'private' && !$user->isAdmin() && !$folder->users->contains('id', $user->id)) {
+            abort(403, "Vous n'avez pas l'autorisation d'accéder à ce dossier.");
+        }
 
+        // Filtrer les médias en fonction du type si spécifié
+        $shareMedias = $folder->shareMedias()->when($mediaType, function ($query) use ($mediaType) {
+            return $query->where('media_type', $mediaType);
+        })->get();
 
+        // Récupérer les crédits de l'utilisateur en cours
+        $userCredits = UserCredit::where('user_id', $user->id)->get();
 
+        // Récupérer les IDs des médias déjà achetés par l'utilisateur
+        $purchasedMediaIds = $user->mediaPurchases()->pluck('media_id')->toArray();
 
-
-
+        return view('frontend.showbyfolder', compact('folder', 'shareMedias', 'userCredits', 'purchasedMediaIds', 'photosCount', 'videosCount', 'filmsCount'));
+    }
 }
