@@ -25,20 +25,9 @@ class Pays extends Model implements TranslatableContract
 
     ];
     protected $guarded = [];
-    protected $primaryKey = 'pays_id';
-    public $incrementing = false;
-    protected $keyType = 'string';
 
-    public function getLibelle($locale = null)
-    {
-        $locale = $locale ?? app()->getLocale();
-        $translation = DB::table('pays_translations')
-            ->where('pays_id', $this->pays_id)
-            ->where('locale', $locale)
-            ->first();
 
-        return $translation ? $translation->libelle : 'Pays non traduit';
-    }
+
 
     public function spot()
     {
