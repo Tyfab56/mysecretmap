@@ -18,11 +18,7 @@
 
 <section id="news" class="news">
   <div class="container">
-    <header class="tourism-header">
-      <h1>{{__('index.calltoaction1')}}</h1>
-      <p>{{__('index.calltoaction2')}}</p>
-      <a href="{{ route('addotspot') }}" class="btn-call-to-action">{{__('index.calltoaction3')}}</a>
-    </header>
+
     <div class="row text-center">
       <div class="col-lg-6 col-md-12">
         <h2 class="section-sub-title">{{__('index.Top1Line1')}}</h2>
@@ -321,6 +317,11 @@
             {{ $pictures->links() }}
 
 </section>
+<header class="tourism-header">
+  <h1>{{__('index.calltoaction1')}}</h1>
+  <p>{{__('index.calltoaction2')}}</p>
+  <a href="{{ route('addotspot') }}" class="btn-call-to-action">{{__('index.calltoaction3')}}</a>
+</header>
 
 <section id="ts-features" class="ts-features">
   <div class="container">
