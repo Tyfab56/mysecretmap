@@ -208,13 +208,17 @@
 <section id="ts-features" class="ts-features">
   <div class="container">
     <div class="row">
-      <div id="panorama"></div>
+      <div id="panorama-container"></div>
       <script src="{{ asset('frontend/assets/js/pannellum.js') }}"></script>
       <script>
         pannellum.viewer('panorama', {
           "type": "equirectangular",
           "panorama": "{{ $latestSpotWithImg360->img360 }}",
-          "autoLoad": true
+          "autoLoad": true,
+          "preload": true,
+          "autoRotate": -2,
+          "pitch": -30,
+          "hfov": 120
         });
       </script>
     </div>
@@ -238,6 +242,11 @@
       </div>
 </section>
 <style>
+   .panorama-container {
+        width: 100%;
+        height: 500px;
+        margin-bottom: 40px;
+    }
 
   .testimonial-card {
     background-color: #ffffff; /* bg-white */
