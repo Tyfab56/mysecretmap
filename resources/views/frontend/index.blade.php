@@ -24,7 +24,7 @@
         <h2 class="section-sub-title">{{__('index.Top1Line1')}}</h2>
         <h3 class="section-sub-title">{{__('index.Top1Line2')}}</h3>
         <h6>{{__('index.Top1Line3')}}</h6>
-        <h6 class="darkgray">{{__('index.Top1Line4')}}</h6>
+        <h6 class="orange">{{__('index.Top1Line4')}}</h6>
       </div>
 
       <div class="col-lg-4 cold-md-12 bgbox p5 br5">
