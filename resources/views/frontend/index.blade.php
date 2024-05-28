@@ -209,9 +209,7 @@
   <div class="container">
     <div class="row">
       <h1 class="mb-0">Dernier Spot : - {{ $latestSpotWithImg360->name }} </h1>
-      <pre>{{ print_r($latestSpotWithImg360, true) }}</pre>
-      <pre>{{ print_r($latestSpotWithImg360->pays, true) }}</pre>
-      <pre>{{ print_r($latestSpotWithImg360->pays->translate(app()->getLocale()), true) }}</pre>
+
 
       <a href="{{ route('destination', ['id' => $latestSpotWithImg360->pays_id, 'spotid' => $latestSpotWithImg360->id]) }}" class="btn btn-primary ml-3">Voir le spot</a>
       <div id="panorama-container" class="panorama-container"></div>
