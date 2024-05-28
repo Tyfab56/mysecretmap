@@ -67,7 +67,7 @@
 
 
           <a href="{{ route('destination', ['id' => $latestSpotWithImg360->pays_id, 'spotid' => $latestSpotWithImg360->id]) }}" class="btn btn-primary ml-3">Voir le spot</a>
-          <div id="panorama-container" class="panorama-container"></div>
+          <div id="panorama-container" class="panorama-container mt-3"></div>
           <script src="{{ asset('frontend/assets/js/pannellum.js') }}"></script>
           <script>
             pannellum.viewer('panorama-container', {
