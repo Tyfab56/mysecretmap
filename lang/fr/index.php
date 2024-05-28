@@ -62,7 +62,7 @@ return [
     "Audioguide" => "Audioguides",
     "Charly0" => "GUIDE ISLANDE ",
     "Charly1" => "Assistant de voyage et audioguide",
-    "Charly2" => "Les meilleurs endroits, les lieux peu connus, les anecdotes et légendes. Des conseils pour vos déplacements, vos photos, votre drone.",
+    "Charly2" => "Les incontournables, les lieux secrets, les anecdotes et légendes. Des conseils pour vos déplacements, vos photos, votre drone.",
     "Charly3" => "JE COMMANDE L'AUDIOGUIDE",
     "Charly4" => "Merci Sabrina pour votre photo avec Charly en main",
     "Charly5" => "DEMO",
