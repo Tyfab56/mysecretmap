@@ -49,7 +49,7 @@ class Pays extends Model implements TranslatableContract
         $locale = $locale ?? app()->getLocale();
         $translation = DB::table('pays_translations')
             ->where('pays_id', $this->pays_id)
-            ->where('locale', $locale)
+            ->where('idlangue', $locale)
             ->first();
         dd($translation);
         return $translation ? $translation->libelle : 'Pays non traduit';
