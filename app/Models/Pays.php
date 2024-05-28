@@ -51,7 +51,7 @@ class Pays extends Model implements TranslatableContract
             ->where('pays_id', $this->pays_id)
             ->where('locale', $locale)
             ->first();
-        dd($translation);
+
         return $translation ? $translation->libelle : 'Pays non traduit';
     }
 }
