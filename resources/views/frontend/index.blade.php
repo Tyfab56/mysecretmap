@@ -206,6 +206,18 @@
   </div>
 </section>
 <section id="ts-features" class="ts-features">
+
+  <div class="testimonial-card">
+    <div id="panorama"></div>
+    <script src="https://cdn.jsdelivr.net/npm/pannellum/build/pannellum.js"></script>
+    <script>
+      pannellum.viewer('panorama', {
+        "type": "equirectangular",
+        "panorama": "{{ $latestSpotWithImg360->img360 }}",
+        "autoLoad": true
+      });
+    </script>
+  </div>
   <div class="testimonial-card">
     <div style="display: flex; gap: 1rem; /* space-x-4 */">
       <img src="{{ asset('frontend/assets/images/pierre250.png')}}" alt="Portrait of Aliya, a client, wearing sunglasses and a floral outfit">
