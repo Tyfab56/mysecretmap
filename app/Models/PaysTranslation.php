@@ -9,4 +9,9 @@ class PaysTranslation extends Model
 {
     public $timestamps = false;
     protected $fillable = ['libelle'];
+
+    public function pays()
+    {
+        return $this->belongsTo(Pays::class, 'pays_id', 'pays_id');
+    }
 }
