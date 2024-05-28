@@ -209,7 +209,7 @@
   <div class="container">
     <div class="row">
       <h1 class="mb-0">Dernier Spot : {{ $latestSpotWithImg360->pays->translate('fr')->libelle ?? 'Pays non traduit' }} - {{ $latestSpotWithImg360->name }} </h1>
-
+      <pre>{{ json_encode($latestSpotWithImg360->pays->translate('fr')) }}</pre>
 
       <a href="{{ route('destination', ['id' => $latestSpotWithImg360->pays_id, 'spotid' => $latestSpotWithImg360->id]) }}" class="btn btn-primary ml-3">Voir le spot</a>
       <div id="panorama-container" class="panorama-container"></div>
