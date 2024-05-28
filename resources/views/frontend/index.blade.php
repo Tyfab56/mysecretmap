@@ -20,7 +20,7 @@
   <div class="container">
 
     <div class="row text-center">
-      <div class="col-lg-6 col-md-12">
+      <div class="col-lg-6 col-md-12 d-flex flex-column justify-content-center">
         <h2 class="section-sub-title">{{__('index.Top1Line1')}}</h2>
         <h3 class="section-sub-title">{{__('index.Top1Line2')}}</h3>
         <h6>{{__('index.Top1Line3')}}</h6>
