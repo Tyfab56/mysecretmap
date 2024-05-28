@@ -24,7 +24,7 @@ class Pays extends Model implements TranslatableContract
 
     ];
     protected $guarded = [];
-    protected $primaryKey = 'pays_id';
+
 
 
     public function spot()
