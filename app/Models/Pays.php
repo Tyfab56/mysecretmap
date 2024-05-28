@@ -44,14 +44,14 @@ class Pays extends Model implements TranslatableContract
         return $this->hasMany(Folder::class, 'country_id', 'pays_id');
     }
 
-    public function getTranslatedLibelle($locale = null)
+    public function getTranslatedLibelle($idlang = null)
     {
-        $locale = $locale ?? app()->getLocale();
+        $idlang = $idlang ?? app()->getLocale();
         $translation = DB::table('pays_translations')
             ->where('pays_id', $this->pays_id)
-            ->where('idlangue', $locale)
+            ->where('idlang', $idlang)
             ->first();
-        dd($translation);
+
         return $translation ? $translation->libelle : 'Pays non traduit';
     }
 }
