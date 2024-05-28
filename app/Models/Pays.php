@@ -25,7 +25,13 @@ class Pays extends Model implements TranslatableContract
     ];
     protected $guarded = [];
 
+    public function getLibelle($locale = null)
+    {
+        $locale = $locale ?? app()->getLocale();
+        $translation = $this->translate($locale);
 
+        return $translation ? $translation->libelle : 'Pays non traduit';
+    }
 
     public function spot()
     {
