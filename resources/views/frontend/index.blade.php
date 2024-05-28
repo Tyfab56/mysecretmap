@@ -208,7 +208,7 @@
 <section id="ts-features" class="ts-features">
   <div class="container">
     <div class="row">
-      <h1 class="mb-0">Dernier Spot : - {{ $latestSpotWithImg360->name }} </h1>
+      <h1 class="mb-0">Dernier Spot : {{ $latestSpotWithImg360->pays->getTranslatedLibelle() }} - {{ $latestSpotWithImg360->name }} </h1>
 
 
       <a href="{{ route('destination', ['id' => $latestSpotWithImg360->pays_id, 'spotid' => $latestSpotWithImg360->id]) }}" class="btn btn-primary ml-3">Voir le spot</a>
