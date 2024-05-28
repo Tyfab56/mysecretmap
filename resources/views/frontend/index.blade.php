@@ -208,10 +208,10 @@
 <section id="ts-features" class="ts-features">
   <div class="container">
     <div class="row">
-      <div id="panorama-container"></div>
+      <div id="panorama-container" class="panorama-container"></div>
       <script src="{{ asset('frontend/assets/js/pannellum.js') }}"></script>
       <script>
-        pannellum.viewer('panorama', {
+        pannellum.viewer('panorama-container', {
           "type": "equirectangular",
           "panorama": "{{ $latestSpotWithImg360->img360 }}",
           "autoLoad": true,
