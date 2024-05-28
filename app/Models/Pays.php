@@ -24,9 +24,6 @@ class Pays extends Model implements TranslatableContract
 
     ];
     protected $guarded = [];
-    protected $primaryKey = 'pays_id';
-    public $incrementing = false;
-    protected $keyType = 'string';
 
     public function getLibelle($locale = null)
     {
