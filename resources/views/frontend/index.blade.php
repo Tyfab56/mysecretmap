@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="{{ asset('frontend/assets/css/leaflet.extra-markers.min.css')}}" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
 <link rel="stylesheet" href="{{ asset('frontend/assets/css/GridOverflow3D.css')}}" />
-
+<link rel="stylesheet" href="{{ asset('frontend/assets/css/pannellum.css') }}">
 @endsection
 
 
@@ -209,7 +209,7 @@
 
   <div class="testimonial-card">
     <div id="panorama"></div>
-    <script src="https://cdn.jsdelivr.net/npm/pannellum/build/pannellum.js"></script>
+    <script src="{{ asset('frontend/assets/js/pannellum.js') }}"></script>
     <script>
       pannellum.viewer('panorama', {
         "type": "equirectangular",
