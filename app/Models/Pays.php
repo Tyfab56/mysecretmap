@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Astrotomic\Translatable\Contracts\Translatable as TranslatableContract;
 use Astrotomic\Translatable\Translatable;
+use DB;
 
 class Pays extends Model implements TranslatableContract
 {
@@ -28,7 +29,10 @@ class Pays extends Model implements TranslatableContract
     public function getLibelle($locale = null)
     {
         $locale = $locale ?? app()->getLocale();
-        $translation = $this->translate($locale);
+        $translation = DB::table('pays_translations')
+            ->where('pays_id', $this->pays_id)
+            ->where('locale', $locale)
+            ->first();
 
         return $translation ? $translation->libelle : 'Pays non traduit';
     }
