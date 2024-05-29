@@ -35,7 +35,7 @@
 
         <div class="row mt5 mb5">
             <div class="col-lg-2 mb5 d-flex flex-column justify-content-center align-items-center">
-                <h1><a href='{{ route($pays->route) }}'>{{$pays->pays}}</a></h1>
+                <h1><a href='{{ route($pays->route) }}'>{{ $Pays>pays->getTranslatedLibelle() }}</a></h1>
                 <a class="btn btn-primary f0-7m m5" href="{{ url('thewall') }}/{{ $idpays}}">{{__('destination.cherchespot')}}</a>
             </div>
 
