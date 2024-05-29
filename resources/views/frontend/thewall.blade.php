@@ -12,7 +12,7 @@ window.location.href = "{{ url('thewall') }}/{{ $idpays}}/"+this.id;
   < <div class="container">
     <div class="row ">
       <h1 class="centerdiv">{{ $pays->getTranslatedLibelle() }}</h1>
-      <select class="form-control" id="country-selector" name="country">
+      <select class="form-control" style="width: 200px;" id="country-selector" name="country">
         <option value="">Tous les pays</option>
         @foreach($countries as $country)
         <option value="{{ route('destination', ['id' => $country->pays_id]) }}">{{ $country->getTranslatedLibelle() }}</option>
@@ -60,5 +60,14 @@ window.location.href = "{{ url('thewall') }}/{{ $idpays}}/"+this.id;
     </div>
     </div>
 </section>
+
+<script>
+  document.getElementById('country-selector').addEventListener('change', function() {
+    var selectedCountryUrl = this.value;
+    if (selectedCountryUrl) {
+      window.location.href = selectedCountryUrl;
+    }
+  });
+</script>
 
 @endsection
