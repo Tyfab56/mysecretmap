@@ -269,5 +269,14 @@ var sunDiv = document.getElementById('sun');
 sunDiv.classList.toggle('hidden', !this.checked);
 });
 
+document.addEventListener('DOMContentLoaded', function() {
+document.getElementById('see-more').addEventListener('click', function(event) {
+event.preventDefault();
+document.getElementById('short-text').style.display = 'none';
+document.getElementById('full-text').style.display = 'inline';
+this.style.display = 'none';
+});
+});
+
 
 @endsection
