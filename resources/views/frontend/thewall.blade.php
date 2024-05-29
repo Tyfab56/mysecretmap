@@ -9,20 +9,13 @@ window.location.href = "{{ url('thewall') }}/{{ $idpays}}/"+this.id;
 @endsection
 @section('content')
 <section id="news" class="news">
-  <div class="container">
-    <div class="form-group">
-      <label for="country-selector">Sélectionnez un pays :</label>
-
-    </div>
-
-  </div>
-  <div class="container">
+  < <div class="container">
     <div class="row ">
-      <h1 class="centerdiv">{{$pays->pays}}</h1>
+      <h1 class="centerdiv">{{ $pays->getTranslatedLibelle() }}</h1>
       <select class="form-control" id="country-selector" name="country">
         <option value="">Tous les pays</option>
         @foreach($countries as $country)
-        <option value="{{ route('destination', ['id' => $country->pays_id]) }}">{{ $country->libelle }}</option>
+        <option value="{{ route('destination', ['id' => $country->pays_id]) }}">{{ $country->getTranslatedLibelle() }}</option>
         @endforeach
       </select>
     </div>
@@ -65,7 +58,7 @@ window.location.href = "{{ url('thewall') }}/{{ $idpays}}/"+this.id;
       </div>
       @endforeach
     </div>
-  </div>
+    </div>
 </section>
 
 @endsection
