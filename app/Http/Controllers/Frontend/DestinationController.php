@@ -380,7 +380,7 @@ class DestinationController extends Controller
 
 
         $pays = Pays::where('pays_id', $idpays)->first();
-        $countries = Country::where('actif', 1)->get();
+        $countries = Pays::where('actif', 1)->get();
 
         return view('frontend/thewall', compact('spots', 'idpays', 'pays', 'countries'));
     }
