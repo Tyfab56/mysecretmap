@@ -15,7 +15,7 @@ window.location.href = "{{ url('thewall') }}/{{ $idpays}}/"+this.id;
       <select class="form-control" style="width: 200px;" id="country-selector" name="country">
         <option value="">Tous les pays</option>
         @foreach($countries as $country)
-        <option value="{{ route('thewall', ['id' => $country->pays_id]) }}">{{ $country->getTranslatedLibelle() }}</option>
+        <option value="{{ route('thewall', ['idpays' => $country->pays_id]) }}">{{ $country->getTranslatedLibelle() }}</option>
         @endforeach
       </select>
     </div>
