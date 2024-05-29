@@ -32,7 +32,7 @@
 
                 <b class="white">Lat : <span class="orange">{{$spot->lat}}</span></b><br>
                 <b class="white">Lng : <span class="orange">{{$spot->lng}}</span></b><br>
-                <div class="mt-3"><b>{{ __('index.Description') }}</b> : <span style="color:white"> <span id="short-text">{{ Str::limit($traduction->description ?? '', 500) }}</span>
+                <div class="mt-3"><b>{{ __('index.Description') }}</b> : <span style="color:white"> <span id="short-text">{{ Str::limit($traduction->description ?? '', 800) }}</span>
                         <span id="full-text" style="display: none;">{{ $traduction->description ?? '' }}</span>
                         <a href="#" id="see-more">Voir plus</a></span></div>
 
