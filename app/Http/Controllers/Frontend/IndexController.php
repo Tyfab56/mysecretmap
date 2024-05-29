@@ -51,7 +51,7 @@ class IndexController extends Controller
 
         // Liste des dernier spots
         $lastspots = Spots::orderBy('created_at', 'desc')->where('actif', '=', 1)->take(18)->get();
-        $latestSpotWithImg360 = Spots::whereNotNull('img360')->where('img360', '!=', '')->latest()->first();
+        $latestSpotWithImg360 = Spots::whereNotNull('img360')->where('actif', 1)->where('img360', '!=', '')->latest()->first();
         $pays = Pays::where('pays_id', '=', $idpays)->first();
 
 
