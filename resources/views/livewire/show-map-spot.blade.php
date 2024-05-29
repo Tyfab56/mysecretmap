@@ -34,22 +34,24 @@
                 <b class="white">Lng : <span class="orange">{{$spot->lng}}</span></b><br>
                 <div class="mt-3"><b>{{ __('index.Description') }}</b> : <span style="color:white"> <span id="short-text">{{ Str::limit($traduction->description ?? '', 900) }}</span>
                         <span id="full-text" style="display: none;">{{ $traduction->description ?? '' }}</span>
-                        <a href="#" id="see-more">Voir plus</a></span></div>
+                        @if(strlen($traduction->description ?? '') > 500)
+                        <a href="#" class="orange" id="see-more">Voir plus</a>
+                        @endif/div>
 
-            </div>
-            <div class="col-md-6">
-                <div class="mt-3"><b>{{ __('index.Sunrise') }} : <span id="sunrise" class="red">{{ $sunrise??''}}</span></b></div>
-                <div class="mt-3"><b>{{ __('index.Sunset') }} : <span id="sunset" style="color:orange">{{ $sunset??''}}</span></b></div>
-                <div class="mt-3"><b>{{ __('index.Accessibilite') }}</b> : <span style="color:white">{{$traduction->accessibilite?? ''}}</span></div>
-                <div class="mt-3"><b>{{ __('index.Chemin') }}</b> : <span style="color:white">{{$traduction->chemin?? ''}}</span></div>
-                <div class="mt-3"><b>{{ __('index.Randotime') }} : </b><span style="color:white">{{ $randotime??''}}</span><br><b>{{ __('index.Timeonsite') }} : </b><span style="color:white">{{ $timeonsite??''}}</span></p>
                 </div>
-                <div class="mt-3"><b>{{ __('index.Drone') }}</b> : <span style="color:white">{{$traduction->drone?? ''}}</span></div>
-                <div class="mt-3"><b>{{ __('index.Lumiere') }}</b> : <span style="color:white">{{$traduction->lumiere?? ''}}</span></div>
-                <div class="mt-3"><b>{{ __('index.Secretspot') }}</b> : <span style="color:white">{{$traduction->secretspot?? ''}}</span></div>
+                <div class="col-md-6">
+                    <div class="mt-3"><b>{{ __('index.Sunrise') }} : <span id="sunrise" class="red">{{ $sunrise??''}}</span></b></div>
+                    <div class="mt-3"><b>{{ __('index.Sunset') }} : <span id="sunset" style="color:orange">{{ $sunset??''}}</span></b></div>
+                    <div class="mt-3"><b>{{ __('index.Accessibilite') }}</b> : <span style="color:white">{{$traduction->accessibilite?? ''}}</span></div>
+                    <div class="mt-3"><b>{{ __('index.Chemin') }}</b> : <span style="color:white">{{$traduction->chemin?? ''}}</span></div>
+                    <div class="mt-3"><b>{{ __('index.Randotime') }} : </b><span style="color:white">{{ $randotime??''}}</span><br><b>{{ __('index.Timeonsite') }} : </b><span style="color:white">{{ $timeonsite??''}}</span></p>
+                    </div>
+                    <div class="mt-3"><b>{{ __('index.Drone') }}</b> : <span style="color:white">{{$traduction->drone?? ''}}</span></div>
+                    <div class="mt-3"><b>{{ __('index.Lumiere') }}</b> : <span style="color:white">{{$traduction->lumiere?? ''}}</span></div>
+                    <div class="mt-3"><b>{{ __('index.Secretspot') }}</b> : <span style="color:white">{{$traduction->secretspot?? ''}}</span></div>
+                </div>
             </div>
         </div>
+
+
     </div>
-
-
-</div>
