@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\User; 
+use App\Models\User;
 use App\Models\UserTranslation;
 use App\Models\Banner;
 use Illuminate\Support\Facades\Auth;
@@ -25,8 +25,8 @@ class UserController extends Controller
         // Validate the incoming request data
         $data = $request->validate([
             'name' => 'required|string|max:191',
-            'prenom' => 'nullable|string|max:191', 
-            'pseudo' => 'nullable|string|max:191', 
+            'prenom' => 'nullable|string|max:191',
+            'pseudo' => 'nullable|string|max:191',
             'mypays_id' => 'required'
         ]);
 
@@ -38,111 +38,110 @@ class UserController extends Controller
     }
 
     public function updateSocial(Request $request, User $user)
-{
-    
-    // Validate the incoming request data
-    $validationRules = [
-        'internet' => 'nullable|url',
-        'facebook' => 'nullable|url',
-        'instagram' => 'nullable|url',
-        'twitter' => 'nullable|url',
-        'five_hundred_px' => 'nullable|url',
-        'tiktok' => 'nullable|url',
-        'mastodon' => 'nullable|url',
-    ];
+    {
 
-    $validator = Validator::make($request->all(), $validationRules);
+        // Validate the incoming request data
+        $validationRules = [
+            'internet' => 'nullable|url',
+            'facebook' => 'nullable|url',
+            'instagram' => 'nullable|url',
+            'twitter' => 'nullable|url',
+            'five_hundred_px' => 'nullable|url',
+            'tiktok' => 'nullable|url',
+            'mastodon' => 'nullable|url',
+        ];
 
-    // Vérifiez si la validation a échoué
-    if ($validator->fails()) {
-        // Vous pouvez personnaliser le message d'erreur ici
+        $validator = Validator::make($request->all(), $validationRules);
+
+        // Vérifiez si la validation a échoué
+        if ($validator->fails()) {
+            // Vous pouvez personnaliser le message d'erreur ici
+            $url = url()->previous() . '#collapseTwo';
+            return redirect($url)->withErrors($validator)->withInput();
+        }
+
+        // Si la validation réussit, mettez à jour les profils sociaux
+        $data = $validator->validated();
+
+        // Update the user's social profiles
+        $user->update($data);
+
+        // Redirect back with a success message
         $url = url()->previous() . '#collapseTwo';
-        return redirect($url)->withErrors($validator)->withInput();
+        return redirect($url)->with('successSocial', 'Social profiles updated successfully!');
     }
 
-    // Si la validation réussit, mettez à jour les profils sociaux
-    $data = $validator->validated();
 
-    // Update the user's social profiles
-    $user->update($data);
+    public function updateWhoIAm(Request $request)
+    {
 
-    // Redirect back with a success message
-    $url = url()->previous() . '#collapseTwo';
-    return redirect($url)->with('successSocial', 'Social profiles updated successfully!');
-    
-}
+        $user = Auth::user();
 
+        // Valider la demande
+        $request->validate([
+            'whoiam_id' => 'required|exists:whoiams,id',
+        ]);
 
-public function updateWhoIAm(Request $request)
-{
+        // Mettre à jour le champ "whoiam" de l'utilisateur
+        $user->whoiam_id = $request->input('whoiam_id');
+        $user->save();
 
-    $user = Auth::user();
-
-    // Valider la demande
-    $request->validate([
-        'whoiam_id' => 'required|exists:whoiams,id',
-    ]);
-
-    // Mettre à jour le champ "whoiam" de l'utilisateur
-    $user->whoiam_id = $request->input('whoiam_id');
-    $user->save();
-
-    return redirect()->route('myaccount')->with('success', 'Votre profil a été mis à jour avec succès.');
-}
-
-
-public function show($id)
-{
-    // Récupération de l'utilisateur à partir de son ID
-    $user = User::findOrFail($id);
-
-    // Récupération des photos associées à cet utilisateur avec pagination
-    $pictures = $user->pictures()->paginate(20);
-
-    // Retour de la vue avec l'utilisateur et ses photos comme données
-    return view('frontend.userprofil', compact('user', 'pictures'));
-}
-
-
-
-
-public function updatePhotographerInfo(Request $request)
-{
-   // Valdation de la banniere
-
-
-   
-
-    $validatedData = $request->validate([
-        'language' => 'required|in:en,fr', 
-        'photographer_title' => 'required|string|max:255',
-        'photographer_description' => 'required|string',
-    ]);
-
-    $user = auth()->user();
-
- 
-    $userTranslation = UserTranslation::firstOrNew([
-        'user_id' => $user->id,
-        'locale' => $validatedData['language'],
-    ]);
-
-    $userTranslation->user_id = $user->id;
-    $userTranslation->locale = $validatedData['language'];
-    $userTranslation->titre = $validatedData['photographer_title'];
-    $userTranslation->description = $validatedData['photographer_description'];
-
-
-    $userTranslation->save();
-
-    if ($request->ajax()) {
-        return response()->json(['message' => 'Mise à jour réussie']);
+        return redirect()->route('myaccount')->with('success', 'Votre profil a été mis à jour avec succès.');
     }
-  
-    return back()->with('success', 'Vos informations de photographe ont été mises à jour avec succès.');
-}
 
-public function updatePhotoProfil (Request $request)
+
+    public function show($id)
+    {
+        // Récupération de l'utilisateur à partir de son ID
+        $user = User::findOrFail($id);
+
+        // Récupération des photos associées à cet utilisateur avec pagination
+        $pictures = $user->pictures()->paginate(20);
+
+        // Retour de la vue avec l'utilisateur et ses photos comme données
+        return view('frontend.userprofil', compact('user', 'pictures'));
+    }
+
+
+
+
+    public function updatePhotographerInfo(Request $request)
+    {
+        // Valdation de la banniere
+
+
+
+
+        $validatedData = $request->validate([
+            'language' => 'required|in:en,fr',
+            'photographer_title' => 'required|string|max:255',
+            'photographer_description' => 'required|string',
+        ]);
+
+        $user = auth()->user();
+
+
+        $userTranslation = UserTranslation::firstOrNew([
+            'user_id' => $user->id,
+            'locale' => $validatedData['language'],
+        ]);
+
+        $userTranslation->user_id = $user->id;
+        $userTranslation->locale = $validatedData['language'];
+        $userTranslation->titre = $validatedData['photographer_title'];
+        $userTranslation->description = $validatedData['photographer_description'];
+
+
+        $userTranslation->save();
+
+        if ($request->ajax()) {
+            return response()->json(['message' => 'Mise à jour réussie']);
+        }
+
+        return back()->with('success', 'Vos informations de photographe ont été mises à jour avec succès.');
+    }
+
+    public function updatePhotoProfil(Request $request)
     {
         try {
             $validatedData = $request->validate(
@@ -163,29 +162,25 @@ public function updatePhotoProfil (Request $request)
                 $bucket = 'mysecretmap';
 
                 // Supression des anciennes images
-            if ($user->large_banner)  
-            {
-                $filelarge = parse_url($user->large_banner);
-                $disk->delete($filelarge);
+                if ($user->large_banner) {
+                    $filelarge = parse_url($user->large_banner);
+                    $disk->delete($filelarge);
+                }
+                if ($user->small_banner) {
+                    $filesmall = parse_url($user->small_banner);
+                    $disk->delete($filesmall);
+                }
 
-            }
-            if ($user->small_banner)  
-            {
-                $filesmall= parse_url($user->small_banner);
-                $disk->delete($filesmall);
 
-            }
-        
-        
-                $extension = $file->getClientOriginalExtension();  
+                $extension = $file->getClientOriginalExtension();
                 $imgname = $user->id . "_banner.jpg";
 
-                
+
                 // STOCKAGE IMAGE ORIGINALE
 
 
                 $width = 1920;
-                $height = 640 ;
+                $height = 640;
                 $canvas = Image::canvas($width, $height);
                 $imagefinale  = Image::make($file);
 
@@ -195,10 +190,10 @@ public function updatePhotoProfil (Request $request)
                 $disk->put('/large/' . $imgname, (string) $canvas, 'public');
                 $largename = $disk->url('large/' . $imgname);
 
-                
-                    $width = 130;
-                    $height = 43;
-              
+
+                $width = 130;
+                $height = 43;
+
 
                 $canvas = Image::canvas($width, $height);
                 $imagesmallfinale  = Image::make($file)->resize(
@@ -215,7 +210,7 @@ public function updatePhotoProfil (Request $request)
 
                 // MEMORISATION BD
 
-            
+
                 $user->large_banner = $largename;
                 $user->small_banner = $smallname;
                 $user->save();
@@ -233,9 +228,6 @@ public function updatePhotoProfil (Request $request)
                 'message' => 'Une erreur est survenue lors du téléchargement de l\'image: ' . $e->getMessage()
             ], 500);
         }
-        
-        
-        
     }
 
 
@@ -257,43 +249,42 @@ public function updatePhotoProfil (Request $request)
 
 
     public function search(Request $request)
-{
-    $search = $request->get('search');
+    {
+        $search = $request->get('search');
 
-    $users = User::where('name', 'like', '%' . $search . '%')
-                 ->orWhere('email', 'like', '%' . $search . '%')
-                 ->orWhere('prenom', 'like', '%' . $search . '%')
-                 ->orWhere('pseudo', 'like', '%' . $search . '%')
-                 ->limit(10)
-                 ->get(['id', 'name', 'prenom', 'email', 'pseudo']);
+        $users = User::where('name', 'like', '%' . $search . '%')
+            ->orWhere('email', 'like', '%' . $search . '%')
+            ->orWhere('prenom', 'like', '%' . $search . '%')
+            ->orWhere('pseudo', 'like', '%' . $search . '%')
+            ->limit(10)
+            ->get(['id', 'name', 'prenom', 'email', 'pseudo']);
 
-    // Transformer les données pour Select2
-    $formattedUsers = $users->map(function ($user) {
-        // Vérifie si le pseudo est vide. Si oui, utilise le prénom et le nom ; sinon, utilise le pseudo.
-        $displayName = $user->pseudo ?: $user->prenom . ' ' . $user->name;
-    
-        return [
-            'id' => $user->id,
-            // Utilise le nom d'affichage choisi ci-dessus et combine-le avec l'email
-            'text' => $displayName . ' (' . $user->email . ')'
-        ];
-    });
+        dd($users);
 
-    return response()->json($formattedUsers);
-}
+        // Transformer les données pour Select2
+        $formattedUsers = $users->map(function ($user) {
+            // Vérifie si le pseudo est vide. Si oui, utilise le prénom et le nom ; sinon, utilise le pseudo.
+            $displayName = $user->pseudo ?: $user->prenom . ' ' . $user->name;
 
-public function getAssociatedBanners(Request $request)
-{
-    $userId = $request->input('user_id');
+            return [
+                'id' => $user->id,
+                // Utilise le nom d'affichage choisi ci-dessus et combine-le avec l'email
+                'text' => $displayName . ' (' . $user->email . ')'
+            ];
+        });
 
-    // Récupérer les bannières associées à l'utilisateur
-    $associatedBanners = Banner::whereHas('user', function ($query) use ($userId) {
-        $query->where('id', $userId);
-    })->select('id', 'title')->get();
+        return response()->json($formattedUsers);
+    }
 
-    return response()->json($associatedBanners);
-}
+    public function getAssociatedBanners(Request $request)
+    {
+        $userId = $request->input('user_id');
 
+        // Récupérer les bannières associées à l'utilisateur
+        $associatedBanners = Banner::whereHas('user', function ($query) use ($userId) {
+            $query->where('id', $userId);
+        })->select('id', 'title')->get();
 
-
+        return response()->json($associatedBanners);
+    }
 }
