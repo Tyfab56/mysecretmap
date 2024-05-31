@@ -10,12 +10,13 @@ var currentMarker = {{$markers->first()->id??0}};
 var currentTitle = '{{$markers->first()->name??0}}';
 var currentLat = {{$markers->first()->lat??0}};
 var currentLng = {{$markers->first()->lng??0}};
+var currentPays = "IS";
 @else
 var currentMarker = {{$spot->id}};
 var currentTitle = '{{$spot->name}}';
 var currentLat = {{$spot->lat??0}};
-var currentLng = {{$spot->lng??0}};;
-
+var currentLng = {{$spot->lng??0}};
+var currentPays = {{$spot->pays_id}};
 @endif
 
 var sunriseDate;
@@ -26,7 +27,6 @@ var sunriseZoom;
 var sunsetZoom;
 var hourLine;
 var hourZoom;
-var currentpays;
 var currentOverlay;
 
 function drawSolar()
@@ -201,7 +201,7 @@ currentMarker = e.sourceTarget.options.id;
 currentTitle = e.sourceTarget.options.title;
 currentLat = e.latlng.lat;
 currentLng = e.latlng.lng;
-addUrlToHistory(currentMarker);
+addUrlToHistory(currentMarker,currentPays);
 var bounds = L.latLng(currentLat,currentLng).toBounds(1000);
 //mapzoom.panTo(new L.LatLng(currentLat,currentLng));
 redrawOverlay();
@@ -486,8 +486,8 @@ while (index < str.length) { // Reset shift, result, and byte byte=null; shift=0
     window.location.href='#mapdest'
     }
 
-    function addUrlToHistory(parametre) {
-    var newUrl = 'https://mysecretmap.com/destination/IS/' + parametre;
+    function addUrlToHistory(parametre, pays) {
+    var newUrl = 'https://mysecretmap.com/destination/'+pays+'/' + parametre;
     window.history.pushState({path:newUrl},'',newUrl);
     }
 
