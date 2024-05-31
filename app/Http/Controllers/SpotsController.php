@@ -1042,16 +1042,9 @@ class SpotsController extends Controller
 
     public function searchbanner(Request $request)
     {
+        $query = $request->input('q');
 
-        $search = $request->get('search');
-
-        $spots = Spots::where('name', 'like', '%' . $search . '%')
-            ->orWhere('email', 'like', '%' . $search . '%')
-            ->orWhere('prenom', 'like', '%' . $search . '%')
-            ->orWhere('pseudo', 'like', '%' . $search . '%')
-            ->limit(10)
-            ->get(['id', 'name', 'prenom', 'email', 'pseudo']);
-
+        $spots = Spots::where('name', 'like', "%{$query}%")->get();
 
         return response()->json($spots);
     }

@@ -86,11 +86,7 @@
                 url: '/admin/spots/searchbanner', // URL de votre route pour rechercher les spots
                 dataType: 'json',
                 delay: 250,
-                data: function(params) {
-                    return {
-                        search: params.term // search term
-                    };
-                },
+
                 processResults: function(data) {
                     return {
                         results: data.map(function(spot) {
@@ -112,6 +108,11 @@
                 url: '/admin/users/search', // URL de votre route pour récupérer les utilisateurs
                 dataType: 'json',
                 delay: 250,
+                data: function(params) {
+                    return {
+                        search: params.term // search term
+                    };
+                },
                 processResults: function(data) {
                     return {
                         results: data.map(function(user) {
