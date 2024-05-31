@@ -259,7 +259,7 @@ class UserController extends Controller
             ->limit(10)
             ->get(['id', 'name', 'prenom', 'email', 'pseudo']);
 
-        dd($users);
+
 
         // Transformer les données pour Select2
         $formattedUsers = $users->map(function ($user) {
