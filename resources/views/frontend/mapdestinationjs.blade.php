@@ -548,6 +548,7 @@ while (index < str.length) { // Reset shift, result, and byte byte=null; shift=0
     Livewire.emit('InfoDestination',e,null,null);
     Livewire.emit('ImgRegion',e);
     Livewire.emit('ImgMap',e);
+    Livewire.emit('updateBanner',e;
     var bounds = L.latLng(lat,lng).toBounds(6000);
     mapdest.fitBounds(bounds);
     var bounds = L.latLng(lat,lng).toBounds(500);
