@@ -1,5 +1,5 @@
 <div>
-    <div class="col-lg-10 d-flex justify-content-center align-items-center" style="height: 100vh;">
+    <div class="col-lg-10 d-flex justify-content-center align-items-center">
         @if ($banner)
         <a href="{{ $banner->redirect_url }}" target="_blank">
             <img src="{{ $banner->image_url }}" alt="Publicité" class="img-fluid">
