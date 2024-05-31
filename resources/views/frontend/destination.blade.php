@@ -39,11 +39,7 @@
                 <a class="btn btn-primary f0-7m m5" href="{{ url('thewall') }}/{{ $idpays}}">{{__('destination.cherchespot')}}</a>
             </div>
 
-            <div class="col-lg-10" style="display: flex; justify-content: center; align-items: center;">
-                <a href="https://www.villa-laurina.com" target="_blank">
-                    <img src="{{ asset('frontend/assets/images/blog/pub1.jpg')}}" alt="Publicité" class="img-fluid">
-                </a>
-            </div>
+            @livewire('spot-banner', ['spotId' => $spot->id])
         </div>
 
         <div class="row">
