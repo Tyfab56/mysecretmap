@@ -16,7 +16,7 @@ var currentMarker = {{$spot->id}};
 var currentTitle = '{{$spot->name}}';
 var currentLat = {{$spot->lat??0}};
 var currentLng = {{$spot->lng??0}};
-var currentPays = {{$spot->pays_id}};
+var currentPays = "{{$spot->pays_id}}";
 @endif
 
 var sunriseDate;
