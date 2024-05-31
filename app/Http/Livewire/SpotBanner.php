@@ -31,7 +31,7 @@ class SpotBanner extends Component
         // Vérifiez si la bannière associée est active
         $banner = null;
         if ($spotBanner) {
-            $banner = Banner::where('id', $spotBanner->banner_id)->where('active', 1)->first();
+            $banner = Banner::where('banner_id', $spotBanner->banner_id)->where('active', 1)->first();
         }
         dd($banner);
         // Si aucune bannière active n'est trouvée pour ce spot, utilisez la bannière n°1 par défaut
