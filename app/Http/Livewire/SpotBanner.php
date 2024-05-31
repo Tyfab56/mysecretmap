@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Livewire;
 
 use Livewire\Component;
@@ -26,7 +27,7 @@ class SpotBanner extends Component
 
         // Recherchez une bannière active pour le spot spécifié
         $spotBanner = SpotBannerUser::where('spot_id', $this->spotId)->first();
-
+        dd($spotBanner);
         // Vérifiez si la bannière associée est active
         $banner = null;
         if ($spotBanner) {
