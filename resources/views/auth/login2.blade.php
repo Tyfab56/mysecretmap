@@ -46,12 +46,12 @@
                         <div class="form-group">
                             <div class="custom-control custom-checkbox">
                                 <input class="custom-control-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-                                <label class="custom-control-label" for="remember">{{ __('auth.remember_me') }}</label>
+                                <label class="custom-control-label" for="remember">{{ __('auth.remember') }}</label>
                             </div>
                         </div>
                         <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0">
                             @if (Route::has('password.request'))
-                            <a class="small" href="{{ route('password.request') }}">{{ __('auth.forgot_password') }}</a>
+                            <a class="small" href="{{ route('password.request') }}">{{ __('auth.forgot') }}</a>
                             @endif
                             <button type="submit" class="btn btn-primary">{{ __('auth.login') }}</button>
                         </div>
@@ -60,7 +60,7 @@
                 <div class="card-footer text-center">
                     @if (Route::has('register'))
                     <div class="small">
-                        <a href="{{ route('register') }}">{{ __('auth.no_account') }}</a>
+                        <a href="{{ route('register') }}"> {{ __('auth.register') }}</a>
                     </div>
                     @endif
                 </div>
