@@ -1,7 +1,7 @@
 @extends('frontend.main_master')
 
 @section('content')
-<div class="container mt-1 mb-1">
+<div class="container mt-3 mb-3">
     <div class="row justify-content-center">
         <div class="col-md-6">
             <div class="card shadow-lg border-0 rounded-lg mt-5">
