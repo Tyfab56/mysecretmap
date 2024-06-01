@@ -5,9 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-6">
             <div class="card shadow-lg border-0 rounded-lg mt-5">
-                <div class="card-header bg-primary text-white text-center">
-                    <h3 class="font-weight-light my-4">{{ __('auth.register') }}</h3>
-                </div>
+
                 <div class="card-body">
                     @if ($errors->has('reCAPTCHA'))
                     <div class="alert alert-danger">
@@ -82,7 +80,7 @@
                     </form>
                 </div>
                 <div class="card-footer text-center">
-                    <a href="{{ route('login') }}">{{ __('auth.already_registered') }}</a>
+                    <a href="{{ route('login') }}">{{ __('auth.alreadyregistered') }}</a>
                 </div>
             </div>
         </div>
