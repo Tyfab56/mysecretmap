@@ -17,7 +17,7 @@ class AuthenticatedSessionController extends Controller
      */
     public function create()
     {
-        return view('auth.login');
+        return view('auth.login2');
     }
 
     /**
@@ -28,27 +28,25 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request)
     {
-        
-    
 
 
-       $request->authenticate();
 
-       $request->session()->regenerate();
+
+        $request->authenticate();
+
+        $request->session()->regenerate();
         // chargement de la langue mémorisé
-       $user = Auth::user();
+        $user = Auth::user();
 
-      
 
-       if ($user) {
+
+        if ($user) {
 
             $lang = $user->lang_id;
 
             if (is_string($lang)) {
                 app()->setLocale($lang);
                 session()->put('locale', $lang);
-        
-               
             } else {
                 // Gérer le cas où la langue de l'utilisateur n'est pas valide.
                 // Par exemple, vous pouvez définir une langue par défaut.
@@ -56,7 +54,7 @@ class AuthenticatedSessionController extends Controller
                 session()->put('locale', config('app.fallback_locale'));
             }
 
-           
+
             $user->lastconnect = \Carbon\Carbon::now();
             $user->save();
         }
@@ -64,11 +62,9 @@ class AuthenticatedSessionController extends Controller
         if ($user->email_verified_at == null) {
 
             return redirect()->route('instructions');
-    
-           }
+        }
 
-       return redirect('/');
-       
+        return redirect('/');
     }
 
     /**
