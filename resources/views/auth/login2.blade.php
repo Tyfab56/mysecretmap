@@ -5,9 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-6">
             <div class="card shadow-lg border-0 rounded-lg">
-                <div class="card-header bg-primary text-white">
-                    <h3 class="text-center font-weight-light my-4">{{ __('auth.login') }}</h3>
-                </div>
+
                 <div class="card-body">
                     @if (session('status'))
                     <div class="alert alert-success" role="alert">
