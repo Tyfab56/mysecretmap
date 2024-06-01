@@ -24,8 +24,8 @@ class RegisteredUserController extends Controller
     public function create()
     {
 
-    $pays = Pays::orderBy('pays', 'asc')->get();
-    return view('auth.register', compact('pays'));
+        $pays = Pays::orderBy('pays', 'asc')->get();
+        return view('auth.register2', compact('pays'));
     }
 
     /**
@@ -46,15 +46,15 @@ class RegisteredUserController extends Controller
 
 
         if (!$result->isSuccess()) {
-        // Échec de la validation reCAPTCHA v3
-        return redirect()->back()->withErrors(['reCAPTCHA' => 'La validation reCAPTCHA a échoué.']);
-         }
+            // Échec de la validation reCAPTCHA v3
+            return redirect()->back()->withErrors(['reCAPTCHA' => 'La validation reCAPTCHA a échoué.']);
+        }
 
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:' . User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
-           
+
         ]);
 
         $user = User::create([
