@@ -4,7 +4,7 @@
 <div class="container mt-3 mb-3">
     <div class="row justify-content-center">
         <div class="col-md-6">
-            <div class="card shadow-lg border-0 rounded-lg mt-5">
+            <div class="card shadow-lg border-0 rounded-lg">
 
                 <div class="card-body">
                     @if ($errors->has('reCAPTCHA'))
