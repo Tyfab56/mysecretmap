@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\ShareMedia;
-use Illuminate\Http\Request;
 use App\Models\Folder;
 use App\Models\UserCredit;
 use App\Models\UserMediaPurchase;
