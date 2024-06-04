@@ -6,10 +6,10 @@
     <h1>Médias Partagés</h1>
     <a href="{{ route('admin.sharemedias.create') }}" class="btn btn-primary">Ajouter un nouveau média</a>
     <form method="GET" action="{{ route('admin.sharemedias.index') }}">
-        <select name="media_id" onchange="this.form.submit()">
-            <option value="">All Media</option>
-            @foreach($mediaOptions as $media)
-            <option value="{{ $media->id }}" {{ request('media_id') == $media->id ? 'selected' : '' }}>{{ $media->name }}</option>
+        <select name="folder_id" onchange="this.form.submit()">
+            <option value="">Choix du dossier</option>
+            @foreach($folders as $folder)
+            <option value="{{ $folder->id }}">{{ $folder->name }}</option>
             @endforeach
         </select>
     </form>
