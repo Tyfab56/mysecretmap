@@ -26,10 +26,11 @@ class ShareMediaController extends Controller
         $query = ShareMedia::orderBy('created_at', 'desc');
 
         if ($folder_id) {
-            $query->where('id', $folder_id);
+            $query->where('folder_id', $folder_id);
         }
 
         $shareMedias = $query->paginate(10);
+
         $folders = Folder::select('id', 'name')->distinct()->get();
 
         return view('admin.sharemedias.index', compact('shareMedias', 'folders'));
