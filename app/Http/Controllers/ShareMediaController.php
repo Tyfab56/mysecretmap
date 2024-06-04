@@ -21,18 +21,18 @@ class ShareMediaController extends Controller
     // Liste tous les médias
     public function index(Request $request)
     {
-        $directory = $request->input('directory');
+        $media_id = $request->input('media_id');
 
-        $query = ShareMedia::with('folder')->orderBy('created_at', 'desc');
+        $query = ShareMedia::select('id', 'name', 'status')->orderBy('created_at', 'desc');
 
-        if ($directory) {
-            $query->where('directory', $directory);
+        if ($media_id) {
+            $query->where('id', $media_id);
         }
 
         $shareMedias = $query->paginate(10);
-        $directories = ShareMedia::select('directory')->distinct()->pluck('directory');
+        $mediaOptions = ShareMedia::select('id', 'name')->distinct()->get();
 
-        return view('admin.sharemedias.index', compact('shareMedias', 'directories'));
+        return view('admin.sharemedias.index', compact('shareMedias', 'mediaOptions'));
     }
 
     // Affiche le formulaire de création d'un nouveau média
