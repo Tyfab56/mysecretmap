@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\ShareMedia;
+use Illuminate\Http\Request;
 use App\Models\Folder;
 use App\Models\UserCredit;
 use App\Models\UserMediaPurchase;
@@ -153,7 +154,7 @@ class ShareMediaController extends Controller
     // Supprime un média de la base de données
     public function destroy($id)
     {
-        $shareMedia = ShareMedia::findOrFail($id);
+        $shareMedia = ShareMedia::findOrFail($id, Request $request);
 
         // Préparation pour supprimer les fichiers sur S3
         $disk = Storage::disk('wasabi'); // Assurez-vous que 'wasabi' est correctement configuré dans config/filesystems.php
@@ -177,8 +178,8 @@ class ShareMediaController extends Controller
         // Suppression de l'enregistrement dans la base de données
         $shareMedia->delete();
 
-        return redirect()->route('admin.sharemedias.index')
-            ->with('success', 'Média supprimé avec succès.');
+        return redirect()->route('admin.sharemedias.index', ['folder_id' => $request->input('folder_id')])
+                         ->with('success', 'Media supprimé avec succès');
     }
 
 

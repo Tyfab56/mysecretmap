@@ -48,6 +48,7 @@
                     <form action="{{ route('admin.sharemedias.destroy', $media->id) }}" method="POST" style="display:inline;">
                         @csrf
                         @method('DELETE')
+                        <input type="hidden" name="folder_id" value="{{ request('folder_id') }}">
                         <button type="submit" class="btn btn-sm btn-danger">Supprimer</button>
                     </form>
                 </td>
@@ -57,6 +58,6 @@
 
         </tbody>
     </table>
-    {{ $shareMedias->links() }}
+    {{ $shareMedias->appends(['folder_id' => request('folder_id')])->links() }}
 </div>
 @endsection
