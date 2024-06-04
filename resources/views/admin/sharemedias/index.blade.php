@@ -5,7 +5,14 @@
 <div class="container">
     <h1>Médias Partagés</h1>
     <a href="{{ route('admin.sharemedias.create') }}" class="btn btn-primary">Ajouter un nouveau média</a>
-    
+    <form method="GET" action="{{ route('admin.sharemedias.index') }}">
+        <select name="directory" onchange="this.form.submit()">
+            <option value="">All Directories</option>
+            @foreach($directories as $directory)
+            <option value="{{ $directory }}" {{ request('directory') == $directory ? 'selected' : '' }}>{{ $directory }}</option>
+            @endforeach
+        </select>
+    </form>
     <table class="table mt-3">
         <thead>
             <tr>
@@ -21,9 +28,9 @@
             <tr>
                 <td>
                     @if($media->folder)
-                        <a href="{{ route('folders.medias', $media->folder->id) }}">{{ $media->folder->name }}</a>
+                    <a href="{{ route('folders.medias', $media->folder->id) }}">{{ $media->folder->name }}</a>
                     @else
-                        Dossier non spécifié
+                    Dossier non spécifié
                     @endif
                 </td>
                 <td>{{ $media->title }}</td>
@@ -31,9 +38,9 @@
                 <td>{{ $media->credits }}</td>
                 <td>
                     @if ($media->thumbnail_link) <!-- Vérifiez que le lien de la vignette existe -->
-                        <img src="{{ $media->thumbnail_link }}" alt="Vignette" style="width: 200px; height: auto;">
+                    <img src="{{ $media->thumbnail_link }}" alt="Vignette" style="width: 200px; height: auto;">
                     @else
-                        Pas de vignette
+                    Pas de vignette
                     @endif
                 </td>
                 <td>
@@ -47,7 +54,7 @@
             </tr>
             @endforeach
 
-           
+
         </tbody>
     </table>
     {{ $shareMedias->links() }}
