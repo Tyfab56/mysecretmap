@@ -45,7 +45,7 @@
                 </td>
                 <td>
                     <a href="{{ route('admin.sharemedias.edit', $media->id) }}" class="btn btn-sm btn-secondary">Modifier</a>
-                    <form action="{{ route('admin.sharemedias.destroy', $media->id) }}" method="POST" style="display:inline;">
+                    <form action="{{ route('admin.sharemedias.destroy', $media->id) }}" method="POST" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer cet élément ?');" style="display:inline;">
                         @csrf
                         @method('DELETE')
                         <input type="hidden" name="folder_id" value="{{ request('folder_id') }}">
