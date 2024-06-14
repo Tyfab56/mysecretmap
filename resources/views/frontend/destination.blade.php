@@ -58,10 +58,10 @@
                         <div class="col-lg-12">
                             <p>{{__('destination.clickmap')}}</p>
                             <div style="display: flex; gap: 10px; align-items: center;">
-                                <label><input type="checkbox" id="1" name="spotType" value="1" checked> Spots</label>
-                                <label><input type="checkbox" id="3" name="spotType" value="3" checked> Musées</label>
-                                <label><input type="checkbox" id="4" name="spotType" value="4"> Hotels</label>
-                                <label><input type="checkbox" id="5" name="spotType" value="5"> Campings</label>
+                                <label><input type="checkbox" id="1" name="spotType" value="1" checked> {{__('destination.Spot')}}Spots</label>
+                                <label><input type="checkbox" id="3" name="spotType" value="3"> {{__('destination.Musee')}}Musées</label>
+                                <label><input type="checkbox" id="4" name="spotType" value="4"> {{__('destination.Hotel')}}Hotels</label>
+                                <label><input type="checkbox" id="5" name="spotType" value="5"> {{__('destination.Camping')}}Campings</label>
                                 <!-- Add more checkboxes as needed -->
                             </div>
                             <div class="leaflet-map">
