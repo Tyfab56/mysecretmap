@@ -82,6 +82,25 @@
           </script>
         </div>
       </div>
+      <div class="latest-360s">
+        <h2>Latest 360</h2>
+        <div class="swiper-container">
+          <div class="swiper-wrapper">
+            @foreach($latest360s as $spot)
+            <div class="swiper-slide">
+              <img src="{{ $spot->imgsquaresmall }}" alt="{{ $spot->name }}">
+              <p>{{ $spot->name }}</p>
+            </div>
+            @endforeach
+          </div>
+          <!-- Add Pagination -->
+          <div class="swiper-pagination"></div>
+          <!-- Add Navigation -->
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+        </div>
+      </div>
+
     </section>
     <!--/ Bloc avec les features -->
     <div class="row pt5">

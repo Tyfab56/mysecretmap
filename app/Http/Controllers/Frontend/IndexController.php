@@ -52,6 +52,7 @@ class IndexController extends Controller
         // Liste des dernier spots
         $lastspots = Spots::orderBy('created_at', 'desc')->where('actif', '=', 1)->take(18)->get();
         $latestSpotWithImg360 = Spots::whereNotNull('img360')->where('actif', 1)->where('img360', '!=', '')->latest()->first();
+        $latest360s = Spots::where('img360', 1)->where('actif', 1)->latest()->take(18)->get();
         $pays = Pays::where('pays_id', '=', $idpays)->first();
 
 
@@ -98,7 +99,7 @@ class IndexController extends Controller
 
 
 
-        return view('frontend/index', compact('latestSpotWithImg360', 'lastPays', 'idpays', 'pays', 'payslist', 'payslng', 'payslat', 'payszoom', 'paysoffset', 'spot', 'lastspots', 'noscircuits', 'markerspays', 'pictures', 'timelines'));
+        return view('frontend/index', compact('latestSpotWithImg360', 'lastPays', 'idpays', 'pays', 'payslist', 'payslng', 'payslat', 'payszoom', 'paysoffset', 'spot', 'lastspots', 'noscircuits', 'markerspays', 'pictures', 'timelines', 'latest360'));
     }
 
     public function search(Request $request)
