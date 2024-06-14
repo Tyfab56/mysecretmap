@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Spots;
 use Illuminate\Support\Facades\DB;
+use App\Models\Pays;
 
 use Illuminate\Http\Request;
 
@@ -29,7 +30,7 @@ class AdminController extends Controller
 
     public function showSortedSpotsPage()
     {
-        $countries = DB::table('pays')->where('actif', 1)->pluck('pays', 'pays_id');
+        $countries = Pays::where('actif', 1)->get();
         return view('admin.sorted_spots', compact('countries'));
     }
 
