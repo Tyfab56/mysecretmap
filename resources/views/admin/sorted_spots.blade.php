@@ -24,8 +24,8 @@
         <div class="form-group">
             <label for="country_id">Select Country:</label>
             <select name="country_id" id="country_id" class="form-control">
-                @foreach ($countries as $id => $name)
-                <option value="{{ $id }}">{{ $name }}</option>
+                @foreach ($countries as $pays)
+                <option value="{{ $pays->pays_id }}">{{ $pays->$pays }}</option>
                 @endforeach
             </select>
         </div>

@@ -29,7 +29,7 @@ class AdminController extends Controller
 
     public function showSortedSpotsPage()
     {
-        $countries = DB::table('pays')->where('actif', 1)->pluck('name', 'id');
+        $countries = DB::table('pays')->where('actif', 1)->pluck('pays', 'pays_id');
         return view('admin.sorted-spots', compact('countries'));
     }
 
