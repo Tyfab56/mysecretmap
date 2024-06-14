@@ -556,6 +556,22 @@ while (index < str.length) { // Reset shift, result, and byte byte=null; shift=0
     }
 
 
+    function getMarkerIcon(typepoint_id) {
+    switch (typepoint_id) {
+    case 1: return Mark1;
+    case 2: return Mark2;
+    case 3: return Mark3;
+    case 4: return Mark4;
+    case 5: return Mark5;
+    case 6: return Mark6;
+    case 7: return Mark7;
+    case 8: return Mark8;
+    case 9: return Mark9;
+    case 10: return Mark10;
+    default: return Mark1;
+    }
+    }
+
     document.querySelectorAll('input[name="spotType"]').forEach(checkbox => {
     checkbox.addEventListener('change', function() {
     const selectedTypes = Array.from(document.querySelectorAll('input[name="spotType"]:checked'))
