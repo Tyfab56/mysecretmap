@@ -443,12 +443,14 @@ class DestinationController extends Controller
             ->get();
 
 
-        dd($spots);
 
         // Filtrer les spots pour ceux ayant une traduction dans la langue actuelle
         $spotsWithTranslations = $spots->filter(function ($spot) use ($locale) {
             return !is_null($spot->translate($locale));
         });
+
+
+        dd($spotsWithTranslations);
 
         // Tri des spots pour un parcours logique en utilisant les distances pré-calculées
         $sortedSpots = $this->sortSpots($spotsWithTranslations, $defaultSpot->spot_id);
