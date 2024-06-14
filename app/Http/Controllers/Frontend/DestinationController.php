@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\Frontend\IndexController as FrontendIndexController;
 use Illuminate\Support\Facades\DB;
 use Helper;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class DestinationController extends Controller
 {
@@ -419,5 +420,87 @@ class DestinationController extends Controller
 
         $spots = $query->get();
         return response()->json($spots);
+    }
+
+    public function thingsToDo($country, Request $request)
+    {
+        // Assurez-vous que la langue est définie
+        $locale = app()->getLocale();
+
+        // Récupérer le point de départ pour le pays donné
+        $defaultSpot = DB::table('default_spot')->where('pays_id', $country)->first();
+
+        if (!$defaultSpot) {
+            abort(404, 'Default spot not found for this country.');
+        }
+
+        // Récupérer les spots pour le pays donné avec les traductions
+        $spots = Spots::where('pays_id', $country)
+            ->where('actif', 1)
+            ->with(['translations' => function ($query) use ($locale) {
+                $query->where('locale', $locale)->whereNotNull('description')->where('description', '!=', '');
+            }])
+            ->get();
+
+        // Filtrer les spots pour ceux ayant une traduction dans la langue actuelle
+        $spotsWithTranslations = $spots->filter(function ($spot) use ($locale) {
+            return !is_null($spot->translate($locale));
+        });
+
+        // Tri des spots pour un parcours logique en utilisant les distances pré-calculées
+        $sortedSpots = $this->sortSpots($spotsWithTranslations, $defaultSpot->Spot_id);
+
+        // Pagination après le tri
+        $perPage = 30;
+        $currentPage = LengthAwarePaginator::resolveCurrentPage();
+        $currentItems = $sortedSpots->slice(($currentPage - 1) * $perPage, $perPage)->all();
+        $paginatedSpots = new LengthAwarePaginator($currentItems, $sortedSpots->count(), $perPage, $currentPage, [
+            'path' => LengthAwarePaginator::resolveCurrentPath(),
+        ]);
+
+        // Récupérer les types de spots pour les cases à cocher
+        $spotTypes = SpotType::all();
+
+        return view('frontend.things-to-do', compact('paginatedSpots', 'locale', 'spotTypes', 'country'));
+    }
+
+    private function sortSpots($spots, $startSpotId)
+    {
+        $sortedSpots = collect();
+        $currentSpotId = $startSpotId;
+
+        while ($spots->isNotEmpty()) {
+            $currentSpot = $spots->firstWhere('id', $currentSpotId);
+
+            if ($currentSpot) {
+                $sortedSpots->push($currentSpot);
+                $spots = $spots->filter(function ($spot) use ($currentSpotId) {
+                    return $spot->id !== $currentSpotId;
+                });
+
+                $nextSpotId = $this->findClosestSpot($currentSpotId, $spots->pluck('id')->toArray());
+
+                if ($nextSpotId) {
+                    $currentSpotId = $nextSpotId;
+                } else {
+                    break;
+                }
+            } else {
+                break;
+            }
+        }
+
+        return $sortedSpots;
+    }
+
+    private function findClosestSpot($currentSpotId, $spotIds)
+    {
+        $closestSpot = DB::table('distances')
+            ->where('spot_origine', $currentSpotId)
+            ->whereIn('spot_destination', $spotIds)
+            ->orderBy('temps', 'asc')
+            ->first();
+
+        return $closestSpot ? $closestSpot->spot_destination : null;
     }
 }

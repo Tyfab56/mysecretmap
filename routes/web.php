@@ -299,5 +299,6 @@ Route::middleware(['App\Http\Middleware\CheckAdmin'])->group(function () {
 
 Route::view('admin.dashboard', 'admin.dashboard')->name('admin.dashboard')->middleware('App\Http\Middleware\CheckAdmin');
 Route::get('/spots', [DestinationController::class, 'getFilteredSpots']);
+Route::get('/thingstodo/{country}', [DestinationController::class, 'thingsToDo'])->name('things-to-do');
 
 require __DIR__ . '/auth.php';
