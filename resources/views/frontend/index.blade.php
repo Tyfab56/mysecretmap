@@ -82,23 +82,21 @@
           </script>
         </div>
       </div>
-      <div class="latest-360s">
-        <h2>Latest 360</h2>
-        <div class="swiper-container">
-          <div class="swiper-wrapper">
-            @foreach($latest360s as $spot)
-            <div class="swiper-slide">
-              <img src="{{ $spot->imgsquaresmall }}" alt="{{ $spot->name }}">
-              <p>{{ $spot->name }}</p>
+
+
+
+      <div class=" swiper">
+        <div class="swiper-wrapper">
+          @foreach($latest360s as $spot)
+          <div class="swiper-slide">
+            <a href="{{ url('destination') }}/{{$spot->pays_id }}/{{ $spot->id }}"> <img class="imgbox" onClick="" src="{{ $spot->imgsquaremedium }}"></a>
+            <div class="bottom-center">
+              <span class="textbox"><b>{{ $spot->name }}</b></span>
             </div>
-            @endforeach
           </div>
-          <!-- Add Pagination -->
-          <div class="swiper-pagination"></div>
-          <!-- Add Navigation -->
-          <div class="swiper-button-next"></div>
-          <div class="swiper-button-prev"></div>
+          @endforeach
         </div>
+
       </div>
 
     </section>
