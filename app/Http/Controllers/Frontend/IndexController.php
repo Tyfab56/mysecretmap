@@ -99,7 +99,7 @@ class IndexController extends Controller
 
 
 
-        return view('frontend/index', compact('latestSpotWithImg360', 'lastPays', 'idpays', 'pays', 'payslist', 'payslng', 'payslat', 'payszoom', 'paysoffset', 'spot', 'lastspots', 'noscircuits', 'markerspays', 'pictures', 'timelines', 'latest360'));
+        return view('frontend/index', compact('latestSpotWithImg360', 'lastPays', 'idpays', 'pays', 'payslist', 'payslng', 'payslat', 'payszoom', 'paysoffset', 'spot', 'lastspots', 'noscircuits', 'markerspays', 'pictures', 'timelines', 'latest360s'));
     }
 
     public function search(Request $request)
