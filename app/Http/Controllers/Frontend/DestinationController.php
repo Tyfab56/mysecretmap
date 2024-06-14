@@ -407,6 +407,7 @@ class DestinationController extends Controller
     public function getFilteredSpots(Request $request)
     {
         $maps_ids = $request->get('maps_id', []);
+        dd($maps_ids);
         $spots = Spots::whereIn('maps_id', $maps_ids)->get();
         return response()->json($spots);
     }
