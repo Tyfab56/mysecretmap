@@ -406,9 +406,9 @@ class DestinationController extends Controller
 
     public function getFilteredSpots(Request $request)
     {
-
-        $spots= Spots::select('id', 'name', 'lng', 'lat', 'imgpanosmall', 'imgsquaresmall','typepoint_id')
-        ->where('pays_id', $idpays)->where('actif', 1)->get();
+        $idpays = $request->get('idpays');
+        $spots = Spots::select('id', 'name', 'lng', 'lat', 'imgpanosmall', 'imgsquaresmall', 'typepoint_id')
+            ->where('pays_id', $idpays)->where('actif', 1)->get();
         return response()->json($spots);
     }
 }
