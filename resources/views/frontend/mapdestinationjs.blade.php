@@ -538,6 +538,24 @@ while (index < str.length) { // Reset shift, result, and byte byte=null; shift=0
     markers.clearLayers();
     }
 
+    function addMarker(spot) {
+    var marker = L.marker([spot.lat, spot.lng], {
+    icon: getMarkerIcon(spot.typepoint_id),
+    title: spot.name,
+    id: spot.id
+    }).on('click', onmapClick).bindTooltip(
+    `<p class='pintext'><img src="${spot.imgsquaresmall}" /></p>
+    <p class="textbox">${spot.name}</p>`, {
+    minWidth: 130,
+    interactive: true
+    }).bindPopup(
+    `<img class="addit" src="{{asset('frontend/assets/images/addpic.png')}}" onClick="addCircuit(${spot.id})">`
+    );
+
+    markers.addLayer(marker);
+    }
+
+
     document.querySelectorAll('input[name="spotType"]').forEach(checkbox => {
     checkbox.addEventListener('change', function() {
     const selectedTypes = Array.from(document.querySelectorAll('input[name="spotType"]:checked'))
