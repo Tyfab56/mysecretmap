@@ -56,13 +56,12 @@
                 <div class="row">
                     <div class="row bgregbox w100">
                         <div class="col-lg-12">
-                            <p>{{__('destination.clickmap')}}</p> hello
-                            <div>
-                                <label>Choose Spot Types:</label><br>
-                                <input type="checkbox" id="1" name="spotType" value="1" checked> Spots<br>
-                                <input type="checkbox" id="3" name="spotType" value="3" checked> Musées<br>
-                                <input type="checkbox" id="4" name="spotType" value="4"> Hotels<br>
-                                <input type="checkbox" id="5" name="spotType" value="5"> Campings<br>
+                            <p>{{__('destination.clickmap')}}</p>
+                            <div style="display: flex; gap: 10px; align-items: center;">
+                                <label><input type="checkbox" id="1" name="spotType" value="1" checked> Spots</label>
+                                <label><input type="checkbox" id="3" name="spotType" value="3" checked> Musées</label>
+                                <label><input type="checkbox" id="4" name="spotType" value="4"> Hotels</label>
+                                <label><input type="checkbox" id="5" name="spotType" value="5"> Campings</label>
                                 <!-- Add more checkboxes as needed -->
                             </div>
                             <div class="leaflet-map">
