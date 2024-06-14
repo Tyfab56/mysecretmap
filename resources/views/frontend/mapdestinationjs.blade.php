@@ -527,14 +527,22 @@ while (index < str.length) { // Reset shift, result, and byte byte=null; shift=0
 
     });
     function updateMap(spots) {
-    alert('change');
+    clearMarkers();
+    spots.forEach(spot => {
+    addMarker(spot);
+    });
+    }
+
+    // Fonction pour effacer les marqueurs existants
+    function clearMarkers() {
+    // Implémentez la logique pour effacer les marqueurs existants de la carte
     }
 
     document.querySelectorAll('input[name="spotType"]').forEach(checkbox => {
     checkbox.addEventListener('change', function() {
     const selectedTypes = Array.from(document.querySelectorAll('input[name="spotType"]:checked'))
     .map(cb => cb.value);
-    alert(selectedTypes)
+    fetch("/spots?maps_id=${selectedTypes.join(',')}")
     .then(response => response.json())
     .then(data => {
     updateMap(data);

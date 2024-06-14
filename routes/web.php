@@ -297,6 +297,7 @@ Route::middleware(['App\Http\Middleware\CheckAdmin'])->group(function () {
     Route::get('/admin/spots/searchbanner', [SpotsController::class, 'searchbanner']);
 });
 
-Route::view('admin.dashboard', 'admin.dashboard')->name('admin.dashboard')->middleware('App\Http\Middleware\CheckAdmin');;
+Route::view('admin.dashboard', 'admin.dashboard')->name('admin.dashboard')->middleware('App\Http\Middleware\CheckAdmin');
+Route::get('/spots', [DestinationController::class, 'getFilteredSpots']);
 
 require __DIR__ . '/auth.php';

@@ -403,4 +403,11 @@ class DestinationController extends Controller
             return view('frontend.gallery', compact('pictures'));
         }
     }
+
+    public function getFilteredSpots(Request $request)
+    {
+        $maps_ids = $request->get('maps_id', []);
+        $spots = Spots::whereIn('maps_id', $maps_ids)->get();
+        return response()->json($spots);
+    }
 }
