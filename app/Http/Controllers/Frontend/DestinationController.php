@@ -407,8 +407,17 @@ class DestinationController extends Controller
     public function getFilteredSpots(Request $request)
     {
         $idpays = $request->get('idpays');
-        $spots = Spots::select('id', 'name', 'lng', 'lat', 'imgpanosmall', 'imgsquaresmall', 'typepoint_id')
-            ->where('pays_id', $idpays)->where('actif', 1)->get();
+        $maps_ids = $request->get('maps_id', []);
+        $query = Spots::select('id', 'name', 'lng', 'lat', 'imgpanosmall', 'imgsquaresmall', 'typepoint_id')
+            ->where('pays_id', $idpays)
+            ->where('actif', 1);
+
+        if (!empty($maps_ids)) {
+            $maps_ids_array = explode(',', $maps_ids);
+            $query->whereIn('maps_id', $maps_ids_array);
+        }
+
+        $spots = $query->get();
         return response()->json($spots);
     }
 }
