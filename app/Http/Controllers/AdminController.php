@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Spots;
 use Illuminate\Support\Facades\DB;
 use App\Models\Pays;
+use App\Models\SortedSpot;
 
 use Illuminate\Http\Request;
 
@@ -46,7 +47,7 @@ class AdminController extends Controller
         $locale = app()->getLocale();
 
         // Récupérer le point de départ pour le pays donné
-        $defaultSpot = DB::table('default_spot')->where('pays_id', $countryId)->first();
+        $defaultSpot = DB::table('default_spots')->where('pays_id', $countryId)->first();
 
         if (!$defaultSpot) {
             return redirect()->back()->withErrors('Default spot not found for this country.');
