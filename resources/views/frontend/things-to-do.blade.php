@@ -73,38 +73,38 @@
 @endsection
 
 @section('scripts')
-<script>
-    document.querySelectorAll('input[name="spotType"]').forEach(checkbox => {
-        checkbox.addEventListener('change', function() {
-            const selectedTypes = Array.from(document.querySelectorAll('input[name="spotType"]:checked'))
-                .map(cb => cb.value);
-            fetch(`/things-to-do/{{$country}}?types=${selectedTypes.join(',')}`)
-                .then(response => response.json())
-                .then(data => {
-                    // Logique pour mettre à jour la liste des spots
-                    updateSpotsList(data);
-                });
-        });
-    });
 
-    function updateSpotsList(spots) {
-        const list = document.querySelector('.things-to-do-list');
-        list.innerHTML = '';
-        spots.forEach(spot => {
-            const spotItem = document.createElement('div');
-            spotItem.classList.add('spot-item');
-            spotItem.innerHTML = `
-                <div class="spot-image">
-                    <img src="${spot.imgsquaresmall}" alt="${spot.name}">
-                </div>
-                <div class="spot-info">
-                    <h3>${spot.name}</h3>
-                    <p>${spot.translation.description}</p>
-                    <a href="/spot/${spot.id}" class="btn btn-primary">View Spot</a>
-                </div>
-            `;
-            list.appendChild(spotItem);
-        });
-    }
-</script>
+document.querySelectorAll('input[name="spotType"]').forEach(checkbox => {
+checkbox.addEventListener('change', function() {
+const selectedTypes = Array.from(document.querySelectorAll('input[name="spotType"]:checked'))
+.map(cb => cb.value);
+fetch(`/things-to-do/{{$country}}?types=${selectedTypes.join(',')}`)
+.then(response => response.json())
+.then(data => {
+// Logique pour mettre à jour la liste des spots
+updateSpotsList(data);
+});
+});
+});
+
+function updateSpotsList(spots) {
+const list = document.querySelector('.things-to-do-list');
+list.innerHTML = '';
+spots.forEach(spot => {
+const spotItem = document.createElement('div');
+spotItem.classList.add('spot-item');
+spotItem.innerHTML = `
+<div class="spot-image">
+    <img src="${spot.imgsquaresmall}" alt="${spot.name}">
+</div>
+<div class="spot-info">
+    <h3>${spot.name}</h3>
+    <p>${spot.translation.description}</p>
+    <a href="/spot/${spot.id}" class="btn btn-primary">View Spot</a>
+</div>
+`;
+list.appendChild(spotItem);
+});
+}
+
 @endsection
