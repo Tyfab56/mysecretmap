@@ -535,14 +535,14 @@ while (index < str.length) { // Reset shift, result, and byte byte=null; shift=0
 
     // Fonction pour effacer les marqueurs existants
     function clearMarkers() {
-    // Implémentez la logique pour effacer les marqueurs existants de la carte
+    markers.clearLayers();
     }
 
     document.querySelectorAll('input[name="spotType"]').forEach(checkbox => {
     checkbox.addEventListener('change', function() {
     const selectedTypes = Array.from(document.querySelectorAll('input[name="spotType"]:checked'))
     .map(cb => cb.value);
-    fetch(`/spots?maps_id=${selectedTypes.join(',')}`)
+    fetch(`/spots?maps_id=${selectedTypes.join(',')}&idpays=${currentPays}`)
     .then(response => response.json())
     .then(data => {
     updateMap(data);
