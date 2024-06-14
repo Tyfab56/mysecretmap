@@ -300,5 +300,7 @@ Route::middleware(['App\Http\Middleware\CheckAdmin'])->group(function () {
 Route::view('admin.dashboard', 'admin.dashboard')->name('admin.dashboard')->middleware('App\Http\Middleware\CheckAdmin');
 Route::get('/spots', [DestinationController::class, 'getFilteredSpots']);
 Route::get('/thingstodo/{country}', [DestinationController::class, 'thingsToDo'])->name('things-to-do');
+Route::get('/admin/sorted-spots', [AdminController::class, 'showSortedSpotsPage'])->name('admin.sorted-spots')->middleware('App\Http\Middleware\CheckAdmin');
+Route::post('/admin/sorted-spots/generate', [AdminController::class, 'generateSortedSpots'])->name('admin.sorted-spots.generate')->middleware('App\Http\Middleware\CheckAdmin');
 
 require __DIR__ . '/auth.php';
