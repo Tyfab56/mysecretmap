@@ -428,7 +428,7 @@ class DestinationController extends Controller
         $locale = app()->getLocale();
 
         // Récupérer le point de départ pour le pays donné
-        $defaultSpot = DB::table('default_spot')->where('pays_id', $country)->first();
+        $defaultSpot = DB::table('default_spots')->where('pays_id', $country)->first();
 
         if (!$defaultSpot) {
             abort(404, 'Default spot not found for this country.');
@@ -459,9 +459,9 @@ class DestinationController extends Controller
         ]);
 
         // Récupérer les types de spots pour les cases à cocher
-        $spotTypes = SpotType::all();
 
-        return view('frontend.things-to-do', compact('paginatedSpots', 'locale', 'spotTypes', 'country'));
+
+        return view('frontend.things-to-do', compact('paginatedSpots', 'locale', 'country'));
     }
 
     private function sortSpots($spots, $startSpotId)

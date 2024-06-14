@@ -56,7 +56,7 @@
                 <div class="row">
                     <div class="row bgregbox w100">
                         <div class="col-lg-12">
-                            <p><b></b>{{__('destination.clickmap')}}</b></p>
+                            <p><b>{{__('destination.clickmap')}}</b></p>
                             <div style="display: flex; gap: 10px; align-items: center;">
                                 <label><input type="checkbox" id="1" name="spotType" value="1" checked> {{__('destination.Spot')}}</label>
                                 <label><input type="checkbox" id="3" name="spotType" value="3"> {{__('destination.Musee')}}</label>
