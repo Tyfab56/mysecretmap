@@ -528,6 +528,9 @@ while (index < str.length) { // Reset shift, result, and byte byte=null; shift=0
     });
     function updateMap(spots) {
     clearMarkers();
+    sunsetLine.removeFrom(mapdest);
+    sunriseLine.removeFrom(mapdest);
+    hourLine.removeFrom(mapdest);
     spots.forEach(spot => {
     addMarker(spot);
     });
