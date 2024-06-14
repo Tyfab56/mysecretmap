@@ -40,7 +40,7 @@ class AdminController extends Controller
 
         // Validation de l'entrée
         $request->validate([
-            'country_id' => 'required|exists:pays,id',
+            'country_id' => 'required|exists:pays,pays_id',
         ]);
 
         $locale = app()->getLocale();
