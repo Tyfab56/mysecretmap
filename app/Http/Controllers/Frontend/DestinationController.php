@@ -448,7 +448,7 @@ class DestinationController extends Controller
         });
 
         // Tri des spots pour un parcours logique en utilisant les distances pré-calculées
-        $sortedSpots = $this->sortSpots($spotsWithTranslations, $defaultSpot->Spot_id);
+        $sortedSpots = $this->sortSpots($spotsWithTranslations, $defaultSpot->spot_id);
 
         // Pagination après le tri
         $perPage = 30;
