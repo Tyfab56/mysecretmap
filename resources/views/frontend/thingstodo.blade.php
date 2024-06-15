@@ -18,7 +18,7 @@
         $description = Str::limit($translation->description, 200);
         @endphp
         @if($translation)
-        <div class="col-md-4">
+        <div class="col-md-4 mb-4">
             <div class="card mb-4 h-100">
                 <img src="{{ $sortedSpot->spot->imgpanomedium }}" class="card-img-top" alt="{{ $sortedSpot->spot->name }}">
                 <div class="card-body d-flex flex-column">
