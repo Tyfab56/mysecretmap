@@ -6,7 +6,7 @@ use App\Models\Spots;
 use Illuminate\Support\Facades\DB;
 use App\Models\Pays;
 use App\Models\SortedSpot;
-
+use Illuminate\Support\Facades\Log;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -116,11 +116,14 @@ class AdminController extends Controller
 
     private function findClosestSpot($currentSpotId, $spotIds)
     {
+        Log::info('Débogage - CurrentSpot', [$currentSpotId]);
+        Log::info('Débogage - spotIds', [$spotIds]);
         $closestSpot = DB::table('distances')
             ->where('spot_origine', $currentSpotId)
             ->whereIn('spot_destination', $spotIds)
             ->orderBy('temps', 'asc')
             ->first();
+        Log::info('Débogage - closestSpot', [$closestSpot]);
 
         return $closestSpot ? $closestSpot->spot_destination : null;
     }
