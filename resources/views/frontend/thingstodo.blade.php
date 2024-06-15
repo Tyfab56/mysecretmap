@@ -25,6 +25,7 @@
                     <h5 class="card-title">{{ $sortedSpot->spot->name }}</h5>
                     <p class="card-text description flex-grow-1">{{ $description }}</p>
                     <a href="{{ route('destination', ['id' => $country->pays_id, 'spotid' => $sortedSpot->spot->id]) }}" class="btn btn-primary mt-auto">View Spot</a>
+                    <button class="btn btn-secondary" onclick="addToFavorites(${spot.id})">Ajouter aux favoris</button>
                 </div>
             </div>
         </div>
@@ -103,5 +104,8 @@ spotItem.innerHTML = `
 list.appendChild(spotItem);
 });
 }
-
+function addToFavorites(spotId) {
+// Ajoutez ici la logique pour ajouter le spot aux favoris, par exemple une requête AJAX
+console.log(`Ajouter le spot ${spotId} aux favoris`);
+}
 @endsection
