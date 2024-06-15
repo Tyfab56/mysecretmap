@@ -8,7 +8,7 @@ use App\Models\Langs;
 use App\Models\Spots;
 use App\Models\Maps;
 use App\Models\PendingPicture;
-use App\Models\Typepoints;
+use App\Models\Typepoint;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use App\Http\Controllers\Controller;
@@ -90,7 +90,7 @@ class SpotsController extends Controller
         // Spot suivant
         $nextspot = Spots::where('id', '>', $spot->id)->orderBy('id')->first();
 
-        $typepoints = Typepoints::all();
+        $typepoints = Typepoint::all();
         Session::put('typeaction', 'edit');
 
         if (!empty($lang)) {
@@ -160,7 +160,7 @@ class SpotsController extends Controller
         $spot->lng = 0;
         $spot->latparking = 0;
         $spot->lngparking = 0;
-        $typepoints = Typepoints::all();
+        $typepoints = Typepoint::all();
         Session::put('typeaction', 'add');
 
         if (!empty($lang)) {
