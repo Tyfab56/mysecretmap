@@ -101,9 +101,7 @@ class AdminController extends Controller
             $currentSpot = $spots->firstWhere('id', $currentSpotId);
 
 
-            dd($spots->pluck('id')->map(function ($id) {
-                return gettype($id);
-            }));
+            dd($currentSpotId, gettype($currentSpotId));
 
             if ($currentSpot) {
                 $sortedSpots->push($currentSpot);
