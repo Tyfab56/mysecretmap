@@ -30,6 +30,6 @@ class SortedSpot extends Model
 
     public function typepoint()
     {
-        return $this->belongsTo(Typepoints::class, 'type_id', 'id');
+        return $this->belongsTo(Typepoint::class, 'type_id', 'id');
     }
 }
