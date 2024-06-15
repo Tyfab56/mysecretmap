@@ -18,7 +18,7 @@
         $description = Str::limit($translation->description, 200);
         @endphp
         @if($translation)
-        <div class="col-lg-6 col-md-12 mb-4">
+        <div class="col-xl-4 col-lg-6 col-md-12 mb-4">
             <div class="card mb-4 h-100">
                 <img src="{{ $sortedSpot->spot->imgpanomedium }}" class="card-img-top" alt="{{ $sortedSpot->spot->name }}">
                 <div class="card-body d-flex flex-column">
@@ -85,6 +85,21 @@
     .pagination {
         margin-top: 20px;
     }
+
+    .btn-equal {
+        width: 100%;
+    }
+
+    .btn-warning {
+        background-color: #f0ad4e;
+        border-color: #eea236;
+        color: white;
+    }
+
+    .btn-warning:hover {
+        background-color: #ec971f;
+        border-color: #d58512;
+    }
 </style>
 @endsection
 
@@ -106,7 +121,7 @@ const list = document.querySelector('.things-to-do-list');
 list.innerHTML = '';
 spots.forEach(spot => {
 const spotItem = document.createElement('div');
-spotItem.classList.add('col-lg-6', 'col-md-12', 'mb-4');
+spotItem.classList.add('col-xl-4', 'col-lg-6', 'col-md-12', 'mb-4');
 spotItem.innerHTML = `
 <div class="card h-100">
     <img src="${spot.imgpanomedium}" class="card-img-top" alt="${spot.name}">
