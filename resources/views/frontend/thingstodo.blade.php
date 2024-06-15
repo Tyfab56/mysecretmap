@@ -2,9 +2,9 @@
 
 @section('content')
 <div class="container">
-    <h1>Things to Do in {{ $country->name }}</h1>
+    <h1>Things to Do in {{ $country->pays }}</h1>
     <!-- Ajoutez des cases à cocher pour filtrer les spots -->
-    <p><b>{{ __('destination.clickmap') }}</b></p>
+
     <div style="display: flex; gap: 10px; align-items: center;">
         <label><input type="checkbox" id="1" name="spotType" value="1" checked> {{ __('destination.Spot') }}</label>
         <label><input type="checkbox" id="3" name="spotType" value="3"> {{ __('destination.Musee') }}</label>
@@ -16,6 +16,7 @@
         @foreach($paginatedSpots as $sortedSpot)
         @php
         $translation = $sortedSpot->spot->translate($locale);
+        $description = Str::limit($translation->description, 500);
         @endphp
         @if($translation)
         <div class="col-md-4">
@@ -23,7 +24,7 @@
                 <img src="{{ $sortedSpot->spot->imgpanomedium }}" class="card-img-top" alt="{{ $sortedSpot->spot->name }}">
                 <div class="card-body">
                     <h5 class="card-title">{{ $sortedSpot->spot->name }}</h5>
-                    <p class="card-text">{{ $translation->description }}</p>
+                    <p class="card-text">{{ $description }}</p>
                     <a href="{{ route('destination', ['id' => $country->pays_id, 'spotid' => $sortedSpot->spot->id]) }}" class="btn btn-primary">View Spot</a>
                 </div>
             </div>
@@ -82,7 +83,7 @@
             <img src="${spot.imgpanomedium}" class="card-img-top" alt="${spot.name}">
             <div class="card-body">
                 <h5 class="card-title">${spot.name}</h5>
-                <p class="card-text">${spot.translation.description}</p>
+                <p class="card-text">${spot.translation.description.substring(0, 500)}...</p>
                 <a href="/destination/${spot.country_id}/${spot.id}" class="btn btn-primary">View Spot</a>
             </div>
         </div>
