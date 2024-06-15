@@ -59,17 +59,12 @@
     .card-text.description {
         flex-grow: 1;
         min-height: 140px;
-        font-size: 0.875rem !important;
-        /* Taille de texte légèrement plus petite */
+        font-size: 0.95rem !important;
+        line-height: 22px;
     }
 
     .pagination {
         margin-top: 20px;
-    }
-
-    roundgraybox .description,
-    .description {
-        font-size: 0.875rem !important;
     }
 </style>
 @endsection
