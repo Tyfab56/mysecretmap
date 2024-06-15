@@ -20,7 +20,7 @@
         @if($translation)
         <div class="col-md-6">
             <div class="card mb-4">
-                <img src="{{ $sortedSpot->spot->imgwide }}" class="card-img-top" alt="{{ $sortedSpot->spot->name }}">
+                <img src="{{ $sortedSpot->spot->imgpanomedium }}" class="card-img-top" alt="{{ $sortedSpot->spot->name }}">
                 <div class="card-body">
                     <h5 class="card-title">{{ $sortedSpot->spot->name }}</h5>
                     <p class="card-text">{{ $translation->description }}</p>
