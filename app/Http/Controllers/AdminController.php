@@ -68,7 +68,7 @@ class AdminController extends Controller
 
         // Tri des spots pour un parcours logique en utilisant les distances pré-calculées
         $sortedSpots = $this->sortSpots($spotsWithTranslations, $defaultSpot->spot_id);
-        dump($sortedSpots);
+        dd($sortedSpots);
         // Vider la table des spots triés pour ce pays
         SortedSpot::where('pays_id', $countryId)->delete();
 
