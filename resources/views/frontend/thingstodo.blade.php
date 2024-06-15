@@ -51,8 +51,8 @@
         width: 100%;
     }
 
-    .card .description {
-        min-height: 100px;
+    .card .card-text.description {
+        min-height: 140px;
         /* Ajustez cette hauteur selon vos besoins */
     }
 
