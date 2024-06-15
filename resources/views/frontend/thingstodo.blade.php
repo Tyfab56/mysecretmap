@@ -129,25 +129,7 @@ list.appendChild(spotItem);
 
 function addToFavorites(spotId) {
 @if(Auth::check())
-fetch('{{ route('favorites.add') }}', {
-method: 'POST',
-headers: {
-'Content-Type': 'application/json',
-'X-CSRF-TOKEN': '{{ csrf_token() }}',
-},
-body: JSON.stringify({ spot_id: spotId })
-})
-.then(response => response.json())
-.then(data => {
-if (data.success) {
 alert('Ajouté aux favoris avec succès!');
-} else {
-alert('Erreur lors de l\'ajout aux favoris.');
-}
-})
-.catch(error => {
-console.error('Erreur:', error);
-});
 @else
 $('#loginModal').modal('show');
 @endif
