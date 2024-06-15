@@ -421,6 +421,6 @@ class DestinationController extends Controller
             ->paginate(30);
 
         // Passer les données à la vue
-        return view('thingstodo', compact('paginatedSpots', 'country'));
+        return view('frontend.thingstodo', compact('paginatedSpots', 'country'));
     }
 }
