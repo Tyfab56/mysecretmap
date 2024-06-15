@@ -89,38 +89,44 @@ class AdminController extends Controller
     }
 
     private function sortSpots($spots, $startSpotId)
-    {
-        $sortedSpots = collect();
+{
+    $sortedSpots = collect();
+    $currentSpotId = $startSpotId;
+    $allSpots = $spots->keyBy('id'); // Associe les spots par leur ID pour un accès rapide
 
-        $currentSpotId = $startSpotId;
+    while ($spots->isNotEmpty()) {
+        $currentSpot = $spots->firstWhere('id', $currentSpotId);
 
+        if ($currentSpot) {
+            $sortedSpots->push($currentSpot);
+            $spots = $spots->filter(function ($spot) use ($currentSpotId) {
+                return $spot->id !== $currentSpotId;
+            });
 
+            $nextSpotId = $this->findClosestSpot($currentSpotId, $spots->pluck('id')->toArray());
 
-
-        while ($spots->isNotEmpty()) {
-            $currentSpot = $spots->firstWhere('id', $currentSpotId);
-
-
-            if ($currentSpot) {
-                $sortedSpots->push($currentSpot);
-                $spots = $spots->filter(function ($spot) use ($currentSpotId) {
-                    return $spot->id !== $currentSpotId;
-                });
-
-                $nextSpotId = $this->findClosestSpot($currentSpotId, $spots->pluck('id')->toArray());
-
-                if ($nextSpotId) {
-                    $currentSpotId = $nextSpotId;
-                } else {
-                    break;
-                }
+            if ($nextSpotId) {
+                $currentSpotId = $nextSpotId;
             } else {
+                Log::warning("No next spot found from spot ID $currentSpotId.");
                 break;
             }
+        } else {
+            Log::warning("Current spot with ID $currentSpotId not found.");
+            break;
         }
-
-        return $sortedSpots;
     }
+
+    // Vérifier les spots restants sans correspondance
+    if ($spots->isNotEmpty()) {
+        Log::warning('Spots without distance calculations: ' . $spots->pluck('id')->implode(', '));
+    }
+
+    // Log les spots triés pour vérification
+    Log::info('Sorted spots: ' . $sortedSpots->pluck('id')->implode(', '));
+
+    return $sortedSpots;
+}
 
     private function findClosestSpot($currentSpotId, $spotIds)
     {
@@ -131,8 +137,8 @@ class AdminController extends Controller
             ->orderBy('temps', 'asc')
             ->first();
 
-        if (!$closestSpot) {
-            dd("No distance found from spot ID $currentSpotId to any of the given spot IDs");
+       
+            dump(" from spot ID $currentSpotId ",$closestSpot);
         }
 
         return $closestSpot ? $closestSpot->spot_destination : null;
