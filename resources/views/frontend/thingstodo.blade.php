@@ -18,7 +18,7 @@
         $translation = $sortedSpot->spot->translate($locale);
         @endphp
         @if($translation)
-        <div class="col-md-6">
+        <div class="col-md-4">
             <div class="card mb-4">
                 <img src="{{ $sortedSpot->spot->imgpanomedium }}" class="card-img-top" alt="{{ $sortedSpot->spot->name }}">
                 <div class="card-body">
