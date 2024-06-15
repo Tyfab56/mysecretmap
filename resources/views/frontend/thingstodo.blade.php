@@ -39,7 +39,24 @@
         {{ $paginatedSpots->links() }}
     </div>
 </div>
-
+<!-- Modal -->
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="loginModalLabel">Connexion requise</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Vous devez être connecté pour ajouter des favoris. Veuillez vous connecter ou créer un compte.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                <a href="{{ route('login') }}" class="btn btn-primary">Connexion</a>
+            </div>
+        </div>
+    </div>
+</div>
 
 <style>
     .things-to-do-list {
@@ -109,7 +126,30 @@ list.appendChild(spotItem);
 });
 }
 
+
 function addToFavorites(spotId) {
-console.log(`Ajouter le spot ${spotId} aux favoris`);
+@if(Auth::check())
+fetch('{{ route('favorites.add') }}', {
+method: 'POST',
+headers: {
+'Content-Type': 'application/json',
+'X-CSRF-TOKEN': '{{ csrf_token() }}',
+},
+body: JSON.stringify({ spot_id: spotId })
+})
+.then(response => response.json())
+.then(data => {
+if (data.success) {
+alert('Ajouté aux favoris avec succès!');
+} else {
+alert('Erreur lors de l\'ajout aux favoris.');
+}
+})
+.catch(error => {
+console.error('Erreur:', error);
+});
+@else
+$('#loginModal').modal('show');
+@endif
 }
 @endsection
