@@ -131,6 +131,9 @@ class AdminController extends Controller
             ->orderBy('temps', 'asc')
             ->first();
 
+        if (!$closestSpot) {
+            dd("No distance found from spot ID $currentSpotId to any of the given spot IDs");
+        }
 
         return $closestSpot ? $closestSpot->spot_destination : null;
     }
