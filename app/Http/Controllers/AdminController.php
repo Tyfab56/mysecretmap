@@ -100,8 +100,6 @@ class AdminController extends Controller
         while ($spots->isNotEmpty()) {
             $currentSpot = $spots->firstWhere('id', $currentSpotId);
 
-            dd($currentSpot, $currentSpotId, $spots->pluck('id'));
-
 
             if ($currentSpot) {
                 $sortedSpots->push($currentSpot);
