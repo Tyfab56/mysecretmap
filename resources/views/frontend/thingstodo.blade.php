@@ -67,6 +67,11 @@
     .pagination {
         margin-top: 20px;
     }
+
+    roundgraybox .description,
+    .description {
+        font-size: 0.875rem !important;
+    }
 </style>
 @endsection
 
