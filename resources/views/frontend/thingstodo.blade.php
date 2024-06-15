@@ -79,7 +79,7 @@
             spotItem.classList.add('col-md-6');
             spotItem.innerHTML = `
         <div class="card mb-4">
-            <img src="${spot.imgwide}" class="card-img-top" alt="${spot.name}">
+            <img src="${spot.imgpanomedium}" class="card-img-top" alt="${spot.name}">
             <div class="card-body">
                 <h5 class="card-title">${spot.name}</h5>
                 <p class="card-text">${spot.translation.description}</p>
