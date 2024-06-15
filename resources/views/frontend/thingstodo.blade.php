@@ -4,7 +4,6 @@
 <div class="container">
     <h1>Things to Do in {{ $country->pays }}</h1>
     <!-- Ajoutez des cases à cocher pour filtrer les spots -->
-
     <div style="display: flex; gap: 10px; align-items: center;">
         <label><input type="checkbox" id="1" name="spotType" value="1" checked> {{ __('destination.Spot') }}</label>
         <label><input type="checkbox" id="3" name="spotType" value="3"> {{ __('destination.Musee') }}</label>
@@ -20,12 +19,12 @@
         @endphp
         @if($translation)
         <div class="col-md-4">
-            <div class="card mb-4">
+            <div class="card mb-4 h-100">
                 <img src="{{ $sortedSpot->spot->imgpanomedium }}" class="card-img-top" alt="{{ $sortedSpot->spot->name }}">
-                <div class="card-body">
+                <div class="card-body d-flex flex-column">
                     <h5 class="card-title">{{ $sortedSpot->spot->name }}</h5>
-                    <p class="card-text description">{{ $description }}</p>
-                    <a href="{{ route('destination', ['id' => $country->pays_id, 'spotid' => $sortedSpot->spot->id]) }}" class="btn btn-primary">View Spot</a>
+                    <p class="card-text description flex-grow-1">{{ $description }}</p>
+                    <a href="{{ route('destination', ['id' => $country->pays_id, 'spotid' => $sortedSpot->spot->id]) }}" class="btn btn-primary mt-auto">View Spot</a>
                 </div>
             </div>
         </div>
@@ -48,13 +47,19 @@
     }
 
     .card {
+        display: flex;
+        flex-direction: column;
         width: 100%;
     }
 
-    .card-text.description {
-        flex-grow: 1;
+    .card-body {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .description {
         min-height: 140px;
-        /* Ajustez cette hauteur selon vos besoins */
+        flex-grow: 1;
     }
 
     .pagination {
@@ -83,14 +88,14 @@
         list.innerHTML = '';
         spots.forEach(spot => {
             const spotItem = document.createElement('div');
-            spotItem.classList.add('col-md-6');
+            spotItem.classList.add('col-md-4');
             spotItem.innerHTML = `
-        <div class="card mb-4">
+        <div class="card mb-4 h-100">
             <img src="${spot.imgpanomedium}" class="card-img-top" alt="${spot.name}">
-            <div class="card-body">
+            <div class="card-body d-flex flex-column">
                 <h5 class="card-title">${spot.name}</h5>
-                <p class="card-text">${spot.translation.description.substring(0, 200)}...</p>
-                <a href="/destination/${spot.country_id}/${spot.id}" class="btn btn-primary">View Spot</a>
+                <p class="card-text description flex-grow-1">${spot.translation.description.substring(0, 200)}...</p>
+                <a href="/destination/${spot.country_id}/${spot.id}" class="btn btn-primary mt-auto">View Spot</a>
             </div>
         </div>
         `;
