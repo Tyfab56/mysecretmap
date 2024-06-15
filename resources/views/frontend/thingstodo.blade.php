@@ -86,7 +86,6 @@ updateSpotsList(data);
 });
 });
 });
-
 function updateSpotsList(spots) {
 const list = document.querySelector('.things-to-do-list');
 list.innerHTML = '';
@@ -99,9 +98,9 @@ spotItem.innerHTML = `
     <div class="card-body d-flex flex-column">
         <h5 class="card-title">${spot.name}</h5>
         <p class="card-text description" style="flex-grow: 1; min-height: 140px; font-size: 0.875rem !important;">${spot.translation.description.substring(0, 200)}...</p>
-        <div class="mt-auto d-flex justify-content-between">
-            <a href="/destination/${spot.country_id}/${spot.id}" class="btn btn-primary">View Spot</a>
-            <button class="btn btn-secondary" onclick="addToFavorites(${spot.id})">Ajouter aux favoris</button>
+        <div class="mt-auto d-flex justify-content-center">
+            <a href="/destination/${spot.country_id}/${spot.id}" class="btn btn-primary mx-2">View Spot</a>
+            <button class="btn btn-secondary mx-2" onclick="addToFavorites(${spot.id})">Ajouter aux favoris</button>
         </div>
     </div>
 </div>
