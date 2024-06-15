@@ -58,7 +58,7 @@
 
     .card-text.description {
         flex-grow: 1;
-        min-height: 140px;
+
         font-size: 0.95rem !important;
         line-height: 22px;
     }
