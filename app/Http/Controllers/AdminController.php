@@ -68,7 +68,6 @@ class AdminController extends Controller
             return !is_null($spot->translate($locale));
         });
 
-        dd($spotsWithTranslations);
 
         // Tri des spots pour un parcours logique en utilisant les distances pré-calculées
         $sortedSpots = $this->sortSpots($spotsWithTranslations, $defaultSpot->spot_id);
@@ -92,7 +91,11 @@ class AdminController extends Controller
     private function sortSpots($spots, $startSpotId)
     {
         $sortedSpots = collect();
+
         $currentSpotId = $startSpotId;
+
+        dd($currentSpotId);
+
 
         while ($spots->isNotEmpty()) {
             $currentSpot = $spots->firstWhere('id', $currentSpotId);
