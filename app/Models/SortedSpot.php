@@ -28,7 +28,7 @@ class SortedSpot extends Model
         return $this->belongsTo(Pays::class, 'pays_id', 'id');
     }
 
-    public function type()
+    public function typepoint()
     {
         return $this->belongsTo(Typepoints::class, 'type_id', 'id');
     }
