@@ -84,7 +84,7 @@ class AdminController extends Controller
                 'order' => $index + 1,
             ]);
         }
-
+        dd('fin');
         return redirect()->back()->with('status', 'Sorted spots refreshed successfully!');
     }
 
