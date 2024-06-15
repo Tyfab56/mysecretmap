@@ -24,7 +24,7 @@
                 <img src="{{ $sortedSpot->spot->imgpanomedium }}" class="card-img-top" alt="{{ $sortedSpot->spot->name }}">
                 <div class="card-body">
                     <h5 class="card-title">{{ $sortedSpot->spot->name }}</h5>
-                    <p class="card-text">{{ $description }}</p>
+                    <p class="card-text description">{{ $description }}</p>
                     <a href="{{ route('destination', ['id' => $country->pays_id, 'spotid' => $sortedSpot->spot->id]) }}" class="btn btn-primary">View Spot</a>
                 </div>
             </div>
