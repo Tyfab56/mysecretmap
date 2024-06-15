@@ -12,20 +12,20 @@
         <label><input type="checkbox" id="5" name="spotType" value="5"> {{ __('destination.Camping') }}</label>
         <!-- Add more checkboxes as needed -->
     </div>
-    <div class="things-to-do-list">
+    <div class="row things-to-do-list">
         @foreach($paginatedSpots as $sortedSpot)
         @php
         $translation = $sortedSpot->spot->translate($locale);
         @endphp
         @if($translation)
-        <div class="spot-item">
-            <div class="spot-image">
-                <img src="{{ $sortedSpot->spot->imgsquaresmall }}" alt="{{ $sortedSpot->spot->name }}">
-            </div>
-            <div class="spot-info">
-                <h3>{{ $sortedSpot->spot->name }}</h3>
-                <p>{{ $translation->description }}</p>
-                <a href="{{ route('destination', ['id' => $country->pays_id, 'spotid' => $sortedSpot->spot->id]) }}" class="btn btn-primary">View Spot</a>
+        <div class="col-md-6">
+            <div class="card mb-4">
+                <img src="{{ $sortedSpot->spot->imgwide }}" class="card-img-top" alt="{{ $sortedSpot->spot->name }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ $sortedSpot->spot->name }}</h5>
+                    <p class="card-text">{{ $translation->description }}</p>
+                    <a href="{{ route('destination', ['id' => $country->pays_id, 'spotid' => $sortedSpot->spot->id]) }}" class="btn btn-primary">View Spot</a>
+                </div>
             </div>
         </div>
         @endif
@@ -43,27 +43,11 @@
     .things-to-do-list {
         display: flex;
         flex-wrap: wrap;
+        justify-content: space-between;
     }
 
-    .spot-item {
-        display: flex;
+    .card {
         width: 100%;
-        margin-bottom: 20px;
-    }
-
-    .spot-image {
-        flex: 1;
-        padding-right: 20px;
-    }
-
-    .spot-info {
-        flex: 2;
-        padding-left: 20px;
-    }
-
-    .spot-image img {
-        max-width: 100%;
-        height: auto;
     }
 
     .pagination {
@@ -92,15 +76,15 @@
         list.innerHTML = '';
         spots.forEach(spot => {
             const spotItem = document.createElement('div');
-            spotItem.classList.add('spot-item');
+            spotItem.classList.add('col-md-6');
             spotItem.innerHTML = `
-        <div class="spot-image">
-            <img src="${spot.imgsquaresmall}" alt="${spot.name}">
-        </div>
-        <div class="spot-info">
-            <h3>${spot.name}</h3>
-            <p>${spot.translation.description}</p>
-            <a href="/destination/${spot.country_id}/${spot.id}" class="btn btn-primary">View Spot</a>
+        <div class="card mb-4">
+            <img src="${spot.imgwide}" class="card-img-top" alt="${spot.name}">
+            <div class="card-body">
+                <h5 class="card-title">${spot.name}</h5>
+                <p class="card-text">${spot.translation.description}</p>
+                <a href="/destination/${spot.country_id}/${spot.id}" class="btn btn-primary">View Spot</a>
+            </div>
         </div>
         `;
             list.appendChild(spotItem);
