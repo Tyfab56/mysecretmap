@@ -25,7 +25,7 @@
             <div class="spot-info">
                 <h3>{{ $sortedSpot->spot->name }}</h3>
                 <p>{{ $translation->description }}</p>
-                <a href="{{ route('spot.show', $sortedSpot->spot->id) }}" class="btn btn-primary">View Spot</a>
+                <a href="{{ route('destination', ['id' => $country->pays_id, 'spotid' => $sortedSpot->spot->id]) }}" class="btn btn-primary">View Spot</a>
             </div>
         </div>
         @endif
