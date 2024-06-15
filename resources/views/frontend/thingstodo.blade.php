@@ -24,8 +24,10 @@
                 <div class="card-body d-flex flex-column">
                     <h5 class="card-title">{{ $sortedSpot->spot->name }}</h5>
                     <p class="card-text description flex-grow-1">{{ $description }}</p>
-                    <a href="{{ route('destination', ['id' => $country->pays_id, 'spotid' => $sortedSpot->spot->id]) }}" class="btn btn-primary mt-auto">View Spot</a>
-                    <button class="btn btn-secondary" onclick="addToFavorites(${spot.id})">Ajouter aux favoris</button>
+                    <div class="mt-auto d-flex justify-content-between">
+                        <a href="{{ route('destination', ['id' => $country->pays_id, 'spotid' => $sortedSpot->spot->id]) }}" class="btn btn-primary">View Spot</a>
+                        <button class="btn btn-secondary" onclick="addToFavorites({{ $sortedSpot->spot->id }})">Ajouter aux favoris</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -85,25 +87,29 @@ updateSpotsList(data);
 });
 });
 
-function updateSpotsList(spots) {
+unction updateSpotsList(spots) {
 const list = document.querySelector('.things-to-do-list');
 list.innerHTML = '';
 spots.forEach(spot => {
 const spotItem = document.createElement('div');
-spotItem.classList.add('col-md-4');
+spotItem.classList.add('col-md-4', 'mb-4'); // Ajout de mb-4 pour l'espacement
 spotItem.innerHTML = `
-<div class="card mb-4 h-100">
+<div class="card h-100">
     <img src="${spot.imgpanomedium}" class="card-img-top" alt="${spot.name}">
     <div class="card-body d-flex flex-column">
         <h5 class="card-title">${spot.name}</h5>
-        <p class="card-text description flex-grow-1">${spot.translation.description.substring(0, 200)}...</p>
-        <a href="/destination/${spot.country_id}/${spot.id}" class="btn btn-primary mt-auto">View Spot</a>
+        <p class="card-text description" style="flex-grow: 1; min-height: 140px; font-size: 0.875rem !important;">${spot.translation.description.substring(0, 200)}...</p>
+        <div class="mt-auto d-flex justify-content-between">
+            <a href="/destination/${spot.country_id}/${spot.id}" class="btn btn-primary">View Spot</a>
+            <button class="btn btn-secondary" onclick="addToFavorites(${spot.id})">Ajouter aux favoris</button>
+        </div>
     </div>
 </div>
 `;
 list.appendChild(spotItem);
 });
 }
+
 function addToFavorites(spotId) {
 // Ajoutez ici la logique pour ajouter le spot aux favoris, par exemple une requête AJAX
 console.log(`Ajouter le spot ${spotId} aux favoris`);
