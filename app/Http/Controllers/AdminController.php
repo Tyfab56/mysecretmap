@@ -68,7 +68,7 @@ class AdminController extends Controller
 
         // Tri des spots pour un parcours logique en utilisant les distances pré-calculées
         $sortedSpots = $this->sortSpots($spotsWithTranslations, $defaultSpot->spot_id);
-
+        dump($sortedSpots);
         // Vider la table des spots triés pour ce pays
         SortedSpot::where('pays_id', $countryId)->delete();
 
@@ -116,14 +116,13 @@ class AdminController extends Controller
 
     private function findClosestSpot($currentSpotId, $spotIds)
     {
-        Log::info('Débogage - CurrentSpot', [$currentSpotId]);
-        Log::info('Débogage - spotIds', [$spotIds]);
+
         $closestSpot = DB::table('distances')
             ->where('spot_origine', $currentSpotId)
             ->whereIn('spot_destination', $spotIds)
             ->orderBy('temps', 'asc')
             ->first();
-        Log::info('Débogage - closestSpot', [$closestSpot]);
+
 
         return $closestSpot ? $closestSpot->spot_destination : null;
     }
