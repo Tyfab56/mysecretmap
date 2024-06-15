@@ -18,7 +18,7 @@
         $description = Str::limit($translation->description, 200);
         @endphp
         @if($translation)
-        <div class="col-md-4 mb-4">
+        <div class="col-lg-6 col-md-12 mb-4">
             <div class="card mb-4 h-100">
                 <img src="{{ $sortedSpot->spot->imgpanomedium }}" class="card-img-top" alt="{{ $sortedSpot->spot->name }}">
                 <div class="card-body d-flex flex-column">
@@ -78,7 +78,6 @@
 
     .card-text.description {
         flex-grow: 1;
-
         font-size: 0.95rem !important;
         line-height: 22px;
     }
@@ -90,7 +89,6 @@
 @endsection
 
 @section('scripts')
-
 document.querySelectorAll('input[name="spotType"]').forEach(checkbox => {
 checkbox.addEventListener('change', function() {
 const selectedTypes = Array.from(document.querySelectorAll('input[name="spotType"]:checked'))
@@ -98,17 +96,17 @@ const selectedTypes = Array.from(document.querySelectorAll('input[name="spotType
 fetch(`/thingstodo/{{ $country->pays_id }}?types=${selectedTypes.join(',')}`)
 .then(response => response.json())
 .then(data => {
-// Logique pour mettre à jour la liste des spots
 updateSpotsList(data);
 });
 });
 });
+
 function updateSpotsList(spots) {
 const list = document.querySelector('.things-to-do-list');
 list.innerHTML = '';
 spots.forEach(spot => {
 const spotItem = document.createElement('div');
-spotItem.classList.add('col-md-4', 'mb-4');
+spotItem.classList.add('col-lg-6', 'col-md-12', 'mb-4');
 spotItem.innerHTML = `
 <div class="card h-100">
     <img src="${spot.imgpanomedium}" class="card-img-top" alt="${spot.name}">
@@ -125,7 +123,6 @@ spotItem.innerHTML = `
 list.appendChild(spotItem);
 });
 }
-
 
 function addToFavorites(spotId) {
 @if(Auth::check())
