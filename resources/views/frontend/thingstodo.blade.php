@@ -60,6 +60,9 @@
     .description {
         min-height: 140px;
         flex-grow: 1;
+        font-size: 0.875rem;
+        /* Taille de texte légèrement plus petite */
+
     }
 
     .pagination {
