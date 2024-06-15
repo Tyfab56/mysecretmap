@@ -36,9 +36,8 @@
         {{ $paginatedSpots->links() }}
     </div>
 </div>
-@endsection
 
-@section('styles')
+
 <style>
     .things-to-do-list {
         display: flex;
@@ -76,38 +75,38 @@
 @endsection
 
 @section('scripts')
-<script>
-    document.querySelectorAll('input[name="spotType"]').forEach(checkbox => {
-        checkbox.addEventListener('change', function() {
-            const selectedTypes = Array.from(document.querySelectorAll('input[name="spotType"]:checked'))
-                .map(cb => cb.value);
-            fetch(`/thingstodo/{{ $country->pays_id }}?types=${selectedTypes.join(',')}`)
-                .then(response => response.json())
-                .then(data => {
-                    // Logique pour mettre à jour la liste des spots
-                    updateSpotsList(data);
-                });
-        });
-    });
 
-    function updateSpotsList(spots) {
-        const list = document.querySelector('.things-to-do-list');
-        list.innerHTML = '';
-        spots.forEach(spot => {
-            const spotItem = document.createElement('div');
-            spotItem.classList.add('col-md-4');
-            spotItem.innerHTML = `
-        <div class="card mb-4 h-100">
-            <img src="${spot.imgpanomedium}" class="card-img-top" alt="${spot.name}">
-            <div class="card-body d-flex flex-column">
-                <h5 class="card-title">${spot.name}</h5>
-                <p class="card-text description flex-grow-1">${spot.translation.description.substring(0, 200)}...</p>
-                <a href="/destination/${spot.country_id}/${spot.id}" class="btn btn-primary mt-auto">View Spot</a>
-            </div>
-        </div>
-        `;
-            list.appendChild(spotItem);
-        });
-    }
-</script>
+document.querySelectorAll('input[name="spotType"]').forEach(checkbox => {
+checkbox.addEventListener('change', function() {
+const selectedTypes = Array.from(document.querySelectorAll('input[name="spotType"]:checked'))
+.map(cb => cb.value);
+fetch(`/thingstodo/{{ $country->pays_id }}?types=${selectedTypes.join(',')}`)
+.then(response => response.json())
+.then(data => {
+// Logique pour mettre à jour la liste des spots
+updateSpotsList(data);
+});
+});
+});
+
+function updateSpotsList(spots) {
+const list = document.querySelector('.things-to-do-list');
+list.innerHTML = '';
+spots.forEach(spot => {
+const spotItem = document.createElement('div');
+spotItem.classList.add('col-md-4');
+spotItem.innerHTML = `
+<div class="card mb-4 h-100">
+    <img src="${spot.imgpanomedium}" class="card-img-top" alt="${spot.name}">
+    <div class="card-body d-flex flex-column">
+        <h5 class="card-title">${spot.name}</h5>
+        <p class="card-text description flex-grow-1">${spot.translation.description.substring(0, 200)}...</p>
+        <a href="/destination/${spot.country_id}/${spot.id}" class="btn btn-primary mt-auto">View Spot</a>
+    </div>
+</div>
+`;
+list.appendChild(spotItem);
+});
+}
+
 @endsection
