@@ -413,7 +413,7 @@ class DestinationController extends Controller
         if (!$country) {
             return redirect()->back()->withErrors('Country not found.');
         }
-
+        $locale = app()->getLocale();
         // Récupérer les spots triés pour le pays donné avec pagination
         $paginatedSpots = SortedSpot::with(['spot', 'typepoint'])
             ->where('pays_id', $pays_id)
@@ -421,6 +421,6 @@ class DestinationController extends Controller
             ->paginate(30);
 
         // Passer les données à la vue
-        return view('frontend.thingstodo', compact('paginatedSpots', 'country'));
+        return view('frontend.thingstodo', compact('paginatedSpots', 'country', 'locale'));
     }
 }
