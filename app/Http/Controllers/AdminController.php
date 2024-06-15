@@ -61,6 +61,8 @@ class AdminController extends Controller
             }])
             ->get();
 
+        dd($spots);
+
         // Filtrer les spots pour ceux ayant une traduction dans la langue actuelle
         $spotsWithTranslations = $spots->filter(function ($spot) use ($locale) {
             return !is_null($spot->translate($locale));
