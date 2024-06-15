@@ -16,7 +16,7 @@
         @foreach($paginatedSpots as $sortedSpot)
         @php
         $translation = $sortedSpot->spot->translate($locale);
-        $description = Str::limit($translation->description, 500);
+        $description = Str::limit($translation->description, 200);
         @endphp
         @if($translation)
         <div class="col-md-4">
@@ -83,7 +83,7 @@
             <img src="${spot.imgpanomedium}" class="card-img-top" alt="${spot.name}">
             <div class="card-body">
                 <h5 class="card-title">${spot.name}</h5>
-                <p class="card-text">${spot.translation.description.substring(0, 500)}...</p>
+                <p class="card-text">${spot.translation.description.substring(0, 200)}...</p>
                 <a href="/destination/${spot.country_id}/${spot.id}" class="btn btn-primary">View Spot</a>
             </div>
         </div>
