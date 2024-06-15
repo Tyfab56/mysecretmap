@@ -57,12 +57,11 @@
         flex-direction: column;
     }
 
-    .description {
-        min-height: 140px;
+    .card-text.description {
         flex-grow: 1;
-        font-size: 0.875rem;
+        min-height: 140px;
+        font-size: 0.875rem !important;
         /* Taille de texte légèrement plus petite */
-
     }
 
     .pagination {
