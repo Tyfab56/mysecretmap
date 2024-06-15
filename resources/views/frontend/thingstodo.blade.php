@@ -2,14 +2,14 @@
 
 @section('content')
 <div class="container">
-    <h1>Things to Do in {{$country->name}}</h1>
+    <h1>Things to Do in {{ $country->name }}</h1>
     <!-- Ajoutez des cases à cocher pour filtrer les spots -->
-    <p><b>{{__('destination.clickmap')}}</b></p>
+    <p><b>{{ __('destination.clickmap') }}</b></p>
     <div style="display: flex; gap: 10px; align-items: center;">
-        <label><input type="checkbox" id="1" name="spotType" value="1" checked> {{__('destination.Spot')}}</label>
-        <label><input type="checkbox" id="3" name="spotType" value="3"> {{__('destination.Musee')}}</label>
-        <label><input type="checkbox" id="4" name="spotType" value="4"> {{__('destination.Hotel')}}</label>
-        <label><input type="checkbox" id="5" name="spotType" value="5"> {{__('destination.Camping')}}</label>
+        <label><input type="checkbox" id="1" name="spotType" value="1" checked> {{ __('destination.Spot') }}</label>
+        <label><input type="checkbox" id="3" name="spotType" value="3"> {{ __('destination.Musee') }}</label>
+        <label><input type="checkbox" id="4" name="spotType" value="4"> {{ __('destination.Hotel') }}</label>
+        <label><input type="checkbox" id="5" name="spotType" value="5"> {{ __('destination.Camping') }}</label>
         <!-- Add more checkboxes as needed -->
     </div>
     <div class="things-to-do-list">
@@ -47,13 +47,13 @@
 
     .spot-item {
         display: flex;
-        flex-direction: row;
         width: 100%;
         margin-bottom: 20px;
     }
 
     .spot-image {
         flex: 1;
+        padding-right: 20px;
     }
 
     .spot-info {
@@ -78,7 +78,7 @@
         checkbox.addEventListener('change', function() {
             const selectedTypes = Array.from(document.querySelectorAll('input[name="spotType"]:checked'))
                 .map(cb => cb.value);
-            fetch(`/thingstodo/{{$country->pays_id}}?types=${selectedTypes.join(',')}`)
+            fetch(`/thingstodo/{{ $country->pays_id }}?types=${selectedTypes.join(',')}`)
                 .then(response => response.json())
                 .then(data => {
                     // Logique pour mettre à jour la liste des spots
@@ -100,7 +100,7 @@
         <div class="spot-info">
             <h3>${spot.name}</h3>
             <p>${spot.translation.description}</p>
-            <a href="/spot/${spot.id}" class="btn btn-primary">View Spot</a>
+            <a href="/destination/${spot.country_id}/${spot.id}" class="btn btn-primary">View Spot</a>
         </div>
         `;
             list.appendChild(spotItem);
