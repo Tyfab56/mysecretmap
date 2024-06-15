@@ -51,6 +51,11 @@
         width: 100%;
     }
 
+    .card .description {
+        min-height: 100px;
+        /* Ajustez cette hauteur selon vos besoins */
+    }
+
     .pagination {
         margin-top: 20px;
     }
