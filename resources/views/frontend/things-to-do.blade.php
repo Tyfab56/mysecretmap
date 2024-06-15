@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <h1>Things to Do in {{$country}}</h1>
+    <h1>Things to Do in {{$country->name}}</h1>
     <!-- Ajoutez des cases à cocher pour filtrer les spots -->
     <p><b>{{__('destination.clickmap')}}</b></p>
     <div style="display: flex; gap: 10px; align-items: center;">
@@ -13,19 +13,19 @@
         <!-- Add more checkboxes as needed -->
     </div>
     <div class="things-to-do-list">
-        @foreach($paginatedSpots as $spot)
+        @foreach($paginatedSpots as $sortedSpot)
         @php
-        $translation = $spot->translate($locale);
+        $translation = $sortedSpot->spot->translate($locale);
         @endphp
         @if($translation)
         <div class="spot-item">
             <div class="spot-image">
-                <img src="{{ $spot->imgsquaresmall }}" alt="{{ $spot->name }}">
+                <img src="{{ $sortedSpot->spot->imgsquaresmall }}" alt="{{ $sortedSpot->spot->name }}">
             </div>
             <div class="spot-info">
-                <h3>{{ $spot->name }}</h3>
+                <h3>{{ $sortedSpot->spot->name }}</h3>
                 <p>{{ $translation->description }}</p>
-                <a href="{{ route('spot.show', $spot->id) }}" class="btn btn-primary">View Spot</a>
+                <a href="{{ route('spot.show', $sortedSpot->spot->id) }}" class="btn btn-primary">View Spot</a>
             </div>
         </div>
         @endif
@@ -73,38 +73,38 @@
 @endsection
 
 @section('scripts')
+<script>
+    document.querySelectorAll('input[name="spotType"]').forEach(checkbox => {
+        checkbox.addEventListener('change', function() {
+            const selectedTypes = Array.from(document.querySelectorAll('input[name="spotType"]:checked'))
+                .map(cb => cb.value);
+            fetch(`/thingstodo/{{$country->pays_id}}?types=${selectedTypes.join(',')}`)
+                .then(response => response.json())
+                .then(data => {
+                    // Logique pour mettre à jour la liste des spots
+                    updateSpotsList(data);
+                });
+        });
+    });
 
-document.querySelectorAll('input[name="spotType"]').forEach(checkbox => {
-checkbox.addEventListener('change', function() {
-const selectedTypes = Array.from(document.querySelectorAll('input[name="spotType"]:checked'))
-.map(cb => cb.value);
-fetch(`/things-to-do/{{$country}}?types=${selectedTypes.join(',')}`)
-.then(response => response.json())
-.then(data => {
-// Logique pour mettre à jour la liste des spots
-updateSpotsList(data);
-});
-});
-});
-
-function updateSpotsList(spots) {
-const list = document.querySelector('.things-to-do-list');
-list.innerHTML = '';
-spots.forEach(spot => {
-const spotItem = document.createElement('div');
-spotItem.classList.add('spot-item');
-spotItem.innerHTML = `
-<div class="spot-image">
-    <img src="${spot.imgsquaresmall}" alt="${spot.name}">
-</div>
-<div class="spot-info">
-    <h3>${spot.name}</h3>
-    <p>${spot.translation.description}</p>
-    <a href="/spot/${spot.id}" class="btn btn-primary">View Spot</a>
-</div>
-`;
-list.appendChild(spotItem);
-});
-}
-
+    function updateSpotsList(spots) {
+        const list = document.querySelector('.things-to-do-list');
+        list.innerHTML = '';
+        spots.forEach(spot => {
+            const spotItem = document.createElement('div');
+            spotItem.classList.add('spot-item');
+            spotItem.innerHTML = `
+        <div class="spot-image">
+            <img src="${spot.imgsquaresmall}" alt="${spot.name}">
+        </div>
+        <div class="spot-info">
+            <h3>${spot.name}</h3>
+            <p>${spot.translation.description}</p>
+            <a href="/spot/${spot.id}" class="btn btn-primary">View Spot</a>
+        </div>
+        `;
+            list.appendChild(spotItem);
+        });
+    }
+</script>
 @endsection

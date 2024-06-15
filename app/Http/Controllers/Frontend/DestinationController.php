@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Models\Pays;
 use App\Models\Spots;
-use App\Models\CharlyPost;
+use App\Models\SortedSpot;
 use App\Models\Circuits;
 use App\Models\Circuits_details;
 use App\Models\Pictures;
@@ -405,107 +405,22 @@ class DestinationController extends Controller
         }
     }
 
-    public function getFilteredSpots(Request $request)
+    public function thingsToDo($pays_id)
     {
-        $idpays = $request->get('idpays');
-        $maps_ids = $request->get('maps_id', []);
-        $query = Spots::select('id', 'name', 'lng', 'lat', 'imgpanosmall', 'imgsquaresmall', 'typepoint_id')
-            ->where('pays_id', $idpays)
-            ->where('actif', 1);
+        // Récupérer le pays
+        $country = Pays::where('pays_id', $pays_id)->first();
 
-        if (!empty($maps_ids)) {
-            $maps_ids_array = explode(',', $maps_ids);
-            $query->whereIn('maps_id', $maps_ids_array);
+        if (!$country) {
+            return redirect()->back()->withErrors('Country not found.');
         }
 
-        $spots = $query->get();
-        return response()->json($spots);
-    }
+        // Récupérer les spots triés pour le pays donné avec pagination
+        $paginatedSpots = SortedSpot::with(['spot', 'typepoint'])
+            ->where('pays_id', $pays_id)
+            ->orderBy('order')
+            ->paginate(30);
 
-    public function thingsToDo($country, Request $request)
-    {
-        // Assurez-vous que la langue est définie
-        $locale = app()->getLocale();
-
-        // Récupérer le point de départ pour le pays donné
-        $defaultSpot = DB::table('default_spots')->where('pays_id', $country)->first();
-
-        if (!$defaultSpot) {
-            abort(404, 'Default spot not found for this country.');
-        }
-
-        // Récupérer les spots pour le pays donné avec les traductions
-        $spots = Spots::where('pays_id', $country)
-            ->where('actif', 1)
-            ->with(['translations' => function ($query) use ($locale) {
-                $query->where('locale', $locale)->whereNotNull('description')->where('description', '!=', '');
-            }])
-            ->get();
-
-
-
-        // Filtrer les spots pour ceux ayant une traduction dans la langue actuelle
-        $spotsWithTranslations = $spots->filter(function ($spot) use ($locale) {
-            return !is_null($spot->translate($locale));
-        });
-
-
-
-        // Tri des spots pour un parcours logique en utilisant les distances pré-calculées
-        $sortedSpots = $this->sortSpots($spotsWithTranslations, $defaultSpot->spot_id);
-       
-
-        // Pagination après le tri
-        $perPage = 30;
-        $currentPage = LengthAwarePaginator::resolveCurrentPage();
-        $currentItems = $sortedSpots->slice(($currentPage - 1) * $perPage, $perPage)->all();
-        $paginatedSpots = new LengthAwarePaginator($currentItems, $sortedSpots->count(), $perPage, $currentPage, [
-            'path' => LengthAwarePaginator::resolveCurrentPath(),
-        ]);
-
-        // Récupérer les types de spots pour les cases à cocher
-
-
-        return view('frontend.things-to-do', compact('paginatedSpots', 'locale', 'country'));
-    }
-
-    private function sortSpots($spots, $startSpotId)
-    {
-        $sortedSpots = collect();
-        $currentSpotId = $startSpotId;
-
-        while ($spots->isNotEmpty()) {
-            $currentSpot = $spots->firstWhere('id', $currentSpotId);
-
-            if ($currentSpot) {
-                $sortedSpots->push($currentSpot);
-                $spots = $spots->filter(function ($spot) use ($currentSpotId) {
-                    return $spot->id !== $currentSpotId;
-                });
-
-                $nextSpotId = $this->findClosestSpot($currentSpotId, $spots->pluck('id')->toArray());
-
-                if ($nextSpotId) {
-                    $currentSpotId = $nextSpotId;
-                } else {
-                    break;
-                }
-            } else {
-                break;
-            }
-        }
-
-        return $sortedSpots;
-    }
-
-    private function findClosestSpot($currentSpotId, $spotIds)
-    {
-        $closestSpot = DB::table('distances')
-            ->where('spot_origine', $currentSpotId)
-            ->whereIn('spot_destination', $spotIds)
-            ->orderBy('temps', 'asc')
-            ->first();
-
-        return $closestSpot ? $closestSpot->spot_destination : null;
+        // Passer les données à la vue
+        return view('thingstodo', compact('paginatedSpots', 'country'));
     }
 }
