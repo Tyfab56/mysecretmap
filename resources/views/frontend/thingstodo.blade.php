@@ -87,7 +87,7 @@ updateSpotsList(data);
 });
 });
 
-unction updateSpotsList(spots) {
+function updateSpotsList(spots) {
 const list = document.querySelector('.things-to-do-list');
 list.innerHTML = '';
 spots.forEach(spot => {
