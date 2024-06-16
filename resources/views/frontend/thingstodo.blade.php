@@ -25,7 +25,7 @@
                     @if($sortedSpot->spot->region && $sortedSpot->spot->region->image_path)
                     <img src="{{ asset('frontend/assets/images/map/' . $sortedSpot->spot->region->image_path) }}" alt="{{ $sortedSpot->spot->region->name }}" class="region-image">
                     @endif
-                    <h2 class="card-title">{{ $sortedSpot->spot->name }}</h2>
+                    <h4 class="card-title">{{ $sortedSpot->spot->name }}</h4>
                     <p class="card-text description flex-grow-1">{{ $description }}</p>
                     <div class="mt-auto d-flex justify-content-center">
                         <a href="{{ route('destination', ['id' => $country->pays_id, 'spotid' => $sortedSpot->spot->id]) }}" class="btn btn-primary mx-2 btn-equal">View Spot</a>
@@ -102,6 +102,12 @@
     .btn-warning:hover {
         background-color: #ec971f;
         border-color: #d58512;
+    }
+
+    .region-image {
+        width: 30px;
+        height: 30px;
+        margin-bottom: 5px;
     }
 </style>
 @endsection
