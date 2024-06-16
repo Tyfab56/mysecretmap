@@ -22,10 +22,12 @@
             <div class="card mb-4 h-100">
                 <img src="{{ $sortedSpot->spot->imgpanomedium }}" class="card-img-top" alt="{{ $sortedSpot->spot->name }}">
                 <div class="card-body d-flex flex-column">
-                    @if($sortedSpot->spot->region && $sortedSpot->spot->region->image_path)
-                    <img src="{{ asset('frontend/assets/images/map/' . $sortedSpot->spot->region->image_path) }}" alt="{{ $sortedSpot->spot->region->name }}" class="region-image">
-                    @endif
-                    <h4 class="card-title">{{ $sortedSpot->spot->name }}</h4>
+                    <div class="d-flex align-items-center mb-2">
+                        @if($sortedSpot->spot->region && $sortedSpot->spot->region->image_path)
+                        <img src="{{ asset('frontend/assets/images/map/' . $sortedSpot->spot->region->image_path) }}" alt="{{ $sortedSpot->spot->region->name }}" class="region-image">
+                        @endif
+                        <h4 class="card-title">{{ $sortedSpot->spot->name }}</h4>
+                    </div>
                     <p class="card-text description flex-grow-1">{{ $description }}</p>
                     <div class="mt-auto d-flex justify-content-center">
                         <a href="{{ route('destination', ['id' => $country->pays_id, 'spotid' => $sortedSpot->spot->id]) }}" class="btn btn-primary mx-2 btn-equal">View Spot</a>
@@ -105,8 +107,8 @@
     }
 
     .region-image {
-        width: 30px;
-        height: 30px;
+        width: 60px;
+        height: 60px;
         margin-bottom: 5px;
     }
 </style>
