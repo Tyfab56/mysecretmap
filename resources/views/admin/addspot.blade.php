@@ -65,7 +65,7 @@
                                 <select name="region_id" id="region_id" class="form-control">
                                     <option value="">Select Region</option>
                                     @foreach($regions as $region)
-                                    <option value="{{ $region->id }}">{{ $region->name }}</option>
+                                    <option value="{{ $region->id }}" {{ $region->id == $spot->region_id ? 'selected' : '' }}>{{ $region->name }}</option>
                                     @endforeach
                                 </select>
                             </div>
