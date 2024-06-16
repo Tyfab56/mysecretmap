@@ -20,8 +20,10 @@
                         <div class="col-12">
                             @if (Session::get('typeaction') == 'edit')
 
-                            <a href="/destination/{{$spot->pays_id}}/{{$spot->id}}"><h3>Modification du spot</h3></a>
-                            
+                            <a href="/destination/{{$spot->pays_id}}/{{$spot->id}}">
+                                <h3>Modification du spot</h3>
+                            </a>
+
 
                             @else
 
@@ -30,9 +32,9 @@
                             @endif
 
                             @if (session('message'))
-                                <div class="alert alert-success">
-                                    {{ session('message') }}
-                                </div>
+                            <div class="alert alert-success">
+                                {{ session('message') }}
+                            </div>
                             @endif
 
                             @if ($errors->any())
@@ -58,6 +60,15 @@
                                     @endforeach
                                 </select>
                             </div>
+                            <div class="form-group">
+                                <label for="region_id">Region</label>
+                                <select name="region_id" id="region_id" class="form-control">
+                                    <option value="">Select Region</option>
+                                    @foreach($regions as $region)
+                                    <option value="{{ $region->id }}">{{ $region->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
 
                             <div class="form-group">
                                 <label class="info-title" for="typespotlist">Style de carte<span class="text-danger">*</span></label>
@@ -74,7 +85,7 @@
                                 <label class="info-title" for="typespotlist">Type du spot<span class="text-danger">*</span></label>
                                 <select class="form-control" id="typespotlist" name="typespotlist">
 
-                                    @foreach($typepoints as $typepoint) 
+                                    @foreach($typepoints as $typepoint)
 
                                     <option value="{{$typepoint->id}}" {{($spot->typepoint_id == $typepoint->id) ? 'selected' : ''}}>{{$typepoint->typepoint}}</option>
                                     @endforeach
@@ -162,7 +173,7 @@
                             <div class=" text-xs-right  pb-2">
                                 <img class="mw400" src="{{$spot->img360}}">
                             </div>
-							<div class="form-group">
+                            <div class="form-group">
                                 <label class="info-title" for="imgsquare">Image vue région<span class="text-danger">*</span></label>
                                 <div class="controls">
                                     <input type="file" name="imgregion" class="form-control" id="imgregion">
@@ -176,8 +187,8 @@
                             <div class=" text-xs-right  pb-2">
                                 <img src="{{$spot->imgvueregionmedium}}">
                             </div>
-							
-							<div class="form-group">
+
+                            <div class="form-group">
                                 <label class="info-title" for="imgmap">Image carte Globale<span class="text-danger">*</span></label>
                                 <div class="controls">
                                     <input type="file" name="imgmap" class="form-control" id="imgmap">
@@ -231,9 +242,9 @@
                                 </div>
                             </div>
                             <div class=" text-xs-right  pb-2">
-                                
-                                  <video  src="{{$spot->videomap}}" autoplay muted controls></video>
-                               
+
+                                <video src="{{$spot->videomap}}" autoplay muted controls></video>
+
                             </div>
                             <div class=" text-xs-right">
                                 <input type="submit" name="file" class="btn btn-rounded btn-primary mb-5" value="Mise à jour">
@@ -245,10 +256,10 @@
                                 @endif
                                 @if (isset($nextspot))
                                 <input name="precedent" class="btn btn-rounded btn-secondary mb-5" onclick="next()" value="Suivant">
-                                @endif  
+                                @endif
                             </div>
 
-                            
+
 
                         </div>
 
@@ -320,7 +331,7 @@
                                 </div>
                                 <div class=" text-xs-right">
                                     <button id="transEn" type="button">En</button>
-                                </div>  
+                                </div>
                             </div>
                     </form>
                 </div>
@@ -332,51 +343,51 @@
 var marker,gpsmarker;
 
 document.getElementById('transEn').addEventListener('click', function() {
-    translateField ('en',{{$spot->id?? '0'}},'description',document.getElementById('description').value);
-    translateField ('en',{{$spot->id?? '0'}},'accessibilite',document.getElementById('accessibilite').value);
-    translateField ('en',{{$spot->id?? '0'}},'chemin',document.getElementById('chemin').value);
-    translateField ('en',{{$spot->id?? '0'}},'drone',document.getElementById('drone').value);
-    translateField ('en',{{$spot->id?? '0'}},'lumiere',document.getElementById('lumiere').value);
-    translateField ('en',{{$spot->id?? '0'}},'secretspot',document.getElementById('secretspot').value);
+translateField ('en',{{$spot->id?? '0'}},'description',document.getElementById('description').value);
+translateField ('en',{{$spot->id?? '0'}},'accessibilite',document.getElementById('accessibilite').value);
+translateField ('en',{{$spot->id?? '0'}},'chemin',document.getElementById('chemin').value);
+translateField ('en',{{$spot->id?? '0'}},'drone',document.getElementById('drone').value);
+translateField ('en',{{$spot->id?? '0'}},'lumiere',document.getElementById('lumiere').value);
+translateField ('en',{{$spot->id?? '0'}},'secretspot',document.getElementById('secretspot').value);
 });
 
 function translateField(langue, idspot, idfield, textfield) {
-    let inputText = textfield;
-    let apiUrl = 'https://api-free.deepl.com/v2/translate';
-    let apiKey = '34b13441-b8ff-f718-3afe-dd39b12c44c8:fx';
-    let targetLang = langue;
+let inputText = textfield;
+let apiUrl = 'https://api-free.deepl.com/v2/translate';
+let apiKey = '34b13441-b8ff-f718-3afe-dd39b12c44c8:fx';
+let targetLang = langue;
 
-    let xhr = new XMLHttpRequest();
-    xhr.open('POST', apiUrl, true);
-    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-            let response = JSON.parse(xhr.responseText);
-            let translatedText = response.translations[0].text;
+let xhr = new XMLHttpRequest();
+xhr.open('POST', apiUrl, true);
+xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+xhr.onreadystatechange = function() {
+if (xhr.readyState === 4 && xhr.status === 200) {
+let response = JSON.parse(xhr.responseText);
+let translatedText = response.translations[0].text;
 
-            // Appel à updateSpotInDatabase avec le texte traduit
-            updateSpotInDatabase(langue, idspot, idfield, translatedText);
-        }
-    };
-    xhr.send('auth_key=' + apiKey + '&text=' + inputText + '&target_lang=' + targetLang);
+// Appel à updateSpotInDatabase avec le texte traduit
+updateSpotInDatabase(langue, idspot, idfield, translatedText);
+}
+};
+xhr.send('auth_key=' + apiKey + '&text=' + inputText + '&target_lang=' + targetLang);
 }
 
 
 function updateSpotInDatabase(langue, idspot, attribute, value) {
-    let xhr = new XMLHttpRequest();
-    xhr.open('POST', '/admin/spot/' + idspot + '/update-translations', true);
-    xhr.setRequestHeader('Content-Type', 'application/json');
-    xhr.setRequestHeader('X-CSRF-TOKEN', document.querySelector('meta[name="csrf-token"]').getAttribute('content'));
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-            console.log('Spot translation updated for ' + attribute);
-        }
-    };
-    xhr.send(JSON.stringify({
-        locale: langue,
-        attribute: attribute,
-        value: value
-    }));
+let xhr = new XMLHttpRequest();
+xhr.open('POST', '/admin/spot/' + idspot + '/update-translations', true);
+xhr.setRequestHeader('Content-Type', 'application/json');
+xhr.setRequestHeader('X-CSRF-TOKEN', document.querySelector('meta[name="csrf-token"]').getAttribute('content'));
+xhr.onreadystatechange = function() {
+if (xhr.readyState === 4 && xhr.status === 200) {
+console.log('Spot translation updated for ' + attribute);
+}
+};
+xhr.send(JSON.stringify({
+locale: langue,
+attribute: attribute,
+value: value
+}));
 }
 
 function newPays(event)
@@ -527,20 +538,35 @@ next: 'fa fa-chevron-right'
 
 @endif
 
+document.getElementById('payslist').addEventListener('change', function() {
+var countryId = this.value;
+fetch(`/api/regions/${countryId}`)
+.then(response => response.json())
+.then(data => {
+var regionSelect = document.getElementById('region_id');
+regionSelect.innerHTML = '<option value="">Select Region</option>';
+data.forEach(function(region) {
+var option = document.createElement('option');
+option.value = region.id;
+option.text = region.name;
+regionSelect.appendChild(option);
+});
+});
+});
 @endsection
 
 @section('fullscripts')
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/mapbox-gl/1.13.1/mapbox-gl.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/mapbox-gl-leaflet/0.0.15/leaflet-mapbox-gl.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mapbox-gl/1.13.1/mapbox-gl.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mapbox-gl-leaflet/0.0.15/leaflet-mapbox-gl.min.js"></script>
 
-  <script src="{{asset('frontend/assets/js/Control.FullScreen.js')}}"></script>
-  <script src="{{asset('frontend/assets/js/leaflet-semicircle.js')}}"></script>
-  <script src="https://unpkg.com/leaflet.markercluster@1.3.0/dist/leaflet.markercluster.js"></script>
-  <script src="{{asset('frontend/assets/js/leaflet.extra-markers.min.js')}}"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/suncalc/1.9.0/suncalc.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
+<script src="{{asset('frontend/assets/js/Control.FullScreen.js')}}"></script>
+<script src="{{asset('frontend/assets/js/leaflet-semicircle.js')}}"></script>
+<script src="https://unpkg.com/leaflet.markercluster@1.3.0/dist/leaflet.markercluster.js"></script>
+<script src="{{asset('frontend/assets/js/leaflet.extra-markers.min.js')}}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/suncalc/1.9.0/suncalc.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
 
- 
+
 @endsection

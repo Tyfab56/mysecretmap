@@ -14,7 +14,7 @@ class Spots extends Model implements TranslatableContract
 
 
     public $translatedAttributes = [
-        'description', 'accessibilite', 'chemin', 'drone', 'lumiere', 'secretspot','video1','blog'
+        'description', 'accessibilite', 'chemin', 'drone', 'lumiere', 'secretspot', 'video1', 'blog'
     ];
     protected $fillable = [
         'name',
@@ -42,6 +42,7 @@ class Spots extends Model implements TranslatableContract
         'lngparking',
         'parkingpayant',
         'audioguide',
+        'region_id',
 
     ];
 
@@ -60,5 +61,8 @@ class Spots extends Model implements TranslatableContract
         return $this->belongsTo(Maps::class, 'maps_id', 'id');
     }
 
-
+    public function region()
+    {
+        return $this->belongsTo(Region::class);
+    }
 }

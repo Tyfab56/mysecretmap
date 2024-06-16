@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\Langs;
 use App\Models\Spots;
 use App\Models\Maps;
+use App\Models\Region;
 use App\Models\PendingPicture;
 use App\Models\Typepoint;
 use Illuminate\Http\Request;
@@ -151,6 +152,8 @@ class SpotsController extends Controller
     {
         // Liste des pays
         $pays = Pays::where('actif', '=', 1)->orderBy('pays', 'asc')->get();
+        $selectedPays = $pays->first();
+        $regions = Region::where('pays_id', $selectedPays->pays_id)->get();
         $langs = Langs::where('actif', '=', 1)->orderBy('libelle', 'asc')->get();
 
         $timeonsite = "00:00";
@@ -173,7 +176,7 @@ class SpotsController extends Controller
         // Liste les type de maps
         $maps = Maps::get();
 
-        return view('admin.addspot', compact('spot', 'pays', 'typepoints', 'timeonsite', 'randotime', 'langs', 'spotlang', 'maps'));
+        return view('admin.addspot', compact('spot', 'pays', 'typepoints', 'timeonsite', 'randotime', 'langs', 'spotlang', 'maps', 'regions'));
     }
 
 
@@ -221,6 +224,7 @@ class SpotsController extends Controller
                 'lat' => 'required',
                 'lng' => 'required',
                 'maplist' => 'required',
+                'region_id' => 'nullable|exists:regions,id',
                 'imgpano' => 'image|mimes:jpeg,jpg|max:10048',
                 'imgsquare' => 'image|mimes:jpeg,jpg|max:10048',
                 'img360' => 'image|mimes:jpeg,jpg|max:10048',
