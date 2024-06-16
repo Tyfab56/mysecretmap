@@ -82,6 +82,8 @@ class SpotsController extends Controller
     {
         $spot = Spots::where('id', '=', $id)->first();
 
+        $regions = Region::where('pays_id', $spot->pays_id)->get();
+
         $timeonsite = gmdate("H:i", $spot->timeonsite);
         $randotime = gmdate("H:i", $spot->randotime);
         $pays = Pays::where('actif', '=', 1)->orderBy('pays', 'asc')->get();
@@ -105,7 +107,7 @@ class SpotsController extends Controller
 
 
 
-        return view('admin.addspot', compact('spot', 'langs', 'pays', 'typepoints', 'timeonsite', 'randotime', 'spotlang', 'previousspot', 'nextspot', 'maps'));
+        return view('admin.addspot', compact('spot', 'langs', 'pays', 'typepoints', 'timeonsite', 'randotime', 'spotlang', 'previousspot', 'nextspot', 'maps', 'regions'));
     }
     public function social($id)
     {
