@@ -126,7 +126,10 @@ spotItem.innerHTML = `
 <div class="card h-100">
     <img src="${spot.imgpanomedium}" class="card-img-top" alt="${spot.name}">
     <div class="card-body d-flex flex-column">
-        <h5 class="card-title">${spot.name}</h5>
+        @if($sortedSpot->spot->region && $sortedSpot->spot->region->image_path)
+        <img src="{{ asset('frontend/assets/images/map/' . $sortedSpot->spot->region->image_path) }}" alt="{{ $sortedSpot->spot->region->name }}" class="region-image">
+        @endif
+        <h2 class="card-title">${spot.name}</h2>
         <p class="card-text description" style="flex-grow: 1; min-height: 140px; font-size: 0.875rem !important;">${spot.translation.description.substring(0, 200)}...</p>
         <div class="mt-auto d-flex justify-content-center">
             <a href="/destination/${spot.country_id}/${spot.id}" class="btn btn-primary mx-2 btn-equal">View Spot</a>
