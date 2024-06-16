@@ -884,6 +884,7 @@ class SpotsController extends Controller
         $spot->pays_id = $request->payslist;
         $spot->maps_id = $request->maplist;
         $spot->typepoint_id = $request->typespotlist;
+        $spot->region_id = $request->region_id;
         $spot->timeonsite = $timeonsite;
         $spot->randotime = $randotime;
         $spot->lng = $request->lng;
