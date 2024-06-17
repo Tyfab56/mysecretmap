@@ -131,6 +131,16 @@ class DistanceController extends Controller
         // Suppression des distances où le point est la destination
         Distances::where('spot_destination', '=', $pointId)->delete();
 
+        // Récupérer le spot correspondant
+        $spot = Spots::find($pointId);
+
+        // Vérifier si le spot existe avant de mettre à jour
+        if ($spot) {
+            $count = Distances::where('spot_origine', '=', $spot->id)->count();
+            $spot->nbdistance = $count;
+            $spot->save();
+        }
+
         // Retourner une réponse, rediriger ou retourner une vue
         return redirect()->back()->with('success', 'Distances supprimées avec succès.');
     }
