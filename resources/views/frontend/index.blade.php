@@ -621,6 +621,8 @@
 <script src="https://unpkg.com/leaflet.markercluster@1.3.0/dist/leaflet.markercluster.js"></script>
 <script src="{{asset('frontend/assets/js/leaflet.extra-markers.min.js')}}"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+<script src="{{  asset('frontend/assets/js/waypoint.js') }}"></script>
+<script src="{{  asset('frontend/assets/js/counterup.min.js') }}"></script>
 @endsection
 
 @section('scripts')
