@@ -432,7 +432,7 @@
     <script src="{{  asset('frontend/assets/plugins/colorbox/jquery.colorbox.js') }}"></script>
     <!-- shuffle -->
     <script src="{{  asset('frontend/assets/plugins/shuffle/shuffle.min.js') }}" defer></script>
-    <script src="{{  asset('frontend/assets/js/counterup.min.js')"></script>
+    <script src="{{  asset('frontend/assets/js/counterup.min.js') }}"></script>
 
     <!-- Template custom -->
     <script src="{{  asset('frontend/assets/js/script.js') }}"></script>
