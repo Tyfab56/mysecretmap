@@ -31,7 +31,7 @@ use App\Http\Controllers\MessageAdminController;
 use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\SpotBannerUserController;
-use App\Http\Controllers\RegionUserController;
+use App\Http\Controllers\RegionController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -116,7 +116,7 @@ Route::middleware('auth', 'verified')->group(function () {
         ->name('update.photographer.info');
     Route::get('/get-photographer-info', [UserController::class, 'getPhotographerInfo'])->name('get.photographer.info');
     Route::post('/addimageprofil', [UserController::class, 'updatePhotoProfil'])->name('addimageprofil');
-    Route::post('/submitpicture', [SpotController::class, 'submitPicture'])->name('submitpicture');
+    Route::post('/submitpicture', [SpotsController::class, 'submitPicture'])->name('submitpicture');
 });
 
 Route::get('language/{locale}', function ($locale) {
@@ -303,4 +303,7 @@ Route::get('/thingstodo/{country}', [DestinationController::class, 'thingsToDo']
 Route::get('/admin/sorted-spots', [AdminController::class, 'showSortedSpotsPage'])->name('admin.sorted-spots')->middleware('App\Http\Middleware\CheckAdmin');
 Route::post('/admin/sorted-spots/generate', [AdminController::class, 'generateSortedSpots'])->name('admin.sorted-spots.generate')->middleware('App\Http\Middleware\CheckAdmin');
 Route::get('/api/regions/{countryId}', [RegionController::class, 'getRegionsByCountry']);
+
+Route::post('/delete-distances', [DistanceController::class, 'deleteDistances'])->name('delete.distances');
+
 require __DIR__ . '/auth.php';

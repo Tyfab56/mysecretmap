@@ -15,134 +15,141 @@
 @auth
 @if (auth()->user()->isAdmin())
 <section>
-<div class="container">
-@if (session('message'))
+  <div class="container">
+    @if (session('message'))
     <div class="alert alert-success">
-        {{ session('message') }}
+      {{ session('message') }}
     </div>
-@endif
- 
-  <form method="get" action="{{ route ('admin.filterspots') }}">
-                @csrf
-                <div class="form-inline">
-                <div class="form-group">
-                    <select class="form-control ml15" id="pays" name="pays"">
+    @endif
+
+    <form method="get" action="{{ route ('admin.filterspots') }}">
+      @csrf
+      <div class="form-inline">
+        <div class="form-group">
+          <select class="form-control ml15" id="pays" name="pays"">
                         <option value="">{{__('destination.SelectDest')}}</option>
                     
                         @foreach($payslist as $pay)
-                        <option value="{{$pay->pays_id}}" {{($pays == $pay->pays_id) ? 'selected' : ''}}>{{$pay->pays}} ({{$pay->nbpic}})</option>
-                        @endforeach
-                    </select>
-                    
-                    <div class="form-group">
-                    <select class="form-control ml15" id="maps" name="maps"">
+                        <option value=" {{$pay->pays_id}}" {{($pays == $pay->pays_id) ? 'selected' : ''}}>{{$pay->pays}} ({{$pay->nbpic}})</option>
+            @endforeach
+          </select>
+
+          <div class="form-group">
+            <select class="form-control ml15" id="maps" name="maps"">
                         <option value="">{{__('destination.SelectMap')}}</option>
                     
                         @foreach($maps as $mymap)
-                        <option value="{{$mymap->id}}" {{($map == $mymap->id) ? 'selected' : ''}}>{{$mymap->memo}}</option>
-                        @endforeach
-                    </select>
-                    
-                   </div>
-                   <div class="form-group">
-                   <input id="search" name="search" type="text" class="form-control form-input ml-3" placeholder="Search anything...">
-                    
-                   </div>
-                   <input class="btn btn-primary ml-4" type="submit" value="Submit" />
-                 </div>
-              </form>
- </form>  
-</div>
+                        <option value=" {{$mymap->id}}" {{($map == $mymap->id) ? 'selected' : ''}}>{{$mymap->memo}}</option>
+              @endforeach
+            </select>
+
+          </div>
+          <div class="form-group">
+            <input id="search" name="search" type="text" class="form-control form-input ml-3" placeholder="Search anything...">
+
+          </div>
+          <input class="btn btn-primary ml-4" type="submit" value="Submit" />
+        </div>
+    </form>
+    </form>
+  </div>
 
 </section>
 <section id="news" class="news">
   <div class="container">
     <div class="row text-center">
       <div class="row p-4">
-          <a class="btn btn-large btn-success" href="{{route('admin.addspot')}}">Ajouter un spot</a>
+        <a class="btn btn-large btn-success" href="{{route('admin.addspot')}}">Ajouter un spot</a>
       </div>
       <div>
-          <!-- Nav tabs -->
-         
-         
-            
-                  <div class="container-fluid">
-                      <div class="row">
-
-                          <div class="col-8">
-                              <table class="table table-bordered">
-                                  <thead>
-                                      <tr>
-                                          <th scope="col">#</th>
-                                          <th scope="col">Pays</th>
-                                          <th scope="col">Titre</th>
-                                          <th scope="col">photo</th>
-                                          <th scope="col">Actions</th>
-                                      </tr>
-                                  </thead>
-                                  <tbody>
-
-
-                                      @foreach ($spots as $spot)
-                                      <?php
-                                        // Vérifier si une traduction en français existe
-                                        $hasFrenchTranslation = $spot->hasTranslation('fr');
-                                        ?>
-
-                                      <tr onclick="updateMap({{$spot->id}},{{$spot->lat}},{{$spot->lng}})">
-                                          <th scope="row" style="{{$hasFrenchTranslation ? '' : 'background-color: red;'}}">{{$spot->id}}({{$spot->nbdistance}})</th>
-                                          <td>{{$spot->pays->pays}}</td>
-                                          <td>{{$spot->name}}</td>
-                                          <td><img src="{{$spot->imgpanosmall}}"></td>
-                                          <td style="min-width:160px"><a class="btn btn-sm btn-success" onclick="editMarker({{$spot->id}});">Mise à jour</a> <a class="btn btn-sm btn-warning" onclick="delMarker({{$spot->id}});">Suppr</a><a class="btn btn-sm btn-warning" onclick="social({{$spot->id}});">MAJ infos</a></td>
-                                      </tr>
-                                      @endforeach
-
-                                  </tbody>
-                              </table>
-                              <div>
-                                  {!! $spots->appends(request()->query())->links() !!}
-                              </div>
-                          </div>
-
-                          <div class="col-4">
-                              <div class="row">
-                                  <div id="map"></div>
-                              </div>
-                              <div class="group-form pt-2">
-                                  Lat : <input class="input" type="text" id="lattxt" name="lattxt">
-                              </div>
-                              <div class="group-form pt-2">
-                                  Lng : <input class="input" type="text" id="lngtxt" name="lngtxt">
-                              </div>
-                              <div class="row pl-4 pt-4">
-                                  <a class="btn btn-large btn-success" onclick="updateMarker();">Mise à jour</a>
+        <!-- Nav tabs -->
 
 
 
+        <div class="container-fluid">
+          <div class="row">
 
-                              </div>
+            <div class="col-8">
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Pays</th>
+                    <th scope="col">Titre</th>
+                    <th scope="col">photo</th>
+                    <th scope="col">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+
+
+                  @foreach ($spots as $spot)
+                  <?php
+                  // Vérifier si une traduction en français existe
+                  $hasFrenchTranslation = $spot->hasTranslation('fr');
+                  ?>
+
+                  <tr onclick="updateMap({{$spot->id}},{{$spot->lat}},{{$spot->lng}})">
+                    <th scope="row" style="{{$hasFrenchTranslation ? '' : 'background-color: red;'}}">{{$spot->id}}({{$spot->nbdistance}})</th>
+                    <td>{{$spot->pays->pays}}</td>
+                    <td>{{$spot->name}}</td>
+                    <td><img src="{{$spot->imgpanosmall}}"></td>
+                    <td style="min-width:160px"><a class="btn btn-sm btn-success" onclick="editMarker({{$spot->id}});">Mise à jour</a>
+                      <a class="btn btn-sm btn-warning" onclick="delMarker({{$spot->id}});">Suppr</a>
+                      <a class="btn btn-sm btn-warning" onclick="social({{$spot->id}});">MAJ infos</a>
+                      <a class="btn btn-sm btn-danger" onclick="deleteDistances({{ $spot->id }});">Suppr Distances</a>
+                    </td>
+                  </tr>
+                  @endforeach
+
+                </tbody>
+              </table>
+              <div>
+                {!! $spots->appends(request()->query())->links() !!}
+              </div>
+            </div>
+            <form id="deleteDistancesForm" action="{{ route('delete.distances') }}" method="POST" style="display:none;">
+              @csrf
+              <input type="hidden" name="point_id" id="pointId">
+            </form>
+            <div class="col-4">
+              <div class="row">
+                <div id="map"></div>
+              </div>
+              <div class="group-form pt-2">
+                Lat : <input class="input" type="text" id="lattxt" name="lattxt">
+              </div>
+              <div class="group-form pt-2">
+                Lng : <input class="input" type="text" id="lngtxt" name="lngtxt">
+              </div>
+              <div class="row pl-4 pt-4">
+                <a class="btn btn-large btn-success" onclick="updateMarker();">Mise à jour</a>
 
 
 
-                          </div>
-                      </div>
-                  </div>
+
+              </div>
+
+
+
+            </div>
+          </div>
+        </div>
       </div>
-      
+
 
       <div class="row">
 
-          <div class="row">
+        <div class="row">
 
 
 
 
-              Filtrage pour choisir les pays
+          Filtrage pour choisir les pays
 
-              <div>
-              </div>
-  </section>
+          <div>
+          </div>
+</section>
 </div>
 @else
 <section id="news" class="news">
@@ -249,23 +256,31 @@ top: 0,
 behavior: 'smooth'
 });
 }
+
+function deleteDistances(pointId) {
+if (confirm('Êtes-vous sûr de vouloir supprimer toutes les distances pour ce point ?')) {
+document.getElementById('pointId').value = pointId;
+document.getElementById('deleteDistancesForm').submit();
+}
+}
+
 @endsection
 
 @section('fullscripts')
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/mapbox-gl/1.13.1/mapbox-gl.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/mapbox-gl-leaflet/0.0.15/leaflet-mapbox-gl.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mapbox-gl/1.13.1/mapbox-gl.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mapbox-gl-leaflet/0.0.15/leaflet-mapbox-gl.min.js"></script>
 
-  <script src="{{asset('frontend/assets/js/Control.FullScreen.js')}}"></script>
-  <script src="{{asset('frontend/assets/js/leaflet-semicircle.js')}}"></script>
-  <script src="https://unpkg.com/leaflet.markercluster@1.3.0/dist/leaflet.markercluster.js"></script>
-  <script src="{{asset('frontend/assets/js/leaflet.extra-markers.min.js')}}"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/suncalc/1.9.0/suncalc.min.js"></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/js/bootstrap-datetimepicker.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="{{asset('frontend/assets/js/Control.FullScreen.js')}}"></script>
+<script src="{{asset('frontend/assets/js/leaflet-semicircle.js')}}"></script>
+<script src="https://unpkg.com/leaflet.markercluster@1.3.0/dist/leaflet.markercluster.js"></script>
+<script src="{{asset('frontend/assets/js/leaflet.extra-markers.min.js')}}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/suncalc/1.9.0/suncalc.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/js/bootstrap-datetimepicker.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-  
+
 
 @endsection

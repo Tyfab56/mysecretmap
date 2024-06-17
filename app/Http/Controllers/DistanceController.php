@@ -120,4 +120,18 @@ class DistanceController extends Controller
 
         return back()->with('message', 'Distance calculée pour ce spot');
     }
+
+    public function deleteDistances(Request $request)
+    {
+        $pointId = $request->input('point_id');
+
+        // Suppression des distances où le point est l'origine
+        Distances::where('spot_origine', '=', $pointId)->delete();
+
+        // Suppression des distances où le point est la destination
+        Distances::where('spot_destination', '=', $pointId)->delete();
+
+        // Retourner une réponse, rediriger ou retourner une vue
+        return redirect()->back()->with('success', 'Distances supprimées avec succès.');
+    }
 }
