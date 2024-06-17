@@ -275,6 +275,42 @@
     </div>
   </div>
 </section>
+
+<section class="counter-theme-two section-padding pb-0">
+  <div class="container">
+    <div class="row text-center">
+      <div class="col-xl-8 col-12 offset-xl-2 offset-md-1 col-md-10">
+        <div class="section-title-two">
+          <h2>Overall 35K+ People’s Using Our Apps</h2>
+          <span>There are many variations of passages of lorem ipsum available, but the majority have suffered alteration in some form, by injected.</span>
+        </div>
+      </div>
+    </div>
+    <div class="row text-center">
+      <div class="col-xl-4 col-md-4 col-sm-4 col-12">
+        <div class="single-counter-two">
+          <h1><span>35</span>k+</h1>
+          <p>Global Customer</p>
+        </div>
+      </div>
+      <div class="col-xl-4 col-md-4 col-sm-4 col-12">
+        <div class="single-counter-two">
+          <h1><span>57</span>k+</h1>
+          <p>Global Customer</p>
+        </div>
+      </div>
+      <div class="col-xl-4 col-md-4 col-sm-4 col-12">
+        <div class="single-counter-two">
+          <h1><span>28</span>+</h1>
+          <p>Software Engineers</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="iphonex-bg-up text-center align-items-end wow animated fadeInUp" data-wow-duration="2s">
+    <img src="assets/images/home-two/iPhone-3screens.png" alt="shipo">
+  </div>
+</section>
 <style>
   .panorama-container {
     width: 100%;
