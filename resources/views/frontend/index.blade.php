@@ -244,31 +244,36 @@
 </section>
 
 <section id="ts-features" class="ts-features">
-  <div class="testimonial-card">
-    <div style="display: flex; gap: 1rem; /* space-x-4 */">
-      <img src="{{ asset('frontend/assets/images/pierre250.png')}}" alt="">
-      <div style="display: flex; flex-direction: column; justify-content: center;">
-        <p class="name">{{__('index.pierreguide')}}</p>
-        <p class="title">{{__('index.randonnez')}}</p>
-      </div>
-    </div>
-    <div style="margin-top: 1rem; /* mt-4 */">
-      <p>{{__('index.pierrerando')}}</p>
-      <div class="center">
-        <a class="btn btn-primary indexbtn" href="{{ url('videohike') }}"">{{ __('index.seevideohike') }}</a>
+  <div class="container my-4 d-flex justify-content-between">
+    <div class="card testimonial-card" style="width: 48%;">
+      <div class="card-body">
+        <div class="d-flex gap-4">
+          <img src="{{ asset('frontend/assets/images/pierre250.png')}}" alt="" class="img-fluid" style="width: 100px; height: auto;">
+          <div class="d-flex flex-column justify-content-center">
+            <p class="name">{{__('index.pierreguide')}}</p>
+            <p class="title">{{__('index.randonnez')}}</p>
+          </div>
+        </div>
+        <div class="mt-4">
+          <p>{{__('index.pierrerando')}}</p>
+          <div class="text-center">
+            <a class="btn btn-primary indexbtn" href="{{ url('videohike') }}">{{ __('index.seevideohike') }}</a>
           </div>
         </div>
       </div>
-      <div class=" container my-4">
-          <div class="position-relative text-center">
-            <img src="{{ asset('frontend/assets/images/todois.jpg') }}" class="img-fluid" alt="X spots à voir en Islande">
-            <div class="overlay">
-              <a href="{{ url('thingstodo/IS') }}" class="overlay-link">
-                <i class="fas fa-eye"></i> {{ $nbIS }} spots à voir en Islande
-              </a>
-            </div>
-          </div>
+    </div>
+
+    <div class="card" style="width: 48%;">
+      <div class="position-relative text-center">
+        <img src="{{ asset('frontend/assets/images/todois.jpg') }}" class="img-fluid card-img-top" alt="X spots à voir en Islande">
+        <div class="overlay card-img-overlay d-flex justify-content-center align-items-center">
+          <a href="{{ url('thingstodo/IS') }}" class="overlay-link">
+            <i class="fas fa-eye"></i> {{ $nbIS }} spots à voir en Islande
+          </a>
+        </div>
       </div>
+    </div>
+  </div>
 </section>
 <style>
   .panorama-container {
@@ -323,6 +328,24 @@
     color: #4b5563;
     /* text-gray-600 */
   }
+
+
+  .testimonial-card .img-fluid {
+    max-width: 100px;
+    height: auto;
+  }
+
+  .testimonial-card .name {
+    font-weight: bold;
+    font-size: 1.2rem;
+  }
+
+  .testimonial-card .title {
+    font-size: 1rem;
+    color: gray;
+  }
+
+
 
   .position-relative {
     position: relative;
