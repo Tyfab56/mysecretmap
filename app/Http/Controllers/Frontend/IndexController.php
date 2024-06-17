@@ -97,7 +97,7 @@ class IndexController extends Controller
         $timelines = Timelines::orderBy('date', 'desc')->take(5)->get();
 
         // calcul du nombre de spot pour L'islande
-        $nbIS = SortedSpot::where('IS', $paysId)->count();
+        $nbIS = SortedSpot::where('pays_id', 'IS')->count();
 
 
 
