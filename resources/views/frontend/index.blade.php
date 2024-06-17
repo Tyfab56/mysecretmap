@@ -288,8 +288,10 @@
       </div>
       <div class="col-xl-4 col-md-4 col-sm-4 col-12">
         <div class="index-counter">
-          <h1><span>61</span></h1>
+          <h1><span>{{ $nbIS }}</span></h1>
+          <a href="{{ url('thingstodo/KM') }}">
           <p>Spots à découvrir aux Comores</p>
+          </a>
         </div>
       </div>
       <div class="col-xl-4 col-md-4 col-sm-4 col-12">

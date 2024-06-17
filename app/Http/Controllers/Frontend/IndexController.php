@@ -98,10 +98,11 @@ class IndexController extends Controller
 
         // calcul du nombre de spot pour L'islande
         $nbIS = SortedSpot::where('pays_id', 'IS')->count();
+        $nbKM = SortedSpot::where('pays_id', 'KM')->count();
 
 
 
-        return view('frontend/index', compact('latestSpotWithImg360', 'lastPays', 'idpays', 'pays', 'payslist', 'payslng', 'payslat', 'payszoom', 'paysoffset', 'spot', 'lastspots', 'noscircuits', 'markerspays', 'pictures', 'timelines', 'latest360s', 'nbIS'));
+        return view('frontend/index', compact('latestSpotWithImg360', 'lastPays', 'idpays', 'pays', 'payslist', 'payslng', 'payslat', 'payszoom', 'paysoffset', 'spot', 'lastspots', 'noscircuits', 'markerspays', 'pictures', 'timelines', 'latest360s', 'nbIS', 'nbKM'));
     }
 
     public function search(Request $request)
