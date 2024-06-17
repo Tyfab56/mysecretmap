@@ -281,7 +281,7 @@
     <div class="row text-center">
       <div class="col-xl-8 col-12 offset-xl-2 offset-md-1 col-md-10">
         <div class="section-title-two">
-          <h2>Ajoutez des leiux à vos favoris</h2>
+          <h2>Ajoutez nos Spots à vos favoris</h2>
           <span>Construisez votre voyage et partagez avec vos amis</span>
         </div>
       </div>
@@ -289,14 +289,16 @@
     <div class="row text-center">
       <div class="col-xl-4 col-md-4 col-sm-4 col-12">
         <div class="index-counter">
-          <h1><span>35</span>k+</h1>
-          <p>Global Customer</p>
+          <h1><span>{{ $nbIS }}</span>k+</h1>
+          <a href="{{ url('thingstodo/IS') }}">
+            <p>Spots à découvrir en Islande</p>
+          </a>
         </div>
       </div>
       <div class="col-xl-4 col-md-4 col-sm-4 col-12">
         <div class="index-counter">
           <h1><span>57</span>k+</h1>
-          <p>Global Customer</p>
+          <p>Spots à découvrir aux Comores</p>
         </div>
       </div>
       <div class="col-xl-4 col-md-4 col-sm-4 col-12">
