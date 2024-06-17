@@ -263,16 +263,7 @@
       </div>
     </div>
 
-    <div class="card" style="width: 48%;">
-      <div class="position-relative text-center">
-        <img src="{{ asset('frontend/assets/images/todois.jpg') }}" class="img-fluid card-img-top" alt="X spots à voir en Islande">
-        <div class="overlay card-img-overlay d-flex justify-content-center align-items-center">
-          <a href="{{ url('thingstodo/IS') }}" class="overlay-link">
-            <i class="fas fa-eye"></i> {{ $nbIS }} spots à voir en Islande
-          </a>
-        </div>
-      </div>
-    </div>
+
   </div>
 </section>
 
@@ -289,7 +280,7 @@
     <div class="row text-center">
       <div class="col-xl-4 col-md-4 col-sm-4 col-12">
         <div class="index-counter">
-          <h1><span>{{ $nbIS }}</span>k+</h1>
+          <h1><span>{{ $nbIS }}</span></h1>
           <a href="{{ url('thingstodo/IS') }}">
             <p>Spots à découvrir en Islande</p>
           </a>
@@ -297,14 +288,14 @@
       </div>
       <div class="col-xl-4 col-md-4 col-sm-4 col-12">
         <div class="index-counter">
-          <h1><span>57</span>k+</h1>
+          <h1><span>61</span></h1>
           <p>Spots à découvrir aux Comores</p>
         </div>
       </div>
       <div class="col-xl-4 col-md-4 col-sm-4 col-12">
         <div class="index-counter">
-          <h1><span>28</span>+</h1>
-          <p>Software Engineers</p>
+          <h1><span>9</span></h1>
+          <p>Spots à découvrir à la Réunion</p>
         </div>
       </div>
     </div>
