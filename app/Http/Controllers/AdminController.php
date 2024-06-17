@@ -61,13 +61,10 @@ class AdminController extends Controller
             }])
             ->get();
 
-
-
         // Filtrer les spots pour ceux ayant une traduction dans la langue actuelle
         $spotsWithTranslations = $spots->filter(function ($spot) use ($locale) {
             return !is_null($spot->translate($locale));
         });
-
 
         // Tri des spots pour un parcours logique en utilisant les distances pré-calculées
         $sortedSpots = $this->sortSpots($spotsWithTranslations, $defaultSpot->spot_id);
@@ -80,11 +77,12 @@ class AdminController extends Controller
             SortedSpot::create([
                 'spot_id' => $spot->id,
                 'pays_id' => $countryId,
-                'type_id' => $spot->typepoint_id,
+                'region_id' => $spot->region_id, // Assurez-vous que cette colonne existe et est remplie
+                'typepoint_id' => $spot->typepoint_id,
                 'order' => $index + 1,
             ]);
         }
-        dd('fin');
+
         return redirect()->back()->with('status', 'Sorted spots refreshed successfully!');
     }
 

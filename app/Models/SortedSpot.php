@@ -14,6 +14,7 @@ class SortedSpot extends Model
     protected $fillable = [
         'spot_id',
         'pays_id',
+        'region_id',
         'type_id',
         'order',
     ];
