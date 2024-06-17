@@ -631,7 +631,7 @@ window.location.href = $(this).data('href');
 });
 });
 
-$('.indexcounter span').counterUp({
+$('.index-counter span').counterUp({
 delay: 20,
 time: 2000
 });
