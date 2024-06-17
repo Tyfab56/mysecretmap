@@ -33,14 +33,18 @@
 <section id="ts-features" class="ts-features">
     <div class="container">
 
-        <div class="row mt5 mb5">
-            <div class="col-lg-2 mb5 d-flex flex-column justify-content-center align-items-center">
-                <h1><a href='{{ route($pays->route) }}'>{{ $pays->getTranslatedLibelle() }}</a></h1>
-                <a class="btn btn-primary f0-7m m5" href="{{ url('thewall') }}/{{ $idpays}}">{{__('destination.cherchespot')}}</a>
+        <div class="container">
+            <div class="row mt-5 mb-5">
+                <div class="col-lg-2 mb-5 d-flex flex-column justify-content-center align-items-center">
+                    <h1><a href='{{ route($pays->route) }}'>{{ $pays->getTranslatedLibelle() }}</a></h1>
+                    <a class="btn btn-primary f0-7m mt-3" href="{{ url('thewall') }}/{{ $idpays}}">{{__('destination.cherchespot')}}</a>
+                </div>
+                <div class="col-lg-10">
+                    @if ($spot)
+                    @livewire('spot-banner', ['spotId' => $spot->id])
+                    @endif
+                </div>
             </div>
-            @if ($spot)
-            @livewire('spot-banner', ['spotId' => $spot->id])
-            @endif
         </div>
 
         <div class="row">
