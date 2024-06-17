@@ -188,7 +188,9 @@ spot_id: spotId
 .then(data => {
 if(data.success) {
 toastr.success(data.message);
+setTimeout(() => {
 location.reload();
+}, 1000);
 } else {
 alert('An error occurred.');
 }
@@ -215,7 +217,9 @@ spot_id: spotId
 .then(data => {
 if(data.success) {
 toastr.success(data.message);
+setTimeout(() => {
 location.reload();
+}, 1000);
 } else {
 alert('An error occurred.');
 }
