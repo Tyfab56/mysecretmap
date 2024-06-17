@@ -65,4 +65,8 @@ class Spots extends Model implements TranslatableContract
     {
         return $this->belongsTo(Region::class);
     }
+    public function favorites()
+    {
+        return $this->hasMany(Favorite::class);
+    }
 }

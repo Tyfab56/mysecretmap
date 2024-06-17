@@ -10,6 +10,7 @@ use App\Models\Circuits_details;
 use App\Models\Pictures;
 use App\Models\Default_spots;
 use App\Models\Region;
+use App\Models\Favorite;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -430,7 +431,9 @@ class DestinationController extends Controller
             ->orderBy('order')
             ->paginate(30);
 
+        $favorites = Favorite::where('user_id', Auth::id())->pluck('spot_id')->toArray();
+
         // Passer les données à la vue
-        return view('frontend.thingstodo', compact('paginatedSpots', 'country', 'regions', 'locale'));
+        return view('frontend.thingstodo', compact('paginatedSpots', 'country', 'regions', 'locale', 'favorites'));
     }
 }

@@ -23,7 +23,7 @@ class User extends Authenticatable implements MustVerifyEmail, TranslatableContr
     use Translatable;
 
     public $translatedAttributes = ['titre', 'description'];
-    
+
     /**
      * The attributes that are mass assignable.
      *
@@ -41,7 +41,7 @@ class User extends Authenticatable implements MustVerifyEmail, TranslatableContr
         'facebook',
         'instagram',
         'twitter',
-        'five_hundred_px', 
+        'five_hundred_px',
         'tiktok',
         'mastodon',
         'large_banner',
@@ -49,7 +49,7 @@ class User extends Authenticatable implements MustVerifyEmail, TranslatableContr
         'mypays_id',
         'pending_images_count',
 
-        
+
     ];
 
     /**
@@ -127,7 +127,7 @@ class User extends Authenticatable implements MustVerifyEmail, TranslatableContr
     public function purchasedMedias()
     {
         return $this->belongsToMany(ShareMedia::class, 'user_media_purchases', 'user_id', 'media_id')
-                    ->withTimestamps(); // Si votre table user_media_purchases contient les timestamps
+            ->withTimestamps(); // Si votre table user_media_purchases contient les timestamps
     }
     public function sentMessages()
     {
@@ -153,4 +153,8 @@ class User extends Authenticatable implements MustVerifyEmail, TranslatableContr
         return asset('frontend/assets/images/avatar.jpg');
     }
 
+    public function favorites()
+    {
+        return $this->hasMany(Favorite::class);
+    }
 }

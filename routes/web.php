@@ -32,6 +32,7 @@ use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\SpotBannerUserController;
 use App\Http\Controllers\RegionController;
+use App\Http\Controllers\FavoriteController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -305,5 +306,7 @@ Route::post('/admin/sorted-spots/generate', [AdminController::class, 'generateSo
 Route::get('/api/regions/{countryId}', [RegionController::class, 'getRegionsByCountry']);
 
 Route::post('/delete-distances', [DistanceController::class, 'deleteDistances'])->name('delete.distances');
+Route::post('/favorites/add', [FavoriteController::class, 'addFavorite'])->name('favorites.add')->middleware('auth');
+Route::post('/favorites/remove', [FavoriteController::class, 'removeFavorite'])->name('favorites.remove')->middleware('auth');
 
 require __DIR__ . '/auth.php';
