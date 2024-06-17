@@ -57,12 +57,12 @@ window.location.href = "{{ url('thewall') }}/{{ $idpays }}/" + this.id;
       <div class="col-md-2 col-sm-4 col-6 img-relative mb-3">
         <a href="{{ url('destination') }}/{{$idpays }}/{{ $spot->id }}">
           @if ($spot->imgsquaresmall)
-          <img style="width: 130px;height: 130px;" class="imgwall img-wall br5" src="{{$spot->imgsquaresmall ?? ''}}">
+          <img class="imgwall img-wall br5" src="{{$spot->imgsquaresmall ?? ''}}">
           @else
           <img class="imgwall img-wall br5" src="{{$spot->imgpanosmall ?? ''}}">
           @endif
         </a>
-        <div class="img-walloverlay">{{ $spot->name ?? '' }}</div>
+        <div class="img-walloverlay text-truncate">{{ $spot->name ?? '' }}</div>
       </div>
       @endforeach
     </div>
@@ -77,5 +77,37 @@ window.location.href = "{{ url('thewall') }}/{{ $idpays }}/" + this.id;
     }
   });
 </script>
+
+<style>
+  .img-relative {
+    position: relative;
+    width: 130px;
+    height: 130px;
+    margin: 5px;
+  }
+
+  .img-wall {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+  }
+
+  .img-walloverlay {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    text-align: center;
+    font-size: 0.8rem;
+    padding: 2px 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+</style>
 
 @endsection
