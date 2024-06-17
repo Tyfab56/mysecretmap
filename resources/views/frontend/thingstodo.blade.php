@@ -31,6 +31,7 @@
         @php
         $translation = $sortedSpot->spot->translate($locale);
         $description = Str::limit($translation->description, 200);
+        $isFavorite = in_array($sortedSpot->spot->id, $favorites);
         @endphp
         @if($translation)
         <div class="col-xl-4 col-lg-6 col-md-12 mb-4">
