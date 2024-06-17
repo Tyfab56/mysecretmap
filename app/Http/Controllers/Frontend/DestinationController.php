@@ -9,6 +9,7 @@ use App\Models\Circuits;
 use App\Models\Circuits_details;
 use App\Models\Pictures;
 use App\Models\Default_spots;
+use App\Models\Region;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
