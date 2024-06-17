@@ -259,81 +259,138 @@
           </div>
         </div>
       </div>
+      <div class=" container my-4">
+          <div class="position-relative text-center">
+            <img src="{{ asset('frontend/assets/images/todois.jpg') }}" class="img-fluid" alt="X spots à voir en Islande">
+            <div class="overlay">
+              <a href="{{ url('thingstodo/IS') }}" class="overlay-link">
+                <i class="fas fa-eye"></i> {{ $nbIS }} spots à voir en Islande
+              </a>
+            </div>
+          </div>
+      </div>
 </section>
 <style>
-   .panorama-container {
-        width: 100%;
-        height: 500px;
-        margin-bottom: 40px;
-    }
+  .panorama-container {
+    width: 100%;
+    height: 500px;
+    margin-bottom: 40px;
+  }
 
   .testimonial-card {
-    background-color: #ffffff; /* bg-white */
-    padding: 1.5rem; /* p-6 */
-    border-radius: 0.5rem; /* rounded-lg */
-    color: #1f2937; /* text-gray-800 */
+    background-color: #ffffff;
+    /* bg-white */
+    padding: 1.5rem;
+    /* p-6 */
+    border-radius: 0.5rem;
+    /* rounded-lg */
+    color: #1f2937;
+    /* text-gray-800 */
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
-    max-width: 38rem; /* max-w-lg */
+    max-width: 38rem;
+    /* max-w-lg */
     margin-left: auto;
     margin-right: auto;
-    margin-top: 2.5rem; /* my-10 */
+    margin-top: 2.5rem;
+    /* my-10 */
     margin-bottom: 2.5rem;
   }
+
   .testimonial-card img {
-    width: 8rem; /* w-24 */
-    height: 8rem; /* h-24 */
-    border-radius: 9999px; /* rounded-full */
-    border: 0.5rem solid #facc15; /* border-4 border-yellow-300 */
+    width: 8rem;
+    /* w-24 */
+    height: 8rem;
+    /* h-24 */
+    border-radius: 9999px;
+    /* rounded-full */
+    border: 0.5rem solid #facc15;
+    /* border-4 border-yellow-300 */
   }
+
   .testimonial-card .name {
-    font-weight: 600; /* font-semibold */
-    font-size: 1.125rem; /* text-lg */
+    font-weight: 600;
+    /* font-semibold */
+    font-size: 1.125rem;
+    /* text-lg */
   }
+
   .testimonial-card .title {
-    color: #d97706; /* text-yellow-500 */
+    color: #d97706;
+    /* text-yellow-500 */
   }
+
   .testimonial-card p {
-    color: #4b5563; /* text-gray-600 */
+    color: #4b5563;
+    /* text-gray-600 */
   }
 
+  .position-relative {
+    position: relative;
+  }
+
+  .overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 20px;
+    border-radius: 5px;
+  }
+
+  .overlay-link {
+    color: white;
+    text-decoration: none;
+    font-size: 1.5rem;
+  }
+
+  .overlay-link i {
+    margin-right: 10px;
+  }
+
+  .img-fluid {
+    max-width: 100%;
+    height: auto;
+  }
 </style>
-  <section id=" ts-features" class="ts-features">
-          <div class="container">
-            <div class="row">
-              <div class="col-lg-12">
-                <div class="ts-intro">
-                  <h3 class="into-sub-title">{{ __('index.LastImages') }}</h3>
-                  <p>{{ __('index.LastImagesDesc') }}</p>
-                </div>
-              </div>
+<section id=" ts-features" class="ts-features">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="ts-intro">
+          <h3 class="into-sub-title">{{ __('index.LastImages') }}</h3>
+          <p>{{ __('index.LastImagesDesc') }}</p>
+        </div>
+      </div>
 
-            </div>
+    </div>
 
-            <div class="gridOverflow go-masonry">
+    <div class="gridOverflow go-masonry">
 
-              @foreach ($pictures as $picture)
+      @foreach ($pictures as $picture)
 
-              <a href="{{ route('destination', ['id' => $picture->spot->pays_id, 'spotid' => $picture->spot->id]) }}" class="go_gridItem">
-
-
-                <img src="{{ $picture->medium}}" />
-                <span class="go_caption go_caption-full">
-                  {{ $picture->spot->name}}
-
-                  <img src="{{ $picture->user->avatar }}" class="avatar-r45" alt="{{ $picture->user->pseudo }}" />
+      <a href="{{ route('destination', ['id' => $picture->spot->pays_id, 'spotid' => $picture->spot->id]) }}" class="go_gridItem">
 
 
-                </span>
+        <img src="{{ $picture->medium}}" />
+        <span class="go_caption go_caption-full">
+          {{ $picture->spot->name}}
+
+          <img src="{{ $picture->user->avatar }}" class="avatar-r45" alt="{{ $picture->user->pseudo }}" />
 
 
-              </a>
-              @endforeach
-              <div class="go_gridItem go_gridItem-centered" href="someURL">
-                <p> </p>
-              </div>
+        </span>
 
-            </div>
-            {{ $pictures->links() }}
+
+      </a>
+      @endforeach
+      <div class="go_gridItem go_gridItem-centered" href="someURL">
+        <p> </p>
+      </div>
+
+    </div>
+    {{ $pictures->links() }}
 
 </section>
 <header class="tourism-header">

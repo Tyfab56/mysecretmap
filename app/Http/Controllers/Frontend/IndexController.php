@@ -18,6 +18,7 @@ use App\Models\ShareMedia;
 use App\Models\UserCredit;
 use App\Models\Folder;
 use App\Models\Message;
+use App\Models\SortedSpot;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -95,11 +96,12 @@ class IndexController extends Controller
 
         $timelines = Timelines::orderBy('date', 'desc')->take(5)->get();
 
+        // calcul du nombre de spot pour L'islande
+        $nbIS = SortedSpot::where('IS', $paysId)->count();
 
 
 
-
-        return view('frontend/index', compact('latestSpotWithImg360', 'lastPays', 'idpays', 'pays', 'payslist', 'payslng', 'payslat', 'payszoom', 'paysoffset', 'spot', 'lastspots', 'noscircuits', 'markerspays', 'pictures', 'timelines', 'latest360s'));
+        return view('frontend/index', compact('latestSpotWithImg360', 'lastPays', 'idpays', 'pays', 'payslist', 'payslng', 'payslat', 'payszoom', 'paysoffset', 'spot', 'lastspots', 'noscircuits', 'markerspays', 'pictures', 'timelines', 'latest360s', 'nbIS'));
     }
 
     public function search(Request $request)
