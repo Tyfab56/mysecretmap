@@ -14,8 +14,9 @@
 
   <title>My Secret Map</title>
 
-  <!-- Bootstrap -->
-  <link rel="stylesheet" href="{{  asset('frontend/assets/plugins/bootstrap/bootstrap.min.css') }}">
+  <!-- Bootstrap 
+  <link rel="stylesheet" href="{{  asset('frontend/assets/plugins/bootstrap/bootstrap.min.css') }}"> -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- FontAwesome -->
   <script src="https://kit.fontawesome.com/0ecce2a19c.js" crossorigin="anonymous"></script>
 
@@ -419,8 +420,10 @@
 
     <!-- initialize jQuery Library -->
 
-    <!-- Bootstrap jQuery -->
-    <script src="{{  asset('frontend/assets/plugins/bootstrap/bootstrap.min.js') }}" defer></script>
+    <!-- Bootstrap jQuery 
+    <script src="{{  asset('frontend/assets/plugins/bootstrap/bootstrap.min.js') }}" defer></script>-->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
 
     <!-- Slick Carousel -->
     <script src="{{  asset('frontend/assets/plugins/slick/slick.min.js') }}"></script>
