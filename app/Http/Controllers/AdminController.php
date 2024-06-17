@@ -78,7 +78,7 @@ class AdminController extends Controller
                 'spot_id' => $spot->id,
                 'pays_id' => $countryId,
                 'region_id' => $spot->region_id, // Assurez-vous que cette colonne existe et est remplie
-                'typepoint_id' => $spot->typepoint_id,
+                'type_id' => $spot->typepoint_id,
                 'order' => $index + 1,
             ]);
         }
