@@ -288,19 +288,19 @@
     </div>
     <div class="row text-center">
       <div class="col-xl-4 col-md-4 col-sm-4 col-12">
-        <div class="single-counter-two">
+        <div class="index-counter">
           <h1><span>35</span>k+</h1>
           <p>Global Customer</p>
         </div>
       </div>
       <div class="col-xl-4 col-md-4 col-sm-4 col-12">
-        <div class="single-counter-two">
+        <div class="index-counter">
           <h1><span>57</span>k+</h1>
           <p>Global Customer</p>
         </div>
       </div>
       <div class="col-xl-4 col-md-4 col-sm-4 col-12">
-        <div class="single-counter-two">
+        <div class="index-counter">
           <h1><span>28</span>+</h1>
           <p>Software Engineers</p>
         </div>
@@ -629,5 +629,10 @@ $(document).ready(function() {
 $('.avatar-link').click(function() {
 window.location.href = $(this).data('href');
 });
+});
+
+$('.indexcounter span').counterUp({
+delay: 20,
+time: 2000
 });
 @endsection
