@@ -281,8 +281,8 @@
     <div class="row text-center">
       <div class="col-xl-8 col-12 offset-xl-2 offset-md-1 col-md-10">
         <div class="section-title-two">
-          <h2>Overall 35K+ People’s Using Our Apps</h2>
-          <span>There are many variations of passages of lorem ipsum available, but the majority have suffered alteration in some form, by injected.</span>
+          <h2>Ajoutez des leiux à vos favoris</h2>
+          <span>Construisez votre voyage et partagez avec vos amis</span>
         </div>
       </div>
     </div>
@@ -307,9 +307,7 @@
       </div>
     </div>
   </div>
-  <div class="iphonex-bg-up text-center align-items-end wow animated fadeInUp" data-wow-duration="2s">
-    <img src="assets/images/home-two/iPhone-3screens.png" alt="shipo">
-  </div>
+
 </section>
 <style>
   .panorama-container {
