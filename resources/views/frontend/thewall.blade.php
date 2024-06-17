@@ -52,7 +52,7 @@ window.location.href = "{{ url('thewall') }}/{{ $idpays }}/" + this.id;
         </label>
       </div>
     </div>
-    <div class="row">
+    <div class="row justify-content-center">
       @foreach($spots as $spot)
       <div class="col-md-2 col-sm-4 col-6 img-relative mb-3">
         <a href="{{ url('destination') }}/{{$idpays }}/{{ $spot->id }}">
@@ -62,7 +62,7 @@ window.location.href = "{{ url('thewall') }}/{{ $idpays }}/" + this.id;
           <img class="imgwall img-wall br5" src="{{$spot->imgpanosmall ?? ''}}">
           @endif
         </a>
-        <div class="img-walloverlay text-truncate">{{ $spot->name ?? '' }}</div>
+        <div class="img-walloverlay">{{ $spot->name ?? '' }}</div>
       </div>
       @endforeach
     </div>
@@ -107,6 +107,8 @@ window.location.href = "{{ url('thewall') }}/{{ $idpays }}/" + this.id;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    max-width: 100%;
+    box-sizing: border-box;
   }
 </style>
 
