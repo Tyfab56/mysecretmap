@@ -48,7 +48,7 @@
                     <div class="mt-auto d-flex justify-content-center">
                         <a href="{{ route('destination', ['id' => $country->pays_id, 'spotid' => $sortedSpot->spot->id]) }}" class="btn btn-primary mx-2 btn-equal">View Spot</a>
                         @if($isFavorite)
-                        <button class="btn btn-danger mx-2 btn-equal" onclick="removeFromFavorites({{ $sortedSpot->spot->id }})">Supprimer des favoris</button>
+                        <button class="btn btn-danger mx-2 btn-equal" onclick="removeFromFavorites({{ $sortedSpot->spot->id }})">Supprimer favoris</button>
                         @else
                         <button class="btn btn-warning mx-2 btn-equal" onclick="addToFavorites({{ $sortedSpot->spot->id }})">Ajouter aux favoris</button>
                         @endif
@@ -164,7 +164,7 @@ spotItem.innerHTML = `
         <p class="card-text description" style="flex-grow: 1; min-height: 140px; font-size: 0.875rem !important;">${spot.translation.description.substring(0, 200)}...</p>
         <div class="mt-auto d-flex justify-content-center">
             <a href="/destination/${spot.country_id}/${spot.id}" class="btn btn-primary mx-2 btn-equal">View Spot</a>
-            <button class="btn ${spot.isFavorite ? 'btn-danger' : 'btn-warning'} mx-2 btn-equal" onclick="${spot.isFavorite ? 'removeFromFavorites' : 'addToFavorites'}(${spot.id})">${spot.isFavorite ? 'Supprimer des favoris' : 'Ajouter aux favoris'}</button>
+            <button class="btn ${spot.isFavorite ? 'btn-danger' : 'btn-warning'} mx-2 btn-equal" onclick="${spot.isFavorite ? 'removeFromFavorites' : 'addToFavorites'}(${spot.id})">${spot.isFavorite ? 'Supprimer favoris' : 'Ajouter aux favoris'}</button>
         </div>
     </div>
 </div>
