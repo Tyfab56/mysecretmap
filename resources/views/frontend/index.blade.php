@@ -623,6 +623,14 @@
 <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
 <script src="{{  asset('frontend/assets/js/waypoint.js') }}"></script>
 <script src="{{  asset('frontend/assets/js/counterup.min.js') }}"></script>
+<script>
+  $(document).ready(function() {
+    $('.index-counter span').counterUp({
+      delay: 20,
+      time: 2000
+    });
+  });
+</script>
 @endsection
 
 @section('scripts')
@@ -633,8 +641,5 @@ window.location.href = $(this).data('href');
 });
 });
 
-$('.index-counter span').counterUp({
-delay: 20,
-time: 2000
-});
+
 @endsection
