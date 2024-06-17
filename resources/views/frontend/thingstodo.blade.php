@@ -187,7 +187,7 @@ spot_id: spotId
 }).then(response => response.json())
 .then(data => {
 if(data.success) {
-alert(data.message);
+toastr.success(data.message);
 location.reload();
 } else {
 alert('An error occurred.');
@@ -214,7 +214,7 @@ spot_id: spotId
 }).then(response => response.json())
 .then(data => {
 if(data.success) {
-alert(data.message);
+toastr.success(data.message);
 location.reload();
 } else {
 alert('An error occurred.');
