@@ -405,7 +405,7 @@ class DestinationController extends Controller
         }
     }
 
-    public function thingsToDo($pays_id)
+    public function thingsToDo($pays_id, Request $request)
     {
         // Récupérer le pays
         $country = Pays::where('pays_id', $pays_id)->first();
@@ -413,14 +413,23 @@ class DestinationController extends Controller
         if (!$country) {
             return redirect()->back()->withErrors('Country not found.');
         }
+
         $locale = app()->getLocale();
-        // Récupérer les spots triés pour le pays donné avec pagination
+        $regionId = $request->input('region');
+
+        // Récupérer les régions associées au pays
+        $regions = Region::where('pays_id', $pays_id)->get();
+
+        // Récupérer les spots triés pour le pays donné avec pagination et filtrage par région
         $paginatedSpots = SortedSpot::with(['spot', 'typepoint'])
             ->where('pays_id', $pays_id)
+            ->when($regionId, function ($query, $regionId) {
+                return $query->where('region_id', $regionId);
+            })
             ->orderBy('order')
             ->paginate(30);
 
         // Passer les données à la vue
-        return view('frontend.thingstodo', compact('paginatedSpots', 'country', 'locale'));
+        return view('frontend.thingstodo', compact('paginatedSpots', 'country', 'regions', 'locale'));
     }
 }

@@ -4,6 +4,21 @@
 <div class="container">
     <h1>Things to Do in {{ $country->pays }}</h1>
     <!-- Ajoutez des cases à cocher pour filtrer les spots -->
+    <!-- Formulaire pour sélectionner la région -->
+    <form method="GET" action="{{ url()->current() }}">
+        <div class="form-group">
+            <label for="region">Sélectionnez une région :</label>
+            <select name="region" id="region" class="form-control">
+                <option value="">Toutes les régions</option>
+                @foreach($regions as $region)
+                <option value="{{ $region->id }}" {{ request('region') == $region->id ? 'selected' : '' }}>
+                    {{ $region->name }}
+                </option>
+                @endforeach
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Filtrer</button>
+    </form>
     <div style="display: flex; gap: 10px; align-items: center;">
         <label><input type="checkbox" id="1" name="spotType" value="1" checked> {{ __('destination.Spot') }}</label>
         <label><input type="checkbox" id="3" name="spotType" value="3"> {{ __('destination.Musee') }}</label>
