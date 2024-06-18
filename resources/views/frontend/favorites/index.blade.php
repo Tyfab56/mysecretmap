@@ -93,7 +93,7 @@
 <script>
     function removeFromFavorites(spotId) {
 
-        fetch('{{ route("favorites.destroy", ["id" => ":id"]) }}'.replace(':id', spotId), {
+        fetch('{{ route("favorites.remove", ["id" => ":id"]) }}'.replace(':id', spotId), {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
