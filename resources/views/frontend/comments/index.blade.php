@@ -26,7 +26,7 @@
         @endforeach
     </div>
 </div>
-
+@endsection
 @section('scripts')
 
 function addComment(spotId) {
