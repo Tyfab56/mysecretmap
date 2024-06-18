@@ -24,32 +24,30 @@
 
     <form method="get" action="{{ route ('admin.filterspots') }}">
       @csrf
-      <div class="form-inline">
-        <div class="form-group">
-          <select class="form-control ml15" id="pays" name="pays"">
-                        <option value="">{{__('destination.SelectDest')}}</option>
-                    
-                        @foreach($payslist as $pay)
-                        <option value=" {{$pay->pays_id}}" {{($pays == $pay->pays_id) ? 'selected' : ''}}>{{$pay->pays}} ({{$pay->nbpic}})</option>
+      <div class="form-row">
+        <div class="form-group col-auto">
+          <select class="form-control" id="pays" name="pays">
+            <option value="">{{__('destination.SelectDest')}}</option>
+            @foreach($payslist as $pay)
+            <option value="{{$pay->pays_id}}" {{($pays == $pay->pays_id) ? 'selected' : ''}}>{{$pay->pays}} ({{$pay->nbpic}})</option>
             @endforeach
           </select>
-
-          <div class="form-group">
-            <select class="form-control ml15" id="maps" name="maps"">
-                        <option value="">{{__('destination.SelectMap')}}</option>
-                    
-                        @foreach($maps as $mymap)
-                        <option value=" {{$mymap->id}}" {{($map == $mymap->id) ? 'selected' : ''}}>{{$mymap->memo}}</option>
-              @endforeach
-            </select>
-
-          </div>
-          <div class="form-group">
-            <input id="search" name="search" type="text" class="form-control form-input ml-3" placeholder="Search anything...">
-
-          </div>
-          <input class="btn btn-primary ml-4" type="submit" value="Submit" />
         </div>
+        <div class="form-group col-auto">
+          <select class="form-control" id="maps" name="maps">
+            <option value="">{{__('destination.SelectMap')}}</option>
+            @foreach($maps as $mymap)
+            <option value="{{$mymap->id}}" {{($map == $mymap->id) ? 'selected' : ''}}>{{$mymap->memo}}</option>
+            @endforeach
+          </select>
+        </div>
+        <div class="form-group col-auto">
+          <input id="search" name="search" type="text" class="form-control form-input" placeholder="Search anything...">
+        </div>
+        <div class="form-group col-auto">
+          <input class="btn btn-primary" type="submit" value="Submit" />
+        </div>
+      </div>
     </form>
 
   </div>
