@@ -24,7 +24,7 @@
                     </div>
                     <p class="card-text description flex-grow-1">{{ $description }}</p>
                     <div class="mt-auto d-flex justify-content-center">
-                        <a href="{{ route('destination', ['id' => $spot->country_id, 'spotid' => $spot->id]) }}" class="btn btn-primary mx-2 btn-equal">Voir le Spot</a>
+                        <a href="{{ route('destination', ['id' => $spot->pays_id, 'spotid' => $spot->id]) }}" class="btn btn-primary mx-2 btn-equal">Voir le Spot</a>
                         <button class="btn btn-danger mx-2 btn-equal" onclick="removeFromFavorites({{ $spot->id }})">Supprimer favoris</button>
                     </div>
                 </div>
