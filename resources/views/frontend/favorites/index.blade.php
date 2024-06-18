@@ -90,29 +90,29 @@
 @endsection
 
 @section('scripts')
-<script>
-    function removeFromFavorites(spotId) {
 
-        fetch('{{ route("favorites.remove", ["id" => ":id"]) }}'.replace(':id', spotId), {
-                method: 'DELETE',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
-                },
-            }).then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    toastr.success(data.message);
-                    setTimeout(() => {
-                        location.reload();
-                    }, 1000);
-                } else {
-                    alert('An error occurred.');
-                }
-            }).catch(error => {
-                console.error('Error:', error);
-            });
+function removeFromFavorites(spotId) {
 
-    }
-</script>
+fetch('{{ route("favorites.remove", ["id" => ":id"]) }}'.replace(':id', spotId), {
+method: 'DELETE',
+headers: {
+'Content-Type': 'application/json',
+'X-CSRF-TOKEN': '{{ csrf_token() }}'
+},
+}).then(response => response.json())
+.then(data => {
+if (data.success) {
+toastr.success(data.message);
+setTimeout(() => {
+location.reload();
+}, 1000);
+} else {
+alert('An error occurred.');
+}
+}).catch(error => {
+console.error('Error:', error);
+});
+
+}
+
 @endsection
