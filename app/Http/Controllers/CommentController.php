@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Comment;
+use App\Models\User;
 use App\Models\Spots;
 
 class CommentController extends Controller
@@ -33,12 +34,15 @@ class CommentController extends Controller
             return response()->json(['success' => false, 'message' => 'Vous avez déjà commenté ce spot.']);
         }
 
+        $user = User::findOrFail($request->user_id);
+        $actif = $user->autovalidcomment ? 1 : 0;
+
         Comment::create([
             'spot_id' => $request->spot_id,
             'user_id' => $request->user_id,
             'pays_id' => $request->pays_id,
             'comment' => $request->comment,
-            'actif' => 0, // Initialiser à 0 pour la modération
+            'actif' => $actif, // Initialiser à 0 pour la modération
         ]);
 
         return response()->json(['success' => true, 'message' => 'Commentaire ajouté avec succès.']);

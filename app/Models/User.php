@@ -62,6 +62,7 @@ class User extends Authenticatable implements MustVerifyEmail, TranslatableContr
         'remember_token',
         'two_factor_recovery_codes',
         'two_factor_secret',
+        'autovalidcomment',
     ];
 
     /**
