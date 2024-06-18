@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Favorite;
-use App\Models\Spot;
+use App\Models\Spots;
 use Illuminate\Support\Facades\Auth;
 
 class FavoriteController extends Controller
@@ -30,5 +30,13 @@ class FavoriteController extends Controller
         Favorite::where('user_id', $userId)->where('spot_id', $spotId)->delete();
 
         return response()->json(['success' => true, 'message' => 'Spot removed from favorites']);
+    }
+    public function index()
+    {
+        // Récupérer les favoris de l'utilisateur connecté avec les informations des spots et des régions
+        $favorites = auth()->user()->favorites()->with(['spot.region'])->get();
+
+        // Retourner la vue avec les favoris
+        return view('frontend.favorites.index', compact('favorites'));
     }
 }

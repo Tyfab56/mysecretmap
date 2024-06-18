@@ -37,5 +37,6 @@ return [
     'Contact' => 'Contact',
     'Affiliate' => "Affiliate",
     'Portfolio' => "Media Portfolio",
-    'Bloggers' => "bloggers"
+    'Bloggers' => "bloggers",
+    'Favoris' => "My favourite spots",
 ];

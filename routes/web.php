@@ -308,5 +308,6 @@ Route::get('/api/regions/{countryId}', [RegionController::class, 'getRegionsByCo
 Route::post('/delete-distances', [DistanceController::class, 'deleteDistances'])->name('delete.distances');
 Route::post('/favorites/add', [FavoriteController::class, 'addFavorite'])->name('favorites.add')->middleware('auth');
 Route::post('/favorites/remove', [FavoriteController::class, 'removeFavorite'])->name('favorites.remove')->middleware('auth');
+Route::get('/favorites', [FavoriteController::class, 'index'])->name('favorites.index')->middleware('auth');
 
 require __DIR__ . '/auth.php';

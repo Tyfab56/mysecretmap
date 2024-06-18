@@ -38,4 +38,5 @@ return [
     'Affiliate' => "Affiliation",
     'Portfolio' => "Portfolio médias",
     'Bloggers' => "Blogueurs",
+    'Favoris' => "Mes spots favoris",
 ];

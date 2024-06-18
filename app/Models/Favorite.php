@@ -12,6 +12,7 @@ class Favorite extends Model
     protected $fillable = [
         'user_id',
         'spot_id',
+
     ];
 
     /**
@@ -22,11 +23,8 @@ class Favorite extends Model
         return $this->belongsTo(User::class);
     }
 
-    /**
-     * Get the spot that is favorited.
-     */
     public function spot()
     {
-        return $this->belongsTo(Spot::class);
+        return $this->belongsTo(Spots::class);
     }
 }
