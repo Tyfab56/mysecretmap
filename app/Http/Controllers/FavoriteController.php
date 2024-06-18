@@ -34,22 +34,17 @@ class FavoriteController extends Controller
     }
     public function index(Request $request)
     {
-        // Récupérer les régions pour le filtre
-        $regions = Region::all();
+
 
         // Filtrer les favoris de l'utilisateur connecté
         $query = auth()->user()->favorites()->with(['spot.region']);
 
-        // Appliquer le filtre de région si sélectionné
-        if ($request->has('region') && $request->input('region') !== '') {
-            $query->whereHas('spot', function ($q) use ($request) {
-                $q->where('region_id', $request->input('region'));
-            });
-        }
 
-        $favorites = $query->paginate(10);
+
+
+        $favorites = $query->paginate(30);
 
         // Retourner la vue avec les favoris et les régions
-        return view('frontend.favorites.index', compact('favorites', 'regions'));
+        return view('frontend.favorites.index', compact('favorites'));
     }
 }

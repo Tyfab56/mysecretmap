@@ -4,20 +4,7 @@
 <div class="container">
     <h1>Mes Favoris</h1>
     <!-- Formulaire pour sélectionner la région -->
-    <form method="GET" action="{{ url()->current() }}">
-        <div class="form-group">
-            <label for="region">Sélectionnez une région :</label>
-            <select name="region" id="region" class="form-control">
-                <option value="">Toutes les régions</option>
-                @foreach($regions as $region)
-                <option value="{{ $region->id }}" {{ request('region') == $region->id ? 'selected' : '' }}>
-                    {{ $region->name }}
-                </option>
-                @endforeach
-            </select>
-        </div>
-        <button type="submit" class="btn btn-primary">Filtrer</button>
-    </form>
+
     <div class="row things-to-do-list">
         @foreach($favorites as $favorite)
         @php
@@ -49,24 +36,7 @@
         {{ $favorites->links() }}
     </div>
 </div>
-<!-- Modal -->
-<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="loginModalLabel">Connexion requise</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                Vous devez être connecté pour ajouter des favoris. Veuillez vous connecter ou créer un compte.
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
-                <a href="{{ route('login') }}" class="btn btn-primary">Connexion</a>
-            </div>
-        </div>
-    </div>
-</div>
+
 
 <style>
     .things-to-do-list {
@@ -122,7 +92,7 @@
 @section('scripts')
 <script>
     function removeFromFavorites(spotId) {
-        @if(Auth::check())
+
         fetch('{{ route("favorites.destroy", ["id" => ":id"]) }}'.replace(':id', spotId), {
                 method: 'DELETE',
                 headers: {
@@ -142,9 +112,7 @@
             }).catch(error => {
                 console.error('Error:', error);
             });
-        @else
-        $('#loginModal').modal('show');
-        @endif
+
     }
 </script>
 @endsection
