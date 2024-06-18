@@ -50,6 +50,6 @@ class FavoriteController extends Controller
         $favorites = $query->paginate(10);
 
         // Retourner la vue avec les favoris et les régions
-        return view('favorites.index', compact('favorites', 'regions'));
+        return view('frontend.favorites.index', compact('favorites', 'regions'));
     }
 }
