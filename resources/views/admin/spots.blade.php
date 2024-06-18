@@ -51,7 +51,7 @@
           <input class="btn btn-primary ml-4" type="submit" value="Submit" />
         </div>
     </form>
-    </form>
+
   </div>
 
 </section>
