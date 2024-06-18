@@ -17,7 +17,7 @@
                     <p class="card-text">Region: {{ $favorite->spot->region->name }}</p>
                     <img src="{{ asset($favorite->spot->region->image_path) }}" alt="{{ $favorite->spot->region->name }}" class="img-fluid">
                     @endif
-                    <a href="{{ route('circuit.add', ['country' => $favorite->spot->region->id]) }}" class="btn btn-primary">Add to Circuit</a>
+
                     <form action="{{ route('favorites.destroy', $favorite->id) }}" method="POST" class="d-inline">
                         @csrf
                         @method('DELETE')
