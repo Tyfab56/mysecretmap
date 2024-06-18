@@ -24,8 +24,8 @@
 
     <form method="get" action="{{ route ('admin.filterspots') }}">
       @csrf
-      <div class="form-row">
-        <div class="form-group col-auto">
+      <div class="form-inline">
+        <div class="form-group mr-2">
           <select class="form-control" id="pays" name="pays">
             <option value="">{{__('destination.SelectDest')}}</option>
             @foreach($payslist as $pay)
@@ -33,7 +33,7 @@
             @endforeach
           </select>
         </div>
-        <div class="form-group col-auto">
+        <div class="form-group mr-2">
           <select class="form-control" id="maps" name="maps">
             <option value="">{{__('destination.SelectMap')}}</option>
             @foreach($maps as $mymap)
@@ -41,10 +41,10 @@
             @endforeach
           </select>
         </div>
-        <div class="form-group col-auto">
-          <input id="search" name="search" type="text" class="form-control form-input" placeholder="Search anything...">
+        <div class="form-group mr-2">
+          <input id="search" name="search" type="text" class="form-control" placeholder="Search anything...">
         </div>
-        <div class="form-group col-auto">
+        <div class="form-group">
           <input class="btn btn-primary" type="submit" value="Submit" />
         </div>
       </div>
