@@ -11,7 +11,7 @@ class CommentController extends Controller
 
     public function show($id)
     {
-        $spot = Spot::with('comments.user')->findOrFail($id);
+        $spot = Spots::with('comments.user')->findOrFail($id);
         return view('frontend.comments.index', compact('spot'));
     }
 
