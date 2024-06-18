@@ -93,15 +93,18 @@
 
 function removeFromFavorites(spotId) {
 
-fetch('{{ route("favorites.remove", ["id" => ":id"]) }}'.replace(':id', spotId), {
-method: 'DELETE',
+fetch('{{ route("favorites.remove") }}', {
+method: 'POST',
 headers: {
 'Content-Type': 'application/json',
 'X-CSRF-TOKEN': '{{ csrf_token() }}'
 },
+body: JSON.stringify({
+spot_id: spotId
+})
 }).then(response => response.json())
 .then(data => {
-if (data.success) {
+if(data.success) {
 toastr.success(data.message);
 setTimeout(() => {
 location.reload();
@@ -112,6 +115,7 @@ alert('An error occurred.');
 }).catch(error => {
 console.error('Error:', error);
 });
+
 
 }
 
