@@ -21,6 +21,7 @@
         $spot = $favorite->spot;
         $region = $spot->region;
         $description = Str::limit($spot->description, 200);
+        $commentsCount = $spot->comments->count();
         @endphp
         <div class="col-xl-4 col-lg-6 col-md-12 mb-4">
             <div class="card mb-4 h-100">
@@ -36,6 +37,9 @@
                     <div class="mt-auto d-flex justify-content-center">
                         <a href="{{ route('destination', ['id' => $spot->pays_id, 'spotid' => $spot->id]) }}" class="btn btn-primary mx-2 btn-equal">Voir le Spot</a>
                         <button class="btn btn-danger mx-2 btn-equal" onclick="removeFromFavorites({{ $spot->id }})">Supprimer favoris</button>
+                    </div>
+                    <div class="mt-2 text-center">
+                        <a href="{{ route('comment.show', ['id' => $spot->id]) }}" class="btn btn-link">Voir/Ajouter un commentaire ({{ $commentsCount }})</a>
                     </div>
                 </div>
             </div>

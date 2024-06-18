@@ -33,6 +33,7 @@ use App\Http\Controllers\BannerController;
 use App\Http\Controllers\SpotBannerUserController;
 use App\Http\Controllers\RegionController;
 use App\Http\Controllers\FavoriteController;
+use App\Http\Controllers\CommentController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -309,5 +310,7 @@ Route::post('/delete-distances', [DistanceController::class, 'deleteDistances'])
 Route::post('/favorites/add', [FavoriteController::class, 'addFavorite'])->name('favorites.add')->middleware('auth');
 Route::post('/favorites/remove', [FavoriteController::class, 'removeFavorite'])->name('favorites.remove')->middleware('auth');
 Route::get('/favorites', [FavoriteController::class, 'index'])->name('favorites.index')->middleware('auth');
+Route::post('/comments', [CommentController::class, 'store'])->name('comments.store');
+Route::get('/comments/{id}', [CommentController::class, 'show'])->name('comment.show');
 
 require __DIR__ . '/auth.php';

@@ -69,4 +69,8 @@ class Spots extends Model implements TranslatableContract
     {
         return $this->hasMany(Favorite::class);
     }
+    public function comments()
+    {
+        return $this->hasMany(Comment::class)->where('actif', 1);
+    }
 }
