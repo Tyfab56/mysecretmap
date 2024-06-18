@@ -3,8 +3,18 @@
 @section('content')
 <div class="container">
     <h1>Mes Favoris</h1>
+    <p>Ici, vous trouverez tous les spots que vous aimez, vous pouvez les partager avec vos amis sur les réseaux sociaux et recevoir directement leurs commentaires sur cette page.</p>
     <!-- Formulaire pour sélectionner la région -->
-
+    <!-- Formulaire pour sélectionner la région -->
+    <div class="form-group">
+        <label for="countrySelect">Explorer les autres destinations :</label>
+        <select id="countrySelect" class="form-control" onchange="exploreThingsToDo(this.value)">
+            <option value="">Sélectionnez un pays</option>
+            <option value="IS">Islande</option>
+            <option value="KM">Comores</option>
+            <option value="RE">Réunion</option>
+        </select>
+    </div>
     <div class="row things-to-do-list">
         @foreach($favorites as $favorite)
         @php
@@ -118,5 +128,9 @@ console.error('Error:', error);
 
 
 }
-
+function exploreThingsToDo(countryCode) {
+if (countryCode) {
+window.location.href = '{{ url("thingstodo") }}/' + countryCode;
+}
+}
 @endsection
