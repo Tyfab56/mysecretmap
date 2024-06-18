@@ -4,7 +4,7 @@
 <div class="container">
     <h1>My Favorites</h1>
     <div>
-        <a href="{{ route('thingstodo.index') }}">Add Spots to Favorites</a>
+
     </div>
     <div class="row mt-4">
         @foreach($favorites as $favorite)
