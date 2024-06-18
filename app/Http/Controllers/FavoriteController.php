@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Favorite;
+use App\Models\Region;
 use App\Models\Spots;
 use Illuminate\Support\Facades\Auth;
 
@@ -31,12 +32,24 @@ class FavoriteController extends Controller
 
         return response()->json(['success' => true, 'message' => 'Spot removed from favorites']);
     }
-    public function index()
+    public function index(Request $request)
     {
-        // Récupérer les favoris de l'utilisateur connecté avec les informations des spots et des régions
-        $favorites = auth()->user()->favorites()->with(['spot.region'])->get();
+        // Récupérer les régions pour le filtre
+        $regions = Region::all();
 
-        // Retourner la vue avec les favoris
-        return view('frontend.favorites.index', compact('favorites'));
+        // Filtrer les favoris de l'utilisateur connecté
+        $query = auth()->user()->favorites()->with(['spot.region']);
+
+        // Appliquer le filtre de région si sélectionné
+        if ($request->has('region') && $request->input('region') !== '') {
+            $query->whereHas('spot', function ($q) use ($request) {
+                $q->where('region_id', $request->input('region'));
+            });
+        }
+
+        $favorites = $query->paginate(10);
+
+        // Retourner la vue avec les favoris et les régions
+        return view('favorites.index', compact('favorites', 'regions'));
     }
 }
