@@ -12,7 +12,11 @@ class CommentController extends Controller
 
     public function show($id)
     {
-        $spot = Spots::with('comments.user')->findOrFail($id);
+        $currentLang = app()->getLocale();
+        $spot = Spots::with(['comments' => function ($query) use ($currentLang) {
+            $query->where('id_lang', $currentLang)->where('actif', 1);
+        }, 'comments.user'])->findOrFail($id);
+
         return view('frontend.comments.index', compact('spot'));
     }
 
@@ -37,12 +41,16 @@ class CommentController extends Controller
         $user = User::findOrFail($request->user_id);
         $actif = $user->autovalidcomment ? 1 : 0;
 
+        // Obtenir la langue en cours
+        $currentLang = app()->getLocale();
+
         Comment::create([
             'spot_id' => $request->spot_id,
             'user_id' => $request->user_id,
             'pays_id' => $request->pays_id,
             'comment' => $request->comment,
-            'actif' => $actif, // Initialiser à 0 pour la modération
+            'actif' => $actif,
+            'id_lang' => $currentLang,
         ]);
 
         return response()->json(['success' => true, 'message' => 'Commentaire ajouté avec succès.']);

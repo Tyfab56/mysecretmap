@@ -15,7 +15,8 @@ class Comment extends Model
         'user_id',
         'pays_id',
         'comment',
-        'actif'
+        'actif',
+        'id_lang',
     ];
 
     // Définir les relations avec les autres modèles
@@ -32,5 +33,9 @@ class Comment extends Model
     public function pays()
     {
         return $this->belongsTo(Pays::class, 'pays_id', 'pays_id');
+    }
+    public function lang()
+    {
+        return $this->belongsTo(Langs::class, 'id_lang', 'idlang');
     }
 }
