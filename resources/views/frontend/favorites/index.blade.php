@@ -21,7 +21,7 @@
         $spot = $favorite->spot;
         $region = $spot->region;
         $description = Str::limit($spot->description, 200);
-        $commentsCount = $spot->comments()->count();
+        $commentsCount = $spot->commentsByLang($currentLang)->count();
         @endphp
         <div class="col-xl-4 col-lg-6 col-md-12 mb-4">
             <div class="card mb-4 h-100">

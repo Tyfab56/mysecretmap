@@ -38,13 +38,13 @@ class FavoriteController extends Controller
 
         // Filtrer les favoris de l'utilisateur connecté
         $query = auth()->user()->favorites()->with(['spot.region']);
-
+        $currentLang = app()->getLocale();
 
 
 
         $favorites = $query->paginate(30);
 
         // Retourner la vue avec les favoris et les régions
-        return view('frontend.favorites.index', compact('favorites'));
+        return view('frontend.favorites.index', compact('favorites', 'currentLang'));
     }
 }

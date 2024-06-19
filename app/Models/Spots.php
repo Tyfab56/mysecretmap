@@ -73,4 +73,9 @@ class Spots extends Model implements TranslatableContract
     {
         return $this->hasMany(Comment::class, 'spot_id')->where('actif', 1);
     }
+
+    public function commentsByLang($lang)
+    {
+        return $this->hasMany(Comment::class)->where('id_lang', $lang)->where('actif', 1);
+    }
 }
