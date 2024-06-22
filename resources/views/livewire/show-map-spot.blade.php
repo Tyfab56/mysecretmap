@@ -30,13 +30,25 @@
         <div class="row">
             <div class="col-md-6">
 
-                <b class="white">Lat : <span class="orange">{{$spot->lat}}</span></b><br>
-                <b class="white">Lng : <span class="orange">{{$spot->lng}}</span></b><br>
-                <div class="mt-3"><b>{{ __('index.Description') }}</b> : <span style="color:white"> <span id="short-text">{{ Str::limit($traduction->description ?? '', 900) }}</span>
-                        <span id="full-text" style="display: none;">{{ $traduction->description ?? '' }}</span>
-                        @if(strlen($traduction->description ?? '') > 900)
+                @if(!empty($spot->lat))
+                <b class="white">Lat : <span class="orange">{{ $spot->lat }}</span></b><br>
+                @endif
+
+                @if(!empty($spot->lng))
+                <b class="white">Lng : <span class="orange">{{ $spot->lng }}</span></b><br>
+                @endif
+
+                @if(!empty($traduction->description))
+                <div class="mt-3">
+                    <b>{{ __('index.Description') }}</b> : <span style="color:white">
+                        <span id="short-text">{{ Str::limit($traduction->description, 900) }}</span>
+                        <span id="full-text" style="display: none;">{{ $traduction->description }}</span>
+                        @if(strlen($traduction->description) > 900)
                         <a href="#" class="orange" id="see-more">Voir plus</a>
-                        @endif</span></div>
+                        @endif
+                    </span>
+                </div>
+                @endif
 
             </div>
             <div class="col-md-6">
