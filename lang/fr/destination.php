@@ -43,4 +43,5 @@ return [
     'Musee' => "Musées/Culture",
     'Hotel' => "Hôtels",
     'Camping' => "Camping",
+    'Rental' => "Location de Voitures",
 ];

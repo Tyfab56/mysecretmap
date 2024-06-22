@@ -43,5 +43,6 @@ return [
     'Musee' => "Museums/Culture",
     'Hotel' => "Hotels",
     'Camping' => "Camp Sites",
+    'Rental' => "Car Rentals",
 
 ];
