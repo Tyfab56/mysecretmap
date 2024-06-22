@@ -64,12 +64,13 @@
 
                 @if(!empty($randotime) || !empty($timeonsite))
                 <div class="mt-3">
-                    @if(!empty($randotime))
-                    <b>{{ __('index.Randotime') }} : </b><span style="color:white">{{ $randotime }}</span>
-                    @endif
-                    @if(!empty($timeonsite))
-                    <br><b>{{ __('index.Timeonsite') }} : </b><span style="color:white">{{ $timeonsite }}</span>
-                    @endif
+                    @if($randotime <> '00:00')
+                        <b>{{ __('index.Randotime') }} : </b><span style="color:white">{{ $randotime }}</span>
+                        @endif
+
+                        @if($timeonsite <>'00:00')
+                            <br><b>{{ __('index.Timeonsite') }} : </b><span style="color:white">{{ $timeonsite }}</span>
+                            @endif
                 </div>
                 @endif
 
