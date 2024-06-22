@@ -54,13 +54,36 @@
             <div class="col-md-6">
                 <div class="mt-3"><b>{{ __('index.Sunrise') }} : <span id="sunrise" class="red">{{ $sunrise??''}}</span></b></div>
                 <div class="mt-3"><b>{{ __('index.Sunset') }} : <span id="sunset" style="color:orange">{{ $sunset??''}}</span></b></div>
-                <div class="mt-3"><b>{{ __('index.Accessibilite') }}</b> : <span style="color:white">{{$traduction->accessibilite?? ''}}</span></div>
-                <div class="mt-3"><b>{{ __('index.Chemin') }}</b> : <span style="color:white">{{$traduction->chemin?? ''}}</span></div>
-                <div class="mt-3"><b>{{ __('index.Randotime') }} : </b><span style="color:white">{{ $randotime??''}}</span><br><b>{{ __('index.Timeonsite') }} : </b><span style="color:white">{{ $timeonsite??''}}</span></p>
+                @if(!empty($traduction->accessibilite))
+                <div class="mt-3"><b>{{ __('index.Accessibilite') }}</b> : <span style="color:white">{{ $traduction->accessibilite }}</span></div>
+                @endif
+
+                @if(!empty($traduction->chemin))
+                <div class="mt-3"><b>{{ __('index.Chemin') }}</b> : <span style="color:white">{{ $traduction->chemin }}</span></div>
+                @endif
+
+                @if(!empty($randotime) || !empty($timeonsite))
+                <div class="mt-3">
+                    @if(!empty($randotime))
+                    <b>{{ __('index.Randotime') }} : </b><span style="color:white">{{ $randotime }}</span>
+                    @endif
+                    @if(!empty($timeonsite))
+                    <br><b>{{ __('index.Timeonsite') }} : </b><span style="color:white">{{ $timeonsite }}</span>
+                    @endif
                 </div>
-                <div class="mt-3"><b>{{ __('index.Drone') }}</b> : <span style="color:white">{{$traduction->drone?? ''}}</span></div>
-                <div class="mt-3"><b>{{ __('index.Lumiere') }}</b> : <span style="color:white">{{$traduction->lumiere?? ''}}</span></div>
-                <div class="mt-3"><b>{{ __('index.Secretspot') }}</b> : <span style="color:white">{{$traduction->secretspot?? ''}}</span></div>
+                @endif
+
+                @if(!empty($traduction->drone))
+                <div class="mt-3"><b>{{ __('index.Drone') }}</b> : <span style="color:white">{{ $traduction->drone }}</span></div>
+                @endif
+
+                @if(!empty($traduction->lumiere))
+                <div class="mt-3"><b>{{ __('index.Lumiere') }}</b> : <span style="color:white">{{ $traduction->lumiere }}</span></div>
+                @endif
+
+                @if(!empty($traduction->secretspot))
+                <div class="mt-3"><b>{{ __('index.Secretspot') }}</b> : <span style="color:white">{{ $traduction->secretspot }}</span></div>
+                @endif
             </div>
         </div>
     </div>
