@@ -145,9 +145,12 @@ class DestinationController extends Controller
 
         return response($spotzoom, 200);
     }
-    public function listmarkers($idpays, $nelat, $nelng, $swlat, $swlng)
+    public function listmarkers($idpays, $nelat, $nelng, $swlat, $swlng, $maps_id = '1')
     {
+        // Convertir le paramètre maps_id en tableau d'IDs
+        $maps_ids = explode(',', $maps_id);
 
+        // Requête pour récupérer les markers
         $markers = Spots::select('id', 'name', 'lng', 'lat', 'imgpanosmall', 'imgsquaresmall')
             ->where('lat', '<', $nelat)
             ->where('lat', '>', $swlat)
@@ -155,7 +158,7 @@ class DestinationController extends Controller
             ->where('lng', '>', $swlng)
             ->where('pays_id', '=', $idpays)
             ->where('actif', '=', 1)
-            ->where('maps_id', '=', 1)
+            ->whereIn('maps_id', $maps_ids)
             ->get()->toJson();
 
         return response($markers, 200);

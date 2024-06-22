@@ -579,6 +579,7 @@ while (index < str.length) { // Reset shift, result, and byte byte=null; shift=0
     checkbox.addEventListener('change', function() {
     const selectedTypes = Array.from(document.querySelectorAll('input[name="spotType"]:checked'))
     .map(cb => cb.value);
+    
     fetch(`/spots?maps_id=${selectedTypes.join(',')}&idpays=${currentPays}`)
     .then(response => response.json())
     .then(data => {
