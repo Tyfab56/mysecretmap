@@ -66,7 +66,7 @@
                                 <label><input type="checkbox" id="3" name="spotType" value="3"> {{__('destination.Musee')}}</label>
                                 <label><input type="checkbox" id="4" name="spotType" value="4"> {{__('destination.Hotel')}}</label>
                                 <label><input type="checkbox" id="5" name="spotType" value="5"> {{__('destination.Camping')}}</label>
-                                <label><input type="checkbox" id="6" name="spotType" value="5"> {{__('destination.Rental')}}</label>
+                                <label><input type="checkbox" id="6" name="spotType" value="6"> {{__('destination.Rental')}}</label>
                                 <!-- Add more checkboxes as needed -->
                             </div>
                             <div class="leaflet-map">
