@@ -407,6 +407,18 @@ class DestinationController extends Controller
         }
     }
 
+    public function getFilteredSpots(Request $request)
+    {
+        $maps_ids = $request->get('maps_id', []);
+        if (!empty($maps_ids)) {
+            $maps_ids_array = explode(',', $maps_ids);
+            $spots = Spots::whereIn('maps_id', $maps_ids_array)->get();
+        } else {
+            $spots = Spots::all();
+        }
+        return response()->json($spots);
+    }
+
     public function thingsToDo($pays_id, Request $request)
     {
         // Récupérer le pays
