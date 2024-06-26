@@ -39,10 +39,12 @@ class DestinationController extends Controller
 
         $idpays = $id;
         Session::put('lastPays', $idpays);
+
         $pays = Pays::where('pays_id', '=', $idpays)->first();
         if (is_null($pays)) {
             return redirect()->route('home');
         }
+
         $payslat = $pays->lat;
         $payslng = $pays->lng;
         $payszoom = $pays->zoom;
@@ -151,7 +153,7 @@ class DestinationController extends Controller
         $maps_ids = explode(',', $maps_id);
 
         // Requête pour récupérer les markers
-        $markers = Spots::select('id', 'name', 'lng', 'lat', 'imgpanosmall', 'imgsquaresmall')
+        $markers = Spots::select('id', 'name', 'lng', 'lat', 'imgpanosmall', 'imgsquaresmall',  'typepoint_id')
             ->where('lat', '<', $nelat)
             ->where('lat', '>', $swlat)
             ->where('lng', '<', $nelng)
