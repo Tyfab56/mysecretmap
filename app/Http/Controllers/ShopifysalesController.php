@@ -3,17 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Shopifysales; 
+use App\Models\Shopifysales;
 
 class ShopifysalesController extends Controller
 {
 
- 
+
     public function form()
-    { 
-        return view('admin.shopifysales');    
+    {
+        return view('admin.shopifysales');
     }
-    
+
     public function index()
     {
         $shopifysales = Shopifysales::orderBy('created_at', 'desc')->paginate(20);
@@ -30,9 +30,18 @@ class ShopifysalesController extends Controller
             'idproduit' => 'required|string|max:20',
             // ajoutez d'autres validations selon vos besoins
         ]);
-    
+
         Shopifysales::create($data);
-    
-        return redirect()->route('admin.shopifysaleslist'); 
+
+        return redirect()->route('admin.shopifysaleslist');
+    }
+
+    public function resetInstallations($id)
+    {
+        $sale = ShopifySales::findOrFail($id);
+        $sale->installation = 1; // Reset the installation count to 0
+        $sale->save();
+
+        return redirect()->back()->with('success', 'Installations reset successfully.');
     }
 }

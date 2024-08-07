@@ -19,6 +19,7 @@
                     <th>Product ID</th>
                     <th>Created At</th>
                     <th>Install</th>
+                    <th>Actions</th> 
                 </tr>
             </thead>
             <tbody>
@@ -32,6 +33,12 @@
                         <td>{{ $sale->idproduit }}</td>
                         <td>{{ $sale->created_at }}</td>
                         <td>{{ $sale->installation }}</td>
+                        <td>
+                            <form action="{{ route('shopifysales.reset', $sale->id) }}" method="POST">
+                                @csrf
+                                <button type="submit" class="btn btn-warning btn-sm">Reset Installations</button>
+                            </form>
+                        </td>
                     </tr>
                 @endforeach
             </tbody>
