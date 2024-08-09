@@ -51,7 +51,7 @@ class IndexController extends Controller
         }
 
         // Liste des dernier spots
-        $lastspots = Spots::orderBy('created_at', 'desc')->where('actif', '=', 1)->where('typepoint_id', '=', 1)->take(18)->get();
+        $lastspots = Spots::orderBy('created_at', 'desc')->where('actif', '=', 1)->where('maps_id', '=', 1)->take(18)->get();
 
         $latestSpotWithImg360 = Spots::orderBy('updated_at', 'desc')->whereNotNull('img360')->where('actif', 1)->where('img360', '!=', '')->latest()->first();
         $latest360s = Spots::orderBy('updated_at', 'desc')->whereNotNull('img360')->where('actif', 1)->where('img360', '!=', '')->latest()->skip(1)->take(18)->get();
