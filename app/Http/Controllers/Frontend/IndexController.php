@@ -52,6 +52,7 @@ class IndexController extends Controller
 
         // Liste des dernier spots
         $lastspots = Spots::orderBy('created_at', 'desc')->where('actif', '=', 1)->where('typepoint_id', '=', 1)->take(18)->get();
+        dd($lastspots);
         $latestSpotWithImg360 = Spots::orderBy('updated_at', 'desc')->whereNotNull('img360')->where('actif', 1)->where('img360', '!=', '')->latest()->first();
         $latest360s = Spots::orderBy('updated_at', 'desc')->whereNotNull('img360')->where('actif', 1)->where('img360', '!=', '')->latest()->skip(1)->take(18)->get();
         $pays = Pays::where('pays_id', '=', $idpays)->first();
@@ -570,13 +571,9 @@ class IndexController extends Controller
         return view('frontend/aboutus');
     }
 
-    public function UserLogout()
-    {
-    }
+    public function UserLogout() {}
 
-    public function spot($id)
-    {
-    }
+    public function spot($id) {}
     public function timeline(Request $request)
     {
         $perPage = 5; // Nombre d'éléments à récupérer par page
