@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Auth;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 use function GuzzleHttp\Promise\exception_for;
 
 class SpotsController extends Controller
@@ -881,6 +882,9 @@ class SpotsController extends Controller
 
         // Memorisation base de données 
         $spot->name = $request->titre;
+        $spot->slug = Str::slug($spot->country_code . '_' . $spot->name, '_');
+
+
         $spot->pays_id = $request->payslist;
         $spot->maps_id = $request->maplist;
         $spot->typepoint_id = $request->typespotlist;
