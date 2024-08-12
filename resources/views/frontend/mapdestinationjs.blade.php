@@ -579,7 +579,7 @@ while (index < str.length) { // Reset shift, result, and byte byte=null; shift=0
     checkbox.addEventListener('change', function() {
     const selectedTypes = Array.from(document.querySelectorAll('input[name="spotType"]:checked'))
     .map(cb => cb.value);
-    
+
     fetch(`/spots?maps_id=${selectedTypes.join(',')}&idpays=${currentPays}`)
     .then(response => response.json())
     .then(data => {
@@ -617,6 +617,7 @@ while (index < str.length) { // Reset shift, result, and byte byte=null; shift=0
     //mapzoom.panTo(new L.LatLng(lat,lng));
     drawSolar();
     redrawOverlay();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
     function chargerEtAfficherVideo(id, locale) {
