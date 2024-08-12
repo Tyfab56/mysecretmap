@@ -50,6 +50,10 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="row">
+                    <!-- Affichage info sur le spot-->
+                    <div class="col-lg-12 bgbox">
+                        <livewire:show-map-spot />
+                    </div>
                     <div class="row bgregbox w100">
                         <div class="col-lg-12">
                             <p>{{__('destination.alentours')}}</p>
@@ -149,9 +153,11 @@
                                     <livewire:show-map-globale />
                                 </div>
                             </div>
+                            <!-- Affichage video -->
                             <div id="wrap_video" class="row pt-1 pb-1 pr-1 pl-1 bgregbox min100">
                                 <div id="container_video" style="width: 640px"></div>
                             </div>
+                            <!-- Template styles-->
                             <div class="row pt-1 pb-1 pr-1 pl-1 bgregbox min100">
                                 <div class="col-lg-12 center pt-1 pb-1 pr-1 pl-1"><livewire:show-img-region />
                                 </div>
@@ -160,15 +166,13 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-12 bgbox">
-                <livewire:show-map-spot />
-            </div>
+
         </div>
 
         <div class="row bgregbox min100">
 
         </div>
-
+        <!-- Affichage photo du lieu -->
         <div class="row bgregbox min100">
             <div class="col-lg-12 col-md-12"><livewire:slider-pictures /></div>
         </div>
