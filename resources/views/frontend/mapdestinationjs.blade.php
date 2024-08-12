@@ -207,7 +207,7 @@ var bounds = L.latLng(currentLat,currentLng).toBounds(1000);
 redrawOverlay();
 drawSolar();
 stopMarker = 0;
-window.scrollTo({ top: 100, behavior: 'smooth' });
+window.scrollTo({ top: 400, behavior: 'smooth' });
 }
 
 var getDateFromDayNum = function(dayNum, year){
