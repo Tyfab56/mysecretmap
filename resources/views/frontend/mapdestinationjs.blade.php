@@ -207,6 +207,7 @@ var bounds = L.latLng(currentLat,currentLng).toBounds(1000);
 redrawOverlay();
 drawSolar();
 stopMarker = 0;
+window.scrollTo({ top: 100, behavior: 'smooth' });
 }
 
 var getDateFromDayNum = function(dayNum, year){
@@ -617,7 +618,7 @@ while (index < str.length) { // Reset shift, result, and byte byte=null; shift=0
     //mapzoom.panTo(new L.LatLng(lat,lng));
     drawSolar();
     redrawOverlay();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 100, behavior: 'smooth' });
     }
 
     function chargerEtAfficherVideo(id, locale) {
