@@ -618,7 +618,7 @@ while (index < str.length) { // Reset shift, result, and byte byte=null; shift=0
     //mapzoom.panTo(new L.LatLng(lat,lng));
     drawSolar();
     redrawOverlay();
-    window.scrollTo({ top: 100, behavior: 'smooth' });
+    window.scrollTo({ top: 400, behavior: 'smooth' });
     }
 
     function chargerEtAfficherVideo(id, locale) {
