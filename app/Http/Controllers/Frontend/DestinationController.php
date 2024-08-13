@@ -22,20 +22,47 @@ use Illuminate\Pagination\LengthAwarePaginator;
 
 class DestinationController extends Controller
 {
-    public function index($id, $spotid = null)
-    {
-        // Chargement des infos pays
-        // lat : lng : zoom
 
+    public function indexid($id, $spotid = null)
+    {
+
+        // Si un spotid est fourni, le chercher par ID
         if (!is_null($spotid)) {
-            $spot = Spots::where('id', '=', $spotid)
-                ->where('pays_id', '=', $id)->first();
+            $spot = Spots::where('id', '=', $spotid)->first();
+
+            if (is_null($spot)) {
+                return redirect()->route('home');
+            }
+
+            // Redirection vers la nouvelle URL basée sur le slug
+            return redirect()->route('destination.index', [
+                'id' => $id,
+                'slug' => $spot->slug
+            ], 301);
+        }
+
+        // Si aucun spotid n'est fourni, redirection vers la page pays
+        return redirect()->route('destination.index', [
+            'id' => $id,
+            'slug' => ''
+        ], 301);
+    }
+    public function index($id, $slug = null)
+    {
+        // Si un slug est fourni, rechercher le spot correspondant
+        if (!is_null($slug)) {
+            $spot = Spots::where('slug', '=', $slug)
+                ->where('pays_id', '=', $id)
+                ->first();
+
             if (is_null($spot)) {
                 return redirect()->route('home');
             }
         } else {
             $spot = null;
         }
+
+
 
         $idpays = $id;
         Session::put('lastPays', $idpays);

@@ -83,7 +83,9 @@ Route::get('/listmarkers/{idpays}/{nelat}/{nelng}/{swlat}/{swlng}', [Destination
 Route::get('/getzoom/{idspot}', [DestinationController::class, 'getzoom'])->name('getzoom');
 Route::get('/gallery/{idspot?}', [DestinationController::class, 'gallery'])->name('gallery');
 
-Route::get('/destination/{id}/{spotid?}', [DestinationController::class, 'index'])->name('destination');
+Route::get('/destination/{id}/{spotid?}', [DestinationController::class, 'indexid'])->name('destination');
+Route::get('/destination/{id}/{slug?}', [DestinationController::class, 'index'])->name('destination.index');
+
 Route::get('/thewall/{idpays}', [DestinationController::class, 'thewall'])->name('thewall');
 Route::get('/thewall/{idpays}/{tri?}/{size?}', [DestinationController::class, 'thewall']);
 Route::get('/distance/{idspot}', [DistanceController::class, 'index'])->name('distance');
