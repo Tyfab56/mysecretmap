@@ -84,7 +84,7 @@ Route::get('/getzoom/{idspot}', [DestinationController::class, 'getzoom'])->name
 Route::get('/gallery/{idspot?}', [DestinationController::class, 'gallery'])->name('gallery');
 
 // Route avec ID, redirige vers la nouvelle URL avec slug
-Route::get('/destination/{id}/{spotid?}', [DestinationController::class, 'indexid'])->name('destination');
+Route::get('/destination/{id}/{spotid?}', [DestinationController::class, 'indexbyid'])->name('destination');
 
 // Nouvelle route avec slug
 Route::get('/spot/{id}/{slug?}', [DestinationController::class, 'index'])->name('destination.index');

@@ -23,7 +23,7 @@ use Illuminate\Pagination\LengthAwarePaginator;
 class DestinationController extends Controller
 {
 
-    public function indexid($id, $spotid = null)
+    public function indexbyid($id, $spotid = null)
 
 
     {
