@@ -52,6 +52,7 @@ class DestinationController extends Controller
     }
     public function index($id, $slug = null)
     {
+        dd($id, $slug);
         // Si un slug est fourni, rechercher le spot correspondant
         if (!is_null($slug)) {
             $spot = Spots::where('slug', '=', $slug)
