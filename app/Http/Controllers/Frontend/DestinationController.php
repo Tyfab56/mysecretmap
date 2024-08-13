@@ -27,11 +27,13 @@ class DestinationController extends Controller
     {
         // Si un spotid est fourni, le chercher par ID
         if (!is_null($spotid)) {
-            $spot = Spots::where('id', '=', $id)->first();
+            $spot = Spots::where('id', '=', $spotid)->first();
+            dd($spot->slug, $id);
 
             if (is_null($spot)) {
                 return redirect()->route('home');
             }
+
 
             // Redirection vers la nouvelle URL basée sur le slug
             return redirect()->route('destination.index', [
