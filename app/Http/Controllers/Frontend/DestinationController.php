@@ -184,7 +184,7 @@ class DestinationController extends Controller
         $maps_ids = explode(',', $maps_id);
 
         // Requête pour récupérer les markers
-        $markers = Spots::select('id', 'name', 'lng', 'lat', 'imgpanosmall', 'imgsquaresmall',  'typepoint_id')
+        $markers = Spots::select('id', 'name', 'slug', 'lng', 'lat', 'imgpanosmall', 'imgsquaresmall',  'typepoint_id')
             ->where('lat', '<', $nelat)
             ->where('lat', '>', $swlat)
             ->where('lng', '<', $nelng)
