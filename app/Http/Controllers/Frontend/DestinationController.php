@@ -32,7 +32,7 @@ class DestinationController extends Controller
             if (is_null($spot)) {
                 return redirect()->route('home');
             }
-
+            dd($spot->slug, $id);
             // Redirection vers la nouvelle URL basée sur le slug
             return redirect()->route('destination.index', [
                 'id' => $id,
