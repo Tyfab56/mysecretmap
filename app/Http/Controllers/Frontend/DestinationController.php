@@ -25,7 +25,6 @@ class DestinationController extends Controller
 
     public function indexid($id, $spotid = null)
     {
-
         // Si un spotid est fourni, le chercher par ID
         if (!is_null($spotid)) {
             $spot = Spots::where('id', '=', $spotid)->first();
@@ -43,8 +42,7 @@ class DestinationController extends Controller
 
         // Si aucun spotid n'est fourni, redirection vers la page pays
         return redirect()->route('destination.index', [
-            'id' => $id,
-            'slug' => ''
+            'id' => $id
         ], 301);
     }
     public function index($id, $slug = null)
