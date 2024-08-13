@@ -64,7 +64,7 @@
       <div class="container">
         <div class="row">
           <div class="d-flex align-items-center mb-3">
-            <a href="{{ url('destination')}}/{{$latestSpotWithImg360->pays_id}}/{{$latestSpotWithImg360->id}}" class="btn btn-primary me-3">Voir le spot</a>
+            <a href="{{ url('spot')}}/{{$latestSpotWithImg360->pays_id}}/{{$latestSpotWithImg360->slug}}" class="btn btn-primary me-3">Voir le spot</a>
             <h4 class="mb-0 flex-grow-1">{{__('index.dernier360')}} : {{ $latestSpotWithImg360->pays->getTranslatedLibelle() }} - {{ $latestSpotWithImg360->name }}</h4>
           </div>
           <div id="panorama-container" class="panorama-container mt-3"></div>
