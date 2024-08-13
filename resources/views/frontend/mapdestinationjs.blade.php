@@ -359,7 +359,7 @@ mapdest.whenReady(function(){
 var popdiv = '<img class="addit" src="{{asset('frontend/assets/images/addpic.png')}}" onClick="addCircuit({{$marker->id}})">';
 var popup = L.popup().setContent(popdiv);
 markers.addLayer(L.marker([{{$marker->lat}}, {{$marker->lng}}],
-{ icon: Mark{{$marker->typepoint_id}} ,title: '{{$marker->name}}',id:{{$marker->id}},slug:{{$marker->slug}}
+{ icon: Mark{{$marker->typepoint_id}} ,title: '{{$marker->name}}',id:{{$marker->id}},slug:'{{$marker->slug}}'
 }).on('click', onmapClick).bindTooltip(`<p class='pintext'><img src="{{$marker->imgsquaresmall}}" /></p>
 <p class="textbox">{{$marker->name}}</p>`, {
 minWidth : 130,
