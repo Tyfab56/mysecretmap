@@ -8,12 +8,14 @@ var currentGeometry = {!! json_encode($geometry) !!};
 @if(is_null($spot))
 var currentMarker = {{$markers->first()->id??0}};
 var currentTitle = '{{$markers->first()->name??0}}';
+var currentSlug ='{{$markers->first()->slug??0}}';
 var currentLat = {{$markers->first()->lat??0}};
 var currentLng = {{$markers->first()->lng??0}};
 var currentPays = "IS";
 @else
 var currentMarker = {{$spot->id}};
 var currentTitle = '{{$spot->name}}';
+var currentSlug = '{{$spot->slug}}'
 var currentLat = {{$spot->lat??0}};
 var currentLng = {{$spot->lng??0}};
 var currentPays = "{{$spot->pays_id}}";
@@ -201,7 +203,8 @@ currentMarker = e.sourceTarget.options.id;
 currentTitle = e.sourceTarget.options.title;
 currentLat = e.latlng.lat;
 currentLng = e.latlng.lng;
-addUrlToHistory(currentMarker,currentPays);
+currentSlug = e.sourceTarget.options.slug;
+addUrlToHistory(currentSlug,currentPays);
 var bounds = L.latLng(currentLat,currentLng).toBounds(1000);
 //mapzoom.panTo(new L.LatLng(currentLat,currentLng));
 redrawOverlay();
@@ -399,7 +402,7 @@ document.getElementById('theday').innerHTML = displayDate.toLocaleString({ month
 document.getElementById('thehour').innerHTML = currentTime;
 // Premier point
 
-popimage('',currentMarker,currentLat,currentLng);
+popimage('',currentMarker,currentLat,currentLng,currentSlug);
 drawSolar();
 drawCircuit();
 }
@@ -488,7 +491,7 @@ while (index < str.length) { // Reset shift, result, and byte byte=null; shift=0
     }
 
     function addUrlToHistory(parametre, pays) {
-    var newUrl = 'https://mysecretmap.com/destination/'+pays+'/' + parametre;
+    var newUrl = 'https://mysecretmap.com/spot/'+pays+'/' + parametre;
     window.history.pushState({path:newUrl},'',newUrl);
     }
 
@@ -601,7 +604,7 @@ while (index < str.length) { // Reset shift, result, and byte byte=null; shift=0
     // Associez le zoom à tous les éléments sélectionnés
     zooming.listen(myImages);
 
-    function popimage(name,e,lat,lng) {
+    function popimage(name,e,lat,lng,slug) {
 
     currentMarker = e;
     currentLat = lat;
