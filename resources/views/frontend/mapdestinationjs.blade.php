@@ -188,6 +188,7 @@ Livewire.emit('AfficheVideo',280);
 }
 
 function onmapClick(e) {
+console.log(e);
 stopMarker = 1;
 Livewire.emit('InfoDestination',e.sourceTarget.options.id,null,null);
 Livewire.emit('ImgRegion',e.sourceTarget.options.id);
