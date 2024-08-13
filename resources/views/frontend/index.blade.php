@@ -89,7 +89,7 @@
         <div class="swiper-wrapper">
           @foreach($latest360s as $spot)
           <div class="swiper-slide">
-            <a href="{{ url('destination') }}/{{$spot->pays_id }}/{{ $spot->id }}"> <img class="imgbox" onClick="" src="{{ $spot->imgsquaremedium }}"></a>
+            <a href="{{ url('spot') }}/{{$spot->pays_id }}/{{ $spot->slug }}"> <img class="imgbox" onClick="" src="{{ $spot->imgsquaremedium }}"></a>
             <div class="bottom-center">
               <span class="textbox"><b>{{ $spot->name }}</b></span>
             </div>
@@ -175,7 +175,7 @@
               <div class="swiper-wrapper">
                 @foreach($lastspots as $spot)
                 <div class="swiper-slide">
-                  <a href="{{ url('destination') }}/{{$spot->pays_id }}/{{ $spot->id }}"> <img class="imgbox" onClick="" src="{{ $spot->imgsquaremedium }}"></a>
+                  <a href="{{ url('spot') }}/{{$spot->pays_id }}/{{ $spot->slug }}"> <img class="imgbox" onClick="" src="{{ $spot->imgsquaremedium }}"></a>
                   <div class="bottom-center">
                     <span class="textbox"><b>{{ $spot->name }}</b></span>
                   </div>
@@ -421,8 +421,8 @@
     <div class="gridOverflow go-masonry">
 
       @foreach ($pictures as $picture)
-
-      <a href="{{ route('destination', ['id' => $picture->spot->pays_id, 'spotid' => $picture->spot->id]) }}" class="go_gridItem">
+      {{ url('spot') }}/{{$picture->spot->pays_id }}/{{ $picture->spot->slug }}
+      <a href=" {{ url('spot') }}/{{$picture->spot->pays_id }}/{{ $picture->spot->slug }}" class="go_gridItem">
 
 
         <img src="{{ $picture->medium}}" />
