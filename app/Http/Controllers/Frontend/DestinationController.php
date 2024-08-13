@@ -39,14 +39,14 @@ class DestinationController extends Controller
 
 
             // Redirection vers la nouvelle URL basée sur le slug
-            return redirect()->route('destination.index', [
+            return redirect()->route('destination.slug', [
                 'id' => $id,
                 'slug' => $spot->slug
             ], 301);
         }
 
         // Si aucun spotid n'est fourni, redirection vers la page pays
-        return redirect()->route('destination.index', [
+        return redirect()->route('destination.slug', [
             'id' => $id
         ], 301);
     }
