@@ -27,7 +27,7 @@ class DestinationController extends Controller
 
 
     {
-        dd($spotid, $id);
+
         // Si un spotid est fourni, le chercher par ID
         if (!is_null($spotid)) {
             $spot = Spots::where('id', '=', $spotid)->first();
