@@ -421,7 +421,7 @@
     <div class="gridOverflow go-masonry">
 
       @foreach ($pictures as $picture)
-      {{ url('spot') }}/{{$picture->spot->pays_id }}/{{ $picture->spot->slug }}
+
       <a href=" {{ url('spot') }}/{{$picture->spot->pays_id }}/{{ $picture->spot->slug }}" class="go_gridItem">
 
 
