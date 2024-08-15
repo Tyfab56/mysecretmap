@@ -57,7 +57,7 @@ return [
     "Aboutme" => "Hallo, ich bin der Schöpfer von My Secret Map und seit 2021 teile ich - umgeben von einem Team unglaublicher Fotografen - unsere besten touristischen Spots und Fototipps, um Ihnen zu helfen, Ihre schönsten Reisen zu planen.",
     "OT" => "Touristenbüros",
     "OTdesc" => "Wir erstellen touristische Audioguides für Touristenbüros, Museen und lokale Behörden. Wenn Sie die Sichtbarkeit Ihrer Destination steigern möchten, kontaktieren Sie uns.",
-    "OTcontact" => "fabrice@mylovely-planet.com",
+    "OTcontact" => "fabrice@my-lovely-planet.com",
     "More" => "Mehr erfahren",
     "Audioguide" => "Audioguides",
     "Charly0" => "ISLAND GUIDE",

@@ -57,7 +57,7 @@ return [
     "Aboutme" => "Hello, je suis le créateur de My Secret Map et depuis 2021, je partage -entouré d'une équipe d'incroyables photographes - nos meilleurs spots touristiques et  conseils photos pour vous aider à construire vos plus beaux voyages",
     "OT" => "Offices du Tourisme",
     "OTdesc" => "Nous créons des audioguides touristiques pour les offices de tourisme, les musées et les collectivités locales. Si vous souhaitez booster la visibilité de votre destination, contactez-nous.",
-    "OTcontact" => "fabrice@mylovely-planet.com",
+    "OTcontact" => "fabrice@my-lovely-planet.com",
     "More" => "En savoir plus",
     "Audioguide" => "Audioguides",
     "Charly0" => "GUIDE ISLANDE ",

@@ -63,7 +63,7 @@ return [
     "Aboutme" => "Hello, I'm the creator of My Secret Map and since 2021, I've been sharing - together with a team of incredible photographers - our best tourist spots and photo tips to help you build your most beautiful trips",
     "OT" => "Tourism Offices",
     "OTdesc" => "We create audio guides for tourist offices, museums, and local communities. If you want to boost the visibility of your destination, please contact us.",
-    "OTcontact" => "fabrice@mylovely-planet.com",
+    "OTcontact" => "fabrice@my-lovely-planet.com",
     "More" => "Read more",
     "Audioguide" => "Audio guides",
     "NousSoutenir" => "Support us",
