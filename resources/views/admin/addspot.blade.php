@@ -332,6 +332,9 @@
                                 <div class=" text-xs-right">
                                     <button id="transEn" type="button">En</button>
                                 </div>
+                                <div class=" text-xs-right">
+                                    <button id="transDe" type="button">De</button>
+                                </div>
                             </div>
                     </form>
                 </div>
@@ -349,6 +352,15 @@ translateField ('en',{{$spot->id?? '0'}},'chemin',document.getElementById('chemi
 translateField ('en',{{$spot->id?? '0'}},'drone',document.getElementById('drone').value);
 translateField ('en',{{$spot->id?? '0'}},'lumiere',document.getElementById('lumiere').value);
 translateField ('en',{{$spot->id?? '0'}},'secretspot',document.getElementById('secretspot').value);
+});
+
+document.getElementById('transDe').addEventListener('click', function() {
+translateField ('de',{{$spot->id?? '0'}},'description',document.getElementById('description').value);
+translateField ('de',{{$spot->id?? '0'}},'accessibilite',document.getElementById('accessibilite').value);
+translateField ('de',{{$spot->id?? '0'}},'chemin',document.getElementById('chemin').value);
+translateField ('de',{{$spot->id?? '0'}},'drone',document.getElementById('drone').value);
+translateField ('de',{{$spot->id?? '0'}},'lumiere',document.getElementById('lumiere').value);
+translateField ('de',{{$spot->id?? '0'}},'secretspot',document.getElementById('secretspot').value);
 });
 
 function translateField(langue, idspot, idfield, textfield) {
