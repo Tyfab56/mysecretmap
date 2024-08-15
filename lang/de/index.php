@@ -99,4 +99,5 @@ return [
     "NiceSpots2" => "schönen Orte",
     'Conseil1' => "Tipps",
     'Conseil2' => "für Ihre Reise",
+    "Voirlespot" => "Den Spot ansehen",
 ];

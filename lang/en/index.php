@@ -98,5 +98,6 @@ return [
     "NiceSpots2" => "beautiful spots",
     'Conseil1' => "Tips",
     'Conseil2' => "for your trip",
+    "Voirlespot" => "View the spot",
 
 ];
