@@ -97,4 +97,6 @@ return [
     "dernier360" => "Neueste 360-Spots",
     "NiceSpots" => "Karte der besten",
     "NiceSpots2" => "schönen Orte",
+    'Conseil1' => "Tipps",
+    'Conseil2' => "für Ihre Reise",
 ];

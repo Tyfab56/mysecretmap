@@ -97,5 +97,7 @@ return [
     "dernier360" => "Derniers Spots 360",
     "NiceSpots" => "Carte des plus",
     "NiceSpots2" => "beaux spots",
+    'Conseil1' => "Conseils",
+    'Conseil2' => "pour votre voyage",
 
 ];

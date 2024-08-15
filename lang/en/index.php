@@ -96,5 +96,7 @@ return [
     "dernier360" => "Last 360 spots",
     "NiceSpots" => "Map of the most",
     "NiceSpots2" => "beautiful spots",
+    'Conseil1' => "Tips",
+    'Conseil2' => "for your trip",
 
 ];
