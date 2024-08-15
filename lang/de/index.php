@@ -95,5 +95,6 @@ return [
     "pierreguide" => "Die schönsten Wanderungen in Videos",
     "seevideohike" => "Videos ansehen",
     "dernier360" => "Neueste 360-Spots",
-
+    "NiceSpots" => "Karte der besten",
+    "NiceSpots2" => "schönen Orte",
 ];

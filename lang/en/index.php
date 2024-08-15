@@ -94,6 +94,7 @@ return [
     "pierreguide" => "The most beautiful hikes in videos",
     "seevideohike" => "Watch the videos",
     "dernier360" => "Last 360 spots",
-
+    "NiceSpots" => "Map of the most",
+    "NiceSpots2" => "beautiful spots",
 
 ];

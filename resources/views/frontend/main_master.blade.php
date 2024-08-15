@@ -134,8 +134,8 @@
                   <li>
                     <div class="info-box">
                       <div class="info-box-content">
-                        <p class="info-box-title">Carte des plus</p>
-                        <p class="info-box-subtitle">beaux spots</p>
+                        <p class="info-box-title">{{ __('index.NiceSpots') }}</p>
+                        <p class="info-box-subtitle">{{ __('index.NiceSpots2') }}</p>
                       </div>
                     </div>
                   </li>
