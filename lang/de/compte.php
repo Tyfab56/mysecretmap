@@ -1,0 +1,25 @@
+<?php
+
+return [
+    "MonCompte" => "Mein Konto",
+    "MesInfos" => "Meine Informationen",
+    "InfosPhotos" => "Fotografenpräsentation",
+    "MesReseaux" => "Meine sozialen Netzwerke",
+    "MesCircuits" => "Meine Routen",
+    "Name" => "Name",
+    "ChoixProfil" => "Profilwahl",
+    "ChoixProfilDesc" => "Das Profil ermöglicht es, bestimmte Bereiche je nach Ihrem Interesse anzupassen",
+    "Prenom" => "Vorname",
+    "Email" => "E-Mail",
+    "Pays" => "Land oder Region",
+    "Pseudo" => "Benutzername",
+    "Facebook" => "Facebook",
+    "Instagram" => "Instagram",
+    "Twitter" => "Twitter",
+    "500px" => "500px",
+    "TikTok" => "TikTok",
+    "Mastodon" => "Mastodon",
+    "savechange" => "Speichern",
+    "Web" => "Webseite",
+    "ChangeAvatar" => "Avatar ändern",
+];
