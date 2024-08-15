@@ -297,7 +297,7 @@
 
 
                     <li class="nav-item dropdown">
-                      <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"><img src="{{ asset('frontend/assets/images/'.App::getLocale().'flag.jpg') }}" class="mr5 mtm5" style="width: 20px; height: 14px;">{{ Config::get('languages')[App::getLocale()] }} <i class="fa fa-angle-down"></i></a>
+                      <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"><img src="{{ asset('frontend/assets/images/'.App::getLocale().'flag.jpg') }}" class="mr5 mtm3" style="width: 20px; height: 14px;">{{ Config::get('languages')[App::getLocale()] }} <i class="fa fa-angle-down"></i></a>
                       <ul class="dropdown-menu" role="menu">
                         @foreach (Config::get('languages') as $lang => $language)
                         @if ($lang != App::getLocale())
