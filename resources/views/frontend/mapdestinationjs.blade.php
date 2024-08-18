@@ -629,13 +629,14 @@ while (index < str.length) { // Reset shift, result, and byte byte=null; shift=0
     }
 
     function chargerEtAfficherVideo(id, locale) {
-    // Charger l'image P6 en poster
+
 
     var xhr = new XMLHttpRequest();
     xhr.open('GET', 'https://mysecretmap.com/api/video/' + id + '/' + locale, true);
     xhr.onload = function() {
     if (xhr.status === 200) {
     var data = xhr.responseText;
+    console.log(data);
     if (data) { // Vérifie si data n'est pas vide
     const containerVideo = document.getElementById('container_video');
     containerVideo.innerHTML = '<div id="main_video" src="'+ data + '" poster="'+ currentThumb + '" width="640" height="360" controls="controls" preload="auto"></div>';
