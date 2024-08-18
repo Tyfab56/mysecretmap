@@ -254,18 +254,19 @@
         }
 
         #container_video {
-            width: 90%;
-            max-width: 640px;
+            width: 100%;
+
             /* Limite la largeur à 640px si nécessaire */
             margin: 0 auto;
             /* Centre le conteneur */
         }
 
         .smartvideo-player {
-            position: relative;
-            padding-top: 56.25%;
+            position: relative !important;
+            padding-top: 56.25% !important;
             /* Ratio 16:9 */
-            height: 0;
+            height: 0 !important;
+            width: 100% !important;
         }
 
         .smartvideo-player video {
