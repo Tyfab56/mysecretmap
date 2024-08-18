@@ -12,6 +12,7 @@ var currentSlug ='{{$markers->first()->slug??0}}';
 var currentLat = {{$markers->first()->lat??0}};
 var currentLng = {{$markers->first()->lng??0}};
 var currentPays = "IS";
+var currentThumb = {{$markers->first()->imgpanomedium??0}};
 @else
 var currentMarker = {{$spot->id}};
 var currentTitle = '{{$spot->name}}';
@@ -19,6 +20,7 @@ var currentSlug = '{{$spot->slug}}'
 var currentLat = {{$spot->lat??0}};
 var currentLng = {{$spot->lng??0}};
 var currentPays = "{{$spot->pays_id}}";
+var currentThumb = {{$spot->imgpanomedium??0}};
 @endif
 
 var sunriseDate;
@@ -205,6 +207,7 @@ currentTitle = e.sourceTarget.options.title;
 currentLat = e.latlng.lat;
 currentLng = e.latlng.lng;
 currentSlug = e.sourceTarget.options.slug;
+currentThumb = e.sourceTarget.options.imgpanomedium;
 addUrlToHistory(currentSlug,currentPays);
 var bounds = L.latLng(currentLat,currentLng).toBounds(1000);
 //mapzoom.panTo(new L.LatLng(currentLat,currentLng));
@@ -359,7 +362,7 @@ mapdest.whenReady(function(){
 var popdiv = '<img class="addit" src="{{asset('frontend/assets/images/addpic.png')}}" onClick="addCircuit({{$marker->id}})">';
 var popup = L.popup().setContent(popdiv);
 markers.addLayer(L.marker([{{$marker->lat}}, {{$marker->lng}}],
-{ icon: Mark{{$marker->typepoint_id}} ,title: '{{$marker->name}}',id:{{$marker->id}},slug:'{{$marker->slug}}'
+{ icon: Mark{{$marker->typepoint_id}} ,title: '{{$marker->name}}',id:{{$marker->id}},slug:'{{$marker->slug}}',imgpanomedium:'{{$marker->imgpanomedium}}'
 }).on('click', onmapClick).bindTooltip(`<p class='pintext'><img src="{{$marker->imgsquaresmall}}" /></p>
 <p class="textbox">{{$marker->name}}</p>`, {
 minWidth : 130,
@@ -626,6 +629,8 @@ while (index < str.length) { // Reset shift, result, and byte byte=null; shift=0
     }
 
     function chargerEtAfficherVideo(id, locale) {
+    // Charger l'image P6 en poster
+
     var xhr = new XMLHttpRequest();
     xhr.open('GET', 'https://mysecretmap.com/api/video/' + id + '/' + locale, true);
     xhr.onload = function() {
@@ -633,7 +638,7 @@ while (index < str.length) { // Reset shift, result, and byte byte=null; shift=0
     var data = xhr.responseText;
     if (data) { // Vérifie si data n'est pas vide
     const containerVideo = document.getElementById('container_video');
-    containerVideo.innerHTML = '<div id="main_video" src="'+ data + '" width="640" height="360" controls="controls" preload="auto"></div>';
+    containerVideo.innerHTML = '<div id="main_video" src="'+ data + '" poster="'+ currentThumb + '" width="640" height="360" controls="controls" preload="auto"></div>';
     swarmify.swarmifyVideo("main_video", {
     width: '640px',
     });
@@ -679,7 +684,7 @@ while (index < str.length) { // Reset shift, result, and byte byte=null; shift=0
           +'</div>';
         }
 
-        for (var i = 0; i < Math.min(maxList,liste.length); i++) { var obj=liste[i]; d=d + '<div class="swiper-slide"><img class="imgbox" onClick="popimage(\'' + obj.name +' \','+ obj.id +','+ obj.lat+','+ obj.lng +',\''+ obj.slug +'\')" src="' +obj.imgsquaresmall+'">'
+        for (var i = 0; i < Math.min(maxList,liste.length); i++) { var obj=liste[i]; d=d + '<div class="swiper-slide"><img class="imgbox" onClick="popimage(\'' + obj.name +' \','+ obj.id +','+ obj.lat+','+ obj.lng +',\''+ obj.slug +',\''+ obj.imgpanothumb +'\')" src="' +obj.imgsquaresmall+'">'
           +'<div class="top-right"><img class="addit" src="{{asset('frontend/assets/images/addpic.png')}}" onClick="addcircuit()"></div>'
           +'<div class="bottom-center"><span class="textbox"><b>'+obj.name+'</b></span></div>'
           +'</div>';

@@ -82,7 +82,7 @@ class DestinationController extends Controller
         $paysoffset = $pays->offset;
 
         // Chargement des markers de la carte
-        $markers = Spots::select('id', 'name', 'lng', 'lat', 'slug', 'imgpanosmall', 'imgsquaresmall',   'typepoint_id')
+        $markers = Spots::select('id', 'name', 'lng', 'lat', 'slug', 'imgpanosmall', 'imgpanomedium', 'imgsquaresmall',   'typepoint_id')
             ->where('pays_id', $idpays)->where('actif', 1)->where('maps_id', 1)->get();
 
         $payslist = Pays::where('actif', '=', 1)->orderBy('pays', 'asc')->get();
