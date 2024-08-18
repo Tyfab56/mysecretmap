@@ -255,6 +255,7 @@
 
         #container_video {
             width: 100%;
+            !important;
 
             /* Limite la largeur à 640px si nécessaire */
             margin: 0 auto;

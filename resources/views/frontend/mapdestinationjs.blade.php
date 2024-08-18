@@ -640,9 +640,9 @@ while (index < str.length) { // Reset shift, result, and byte byte=null; shift=0
 
     if (data) { // Vérifie si data n'est pas vide
 
-    containerVideo.innerHTML = '<div id="main_video" src="'+ data + '" poster="'+ currentThumb + '" controls="controls" preload="auto"></div>';
+    containerVideo.innerHTML = '<div id="main_video" src="'+ data + '" poster="'+ currentThumb + '" width="640" height="360" controls="controls" preload="auto"></div>';
     swarmify.swarmifyVideo("main_video", {
-
+    width: '640px',
     });
     } else {
     //console.log('La réponse est vide, la vidéo ne sera pas affichée.');
