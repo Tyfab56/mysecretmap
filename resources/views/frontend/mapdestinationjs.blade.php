@@ -194,7 +194,7 @@ console.log(e);
 stopMarker = 1;
 Livewire.emit('InfoDestination',e.sourceTarget.options.id,null,null);
 Livewire.emit('ImgRegion',e.sourceTarget.options.id);
-Livewire.emit('AfficheVideo',e.sourceTarget.options.id);
+//Livewire.emit('AfficheVideo',e.sourceTarget.options.id);
 Livewire.emit('ImgMap',e.sourceTarget.options.id);
 chargerEtAfficherVideo(e.sourceTarget.options.id, '{{app()->getLocale()}}' )
 Livewire.emit('PictureDestination',e.sourceTarget.options.id);
@@ -386,11 +386,10 @@ if (stopMarker == 0 )
 {
 Livewire.emit('InfoDestination',currentMarker,null,null);
 Livewire.emit('ImgRegion',currentMarker);
-Livewire.emit('AfficheVideo',currentMarker);
+//
 Livewire.emit('ImgMap',currentMarker);
 Livewire.emit('ImgPeak',currentMarker);
 Livewire.emit('Img360',currentMarker);
-chargerEtAfficherVideo(currentMarker, '{{app()->getLocale()}}' )
 Livewire.emit('PictureDestination',currentMarker);
 Livewire.emit('RefreshCircuit',currentCircuit);
 Livewire.emit('loadHotels', currentLat, currentLng);
@@ -623,6 +622,7 @@ while (index < str.length) { // Reset shift, result, and byte byte=null; shift=0
     var bounds = L.latLng(lat,lng).toBounds(500);
     //mapzoom.fitBounds(bounds);
     //mapzoom.panTo(new L.LatLng(lat,lng));
+    chargerEtAfficherVideo(id, locale)
     drawSolar();
     redrawOverlay();
     window.scrollTo({ top: 400, behavior: 'smooth' });
