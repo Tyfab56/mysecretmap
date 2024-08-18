@@ -252,7 +252,33 @@
             align-items: center;
 
         }
+
+        #container_video {
+            width: 90%;
+            max-width: 640px;
+            /* Limite la largeur à 640px si nécessaire */
+            margin: 0 auto;
+            /* Centre le conteneur */
+        }
+
+        .smartvideo-player {
+            position: relative;
+            padding-top: 56.25%;
+            /* Ratio 16:9 */
+            height: 0;
+        }
+
+        .smartvideo-player video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
     </style>
+
+
+
 </section>
 @endsection
 @section('fullscripts')
