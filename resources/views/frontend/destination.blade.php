@@ -51,7 +51,7 @@
             <div class="col-lg-12">
                 <div class="row">
                     <!-- Affichage info sur le spot-->
-                    <div class="col-lg-12 bgbox">
+                    <div class="col-lg-12 bgbox pb-2">
                         <livewire:show-map-spot />
                     </div>
                     <div class="row bgregbox w100">
