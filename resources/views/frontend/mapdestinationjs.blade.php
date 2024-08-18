@@ -622,7 +622,7 @@ while (index < str.length) { // Reset shift, result, and byte byte=null; shift=0
     var bounds = L.latLng(lat,lng).toBounds(500);
     //mapzoom.fitBounds(bounds);
     //mapzoom.panTo(new L.LatLng(lat,lng));
-    chargerEtAfficherVideo(id, locale)
+    chargerEtAfficherVideo(e, '{{app()->getLocale()}}')
     drawSolar();
     redrawOverlay();
     window.scrollTo({ top: 400, behavior: 'smooth' });
