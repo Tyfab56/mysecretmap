@@ -12,7 +12,7 @@ var currentSlug ='{{$markers->first()->slug??0}}';
 var currentLat = {{$markers->first()->lat??0}};
 var currentLng = {{$markers->first()->lng??0}};
 var currentPays = "IS";
-var currentThumb = {{$markers->first()->imgpanomedium??0}};
+var currentThumb = "{{$markers->first()->imgpanomedium??0}}";
 @else
 var currentMarker = {{$spot->id}};
 var currentTitle = '{{$spot->name}}';
@@ -20,7 +20,7 @@ var currentSlug = '{{$spot->slug}}'
 var currentLat = {{$spot->lat??0}};
 var currentLng = {{$spot->lng??0}};
 var currentPays = "{{$spot->pays_id}}";
-var currentThumb = {{$spot->imgpanomedium??0}};
+var currentThumb = "{{$spot->imgpanomedium??0}}";
 @endif
 
 var sunriseDate;
