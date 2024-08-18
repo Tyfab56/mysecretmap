@@ -687,7 +687,7 @@ while (index < str.length) { // Reset shift, result, and byte byte=null; shift=0
           +'</div>';
         }
 
-        for (var i = 0; i < Math.min(maxList,liste.length); i++) { var obj=liste[i]; d=d + '<div class="swiper-slide"><img class="imgbox" onClick="popimage(\'' + obj.name +' \','+ obj.id +','+ obj.lat+','+ obj.lng +',\''+ obj.slug +',\''+ obj.imgpanothumb +'\')" src="' +obj.imgsquaresmall+'">'
+        for (var i = 0; i < Math.min(maxList,liste.length); i++) { var obj=liste[i]; d=d + '<div class="swiper-slide"><img class="imgbox" onClick="popimage(\'' + obj.name +' \','+ obj.id +','+ obj.lat+','+ obj.lng +',\''+ obj.slug +'\',\''+ obj.imgpanothumb +'\')" src="' +obj.imgsquaresmall+'">'
           +'<div class="top-right"><img class="addit" src="{{asset('frontend/assets/images/addpic.png')}}" onClick="addcircuit()"></div>'
           +'<div class="bottom-center"><span class="textbox"><b>'+obj.name+'</b></span></div>'
           +'</div>';
