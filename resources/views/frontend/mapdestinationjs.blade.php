@@ -644,7 +644,8 @@ while (index < str.length) { // Reset shift, result, and byte byte=null; shift=0
     width: '640px',
     });
     } else {
-    console.log('La réponse est vide, la vidéo ne sera pas affichée.');
+    //console.log('La réponse est vide, la vidéo ne sera pas affichée.');
+    containerVideo.innerHTML = '';
     }
     } else {
     console.error('Erreur:', xhr.statusText);
