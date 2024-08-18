@@ -642,7 +642,7 @@ while (index < str.length) { // Reset shift, result, and byte byte=null; shift=0
 
     containerVideo.innerHTML = '<div id="main_video" src="'+ data + '" poster="'+ currentThumb + '" width="640" height="360" controls="controls" preload="auto"></div>';
     swarmify.swarmifyVideo("main_video", {
-    width: '640px',
+    width: '100%',
     });
     } else {
     //console.log('La réponse est vide, la vidéo ne sera pas affichée.');
