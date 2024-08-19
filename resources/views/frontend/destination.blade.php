@@ -313,6 +313,40 @@
             border-radius: 5px;
             border: none;
         }
+
+        .hotel-card {
+            flex: none;
+            width: 20%;
+            min-width: 200px;
+            /* Largeur minimale pour chaque carte d'hôtel */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+            background-color: #ffffff;
+        }
+
+        /* Pour les petits écrans (jusqu'à 600px) */
+        @media (max-width: 600px) {
+            .hotel-card {
+                width: 80%;
+                /* Occupe 80% de la largeur de l'écran */
+            }
+        }
+
+        /* Pour les écrans moyens (601px à 900px) */
+        @media (min-width: 601px) and (max-width: 900px) {
+            .hotel-card {
+                width: 45%;
+                /* Occupe 45% de la largeur de l'écran */
+            }
+        }
+
+        /* Pour les grands écrans (plus de 900px) */
+        @media (min-width: 901px) {
+            .hotel-card {
+                width: 20%;
+                /* Occupe 20% de la largeur de l'écran */
+            }
+        }
     </style>
 
 
