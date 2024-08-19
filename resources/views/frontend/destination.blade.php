@@ -317,7 +317,7 @@
         .hotel-card {
             flex: none;
             width: 20%;
-            min-width: 200px;
+            min-width: 200px !important;
             /* Largeur minimale pour chaque carte d'hôtel */
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             margin: 10px;
