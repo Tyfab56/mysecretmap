@@ -88,7 +88,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div id="sun" class="row min100">
+                                <div id="sun" class="row min100 hidden">
 
                                     <div class="col-sm-6">
                                         <div style="padding : 5px"><b>{{__('destination.choiceday')}} :</b> <span id="theday"></span></div>
