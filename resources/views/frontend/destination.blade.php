@@ -62,7 +62,7 @@
                         </div>
                     </div>
 
-                    <div class="row">
+                    <div class="p-0">
                         <div class="bgregbox w100">
                             <div class="col-lg-12">
                                 <p><b>{{__('destination.clickmap')}}</b></p>
