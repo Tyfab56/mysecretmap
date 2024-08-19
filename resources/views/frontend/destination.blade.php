@@ -47,7 +47,7 @@
             </div>
         </div>
         <div class="container">
-            <div class="row mt-5 mb-5">
+            <div class="row mt-5 mb-3">
                 <div class="col-lg-12">
                     <div class="row">
                         <!-- Affichage info sur le spot-->
@@ -61,8 +61,9 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="row">
-                        <div class="row bgregbox w100">
+                        <div class="bgregbox w100">
                             <div class="col-lg-12">
                                 <p><b>{{__('destination.clickmap')}}</b></p>
                                 <div style="display: flex; gap: 10px; align-items: center;">
