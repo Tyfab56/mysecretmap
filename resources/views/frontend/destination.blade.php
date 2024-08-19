@@ -69,9 +69,9 @@
                                 <div style="display: flex; gap: 10px; align-items: center;">
                                     <label><input type="checkbox" id="1" name="spotType" value="1" checked> {{__('destination.Spot')}}</label>
                                     <label><input type="checkbox" id="3" name="spotType" value="3"> {{__('destination.Musee')}}</label>
-                                    <label><input type="checkbox" id="4" name="spotType" value="4"> {{__('destination.Hotel')}}</label>
+                                    <!--  <label><input type="checkbox" id="4" name="spotType" value="4"> {{__('destination.Hotel')}}</label>
                                     <label><input type="checkbox" id="5" name="spotType" value="5"> {{__('destination.Camping')}}</label>
-                                    <label><input type="checkbox" id="6" name="spotType" value="6"> {{__('destination.Rental')}}</label>
+                                    <label><input type="checkbox" id="6" name="spotType" value="6"> {{__('destination.Rental')}}</label>-->
                                     <!-- Add more checkboxes as needed -->
                                 </div>
                                 <div class="leaflet-map">
@@ -83,7 +83,7 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-sm-12">
-                                            <input type="checkbox" id="sunToggle" class="js-switch" checked>
+                                            <input type="checkbox" id="sunToggle" class="js-switch">
                                             <span class="p5 f0-8m">{{__('destination.sunsetting')}}</span>
                                         </div>
                                     </div>
