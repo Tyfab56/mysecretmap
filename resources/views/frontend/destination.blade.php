@@ -46,127 +46,128 @@
                 </div>
             </div>
         </div>
-
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="row">
-                    <!-- Affichage info sur le spot-->
-                    <div class="col-lg-12 bgbox pb-2">
-                        <livewire:show-map-spot />
-                    </div>
-                    <div class="row bgregbox">
-                        <div class="col-lg-12">
-                            <p>{{__('destination.alentours')}}</p>
-                            <div id="medias" class="mb5"></div>
+        <div class="container">
+            <div class="row mt-5 mb-5">
+                <div class="col-lg-12">
+                    <div class="row">
+                        <!-- Affichage info sur le spot-->
+                        <div class="col-lg-12 bgbox pb-2">
+                            <livewire:show-map-spot />
+                        </div>
+                        <div class="row bgregbox">
+                            <div class="col-lg-12">
+                                <p>{{__('destination.alentours')}}</p>
+                                <div id="medias" class="mb5"></div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="row bgregbox w100">
-                        <div class="col-lg-12">
-                            <p><b>{{__('destination.clickmap')}}</b></p>
-                            <div style="display: flex; gap: 10px; align-items: center;">
-                                <label><input type="checkbox" id="1" name="spotType" value="1" checked> {{__('destination.Spot')}}</label>
-                                <label><input type="checkbox" id="3" name="spotType" value="3"> {{__('destination.Musee')}}</label>
-                                <label><input type="checkbox" id="4" name="spotType" value="4"> {{__('destination.Hotel')}}</label>
-                                <label><input type="checkbox" id="5" name="spotType" value="5"> {{__('destination.Camping')}}</label>
-                                <label><input type="checkbox" id="6" name="spotType" value="6"> {{__('destination.Rental')}}</label>
-                                <!-- Add more checkboxes as needed -->
-                            </div>
-                            <div class="leaflet-map">
-                            </div>
-                            <div class="row">
-                                <a name="mapPos" style="position:absolute; top:+100px;"></a>
-                                <div id="mapdest">
-                                    <a href="https://www.maptiler.com" style="position:absolute;left:10px;bottom:10px;z-index:999;"><img src="https://api.maptiler.com/resources/logo.svg" alt="MapTiler logo"></a>
+                    <div class="row">
+                        <div class="row bgregbox w100">
+                            <div class="col-lg-12">
+                                <p><b>{{__('destination.clickmap')}}</b></p>
+                                <div style="display: flex; gap: 10px; align-items: center;">
+                                    <label><input type="checkbox" id="1" name="spotType" value="1" checked> {{__('destination.Spot')}}</label>
+                                    <label><input type="checkbox" id="3" name="spotType" value="3"> {{__('destination.Musee')}}</label>
+                                    <label><input type="checkbox" id="4" name="spotType" value="4"> {{__('destination.Hotel')}}</label>
+                                    <label><input type="checkbox" id="5" name="spotType" value="5"> {{__('destination.Camping')}}</label>
+                                    <label><input type="checkbox" id="6" name="spotType" value="6"> {{__('destination.Rental')}}</label>
+                                    <!-- Add more checkboxes as needed -->
+                                </div>
+                                <div class="leaflet-map">
                                 </div>
                                 <div class="row">
-                                    <div class="col-sm-12">
-                                        <input type="checkbox" id="sunToggle" class="js-switch" checked>
-                                        <span class="p5 f0-8m">{{__('destination.sunsetting')}}</span>
+                                    <a name="mapPos" style="position:absolute; top:+100px;"></a>
+                                    <div id="mapdest">
+                                        <a href="https://www.maptiler.com" style="position:absolute;left:10px;bottom:10px;z-index:999;"><img src="https://api.maptiler.com/resources/logo.svg" alt="MapTiler logo"></a>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <input type="checkbox" id="sunToggle" class="js-switch" checked>
+                                            <span class="p5 f0-8m">{{__('destination.sunsetting')}}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="sun" class="row min100">
+
+                                    <div class="col-sm-6">
+                                        <div style="padding : 5px"><b>{{__('destination.choiceday')}} :</b> <span id="theday"></span></div>
+                                        <div style="padding: 5px;"> <input type="range" class="form-range" min="1" max="365" oninput="changeRange(this.value)" onchange="changeRange(this.value)" id="dayofyear"></div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div style="padding : 5px"><b>{{__('destination.choicehour')}} :</b> <span id="thehour"></span><span id="thedayhour"></span></div>
+                                        <div style="padding: 5px;"> <input type="range" class="form-range" min="0" max="24" oninput="changeHour(this.value)" onchange="changeHour(this.value)" id="hourofday"></div>
+                                    </div>
+                                    <p class="center w100"><span style="color:red"><b>{{__('destination.RedLine')}}</b></span> / <span style="color:orange"><b>{{__('destination.OrangeLine')}}</b></span></p><br />
+                                </div>
+
+                                <div class="row pt-1 pb-1 pr-1 pl-1 bgregbox min100">
+                                    <div class="col-lg-12 pt-1 pb-1  pr-1 pl-1"><livewire:hotels-nearby />
+                                    </div>
+                                </div>
+                                <div class="row pt-1 pb-1 pr-1 pl-1 bgregbox min100">
+                                    <div class="col-lg-12 center pt-1 pb-1 pr-1 pl-1">
+                                        <livewire:show360 />
+                                    </div>
+
+                                    <script>
+                                        document.addEventListener('DOMContentLoaded', function() {
+
+
+                                            // Réinitialisation de Pannellum après chaque mise à jour de Livewire
+                                            Livewire.on('spotLoaded', function(spot) {
+                                                initializePannellum();
+
+                                            });
+                                        });
+
+
+                                        function initializePannellum() {
+                                            const img = document.getElementById('panoImage');
+                                            if (img) {
+                                                img.onload = function() {
+                                                    pannellum.viewer('panorama', {
+                                                        "type": "equirectangular",
+                                                        "panorama": img.src,
+                                                        "autoLoad": true,
+                                                        "preload": true,
+                                                        "autoRotate": -2,
+                                                        "pitch": -30,
+                                                        "hfov": 120
+                                                    });
+                                                };
+                                                // Gérer le cas où l'image est déjà chargée
+                                                if (img.complete) {
+                                                    img.onload();
+                                                }
+                                            } else {
+                                                console.log('Image element not found');
+                                            }
+                                        }
+                                    </script>
+
+                                </div>
+
+
+                                <div class="row pt-1 pb-1 pr-1 pl-1 bgregbox min100">
+                                    <div class="col-lg-12 center pt-1 pb-1 pr-1 pl-1">
+                                        <livewire:show-map-globale />
+                                    </div>
+                                </div>
+                                <!-- Affichage video -->
+                                <div id="wrap_video" class="row pt-1 pb-1 pr-1 pl-1 bgregbox min100">
+                                    <div id="container_video"></div>
+                                </div>
+                                <!-- Template styles-->
+                                <div class="row pt-1 pb-1 pr-1 pl-1 bgregbox min100">
+                                    <div class="col-lg-12 center pt-1 pb-1 pr-1 pl-1"><livewire:show-img-region />
                                     </div>
                                 </div>
                             </div>
-                            <div id="sun" class="row min100">
-
-                                <div class="col-sm-6">
-                                    <div style="padding : 5px"><b>{{__('destination.choiceday')}} :</b> <span id="theday"></span></div>
-                                    <div style="padding: 5px;"> <input type="range" class="form-range" min="1" max="365" oninput="changeRange(this.value)" onchange="changeRange(this.value)" id="dayofyear"></div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div style="padding : 5px"><b>{{__('destination.choicehour')}} :</b> <span id="thehour"></span><span id="thedayhour"></span></div>
-                                    <div style="padding: 5px;"> <input type="range" class="form-range" min="0" max="24" oninput="changeHour(this.value)" onchange="changeHour(this.value)" id="hourofday"></div>
-                                </div>
-                                <p class="center w100"><span style="color:red"><b>{{__('destination.RedLine')}}</b></span> / <span style="color:orange"><b>{{__('destination.OrangeLine')}}</b></span></p><br />
-                            </div>
-
-                            <div class="row pt-1 pb-1 pr-1 pl-1 bgregbox min100">
-                                <div class="col-lg-12 pt-1 pb-1  pr-1 pl-1"><livewire:hotels-nearby />
-                                </div>
-                            </div>
-                            <div class="row pt-1 pb-1 pr-1 pl-1 bgregbox min100">
-                                <div class="col-lg-12 center pt-1 pb-1 pr-1 pl-1">
-                                    <livewire:show360 />
-                                </div>
-
-                                <script>
-                                    document.addEventListener('DOMContentLoaded', function() {
-
-
-                                        // Réinitialisation de Pannellum après chaque mise à jour de Livewire
-                                        Livewire.on('spotLoaded', function(spot) {
-                                            initializePannellum();
-
-                                        });
-                                    });
-
-
-                                    function initializePannellum() {
-                                        const img = document.getElementById('panoImage');
-                                        if (img) {
-                                            img.onload = function() {
-                                                pannellum.viewer('panorama', {
-                                                    "type": "equirectangular",
-                                                    "panorama": img.src,
-                                                    "autoLoad": true,
-                                                    "preload": true,
-                                                    "autoRotate": -2,
-                                                    "pitch": -30,
-                                                    "hfov": 120
-                                                });
-                                            };
-                                            // Gérer le cas où l'image est déjà chargée
-                                            if (img.complete) {
-                                                img.onload();
-                                            }
-                                        } else {
-                                            console.log('Image element not found');
-                                        }
-                                    }
-                                </script>
-
-                            </div>
-
-
-                            <div class="row pt-1 pb-1 pr-1 pl-1 bgregbox min100">
-                                <div class="col-lg-12 center pt-1 pb-1 pr-1 pl-1">
-                                    <livewire:show-map-globale />
-                                </div>
-                            </div>
-                            <!-- Affichage video -->
-                            <div id="wrap_video" class="row pt-1 pb-1 pr-1 pl-1 bgregbox min100">
-                                <div id="container_video"></div>
-                            </div>
-                            <!-- Template styles-->
-                            <div class="row pt-1 pb-1 pr-1 pl-1 bgregbox min100">
-                                <div class="col-lg-12 center pt-1 pb-1 pr-1 pl-1"><livewire:show-img-region />
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
+            </div>
         </div>
 
         <div class="row bgregbox min100">
