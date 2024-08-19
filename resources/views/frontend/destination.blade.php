@@ -39,7 +39,7 @@
                     <h1><a href='{{ route($pays->route) }}'>{{ $pays->getTranslatedLibelle() }}</a></h1>
                     <a class="btn btn-primary f0-7m" href="{{ url('thewall') }}/{{ $idpays}}">{{__('destination.cherchespot')}}</a>
                 </div>
-                <div class="col-lg-10 p0">
+                <div class="col-lg-10 p-0">
                     @if ($spot)
                     @livewire('spot-banner', ['spotId' => $spot->id])
                     @endif
