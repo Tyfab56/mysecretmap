@@ -28,7 +28,7 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-6 mb-3">
 
                 @if(!empty($spot->lat))
                 <b class="white">Lat : <span class="orange">{{ $spot->lat }}</span></b><br>
@@ -51,7 +51,7 @@
                 @endif
 
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6 mb-3">
                 <div class="mt-3"><b>{{ __('index.Sunrise') }} : <span id="sunrise" class="red">{{ $sunrise??''}}</span></b></div>
                 <div class="mt-3"><b>{{ __('index.Sunset') }} : <span id="sunset" style="color:orange">{{ $sunset??''}}</span></b></div>
                 @if(!empty($traduction->accessibilite))
