@@ -34,7 +34,7 @@
     <div class="container">
 
         <div class="container">
-            <div class="row mt-5 mb-5">
+            <div class="row mt-2 mb-2">
                 <div class="col-lg-2 mb-5 d-flex flex-column justify-content-center align-items-center">
                     <h1><a href='{{ route($pays->route) }}'>{{ $pays->getTranslatedLibelle() }}</a></h1>
                     <a class="btn btn-primary f0-7m" href="{{ url('thewall') }}/{{ $idpays}}">{{__('destination.cherchespot')}}</a>
