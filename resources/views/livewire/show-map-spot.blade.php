@@ -7,7 +7,9 @@
 
 
     <!-- Texte -->
-    <p class="lightgray">{{ __('destination.pubaudio2') }}</p>
+    <div class="center mt-2">
+        <p class="lightgray">{{ __('destination.pubaudio2') }}</p>
+    </div>
     <!-- Petite image -->
     <div class="center mb-2">
         <img src="{{asset('frontend/assets/images/tostore.png')}}" alt="Store" width="100">
@@ -22,7 +24,7 @@
     @endif
     <div class="md-12  center mt5 ">
         <h1 class="white">{{$titre}}</span></h1><br>
-        <img src="{{$spot->imgpanolarge??''}}" class="max100 mb5 responsive intense">
+        <img src="{{$spot->imgpanolarge??''}}" class="max100 mb5 responsive">
 
     </div>
 
