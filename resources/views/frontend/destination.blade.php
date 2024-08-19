@@ -279,6 +279,40 @@
             width: 100%;
             height: 100%;
         }
+
+
+        /* Pour les navigateurs WebKit (Chrome, Safari, Opera) */
+        input[type="range"]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 8px;
+            /* Ajustez la hauteur selon vos besoins */
+            background: #d3d3d3;
+            /* Gris clair */
+            border-radius: 5px;
+            border: none;
+        }
+
+        /* Pour Firefox */
+        input[type="range"]::-moz-range-track {
+            width: 100%;
+            height: 8px;
+            /* Ajustez la hauteur selon vos besoins */
+            background: #d3d3d3;
+            /* Gris clair */
+            border-radius: 5px;
+            border: none;
+        }
+
+        /* Pour Internet Explorer */
+        input[type="range"]::-ms-track {
+            width: 100%;
+            height: 8px;
+            /* Ajustez la hauteur selon vos besoins */
+            background: #d3d3d3;
+            /* Gris clair */
+            border-radius: 5px;
+            border: none;
+        }
     </style>
 
 
