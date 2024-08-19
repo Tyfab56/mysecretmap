@@ -47,7 +47,7 @@
             </div>
         </div>
         <div class="container">
-            <div class="row mt-5 mb-3">
+            <div class="row mt-2 mb-3">
                 <div class="col-lg-12">
                     <div class="row">
                         <!-- Affichage info sur le spot-->
