@@ -1,5 +1,5 @@
-@if($pictures->isNotEmpty())
 <div>
+  @if($pictures->isNotEmpty())
   <h1>Pictures about ({{$pictures->count()}})</h1>
   <div class="gridOverflow go-masonry">
 
@@ -26,5 +26,5 @@
     </a>
     @endif
   </div>
+  @endif
 </div>
-@endif
