@@ -3506,6 +3506,10 @@ a.red:hover
   max-width : 50%;
 }
 
+.pt0 
+{
+  padding: 0 ;
+}
 .p5
 {
   padding: 5px ;
