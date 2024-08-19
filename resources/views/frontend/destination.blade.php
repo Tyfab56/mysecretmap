@@ -54,7 +54,7 @@
                     <div class="col-lg-12 bgbox pb-2">
                         <livewire:show-map-spot />
                     </div>
-                    <div class="row bgregbox w100">
+                    <div class="row bgregbox">
                         <div class="col-lg-12">
                             <p>{{__('destination.alentours')}}</p>
                             <div id="medias" class="mb5"></div>
