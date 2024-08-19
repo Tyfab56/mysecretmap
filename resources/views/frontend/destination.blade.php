@@ -37,7 +37,7 @@
             <div class="row mt-5 mb-5">
                 <div class="col-lg-2 mb-5 d-flex flex-column justify-content-center align-items-center">
                     <h1><a href='{{ route($pays->route) }}'>{{ $pays->getTranslatedLibelle() }}</a></h1>
-                    <a class="btn btn-primary f0-7m mt-3" href="{{ url('thewall') }}/{{ $idpays}}">{{__('destination.cherchespot')}}</a>
+                    <a class="btn btn-primary f0-7m" href="{{ url('thewall') }}/{{ $idpays}}">{{__('destination.cherchespot')}}</a>
                 </div>
                 <div class="col-lg-10">
                     @if ($spot)
