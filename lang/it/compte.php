@@ -1,0 +1,25 @@
+<?php
+
+return [
+    "MonCompte" => "Il mio account",
+    "MesInfos" => "Le mie informazioni",
+    "InfosPhotos" => "Presentazione fotografo",
+    "MesReseaux" => "I miei social network",
+    "MesCircuits" => "I miei circuiti",
+    "Name" => "Nome",
+    "ChoixProfil" => "Scelta del profilo",
+    "ChoixProfilDesc" => "Il profilo permette di configurare la visualizzazione di alcune aree in base al tuo interesse",
+    "Prenom" => "Cognome",
+    "Email" => "Email",
+    "Pays" => "Paese o Regione",
+    "Pseudo" => "Pseudonimo",
+    "Facebook" => "Facebook",
+    "Instagram" => "Instagram",
+    "Twitter" => "Twitter",
+    "500px" => "500px",
+    "TikTok" => "TikTok",
+    "Mastodon" => "Mastodon",
+    "savechange" => "Salva",
+    "Web" => "Sito Internet",
+    "ChangeAvatar" => "Cambia avatar",
+];
