@@ -85,7 +85,7 @@ return [
     "RetourPrecPage" => "Torna alla pagina precedente",
     "TitreVideo" => "NUOVO: Audioguida Islanda",
     "CodeVideo" => '<iframe width="100%" max-height="215" src="https://www.youtube.com/embed/diClSEWYZ8I" title="Audioguida Islanda" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>',
-    "LienVideo" => 'Scopri l'audioguida',
+    "LienVideo" => "Scopri l'audioguida",
     "ActuBref" => 'Notizie in breve',
     "calltoaction1" => "Uffici del turismo: aggiungete i vostri migliori spot",
     "calltoaction2" => "Scopri come valorizzare la tua regione sulla nostra mappa interattiva.",
