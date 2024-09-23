@@ -4,21 +4,20 @@
   <div class="container bg-r py-5 my-5" style="background-image: url(imgs/shapes/1.svg);">
     <div class="row py-5">
       <div class="col-12 col-sm-10 col-md-8 col-lg-6 text-left">
-        <h1>Call to Action</h1>
+        <h1>{{ __('photo.Arg1') }}</h1>
         <p class="lead">
-          A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.
-        </p>
+         {{ __('photo.Arg2') }}   </p>
         <p class="mt-4">
-          <a class="btn btn-primary" href="https://www.froala.com">Download</a>
+        <a href="https://mysecretmap.com/contact" class="btn">{{ __('photo.Arg3') }} </a>
         </p>
       </div>
     </div>
   </div>
 </section>
 <div class="container">
-  <h1>Join My Secret Map - Collaborate with Us!</h1>
+
   <p class="intro-text">
-    Transform your passion for photography into an exciting project by collaborating with My Secret Map. Help us create immersive audioguides and showcase the beauty of your destination to a global audience.
+   
   </p>
 
   <div class="section">
@@ -48,7 +47,7 @@
     <p>Your contributions will be rewarded with a commission proportional to the number of spots you provide. You will also have the opportunity to participate in the sale of related products and be part of international collaborations.</p>
   </div>
 
-  <a href="https://mysecretmap.com" class="btn">Join Us Now</a>
+  <a href="https://mysecretmap.com/contact" class="btn">Join Us Now</a>
 </div>
 <section id="ts-features" class="ts-features">
   <div class="container">
@@ -68,7 +67,7 @@
                 <i class="fas fa-trophy"></i>
               </span>
               <div class="ts-service-box-content">
-                <h3 class="service-box-title">{{ __('photo.Arg1') }}</h3>
+                <h3 class="service-box-title"></h3>
               </div>
             </div><!-- Service 1 end -->
           </div><!-- col end -->
