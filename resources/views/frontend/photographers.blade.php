@@ -2,28 +2,27 @@
 @section('content')
 <section class="fdb-block py-0">
   <section>
-    <div class="container py-5 my-5">
-      <div class="row align-items-center py-5">
-        <div class="col-12 col-sm-10 col-md-8 col-lg-12 text-left">
-          <h1>{{ __('photo.Arg1') }}</h1>
-          <p class="lead">
-            {{ __('photo.Arg2') }}
-          </p>
-          <p class="mt-4">
-            <a href="https://mysecretmap.com/contact" class="btn btn-primary">{{ __('photo.Arg3') }} </a>
-          </p>
-        </div>
 
-      </div>
-    </div>
-  </section>Ò
+  </section>
   <div class="container">
 
-    <p class="intro-text">
 
-    </p>
+    <div class="row align-items-center py-5">
+      <div class="col-12 col-sm-10 col-md-8 col-lg-12 text-left">
+        <h1>{{ __('photo.Arg1') }}</h1>
+        <p class="lead">
+          {{ __('photo.Arg2') }}
+        </p>
+        <p class="mt-4">
+          <a href="https://mysecretmap.com/contact" class="btn btn-primary">{{ __('photo.Arg3') }} </a>
+        </p>
+      </div>
+
+    </div>
+
 
     <div class="section">
+
       <h2>Why Collaborate with Us?</h2>
       <p>By working together, you will gain visibility, reach a larger audience, and be part of a unique adventure that blends creativity with exploration.</p>
       <ul>
