@@ -1,5 +1,20 @@
 @extends('frontend.main_master')
 @section('content')
+<section class="fdb-block py-0">
+  <div class="container bg-r py-5 my-5" style="background-image: url(imgs/shapes/1.svg);">
+    <div class="row py-5">
+      <div class="col-12 col-sm-10 col-md-8 col-lg-6 text-left">
+        <h1>Call to Action</h1>
+        <p class="lead">
+          A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.
+        </p>
+        <p class="mt-4">
+          <a class="btn btn-primary" href="https://www.froala.com">Download</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
 <div class="container">
   <h1>Join My Secret Map - Collaborate with Us!</h1>
   <p class="intro-text">
