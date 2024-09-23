@@ -4,19 +4,16 @@
   <section>
     <div class="container py-5 my-5">
       <div class="row align-items-center py-5">
-        <div class="col-12 col-sm-10 col-md-8 col-lg-6 text-left">
+        <div class="col-12 col-sm-10 col-md-8 col-lg-12 text-left">
           <h1>{{ __('photo.Arg1') }}</h1>
           <p class="lead">
             {{ __('photo.Arg2') }}
           </p>
           <p class="mt-4">
-            <a href="https://mysecretmap.com/contact" class="btn">{{ __('photo.Arg3') }} </a>
+            <a href="https://mysecretmap.com/contact" class="btn btn-primary">{{ __('photo.Arg3') }} </a>
           </p>
         </div>
-        <!-- Colonne de l'image -->
-        <div class="col-12 col-lg-6 text-right">
-          <img src="{{asset('frontend/assets/images/mockup-phone2.png')}}" class="img-fluid" alt="Mockup Phone">
-        </div>
+
       </div>
     </div>
   </section>Ò
