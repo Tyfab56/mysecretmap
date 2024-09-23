@@ -1,10 +1,8 @@
 <?php
 
 return [
-
-    'title' => 'Rejoignez My Secret Map - Créez et Collaborez !',
-
-    'intro' => 'Photographes, votre travail mérite d’être vu. En collaborant avec My Secret Map, vous pouvez monétiser vos talents tout en aidant les voyageurs à découvrir les plus beaux spots du monde.',
+    'title' => 'Travaillons ensemble : créons des audioguides interactifs',
+    'intro' => "Pour compléter nos guides numériques actuels, notre projet est d'en créer un pour chaque destination en collaboration avec des acteurs locaux. Chaque guide combine vos photos, vidéos et textes pour révéler les plus beaux endroits de votre région. Chaque spot est détaillé et accessible aux voyageurs du monde entier via notre plateforme multi-langues. Vous contribuez à une expérience unique ou des photographes de tous les pays présentent leur destination.  Ces guides sont ensuite traduits pour toucher une audience internationale, vous permettant de monétiser votre travail tout en étant vu par un public plus large.",
 
     // Section Visibilité
     'visibility_title' => 'Visibilité accrue',
