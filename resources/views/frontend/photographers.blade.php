@@ -33,6 +33,20 @@
           <li>{{ __('photo.opportunity_2') }}</li>
         </ul>
       </div>
+      <section>
+
+        <div class="col-12 col-lg-12 text-left">
+          <h2>{{ __('photo.agence_title') }}</h2>
+          <ul>
+            <li>{{ __('photo.agence_1') }}</li>
+            <li>{{ __('photo.agence_2') }}</li>
+            <li>{{ __('photo.agence_3') }}</li>
+            <li>{{ __('photo.agence_4') }}</li>
+            <li>{{ __('photo.agence_5') }}</li>
+          </ul>
+        </div>
+
+      </section>
 
       <div class="col-12 col-lg-6 text-left">
         <h2>{{ __('photo.contribution_title') }}</h2>
