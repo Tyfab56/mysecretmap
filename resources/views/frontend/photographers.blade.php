@@ -33,6 +33,11 @@
     </div>
 
     <div class="section">
+      <h2>We Share the Success</h2>
+      <p>Your contributions will be rewarded with a commission proportional to the number of spots you provide. You will also have the opportunity to participate in the sale of related products and be part of international collaborations.</p>
+    </div>
+
+    <div class="section">
       <h2>Your Role in the Creation</h2>
       <p>Here's what you will contribute to make our audioguides even more engaging:</p>
       <ul>
@@ -44,12 +49,9 @@
       </ul>
     </div>
 
-    <div class="section">
-      <h2>We Share the Success</h2>
-      <p>Your contributions will be rewarded with a commission proportional to the number of spots you provide. You will also have the opportunity to participate in the sale of related products and be part of international collaborations.</p>
-    </div>
 
-    <a href="https://mysecretmap.com/contact" class="btn">Join Us Now</a>
+
+
   </div>
   <section id="ts-features" class="ts-features">
     <div class="container">
