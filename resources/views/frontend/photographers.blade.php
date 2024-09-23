@@ -2,8 +2,8 @@
 @section('content')
 
 <section style="background-color: #f7f7f7;">
-  <div class="container py-5 my-5">
-    <div class="row align-items-center py-5">
+  <div class="container py-4 my-4">
+    <div class="row align-items-center py-3">
       <div class="col-12 col-lg-12 text-left">
         <h1>{{ __('photo.title') }}</h1>
         <p class="lead">{{ __('photo.intro') }}</p>
@@ -13,8 +13,8 @@
 </section>
 
 <!-- Section Visibilité -->
-<section style="background-color: #e0f7fa;">
-  <div class="container py-5">
+<section style="background-color: #f0f0f0;">
+  <div class="container py-4">
     <div class="row">
       <div class="col-12 col-lg-6 text-left">
         <h2>{{ __('photo.visibility_title') }}</h2>
@@ -29,8 +29,8 @@
 </section>
 
 <!-- Section Revenus -->
-<section style="background-color: #e8f5e9;">
-  <div class="container py-5">
+<section style="background-color: #f7f7f7;">
+  <div class="container py-4">
     <div class="row">
       <div class="col-12 col-lg-6 text-left">
         <h2>{{ __('photo.revenue_title') }}</h2>
@@ -45,8 +45,8 @@
 </section>
 
 <!-- Section Opportunité -->
-<section style="background-color: #f7f7f7;">
-  <div class="container py-5">
+<section style="background-color: #f0f0f0;">
+  <div class="container py-4">
     <div class="row">
       <div class="col-12 col-lg-6 text-left">
         <h2>{{ __('photo.opportunity_title') }}</h2>
@@ -60,8 +60,8 @@
 </section>
 
 <!-- Section Agence -->
-<section style="background-color: #e0f7fa;">
-  <div class="container py-5">
+<section style="background-color: #f7f7f7;">
+  <div class="container py-4">
     <div class="row">
       <div class="col-12 col-lg-12 text-left">
         <h2>{{ __('photo.agence_title') }}</h2>
@@ -78,8 +78,8 @@
 </section>
 
 <!-- Section Contribution -->
-<section style="background-color: #e8f5e9;">
-  <div class="container py-5">
+<section style="background-color: #f0f0f0;">
+  <div class="container py-4">
     <div class="row">
       <div class="col-12 col-lg-6 text-left">
         <h2>{{ __('photo.contribution_title') }}</h2>
@@ -97,7 +97,7 @@
 
 <!-- Section Traducteur -->
 <section style="background-color: #f7f7f7;">
-  <div class="container py-5">
+  <div class="container py-4">
     <div class="row">
       <div class="col-12 col-lg-6 text-left">
         <h2>{{ __('photo.translator_title') }}</h2>
