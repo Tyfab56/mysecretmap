@@ -2,28 +2,37 @@
 
 return [
 
-    "About" => "A propos", 
-    "Become" => "Devenez partenaire My Secret Map",
-    "Intro" => "Nous souhaitons rassembler des photographes talentueux pour participer à notre site internet. En tant que membres de notre communauté, vos photos seront mises en avant et vous aurez l'opportunité de contribuer à la création d'une carte interactive révélant des spots photo exceptionnels.",
-    "Arg1" => "Faites briller vos Photos",
-    "Arg2" =>"Réseautage et collaboration ",
-    "Arg3" =>"Nouvelles opportunités ",
-    "Arg4" =>"Partagez votre Talent",
-    "Titre2" => "Des photographes passionnés ",
-    "SousTitre2" => "Rejoignez notre projet dès maintenant pour bénéficier d'une visibilité accrue, collaborer avec des talents passionnés, découvrir de nouveaux lieux exceptionnels et développer votre carrière de photographe. Ensemble, nous pouvons créer une communauté dynamique et inspirante où votre passion pour la photographie s'épanouira.",
-    "AscTitre1" => "Visibilité et Promotion",
-    "AscDesc1" =>"En rejoignant notre plateforme, vous bénéficierez d'une visibilité accrue pour vos photos. Vos meilleures œuvres seront mises en avant, vous permettant d'atteindre une audience plus large et de gagner en visibilité au sein de la communauté des photographes. De plus, vous pourrez promouvoir votre portfolio, attirer l'attention de potentiels clients et collaborateurs, et ainsi ouvrir de nouvelles opportunités professionnelles.",
-    "AscTitre2" => "Collaboration et Réseautage",
-    "AscDesc2" =>"Rejoindre notre projet vous offre l'opportunité de collaborer avec d'autres photographes talentueux et passionnés. Vous pourrez participer à des projets communs, échanger des idées, partager vos connaissances et développer votre réseau professionnel. Cette collaboration vous permettra d'enrichir votre expérience, de créer des liens durables avec des talents du monde entier et d'explorer de nouvelles perspectives créatives.",
-    "AscTitre3" => "Découverte et Apprentissage",
-    "AscDesc3" =>"En tant que membre de notre plateforme, vous aurez accès à une multitude de spots photo uniques. Explorez de nouveaux lieux d'inspiration, découvrez des paysages époustouflants et immortalisez des moments inoubliables. De plus, vous recevrez des commentaires constructifs sur vos photos, vous permettant d'apprendre, de vous améliorer et de développer votre style artistique. Contribuez également à la communauté en partageant vos connaissances et en aidant d'autres photographes à découvrir de nouveaux horizons",
-    "CommentTitre" => "Comment postuler ?", 
-    "CommentDesc" => "Suivez les étapes ci-desous, pour nous présenter votre travail et devenir 'Photographe Partenaire'. Nous aimerions mieux vous connaitre avant de vous integrer dans notre communauté. Vous recevrez une notification lorsque nous auront pris une décision.",
-    "Step1Title" => "Inscrivez-vous",
-    "Step1Desc" => "La première étape est de vous inscrire gratuitement sur notre site, en validant votre email afin d'acceder votre compte.",
-    "Step2Title" => "Completez votre compte",
-    "Step2Desc" => "Sur votre page personnelle, donnez un maximum d'infos sur votre travail : sites internet, réseaux sociaux,... Avant de pouvoir postuler",
-    "Step3Title" => "Postulez",
-    "Step3Desc" => "Répondez au dernières questions et expliquez nous, ce qui vous motive à rejoindre la communauté My Secret Map",
-    
+    'title' => 'Rejoignez My Secret Map - Créez et Collaborez !',
+
+    'intro' => 'Photographes, votre travail mérite d’être vu. En collaborant avec My Secret Map, vous pouvez monétiser vos talents tout en aidant les voyageurs à découvrir les plus beaux spots du monde.',
+
+    // Section Visibilité
+    'visibility_title' => 'Visibilité accrue',
+    'visibility_1' => 'Votre profil de photographe sera mis en avant sur nos plateformes.',
+    'visibility_2' => 'Un lien direct vers votre portfolio ou vos réseaux sociaux.',
+    'visibility_3' => 'Vos images seront vues par une audience mondiale à la recherche de contenus authentiques et exclusifs.',
+
+    // Section Revenus
+    'revenue_title' => 'Revenus partagés',
+    'revenue_1' => 'Gagnez une commission proportionnelle au nombre de spots que vous contribuez.',
+    'revenue_2' => 'Si le guide est vendu à travers des distributeurs, vous continuez à percevoir un pourcentage sur chaque vente.',
+    'revenue_3' => 'Le calcul des revenus est transparent et basé sur votre contribution.',
+
+    // Section Opportunités
+    'opportunity_title' => 'Opportunité d\'extension',
+    'opportunity_1' => 'Vos photos et vidéos peuvent être utilisées dans des produits dérivés (calendriers, posters, impressions sur toile, etc.).',
+    'opportunity_2' => 'Vous pouvez proposer vos services (tels que des cours de photographie, des workshops) directement via la plateforme, et nous vous aidons à toucher un public ciblé.',
+
+    // Section Contributions
+    'contribution_title' => 'Vos contributions',
+    'contribution_1' => '6 photographies de haute qualité (sol/aériennes), capturant la beauté des lieux.',
+    'contribution_2' => '9 vidéos de présentation (d\'au moins 5 secondes chacune) pour la réalisation d’un film.',
+    'contribution_3' => '2 photos immersives à 360° pour une présentation interactive du lieu.',
+    'contribution_4' => 'Un texte explicatif et captivant (minimum 1500 caractères) sur chaque spot.',
+    'contribution_5' => 'Coordonnées GPS et autres informations pertinentes pour les visiteurs.',
+
+    // Section Traducteurs
+    'translator_title' => 'Vous êtes traducteur ?',
+    'translator_desc' => 'Travaillez avec nous pour traduire ces guides et les rendre accessibles à un public international. Vous serez rémunéré en fonction du nombre de traductions fournies.',
+
 ];
