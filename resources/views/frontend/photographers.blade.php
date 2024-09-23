@@ -213,5 +213,87 @@
   </div>
 
 </section>
+<style>
+  body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+    color: #333;
+  }
 
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 3rem;
+    color: #1a73e8;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .intro-text {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 1.2rem;
+  }
+
+  .section {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+  }
+
+  h2 {
+    font-size: 2rem;
+    color: #1a73e8;
+    margin-bottom: 15px;
+  }
+
+  p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  ul li {
+    background-color: #e0f0ff;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+  }
+
+  .btn {
+    display: inline-block;
+    background-color: #1a73e8;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+  }
+
+  .btn:hover {
+    background-color: #155db2;
+  }
+
+  .footer {
+    text-align: center;
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #1a73e8;
+    color: white;
+  }
+</style>
 @endsection
