@@ -1,29 +1,43 @@
 <?php
 
 return [
+    'title' => 'Lavoriamo insieme: creiamo audioguide interattive',
+    'intro' => 'Per completare le nostre attuali guide digitali, il nostro progetto è di crearne una per ogni destinazione in collaborazione con attori locali. Ogni guida combina le tue foto, video e testi per rivelare i luoghi più belli della tua regione. Ogni spot è dettagliato e accessibile ai viaggiatori di tutto il mondo tramite la nostra piattaforma multilingue. Contribuirai a un\'esperienza unica in cui fotografi di tutto il mondo presentano la loro destinazione. Queste guide vengono poi tradotte per raggiungere un pubblico internazionale, permettendoti di monetizzare il tuo lavoro e di essere visto da un pubblico più ampio.',
 
-    "About" => "A propos",
-    "Become" => "Devenez partenaire My Secret Map",
-    "Intro" => "Nous souhaitons rassembler des photographes talentueux pour participer à notre site internet. En tant que membres de notre communauté, vos photos seront mises en avant et vous aurez l'opportunité de contribuer à la création d'une carte interactive révélant des spots photo exceptionnels.",
-    "Arg1" => "Faites briller vos Photos",
-    "Arg2" => "Réseautage et collaboration ",
-    "Arg3" => "Nouvelles opportunités ",
-    "Arg4" => "Partagez votre Talent",
-    "Titre2" => "Des photographes passionnés ",
-    "SousTitre2" => "Rejoignez notre projet dès maintenant pour bénéficier d'une visibilité accrue, collaborer avec des talents passionnés, découvrir de nouveaux lieux exceptionnels et développer votre carrière de photographe. Ensemble, nous pouvons créer une communauté dynamique et inspirante où votre passion pour la photographie s'épanouira.",
-    "AscTitre1" => "Visibilité et Promotion",
-    "AscDesc1" => "En rejoignant notre plateforme, vous bénéficierez d'une visibilité accrue pour vos photos. Vos meilleures œuvres seront mises en avant, vous permettant d'atteindre une audience plus large et de gagner en visibilité au sein de la communauté des photographes. De plus, vous pourrez promouvoir votre portfolio, attirer l'attention de potentiels clients et collaborateurs, et ainsi ouvrir de nouvelles opportunités professionnelles.",
-    "AscTitre2" => "Collaboration et Réseautage",
-    "AscDesc2" => "Rejoindre notre projet vous offre l'opportunité de collaborer avec d'autres photographes talentueux et passionnés. Vous pourrez participer à des projets communs, échanger des idées, partager vos connaissances et développer votre réseau professionnel. Cette collaboration vous permettra d'enrichir votre expérience, de créer des liens durables avec des talents du monde entier et d'explorer de nouvelles perspectives créatives.",
-    "AscTitre3" => "Découverte et Apprentissage",
-    "AscDesc3" => "En tant que membre de notre plateforme, vous aurez accès à une multitude de spots photo uniques. Explorez de nouveaux lieux d'inspiration, découvrez des paysages époustouflants et immortalisez des moments inoubliables. De plus, vous recevrez des commentaires constructifs sur vos photos, vous permettant d'apprendre, de vous améliorer et de développer votre style artistique. Contribuez également à la communauté en partageant vos connaissances et en aidant d'autres photographes à découvrir de nouveaux horizons",
-    "CommentTitre" => "Comment postuler ?",
-    "CommentDesc" => "Suivez les étapes ci-desous, pour nous présenter votre travail et devenir 'Photographe Partenaire'. Nous aimerions mieux vous connaitre avant de vous integrer dans notre communauté. Vous recevrez une notification lorsque nous auront pris une décision.",
-    "Step1Title" => "Inscrivez-vous",
-    "Step1Desc" => "La première étape est de vous inscrire gratuitement sur notre site, en validant votre email afin d'acceder votre compte.",
-    "Step2Title" => "Completez votre compte",
-    "Step2Desc" => "Sur votre page personnelle, donnez un maximum d'infos sur votre travail : sites internet, réseaux sociaux,... Avant de pouvoir postuler",
-    "Step3Title" => "Postulez",
-    "Step3Desc" => "Répondez au dernières questions et expliquez nous, ce qui vous motive à rejoindre la communauté My Secret Map",
+    // Sezione Visibilità
+    'visibility_title' => 'Ti mettiamo in risalto!',
+    'visibility_1' => 'Il tuo profilo di fotografo sarà evidenziato sulle nostre piattaforme.',
+    'visibility_2' => 'Un collegamento diretto al tuo portfolio o ai tuoi social media.',
+    'visibility_3' => 'Le tue immagini saranno viste da un vasto pubblico in cerca di contenuti autentici ed esclusivi.',
 
+    // Sezione Entrate
+    'revenue_title' => 'Entrate condivise',
+    'revenue_1' => 'Guadagna una commissione proporzionale al numero di spot che contribuisci.',
+    'revenue_2' => 'Se la guida viene venduta tramite distributori, continuerai a ricevere una percentuale su ogni vendita.',
+    'revenue_3' => 'Il calcolo delle entrate è trasparente e basato sul tuo contributo.',
+
+    // Sezione Opportunità
+    'opportunity_title' => 'Opportunità di espansione',
+    'opportunity_1' => 'Le tue foto e video possono essere utilizzati in prodotti derivati (stampe, tele, ecc.).',
+    'opportunity_2' => 'Puoi offrire i tuoi servizi (come corsi di fotografia o workshop) direttamente tramite la piattaforma, e ti aiutiamo a raggiungere un pubblico mirato.',
+
+    // Sezione Contributi
+    'contribution_title' => 'I tuoi contributi',
+    'contribution_1' => 'Fotografie che catturano la bellezza dei luoghi.',
+    'contribution_2' => 'Un video di presentazione per ogni spot.',
+    'contribution_3' => 'Foto immersive a 360° per una presentazione interattiva del luogo.',
+    'contribution_4' => 'Un testo esplicativo e accattivante per ogni spot.',
+    'contribution_5' => 'Coordinate GPS e altre informazioni rilevanti per i visitatori.',
+
+    // Sezione Agenzia
+    'agence_title' => 'L\'agenzia My Secret Map',
+    'agence_1' => 'Si occupa della creazione e dell\'assemblaggio delle guide digitali.',
+    'agence_2' => 'Gestisce i traduttori e la distribuzione.',
+    'agence_3' => 'Si occupa della comunicazione sui social network.',
+    'agence_4' => 'Stabilisce partnership con gli uffici del turismo e le compagnie aeree.',
+    'agence_5' => 'Attua azioni per valorizzare i fotografi partner.',
+
+    // Sezione Traduttori
+    'translator_title' => 'Sei un traduttore?',
+    'translator_desc' => 'Lavora con noi per tradurre queste guide nella tua lingua madre e renderle accessibili a un pubblico internazionale. Sarai retribuito in base al numero di traduzioni fornite (commissione sulle vendite).',
 ];
