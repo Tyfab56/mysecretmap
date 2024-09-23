@@ -1,8 +1,9 @@
 @extends('frontend.main_master')
 @section('content')
 <section class="fdb-block py-0">
-  <div class="container bg-r py-5 my-5" style="background-image: url( {{asset('frontend/assets/images/mockup-phone1.png')}} );">
-    <div class="row py-5">
+<section>
+  <div class="container py-5 my-5">
+    <div class="row align-items-center py-5">
       <div class="col-12 col-sm-10 col-md-8 col-lg-6 text-left">
         <h1>{{ __('photo.Arg1') }}</h1>
         <p class="lead">
@@ -12,9 +13,13 @@
           <a href="https://mysecretmap.com/contact" class="btn">{{ __('photo.Arg3') }} </a>
         </p>
       </div>
+      <!-- Colonne de l'image -->
+      <div class="col-12 col-lg-6 text-right">
+        <img src="{{asset('frontend/assets/images/mockup-phone1.png')}}" class="img-fluid" alt="Mockup Phone">
+      </div>
     </div>
   </div>
-</section>
+</section>Ò
 <div class="container">
 
   <p class="intro-text">
