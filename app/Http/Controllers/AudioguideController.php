@@ -11,7 +11,7 @@ class AudioguideController extends Controller
     public function index()
     {
         // Récupérer tous les spots groupés par pays
-        $spotsByCountry = Spots::with('country')
+        $spotsByCountry = Spots::with('pays') // 'pays' is the relationship method in your model
             ->get()
             ->groupBy('pays_id');
 
