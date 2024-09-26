@@ -56,7 +56,7 @@
         <div class="card">
             <div class="card-body">
                 <a href="{{ route('admin.sorted-spots') }}" class="btn btn-primary btn-block">Gestion Sorted Spots</a>
-
+                <a href="{{ route('admin.audioguides.index') }}" class="btn btn-primary btn-block">Gestion Audioguide</a>
             </div>
         </div>
     </div>
