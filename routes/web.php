@@ -324,5 +324,6 @@ Route::get('/comments/{id}', [CommentController::class, 'show'])->name('comment.
 Route::get('/admin/audioguides', [AudioguideController::class, 'index'])->name('admin.audioguides.index');
 Route::post('/admin/audioguides/add', [AudioguideController::class, 'addSpot'])->name('admin.audioguides.add');
 Route::post('/admin/audioguides/remove', [AudioguideController::class, 'removeSpot'])->name('admin.audioguides.remove');
+Route::post('/admin/import-audioguides', [AudioguideController::class, 'importAudioguides'])->name('admin.importAudioguides');
 
 require __DIR__ . '/auth.php';

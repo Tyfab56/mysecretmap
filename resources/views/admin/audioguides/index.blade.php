@@ -1,6 +1,14 @@
 @extends('frontend.main_master')
 
 @section('content')
+<form action="{{ route('admin.importAudioguides') }}" method="POST" enctype="multipart/form-data">
+    @csrf
+    <div class="form-group">
+        <label for="file">Choisir un fichier CSV</label>
+        <input type="file" name="file" id="file" required class="form-control">
+    </div>
+    <button type="submit" class="btn btn-primary">Importer les Audioguides</button>
+</form>
 <div class="container">
     <h1>Gestion des Audioguides</h1>
 
@@ -40,4 +48,5 @@
     @endif
     @endforeach
 </div>
+
 @endsection

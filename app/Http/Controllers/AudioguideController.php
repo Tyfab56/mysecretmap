@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Spots;
 use App\Models\AudioguideSpot;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Artisan;
 
 class AudioguideController extends Controller
 {
@@ -48,5 +49,16 @@ class AudioguideController extends Controller
             ->delete();
 
         return back()->with('success', 'Spot retiré de l\'audioguide.');
+    }
+    public function importAudioguides(Request $request)
+    {
+        // Validez le fichier ici si nécessaire
+        $filePath = $request->file('file')->getRealPath();
+
+        // Appeler la commande artisan
+        Artisan::call('import:audioguides', ['file' => $filePath]);
+
+        // Rediriger avec un message de succès
+        return redirect()->back()->with('success', 'Importation des audioguides réussie !');
     }
 }
