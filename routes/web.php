@@ -34,6 +34,7 @@ use App\Http\Controllers\SpotBannerUserController;
 use App\Http\Controllers\RegionController;
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\AudioguideController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -319,5 +320,9 @@ Route::post('/favorites/remove', [FavoriteController::class, 'removeFavorite'])-
 Route::get('/favorites', [FavoriteController::class, 'index'])->name('favorites.index')->middleware('auth');
 Route::post('/comments', [CommentController::class, 'store'])->name('comments.store');
 Route::get('/comments/{id}', [CommentController::class, 'show'])->name('comment.show');
+
+Route::get('/admin/audioguides', [AudioguideController::class, 'index'])->name('admin.audioguides.index');
+Route::post('/admin/audioguides/add', [AudioguideController::class, 'addSpot'])->name('admin.audioguides.add');
+Route::post('/admin/audioguides/remove', [AudioguideController::class, 'removeSpot'])->name('admin.audioguides.remove');
 
 require __DIR__ . '/auth.php';
