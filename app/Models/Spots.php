@@ -14,7 +14,14 @@ class Spots extends Model implements TranslatableContract
 
 
     public $translatedAttributes = [
-        'description', 'accessibilite', 'chemin', 'drone', 'lumiere', 'secretspot', 'video1', 'blog'
+        'description',
+        'accessibilite',
+        'chemin',
+        'drone',
+        'lumiere',
+        'secretspot',
+        'video1',
+        'blog'
     ];
     protected $fillable = [
         'name',
@@ -77,5 +84,13 @@ class Spots extends Model implements TranslatableContract
     public function commentsByLang($lang)
     {
         return $this->hasMany(Comment::class)->where('id_lang', $lang)->where('actif', 1);
+    }
+    public function isInAudioguide($lang)
+    {
+        return $this->audioguideSpots()->where('language_code', $lang)->exists();
+    }
+    public function audioguideSpots()
+    {
+        return $this->hasMany(AudioguideSpot::class, 'spot_id', 'id');
     }
 }
