@@ -27,13 +27,13 @@ class ImportAudioguides extends Command
         // Boucle sur chaque enregistrement du fichier CSV
         foreach ($csv as $record) {
             AudioguideSpot::create([
-                'name' => $record['object_name'],
-                'description' => $record['object_description'],
+                'name' => $record['name'],
+                'description' => $record['description'],
                 'contents' => $record['contents'],
-                'lat' => $record['latitude'],
-                'lng' => $record['longitude'],
-                'audio_file' => $record['audio_file'],
-                'language_code' => 'fr', 
+                'lat' => $record['lat'],
+                'lng' => $record['lng'],
+                'audio_file' => $record['audio'],
+                'language_code' => 'fr',
             ]);
         }
 
