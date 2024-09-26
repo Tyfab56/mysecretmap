@@ -5,8 +5,8 @@
     <h1>Gestion des Audioguides</h1>
 
     @foreach ($spotsByCountry as $countryId => $spots)
-    @if ($spots->isNotEmpty())
-    <h2>{{ $spots->first()->country->pays }}</h2>
+    @if ($spots->isNotEmpty() && $spots->first()->pays)
+    <h2>{{ $spots->first()->pays->pays }}</h2>
     <table class="table table-bordered">
         <thead>
             <tr>
