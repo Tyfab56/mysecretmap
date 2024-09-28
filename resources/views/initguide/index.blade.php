@@ -19,6 +19,7 @@
     <script src="https://unpkg.com/framework7/framework7-bundle.min.js"></script>
 
     <script>
+        console.log("Application Framework7 démarrée");
         var app = new Framework7({
             root: '#app',
             routes: [{
