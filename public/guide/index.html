@@ -54,7 +54,7 @@
                     "Les paramètres pays et langue sont manquants ou incorrects.";
             } else {
                 // Send an AJAX request to Laravel with the parameters
-                fetch(`/getGuideData/${countryCode}/${langCode}`)
+                /* fetch(`/getGuideData/${countryCode}/${langCode}`)
                     .then((response) => response.text())
                     .then((html) => {
                         // Replace the content of the app div with the received HTML
@@ -64,7 +64,7 @@
                         document.getElementById("message").innerHTML =
                             "Erreur lors du chargement des données.";
                         console.error("Erreur:", error);
-                    });
+                    });*/
             }
         </script>
     </body>
