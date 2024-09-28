@@ -20,7 +20,7 @@
         var app = new Framework7({
             root: '#app',
             routes: [{
-                    path: '/guide/:country_code_:lang',
+                    path: '/travelguide/:country_code_:lang',
                     async: function(routeTo, routeFrom, resolve, reject) {
                         console.log("Trying to load page from: ", './guide/pages/guide.html');
                         resolve({
@@ -30,7 +30,7 @@
                 },
                 {
                     path: '(.*)',
-                    url: './guide/pages/404.html',
+                    url: './travelguide/pages/404.html',
                 }
             ]
         });
