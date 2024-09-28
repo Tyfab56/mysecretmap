@@ -21,11 +21,11 @@
             root: '#app',
             routes: [{
                     path: '/travelguide/:country_:lang',
-                    component: '/guide/pages/guide.html',
+                    component: './guide/pages/guide.html',
                 },
                 {
                     path: '(.*)',
-                    url: '/guide/pages/404.html',
+                    url: './guide/pages/404.html',
                 },
             ]
         });
