@@ -22,23 +22,13 @@
         var app = new Framework7({
             root: '#app',
             routes: [{
-                    path: '/travelguide/:country_code_:lang',
-                    async: function(routeTo, routeFrom, resolve, reject) {
-                        console.log("Trying to load page from: ", './guide/pages/guide.html');
-                        resolve({
-                            componentUrl: './guide/pages/guide.html'
-                        });
-                    },
-                },
-                {
-                    path: '(.*)', // catch-all route for unknown paths
-                    component: './pages/404.html', // custom 404 page
-                    beforeEnter: function(route, redirect, resolve, reject) {
-                        console.log("Page non trouvée :", route.url); // Ajouter un log pour voir l'URL recherchée
-                        resolve();
-                    }
+                path: '(.*)', // catch-all route for unknown paths
+                component: './pages/404.html', // custom 404 page
+                beforeEnter: function(route, redirect, resolve, reject) {
+                    console.log("Page non trouvée :", route.url); // Ajouter un log pour voir l'URL recherchée
+                    resolve();
                 }
-            ]
+            }]
         });
     </script>
 </body>
