@@ -16,6 +16,6 @@ class GuideController extends Controller
         }
 
         // Load the correct view from 'guide' folder
-        return view('guide.index', compact('country_code', 'lang'));
+        return view('initguide.index', compact('country_code', 'lang'));
     }
 }
