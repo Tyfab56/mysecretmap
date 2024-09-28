@@ -23,11 +23,11 @@
             root: '#app',
             routes: [{
                     path: '/guide/:country_code_:lang',
-                    component: './pages/guide.html',
+                    component: './guide/pages/guide.html',
                 },
                 {
                     path: '(.*)',
-                    component: './pages/404.html',
+                    component: './guide/pages/404.html',
                 }
             ]
         });
