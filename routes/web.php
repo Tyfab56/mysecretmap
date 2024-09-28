@@ -328,8 +328,6 @@ Route::post('/admin/audioguides/remove', [AudioguideController::class, 'removeSp
 Route::post('/admin/import-audioguides', [AudioguideController::class, 'importAudioguides'])->name('admin.importAudioguides');
 
 // Add this route in routes/web.php
-Route::get('/guide/{any}', function () {
-    return response()->file(public_path('guide/index.html'));
-})->where('any', '.*');
+
 
 require __DIR__ . '/auth.php';
