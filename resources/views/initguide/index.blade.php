@@ -12,6 +12,8 @@
 <body>
     <div id="app">
         <!-- This will be replaced by Framework7 components -->
+
+        Bienvenue
     </div>
 
     <script src="https://unpkg.com/framework7/framework7-bundle.min.js"></script>
