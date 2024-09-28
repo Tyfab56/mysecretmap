@@ -1,36 +1,30 @@
+<!-- resources/views/guide.blade.php -->
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <title>Audioguide</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/framework7/css/framework7.bundle.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guide for {{ $country_code }} - {{ $lang }}</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/framework7@7.0.0/css/framework7.bundle.min.css">
 </head>
+
 <body>
     <div id="app">
-        <!-- Add loading screen, logo, and choose language here -->
-        <div class="loading-screen">
-            <img src="{{ asset('img/loading.gif') }}" alt="Loading...">
-            <p>Loading content for {{ $country_code }} in {{ strtoupper($lang) }}...</p>
-        </div>
-
-        <!-- Your Framework 7 app will go here -->
+        <!-- This will be replaced by Framework7 components -->
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/framework7/js/framework7.bundle.min.js"></script>
-    <script>
-        var countryCode = '{{ $country_code }}';
-        var language = '{{ $lang }}';
+    <script src="https://cdn.jsdelivr.net/npm/framework7@7.0.0/js/framework7.bundle.min.js"></script>
 
+    <script>
         var app = new Framework7({
             root: '#app',
-            name: 'MySecretMap',
-            id: 'com.mysecretmap.app',
-            routes: [
-                // Define your PWA routes here
-            ]
+            routes: [{
+                path: '/guide/:country_code_:lang',
+                componentUrl: './guide/pages/guide.html', // Updated to 'guide' subfolder
+            }, ]
         });
-
-        // Now use countryCode and language to load the appropriate data
-        console.log('Country:', countryCode, 'Language:', language);
     </script>
 </body>
+
 </html>
