@@ -35,6 +35,7 @@ use App\Http\Controllers\RegionController;
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\AudioguideController;
+use App\Http\Controllers\GuideController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -325,5 +326,7 @@ Route::get('/admin/audioguides', [AudioguideController::class, 'index'])->name('
 Route::post('/admin/audioguides/add', [AudioguideController::class, 'addSpot'])->name('admin.audioguides.add');
 Route::post('/admin/audioguides/remove', [AudioguideController::class, 'removeSpot'])->name('admin.audioguides.remove');
 Route::post('/admin/import-audioguides', [AudioguideController::class, 'importAudioguides'])->name('admin.importAudioguides');
+
+Route::get('/guide/{country_code}_{lang}', [GuideController::class, 'index']);
 
 require __DIR__ . '/auth.php';
