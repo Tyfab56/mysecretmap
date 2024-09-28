@@ -20,7 +20,7 @@
         var app = new Framework7({
             root: '#app',
             routes: [{
-                path: '/travelguide/:country_code_:lang',
+                path: '/travelguide/:country_:lang',
                 component: '/guide/pages/guide.html',
             }, ]
         });
