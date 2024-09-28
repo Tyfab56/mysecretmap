@@ -31,12 +31,9 @@
                 {
                     path: '(.*)', // Catch any undefined route
                     async: function(routeTo, routeFrom, resolve, reject) {
+                        console.log("Route not found: ", routeTo.url); // Log the missing URL
                         resolve({
-                            url: './pages/404.html', // Your custom 404 page
-                        }, {
-                            context: {
-                                notFoundUrl: routeTo.url, // Pass the missing URL to the 404 page
-                            },
+                            url: './pages/404.html', // Fallback to 404 page
                         });
                     },
                 },
