@@ -23,18 +23,18 @@
             root: '#app',
             routes: [{
                     path: '/guide/:country_code_:lang',
-                    component: './guide/pages/guide.html',
+                    component: './pages/guide.html',
                 },
                 {
                     path: '(.*)',
-                    component: './guide/pages/404.html',
+                    component: './pages/404.html',
                 }
             ]
         });
 
         // Access the main view and trigger the router
         var mainView = app.views.create('.view-main');
-        mainView.router.navigate('/guide/{{ $country_code }}_{{ $lang }}');
+        mainView.router.navigate('/{{ $country_code }}_{{ $lang }}');
     </script>
 </body>
 
