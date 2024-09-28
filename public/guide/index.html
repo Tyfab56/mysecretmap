@@ -8,69 +8,40 @@
             rel="stylesheet"
             href="https://unpkg.com/framework7/framework7-bundle.min.css"
         />
-        <style>
-            body {
-                background-color: black;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                height: 100vh;
-                margin: 0;
-                color: white;
-                font-family: Arial, sans-serif;
-            }
-
-            #app {
-                text-align: center;
-            }
-
-            .loader {
-                width: 100px;
-                height: 100px;
-            }
-
-            .error-message {
-                color: red;
-                font-size: 18px;
-            }
-        </style>
     </head>
+
     <body>
         <div id="app">
-            <img
-                src="/guide/images/maplogo.gif"
-                class="loader"
-                alt="Loading..."
-            />
-            <p id="message">Chargement de l'application...</p>
+            <!-- Your Framework7 app content here -->
         </div>
 
         <script src="https://unpkg.com/framework7/framework7-bundle.min.js"></script>
         <script>
-            // Capture URL parameters
-            const params = new URLSearchParams(window.location.search);
-            const countryCode = params.get("pays");
-            const langCode = params.get("lang");
+            var app = new Framework7({
+                root: "#app",
+                routes: [
+                    {
+                        path: "/guide/:country/:lang",
+                        url: "./pages/guide.html",
+                    },
+                    {
+                        path: "(.*)", // Catch-all route for undefined paths
+                        url: "./pages/404.html",
+                    },
+                ],
+            });
 
-            console.log(countryCode);
+            // Extract parameters from the URL
+            var urlParams = new URLSearchParams(window.location.search);
+            var country = urlParams.get("country");
+            var lang = urlParams.get("lang");
 
-            // Check if both parameters are present
-            if (!countryCode || !langCode) {
-                document.getElementById("message").innerHTML =
-                    "Les paramètres pays et langue sont manquants ou incorrects.";
+            if (!country || !lang) {
+                alert("Country and language parameters are missing!");
             } else {
-                // Send an AJAX request to Laravel with the parameters
-                /* fetch(`/getGuideData/${countryCode}/${langCode}`)
-                    .then((response) => response.text())
-                    .then((html) => {
-                        // Replace the content of the app div with the received HTML
-                        document.getElementById("app").innerHTML = html;
-                    })
-                    .catch((error) => {
-                        document.getElementById("message").innerHTML =
-                            "Erreur lors du chargement des données.";
-                        console.error("Erreur:", error);
-                    });*/
+                console.log("Country: " + country + ", Language: " + lang);
+                // Load the guide page
+                app.router.navigate("/guide/" + country + "/" + lang);
             }
         </script>
     </body>
