@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>MySecretMap - Guide</title>
+        <link
+            rel="stylesheet"
+            href="https://unpkg.com/framework7/framework7-bundle.min.css"
+        />
+    </head>
+
+    <body>
+        <div id="app">
+            <!-- Your app content -->
+            <div class="view view-main">
+                <!-- Pages will be dynamically inserted here -->
+            </div>
+        </div>
+
+        <script src="https://unpkg.com/framework7/framework7-bundle.min.js"></script>
+
+        <script>
+            // Function to get URL parameters
+            function getUrlParams() {
+                const params = new URLSearchParams(window.location.search);
+                return {
+                    country_code: params.get("country_code"),
+                    lang: params.get("lang"),
+                };
+            }
+
+            const params = getUrlParams();
+
+            // Check if both parameters are present
+            if (!params.country_code || !params.lang) {
+                alert("Les paramètres country_code et lang sont requis.");
+                window.location.href = "/error-page"; // Rediriger vers une page d'erreur ou d'accueil
+            } else {
+                // Initialize Framework7 app only if parameters are valid
+                var app = new Framework7({
+                    root: "#app",
+                    routes: [
+                        {
+                            path: "/guide/:country_code/:lang",
+                            component: "./pages/guide.html", // Path to the guide page
+                        },
+                    ],
+                });
+
+                // Create the main view
+                var mainView = app.views.create(".view-main", {
+                    url: `/guide/${params.country_code}/${params.lang}`, // Default page to load
+                });
+            }
+        </script>
+    </body>
+</html>
