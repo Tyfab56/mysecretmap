@@ -23,12 +23,20 @@
         var app = new Framework7({
             root: '#app',
             routes: [{
-                path: '(.*)', // catch-all route for unknown paths
-                beforeEnter: function(route, redirect, resolve, reject) {
-                    console.log("Page non trouvée :", route.url);
-                    resolve();
+                    path: '/',
+                    beforeEnter: function(route, redirect, resolve, reject) {
+                        console.log("Page d'accueil");
+                        resolve();
+                    }
+                },
+                {
+                    path: '(.*)', // catch-all route for unknown paths
+                    beforeEnter: function(route, redirect, resolve, reject) {
+                        console.log("Page non trouvée :", route.url);
+                        resolve();
+                    }
                 }
-            }]
+            ]
         });
     </script>
 </body>
