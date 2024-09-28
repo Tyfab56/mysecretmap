@@ -18,17 +18,21 @@
 
     <script>
         var app = new Framework7({
-            root: '#app',
-            routes: [{
-                    path: '/travelguide/:country_:lang',
-                    component: './guide/pages/guide.html',
-                },
-                {
-                    path: '(.*)',
-                    url: './guide/pages/404.html',
-                },
-            ]
-        });
+                    root: '#app',
+                    routes: [{
+                            path: '/guide/:country_code_:lang',
+                            async: function(routeTo, routeFrom, resolve, reject) {
+                                console.log("Trying to load page from: ", './guide/pages/guide.html');
+                                resolve({
+                                    componentUrl: './guide/pages/guide.html'
+                                });
+                            },
+                            {
+                                path: '(.*)',
+                                url: './guide/pages/404.html',
+                            },
+                        ]
+                    });
     </script>
 </body>
 
