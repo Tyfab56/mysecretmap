@@ -20,8 +20,8 @@
         var app = new Framework7({
             root: '#app',
             routes: [{
-                path: '/guide/:country_code_:lang',
-                url: '/guide/pages/guide.html'
+                path: '/travelguide/:country_code_:lang',
+                component: './pages/guide.html',
             }, ]
         });
     </script>
