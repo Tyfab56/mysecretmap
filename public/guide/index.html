@@ -37,7 +37,11 @@
     </head>
     <body>
         <div id="app">
-            <img src="/images/maplogo.gif" class="loader" alt="Loading..." />
+            <img
+                src="/guide/images/maplogo.gif"
+                class="loader"
+                alt="Loading..."
+            />
             <p id="message">Chargement de l'application...</p>
         </div>
 
@@ -47,6 +51,8 @@
             const params = new URLSearchParams(window.location.search);
             const countryCode = params.get("pays");
             const langCode = params.get("lang");
+
+            console.log(countryCode);
 
             // Check if both parameters are present
             if (!countryCode || !langCode) {
