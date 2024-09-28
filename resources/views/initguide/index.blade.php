@@ -21,7 +21,7 @@
             root: '#app',
             routes: [{
                 path: '/guide/:country_code_:lang',
-                componentUrl: './guide/pages/guide.html', // Updated to 'guide' subfolder
+                component: 'guide/pages/guide.html', // Updated to 'guide' subfolder
             }, ]
         });
     </script>
