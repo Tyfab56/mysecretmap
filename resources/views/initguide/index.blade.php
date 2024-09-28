@@ -25,7 +25,7 @@
                 },
                 {
                     path: '(.*)',
-                    url: './pages/404.html',
+                    url: '/guide/pages/404.html',
                 },
             ]
         });
