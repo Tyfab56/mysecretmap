@@ -24,9 +24,8 @@
             root: '#app',
             routes: [{
                 path: '(.*)', // catch-all route for unknown paths
-                component: './pages/404.html', // custom 404 page
                 beforeEnter: function(route, redirect, resolve, reject) {
-                    console.log("Page non trouvée :", route.url); // Ajouter un log pour voir l'URL recherchée
+                    console.log("Page non trouvée :", route.url);
                     resolve();
                 }
             }]
