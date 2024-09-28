@@ -327,6 +327,6 @@ Route::post('/admin/audioguides/add', [AudioguideController::class, 'addSpot'])-
 Route::post('/admin/audioguides/remove', [AudioguideController::class, 'removeSpot'])->name('admin.audioguides.remove');
 Route::post('/admin/import-audioguides', [AudioguideController::class, 'importAudioguides'])->name('admin.importAudioguides');
 
-Route::get('/travelguide/{country_code}_{lang}', [GuideController::class, 'index']);
+Route::get('/guide/{country_code}_{lang}', [GuideController::class, 'index']);
 
 require __DIR__ . '/auth.php';
