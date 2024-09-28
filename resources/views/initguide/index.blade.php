@@ -19,25 +19,21 @@
     <script src="https://unpkg.com/framework7/framework7-bundle.min.js"></script>
 
     <script>
-        console.log("Application Framework7 démarrée");
         var app = new Framework7({
             root: '#app',
             routes: [{
-                    path: '/',
-                    beforeEnter: function(route, redirect, resolve, reject) {
-                        console.log("Page d'accueil");
-                        resolve();
-                    }
+                    path: '/travelguide/:country_code_:lang',
+                    component: './pages/guide.html',
                 },
                 {
-                    path: '(.*)', // catch-all route for unknown paths
-                    beforeEnter: function(route, redirect, resolve, reject) {
-                        console.log("Page non trouvée :", route.url);
-                        resolve();
-                    }
+                    path: '(.*)',
+                    component: './pages/404.html',
                 }
             ]
         });
+
+        // Appelle la route courante après l'initialisation
+        app.router.navigate('/travelguide/{{ $country_code }}_{{ $lang }}');
     </script>
 </body>
 
