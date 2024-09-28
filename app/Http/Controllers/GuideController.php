@@ -7,7 +7,7 @@ use App\Models\AudioguideSpot;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Artisan;
 
-class AudioguideController extends Controller
+class GuideController extends Controller
 {
     public function index($country_code, $lang)
     {
