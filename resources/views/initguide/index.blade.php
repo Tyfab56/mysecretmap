@@ -29,9 +29,17 @@
                     },
                 },
                 {
-                    path: '(.*)',
-                    url: './travelguide/pages/404.html',
-                }
+                    path: '(.*)', // Catch any undefined route
+                    async: function(routeTo, routeFrom, resolve, reject) {
+                        resolve({
+                            url: './pages/404.html', // Your custom 404 page
+                        }, {
+                            context: {
+                                notFoundUrl: routeTo.url, // Pass the missing URL to the 404 page
+                            },
+                        });
+                    },
+                },
             ]
         });
     </script>
