@@ -21,7 +21,7 @@
             root: '#app',
             routes: [{
                 path: '/travelguide/:country_code_:lang',
-                component: './pages/guide.html',
+                component: '/guide/pages/guide.html',
             }, ]
         });
     </script>
