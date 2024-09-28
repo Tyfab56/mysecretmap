@@ -1,4 +1,3 @@
-<!-- resources/views/guide.blade.php -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,17 +11,18 @@
 <body>
     <div id="app">
         <!-- This will be replaced by Framework7 components -->
-
-        <a href="/nonexistentpage" class="link">Test 404</a>
+        <div class="view view-main"></div>
     </div>
 
     <script src="https://unpkg.com/framework7/framework7-bundle.min.js"></script>
 
     <script>
+        console.log("Application Framework7 démarrée");
+
         var app = new Framework7({
             root: '#app',
             routes: [{
-                    path: '/travelguide/:country_code_:lang',
+                    path: '/guide/:country_code_:lang',
                     component: './pages/guide.html',
                 },
                 {
@@ -32,8 +32,9 @@
             ]
         });
 
-        // Appelle la route courante après l'initialisation
-        app.router.navigate('/travelguide/{{ $country_code }}_{{ $lang }}');
+        // Access the main view and trigger the router
+        var mainView = app.views.create('.view-main');
+        mainView.router.navigate('/guide/{{ $country_code }}_{{ $lang }}');
     </script>
 </body>
 
