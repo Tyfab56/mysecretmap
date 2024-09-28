@@ -22,7 +22,7 @@
         var app = new Framework7({
             root: '#app',
             routes: [{
-                    path: '/guide/:country_code_:lang',
+                    path: '/:country_code_:lang',
                     component: './pages/guide.html',
                 },
                 {
