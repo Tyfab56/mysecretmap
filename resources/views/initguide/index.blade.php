@@ -29,14 +29,13 @@
                     },
                 },
                 {
-                    path: '(.*)', // Catch any undefined route
-                    async: function(routeTo, routeFrom, resolve, reject) {
-                        console.log("Route not found: ", routeTo.url); // Log the missing URL
-                        resolve({
-                            url: './pages/404.html', // Fallback to 404 page
-                        });
-                    },
-                },
+                    path: '(.*)', // catch-all route for unknown paths
+                    component: './pages/404.html', // custom 404 page
+                    beforeEnter: function(route, redirect, resolve, reject) {
+                        console.log("Page non trouvée :", route.url); // Ajouter un log pour voir l'URL recherchée
+                        resolve();
+                    }
+                }
             ]
         });
     </script>
