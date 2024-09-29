@@ -143,6 +143,11 @@
                         ignoreCache: true, // Ignorer le cache
                         animate: true,
                         transition: "f7-slide",
+                        on: {
+                            pageAfterIn: function () {
+                                console.log(mainView.router.currentRoute);
+                            },
+                        },
                     });
                 }
             }, 2000); // Délai de 1 seconde
