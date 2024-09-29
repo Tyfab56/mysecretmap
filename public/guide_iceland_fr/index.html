@@ -149,7 +149,10 @@
                     );
                     console.log("Routes disponibles:", mainView.router.routes);
 
-                    mainView.router.navigate("/installicon/"); // Charger la page installicon.html
+                    mainView.router.navigate("/installicon/", {
+                        reloadCurrent: true, // Forcer le rechargement
+                        ignoreCache: true, // Ignorer le cache
+                    });
                 }
             }, 1000); // Délai de 1 seconde
         </script>
