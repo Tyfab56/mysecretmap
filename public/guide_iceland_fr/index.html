@@ -21,7 +21,7 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                background-color: #e791fe;
+                background-color: #344f7c;
             }
             #splash-screen {
                 text-align: center;
@@ -67,7 +67,8 @@
 
         <script src="https://unpkg.com/framework7/framework7-bundle.min.js"></script>
         <script>
-            // Configuration de Framework7 avec fetch() pour les routes asynchrones
+            // Configuration de Framework7
+            // Initialisation de Framework7 sans les routes dans un premier temps
             var app = new Framework7({
                 root: "#app",
                 name: "MySecretMap",
@@ -75,47 +76,11 @@
                 routes: [
                     {
                         path: "/main/",
-                        async: function (routeTo, routeFrom, resolve, reject) {
-                            fetch("/guide_iceland_fr/pages/main.html")
-                                .then((response) => {
-                                    if (!response.ok) {
-                                        throw new Error("Erreur de chargement");
-                                    }
-                                    return response.text();
-                                })
-                                .then((content) => {
-                                    resolve({ content: content });
-                                })
-                                .catch((error) => {
-                                    console.error(
-                                        "Erreur lors du chargement de main.html:",
-                                        error
-                                    );
-                                    reject();
-                                });
-                        },
+                        url: "/guide_iceland_fr/pages/main.html", // Route classique avec fichier HTML
                     },
                     {
                         path: "/installicon/",
-                        async: function (routeTo, routeFrom, resolve, reject) {
-                            fetch("/guide_iceland_fr/pages/installicon.html")
-                                .then((response) => {
-                                    if (!response.ok) {
-                                        throw new Error("Erreur de chargement");
-                                    }
-                                    return response.text();
-                                })
-                                .then((content) => {
-                                    resolve({ content: content });
-                                })
-                                .catch((error) => {
-                                    console.error(
-                                        "Erreur lors du chargement de installicon.html:",
-                                        error
-                                    );
-                                    reject();
-                                });
-                        },
+                        url: "/guide_iceland_fr/pages/installicon.html", // Route classique avec fichier HTML
                     },
                 ],
             });
@@ -148,13 +113,13 @@
                         });
                 });
             }
-
             // Afficher l'écran de démarrage pendant 1 seconde
             setTimeout(function () {
                 console.log(
                     "Ecran de démarrage terminé, vérification de l'installation de l'icône..."
                 );
 
+                // Vérifier si l'application a déjà été installée (variable 'isicone' dans localStorage)
                 var isIcone = localStorage.getItem("isicone");
 
                 if (isIcone) {
