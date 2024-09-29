@@ -8,6 +8,9 @@
             rel="stylesheet"
             href="https://unpkg.com/framework7/framework7-bundle.min.css"
         />
+        <!-- Lien vers le fichier manifest.json pour PWA -->
+        <link rel="manifest" href="/manifest.json" />
+
         <style>
             /* Style pour l'écran de démarrage */
             body,
@@ -90,7 +93,25 @@
             localStorage.setItem("country", country);
             localStorage.setItem("lang", lang);
 
-            // Afficher l'écran de démarrage pendant 1 seconde
+            // Service worker
+            if ("serviceWorker" in navigator) {
+                window.addEventListener("load", function () {
+                    navigator.serviceWorker
+                        .register("/service-worker.js")
+                        .then(function (registration) {
+                            console.log(
+                                "Service Worker enregistré avec succès :",
+                                registration.scope
+                            );
+                        })
+                        .catch(function (error) {
+                            console.log(
+                                "Échec de l'enregistrement du Service Worker :",
+                                error
+                            );
+                        });
+                });
+            }
             // Afficher l'écran de démarrage pendant 1 seconde
             setTimeout(function () {
                 console.log(
