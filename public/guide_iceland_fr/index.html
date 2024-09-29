@@ -153,6 +153,15 @@
                         on: {
                             pageAfterIn: function () {
                                 console.log(mainView.router.currentRoute);
+                              }
+                            },
+                        on: {
+                                error: function () {
+                                    console.log(
+                                        "Error while navigating to the route"
+                                    );
+                                    alert("Error: This route does not exist.");
+                                },
                             },
                         },
                     });
