@@ -93,6 +93,13 @@
                 router: true, // Ensure router is enabled for the view
             });
 
+            mainView.router.on("routeNotFound", function (route) {
+                console.log("Route not found:", route);
+                alert(
+                    "Oops! The page you are trying to access does not exist."
+                );
+            });
+
             // Initialiser les variables 'country' et 'lang' dans localStorage si elles ne sont pas présentes
             var country = localStorage.getItem("country") || "IS"; // Par défaut 'IS'
             var lang = localStorage.getItem("lang") || "FR"; // Par défaut 'FR'
