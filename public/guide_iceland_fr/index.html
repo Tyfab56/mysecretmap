@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>PWA Initialization</title>
+        <title>Charly explore l'Islande</title>
         <link
             rel="stylesheet"
             href="https://unpkg.com/framework7/framework7-bundle.min.css"
@@ -23,6 +23,16 @@
             #splash-screen {
                 text-align: center;
             }
+            #splash-screen .logo-container {
+                width: 200px;
+                height: 200px;
+                border-radius: 50%;
+                background-color: white;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin: 0 auto;
+            }
             #splash-screen img {
                 width: 150px;
                 height: 150px;
@@ -38,7 +48,10 @@
         <div id="app">
             <!-- Affichage de l'écran de démarrage -->
             <div id="splash-screen">
-                <img src="./images/maplogo.gif" alt="Logo" />
+                <div class="logo-container">
+                    <img src="./images/maplogo.gif" alt="Logo" />
+                </div>
+
                 <p>Audioguide Islande</p>
             </div>
 
