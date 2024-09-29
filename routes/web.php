@@ -328,6 +328,9 @@ Route::post('/admin/audioguides/remove', [AudioguideController::class, 'removeSp
 Route::post('/admin/import-audioguides', [AudioguideController::class, 'importAudioguides'])->name('admin.importAudioguides');
 
 // Add this route in routes/web.php
-
+// Ne pas laisser Laravel gérer les routes de la PWA
+Route::get('/guide_iceland_fr/{any}', function () {
+    return view('index'); // La vue de votre PWA
+})->where('any', '.*');
 
 require __DIR__ . '/auth.php';
