@@ -329,8 +329,5 @@ Route::post('/admin/import-audioguides', [AudioguideController::class, 'importAu
 
 // Add this route in routes/web.php
 
-Route::get('/guide/{any}', function () {
-    return null; // Ne renvoie rien
-})->where('any', '.*');
 
 require __DIR__ . '/auth.php';
