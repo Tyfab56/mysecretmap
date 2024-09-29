@@ -80,6 +80,9 @@
                 ],
             });
 
+            // Initialisation manuelle de la vue principale
+            var mainView = app.views.create(".view-main");
+
             // Initialiser les variables 'country' et 'lang' dans localStorage si elles ne sont pas présentes
             var country = localStorage.getItem("country") || "IS"; // Par défaut 'IS'
             var lang = localStorage.getItem("lang") || "FR"; // Par défaut 'FR'
@@ -93,9 +96,9 @@
 
                 // Utiliser le routeur de Framework7 pour naviguer vers la bonne page
                 if (isIcone) {
-                    app.views.main.router.navigate("/main/"); // Charger la page main.html
+                    mainView.router.navigate("/main/"); // Charger la page main.html
                 } else {
-                    app.views.main.router.navigate("/installicon/"); // Charger la page installicon.html
+                    mainView.router.navigate("/installicon/"); // Charger la page installicon.html
                 }
             }, 1000); // Délai de 1 seconde
         </script>
