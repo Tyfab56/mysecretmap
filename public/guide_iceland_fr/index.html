@@ -32,6 +32,7 @@
                 justify-content: center;
                 align-items: center;
                 margin: 0 auto;
+                box-shadow: 0 0 0 10px gray; /* 10px de bordure grise */
             }
             #splash-screen img {
                 width: 140px;
@@ -96,9 +97,9 @@
 
                 // Utiliser le routeur de Framework7 pour naviguer vers la bonne page
                 if (isIcone) {
-                    mainView.router.navigate("/main/"); // Charger la page main.html
+                    mainView.router.navigate("/pages/main/"); // Charger la page main.html
                 } else {
-                    mainView.router.navigate("/installicon/"); // Charger la page installicon.html
+                    mainView.router.navigate("/pages/installicon/"); // Charger la page installicon.html
                 }
             }, 1000); // Délai de 1 seconde
         </script>
