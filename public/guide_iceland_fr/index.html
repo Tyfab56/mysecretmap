@@ -76,11 +76,27 @@
                 routes: [
                     {
                         path: "/main/",
-                        url: "./pages/main.html", // Page principale
+                        url: "/guide_iceland_fr/pages/main.html",
                     },
+
                     {
                         path: "/installicon/",
-                        url: "/guide_iceland_fr/pages/installicon.html", // Page d'installation d'icône
+                        async: function (routeTo, routeFrom, resolve, reject) {
+                            // Charger la page installicon.html
+                            app.request.get(
+                                "./guide_iceland_fr/pages/installicon.html",
+                                function (content) {
+                                    resolve({ content: content });
+                                },
+                                function (error) {
+                                    console.error(
+                                        "Erreur lors du chargement de installicon.html:",
+                                        error
+                                    );
+                                    reject();
+                                }
+                            );
+                        },
                     },
                 ],
             });
