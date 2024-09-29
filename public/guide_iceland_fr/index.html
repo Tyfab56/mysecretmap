@@ -69,7 +69,6 @@
             </div>
         </div>
 
-        <script src="https://unpkg.com/framework7/framework7-bundle.min.js"></script>
         <script>
             // Configuration de Framework7
             // Initialisation de Framework7 sans les routes dans un premier temps
@@ -77,12 +76,17 @@
                 root: "#app",
                 name: "MySecretMap",
                 id: "com.mysecretmap.app",
+                panel: {
+                    swipe: true,
+                },
                 routes: [
                     {
+                        name: "main",
                         path: "/main/",
                         url: "./pages/main.html", // Route classique avec fichier HTML
                     },
                     {
+                        name: "installicon",
                         path: "/installicon/",
                         url: "./pages/installicon.html", // Route classique avec fichier HTML
                     },
@@ -171,5 +175,6 @@
                 }
             }, 2000); // Délai de 1 seconde
         </script>
+        <script src="https://unpkg.com/framework7/framework7-bundle.min.js"></script>
     </body>
 </html>
