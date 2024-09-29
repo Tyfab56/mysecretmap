@@ -5,12 +5,14 @@ const CACHE_NAME = "v1";
 
 // Liste des fichiers à mettre en cache
 const urlsToCache = [
-    "/",
-    "/index.html",
-    "/pages/main.html",
-    "/css/style.css",
-    "/js/app.js",
-    "/images/maplogo.gif",
+    const urlsToCache = [
+        '/guide_iceland_fr/',  // Chemin correct pour l'index
+        '/guide_iceland_fr/index.html',
+        '/guide_iceland_fr/pages/main.html',
+        '/guide_iceland_fr/pages/installicon.html',
+      
+        '/guide_iceland_fr/images/logo.png'
+    ];
 ];
 
 // Installation du Service Worker
