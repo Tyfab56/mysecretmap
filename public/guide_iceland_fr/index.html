@@ -91,15 +91,23 @@
             localStorage.setItem("lang", lang);
 
             // Afficher l'écran de démarrage pendant 1 seconde
+            // Afficher l'écran de démarrage pendant 1 seconde
             setTimeout(function () {
+                console.log(
+                    "Ecran de démarrage terminé, vérification de l'installation de l'icône..."
+                );
+
                 // Vérifier si l'application a déjà été installée (variable 'isicone' dans localStorage)
                 var isIcone = localStorage.getItem("isicone");
 
-                // Utiliser le routeur de Framework7 pour naviguer vers la bonne page
                 if (isIcone) {
-                    mainView.router.navigate("/pages/main/"); // Charger la page main.html
+                    console.log("Icône détectée, redirection vers /main/");
+                    mainView.router.navigate("/main/"); // Charger la page main.html
                 } else {
-                    mainView.router.navigate("/pages/installicon/"); // Charger la page installicon.html
+                    console.log(
+                        "Icône non détectée, redirection vers /installicon/"
+                    );
+                    mainView.router.navigate("/installicon/"); // Charger la page installicon.html
                 }
             }, 1000); // Délai de 1 seconde
         </script>
