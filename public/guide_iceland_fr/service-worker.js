@@ -1,15 +1,11 @@
 // service-worker.js
 
 // Nom du cache
-const CACHE_NAME = "v1.1";
+const CACHE_NAME = "v1.2";
 
 // Liste des fichiers à mettre en cache
 
-const urlsToCache = [
-    "/guide_iceland_fr/pages/main.html",
-    "/guide_iceland_fr/pages/installicon.html",
-    "/guide_iceland_fr/images/logo.png",
-];
+const urlsToCache = ["/guide_iceland_fr/images/logo.png"];
 
 // Installation du Service Worker
 self.addEventListener("install", (event) => {
