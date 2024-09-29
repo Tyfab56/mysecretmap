@@ -8,7 +8,6 @@ const CACHE_NAME = "v1.1";
 const urlsToCache = [
     "/guide_iceland_fr/pages/main.html",
     "/guide_iceland_fr/pages/installicon.html",
-
     "/guide_iceland_fr/images/logo.png",
 ];
 
