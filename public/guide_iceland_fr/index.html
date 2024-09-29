@@ -115,6 +115,8 @@
             }
             // Afficher l'écran de démarrage pendant 1 seconde
             setTimeout(function () {
+                // Masquer le splash screen
+                document.getElementById("splash-screen").style.display = "none";
                 console.log(
                     "Ecran de démarrage terminé, vérification de l'installation de l'icône..."
                 );
