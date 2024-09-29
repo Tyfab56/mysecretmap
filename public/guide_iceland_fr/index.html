@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>PWA Initialization</title>
+        <link
+            rel="stylesheet"
+            href="https://unpkg.com/framework7/framework7-bundle.min.css"
+        />
+        <style>
+            /* Style pour l'écran de démarrage */
+            body,
+            html {
+                margin: 0;
+                padding: 0;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: black;
+            }
+            #splash-screen {
+                text-align: center;
+            }
+            #splash-screen img {
+                width: 150px;
+                height: 150px;
+            }
+            #splash-screen p {
+                color: white;
+                font-size: 1.2em;
+                margin-top: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="app">
+            <!-- Affichage de l'écran de démarrage -->
+            <div id="splash-screen">
+                <img src="./images/maplogo.gif" alt="Logo" />
+                <p>Audioguide Islande</p>
+            </div>
+
+            <!-- Vue principale Framework7 (le contenu sera injecté ici) -->
+            <div class="view view-main">
+                <div class="page-content"></div>
+            </div>
+        </div>
+
+        <script src="https://unpkg.com/framework7/framework7-bundle.min.js"></script>
+        <script>
+            // Configuration de Framework7
+            var app = new Framework7({
+                root: "#app", // Élément racine de l'application
+                name: "MySecretMap",
+                id: "com.mysecretmap.app",
+                routes: [
+                    {
+                        path: "/main/",
+                        url: "./pages/main.html", // Page principale
+                    },
+                    {
+                        path: "/installicon/",
+                        url: "./pages/installicon.html", // Page d'installation d'icône
+                    },
+                ],
+            });
+
+            // Initialiser les variables 'country' et 'lang' dans localStorage si elles ne sont pas présentes
+            var country = localStorage.getItem("country") || "IS"; // Par défaut 'IS'
+            var lang = localStorage.getItem("lang") || "FR"; // Par défaut 'FR'
+            localStorage.setItem("country", country);
+            localStorage.setItem("lang", lang);
+
+            // Afficher l'écran de démarrage pendant 1 seconde
+            setTimeout(function () {
+                // Vérifier si l'application a déjà été installée (variable 'isicone' dans localStorage)
+                var isIcone = localStorage.getItem("isicone");
+
+                // Utiliser le routeur de Framework7 pour naviguer vers la bonne page
+                if (isIcone) {
+                    app.views.main.router.navigate("/main/"); // Charger la page main.html
+                } else {
+                    app.views.main.router.navigate("/installicon/"); // Charger la page installicon.html
+                }
+            }, 1000); // Délai de 1 seconde
+        </script>
+    </body>
+</html>
