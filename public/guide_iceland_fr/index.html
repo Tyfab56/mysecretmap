@@ -68,43 +68,58 @@
         <script src="https://unpkg.com/framework7/framework7-bundle.min.js"></script>
         <script>
             // Configuration de Framework7
+            // Initialisation de Framework7 sans les routes dans un premier temps
             var app = new Framework7({
-                root: "#app", // Élément racine de l'application
+                root: "#app",
                 name: "MySecretMap",
                 id: "com.mysecretmap.app",
-                pushState: true,
-                routes: [
-                    {
-                        path: "/main/",
-                        url: "/guide_iceland_fr/pages/main.html",
-                    },
-
-                    {
-                        path: "/installicon/",
-                        async: function (routeTo, routeFrom, resolve, reject) {
-                            // Utiliser Framework7.request.get pour charger le fichier installicon.html
-                            Framework7.request.get(
-                                "/guide_iceland_fr/pages/installicon.html",
-                                function (content) {
-                                    resolve({ content: content });
-                                },
-                                function (error) {
-                                    console.error(
-                                        "Erreur lors du chargement de installicon.html:",
-                                        error
-                                    );
-                                    reject();
-                                }
-                            );
-                        },
-                    },
-                ],
+                routes: [], // Les routes seront ajoutées après
             });
 
             // Initialisation manuelle de la vue principale
-            var mainView = app.views.create(".view-main", {
-                url: "/main/", // Ajout d'une URL par défaut pour initialiser la vue
-            });
+            var mainView = app.views.create(".view-main");
+
+            // Ajout des routes après initialisation complète
+            app.routes = [
+                {
+                    path: "/main/",
+                    async: function (routeTo, routeFrom, resolve, reject) {
+                        // Charger la page principale
+                        Framework7.request.get(
+                            "/guide_iceland_fr/pages/main.html",
+                            function (content) {
+                                resolve({ content: content });
+                            },
+                            function (error) {
+                                console.error(
+                                    "Erreur lors du chargement de main.html:",
+                                    error
+                                );
+                                reject();
+                            }
+                        );
+                    },
+                },
+                {
+                    path: "/installicon/",
+                    async: function (routeTo, routeFrom, resolve, reject) {
+                        // Charger la page installicon.html
+                        Framework7.request.get(
+                            "/guide_iceland_fr/pages/installicon.html",
+                            function (content) {
+                                resolve({ content: content });
+                            },
+                            function (error) {
+                                console.error(
+                                    "Erreur lors du chargement de installicon.html:",
+                                    error
+                                );
+                                reject();
+                            }
+                        );
+                    },
+                },
+            ];
 
             // Initialiser les variables 'country' et 'lang' dans localStorage si elles ne sont pas présentes
             var country = localStorage.getItem("country") || "IS"; // Par défaut 'IS'
