@@ -82,7 +82,7 @@
                     path: "/main/",
                     async: function (routeTo, routeFrom, resolve, reject) {
                         // Charger la page principale
-                        Framework7.request.get(
+                        app.request.get(
                             "/guide_iceland_fr/pages/main.html",
                             function (content) {
                                 resolve({ content: content });
@@ -101,7 +101,7 @@
                     path: "/installicon/",
                     async: function (routeTo, routeFrom, resolve, reject) {
                         // Charger la page installicon.html
-                        Framework7.request.get(
+                        app.request.get(
                             "/guide_iceland_fr/pages/installicon.html",
                             function (content) {
                                 resolve({ content: content });
