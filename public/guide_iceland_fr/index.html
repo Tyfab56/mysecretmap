@@ -65,29 +65,23 @@
 
         <script src="https://unpkg.com/framework7/framework7-bundle.min.js"></script>
 
-        <script>
-            // Initializing Framework7 without routes initially
+        <script type="module">
+            import routes from "./js/routes.js";
+
             var app = new Framework7({
                 root: "#app",
                 name: "MySecretMap",
                 id: "com.mysecretmap.app",
-                panel: {
-                    swipe: true,
-                },
-                routes: [
-                    {
-                        name: "main",
-                        path: "/main/",
-                        url: "./pages/main.html", // Path to main.html
-                    },
-                    {
-                        name: "installicon",
-                        path: "/installicon/",
-                        url: "./pages/installicon.html", // Path to installicon.html
-                    },
-                ],
+                panel: { swipe: true },
+                routes: routes, // External routes
             });
 
+            var mainView = app.views.create(".view-main", {
+                url: "/",
+                router: true,
+            });
+        </script>
+        <script>
             // Create main view
             var mainView = app.views.create(".view-main", {
                 url: "/",
