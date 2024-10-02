@@ -58,17 +58,9 @@
             <div class="view view-main">
                 <div class="page-content">
                     <p>Page content goes here</p>
-                    <f7-button @click="redirectToMain"
+                    <f7-button id="goToMain"
                         >Aller à la page principale</f7-button
                     >
-
-                    <script>
-                        methods: {
-                            redirectToMain() {
-                                myapp.router.navigate('/main/');
-                            }
-                        }
-                    </script>
                 </div>
             </div>
         </div>
@@ -119,6 +111,15 @@
                     });
                 }
             }, 2000);
+
+            document.addEventListener("DOMContentLoaded", function () {
+                // Add event listener for the button click
+                document
+                    .getElementById("goToMain")
+                    .addEventListener("click", function () {
+                        myapp.router.navigate("/main/"); // Navigate to main page
+                    });
+            });
         </script>
     </body>
 </html>
