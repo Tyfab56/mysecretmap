@@ -14,4 +14,8 @@ export default [
         path: "/installicon/",
         url: "./pages/installicon.html",
     },
+    {
+        path: "(.*)",
+        url: "./pages/404.html",
+    },
 ];
