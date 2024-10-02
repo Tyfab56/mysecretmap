@@ -58,7 +58,17 @@
             <div class="view view-main">
                 <div class="page-content">
                     <p>Page content goes here</p>
-                    <a href="/installicon/">About app</a>
+                    <f7-button @click="redirectToMain"
+                        >Aller à la page principale</f7-button
+                    >
+
+                    <script>
+                        methods: {
+                            redirectToMain() {
+                                myapp.router.navigate('/main/');
+                            }
+                        }
+                    </script>
                 </div>
             </div>
         </div>
