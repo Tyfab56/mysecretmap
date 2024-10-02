@@ -2,7 +2,7 @@
 export default [
     {
         path: "/",
-        url: "./home.html",
+        url: "./pages/home.html",
     },
     {
         name: "main",
