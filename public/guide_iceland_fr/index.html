@@ -8,11 +8,9 @@
             rel="stylesheet"
             href="https://unpkg.com/framework7/framework7-bundle.min.css"
         />
-        <!-- Lien vers le fichier manifest.json pour PWA -->
         <link rel="manifest" href="/guide_iceland_fr/manifest.json" />
 
         <style>
-            /* Style pour l'écran de démarrage */
             body,
             html {
                 margin: 0;
@@ -35,7 +33,7 @@
                 justify-content: center;
                 align-items: center;
                 margin: 0 auto;
-                box-shadow: 0 0 0 10px gray; /* 10px de bordure grise */
+                box-shadow: 0 0 0 10px gray;
             }
             #splash-screen img {
                 width: 240px;
@@ -50,20 +48,16 @@
     </head>
     <body>
         <div id="app">
-            <!-- Affichage de l'écran de démarrage -->
             <div id="splash-screen">
                 <div class="logo-container">
                     <img src="./images/logo.png" alt="Logo" />
                 </div>
-
                 <p>Audioguide Islande</p>
             </div>
 
-            <!-- Vue principale Framework7 (le contenu sera injecté ici) -->
             <div class="view view-main">
                 <div class="page-content">
                     <p>Page content goes here</p>
-                    <!-- Link to another page -->
                     <a href="/installicon/">About app</a>
                 </div>
             </div>
@@ -72,7 +66,7 @@
         <script src="https://unpkg.com/framework7/framework7-bundle.min.js"></script>
 
         <script>
-            // Initialisation de Framework7 sans les routes dans un premier temps
+            // Initializing Framework7 without routes initially
             var app = new Framework7({
                 root: "#app",
                 name: "MySecretMap",
@@ -84,24 +78,23 @@
                     {
                         name: "main",
                         path: "/main/",
-                        url: "./pages/main.html", // Route classique avec fichier HTML
+                        url: "./pages/main.html", // Path to main.html
                     },
                     {
                         name: "installicon",
                         path: "/installicon/",
-                        url: "./pages/installicon.html", // Route classique avec fichier HTML
+                        url: "./pages/installicon.html", // Path to installicon.html
                     },
                 ],
             });
 
-            // Initialisation manuelle de la vue principale
-
+            // Create main view
             var mainView = app.views.create(".view-main", {
-                // No need to specify `url`, let the router handle it
                 url: "/",
-                router: true, // Ensure router is enabled for the view
+                router: true,
             });
 
+            // Handling route not found
             mainView.router.on("routeNotFound", function (route) {
                 console.log("Route not found:", route);
                 alert(
@@ -109,62 +102,45 @@
                 );
             });
 
-            // Initialiser les variables 'country' et 'lang' dans localStorage si elles ne sont pas présentes
-            var country = localStorage.getItem("country") || "IS"; // Par défaut 'IS'
-            var lang = localStorage.getItem("lang") || "FR"; // Par défaut 'FR'
+            // Initialize 'country' and 'lang' in localStorage
+            var country = localStorage.getItem("country") || "IS";
+            var lang = localStorage.getItem("lang") || "FR";
             localStorage.setItem("country", country);
             localStorage.setItem("lang", lang);
 
-            // Service worker
-            if ("serviceWorker" in navigator) {
-                window.addEventListener("load", function () {
-                    navigator.serviceWorker
-                        .register("/guide_iceland_fr/service-worker.js")
-                        .then(function (registration) {
-                            console.log(
-                                "Service Worker enregistré avec succès :",
-                                registration.scope
-                            );
-                        })
-                        .catch(function (error) {
-                            console.log(
-                                "Échec de l'enregistrement du Service Worker :",
-                                error
-                            );
-                        });
-                });
-            }
-            // Afficher l'écran de démarrage pendant 1 seconde
-            setTimeout(function () {
-                // Masquer le splash screen
-                document.getElementById("splash-screen").style.display = "none";
-                console.log(
-                    "Ecran de démarrage terminé, vérification de l'installation de l'icône..."
-                );
+            // Service worker commented for now
+            // if ("serviceWorker" in navigator) {
+            //     window.addEventListener("load", function () {
+            //         navigator.serviceWorker
+            //             .register("/guide_iceland_fr/service-worker.js")
+            //             .then(function (registration) {
+            //                 console.log("Service Worker registered:", registration.scope);
+            //             })
+            //             .catch(function (error) {
+            //                 console.log("Service Worker registration failed:", error);
+            //             });
+            //     });
+            // }
 
-                // Vérifier si l'application a déjà été installée (variable 'isicone' dans localStorage)
+            // Hide splash screen after 2 seconds
+            setTimeout(function () {
+                document.getElementById("splash-screen").style.display = "none";
+
+                // Check if the app has been installed (using 'isicone' in localStorage)
                 var isIcone = localStorage.getItem("isicone");
 
                 if (isIcone) {
-                    console.log("Icône détectée, redirection vers /main/");
-                    mainView.router.navigate("/main/"); // Charger la page main.html
+                    mainView.router.navigate("/main/");
                 } else {
-                    console.log(
-                        "Icône non détectée, redirection vers /installicon/"
-                    );
-                    console.log("Routes disponibles:", mainView.router.routes);
-
                     mainView.router.navigate("/installicon/", {
-                        reloadCurrent: true, // Forcer le rechargement
-                        ignoreCache: true, // Ignorer le cache
+                        reloadCurrent: true,
+                        ignoreCache: true,
                         animate: true,
                         transition: "f7-slide",
                         on: {
                             pageAfterIn: function () {
                                 console.log(mainView.router.currentRoute);
                             },
-                        },
-                        on: {
                             error: function () {
                                 console.log(
                                     "Error while navigating to the route"
@@ -174,7 +150,7 @@
                         },
                     });
                 }
-            }, 2000); // Délai de 1 seconde
+            }, 2000);
         </script>
     </body>
 </html>

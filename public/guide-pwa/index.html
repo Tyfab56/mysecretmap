@@ -2,24 +2,12 @@
 <html lang="fr">
     <head>
         <meta charset="utf-8" />
-        <meta
-            http-equiv="Content-Security-Policy"
-            content="default-src * 'self' 'unsafe-inline' 'unsafe-eval' blob: data: gap: content:"
-        />
-        <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover"
-        />
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta
-            name="apple-mobile-web-app-status-bar-style"
-            content="black-translucent"
-        />
-        <meta name="theme-color" content="#3878a8" />
-        <meta name="format-detection" content="telephone=no" />
-        <meta name="msapplication-tap-highlight" content="no" />
 
-        <title>Prières</title>
+        <title>My Secret Map</title>
+        <link
+            rel="stylesheet"
+            href="https://unpkg.com/framework7/framework7-bundle.min.css"
+        />
 
         <!--	<link rel="icon" href="./images/favicon.ico" type="image/x-icon" />-->
 
@@ -27,6 +15,7 @@
     </head>
 
     <body>
+		<script src="https://unpkg.com/framework7/framework7-bundle.min.js"></script>
         <div id="root">
             <!-- Conteneur des vues/onglets -->
             <div class="views tabs safe-areas">
@@ -58,26 +47,11 @@
                     </div>
                 </div>
 
-                <!-- Accueil -->
-                <div id="view-main" class="view tab"></div>
-
-                <!-- Prières -->
-                <div id="view-prayers" class="view tab"></div>
-
-                <!-- Calendrier -->
-                <div id="view-calendar" class="view tab"></div>
-
-                <!-- Livres -->
-                <div id="view-books" class="view tab"></div>
-
-                <!-- Commémorations -->
-                <div id="view-rites" class="view tab"></div>
+              
             </div>
         </div>
 
-        <!-- Cordova -->
-        <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="framework7.phonegap.js"></script>
+ 
 
         <!-- JS seront insérés ici -->
     </body>
