@@ -68,6 +68,7 @@
         <script type="module">
             import routes from "./js/routes.js";
 
+            // Initialize Framework7 app
             var app = new Framework7({
                 root: "#app",
                 name: "MySecretMap",
@@ -76,20 +77,13 @@
                 routes: routes, // External routes
             });
 
-            var mainView = app.views.create(".view-main", {
-                url: "/",
-                router: true,
-            });
-        </script>
-        
-        <script>
-            // Create main view
+            // Create main view once app is initialized
             var mainView = app.views.create(".view-main", {
                 url: "/",
                 router: true,
             });
 
-            // Handling route not found
+            // Route not found handling
             mainView.router.on("routeNotFound", function (route) {
                 console.log("Route not found:", route);
                 alert(
@@ -97,31 +91,10 @@
                 );
             });
 
-            // Initialize 'country' and 'lang' in localStorage
-            var country = localStorage.getItem("country") || "IS";
-            var lang = localStorage.getItem("lang") || "FR";
-            localStorage.setItem("country", country);
-            localStorage.setItem("lang", lang);
-
-            // Service worker commented for now
-            // if ("serviceWorker" in navigator) {
-            //     window.addEventListener("load", function () {
-            //         navigator.serviceWorker
-            //             .register("/guide_iceland_fr/service-worker.js")
-            //             .then(function (registration) {
-            //                 console.log("Service Worker registered:", registration.scope);
-            //             })
-            //             .catch(function (error) {
-            //                 console.log("Service Worker registration failed:", error);
-            //             });
-            //     });
-            // }
-
-            // Hide splash screen after 2 seconds
+            // Hide splash screen and navigate
             setTimeout(function () {
                 document.getElementById("splash-screen").style.display = "none";
 
-                // Check if the app has been installed (using 'isicone' in localStorage)
                 var isIcone = localStorage.getItem("isicone");
 
                 if (isIcone) {
@@ -132,17 +105,6 @@
                         ignoreCache: true,
                         animate: true,
                         transition: "f7-slide",
-                        on: {
-                            pageAfterIn: function () {
-                                console.log(mainView.router.currentRoute);
-                            },
-                            error: function () {
-                                console.log(
-                                    "Error while navigating to the route"
-                                );
-                                alert("Error: This route does not exist.");
-                            },
-                        },
                     });
                 }
             }, 2000);
