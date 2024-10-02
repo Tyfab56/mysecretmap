@@ -83,10 +83,6 @@
                 url: "/",
                 router: true,
             });
-            console.log(
-                "Main View initialized with current route: ",
-                mainView.router.currentRoute
-            );
 
             // Route not found handling
             mainView.router.on("routeNotFound", function (route) {
