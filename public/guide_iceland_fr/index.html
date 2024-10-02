@@ -8,43 +8,8 @@
             rel="stylesheet"
             href="https://unpkg.com/framework7/framework7-bundle.min.css"
         />
+        <link rel="stylesheet" href="/guide_iceland_fr/css/style.css" />
         <link rel="manifest" href="/guide_iceland_fr/manifest.json" />
-
-        <style>
-            body,
-            html {
-                margin: 0;
-                padding: 0;
-                height: 100%;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                background-color: #344f7c;
-            }
-            #splash-screen {
-                text-align: center;
-            }
-            #splash-screen .logo-container {
-                width: 200px;
-                height: 200px;
-                border-radius: 50%;
-                background-color: white;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                margin: 0 auto;
-                box-shadow: 0 0 0 10px gray;
-            }
-            #splash-screen img {
-                width: 240px;
-                height: 200px;
-            }
-            #splash-screen p {
-                color: white;
-                font-size: 2em;
-                margin-top: 10px;
-            }
-        </style>
     </head>
     <body>
         <div id="app">
@@ -99,15 +64,6 @@
                     });
                 }
             }, 2000);
-
-            document.addEventListener("DOMContentLoaded", function () {
-                // Add event listener for the button click
-                document
-                    .getElementById("goToMain")
-                    .addEventListener("click", function () {
-                        myapp.views.main.router.navigate("/main/");
-                    });
-            });
         </script>
     </body>
 </html>
