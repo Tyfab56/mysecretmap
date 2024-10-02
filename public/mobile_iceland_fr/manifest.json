@@ -7,12 +7,12 @@
     "theme_color": "#ffffff",
     "icons": [
         {
-            "src": "/guide_iceland_fr/images/icon-192x192.png",
+            "src": "/mobile_iceland_fr/images/icon-192x192.png",
             "type": "image/png",
             "sizes": "192x192"
         },
         {
-            "src": "/guide_iceland_fr/images/icon-512x512.png",
+            "src": "/mobile_iceland_fr/images/icon-512x512.png",
             "type": "image/png",
             "sizes": "512x512"
         }

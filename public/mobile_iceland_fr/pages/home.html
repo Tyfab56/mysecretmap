@@ -8,3 +8,21 @@
         </div>
     </div>
 </div>
+<script>
+    setTimeout(function () {
+        document.getElementById("splash-screen").style.display = "none";
+
+        var isIcone = localStorage.getItem("isicone");
+
+        if (isIcone) {
+            mainView.router.navigate("/main/");
+        } else {
+            mainView.router.navigate("/installicon/", {
+                reloadCurrent: true,
+                ignoreCache: true,
+                animate: true,
+                transition: "f7-slide",
+            });
+        }
+    }, 2000);
+</script>
