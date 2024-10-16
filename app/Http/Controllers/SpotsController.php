@@ -1110,7 +1110,7 @@ class SpotsController extends Controller
                         ];
                     }),
                     'region' => [
-                        'name' => $spot->region->name ?? null,
+                        'name' => $spot->region->translations->first()->name ?? $spot->region->name,
                         'image_path' => $spot->region->image_path ?? null,
                     ]
                 ];
