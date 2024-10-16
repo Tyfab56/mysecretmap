@@ -70,7 +70,7 @@ class Spots extends Model implements TranslatableContract
 
     public function region()
     {
-        return $this->belongsTo(Region::class);
+        return $this->belongsTo(Region::class, 'region_id', 'id');
     }
     public function favorites()
     {
