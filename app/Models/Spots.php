@@ -93,4 +93,8 @@ class Spots extends Model implements TranslatableContract
     {
         return $this->hasMany(AudioguideSpot::class, 'spot_id', 'id');
     }
+    public function media()
+    {
+        return $this->hasMany(MediaSpotApp::class)->orderBy('media_rank');
+    }
 }

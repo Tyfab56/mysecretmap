@@ -174,7 +174,7 @@ class SpotsController extends Controller
         } else {
             $spotlang = app()->getLocale();
         }
-        // Liste 
+        // Liste
 
         // Liste les type de maps
         $maps = Maps::get();
@@ -632,7 +632,7 @@ class SpotsController extends Controller
             $bucket = 'mysecretmap';
 
             // LARGE
-            // Stockage d'une image large 
+            // Stockage d'une image large
             $width = 1200;
             $height = 534;
             $canvas = Image::canvas($width, $height);
@@ -656,7 +656,7 @@ class SpotsController extends Controller
 
 
             // MEDIUM
-            // Stockage d'un thumb 
+            // Stockage d'un thumb
             $width = 600;
             $height = 267;
             $canvas = Image::canvas($width, $height);
@@ -710,7 +710,7 @@ class SpotsController extends Controller
             $bucket = 'mysecretmap';
 
             // LARGE
-            // Stockage d'une image large 
+            // Stockage d'une image large
             $width = 1200;
             $height = 534;
             $canvas = Image::canvas($width, $height);
@@ -734,7 +734,7 @@ class SpotsController extends Controller
 
 
             // MEDIUM
-            // Stockage d'un thumb 
+            // Stockage d'un thumb
             $width = 600;
             $height = 267;
             $canvas = Image::canvas($width, $height);
@@ -788,7 +788,7 @@ class SpotsController extends Controller
             $bucket = 'mysecretmap';
 
             // LARGE
-            // Stockage d'une image large 
+            // Stockage d'une image large
             $width = 1200;
             $height = 534;
             $canvas = Image::canvas($width, $height);
@@ -812,7 +812,7 @@ class SpotsController extends Controller
 
 
             // MEDIUM
-            // Stockage d'un thumb 
+            // Stockage d'un thumb
             $width = 600;
             $height = 267;
             $canvas = Image::canvas($width, $height);
@@ -880,7 +880,7 @@ class SpotsController extends Controller
         }
 
 
-        // Memorisation base de données 
+        // Memorisation base de données
         $spot->name = $request->titre;
         $spot->slug = Str::slug($spot->country_code . '_' . $spot->name, '_');
 
@@ -984,7 +984,7 @@ class SpotsController extends Controller
         $pays->nbpic = $count;
         $pays->save();
 
-        // Ajustement du message 
+        // Ajustement du message
         if ($typeaction == 'add') {
             return back()->with('message', 'Spot ajouté');
         } else {
@@ -1058,5 +1058,58 @@ class SpotsController extends Controller
         $spots = Spots::where('name', 'like', "%{$query}%")->get();
 
         return response()->json($spots);
+    }
+
+    public function getGuideSpots(Request $request)
+    {
+        // Validate inputs for country code and language
+        $request->validate([
+            'country_code' => 'required|string|max:2', // 2-letter country code
+            'lang' => 'required|string|max:2', // 2-letter language code
+        ]);
+
+        $countryCode = $request->input('country_code'); // Country code (e.g., 'IS' for Iceland)
+        $lang = $request->input('lang', 'en'); // Default language is English if not provided
+
+        // Query spots based on country and include media + translations
+        $spots = Spots::with(['media' => function ($query) use ($lang) {
+            $query->where(function ($q) use ($lang) {
+                $q->whereNull('lang')  // Media with no language specified (universal)
+                    ->orWhere('lang', $lang); // Media specific to the requested language
+            });
+        }, 'translations' => function ($query) use ($lang) {
+            $query->where('locale', $lang); // Translations specific to the requested language
+        }])
+            ->where('pays_id', $countryCode) // Filter by country code
+            ->where('audioguide', 1) // Only include spots where audioguide is available
+            ->get();
+
+        $lastUpdateDate = Spots::where('pays_id', $countryCode)
+            ->where('audioguide', 1) // Filter spots in the guide
+            ->max('updated_at');
+
+        // Return response
+        return response()->json([
+            'map_update_date' => $lastUpdateDate,
+            'spots' => $spots->map(function ($spot) {
+                return [
+                    'id' => $spot->id,
+                    'name' => $spot->name,
+                    'latitude' => $spot->lat,
+                    'longitude' => $spot->lng,
+                    'description' => $spot->translations->first()->description ?? null,
+                    'guidetext' => $spot->translations->first()->guidetext ?? null,
+                    'moreguidetext' => $spot->translations->first()->moreguidetext ?? null,
+                    'media' => $spot->media->map(function ($media) {
+                        return [
+                            'type' => $media->media_type,
+                            'url' => $media->media_url,
+                            'description' => $media->media_description,
+                            'lang' => $media->lang,
+                        ];
+                    }),
+                ];
+            }),
+        ]);
     }
 }

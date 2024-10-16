@@ -6,6 +6,7 @@ use App\Http\Controllers\ApiController;
 use App\Http\Controllers\VideoController;
 use App\Http\Controllers\ShopifyWebhookController;
 use App\Http\Controllers\GuideislParamsController;
+use App\Http\Controllers\SpotsController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -28,3 +29,6 @@ Route::get('/video/{id}/{locale}', [VideoController::class, 'show']);
 
 
 Route::get('/guideislparam', [GuideislParamsController::class, 'getAllParams']);
+
+
+Route::get('/guidespots', [SpotsController::class, 'getGuideSpots']);
