@@ -1066,34 +1066,39 @@ class SpotsController extends Controller
     {
         // Validate inputs for country code and language
         $request->validate([
-            'country_code' => 'required|string|max:2', // 2-letter country code
-            'lang' => 'required|string|max:2', // 2-letter language code
+            'country_code' => 'required|string|max:2',
+            'lang' => 'required|string|max:2',
         ]);
 
-        $countryCode = $request->input('country_code'); // Country code (e.g., 'IS' for Iceland)
-        $lang = $request->input('lang', 'en'); // Default language is English if not provided
+        $countryCode = $request->input('country_code');
+        $lang = $request->input('lang', 'en');
 
-        // Query spots based on country and include media + translations
-        $spots = Spots::with(['media' => function ($query) use ($lang) {
-            $query->where(function ($q) use ($lang) {
-                $q->whereNull('id_lang')  // Media with no language specified (universal)
-                    ->orWhere('id_lang', $lang); // Media specific to the requested language
-            });
-        }, 'translations' => function ($query) use ($lang) {
-            $query->where('locale', $lang); // Translations specific to the requested language
-        }])
-            ->where('pays_id', $countryCode) // Filter by country code
-            ->where('audioguide', 1) // Only include spots where audioguide is available
+        // Query spots with related media, translations, and region translations
+        $spots = Spots::with([
+            'media' => function ($query) use ($lang) {
+                $query->where(function ($q) use ($lang) {
+                    $q->whereNull('id_lang')  // Media with no language specified (universal)
+                        ->orWhere('id_lang', $lang); // Media specific to the requested language
+                });
+            },
+            'translations' => function ($query) use ($lang) {
+                $query->where('locale', $lang); // Fetch translations in the requested language
+            },
+            'region.translations' => function ($query) use ($lang) {
+                $query->where('locale', $lang); // Fetch region translations in the requested language
+            }
+        ])
+            ->where('pays_id', $countryCode)
+            ->where('audioguide', 1)
             ->get();
 
         $lastUpdateDate = Spots::where('pays_id', $countryCode)
-            ->where('audioguide', 1) // Filter spots in the guide
+            ->where('audioguide', 1)
             ->max('updated_at');
 
-        // Return response
         return response()->json([
             'map_update_date' => $lastUpdateDate,
-            'spots' => $spots->map(function ($spot) {
+            'spots' => $spots->map(function ($spot) use ($lang) {
                 return [
                     'id' => $spot->id,
                     'name' => $spot->name,
@@ -1106,12 +1111,12 @@ class SpotsController extends Controller
                             'type' => $media->media_type,
                             'url' => $media->media_url,
                             'description' => $media->media_description,
-                            'lang' => $media->lang,
+                            'lang' => $media->id_lang,
                         ];
                     }),
                     'region' => $spot->region ? [
                         'id' => $spot->region->id,
-                        'name' => $spot->region->translations->first()->name ?? $spot->region->name,
+                        'name' => $spot->region->translations->where('locale', $lang)->first()->name ?? $spot->region->name, // Fallback to the default name if no translation
                         'image_path' => $spot->region->image_path
                     ] : null,
                 ];
