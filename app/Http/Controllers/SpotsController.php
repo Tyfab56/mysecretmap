@@ -1074,8 +1074,8 @@ class SpotsController extends Controller
         // Query spots based on country and include media + translations
         $spots = Spots::with(['media' => function ($query) use ($lang) {
             $query->where(function ($q) use ($lang) {
-                $q->whereNull('lang')  // Media with no language specified (universal)
-                    ->orWhere('lang', $lang); // Media specific to the requested language
+                $q->whereNull('id_lang')  // Media with no language specified (universal)
+                    ->orWhere('id_lang', $lang); // Media specific to the requested language
             });
         }, 'translations' => function ($query) use ($lang) {
             $query->where('locale', $lang); // Translations specific to the requested language
