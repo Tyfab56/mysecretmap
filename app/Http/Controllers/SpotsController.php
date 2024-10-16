@@ -1109,6 +1109,10 @@ class SpotsController extends Controller
                             'lang' => $media->lang,
                         ];
                     }),
+                    'region' => [
+                        'name' => $spot->region->name ?? null,
+                        'image_path' => $spot->region->image_path ?? null,
+                    ]
                 ];
             }),
         ]);
