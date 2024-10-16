@@ -317,6 +317,16 @@
                                     <label class="info-title" for="secretspot">Secret spot<span class="text-danger">*</span></label>
                                     <input type="text" id="secretspot" name="secretspot" value="{{$spot->translate($spotlang)->secretspot ?? ''}}" class="form-control unicase-form-control text-input">
                                 </div>
+                                <!-- New fields for guidetext and moreguidetext -->
+                                <div class="form-group">
+                                    <label class="info-title" for="guidetext">Guide Text<span class="text-danger">*</span></label>
+                                    <input type="text" id="guidetext" name="guidetext" value="{{$spot->translate($spotlang)->guidetext ?? ''}}" class="form-control unicase-form-control text-input">
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="info-title" for="moreguidetext">More Guide Text<span class="text-danger"></span></label>
+                                    <input type="text" id="moreguidetext" name="moreguidetext" value="{{$spot->translate($spotlang)->moreguidetext ?? ''}}" class="form-control unicase-form-control text-input">
+                                </div>
                                 <div class="form-group">
                                     <label class="info-title" for="video1">Script Video 1<span class="text-danger"></span></label>
                                     <input type="text" id="video1" name="video1" value="{{$spot->translate($spotlang)->video1 ?? ''}}" class="form-control unicase-form-control text-input">
