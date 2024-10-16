@@ -1109,11 +1109,11 @@ class SpotsController extends Controller
                             'lang' => $media->lang,
                         ];
                     }),
-                    'region' => [
+                    'region' => $spot->region ? [
                         'id' => $spot->region->id,
                         'name' => $spot->region->translations->first()->name ?? $spot->region->name,
-                        'image_path' => $spot->region->image_path ?? null,
-                    ]
+                        'image_path' => $spot->region->image_path
+                    ] : null,
                 ];
             }),
         ]);
