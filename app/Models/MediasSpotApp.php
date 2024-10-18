@@ -12,7 +12,7 @@ class MediasSpotApp extends Model
         'spot_id',
         'media_type',
         'media_url',
-        'media_filename', // Nouveau champ pour stocker uniquement le nom de fichier
+        'media_filename',
         'media_description',
         'media_rank',
         'id_lang',
@@ -30,18 +30,5 @@ class MediasSpotApp extends Model
     public function scopeOfType($query, $mediaType)
     {
         return $query->where('media_type', $mediaType);
-    }
-
-    // Fonction pour ajuster le rang des médias
-    public static function adjustRanks($spotId, $mediaType)
-    {
-        $medias = self::where('spot_id', $spotId)
-            ->where('media_type', $mediaType)
-            ->orderBy('media_rank')
-            ->get();
-
-        foreach ($medias as $index => $media) {
-            $media->update(['media_rank' => $index + 1]);
-        }
     }
 }
