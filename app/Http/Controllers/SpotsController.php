@@ -1264,11 +1264,11 @@ class SpotsController extends Controller
         MediasSpotApp::create([
             'spot_id' => $spotId,
             'media_type' => $mediaType,
-            'media_url' => $mediaUrl,  // URL complète du média (préalablement générée)
-            'media_filename' => $filename,  // Nom du fichier pour utilisation future
-            'media_description' => $mediaDescription,  // Description facultative
-            'media_rank' => $mediaRank,  // Classement automatique
-            'id_lang' => $idLang,  // Langue facultative
+            'media_url' => $mediaUrl,
+            'media_filename' => $filename,
+            'media_description' => $mediaDescription,
+            'media_rank' => $mediaRank,
+            'id_lang' => $idLang,
             'created_at' => now(),
             'updated_at' => now(),
         ]);
