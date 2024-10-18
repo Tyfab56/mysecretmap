@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Mediasspotapp extends Model
+class MediasSpotApp extends Model
 {
     protected $table = 'mediasspotapp';
 

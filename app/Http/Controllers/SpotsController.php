@@ -1158,7 +1158,7 @@ class SpotsController extends Controller
     private function getNextMediaRank($spotId, $mediaType)
     {
         // Utiliser le modèle Mediasspotapp pour obtenir le rang le plus élevé
-        $maxRank = Mediasspotapp::where('spot_id', $spotId)
+        $maxRank = MediasSpotApp::where('spot_id', $spotId)
             ->where('media_type', $mediaType)
             ->max('media_rank');
 
@@ -1261,7 +1261,7 @@ class SpotsController extends Controller
         $mediaRank = $this->getNextMediaRank($spotId, $mediaType);
 
         // Enregistrement des informations dans la table 'mediasspotapp' via le modèle
-        Mediasspotapp::create([
+        MediasSpotApp::create([
             'spot_id' => $spotId,
             'media_type' => $mediaType,
             'media_url' => $mediaUrl,  // URL complète du média (préalablement générée)
