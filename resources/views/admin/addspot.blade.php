@@ -353,7 +353,7 @@
                         Gestion des médias des guides</br>
                         <form action="{{ route('admin.upload.guidemedia') }}" method="POST" enctype="multipart/form-data">
                             @csrf
-                            <input type="hidden" name="spot_id" value="1"> <!-- L'ID du spot à associer -->
+                            <input type="hidden" name="spot_id" value="value=" {{ $spot->id }}">
 
                             <div class="form-group">
                                 <label for="media_file">Fichier Média :</label>
