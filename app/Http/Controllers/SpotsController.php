@@ -1154,12 +1154,11 @@ class SpotsController extends Controller
 
         return response()->json(['message' => 'Media uploaded successfully']);
     }
-    
+
     private function getNextMediaRank($spotId, $mediaType)
     {
-        // Obtenir le rang le plus élevé pour ce type de média dans ce spot
-        $maxRank = DB::table('mediasspotapp')
-            ->where('spot_id', $spotId)
+        // Utiliser le modèle Mediasspotapp pour obtenir le rang le plus élevé
+        $maxRank = Mediasspotapp::where('spot_id', $spotId)
             ->where('media_type', $mediaType)
             ->max('media_rank');
 
@@ -1217,15 +1216,24 @@ class SpotsController extends Controller
         $video = $ffmpeg->open($file->getRealPath());
 
         $filename = time() . '_' . $file->getClientOriginalName();
-        $path = 'mysecretmap/mobile/' . $filename;
+        $path = 'guidevideo/' . $filename;
 
-        $video->filters()->resize(new FFMpeg\Coordinate\Dimension(1280, 720))->synchronize();
+        // Get video dimensions
+        $videoStreams = $video->getStreams()->videos()->first();
+        $width = $videoStreams->get('width');
+        $height = $videoStreams->get('height');
+
+        // Resize only if the video is not already 1920x1080
+        if ($width !== 1920 || $height !== 1080) {
+            $video->filters()->resize(new FFMpeg\Coordinate\Dimension(1920, 1080))->synchronize();
+        }
+
         $video->save(new FFMpeg\Format\Video\X264(), storage_path('app/temp/' . $filename));
 
-        // Upload sur Wasabi
+        // Upload to Wasabi
         Storage::disk('wasabi')->put($path, file_get_contents(storage_path('app/temp/' . $filename)), 'public');
 
-        // Stocker le média dans la base de données
+        // Store the media record in the database
         $this->storeMediaRecord($spotId, 'video', Storage::disk('wasabi')->url($path), $filename, $mediaDescription, $idLang);
     }
 
