@@ -10,6 +10,7 @@ use App\Models\Maps;
 use App\Models\Region;
 use App\Models\PendingPicture;
 use App\Models\Typepoint;
+use App\Models\MediasSpotApp;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use App\Http\Controllers\Controller;
@@ -19,6 +20,7 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use function GuzzleHttp\Promise\exception_for;
+use FFMpeg;
 
 class SpotsController extends Controller
 {
@@ -1122,5 +1124,160 @@ class SpotsController extends Controller
                 ];
             }),
         ]);
+    }
+
+    public function uploadGuideMedia(Request $request)
+    {
+        $validatedData = $request->validate([
+            'spot_id' => 'required|exists:spots,id',
+            'media_file' => 'required|file|mimes:jpeg,png,mp4,mp3|max:20480',  // Un seul fichier
+            'media_description' => 'nullable|string|max:191',
+            'id_lang' => 'nullable|string|max:2',
+        ]);
+
+        $spotId = $request->input('spot_id');
+        $file = $request->file('media_file');  // Un seul fichier récupéré
+        $mediaDescription = $request->input('media_description', null);
+        $idLang = $request->input('id_lang', null);
+
+        // Déterminer le type de média (photo, vidéo, audio)
+        $mediaType = $this->determineMediaType($file);
+
+        // Traiter et télécharger en fonction du type de média
+        if ($mediaType === 'photo') {
+            $this->processAndUploadImage($file, $spotId, $mediaDescription, $idLang);
+        } elseif ($mediaType === 'video') {
+            $this->processAndUploadVideo($file, $spotId, $mediaDescription, $idLang);
+        } elseif ($mediaType === 'audio') {
+            $this->processAndUploadAudio($file, $spotId, $mediaDescription, $idLang);
+        }
+
+        return response()->json(['message' => 'Media uploaded successfully']);
+    }
+    
+    private function getNextMediaRank($spotId, $mediaType)
+    {
+        // Obtenir le rang le plus élevé pour ce type de média dans ce spot
+        $maxRank = DB::table('mediasspotapp')
+            ->where('spot_id', $spotId)
+            ->where('media_type', $mediaType)
+            ->max('media_rank');
+
+        return $maxRank ? $maxRank + 1 : 1;
+    }
+
+    private function processAndUploadImage($file, $spotId, $mediaDescription, $idLang)
+    {
+        // Charger l'image avec Intervention/Image
+        $image = Image::make($file);
+
+        // Dimensions cibles pour un ratio 4:3 (1920x1440)
+        $targetWidth = 1920;
+        $targetHeight = 1440;
+
+        // Calculer le ratio de l'image originale
+        $originalWidth = $image->width();
+        $originalHeight = $image->height();
+        $originalRatio = $originalWidth / $originalHeight;
+
+        // Ratio 4:3 attendu
+        $targetRatio = 4 / 3;
+
+        // Décider quel côté redimensionner en fonction du ratio
+        if ($originalRatio > $targetRatio) {
+            $image->resize(null, $targetHeight, function ($constraint) {
+                $constraint->aspectRatio();
+                $constraint->upsize();
+            });
+        } else {
+            $image->resize($targetWidth, null, function ($constraint) {
+                $constraint->aspectRatio();
+                $constraint->upsize();
+            });
+        }
+
+        // Crop pour obtenir exactement 1920x1440
+        $image->crop($targetWidth, $targetHeight);
+
+        // Nom du fichier basé sur le spot ID, type de média et horodatage
+        $filename = $spotId . '_photo_' . time() . '.' . $file->getClientOriginalExtension();
+        $path = 'mobile/' . $filename;
+
+        // Upload sur Wasabi
+        Storage::disk('wasabi')->put($path, (string) $image->encode(), 'public');
+
+        // Enregistrer dans la base de données
+        $this->storeMediaRecord($spotId, 'photo', Storage::disk('wasabi')->url($path), $filename, $mediaDescription, $idLang);
+    }
+
+
+    private function processAndUploadVideo($file, $spotId, $mediaDescription, $idLang)
+    {
+        $ffmpeg = FFMpeg\FFMpeg::create();
+        $video = $ffmpeg->open($file->getRealPath());
+
+        $filename = time() . '_' . $file->getClientOriginalName();
+        $path = 'mysecretmap/mobile/' . $filename;
+
+        $video->filters()->resize(new FFMpeg\Coordinate\Dimension(1280, 720))->synchronize();
+        $video->save(new FFMpeg\Format\Video\X264(), storage_path('app/temp/' . $filename));
+
+        // Upload sur Wasabi
+        Storage::disk('wasabi')->put($path, file_get_contents(storage_path('app/temp/' . $filename)), 'public');
+
+        // Stocker le média dans la base de données
+        $this->storeMediaRecord($spotId, 'video', Storage::disk('wasabi')->url($path), $filename, $mediaDescription, $idLang);
+    }
+
+    private function processAndUploadAudio($file, $spotId, $mediaDescription, $idLang)
+    {
+        $ffmpeg = FFMpeg\FFMpeg::create();
+        $audio = $ffmpeg->open($file->getRealPath());
+
+        $filename = time() . '_' . $file->getClientOriginalName();
+        $path = 'mysecretmap/mobile/' . $filename;
+
+        $audio->save(new FFMpeg\Format\Audio\Mp3(), storage_path('app/temp/' . $filename));
+
+        // Upload sur Wasabi
+        Storage::disk('wasabi')->put($path, file_get_contents(storage_path('app/temp/' . $filename)), 'public');
+
+        // Stocker le média dans la base de données
+        $this->storeMediaRecord($spotId, 'audio', Storage::disk('wasabi')->url($path), $filename, $mediaDescription, $idLang);
+    }
+
+
+    private function storeMediaRecord($spotId, $mediaType, $mediaUrl, $filename, $mediaDescription, $idLang)
+    {
+        // Calcul automatique du prochain rang disponible pour le média
+        $mediaRank = $this->getNextMediaRank($spotId, $mediaType);
+
+        // Enregistrement des informations dans la table 'mediasspotapp' via le modèle
+        Mediasspotapp::create([
+            'spot_id' => $spotId,
+            'media_type' => $mediaType,
+            'media_url' => $mediaUrl,  // URL complète du média (préalablement générée)
+            'media_filename' => $filename,  // Nom du fichier pour utilisation future
+            'media_description' => $mediaDescription,  // Description facultative
+            'media_rank' => $mediaRank,  // Classement automatique
+            'id_lang' => $idLang,  // Langue facultative
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+    }
+
+    private function determineMediaType($file)
+    {
+        $mimeType = $file->getMimeType();
+
+        if (str_contains($mimeType, 'image')) {
+            return 'photo';
+        } elseif (str_contains($mimeType, 'video')) {
+            return 'video';
+        } elseif (str_contains($mimeType, 'audio')) {
+            return 'audio';
+        }
+
+        throw new \Exception('Unsupported media type');
     }
 }

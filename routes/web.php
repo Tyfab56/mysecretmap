@@ -167,6 +167,16 @@ Route::get('/admin/social/{id}', [SpotsController::class, 'social'])->name('admi
 Route::post('/admin/spot/store', [SpotsController::class, 'spotStore'])->name('admin.spot.store')->middleware('App\Http\Middleware\CheckAdmin');
 Route::post('/admin/spot/textstore', [SpotsController::class, 'spotTextStore'])->name('admin.spot.textstore')->middleware('App\Http\Middleware\CheckAdmin');
 Route::post('admin/spot/{spot}/update-translations', [SpotsController::class, 'updateTranslations'])->name('admin.spot.updateTranslations');
+Route::post('admin//upload-media', [SpotsController::class, 'uploadGuideMedia'])->name('admin.upload.guidemedia');
+// Route to get the list of media for a specific spot
+Route::get('admin/guide/spots/{spot}/media', [SpotsController::class, 'getGuideMediaForSpot'])->name('admin.spot.guidemedia');
+// Route to move media up in rank
+Route::post('/media/{media}/move-up', [SpotsController::class, 'moveMediaUp'])->name('admin.guidemedia.moveUp');
+// Route to move media down in rank
+Route::post('/media/{media}/move-down', [SpotsController::class, 'moveMediaDown'])->name('admin.guidemedia.moveDown');
+
+// Route to delete media
+Route::delete('/media/{media}', [SpotsController::class, 'deleteMedia'])->name('admin.guidemedia.delete');
 
 Route::get('/admin/circuits', [CircuitsController::class, 'index'])->name('admin.circuits')->middleware('App\Http\Middleware\CheckAdmin');
 Route::get('/admin/createzoom', [AdminController::class, 'createzoom'])->name('admin.createzoom')->middleware('App\Http\Middleware\CheckAdmin');

@@ -350,6 +350,24 @@
                                 </div>
                             </div>
                     </form>
+                    Gestion des médias des guides</br>
+                    <form action="/upload-media" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <input type="hidden" name="spot_id" value="1"> <!-- L'ID du spot à associer -->
+
+                        <div>
+                            <label for="media_file">Fichier Média :</label>
+                            <input type="file" name="media_file" required>
+
+                            <label for="media_description">Description :</label>
+                            <input type="text" name="media_description" placeholder="Description du média" required>
+
+                            <label for="media_lang">Langue (facultatif) :</label>
+                            <input type="text" name="media_lang" placeholder="Code de la langue (ex : fr)">
+                        </div>
+
+                        <button type="submit">Envoyer</button>
+                    </form>
                 </div>
             </div>
     </section>
