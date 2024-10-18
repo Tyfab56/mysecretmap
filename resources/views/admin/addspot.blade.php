@@ -351,13 +351,13 @@
                                 </div>
                         </form>
                         Gestion des médias des guides</br>
-                        <form action="/upload-media" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('admin.upload.guidemedia') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <input type="hidden" name="spot_id" value="1"> <!-- L'ID du spot à associer -->
 
                             <div class="form-group">
                                 <label for="media_file">Fichier Média :</label>
-                                <input type="file" name="media_file" class="form-control" required>
+                                <input type="file" name="media_file" class="form-control" accept="image/jpeg,image/png,video/mp4,audio/mp3" required>
 
                                 <label for="media_description">Description :</label>
                                 <input type="text" name="media_description" class="form-control" placeholder="Description du média" required>
