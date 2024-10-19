@@ -1366,4 +1366,17 @@ class SpotsController extends Controller
         // Retourner à la page précédente avec un message de succès
         return redirect()->back()->with('message', 'Media deleted and ranks adjusted successfully');
     }
+    private function adjustRanks($spotId, $mediaType)
+    {
+        // Récupérer tous les médias restants pour le spot et le type de média, triés par rang
+        $medias = MediasSpotApp::where('spot_id', $spotId)
+            ->where('media_type', $mediaType)
+            ->orderBy('media_rank', 'asc')
+            ->get();
+
+        // Réorganiser les rangs de manière consécutive
+        foreach ($medias as $index => $media) {
+            $media->update(['media_rank' => $index + 1]);
+        }
+    }
 }
