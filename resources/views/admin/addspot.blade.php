@@ -369,9 +369,7 @@
                             <button type="submit" class="btn btn-primary mt-3">Envoyer</button>
                         </form>
                     </div>
-                    <div>
-                        <h3>Uploaded Media for Spot #{{ $spotId }}</h3>
-
+                    <div class="row">
                         @if($medias->isEmpty())
                         <p>No media uploaded yet.</p>
                         @else
