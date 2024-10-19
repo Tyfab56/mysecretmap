@@ -174,6 +174,7 @@ Route::get('admin/guide/spots/{spot}/media', [SpotsController::class, 'getGuideM
 Route::post('admin/guide/{media}/move-up', [SpotsController::class, 'moveMediaUp'])->name('admin.guidemedia.moveUp');
 // Route to move media down in rank
 Route::post('admin/guide/{media}/move-down', [SpotsController::class, 'moveMediaDown'])->name('admin.guidemedia.moveDown');
+Route::delete('admin/guide/media/{media}', [SpotsController::class, 'deleteGuideMedia'])->name('admin.guidemedia.delete');
 
 // Route to delete media
 Route::delete('/media/{media}', [SpotsController::class, 'deleteMedia'])->name('admin.guidemedia.delete');

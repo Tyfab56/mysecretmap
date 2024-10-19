@@ -415,6 +415,13 @@
                                             @csrf
                                             <button type="submit" class="btn btn-sm btn-primary">Move Down</button>
                                         </form>
+                                        <form action="{{ route('admin.guidemedia.delete', ['media' => $media->id]) }}" method="POST" style="display:inline;">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this media?');">
+                                                Delete
+                                            </button>
+                                        </form>
                                     </td>
                                 </tr>
                                 @endforeach

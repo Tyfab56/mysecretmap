@@ -1341,4 +1341,29 @@ class SpotsController extends Controller
 
         return redirect()->back()->with('message', 'Media moved down successfully');
     }
+    public function deleteGuideMedia($mediaId)
+    {
+        // Trouver le média à supprimer
+        $media = MediasSpotApp::find($mediaId);
+
+        if (!$media) {
+            return redirect()->back()->with('error', 'Media not found');
+        }
+
+        // Supprimer le fichier du stockage Wasabi
+        if (Storage::disk('wasabi')->exists('mobile/' . $media->media_filename)) {
+            Storage::disk('wasabi')->delete('mobile/' . $media->media_filename);
+        }
+
+        // Supprimer le média de la base de données
+        $spotId = $media->spot_id;
+        $mediaType = $media->media_type;
+        $media->delete();
+
+        // Réorganiser les rangs des médias restants pour ce spot et ce type de média
+        MediasSpotApp::adjustRanks($spotId, $mediaType);
+
+        // Retourner à la page précédente avec un message de succès
+        return redirect()->back()->with('message', 'Media deleted and ranks adjusted successfully');
+    }
 }
