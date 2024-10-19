@@ -1361,7 +1361,7 @@ class SpotsController extends Controller
         $media->delete();
 
         // Réorganiser les rangs des médias restants pour ce spot et ce type de média
-        MediasSpotApp::adjustRanks($spotId, $mediaType);
+        $this->adjustRanks($spotId, $mediaType);
 
         // Retourner à la page précédente avec un message de succès
         return redirect()->back()->with('message', 'Media deleted and ranks adjusted successfully');
