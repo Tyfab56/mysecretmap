@@ -72,7 +72,7 @@ class Spots extends Model implements TranslatableContract
     {
         return $this->belongsTo(Region::class, 'region_id', 'id');
     }
-    
+
     public function favorites()
     {
         return $this->hasMany(Favorite::class);
@@ -97,6 +97,6 @@ class Spots extends Model implements TranslatableContract
 
     public function media()
     {
-        return $this->hasMany(MediaSpotApp::class, 'spot_id', 'id')->orderBy('media_rank');
+        return $this->hasMany(MediasSpotApp::class, 'spot_id', 'id')->orderBy('media_rank');
     }
 }
