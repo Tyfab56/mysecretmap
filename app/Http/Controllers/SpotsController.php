@@ -1152,7 +1152,8 @@ class SpotsController extends Controller
             $this->processAndUploadAudio($file, $spotId, $mediaDescription, $idLang);
         }
 
-        return response()->json(['message' => 'Media uploaded successfully']);
+        // Retourner à la page d'appel après l'upload
+        return redirect()->back()->with('message', 'Media uploaded successfully');
     }
 
     private function getNextMediaRank($spotId, $mediaType)

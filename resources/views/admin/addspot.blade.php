@@ -369,6 +369,62 @@
                             <button type="submit" class="btn btn-primary mt-3">Envoyer</button>
                         </form>
                     </div>
+                    <div>
+                        <h3>Uploaded Media for Spot #{{ $spotId }}</h3>
+
+                        @if($medias->isEmpty())
+                        <p>No media uploaded yet.</p>
+                        @else
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Description</th>
+                                    <th>Language</th>
+                                    <th>Rank</th>
+                                    <th>Preview</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($medias as $media)
+                                <tr>
+                                    <td>{{ ucfirst($media->media_type) }}</td>
+                                    <td>{{ $media->media_description ?? 'No description' }}</td>
+                                    <td>{{ $media->id_lang ?? 'N/A' }}</td>
+                                    <td>{{ $media->media_rank }}</td>
+                                    <td>
+                                        @if($media->media_type === 'photo')
+                                        <img src="https://ik.imagekit.io/mysecretmap/{{ $media->media_filename }}?tr=w-100,h-100,c-at_max" alt="Image" width="100">
+                                        @elseif($media->media_type === 'video')
+                                        <video width="100" controls>
+                                            <source src="{{ $media->media_url }}" type="video/mp4">
+                                            Your browser does not support the video tag.
+                                        </video>
+                                        @elseif($media->media_type === 'audio')
+                                        <audio controls>
+                                            <source src="{{ $media->media_url }}" type="audio/mp3">
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        <form action="{{ route('admin.guidemedia.moveUp', $media->id) }}" method="POST" style="display:inline-block;">
+                                            @csrf
+                                            <button type="submit" class="btn btn-sm btn-primary">Move Up</button>
+                                        </form>
+                                        <form action="{{ route('admin.guidemedia.moveDown', $media->id) }}" method="POST" style="display:inline-block;">
+                                            @csrf
+                                            <button type="submit" class="btn btn-sm btn-primary">Move Down</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                        @endif
+                    </div>
+
                 </div>
         </section>
     </div>
