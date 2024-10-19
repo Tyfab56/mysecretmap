@@ -360,7 +360,7 @@
                                 <input type="file" name="media_file" class="form-control" accept="image/jpeg,image/png,video/mp4,audio/mp3" required>
 
                                 <label for="media_description">Description :</label>
-                                <input type="text" name="media_description" class="form-control" placeholder="Description du média" required>
+                                <input type="text" name="media_description" class="form-control" placeholder="Description du média">
 
                                 <label for="media_lang">Langue (facultatif) :</label>
                                 <input type="text" name="media_lang" class="form-control" placeholder="Code de la langue (ex : fr)">
