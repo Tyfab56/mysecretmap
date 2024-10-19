@@ -176,8 +176,7 @@ Route::post('admin/guide/{media}/move-up', [SpotsController::class, 'moveMediaUp
 Route::post('admin/guide/{media}/move-down', [SpotsController::class, 'moveMediaDown'])->name('admin.guidemedia.moveDown');
 Route::delete('admin/guide/media/{media}', [SpotsController::class, 'deleteGuideMedia'])->name('admin.guidemedia.delete');
 
-// Route to delete media
-Route::delete('/media/{media}', [SpotsController::class, 'deleteMedia'])->name('admin.guidemedia.delete');
+
 
 Route::get('/admin/circuits', [CircuitsController::class, 'index'])->name('admin.circuits')->middleware('App\Http\Middleware\CheckAdmin');
 Route::get('/admin/createzoom', [AdminController::class, 'createzoom'])->name('admin.createzoom')->middleware('App\Http\Middleware\CheckAdmin');
