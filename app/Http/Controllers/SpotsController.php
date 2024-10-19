@@ -108,9 +108,11 @@ class SpotsController extends Controller
         // Liste les type de maps
         $maps = Maps::get();
 
+        // Récupérer les médias associés à ce spot
+        $medias = MediasSpotApp::where('spot_id', $id)->orderBy('media_rank', 'asc')->get();
 
 
-        return view('admin.addspot', compact('spot', 'langs', 'pays', 'typepoints', 'timeonsite', 'randotime', 'spotlang', 'previousspot', 'nextspot', 'maps', 'regions'));
+        return view('admin.addspot', compact('spot', 'langs', 'pays', 'typepoints', 'timeonsite', 'randotime', 'spotlang', 'previousspot', 'nextspot', 'maps', 'regions', 'medias'));
     }
     public function social($id)
     {
