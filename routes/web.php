@@ -171,9 +171,9 @@ Route::post('admin//upload-media', [SpotsController::class, 'uploadGuideMedia'])
 // Route to get the list of media for a specific spot
 Route::get('admin/guide/spots/{spot}/media', [SpotsController::class, 'getGuideMediaForSpot'])->name('admin.spot.guidemedia');
 // Route to move media up in rank
-Route::post('/media/{media}/move-up', [SpotsController::class, 'moveMediaUp'])->name('admin.guidemedia.moveUp');
+Route::post('admin/guide/{media}/move-up', [SpotsController::class, 'moveMediaUp'])->name('admin.guidemedia.moveUp');
 // Route to move media down in rank
-Route::post('/media/{media}/move-down', [SpotsController::class, 'moveMediaDown'])->name('admin.guidemedia.moveDown');
+Route::post('admin/guide/{media}/move-down', [SpotsController::class, 'moveMediaDown'])->name('admin.guidemedia.moveDown');
 
 // Route to delete media
 Route::delete('/media/{media}', [SpotsController::class, 'deleteMedia'])->name('admin.guidemedia.delete');

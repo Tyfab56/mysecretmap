@@ -1291,4 +1291,54 @@ class SpotsController extends Controller
 
         throw new \Exception('Unsupported media type');
     }
+    public function moveMediaUp($mediaId)
+    {
+        // Trouver le média courant
+        $media = MediasSpotApp::find($mediaId);
+
+        if (!$media) {
+            return redirect()->back()->with('error', 'Media not found');
+        }
+
+        // Trouver le média au-dessus
+        $previousMedia = MediasSpotApp::where('spot_id', $media->spot_id)
+            ->where('media_type', $media->media_type)
+            ->where('media_rank', '<', $media->media_rank)
+            ->orderBy('media_rank', 'desc')
+            ->first();
+
+        if ($previousMedia) {
+            // Échanger les ranks
+            $currentRank = $media->media_rank;
+            $media->update(['media_rank' => $previousMedia->media_rank]);
+            $previousMedia->update(['media_rank' => $currentRank]);
+        }
+
+        return redirect()->back()->with('message', 'Media moved up successfully');
+    }
+    public function moveMediaDown($mediaId)
+    {
+        // Trouver le média courant
+        $media = MediasSpotApp::find($mediaId);
+
+        if (!$media) {
+            return redirect()->back()->with('error', 'Media not found');
+        }
+
+        // Trouver le média en dessous
+        $nextMedia = MediasSpotApp::where('spot_id', $media->spot_id)
+            ->where('media_type', $media->media_type)
+            ->where('media_rank', '>', $media->media_rank)
+            ->orderBy('media_rank', 'asc')
+            ->first();
+
+        if ($nextMedia) {
+            // Échanger les ranks
+            $currentRank = $media->media_rank;
+            $media->update(['media_rank' => $nextMedia->media_rank]);
+            $nextMedia->update(['media_rank' => $currentRank]);
+        }
+
+        return redirect()->back()->with('message', 'Media moved down successfully');
+    }
 }
