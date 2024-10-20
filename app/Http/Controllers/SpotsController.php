@@ -1112,10 +1112,10 @@ class SpotsController extends Controller
                     'moreguidetext' => $spot->translations->first()->moreguidetext ?? null,
                     'media' => $spot->media->map(function ($media) {
                         return [
-                            'type' => $media->media_type,
-                            'filename' => $media->media_filename,
-                            'description' => $media->media_description,
-                            'lang' => $media->id_lang,
+                            'type' => $media->media_type, // Could be 'photo', 'audio', or 'video'
+                            'filename' => $media->media_filename, // Name of the media file
+                            'description' => $media->media_description, // Optional description
+                            'lang' => $media->id_lang, // Language of the media
                         ];
                     }),
                     'region' => $spot->region ? [
