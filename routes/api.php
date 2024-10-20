@@ -28,7 +28,5 @@ Route::get('/testapi/{idspot}/', [ApiController::class, 'AfficheVideo']);
 Route::get('/video/{id}/{locale}', [VideoController::class, 'show']);
 
 
-Route::get('/guideislparam', [GuideislParamsController::class, 'getAllParams']);
-
-
+Route::get('/guideislparam', [GuideislParamsController::class, 'getGuideISParams']);
 Route::get('/guidespots', [SpotsController::class, 'getGuideSpots']);

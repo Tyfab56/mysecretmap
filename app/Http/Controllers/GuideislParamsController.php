@@ -2,20 +2,24 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\GuideislParam;
+use App\Models\Spots;  // Assurez-vous d'importer le modèle correct
 use Illuminate\Http\JsonResponse;
 
 class GuideislParamsController extends Controller
 {
-    public function getAllParams(): JsonResponse
+    public function getGuideISParams(): JsonResponse
     {
-        // Récupérer tous les paramètres depuis la base de données
-        $params = GuideislParam::all();
+        // Vous devez obtenir le code pays (par exemple depuis une requête)
+        $countryCode = 'IS';
 
-        // Formatter les paramètres sous forme de tableau clé-valeur
-        $formattedParams = $params->pluck('value', 'key');
+        // Recherchez la dernière date de mise à jour
+        $lastUpdateDate = Spots::where('pays_id', $countryCode)
+            ->where('audioguide', 1)
+            ->max('updated_at');
 
-        // Retourner la réponse en JSON
-        return response()->json($formattedParams);
+        // Retournez la date de mise à jour dans une réponse JSON
+        return response()->json([
+            'map_update_date' => $lastUpdateDate
+        ]);
     }
 }
