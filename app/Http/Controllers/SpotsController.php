@@ -234,7 +234,7 @@ class SpotsController extends Controller
                 'lng' => 'required',
                 'maplist' => 'required',
                 'region_id' => 'nullable|exists:regions,id',
-                'imgpano' => 'image|mimes:jpeg,jpg|max:10048',
+                'imgpano' => 'image|mimes:jpeg,jpg,webp|max:10048',
                 'imgsquare' => 'image|mimes:jpeg,jpg|max:10048',
                 'img360' => 'image|mimes:jpeg,jpg|max:10048',
                 'imgregion' => 'image|mimes:jpeg,jpg|max:10048',
