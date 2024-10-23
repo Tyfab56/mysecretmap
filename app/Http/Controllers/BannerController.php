@@ -22,41 +22,41 @@ class BannerController extends Controller
 
     public function store(Request $request)
     {
-       
-       
 
-         $validatedData = $request->validate([
+
+
+        $validatedData = $request->validate([
             'user_id' => 'required',
             'title' => 'required',
-            'image_url' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Taille maximale de 2 Mo pour l'image
+            'image_url' => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:2048', // Taille maximale de 2 Mo pour l'image
             'redirect_url' => 'required',
-            
+
         ]);
-        
+
 
         $imagePath = $request->file('image_url')->store('temp');
-        
+
         $localImagePath = storage_path('app/' . $imagePath);
-    
+
         // Connexion au disque Wasabi S3
         $diskS3 = Storage::disk('wasabi');
         $originalImagePathOnS3 = 'images/original/' . $request->file('image_url')->getClientOriginalName();
         $diskS3->put($originalImagePathOnS3, fopen($localImagePath, 'r+'), 'public');
-    
+
         // Supprimer l'image temporaire stockée localement
         Storage::delete($imagePath);
-  
+
         // Créer le nouvel objet Banner avec les données validées
         $banner = new Banner();
         $banner->user_id = $validatedData['user_id'];
         $banner->title = $validatedData['title'];
         $banner->image_url = $diskS3->url($originalImagePathOnS3); // Stocker le chemin de l'image
         $banner->redirect_url = $validatedData['redirect_url'];
-        $banner->active = isset($validatedData['active']) ? $validatedData['active'] : false; 
+        $banner->active = isset($validatedData['active']) ? $validatedData['active'] : false;
         $banner->save();
 
 
-        
+
         return redirect()->route('banners.index')->with('success', 'Banner ajouté avec succès.');
     }
 
@@ -84,17 +84,16 @@ class BannerController extends Controller
     }
 
     public function destroy($id)
-{
-    $banner = Banner::find($id);
+    {
+        $banner = Banner::find($id);
 
-    if (!$banner) {
-        return redirect()->route('banners.index')->with('error', 'Bannière introuvable.');
+        if (!$banner) {
+            return redirect()->route('banners.index')->with('error', 'Bannière introuvable.');
+        }
+
+        // Supprimez la bannière du stockage ou de tout autre endroit où elle est stockée, si nécessaire
+        $banner->delete();
+
+        return redirect()->route('banners.index')->with('success', 'Bannière supprimée avec succès.');
     }
-
-    // Supprimez la bannière du stockage ou de tout autre endroit où elle est stockée, si nécessaire
-    $banner->delete();
-
-    return redirect()->route('banners.index')->with('success', 'Bannière supprimée avec succès.');
 }
-}
-

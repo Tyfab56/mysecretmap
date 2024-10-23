@@ -273,7 +273,7 @@ class IndexController extends Controller
 
         $validatedData = $request->validate(
             [
-                'img' => 'image|mimes:jpeg,jpg|max:20048',
+                'img' => 'image|mimes:jpeg,jpg,webp|max:20048',
             ]
         );
 
@@ -388,7 +388,7 @@ class IndexController extends Controller
         $file = $request->file('file');
         $validatedData = $request->validate(
             [
-                'file' => 'image|mimes:jpeg,jpg|max:20048',
+                'file' => 'image|mimes:jpeg,,webp|max:20048',
             ]
         );
 
@@ -625,7 +625,7 @@ class IndexController extends Controller
 
         $avatar = $request->file('file');
 
-        // traitement image 
+        // traitement image
         if ($avatar == null) {
             // pas de nouvelle image
             $imageavatarstatus = 0;
