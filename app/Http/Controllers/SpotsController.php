@@ -235,11 +235,11 @@ class SpotsController extends Controller
                 'maplist' => 'required',
                 'region_id' => 'nullable|exists:regions,id',
                 'imgpano' => 'image|mimes:jpeg,jpg,webp|max:10048',
-                'imgsquare' => 'image|mimes:jpeg,jpg|max:10048',
-                'img360' => 'image|mimes:jpeg,jpg|max:10048',
-                'imgregion' => 'image|mimes:jpeg,jpg|max:10048',
-                'imgmap' => 'image|mimes:jpeg,jpg|max:10048',
-                'imgzoom' => 'image|mimes:jpeg,jpg|max:10048',
+                'imgsquare' => 'image|mimes:jpeg,jpg,webp|max:10048',
+                'img360' => 'image|mimes:jpeg,jpg,webp|max:10048',
+                'imgregion' => 'image|mimes:jpeg,jpg,webp|max:10048',
+                'imgmap' => 'image|mimes:jpeg,jpg,webp|max:10048',
+                'imgzoom' => 'image|mimes:jpeg,jpg,webp|max:10048',
 
             ]
         );
@@ -1002,7 +1002,7 @@ class SpotsController extends Controller
     {
         $validatedData = $request->validate([
             'spotid' => 'required|integer',
-            'file' => 'required|mimes:jpg,png,jpeg,gif|max:2048',
+            'file' => 'required|mimes:jpg,png,jpeg,gif,webp|max:2048',
         ]);
 
         $spotId = $request->input('spotid');
