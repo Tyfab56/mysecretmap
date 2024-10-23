@@ -370,7 +370,7 @@
                         </form>
                     </div>
                     <div class="row">
-                        @if($medias->isEmpty())
+                        @if(!isset($medias) || $medias->isEmpty())
                         <p>No media uploaded yet.</p>
                         @else
                         <table class="table table-striped">
