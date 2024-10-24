@@ -35,6 +35,7 @@ use App\Http\Controllers\RegionController;
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\AudioguideController;
+use Illuminate\Support\Facades\File;
 
 /*
 |--------------------------------------------------------------------------
