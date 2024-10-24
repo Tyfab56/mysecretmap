@@ -339,7 +339,7 @@ Route::post('/admin/import-audioguides', [AudioguideController::class, 'importAu
 
 // Add this route in routes/web.php
 // Ne pas laisser Laravel gérer les routes de la PWA
-Route::get('/mobile_iceland_fr/{any}', function () {
+Route::get('/audioguide_iceland/{any}', function () {
     return view('index'); // Your PWA entry point
 })->where('any', '.*');
 require __DIR__ . '/auth.php';
