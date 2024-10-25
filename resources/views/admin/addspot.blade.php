@@ -357,7 +357,7 @@
 
                             <div class="form-group">
                                 <label for="media_file">Fichier Média :</label>
-                                <input type="file" name="media_file" class="form-control" accept="image/jpeg,image/png,video/mp4,audio/mp3" required>
+                                <input type="file" name="media_file" class="form-control" accept="image/webp,image/jpeg,image/png,video/mp4,audio/mp3" required>
 
                                 <label for="media_description">Description :</label>
                                 <input type="text" name="media_description" class="form-control" placeholder="Description du média">
