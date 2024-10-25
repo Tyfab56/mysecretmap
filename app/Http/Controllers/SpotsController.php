@@ -1132,7 +1132,7 @@ class SpotsController extends Controller
     {
         $validatedData = $request->validate([
             'spot_id' => 'required|exists:spots,id',
-            'media_file' => 'required|file|mimes:jpeg,png,mp4,mp3|max:20480',  // Un seul fichier
+            'media_file' => 'required|file|mimes:jpeg,png,mp4,mp3,webp|max:20480',  // Un seul fichier
             'media_description' => 'nullable|string|max:191',
             'id_lang' => 'nullable|string|max:2',
         ]);
