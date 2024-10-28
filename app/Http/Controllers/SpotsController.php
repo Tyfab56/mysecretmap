@@ -1173,17 +1173,17 @@ class SpotsController extends Controller
         // Charger l'image avec Intervention/Image
         $image = Image::make($file);
 
-        // Dimensions cibles pour un ratio 4:3 (1920x1440)
+        // Dimensions cibles pour un ratio 16:9 (1920x1080)
         $targetWidth = 1920;
-        $targetHeight = 1440;
+        $targetHeight = 1080;
 
         // Calculer le ratio de l'image originale
         $originalWidth = $image->width();
         $originalHeight = $image->height();
         $originalRatio = $originalWidth / $originalHeight;
 
-        // Ratio 4:3 attendu
-        $targetRatio = 4 / 3;
+        // Ratio 16/9 attendu
+        $targetRatio = 16 / 9;
 
         // Décider quel côté redimensionner en fonction du ratio
         if ($originalRatio > $targetRatio) {
