@@ -1140,7 +1140,7 @@ class SpotsController extends Controller
         $spotId = $request->input('spot_id');
         $file = $request->file('media_file');  // Un seul fichier récupéré
         $mediaDescription = $request->input('media_description', null);
-        $idLang = $request->input('id_lang', null);
+        $idLang = $request->input('media_lang', null);
 
         // Déterminer le type de média (photo, vidéo, audio)
         $mediaType = $this->determineMediaType($file);
