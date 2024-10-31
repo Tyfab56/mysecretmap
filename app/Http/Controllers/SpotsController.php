@@ -1113,7 +1113,8 @@ class SpotsController extends Controller
                     'media' => $spot->media->map(function ($media) {
                         return [
                             'type' => $media->media_type, // Could be 'photo', 'audio', or 'video'
-                            'filename' => $media->media_filename, // Name of the media file
+                            'filename' => $media->media_filename,
+                            'url'  => $media->media_url,
                             'description' => $media->media_description, // Optional description
                             'lang' => $media->id_lang, // Language of the media
                         ];
