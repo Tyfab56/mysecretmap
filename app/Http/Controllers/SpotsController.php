@@ -490,43 +490,28 @@ class SpotsController extends Controller
             $image360status = 0;
         } else {
             // Recherche si ancienne image et suppression des images correspondantes
-            if ($typeaction == "edit") {
-                if ($spotinfo->img360) {
-                    $bucket = $spotinfo->bucket;
-                    $disk = Storage::disk('360');
-                    $filelarge = parse_url($spotinfo->img360, PHP_URL_PATH);
-                    $disk->delete($filelarge);
-                }
+
+            if ($typeaction == "edit" && $spotinfo->img360) {
+                $disk = Storage::disk('wasabi');
+                $filelarge = parse_url($spotinfo->img360, PHP_URL_PATH);
+                $disk->delete($filelarge);
             }
-            // nouvelle image
+
+            // Nouvelle image
             $image360status = 1;
-            $extension = $file360->getClientOriginalExtension();
-            $img360name =  $request->file('img360')->getClientOriginalName();
+            $img360name = $request->file('img360')->getClientOriginalName();
             $img360name = str_replace(' ', '-', $img360name);
-            $img360name = uniqid() . "_" . $id . "_" . $request->payslist . "_" . $img360name;
+            $img360name = uniqid() . "_" . $id . "_" . $request->payslist . "_" . pathinfo($img360name, PATHINFO_FILENAME) . ".webp";
 
-            // Configuration
-            $disk = Storage::disk('360'); // Utilisation du disque "360"
-            $bucket = '';
-            $path = storage_path('app/public/360/');
+            $disk = Storage::disk('wasabi');
+            $bucket = 'mysecretmap';
 
-            // Vérification et création du dossier si nécessaire
-            if (!file_exists($path)) {
-                mkdir($path, 0777, true);
-            }
+            // Convertir l'image en WebP avec une qualité de 80 %
+            $imageWebP = Image::make($file360)->encode('webp', 80);
 
-            // Stockage de l'image directement
-            $imagePath = '360/' . $img360name;
-            $disk->putFileAs('', $file360, $img360name);
-
-            // URL de l'image
-            $large360name = config('app.url') . Storage::url($imagePath);
-        }
-
-
-
-
-
+            // Stockage de l'image WebP sur S3 Wasabi
+            $disk->put('360/' . $img360name, (string) $imageWebP, 'public');
+            $large360name = $disk->url('360/' . $img360name);
 
 
         // traitement image vue region
@@ -933,7 +918,7 @@ class SpotsController extends Controller
         }
 
         if ($image360status == 1) {
-            $spot->bucket = $bucket;
+
             $spot->img360 = $large360name;
         }
 
