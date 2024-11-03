@@ -1108,6 +1108,7 @@ class SpotsController extends Controller
                     'name' => $spot->name,
                     'latitude' => $spot->lat,
                     'longitude' => $spot->lng,
+                    'img360' => $spot->img360,
                     'guidetext' => $spot->translations->first()->guidetext ?? null,
                     'moreguidetext' => $spot->translations->first()->moreguidetext ?? null,
                     'media' => $spot->media->map(function ($media) {
