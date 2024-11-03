@@ -512,8 +512,7 @@ class SpotsController extends Controller
             // Stockage de l'image WebP sur S3 Wasabi
             $disk->put('360/' . $img360name, (string) $imageWebP, 'public');
             $large360name = $disk->url('360/' . $img360name);
-
-
+        }
         // traitement image vue region
         if ($fileregion == null) {
             // pas de nouvelle image
