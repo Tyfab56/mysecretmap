@@ -501,13 +501,13 @@ class SpotsController extends Controller
             $image360status = 1;
             $img360name = $request->file('img360')->getClientOriginalName();
             $img360name = str_replace(' ', '-', $img360name);
-            $img360name = uniqid() . "_" . $id . "_" . $request->payslist . "_" . pathinfo($img360name, PATHINFO_FILENAME) . ".webp";
+            $img360name =  pathinfo($img360name, PATHINFO_FILENAME) . ".webp";
 
             $disk = Storage::disk('wasabi');
             $bucket = 'mysecretmap';
 
-            // Convertir l'image en WebP avec une qualité de 80 %
-            $imageWebP = Image::make($file360)->encode('webp', 80);
+            // Convertir l'image en WebP avec une qualité de 20 %
+            $imageWebP = Image::make($file360)->encode('webp', 20);
 
             // Stockage de l'image WebP sur S3 Wasabi
             $disk->put('360/' . $img360name, (string) $imageWebP, 'public');
