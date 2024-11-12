@@ -332,6 +332,10 @@
                                         <input type="text" id="video1" name="video1" value="{{$spot->translate($spotlang)->video1 ?? ''}}" class="form-control unicase-form-control text-input">
                                     </div>
                                     <div class="form-group">
+                                        <label class="info-title" for="video1">Script Video App<span class="text-danger"></span></label>
+                                        <input type="text" id="videoapp" name="videoapp" value="{{$spot->translate($spotlang)->videoapp ?? ''}}" class="form-control unicase-form-control text-input">
+                                    </div>
+                                    <div class="form-group">
                                         <label class="info-title" for="blog">Blog<span class="text-danger"></span></label>
                                         <input type="text" id="blog" name="blog" value="{{$spot->translate($spotlang)->blog ?? ''}}" class="form-control unicase-form-control text-input">
                                     </div>

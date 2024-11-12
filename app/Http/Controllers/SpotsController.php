@@ -212,6 +212,7 @@ class SpotsController extends Controller
         $spot->translateOrNew($lang)->guidetext = $request->guidetext;
         $spot->translateOrNew($lang)->moreguidetext = $request->moreguidetext;
         $spot->translateOrNew($lang)->video1 = $request->video1;
+        $spot->translateOrNew($lang)->videoapp = $request->videoapp;
         $spot->translateOrNew($lang)->blog = $request->blog;
         $spot->save();
         return back()->with('message', 'Texte modifié');
