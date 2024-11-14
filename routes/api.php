@@ -7,6 +7,7 @@ use App\Http\Controllers\VideoController;
 use App\Http\Controllers\ShopifyWebhookController;
 use App\Http\Controllers\GuideislParamsController;
 use App\Http\Controllers\SpotsController;
+use App\Http\Controllers\AnecdoteController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -30,3 +31,5 @@ Route::get('/video/{id}/{locale}', [VideoController::class, 'show']);
 
 Route::get('/guideislparam', [GuideislParamsController::class, 'getGuideISParams']);
 Route::get('/guidespots', [SpotsController::class, 'getGuideSpots']);
+
+Route::get('/anecdotes/random', [AnecdoteController::class, 'getRandomAnecdotes']);
