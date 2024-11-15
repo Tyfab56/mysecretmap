@@ -16,6 +16,7 @@ class ActivationController extends Controller
 
         // Récupérer le code d'activation depuis les paramètres de la requête GET
         $code = $request->query('code');
+        dd($code);
 
         // Recherche du code d'activation dans la table `shopifysales`
         $shopifysale = Shopifysales::where('id', $code)->first();
