@@ -16,6 +16,7 @@ class Shopifysales extends Model
         'currency',
         'status',
         'created_at',
-        'idproduit'
+        'idproduit',
+        'installation'
     ];
 }
