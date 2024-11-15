@@ -26,7 +26,7 @@ class ActivationController extends Controller
         // Vérifier si le code existe et si le nombre d'installations est inférieur à la limite de 3
         if ($shopifysale && $shopifysale->installation < 3) {
             // Incrémenter le nombre d'installations
-            dd('code ok');
+
             $shopifysale->installation += 1;
             $shopifysale->save();
 
