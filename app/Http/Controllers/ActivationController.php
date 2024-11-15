@@ -30,19 +30,19 @@ class ActivationController extends Controller
                 'success' => true,
                 'message' => 'Code activé avec succès.',
                 'remaining_installations' => 3 - $shopifysale->installation
-            ]);
+            ], 200);
         } elseif ($shopifysale) {
             // Le code a déjà atteint le nombre maximum d'activations
             return response()->json([
                 'success' => false,
                 'message' => 'Le code a déjà été utilisé le nombre maximum de fois.'
-            ], 400);
+            ], 200);
         } else {
             // Le code n'a pas été trouvé
             return response()->json([
                 'success' => false,
                 'message' => 'Code d\'activation invalide.'
-            ], 404);
+            ], 200);
         }
     }
 }
