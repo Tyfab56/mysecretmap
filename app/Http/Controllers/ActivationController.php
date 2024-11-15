@@ -21,11 +21,12 @@ class ActivationController extends Controller
         // Recherche du code d'activation dans la table `shopifysales`
         $shopifysale = Shopifysales::where('id', $code)->first();
 
-        dd($shopifysale);
+
 
         // Vérifier si le code existe et si le nombre d'installations est inférieur à la limite de 3
         if ($shopifysale && $shopifysale->installation < 3) {
             // Incrémenter le nombre d'installations
+            dd('code ok');
             $shopifysale->installation += 1;
             $shopifysale->save();
 
