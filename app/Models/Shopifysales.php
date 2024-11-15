@@ -17,6 +17,7 @@ class Shopifysales extends Model
         'status',
         'created_at',
         'idproduit',
-        'installation'
+        'installation',
+        'activation'
     ];
 }

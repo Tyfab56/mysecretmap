@@ -19,7 +19,7 @@ class ActivationController extends Controller
 
 
         // Recherche du code d'activation dans la table `shopifysales`
-        $shopifysale = Shopifysales::where('id', $code)->first();
+        $shopifysale = Shopifysales::where('activation', $code)->first();
 
 
 
