@@ -14,7 +14,8 @@ class ActivationController extends Controller
             'code' => 'required|string'
         ]);
 
-        $code = $request->input('code');
+        // Récupérer le code d'activation depuis les paramètres de la requête GET
+        $code = $request->query('code');
 
         // Recherche du code d'activation dans la table `shopifysales`
         $shopifysale = Shopifysales::where('id', $code)->first();

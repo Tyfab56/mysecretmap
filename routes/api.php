@@ -34,4 +34,4 @@ Route::get('/guideislparam', [GuideislParamsController::class, 'getGuideISParams
 Route::get('/guidespots', [SpotsController::class, 'getGuideSpots']);
 
 Route::get('/anecdotes/random', [AnecdoteController::class, 'getRandomAnecdotes']);
-Route::post('/check-activation', [ActivationController::class, 'checkActivation']);
+Route::get('/check-activation', [ActivationController::class, 'checkActivation']);
