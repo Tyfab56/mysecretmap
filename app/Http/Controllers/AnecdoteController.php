@@ -13,20 +13,22 @@ class AnecdoteController extends Controller
         // Validate the incoming request parameters
         $request->validate([
             'country' => 'required|string|size:2',
-            'lang' => 'required|string|size:2'
+            'lang' => 'required|string|size:2',
+            'nb' => 'nullable|integer|min:1' // Add validation for optional 'nb' parameter
         ]);
 
-        // Extract country and language from the request
+        // Extract parameters from the request
         $country = $request->input('country');
         $lang = $request->input('lang');
+        $nb = $request->input('nb', 10); // Default to 10 if 'nb' is not provided
 
-        // Fetch 10 random anecdotes for the given country and language
+        // Fetch random anecdotes for the given country and language
         $anecdotes = Anecdote::where('pays_id', $country)
             ->with(['translations' => function ($query) use ($lang) {
                 $query->where('lang', $lang);
             }])
             ->inRandomOrder()
-            ->limit(10)
+            ->limit($nb)
             ->get();
 
         // Format the response to include only translated content
