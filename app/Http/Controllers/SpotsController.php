@@ -1382,7 +1382,7 @@ class SpotsController extends Controller
         }
 
         $spotOrigine = Spots::where('id', $spotId)->get();
-        dd($spotOrigine);
+
 
         $countryCode = $spotOrigine->pays_id;
 
