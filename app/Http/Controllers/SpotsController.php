@@ -1408,7 +1408,7 @@ class SpotsController extends Controller
 
 
             if ($distanceRecord) {
-                dd($distanceRecord);
+
                 $value = ($mode === 't') ? $distanceRecord->temps : $distanceRecord->metres;
                 $results[] = [
                     'spot_id' => $spot->id,
