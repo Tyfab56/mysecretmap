@@ -1381,7 +1381,7 @@ class SpotsController extends Controller
             return response()->json(['error' => 'spot_id est requis'], 200);
         }
 
-        $spotOrigine = Spots::where('id', $spotId);
+        $spotOrigine = Spots::where('id', $spotId)->get();
         dd($spotOrigine);
 
         $countryCode = $spotOrigine->pays_id;
