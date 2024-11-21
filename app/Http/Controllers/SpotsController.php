@@ -1381,7 +1381,7 @@ class SpotsController extends Controller
             return response()->json(['error' => 'spot_id est requis'], 200);
         }
 
-        $spotOrigine = Spots::where('id', $spotId)->get();
+        $spotOrigine = Spots::find($spotId);
 
 
         $countryCode = $spotOrigine->pays_id;
@@ -1395,10 +1395,14 @@ class SpotsController extends Controller
 
         // Recherche des spots les plus proches en fonction de la distance ou du temps
         foreach ($spots as $spot) {
+            if ($spot->id === $spotId) {
+                continue;
+            }
+
             // Chercher la distance et le temps entre le spot de l'utilisateur et le spot courant
             $distanceRecord = Distances::getDistanceBetweenSpots($spotOrigine, $spot->id);
             if ($distanceRecord) {
-                $value = ($mode == 't') ? $distanceRecord->temps : $distanceRecord->metres;
+                $value = ($mode === 't') ? $distanceRecord->temps : $distanceRecord->metres;
                 $results[] = [
                     'spot_id' => $spot->id,
                     'name' => $spot->name,
