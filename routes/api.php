@@ -35,3 +35,4 @@ Route::get('/guidespots', [SpotsController::class, 'getGuideSpots']);
 
 Route::get('/anecdotes/random', [AnecdoteController::class, 'getRandomAnecdotes']);
 Route::get('/check-activation', [ActivationController::class, 'activateCode']);
+Route::get('/nearby-spots', [SpotsController::class, 'getNearbySpots']);

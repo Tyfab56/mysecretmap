@@ -6,6 +6,7 @@ use App\Models\Pays;
 use App\Models\User;
 use App\Models\Langs;
 use App\Models\Spots;
+use App\Models\Distances;
 use App\Models\Maps;
 use App\Models\Region;
 use App\Models\PendingPicture;
@@ -1366,5 +1367,51 @@ class SpotsController extends Controller
         foreach ($medias as $index => $media) {
             $media->update(['media_rank' => $index + 1]);
         }
+    }
+
+    public function getNearbySpots(Request $request)
+    {
+        // Paramètres d'entrée : spotId, mode (distance ou temps), pays
+        $spotId = $request->input('spotid');
+        $mode = $request->input('mode', 'temps'); // Par défaut, recherche par temps
+        $countryCode = $request->input('paysid', 'IS'); // Code pays (par défaut IS pour Islande)
+
+        // Validation du spotId
+        if (!$spotId) {
+            return response()->json(['error' => 'spot_id est requis'], 400);
+        }
+
+        // Récupérer les spots dans le pays spécifié et qui ont audioguide activé
+        $spots = Spots::where('pays_id', $countryCode)
+            ->where('audioguide', true)
+            ->get();
+
+        $results = [];
+
+        // Recherche des spots les plus proches en fonction de la distance ou du temps
+        foreach ($spots as $spot) {
+            // Chercher la distance et le temps entre le spot de l'utilisateur et le spot courant
+            $distanceRecord = Distances::getDistanceBetweenSpots($spotId, $spot->id);
+            if ($distanceRecord) {
+                $value = ($mode == 'temps') ? $distanceRecord->temps : $distanceRecord->metres;
+                $results[] = [
+                    'spot_id' => $spot->id,
+                    'name' => $spot->name,
+                    'distance' => $distanceRecord->metres,
+                    'time' => $distanceRecord->temps,
+                    'value' => $value,
+                ];
+            }
+        }
+
+        // Trier les résultats par distance ou temps en fonction du mode
+        usort($results, function ($a, $b) use ($mode) {
+            return $a[$mode] <=> $b[$mode];
+        });
+
+        // Limiter à 10 résultats maximum (modifiable)
+        $results = array_slice($results, 0, 10);
+
+        return response()->json($results);
     }
 }
