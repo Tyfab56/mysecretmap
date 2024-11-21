@@ -1393,7 +1393,7 @@ class SpotsController extends Controller
 
         $results = [];
 
-        dd($spots);
+
 
         // Recherche des spots les plus proches en fonction de la distance ou du temps
         foreach ($spots as $spot) {
@@ -1403,7 +1403,9 @@ class SpotsController extends Controller
 
             // Chercher la distance et le temps entre le spot de l'utilisateur et le spot courant
             $distanceRecord = Distances::getDistanceBetweenSpots($spotOrigine, $spot->id);
+
             if ($distanceRecord) {
+                dd($distanceRecord);
                 $value = ($mode === 't') ? $distanceRecord->temps : $distanceRecord->metres;
                 $results[] = [
                     'spot_id' => $spot->id,
