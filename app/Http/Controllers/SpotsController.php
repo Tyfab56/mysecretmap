@@ -1414,6 +1414,15 @@ class SpotsController extends Controller
 
             if ($distanceRecord) {
 
+                $firstImage = MediasSpotApp::where('spot_id', $spot->id)
+                    ->where('media_type', 'photo') // Assurez-vous de récupérer les images
+                    ->orderBy('media_rank', 'asc') // Assurez-vous que la première image est celle de rang 1
+                    ->first();
+
+                // Ajouter l'image à la réponse
+                $firstImageUrl = $firstImage ? $firstImage->media_url : null;
+
+
                 $value = ($mode === 'temps') ? $distanceRecord->temps : $distanceRecord->metres;
                 $results[] = [
                     'spot_id' => $spot->id,
@@ -1421,6 +1430,7 @@ class SpotsController extends Controller
                     'distance' => $distanceRecord->metres,
                     'time' => $distanceRecord->temps,
                     'value' => $value,
+                    'first_image' => $firstImageUrl,
                 ];
             }
         }
