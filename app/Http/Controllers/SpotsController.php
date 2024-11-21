@@ -1420,7 +1420,7 @@ class SpotsController extends Controller
                     ->first();
 
                 // Ajouter l'image à la réponse
-                $firstImageUrl = $firstImage ? $firstImage->media_url : null;
+                $firstImageUrl = $firstImage ? $firstImage->media_filename : null;
 
 
                 $value = ($mode === 'temps') ? $distanceRecord->temps : $distanceRecord->metres;
