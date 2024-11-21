@@ -1393,6 +1393,8 @@ class SpotsController extends Controller
 
         $results = [];
 
+        dd($spots);
+
         // Recherche des spots les plus proches en fonction de la distance ou du temps
         foreach ($spots as $spot) {
             if ($spot->id === $spotId) {
