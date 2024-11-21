@@ -1373,13 +1373,18 @@ class SpotsController extends Controller
     {
         // Paramètres d'entrée : spotId, mode (distance ou temps), pays
         $spotId = $request->input('spotid');
-        $mode = $request->input('mode', 'temps'); // Par défaut, recherche par temps
-        $countryCode = $request->input('paysid', 'IS'); // Code pays (par défaut IS pour Islande)
+        $mode = $request->input('mode', 't');
+        $limit = $request->input('nb', 10); // Par défaut, recherche par temps
 
         // Validation du spotId
         if (!$spotId) {
-            return response()->json(['error' => 'spot_id est requis'], 400);
+            return response()->json(['error' => 'spot_id est requis'], 200);
         }
+
+        $spotOrigine = Spots::where('id', $spotId);
+
+
+        $countryCode = $spotOrigine->pays_id;
 
         // Récupérer les spots dans le pays spécifié et qui ont audioguide activé
         $spots = Spots::where('pays_id', $countryCode)
@@ -1391,9 +1396,9 @@ class SpotsController extends Controller
         // Recherche des spots les plus proches en fonction de la distance ou du temps
         foreach ($spots as $spot) {
             // Chercher la distance et le temps entre le spot de l'utilisateur et le spot courant
-            $distanceRecord = Distances::getDistanceBetweenSpots($spotId, $spot->id);
+            $distanceRecord = Distances::getDistanceBetweenSpots($spotOrigine, $spot->id);
             if ($distanceRecord) {
-                $value = ($mode == 'temps') ? $distanceRecord->temps : $distanceRecord->metres;
+                $value = ($mode == 't') ? $distanceRecord->temps : $distanceRecord->metres;
                 $results[] = [
                     'spot_id' => $spot->id,
                     'name' => $spot->name,
@@ -1410,7 +1415,7 @@ class SpotsController extends Controller
         });
 
         // Limiter à 10 résultats maximum (modifiable)
-        $results = array_slice($results, 0, 10);
+        $results = array_slice($results, 0, $limit);
 
         return response()->json($results);
     }
