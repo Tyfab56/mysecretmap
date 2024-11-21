@@ -1427,7 +1427,8 @@ class SpotsController extends Controller
 
         // Trier les résultats par distance ou temps en fonction du mode
         usort($results, function ($a, $b) use ($mode) {
-            return $a[$mode] <=> $b[$mode];
+            // Trier par la clé 'value' qui contient la distance ou le temps
+            return $a['value'] <=> $b['value'];
         });
 
         // Limiter à 10 résultats maximum (modifiable)
