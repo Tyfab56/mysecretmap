@@ -1389,7 +1389,9 @@ class SpotsController extends Controller
         // Récupérer les spots dans le pays spécifié et qui ont audioguide activé
         $spots = Spots::where('pays_id', $countryCode)
             ->where('audioguide', true)
+            ->where('id', '!=', $spotId) // Exclure le spot d'origine
             ->get();
+
 
         $results = [];
 
@@ -1397,12 +1399,13 @@ class SpotsController extends Controller
 
         // Recherche des spots les plus proches en fonction de la distance ou du temps
         foreach ($spots as $spot) {
-            if ($spot->id === $spotId) {
-                continue;
-            }
+
 
             // Chercher la distance et le temps entre le spot de l'utilisateur et le spot courant
-            $distanceRecord = Distances::getDistanceBetweenSpots($spotOrigine, $spot->id);
+            $distanceRecord = Distances::where('spot_origine', $spotOrigine->id)
+                ->where('spot_destination', $spot->id)
+                ->first(['metres', 'temps']);
+
 
             if ($distanceRecord) {
                 dd($distanceRecord);
