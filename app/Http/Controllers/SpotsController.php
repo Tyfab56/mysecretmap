@@ -1374,6 +1374,11 @@ class SpotsController extends Controller
         // Paramètres d'entrée : spotId, mode (distance ou temps), pays
         $spotId = $request->input('spotid');
         $mode = $request->input('mode', 't');
+        if ($mode === 'd') {
+            $mode = 'metres';
+        } else {
+            $mode = 'temps';
+        }
         $limit = $request->input('nb', 10); // Par défaut, recherche par temps
 
         // Validation du spotId
@@ -1409,7 +1414,7 @@ class SpotsController extends Controller
 
             if ($distanceRecord) {
 
-                $value = ($mode === 't') ? $distanceRecord->temps : $distanceRecord->metres;
+                $value = ($mode === 'temps') ? $distanceRecord->temps : $distanceRecord->metres;
                 $results[] = [
                     'spot_id' => $spot->id,
                     'name' => $spot->name,
