@@ -86,7 +86,10 @@ class DistanceController extends Controller
                 // Calcul inverse
                 $spotinverse = Spots::where('pays_id', '=', $pays_id)
                     ->where('id', '=', $point->id)
-                    ->where('actif', '=', 1)
+                    ->where(function ($query) {
+                        $query->where('actif', '=', 1)
+                            ->orWhere('audioguide', '=', 1);  // Audioguide est true
+                    })->whereNotNull('latparking')->whereNotNull('lngparking')
                     ->first();
 
                 $url = $apiUrl . '' . $spotinverse->lngparking . ',' . $spotinverse->latparking . ';' . $start_lng . ',' . $start_lat . '?access_token=' . env('MAPBOX_ACCESS_TOKEN');
