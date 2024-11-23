@@ -92,9 +92,9 @@ class DistanceController extends Controller
                     })->whereNotNull('latparking')->whereNotNull('lngparking')
                     ->first();
 
-                $url = $apiUrl . '' . $spotinverse->lngparking . ',' . $spotinverse->latparking . ';' . $start_lng . ',' . $start_lat . '?access_token=' . env('MAPBOX_ACCESS_TOKEN');
-                $response = $client->get($url);
-                $data = json_decode($response->getBody(), true);
+                if (!isset($data['routes']) || count($data['routes']) == 0) {
+                    dd($url);
+                }
                 sleep(0.5);
                 $callCount++;
 
