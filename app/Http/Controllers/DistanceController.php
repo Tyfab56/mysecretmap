@@ -26,7 +26,10 @@ class DistanceController extends Controller
         // Recherche des autres points de la base pour ce pays
         $spots = Spots::where('pays_id', '=', $pays_id)
             ->where('id', '!=', $idspot)
-            ->where('actif', '=', 1)
+            ->where(function ($query) {
+                $query->where('actif', '=', 1)
+                    ->orWhere('audioguide', '=', 1);  // Audioguide est true
+            })
             ->get();
 
         $callCount = 0;
