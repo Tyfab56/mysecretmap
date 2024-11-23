@@ -29,7 +29,7 @@ class DistanceController extends Controller
             ->where(function ($query) {
                 $query->where('actif', '=', 1)
                     ->orWhere('audioguide', '=', 1);  // Audioguide est true
-            })->whereNotNull('latparking')
+            })->whereNotNull('latparking')->whereNotNull('lngparking')
             ->get();
 
         $callCount = 0;
