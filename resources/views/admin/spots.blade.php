@@ -15,157 +15,161 @@
 @auth
 @if (auth()->user()->isAdmin())
 <section>
-  <div class="container">
-    @if (session('message'))
-    <div class="alert alert-success">
-      {{ session('message') }}
+    <div class="container">
+        @if (session('message'))
+        <div class="alert alert-success">
+            {{ session('message') }}
+        </div>
+        @endif
+
+        <form method="get" action="{{ route ('admin.filterspots') }}">
+            @csrf
+            <div class="form-inline">
+                <div class="form-group mr-2">
+                    <select class="form-control" id="pays" name="pays">
+                        <option value="">{{__('destination.SelectDest')}}</option>
+                        @foreach($payslist as $pay)
+                        <option value="{{$pay->pays_id}}" {{($pays == $pay->pays_id) ? 'selected' : ''}}>{{$pay->pays}} ({{$pay->nbpic}})</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="form-group mr-2">
+                    <select class="form-control" id="maps" name="maps">
+                        <option value="">{{__('destination.SelectMap')}}</option>
+                        @foreach($maps as $mymap)
+                        <option value="{{$mymap->id}}" {{($map == $mymap->id) ? 'selected' : ''}}>{{$mymap->memo}}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="form-group mr-2">
+                    <input id="search" name="search" type="text" class="form-control" placeholder="Search anything...">
+                </div>
+                <div class="form-group">
+                    <input class="btn btn-primary" type="submit" value="Submit" />
+                </div>
+            </div>
+        </form>
+
     </div>
-    @endif
-
-    <form method="get" action="{{ route ('admin.filterspots') }}">
-      @csrf
-      <div class="form-inline">
-        <div class="form-group mr-2">
-          <select class="form-control" id="pays" name="pays">
-            <option value="">{{__('destination.SelectDest')}}</option>
-            @foreach($payslist as $pay)
-            <option value="{{$pay->pays_id}}" {{($pays == $pay->pays_id) ? 'selected' : ''}}>{{$pay->pays}} ({{$pay->nbpic}})</option>
-            @endforeach
-          </select>
-        </div>
-        <div class="form-group mr-2">
-          <select class="form-control" id="maps" name="maps">
-            <option value="">{{__('destination.SelectMap')}}</option>
-            @foreach($maps as $mymap)
-            <option value="{{$mymap->id}}" {{($map == $mymap->id) ? 'selected' : ''}}>{{$mymap->memo}}</option>
-            @endforeach
-          </select>
-        </div>
-        <div class="form-group mr-2">
-          <input id="search" name="search" type="text" class="form-control" placeholder="Search anything...">
-        </div>
-        <div class="form-group">
-          <input class="btn btn-primary" type="submit" value="Submit" />
-        </div>
-      </div>
-    </form>
-
-  </div>
 
 </section>
 <section id="news" class="news">
-  <div class="container">
-    <div class="row text-center">
-      <div class="row p-4">
-        <a class="btn btn-large btn-success" href="{{route('admin.addspot')}}">Ajouter un spot</a>
-      </div>
-      <div>
-        <!-- Nav tabs -->
-
-
-
-        <div class="container-fluid">
-          <div class="row">
-
-            <div class="col-8">
-              <table class="table table-bordered">
-                <thead>
-                  <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Pays</th>
-                    <th scope="col">Titre</th>
-                    <th scope="col">photo</th>
-                    <th scope="col">Actions</th>
-                  </tr>
-                </thead>
-                <tbody>
-
-
-                  @foreach ($spots as $spot)
-                  <?php
-                  // Vérifier si une traduction en français existe
-                  $hasFrenchTranslation = $spot->hasTranslation('fr');
-                  ?>
-
-                  <tr onclick="updateMap({{$spot->id}},{{$spot->lat}},{{$spot->lng}})">
-                    <th scope="row" style="{{$hasFrenchTranslation ? '' : 'background-color: red;'}}">{{$spot->id}}({{$spot->nbdistance}})</th>
-                    <td>{{$spot->pays->pays}}</td>
-                    <td>{{$spot->name}}</td>
-                    <td><img src="{{$spot->imgpanosmall}}"></td>
-                    <td style="min-width:160px"><a class="btn btn-sm btn-success" onclick="editMarker({{$spot->id}});">Mise à jour</a>
-                      <a class="btn btn-sm btn-warning" onclick="delMarker({{$spot->id}});">Suppr</a>
-                      <a class="btn btn-sm btn-warning" onclick="social({{$spot->id}});">MAJ infos</a>
-                      <a class="btn btn-sm btn-danger" onclick="deleteDistances({{ $spot->id }});">Suppr Distances</a>
-                    </td>
-                  </tr>
-                  @endforeach
-
-                </tbody>
-              </table>
-              <div>
-                {!! $spots->appends(request()->query())->links() !!}
-              </div>
+    <div class="container">
+        <div class="row text-center">
+            <div class="row p-4">
+                <a class="btn btn-large btn-success" href="{{route('admin.addspot')}}">Ajouter un spot</a>
             </div>
-            <form id="deleteDistancesForm" action="{{ route('delete.distances') }}" method="POST" style="display:none;">
-              @csrf
-              <input type="hidden" name="point_id" id="pointId">
-            </form>
-            <div class="col-4">
-              <div class="row">
-                <div id="map"></div>
-              </div>
-              <div class="group-form pt-2">
-                Lat : <input class="input" type="text" id="lattxt" name="lattxt">
-              </div>
-              <div class="group-form pt-2">
-                Lng : <input class="input" type="text" id="lngtxt" name="lngtxt">
-              </div>
-              <div class="row pl-4 pt-4">
-                <a class="btn btn-large btn-success" onclick="updateMarker();">Mise à jour</a>
+            <div>
+                <!-- Nav tabs -->
+
+
+
+                <div class="container-fluid">
+                    <div class="row">
+
+                        <div class="col-8">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Pays</th>
+                                        <th scope="col">Titre</th>
+                                        <th scope="col">photo</th>
+                                        <th scope="col">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+
+                                    @foreach ($spots as $spot)
+                                    <?php
+                                    // Vérifier si une traduction en français existe
+                                    $hasFrenchTranslation = $spot->hasTranslation('fr');
+                                    ?>
+
+                                    <tr onclick="updateMap({{$spot->id}},{{$spot->lat}},{{$spot->lng}})">
+                                        <th scope="row" style="{{$hasFrenchTranslation ? '' : 'background-color: red;'}}">{{$spot->id}}({{$spot->nbdistance}})
+                                            @if($spot->audioguide)
+                                            <i class="fas fa-volume-up" title="Audioguide disponible"></i> <!-- Icône audio -->
+                                            @endif
+                                        </th>
+                                        <td>{{$spot->pays->pays}}</td>
+                                        <td>{{$spot->name}}</td>
+                                        <td><img src="{{$spot->imgpanosmall}}"></td>
+                                        <td style="min-width:160px"><a class="btn btn-sm btn-success" onclick="editMarker({{$spot->id}});">Mise à jour</a>
+                                            <a class="btn btn-sm btn-warning" onclick="delMarker({{$spot->id}});">Suppr</a>
+                                            <a class="btn btn-sm btn-warning" onclick="social({{$spot->id}});">MAJ infos</a>
+                                            <a class="btn btn-sm btn-danger" onclick="deleteDistances({{ $spot->id }});">Suppr Distances</a>
+                                        </td>
+                                    </tr>
+                                    @endforeach
+
+                                </tbody>
+                            </table>
+                            <div>
+                                {!! $spots->appends(request()->query())->links() !!}
+                            </div>
+                        </div>
+                        <form id="deleteDistancesForm" action="{{ route('delete.distances') }}" method="POST" style="display:none;">
+                            @csrf
+                            <input type="hidden" name="point_id" id="pointId">
+                        </form>
+                        <div class="col-4">
+                            <div class="row">
+                                <div id="map"></div>
+                            </div>
+                            <div class="group-form pt-2">
+                                Lat : <input class="input" type="text" id="lattxt" name="lattxt">
+                            </div>
+                            <div class="group-form pt-2">
+                                Lng : <input class="input" type="text" id="lngtxt" name="lngtxt">
+                            </div>
+                            <div class="row pl-4 pt-4">
+                                <a class="btn btn-large btn-success" onclick="updateMarker();">Mise à jour</a>
 
 
 
 
-              </div>
+                            </div>
 
 
 
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-      </div>
 
 
-      <div class="row">
+            <div class="row">
 
-        <div class="row">
+                <div class="row">
 
 
 
 
-          Filtrage pour choisir les pays
+                    Filtrage pour choisir les pays
 
-          <div>
-          </div>
+                    <div>
+                    </div>
 </section>
 </div>
 @else
 <section id="news" class="news">
-  <div class="container">
-    <div class="row text-center">
-      {{ __('index.NoAccess') }}
+    <div class="container">
+        <div class="row text-center">
+            {{ __('index.NoAccess') }}
+        </div>
     </div>
-  </div>
 </section>
 @endif
 @endauth
 @guest
 <section id="news" class="news">
-  <div class="container">
-    <div class="row text-center">
-      {{ __('index.NoAccess') }}
+    <div class="container">
+        <div class="row text-center">
+            {{ __('index.NoAccess') }}
+        </div>
     </div>
-  </div>
 </section>
 @endguest
 
