@@ -1095,7 +1095,7 @@ class SpotsController extends Controller
                     'latitude' => $spot->lat,
                     'longitude' => $spot->lng,
                     'img360' => $spot->img360,
-                    'radotime' => $spot->randotime,
+                    'randotime' => $spot->randotime,
                     'parking' => $spot->parkingpayant,
                     'timeonsite' => $spot->timeonsite,
                     'guidetext' => $spot->translations->first()->guidetext ?? null,
