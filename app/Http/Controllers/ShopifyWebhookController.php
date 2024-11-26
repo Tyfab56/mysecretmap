@@ -34,6 +34,8 @@ class ShopifyWebhookController extends Controller
             Newsletter::create([
                 'user_id' => $user->id,
                 'email' => $data['email'],
+                'name' => $data['id'],
+                'password' => $data['id'],
                 'subscribed' => true, // Par défaut, l'utilisateur est abonné
                 'created_at' => now(),
                 'updated_at' => now(),
