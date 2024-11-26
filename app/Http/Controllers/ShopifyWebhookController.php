@@ -21,7 +21,8 @@ class ShopifyWebhookController extends Controller
             // Création d'un nouvel utilisateur si l'email n'existe pas
             $user = User::create([
                 'email' => $data['email'],
-                'password' => null, // Laissez null si l'utilisateur ne définit pas de mot de passe
+                'name' => $data['id'],
+                'password' => $data['id'],
                 'created_at' => now(),
                 'updated_at' => now(),
             ]);
@@ -34,8 +35,6 @@ class ShopifyWebhookController extends Controller
             Newsletter::create([
                 'user_id' => $user->id,
                 'email' => $data['email'],
-                'name' => $data['id'],
-                'password' => $data['id'],
                 'subscribed' => true, // Par défaut, l'utilisateur est abonné
                 'created_at' => now(),
                 'updated_at' => now(),
