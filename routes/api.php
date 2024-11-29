@@ -39,3 +39,4 @@ Route::get('/anecdotes/random', [AnecdoteController::class, 'getRandomAnecdotes'
 Route::get('/aroundspot', [SpotsController::class, 'getNearbySpots']);
 
 Route::get('/check-activation', [ActivationController::class, 'activateCode']);
+Route::get('/demo-generation', [ActivationController::class, 'generateDemoCode']);

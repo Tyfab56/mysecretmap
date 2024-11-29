@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Shopifysales;
 use App\Models\User;
 use App\Models\Newsletter;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Mail;
 
 class ActivationController extends Controller
 {
@@ -115,5 +117,62 @@ class ActivationController extends Controller
             'user_id' => $user->id,
             'newsletter' => $newsletter->subscribed
         ], 200);
+    }
+
+
+
+    public function generateDemoCode(Request $request)
+    {
+        // Valider les paramètres reçus
+        $request->validate([
+            'email' => 'required|email',
+            'lang' => 'required|string|in:fr,en,de', // Langue limitée à fr, en, de
+            'idproduit' => 'required|string',
+        ]);
+
+        $email = $request->email;
+        $lang = $request->lang;
+        $idproduit = $request->idproduit;
+
+        // Générer un code unique DEM-XXXXXX
+        do {
+            $activationCode = 'DEM-' . strtoupper(Str::random(6)); // Lettres + chiffres aléatoires
+            $exists = Shopifysales::where('activation', $activationCode)->exists();
+        } while ($exists); // S'assurer que le code est unique
+
+        // Créer une nouvelle ligne dans shopifysales
+        Shopifysales::create([
+            'email' => $email,
+            'idproduit' => $idproduit,
+            'activation' => $activationCode,
+            'installation' => 0,
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        // Rédiger le contenu du mail en fonction de la langue
+        $messages = [
+            'fr' => "Bonjour,\n\nVoici votre code de démo : $activationCode\n\nProfitez-en !",
+            'en' => "Hello,\n\nHere is your demo code : $activationCode\n\nEnjoy exploring amazing places!",
+            'de' => "Hallo,\n\nHier ist Ihr Demo-Code : $activationCode\n\nViel Spaß beim Erkunden fantastischer Orte!",
+        ];
+
+        $subject = [
+            'fr' => 'Votre code de démo My Secret Map',
+            'en' => 'Your My Secret Map Demo Code',
+            'de' => 'Ihr My Secret Map Demo-Code',
+        ];
+
+        // Envoyer un email avec le code d'activation
+        Mail::raw($messages[$lang], function ($message) use ($email, $subject, $lang) {
+            $message->to($email)
+                ->subject($subject[$lang]);
+        });
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Code de démo généré et envoyé avec succès.',
+
+        ]);
     }
 }
