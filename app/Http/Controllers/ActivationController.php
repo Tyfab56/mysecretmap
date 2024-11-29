@@ -14,16 +14,20 @@ class ActivationController extends Controller
         // Valider la requête entrante pour vérifier qu'un code est bien fourni
         $request->validate([
             'code' => 'required|string',
-            'email' => 'required|email'
+            'email' => 'required|email',
+            'country' => 'required|string',
         ]);
 
 
         // Récupérer le code d'activation depuis les paramètres de la requête GET
         $code = $request->query('code');
         $email = $request->query('email');
+        $country = strtoupper($request->query('country'));
 
         // Recherche du code d'activation dans la table `shopifysales`
-        $shopifysale = Shopifysales::where('activation', $code)->first();
+        $shopifysale = Shopifysales::where('activation', $code)
+            ->where('idproduit', 'LIKE', "%{$country}%")
+            ->first();
 
         if (!$shopifysale) {
             return response()->json([
