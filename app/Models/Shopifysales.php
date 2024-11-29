@@ -11,6 +11,7 @@ class Shopifysales extends Model
 
     protected $fillable = [
         'id',
+        'user_id',
         'email',
         'price',
         'currency',

@@ -26,6 +26,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::post('/shopify-webhook', [ShopifyWebhookController::class, 'handleWebhook']);
 
+
 Route::get('/testapi/{idspot}/', [ApiController::class, 'AfficheVideo']);
 Route::get('/video/{id}/{locale}', [VideoController::class, 'show']);
 
@@ -34,5 +35,7 @@ Route::get('/guideislparam', [GuideislParamsController::class, 'getGuideISParams
 Route::get('/guidespots', [SpotsController::class, 'getGuideSpots']);
 
 Route::get('/anecdotes/random', [AnecdoteController::class, 'getRandomAnecdotes']);
-Route::get('/check-activation', [ActivationController::class, 'activateCode']);
+
 Route::get('/aroundspot', [SpotsController::class, 'getNearbySpots']);
+
+Route::get('/check-activation', [ActivationController::class, 'activateCode']);

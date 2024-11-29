@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Shopifysales;
 use App\Models\User;
 use App\Models\Newsletter;
+use Illuminate\Support\Facades\Http;
 
 class ShopifyWebhookController extends Controller
 {
@@ -16,6 +17,8 @@ class ShopifyWebhookController extends Controller
 
         // Vérification si l'email existe déjà dans la table 'users'
         $user = User::where('email', $data['email'])->first();
+
+        //todo, il faudra mettre le code d'activation reçu comme password (temporairement)
 
         if (!$user) {
             // Création d'un nouvel utilisateur si l'email n'existe pas
@@ -50,8 +53,14 @@ class ShopifyWebhookController extends Controller
             'status' => $data['financial_status'],
             'created_at' => $data['created_at'],
             'idproduit' => $data['line_items'][0]['sku'],
+            'activation' => $data['id'],
             // Ajoutez d'autres champs si nécessaire
         ]);
+
+        // créer le code d'activation et l'ajouter à la table
+        // envoyer un email à la personne pour confirmer le code d'activation
+        // voir si cela peut etre fait avec make ? -> créer un webhook sur maket pour gerer la partie email
+        //et renvoyer le hook ici pour l'isncription des données dans la table
 
         return response()->json(['message' => 'Webhook traité avec succès'], 200);
     }
