@@ -45,7 +45,7 @@ class ActivationController extends Controller
         if ($shopifysale->email && $shopifysale->email !== $email) {
             return response()->json([
                 'success' => false,
-                'error_code' => 'EMAIL_MISMATCH'
+                'errorCode' => 'EMAIL_MISMATCH'
             ], 200);
         }
 
