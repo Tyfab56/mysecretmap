@@ -105,9 +105,11 @@ class ActivationController extends Controller
             $newsletter->save();
         }
 
-
+        $status = str_starts_with($code, 'ACT-') ? 'ABONNE' : (str_starts_with($code, 'DEM-') ? 'DEMO' : 'UNKNOWN');
         return response()->json([
             'success' => true,
+            'code' => $code,
+            'status' => $status,
             'message' => 'Code activé avec succès.',
             'remaining_installations' => 3 - $shopifysale->installation,
             'user_id' => $user->id,
