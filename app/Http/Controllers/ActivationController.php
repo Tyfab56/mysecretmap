@@ -134,6 +134,21 @@ class ActivationController extends Controller
         $lang = $request->lang;
         $idproduit = $request->idproduit;
 
+        // Vérifier si un code existe déjà pour ce produit et cet email
+        $existingCode = Shopifysales::where('email', $email)
+            ->where('idproduit', $idproduit)
+            ->first();
+
+        if ($existingCode) {
+            // Envoyer le code existant par email
+            $this->sendDemoCodeEmail($email, $lang, $existingCode->activation);
+
+            return response()->json([
+                'success' => true,
+                'message' => 'Un code existant a été trouvé et envoyé par email.',
+            ], 200);
+        }
+
         // Générer un code unique DEM-XXXXXX
         do {
             $activationCode = 'DEM-' . strtoupper(Str::random(6)); // Lettres + chiffres aléatoires
