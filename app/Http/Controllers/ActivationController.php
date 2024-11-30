@@ -141,7 +141,7 @@ class ActivationController extends Controller
 
         if ($activationCodePresent) {
             // Envoyer le code existant par email
-            $this->sendDemoCodeEmail($email, $lang, $activationCodePresent->activation);
+            $activationCode =  $activationCodePresent->activation;
         } else {
             // Générer un code unique DEM-XXXXXX
             do {
