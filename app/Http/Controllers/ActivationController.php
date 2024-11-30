@@ -108,7 +108,7 @@ class ActivationController extends Controller
             $newsletter->save();
         }
 
-        $status = str_starts_with($code, 'ACT-') ? 'ABONNE' : (str_starts_with($code, 'DEM-') ? 'DEMO' : 'UNKNOWN');
+        $status = stripos($code, 'ACT-') === 0 ? 'ABONNE' : (stripos($code, 'DEM-') === 0 ? 'DEMO' : 'UNKNOWN');
         return response()->json([
             'success' => true,
             'code' => $code,
