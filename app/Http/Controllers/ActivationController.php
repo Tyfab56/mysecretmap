@@ -115,7 +115,7 @@ class ActivationController extends Controller
             'status' => $status,
             'message' => 'Code activé avec succès.',
             'remaining_installations' => 3 - $shopifysale->installation,
-            'user_id' => $user->id,
+            'user_id' => $shopifysale->user_id,
             'newsletter' => $newsletter->subscribed
         ], 200);
     }
