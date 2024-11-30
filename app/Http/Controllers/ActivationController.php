@@ -82,11 +82,12 @@ class ActivationController extends Controller
                     'created_at' => now(),
                     'updated_at' => now()
                 ]);
-                $shopifysale->user_id = $user->id;
-                $shopifysale->save();
-                // Ajouter ce user dans ShopifySales
-
             }
+            $shopifysale->user_id = $user->id;
+            $shopifysale->save();
+            // Ajouter ce user dans ShopifySales
+
+
         }
 
         $newsletter = Newsletter::firstOrCreate(
