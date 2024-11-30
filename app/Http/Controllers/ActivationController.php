@@ -135,35 +135,34 @@ class ActivationController extends Controller
         $idproduit = $request->idproduit;
 
         // Vérifier si un code existe déjà pour ce produit et cet email
-        $existingCode = Shopifysales::where('email', $email)
+        $activationCodePresent = Shopifysales::where('email', $email)
             ->where('idproduit', $idproduit)
             ->first();
 
-        if ($existingCode) {
+        if ($activationCodePresent) {
             // Envoyer le code existant par email
-            $this->sendDemoCodeEmail($email, $lang, $existingCode->activation);
+            $this->sendDemoCodeEmail($email, $lang, $activationCodePresent->activation);
+        } else {
+            // Générer un code unique DEM-XXXXXX
+            do {
+                $activationCode = 'DEM-' . strtoupper(Str::random(6)); // Lettres + chiffres aléatoires
+                $exists = Shopifysales::where('activation', $activationCode)->exists();
+            } while ($exists); // S'assurer que le code est unique
 
-            return response()->json([
-                'success' => true,
-                'message' => 'Un code existant a été trouvé et envoyé par email.',
-            ], 200);
+
+            // Créer une nouvelle ligne dans shopifysales
+            Shopifysales::create([
+                'email' => $email,
+                'idproduit' => $idproduit,
+                'activation' => $activationCode,
+                'installation' => 0,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]);
         }
 
-        // Générer un code unique DEM-XXXXXX
-        do {
-            $activationCode = 'DEM-' . strtoupper(Str::random(6)); // Lettres + chiffres aléatoires
-            $exists = Shopifysales::where('activation', $activationCode)->exists();
-        } while ($exists); // S'assurer que le code est unique
 
-        // Créer une nouvelle ligne dans shopifysales
-        Shopifysales::create([
-            'email' => $email,
-            'idproduit' => $idproduit,
-            'activation' => $activationCode,
-            'installation' => 0,
-            'created_at' => now(),
-            'updated_at' => now(),
-        ]);
+
 
         // Rédiger le contenu du mail en fonction de la langue
         $messages = [
