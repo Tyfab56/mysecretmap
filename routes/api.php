@@ -9,6 +9,7 @@ use App\Http\Controllers\GuideislParamsController;
 use App\Http\Controllers\SpotsController;
 use App\Http\Controllers\AnecdoteController;
 use App\Http\Controllers\ActivationController;
+use App\Http\Controllers\CircuitsController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -40,3 +41,5 @@ Route::get('/aroundspot', [SpotsController::class, 'getNearbySpots']);
 
 Route::get('/check-activation', [ActivationController::class, 'activateCode']);
 Route::get('/demo-generation', [ActivationController::class, 'generateDemoCode']);
+
+Route::post('/api/circuits/optimize', [CircuitsController::class, 'optimizeCircuit']);

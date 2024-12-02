@@ -99,4 +99,11 @@ class Spots extends Model implements TranslatableContract
     {
         return $this->hasMany(MediasSpotApp::class, 'spot_id', 'id')->orderBy('media_rank');
     }
+
+    public function firstPhotoApp()
+    {
+        return $this->hasOne(MediasSpotApp::class, 'spot_id', 'id')
+            ->where('media_type', 'photo')
+            ->orderBy('media_rank');
+    }
 }
