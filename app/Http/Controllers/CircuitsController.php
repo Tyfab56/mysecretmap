@@ -75,6 +75,8 @@ class CircuitsController extends Controller
                 'image_url' => $spot->firstPhotoApp?->media_filename ?? null,
                 'distance' => $closestSpotData->metres,
                 'duration' => $closestSpotData->temps,
+                'lat' => $spot->lat,
+                'lng' => $spot->lng,
                 'time_on_spot' => $spot->timeonsite,
                 'hiking_time' => $spot->randotime,
                 'parking_paid' => $spot->parkingpayant,
