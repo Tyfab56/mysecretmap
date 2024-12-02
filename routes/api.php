@@ -42,4 +42,4 @@ Route::get('/aroundspot', [SpotsController::class, 'getNearbySpots']);
 Route::get('/check-activation', [ActivationController::class, 'activateCode']);
 Route::get('/demo-generation', [ActivationController::class, 'generateDemoCode']);
 
-Route::post('/api/circuits/optimize', [CircuitsController::class, 'optimizeCircuit']);
+Route::post('/circuits/optimize', [CircuitsController::class, 'optimizeCircuit']);
