@@ -72,7 +72,7 @@ class CircuitsController extends Controller
             $orderedSpots[] = [
                 'spot_id' => $spot->id,
                 'title' => $spot->name,
-                'image_url' => $spot->media->first()?->media_filename ?? null,
+                'image_url' => $spot->firstPhotoApp?->media_filename ?? null,
                 'distance' => $closestSpotData->metres,
                 'duration' => $closestSpotData->temps,
                 'time_on_spot' => $spot->timeonsite,
