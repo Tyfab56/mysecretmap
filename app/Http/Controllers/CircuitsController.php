@@ -51,6 +51,21 @@ class CircuitsController extends Controller
         $totalDistance = 0;
         $totalDuration = 0;
 
+        // Ajouter le point de départ à la liste ordonnée
+        $startSpot = Spots::with('firstPhotoApp')->find($startSpotId);
+        $orderedSpots[] = [
+            'spot_id' => $startSpot->id,
+            'title' => $startSpot->name,
+            'image_url' => $startSpot->firstPhotoApp?->media_filename ?? null,
+            'distance' => 0, // Le point de départ n'a pas de distance
+            'duration' => 0, // Le point de départ n'a pas de durée
+            'lat' => $startSpot->lat,
+            'lng' => $startSpot->lng,
+            'time_on_spot' => $startSpot->timeonsite,
+            'hiking_time' => $startSpot->randotime,
+            'parking_paid' => $startSpot->parkingpayant,
+        ];
+
 
         while (!empty($remainingSpots)) {
             // Récupérer les distances pour le spot courant, trier par temps croissant
