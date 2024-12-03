@@ -113,6 +113,8 @@ class CircuitsController extends Controller
             'distance_total' => $totalDistance,
             'duration_total' => $totalDuration,
         ]);
+        // Compter le nombre de spots dans le circuit
+        $spotCount = count($orderedSpots);
 
         return response()->json([
             'user_id' => $userId,
@@ -120,6 +122,7 @@ class CircuitsController extends Controller
             'circuit' => $orderedSpots,
             'total_distance' => $totalDistance,
             'total_duration' => $totalDuration,
+            'spot_count' => $spotCount,
         ]);
     }
 }

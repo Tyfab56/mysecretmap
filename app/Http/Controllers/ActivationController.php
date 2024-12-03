@@ -108,15 +108,18 @@ class ActivationController extends Controller
             $newsletter->save();
         }
 
+
         $status = stripos($code, 'ACT-') === 0 ? 'ABONNE' : (stripos($code, 'DEM-') === 0 ? 'DEMO' : 'UNKNOWN');
         return response()->json([
             'success' => true,
             'code' => $code,
             'status' => $status,
+            'email' => $email,
             'message' => 'Code activé avec succès.',
             'remaining_installations' => 3 - $shopifysale->installation,
             'user_id' => $shopifysale->user_id,
-            'newsletter' => $newsletter->subscribed
+            'newsletter' => $newsletter->subscribed,
+
         ], 200);
     }
 
