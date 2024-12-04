@@ -301,11 +301,10 @@ class CircuitsController extends Controller
             $orderedSpots[] = [
                 'spot_id' => $spot->id,
                 'title' => $spot->translations->first()?->title ?? $spot->name,
-                'description' => $spot->translations->first()?->description,
-                'moreguidetext' => $spot->translations->first()?->moreguidetext,
+                'description' => $spot->translations->first()?->moreguidetext,
                 'lat' => $spot->lat,
                 'lng' => $spot->lng,
-                'image_url' => $spot->firstPhotoApp?->media_url,
+                'image_url' => $spot->firstPhotoApp?->media_filename,
                 'time_on_spot' => $spot->timeonsite,
                 'hiking_time' => $spot->randotime,
                 'parking_paid' => $spot->parkingpayant,
@@ -333,6 +332,6 @@ class CircuitsController extends Controller
             'total_distance' => $totalDistance,
             'total_duration' => $totalDuration,
             'spot_count' => $spotCount,
-        ], 200, [], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+        ], 200, []);
     }
 }
