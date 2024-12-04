@@ -42,6 +42,6 @@ class AppCircuit extends Model
      */
     public function spots()
     {
-        return $this->hasMany(AppCircuitSpot::class);
+        return $this->hasMany(AppCircuitSpot::class, 'circuit_id'); // Remplacez par la bonne clé étrangère
     }
 }
