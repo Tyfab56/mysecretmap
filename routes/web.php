@@ -341,7 +341,8 @@ Route::post('/admin/audioguides/remove', [AudioguideController::class, 'removeSp
 Route::post('/admin/import-audioguides', [AudioguideController::class, 'importAudioguides'])->name('admin.importAudioguides');
 
 Route::resource('gift-products', GiftProductController::class)->middleware('App\Http\Middleware\CheckAdmin');
-Route::get('/generate-circuits-json', [CircuitsController::class, 'generateJson'])->name('circuits.generateJson')->middleware('App\Http\Middleware\CheckAdmin');
+Route::get('/generate-circuits-json', [CircuitsController::class, 'generateJson'])->name('circuits.generate-json')->middleware('App\Http\Middleware\CheckAdmin');
+
 Route::get('/admin/generate_json', function () {
     return view('admin.generate_json');
 })->name('generate_json');
