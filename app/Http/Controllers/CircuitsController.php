@@ -223,6 +223,7 @@ class CircuitsController extends Controller
             ->with('spot')
             ->get();
 
+
         // Trouver le spot de départ avec le rang = 1
         $startingSpotData = $spotsData->firstWhere('rank', 1);
         if (!$startingSpotData) {
@@ -276,12 +277,15 @@ class CircuitsController extends Controller
             $remainingSpots = $remainingSpots->filter(fn($spot) => $spot->spot_id !== $closestSpotId);
         }
 
+        // Calcul du nombre total de spots
+        $spotCount = $spotsData->count();
         // Sauvegarde des totaux dans la table `appcircuits`
         $circuit->update([
-            'distance_total' => $totalDistance,
-            'duration_total' => $totalDuration,
-            'randotime_total' => $totalRandotime,
-            'timeonsite_total' => $totalTimeonsite,
+            'distance' => $totalDistance,
+            'duration' => $totalDuration,
+            'randotime' => $totalRandotime,
+            'timeonsite' => $totalTimeonsite,
+            'nbspots' => $spotCount,
         ]);
 
         return response()->json([
