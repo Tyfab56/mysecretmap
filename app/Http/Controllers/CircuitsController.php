@@ -266,8 +266,7 @@ class CircuitsController extends Controller
         $orderedSpots[] = [
             'spot_id' => $startingSpot->id,
             'title' => $startingSpot->translations->first()?->title ?? $startingSpot->name,
-            'description' => $startingSpot->translations->first()?->description,
-            'moreguidetext' => $startingSpot->translations->first()?->moreguidetext,
+            'description' => $startingSpot->translations->first()?->moreguidetext,
             'lat' => $startingSpot->lat,
             'lng' => $startingSpot->lng,
             'image_url' => $startingSpot->firstPhotoApp?->media_filename,
