@@ -181,4 +181,47 @@ class CircuitsController extends Controller
             'message' => 'JSON files generated successfully!',
         ]);
     }
+
+    public function getCircuits($lang, $country)
+    {
+        // Vérifier si la langue est valide
+        $languages = Langs::where('actif', 1)->pluck('idlang')->toArray();
+        if (!in_array($lang, $languages)) {
+            return response()->json(['error' => 'Invalid language'], 400);
+        }
+
+        // Récupérer tous les circuits actifs pour le pays spécifié
+        $circuits = AppCircuit::with(['translations', 'spots.spot'])
+            ->where('actif', 1)
+            ->where('pays_id', $country)
+            ->get();
+
+        // Construire les données JSON
+        $data = $circuits->map(function ($circuit) use ($lang) {
+            $translation = $circuit->translations->firstWhere('locale', $lang);
+
+            $firstSpot = $circuit->spots->sortBy('rank')->first();
+            $firstImage = $firstSpot && $firstSpot->spot && $firstSpot->spot->firstPhotoApp
+                ? $firstSpot->spot->firstPhotoApp->media_url
+                : null;
+
+            return [
+                'id' => $circuit->id,
+                'title' => $translation->title ?? 'Title not available',
+                'description' => $translation->description ?? 'Description not available',
+                'days' => $circuit->days,
+                'nbspots' => $circuit->nbspots,
+                'image' => $firstImage,
+                'spots' => $circuit->spots->map(function ($spot) {
+                    return [
+                        'id' => $spot->spot_id,
+                        'rank' => $spot->rank,
+                        'type' => $spot->is_in_circuit ? 'in' : 'bonus',
+                    ];
+                })->toArray(),
+            ];
+        });
+
+        return response()->json($data, 200, []);
+    }
 }

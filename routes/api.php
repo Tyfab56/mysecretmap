@@ -43,3 +43,5 @@ Route::get('/check-activation', [ActivationController::class, 'activateCode']);
 Route::get('/demo-generation', [ActivationController::class, 'generateDemoCode']);
 
 Route::post('/circuits/optimize', [CircuitsController::class, 'optimizeCircuit']);
+
+Route::get('/circuits/{lang}/{country}', [CircuitsController::class, 'getCircuits']);
