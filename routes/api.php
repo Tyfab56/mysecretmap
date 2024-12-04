@@ -46,4 +46,4 @@ Route::post('/circuits/optimize', [CircuitsController::class, 'optimizeCircuit']
 
 Route::get('/circuits/{lang}/{country}', [CircuitsController::class, 'getCircuits']);
 Route::post('/addspotcircuit', [CircuitsController::class, 'addSpotToCircuit']);
-Route::get('/api/circuit/optimized-details', [CircuitsController::class, 'getOptimizedCircuitDetails']);
+Route::get('/circuit/optimized-details', [CircuitsController::class, 'getOptimizedCircuitDetails']);
