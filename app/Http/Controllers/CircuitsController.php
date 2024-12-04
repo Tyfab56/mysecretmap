@@ -270,7 +270,7 @@ class CircuitsController extends Controller
             'moreguidetext' => $startingSpot->translations->first()?->moreguidetext,
             'lat' => $startingSpot->lat,
             'lng' => $startingSpot->lng,
-            'image_url' => $startingSpot->firstPhotoApp?->media_url,
+            'image_url' => $startingSpot->firstPhotoApp?->media_filename,
             'time_on_spot' => $startingSpot->timeonsite,
             'hiking_time' => $startingSpot->randotime,
             'parking_paid' => $startingSpot->parkingpayant,
