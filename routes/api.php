@@ -45,3 +45,4 @@ Route::get('/demo-generation', [ActivationController::class, 'generateDemoCode']
 Route::post('/circuits/optimize', [CircuitsController::class, 'optimizeCircuit']);
 
 Route::get('/circuits/{lang}/{country}', [CircuitsController::class, 'getCircuits']);
+Route::post('/addspotcircuit', [CircuitsController::class, 'addSpotToCircuit']);

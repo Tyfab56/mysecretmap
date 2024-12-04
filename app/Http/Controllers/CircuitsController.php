@@ -168,4 +168,61 @@ class CircuitsController extends Controller
 
         return response()->json($data, 200, []);
     }
+    public function addSpotToCircuit(Request $request)
+    {
+        // Validation des données entrantes
+        $validated = $request->validate([
+            'circuit_id' => 'required|exists:appcircuits,id',
+            'spot_id' => 'required|exists:spots,id',
+            'is_in_circuit' => 'required|boolean',
+        ]);
+
+        // Vérifie que le circuit est actif
+        $circuit = AppCircuit::find($validated['circuit_id']);
+        if (!$circuit->actif) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Le circuit est inactif.',
+            ], 200);
+        }
+
+        // Vérifie que le spot existe
+        $spot = Spots::find($validated['spot_id']);
+        if (!$spot) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Le spot spécifié est introuvable.',
+            ], 200);
+        }
+        // Calcul du rang en fonction de la catégorie (is_in_circuit)
+        $nextRankInCircuit = AppCircuitSpot::where('circuit_id', $validated['circuit_id'])
+            ->where('is_in_circuit', true)
+            ->count() + 1;
+
+        $nextRankBonus = AppCircuitSpot::where('circuit_id', $validated['circuit_id'])
+            ->where('is_in_circuit', false)
+            ->count() + 1;
+
+        $rank = $validated['is_in_circuit'] ? $nextRankInCircuit : $nextRankBonus;
+
+
+        // Ajouter ou mettre à jour l'entrée
+        $circuitSpot = AppCircuitSpot::updateOrCreate(
+            [
+                'circuit_id' => $validated['circuit_id'],
+                'spot_id' => $validated['spot_id'],
+
+            ],
+            [
+                'is_in_circuit' => $validated['is_in_circuit'],
+                'rank' => $rank,
+            ]
+        );
+
+        return response()->json([
+            'status' => 'success',
+            'message' => 'Spot ajouté ou mis à jour dans le circuit.',
+            'data' => $circuitSpot,
+        ]);
+    }
 }
