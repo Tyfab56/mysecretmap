@@ -19,8 +19,12 @@ class GiftProductController extends Controller
     }
 
     public function create()
+
     {
-        return view('admin.gift-products.create');
+        $giftProducts = GiftProduct::with('translations')->get();
+
+        // Retourne la vue avec les données des produits.
+        return view('admin.gift-products.index', compact('giftProducts'));
     }
 
     public function store(Request $request)
