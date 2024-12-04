@@ -11,6 +11,9 @@ class AppCircuitSpot extends Model
      *
      * @var array
      */
+
+    protected $table = 'appcircuits_spots';
+
     protected $fillable = [
         'circuit_id',
         'spot_id',

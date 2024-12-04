@@ -20,7 +20,7 @@ class AppCircuit extends Model
         'updated_at',
     ];
 
-    public $translatedAttributes = ['name', 'description'];
+    public $translatedAttributes = ['title', 'description'];
 
     /**
      * Indique si les horodatages sont gérés automatiquement.
@@ -34,7 +34,7 @@ class AppCircuit extends Model
      */
     public function translations()
     {
-        return $this->hasMany(AppCircuitTranslation::class);
+        return $this->hasMany(AppCircuitTranslation::class, 'circuit_id');
     }
 
     /**
