@@ -2,7 +2,7 @@
 @section('content')
 <div>
     <h1>Créer un produit</h1>
-    <form action="{{ route('admin.gift-products.store') }}" method="POST">
+    <form action="{{ route('gift-products.store') }}" method="POST">
         @csrf
         <div>
             <label>Image URL</label>

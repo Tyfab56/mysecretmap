@@ -2,7 +2,7 @@
 @section('content')
 <div>
     <h1>Liste des produits</h1>
-    <a href="{{ route('admin.gift-products.create') }}" class="btn btn-primary">Créer un produit</a>
+    <a href="{{ route('gift-products.create') }}" class="btn btn-primary">Créer un produit</a>
 
     <table class="table">
         <thead>
@@ -22,8 +22,8 @@
                 <td>{{ $product->translate('en')->title ?? 'N/A' }}</td>
                 <td>{{ $product->price }}</td>
                 <td>
-                    <a href="{{ route('admin.gift-products.edit', $product) }}" class="btn btn-warning">Éditer</a>
-                    <form action="{{ route('admin.gift-products.destroy', $product) }}" method="POST" style="display:inline-block">
+                    <a href="{{ route('gift-products.edit', $product) }}" class="btn btn-warning">Éditer</a>
+                    <form action="{{ route('gift-products.destroy', $product) }}" method="POST" style="display:inline-block">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger">Supprimer</button>
