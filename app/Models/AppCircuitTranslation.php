@@ -11,6 +11,8 @@ class AppCircuitTranslation extends Model
      *
      * @var array
      */
+
+    protected $table = 'appcircuits_translation';
     protected $fillable = [
         'circuit_id',
         'locale',
