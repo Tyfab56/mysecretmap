@@ -68,16 +68,7 @@
             </div>
         </div>
     </div>
-    <div class="col-md-4 mb-4">
-        <div class="card">
-            <div class="card-body">
-                <a href="{{ route('generate_json') }}" class="btn btn-primary btn-lg">
-                    Générer les fichiers JSON
-                </a>
 
-            </div>
-        </div>
-    </div>
 </div>
 
 @endsection
