@@ -342,7 +342,7 @@ Route::post('/admin/import-audioguides', [AudioguideController::class, 'importAu
 
 Route::resource('gift-products', GiftProductController::class)->middleware('App\Http\Middleware\CheckAdmin');
 Route::get('/generate-circuits-json', [CircuitsController::class, 'generateJson'])->name('circuits.generateJson')->middleware('App\Http\Middleware\CheckAdmin');
-Route::get('/admin/generate-json', function () {
+Route::get('/admin/generate_json', function () {
     return view('generate_json');
 })->name('generate.json');
 
