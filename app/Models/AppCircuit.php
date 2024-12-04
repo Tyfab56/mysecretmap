@@ -8,6 +8,7 @@ use Astrotomic\Translatable\Translatable;
 class AppCircuit extends Model
 {
     use Translatable;
+    protected $table = 'appcircuits';
 
     protected $fillable = [
         'pays_id',
