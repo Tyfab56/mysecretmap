@@ -152,7 +152,7 @@ class CircuitsController extends Controller
 
             $firstSpot = $circuit->spots->sortBy('rank')->first();
             $firstImage = $firstSpot && $firstSpot->spot && $firstSpot->spot->firstPhotoApp
-                ? $firstSpot->spot->firstPhotoApp->media_url
+                ? $firstSpot->spot->firstPhotoApp->media_filename
                 : null;
 
             return [
