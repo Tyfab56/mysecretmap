@@ -16,6 +16,10 @@ class AppCircuit extends Model
         'rang',
         'actif',
         'nbspots',
+        'timeonsite',
+        'randotime',
+        'duration',
+        'distance',
         'created_at',
         'updated_at',
     ];

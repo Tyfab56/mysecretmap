@@ -158,6 +158,8 @@ class CircuitsController extends Controller
             // Calculer dynamiquement le nombre de spots
             $spotCount = $circuit->spots->count();
 
+
+
             return [
                 'id' => $circuit->id,
                 'title' => $translation->title ?? 'Title not available',
@@ -197,37 +199,99 @@ class CircuitsController extends Controller
                 'message' => 'Le spot spécifié est introuvable.',
             ], 200);
         }
-        // Calcul du rang en fonction de la catégorie (is_in_circuit)
-        $nextRankInCircuit = AppCircuitSpot::where('circuit_id', $validated['circuit_id'])
-            ->where('is_in_circuit', true)
-            ->count() + 1;
 
-        $nextRankBonus = AppCircuitSpot::where('circuit_id', $validated['circuit_id'])
-            ->where('is_in_circuit', false)
-            ->count() + 1;
-
-        $rank = $validated['is_in_circuit'] ? $nextRankInCircuit : $nextRankBonus;
-
+        // Calcul du nouveau rang pour le spot ajouté
+        $maxRank = AppCircuitSpot::where('circuit_id', $validated['circuit_id'])
+            ->where('is_in_circuit', $validated['is_in_circuit'])
+            ->max('rank');
+        $newRank = $maxRank + 1;
 
         // Ajouter ou mettre à jour l'entrée
         $circuitSpot = AppCircuitSpot::updateOrCreate(
             [
                 'circuit_id' => $validated['circuit_id'],
                 'spot_id' => $validated['spot_id'],
-
             ],
             [
                 'is_in_circuit' => $validated['is_in_circuit'],
-                'rank' => $rank,
+                'rank' => $newRank,
             ]
         );
 
+        // Récupérer tous les spots du circuit pour optimisation
+        $spotsData = AppCircuitSpot::where('circuit_id', $circuit->id)
+            ->with('spot')
+            ->get();
+
+        // Trouver le spot de départ avec le rang = 1
+        $startingSpotData = $spotsData->firstWhere('rank', 1);
+        if (!$startingSpotData) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Aucun point de départ trouvé avec le rang 1.',
+            ], 400);
+        }
+
+        $startSpotId = $startingSpotData->spot_id;
+        $remainingSpots = $spotsData->filter(fn($spot) => $spot->spot_id !== $startSpotId);
+
+        $currentSpotId = $startSpotId;
+        $totalDistance = 0;
+        $totalDuration = 0;
+        $totalRandotime = 0;
+        $totalTimeonsite = 0;
+        $rank = 1;
+
+        // Optimiser les spots
+        while ($remainingSpots->isNotEmpty()) {
+            // Trouver le spot le plus proche
+            $closestSpotData = Distances::where('spot_origine', $currentSpotId)
+                ->whereIn('spot_destination', $remainingSpots->pluck('spot_id'))
+                ->orderBy('temps', 'asc')
+                ->first();
+
+            if (!$closestSpotData) {
+                return response()->json([
+                    'error' => "No distance data available for spot $currentSpotId.",
+                ], 400);
+            }
+
+            $closestSpotId = $closestSpotData->spot_destination;
+            $spotData = $remainingSpots->firstWhere('spot_id', $closestSpotId);
+            $spot = $spotData->spot;
+
+            // Mise à jour du rang
+            AppCircuitSpot::where('circuit_id', $circuit->id)
+                ->where('spot_id', $spot->id)
+                ->update(['rank' => ++$rank]);
+
+            // Mettre à jour les totaux
+            $totalDistance += $closestSpotData->metres;
+            $totalDuration += $closestSpotData->temps;
+            $totalRandotime += $spot->randotime;
+            $totalTimeonsite += $spot->timeonsite;
+
+            // Mettre à jour le spot courant et retirer le spot traité
+            $currentSpotId = $closestSpotId;
+            $remainingSpots = $remainingSpots->filter(fn($spot) => $spot->spot_id !== $closestSpotId);
+        }
+
+        // Sauvegarde des totaux dans la table `appcircuits`
+        $circuit->update([
+            'distance_total' => $totalDistance,
+            'duration_total' => $totalDuration,
+            'randotime_total' => $totalRandotime,
+            'timeonsite_total' => $totalTimeonsite,
+        ]);
+
         return response()->json([
             'status' => 'success',
-            'message' => 'Spot ajouté ou mis à jour dans le circuit.',
+            'message' => 'Spot ajouté ou mis à jour dans le circuit et optimisation effectuée.',
             'data' => $circuitSpot,
         ]);
     }
+
+
     public function getOptimizedCircuitDetails(Request $request)
     {
         $validated = $request->validate([
@@ -263,6 +327,8 @@ class CircuitsController extends Controller
         $currentSpotId = $startSpotId;
         $totalDistance = 0;
         $totalDuration = 0;
+        $totalRandotime = 0;
+        $totalTimeonsite = 0;
 
         // Ajouter le point de départ
         $startingSpot = $startingSpotData->spot;
@@ -317,6 +383,8 @@ class CircuitsController extends Controller
             // Mettre à jour le total distance et durée
             $totalDistance += $closestSpotData->metres;
             $totalDuration += $closestSpotData->temps;
+            $totalRandotime += $spot->randotime;
+            $totalTimeonsite += $spot->timeonsite;
 
             // Mettre à jour le spot courant et retirer le spot traité
             $currentSpotId = $closestSpotId;
@@ -326,6 +394,9 @@ class CircuitsController extends Controller
         // Calculer le nombre total de spots
         $spotCount = count($orderedSpots);
 
+        // Mise à jour des infos sur la table
+
+
         // Réponse JSON
         return response()->json([
             'circuit_id' => $circuitId,
@@ -333,6 +404,8 @@ class CircuitsController extends Controller
             'spots' => $orderedSpots,
             'total_distance' => $totalDistance,
             'total_duration' => $totalDuration,
+            'total_timeonsite' => $totalTimeonsite,
+            'total_randotime' => $totalRandotime,
             'spot_count' => $spotCount,
         ], 200, []);
     }
