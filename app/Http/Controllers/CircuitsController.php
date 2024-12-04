@@ -236,7 +236,7 @@ class CircuitsController extends Controller
         $locale = $validated['locale'];
 
         // Récupérer les spots du circuit avec leurs traductions
-        $spotsData = AppCircuitSpots::with(['spot.translations' => function ($query) use ($locale) {
+        $spotsData = AppCircuitSpot::with(['spot.translations' => function ($query) use ($locale) {
             $query->where('locale', $locale);
         }, 'spot.firstPhotoApp'])
             ->where('circuit_id', $circuitId)
