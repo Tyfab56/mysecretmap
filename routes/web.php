@@ -38,6 +38,7 @@ use App\Http\Controllers\AudioguideController;
 use Illuminate\Support\Facades\File;
 use App\Http\Controllers\GiftProductController;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -339,7 +340,11 @@ Route::post('/admin/audioguides/add', [AudioguideController::class, 'addSpot'])-
 Route::post('/admin/audioguides/remove', [AudioguideController::class, 'removeSpot'])->name('admin.audioguides.remove');
 Route::post('/admin/import-audioguides', [AudioguideController::class, 'importAudioguides'])->name('admin.importAudioguides');
 
-Route::resource('gift-products', GiftProductController::class);
+Route::resource('gift-products', GiftProductController::class)->middleware('App\Http\Middleware\CheckAdmin');
+Route::get('/generate-circuits-json', [CircuitsController::class, 'generateJson'])->name('circuits.generateJson')->middleware('App\Http\Middleware\CheckAdmin');
+Route::get('/admin/generate-json', function () {
+    return view('generate_json');
+})->name('generate.json');
 
 // Add this route in routes/web.php
 // Ne pas laisser Laravel gérer les routes de la PWA

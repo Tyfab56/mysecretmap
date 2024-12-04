@@ -8,6 +8,10 @@ use App\Models\AppUserCircuit;
 use App\Models\Spots;
 use App\Models\Distances;
 use App\Models\MediasSpotApp;
+use Illuminate\Support\Facades\Storage;
+use App\Models\AppCircuit;
+use App\Models\AppCircuitSpot;
+use App\Models\Langs;
 
 
 use Illuminate\Http\Request;
@@ -123,6 +127,58 @@ class CircuitsController extends Controller
             'total_distance' => $totalDistance,
             'total_duration' => $totalDuration,
             'spot_count' => $spotCount,
+        ]);
+    }
+
+    public function generateJson()
+    {
+        // Récupérer tous les circuits actifs
+        $circuits = AppCircuit::with(['translations', 'spots.spot'])->where('actif', 1)->get();
+
+        // Langues disponibles
+        $languages = Langs::where('actif', 1)->pluck('idlang')->toArray();
+
+        $dataByLang = [];
+
+        // Construire les données JSON pour chaque langue
+        foreach ($languages as $lang) {
+            $dataByLang[$lang] = $circuits->map(function ($circuit) use ($lang) {
+                // Récupérer la traduction correspondante
+                $translation = $circuit->translations->firstWhere('locale', $lang);
+
+                // Récupérer le premier spot
+                $firstSpot = $circuit->spots->sortBy('rank')->first();
+                $firstImage = $firstSpot && $firstSpot->spot && $firstSpot->spot->firstPhotoApp
+                    ? $firstSpot->spot->firstPhotoApp->media_url
+                    : null;
+
+                return [
+                    'id' => $circuit->id,
+                    'title' => $translation->title ?? 'Title not available',
+                    'description' => $translation->description ?? 'Description not available',
+                    'days' => $circuit->days,
+                    'nbspots' => $circuit->nbspots,
+                    'image' => $firstImage,
+                    'spots' => $circuit->spots->map(function ($spot) {
+                        return [
+                            'id' => $spot->spot_id,
+                            'rank' => $spot->rank,
+                            'type' => $spot->is_in_circuit ? 'in' : 'bonus',
+                        ];
+                    })->toArray(),
+                ];
+            });
+        }
+
+        // Générer et stocker les fichiers JSON
+        foreach ($dataByLang as $lang => $data) {
+            $filePath = "assets/circuits_{$lang}.json";
+            Storage::disk('public')->put($filePath, json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+        }
+
+        return response()->json([
+            'status' => 'success',
+            'message' => 'JSON files generated successfully!',
         ]);
     }
 }

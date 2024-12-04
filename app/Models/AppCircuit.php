@@ -2,31 +2,45 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Astrotomic\Translatable\Translatable;
 
 class AppCircuit extends Model
 {
-    use HasFactory;
+    use Translatable;
 
-    // Table associée à ce modèle
-    protected $table = 'appcircuits';
-
-    // Définition des champs qui peuvent être assignés massivement
     protected $fillable = [
-        'days', // Nombre de jours du circuit
-        'pays_id', // ID du pays (clé étrangère vers la table pays)
+        'pays_id',
+        'days',
+        'rang',
+        'actif',
+        'nbspots',
+        'created_at',
+        'updated_at',
     ];
 
-    // Relation avec la table `appcircuits_translation`
+    public $translatedAttributes = ['name', 'description'];
+
+    /**
+     * Indique si les horodatages sont gérés automatiquement.
+     *
+     * @var bool
+     */
+    public $timestamps = true;
+
+    /**
+     * Relation avec les traductions.
+     */
     public function translations()
     {
-        return $this->hasMany(AppCircuitTranslation::class, 'circuit_id');
+        return $this->hasMany(AppCircuitTranslation::class);
     }
 
-    // Relation avec la table `pays` (table des pays)
-    public function pays()
+    /**
+     * Relation avec les spots du circuit.
+     */
+    public function spots()
     {
-        return $this->belongsTo(Pays::class, 'pays_id');
+        return $this->hasMany(AppCircuitSpot::class);
     }
 }
