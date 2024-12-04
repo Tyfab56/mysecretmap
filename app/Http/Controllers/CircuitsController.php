@@ -35,7 +35,7 @@ class CircuitsController extends Controller
         $spotIds = $validated['spot_ids'];
 
         // Vérifier ou créer un circuit
-        $circuit = AppUserCircuit::firstOrCreate(
+        $circuit = AppUserCircuit::updateOrCreate(
             [
                 'user_id' => $userId,
                 'country_code' => $countryCode,
