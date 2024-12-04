@@ -60,6 +60,14 @@
             </div>
         </div>
     </div>
+    <div class="col-md-4 mb-4">
+        <div class="card">
+            <div class="card-body">
+                <a href="{{ route('gift-products.index') }}" class="btn btn-primary btn-block">Voir Gift-Products</a>
+
+            </div>
+        </div>
+    </div>
 </div>
 
 @endsection

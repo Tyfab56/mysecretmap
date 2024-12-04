@@ -36,6 +36,7 @@ use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\AudioguideController;
 use Illuminate\Support\Facades\File;
+use App\Http\Controllers\GiftProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -337,6 +338,8 @@ Route::get('/admin/audioguides', [AudioguideController::class, 'index'])->name('
 Route::post('/admin/audioguides/add', [AudioguideController::class, 'addSpot'])->name('admin.audioguides.add');
 Route::post('/admin/audioguides/remove', [AudioguideController::class, 'removeSpot'])->name('admin.audioguides.remove');
 Route::post('/admin/import-audioguides', [AudioguideController::class, 'importAudioguides'])->name('admin.importAudioguides');
+
+Route::resource('gift-products', GiftProductController::class);
 
 // Add this route in routes/web.php
 // Ne pas laisser Laravel gérer les routes de la PWA
