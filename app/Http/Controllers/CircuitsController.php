@@ -155,12 +155,15 @@ class CircuitsController extends Controller
                 ? $firstSpot->spot->firstPhotoApp->media_filename
                 : null;
 
+            // Calculer dynamiquement le nombre de spots
+            $spotCount = $circuit->spots->count();
+
             return [
                 'id' => $circuit->id,
                 'title' => $translation->title ?? 'Title not available',
                 'description' => $translation->description ?? 'Description not available',
                 'days' => $circuit->days,
-                'nbspots' => $circuit->nbspots,
+                'nbspots' => $spotCount,
                 'image' => $firstImage,
 
             ];
