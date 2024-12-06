@@ -22,7 +22,7 @@ class ActivationController extends Controller
 
 
         // Récupérer le code d'activation depuis les paramètres de la requête GET
-        $code = $request->query('code');
+        $code = strtoupper($request->query('code'));
         $email = $request->query('email');
         $country = strtoupper($request->query('country'));
 
