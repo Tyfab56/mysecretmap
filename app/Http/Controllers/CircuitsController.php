@@ -326,11 +326,11 @@ class CircuitsController extends Controller
             ->get();
 
         // Trouver le spot de départ avec `rank = 0`
-        $startingSpotData = $spotsData->firstWhere('rank', 0);
+        $startingSpotData = $spotsData->firstWhere('rank', 1);
 
         if (!$startingSpotData) {
             return response()->json([
-                'error' => 'Starting spot with rank 0 not found in this circuit.',
+                'error' => 'Starting spot with rank 1 not found in this circuit.',
             ], 400);
         }
 
