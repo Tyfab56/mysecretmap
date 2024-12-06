@@ -198,16 +198,16 @@ class ActivationController extends Controller
     }
     public function importData(Request $request)
     {
-        $userId = $request->input('userId');
+        $token = $request->input('token');
         $data = $request->input('data');
 
         // Vérifiez les données reçues
-        if (!$userId || !$data) {
-            return response()->json(['error' => 'Invalid data'], 400);
+        if (!$token || !$data) {
+            return response()->json(['error' => 'Invalid data'], 200);
         }
 
         // Stockez les données sur le serveur (par exemple dans un fichier JSON ou une base de données)
-        $filePath = "user_data/{$userId}.json";
+        $filePath = "user_data/{$token}.json";
         Storage::disk('local')->put($filePath, json_encode($data));
 
         return response()->json(['message' => 'Data imported successfully']);
@@ -215,14 +215,14 @@ class ActivationController extends Controller
 
     public function exportData(Request $request)
     {
-        $userId = $request->query('userId');
+        $token = $request->query('token');
 
-        if (!$userId) {
-            return response()->json(['error' => 'Invalid user ID'], 400);
+        if (!$token) {
+            return response()->json(['error' => 'Invalid user ID'], 200);
         }
 
         // Chargez les données depuis le serveur
-        $filePath = "user_data/{$userId}.json";
+        $filePath = "user_data/{$token}.json";
         if (!Storage::disk('local')->exists($filePath)) {
             return response()->json(['error' => 'No data found'], 404);
         }
