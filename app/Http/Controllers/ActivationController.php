@@ -215,7 +215,7 @@ class ActivationController extends Controller
 
     public function exportData(Request $request)
     {
-        $token = $request->query('token');
+        $token = $request->input('token');
 
         if (!$token) {
             return response()->json(['error' => 'Invalid user ID'], 200);
