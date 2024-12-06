@@ -30,7 +30,7 @@ class CircuitsController extends Controller
             'user_id' => 'required|exists:users,id',
             'country_code' => 'required|size:2',
             'start_spot_id' => 'required|exists:spots,id',
-            'spot_ids' => 'required|array',
+            'spot_ids' => 'array',
         ]);
 
         if (empty($validated['spot_ids'])) {
