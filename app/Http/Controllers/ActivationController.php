@@ -229,6 +229,9 @@ class ActivationController extends Controller
 
         $data = json_decode(Storage::disk('local')->get($filePath), true);
 
-        return response()->json(['data' => $data]);
+        return response()->json([
+            'success' => true,
+            'data' => $data
+        ], 200);
     }
 }
