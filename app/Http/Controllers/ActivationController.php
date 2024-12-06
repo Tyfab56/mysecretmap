@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\Newsletter;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Storage;
 
 class ActivationController extends Controller
 {
@@ -194,5 +195,40 @@ class ActivationController extends Controller
             'message' => 'Code de démo généré et envoyé avec succès.',
 
         ]);
+    }
+    public function importData(Request $request)
+    {
+        $userId = $request->input('userId');
+        $data = $request->input('data');
+
+        // Vérifiez les données reçues
+        if (!$userId || !$data) {
+            return response()->json(['error' => 'Invalid data'], 400);
+        }
+
+        // Stockez les données sur le serveur (par exemple dans un fichier JSON ou une base de données)
+        $filePath = "user_data/{$userId}.json";
+        Storage::disk('local')->put($filePath, json_encode($data));
+
+        return response()->json(['message' => 'Data imported successfully']);
+    }
+
+    public function exportData(Request $request)
+    {
+        $userId = $request->query('userId');
+
+        if (!$userId) {
+            return response()->json(['error' => 'Invalid user ID'], 400);
+        }
+
+        // Chargez les données depuis le serveur
+        $filePath = "user_data/{$userId}.json";
+        if (!Storage::disk('local')->exists($filePath)) {
+            return response()->json(['error' => 'No data found'], 404);
+        }
+
+        $data = json_decode(Storage::disk('local')->get($filePath), true);
+
+        return response()->json(['data' => $data]);
     }
 }
