@@ -151,7 +151,7 @@ class ActivationController extends Controller
         } else {
             // Générer un code unique DEM-XXXXXX
             do {
-                $activationCode = 'DEM-' . strtoupper(Str::random(6)); // Lettres + chiffres aléatoires
+                $activationCode = 'DEM' . strtoupper(Str::random(6)); // Lettres + chiffres aléatoires
                 $exists = Shopifysales::where('activation', $activationCode)->exists();
             } while ($exists); // S'assurer que le code est unique
 
