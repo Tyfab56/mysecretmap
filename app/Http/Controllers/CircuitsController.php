@@ -33,6 +33,18 @@ class CircuitsController extends Controller
             'spot_ids' => 'required|array',
         ]);
 
+        if (empty($validated['spot_ids'])) {
+            return response()->json([
+                'user_id' => $validated['user_id'],
+                'country_code' => $validated['country_code'],
+                'circuit' => [],
+                'total_distance' => 0,
+                'total_duration' => 0,
+                'spot_count' => 0,
+            ]);
+        }
+
+
         $userId = $validated['user_id'];
         $countryCode = $validated['country_code'];
         $startSpotId = $validated['start_spot_id'];
