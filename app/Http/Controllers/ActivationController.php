@@ -109,7 +109,9 @@ class ActivationController extends Controller
         }
 
 
-        $status = stripos($code, 'ACT-') === 0 ? 'ABONNE' : (stripos($code, 'DEM-') === 0 ? 'DEMO' : 'UNKNOWN');
+        $status = substr($code, 0, 3) === 'ACT'
+            ? 'ABONNE'
+            : (substr($code, 0, 3) === 'DEM' ? 'DEMO' : 'UNKNOWN');
         return response()->json([
             'success' => true,
             'code' => $code,
