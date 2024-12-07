@@ -43,6 +43,7 @@ Route::get('/check-activation', [ActivationController::class, 'activateCode']);
 Route::get('/demo-generation', [ActivationController::class, 'generateDemoCode']);
 
 Route::post('/circuits/optimize', [CircuitsController::class, 'optimizeCircuit']);
+Route::post('/circuits/optimizedays', [CircuitsController::class, 'optimizeCircuitWithDays']);
 
 Route::get('/circuits/{lang}/{country}', [CircuitsController::class, 'getCircuits']);
 Route::post('/addspotcircuit', [CircuitsController::class, 'addSpotToCircuit']);

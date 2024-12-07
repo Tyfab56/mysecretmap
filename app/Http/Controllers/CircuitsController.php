@@ -141,7 +141,128 @@ class CircuitsController extends Controller
             'spot_count' => $spotCount,
         ]);
     }
+    public function optimizeCircuitWithDays(Request $request)
+    {
+        $validated = $request->validate([
+            'user_id' => 'required|exists:users,id',
+            'country_code' => 'required|size:2',
+            'start_spot_id' => 'required|exists:spots,id',
+            'spot_ids' => 'array',
+            'timetravel' => 'integer|min:1|max:24', // Nombre d'heures max par jour
+        ]);
 
+        if (empty($validated['spot_ids'])) {
+            return response()->json([
+                'user_id' => $validated['user_id'],
+                'country_code' => $validated['country_code'],
+                'circuit' => [],
+                'total_distance' => 0,
+                'total_duration' => 0,
+                'spot_count' => 0,
+            ]);
+        }
+
+        $userId = $validated['user_id'];
+        $countryCode = $validated['country_code'];
+        $startSpotId = $validated['start_spot_id'];
+        $spotIds = $validated['spot_ids'];
+        $timePerDay = ($validated['timetravel'] ?? 8) * 60 * 60; // Convertir heures en secondes
+
+        $remainingSpots = $spotIds;
+        $currentSpotId = $startSpotId;
+        $orderedSpots = [];
+        $totalDistance = 0;
+        $totalDuration = 0;
+        $dayCircuits = []; // Structure pour stocker les circuits journaliers
+        $currentDayTime = 0;
+        $currentDay = 1;
+
+        // Ajouter le point de départ à la liste du jour 1
+        $startSpot = Spots::with('firstPhotoApp')->find($startSpotId);
+        $currentDaySpots = [[
+            'spot_id' => $startSpot->id,
+            'title' => $startSpot->name,
+            'image_url' => $startSpot->firstPhotoApp?->media_filename ?? null,
+            'distance' => 0, // Le point de départ n'a pas de distance
+            'duration' => 0, // Le point de départ n'a pas de durée
+            'lat' => $startSpot->lat,
+            'lng' => $startSpot->lng,
+            'time_on_spot' => $startSpot->timeonsite,
+            'hiking_time' => $startSpot->randotime,
+            'parking_paid' => $startSpot->parkingpayant,
+        ]];
+
+        while (!empty($remainingSpots)) {
+            $closestSpotData = Distances::where('spot_origine', $currentSpotId)
+                ->whereIn('spot_destination', $remainingSpots)
+                ->orderBy('temps', 'asc')
+                ->first();
+
+            if (!$closestSpotData) {
+                return response()->json([
+                    'error' => "No distance data available for spot $currentSpotId."
+                ], 400);
+            }
+
+            $closestSpotId = $closestSpotData->spot_destination;
+            $spot = Spots::with('firstPhotoApp')->find($closestSpotId);
+
+            // Calculer le temps total pour ce spot
+            $spotTotalTime = $closestSpotData->temps + ($spot->randotime * 2) + $spot->timeonsite;
+
+            // Si ajouter ce spot dépasse le temps quotidien, on passe au jour suivant
+            if ($currentDayTime + $spotTotalTime > $timePerDay) {
+                $dayCircuits[] = [
+                    'day' => $currentDay,
+                    'spots' => $currentDaySpots,
+                    'total_time' => $currentDayTime,
+                ];
+                $currentDay++; // Prochain jour
+                $currentDayTime = 0;
+                $currentDaySpots = [];
+            }
+
+            // Ajouter le spot au circuit du jour courant
+            $currentDaySpots[] = [
+                'spot_id' => $spot->id,
+                'title' => $spot->name,
+                'image_url' => $spot->firstPhotoApp?->media_filename ?? null,
+                'distance' => $closestSpotData->metres,
+                'duration' => $closestSpotData->temps,
+                'lat' => $spot->lat,
+                'lng' => $spot->lng,
+                'time_on_spot' => $spot->timeonsite,
+                'hiking_time' => $spot->randotime,
+                'parking_paid' => $spot->parkingpayant,
+            ];
+
+            $currentDayTime += $spotTotalTime;
+            $totalDistance += $closestSpotData->metres;
+            $totalDuration += $closestSpotData->temps;
+
+            // Mettre à jour le spot courant et retirer le spot traité
+            $currentSpotId = $closestSpotId;
+            $remainingSpots = array_filter($remainingSpots, fn($id) => $id !== $closestSpotId);
+        }
+
+        // Ajouter le dernier jour
+        if (!empty($currentDaySpots)) {
+            $dayCircuits[] = [
+                'day' => $currentDay,
+                'spots' => $currentDaySpots,
+                'total_time' => $currentDayTime,
+            ];
+        }
+
+        return response()->json([
+            'user_id' => $userId,
+            'country_code' => $countryCode,
+            'circuit' => $dayCircuits,
+            'total_distance' => $totalDistance,
+            'total_duration' => $totalDuration,
+            'spot_count' => count($spotIds),
+        ]);
+    }
 
 
     public function getCircuits($lang, $country)
