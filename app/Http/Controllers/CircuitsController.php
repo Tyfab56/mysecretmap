@@ -454,6 +454,8 @@ class CircuitsController extends Controller
             ], 404);
         }
 
+        dd($spotsData);
+
         // Variables pour les totaux
         $totalDistance = 0;
         $totalDuration = 0;
@@ -472,6 +474,7 @@ class CircuitsController extends Controller
 
             return [
                 'spot_id' => $spot->id,
+                'rank' => $spot->rank,
                 'title' => $spot->translations->first()?->title ?? $spot->name,
                 'description' => $spot->translations->first()?->moreguidetext,
                 'lat' => $spot->lat,
