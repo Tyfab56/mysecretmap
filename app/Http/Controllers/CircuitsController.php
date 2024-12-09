@@ -467,14 +467,33 @@ class CircuitsController extends Controller
         $totalTimeonsite = 0;
 
         // Préparer la liste des spots
-        $orderedSpots = $spotsData->map(function ($spotData) use (&$totalDistance, &$totalDuration, &$totalRandotime, &$totalTimeonsite) {
+        $previousSpotId = null;
+        $orderedSpots = $spotsData->map(function ($spotData) use (
+            &$totalDistance,
+            &$totalDuration,
+            &$totalRandotime,
+            &$totalTimeonsite,
+            &$previousSpotId
+        ) {
             $spot = $spotData->spot;
 
+            // Calcul des distances et durées
+            $distanceData = null;
+            if ($previousSpotId) {
+                $distanceData = Distances::getDistanceBetweenSpots($previousSpotId, $spot->id);
+            }
+
+            $distance = $distanceData->metres ?? 0;
+            $duration = $distanceData->temps ?? 0;
+
             // Mise à jour des totaux
-            $totalDistance += $spotData->distance ?? 0; // Remplacez si vous avez une source de distance
-            $totalDuration += $spotData->duration ?? 0; // Remplacez si vous avez une source de durée
+            $totalDistance += $distance;
+            $totalDuration += $duration;
             $totalRandotime += $spot->randotime;
             $totalTimeonsite += $spot->timeonsite;
+
+            // Mettre à jour le spot précédent
+            $previousSpotId = $spot->id;
 
             return [
                 'spot_id' => $spot->id,
@@ -487,8 +506,8 @@ class CircuitsController extends Controller
                 'time_on_spot' => $spot->timeonsite,
                 'hiking_time' => $spot->randotime,
                 'parking_paid' => $spot->parkingpayant,
-                'distance' => $spotData->distance ?? 0, // Remplacez si nécessaire
-                'duration' => $spotData->duration ?? 0, // Remplacez si nécessaire
+                'distance' => $distance,
+                'duration' => $duration,
             ];
         });
 
