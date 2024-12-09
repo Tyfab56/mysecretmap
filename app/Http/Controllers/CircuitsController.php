@@ -454,7 +454,7 @@ class CircuitsController extends Controller
             ], 404);
         }
 
-        dd($spotsData);
+  
 
         // Variables pour les totaux
         $totalDistance = 0;
