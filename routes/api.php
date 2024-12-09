@@ -47,6 +47,6 @@ Route::post('/circuits/optimizedays', [CircuitsController::class, 'optimizeCircu
 
 Route::get('/circuits/{lang}/{country}', [CircuitsController::class, 'getCircuits']);
 Route::post('/addspotcircuit', [CircuitsController::class, 'addSpotToCircuit']);
-Route::get('/circuit/optimized-details', [CircuitsController::class, 'getOptimizedCircuitDetails']);
+Route::get('/circuit/details', [CircuitsController::class, 'getCircuitDetails']);
 Route::post('/import-appdata', [ActivationController::class, 'importData']);
 Route::post('/export-appdata', [ActivationController::class, 'exportData']);

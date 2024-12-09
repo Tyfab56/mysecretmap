@@ -308,6 +308,7 @@ class CircuitsController extends Controller
     }
     public function addSpotToCircuit(Request $request)
     {
+        // Ajouter un spot au circuit par l'admin et agencer le detail du circuit en ajustant selon les rank
         // Validation des données entrantes
         $validated = $request->validate([
             'circuit_id' => 'required|exists:appcircuits,id',
@@ -429,7 +430,7 @@ class CircuitsController extends Controller
     }
 
 
-    public function getOptimizedCircuitDetails(Request $request)
+    public function getCircuitDetails(Request $request)
     {
         $validated = $request->validate([
             'circuit_id' => 'required|exists:appcircuits,id',
@@ -444,66 +445,32 @@ class CircuitsController extends Controller
             $query->where('locale', $locale);
         }, 'spot.firstPhotoApp'])
             ->where('circuit_id', $circuitId)
+            ->orderBy('rank') // Trier par rang directement
             ->get();
 
-        // Trouver le spot de départ avec `rank = 0`
-        $startingSpotData = $spotsData->firstWhere('rank', 1);
-
-        if (!$startingSpotData) {
+        if ($spotsData->isEmpty()) {
             return response()->json([
-                'error' => 'Starting spot with rank 1 not found in this circuit.',
-            ], 400);
+                'error' => 'No spots found for this circuit.',
+            ], 404);
         }
 
-        $startSpotId = $startingSpotData->spot_id;
-
-        // Récupérer tous les spots à optimiser
-        $remainingSpots = $spotsData->filter(fn($spot) => $spot->spot_id !== $startSpotId);
-
-        $orderedSpots = [];
-        $currentSpotId = $startSpotId;
+        // Variables pour les totaux
         $totalDistance = 0;
         $totalDuration = 0;
         $totalRandotime = 0;
         $totalTimeonsite = 0;
 
-        // Ajouter le point de départ
-        $startingSpot = $startingSpotData->spot;
-        $orderedSpots[] = [
-            'spot_id' => $startingSpot->id,
-            'title' => $startingSpot->translations->first()?->title ?? $startingSpot->name,
-            'description' => $startingSpot->translations->first()?->moreguidetext,
-            'lat' => $startingSpot->lat,
-            'lng' => $startingSpot->lng,
-            'image_url' => $startingSpot->firstPhotoApp?->media_filename,
-            'time_on_spot' => $startingSpot->timeonsite,
-            'hiking_time' => $startingSpot->randotime,
-            'parking_paid' => $startingSpot->parkingpayant,
-            'distance' => 0,
-            'duration' => 0,
-        ];
-
-        // Optimiser le circuit
-        while ($remainingSpots->isNotEmpty()) {
-            // Trouver le spot le plus proche
-            $closestSpotData = Distances::where('spot_origine', $currentSpotId)
-                ->whereIn('spot_destination', $remainingSpots->pluck('spot_id'))
-                ->orderBy('temps', 'asc')
-                ->first();
-
-            if (!$closestSpotData) {
-                return response()->json([
-                    'error' => "No distance data available for spot $currentSpotId.",
-                ], 400);
-            }
-
-            $closestSpotId = $closestSpotData->spot_destination;
-
-            // Ajouter le spot optimisé
-            $spotData = $remainingSpots->firstWhere('spot_id', $closestSpotId);
+        // Préparer la liste des spots
+        $orderedSpots = $spotsData->map(function ($spotData) use (&$totalDistance, &$totalDuration, &$totalRandotime, &$totalTimeonsite) {
             $spot = $spotData->spot;
 
-            $orderedSpots[] = [
+            // Mise à jour des totaux
+            $totalDistance += $spotData->distance ?? 0; // Remplacez si vous avez une source de distance
+            $totalDuration += $spotData->duration ?? 0; // Remplacez si vous avez une source de durée
+            $totalRandotime += $spot->randotime;
+            $totalTimeonsite += $spot->timeonsite;
+
+            return [
                 'spot_id' => $spot->id,
                 'title' => $spot->translations->first()?->title ?? $spot->name,
                 'description' => $spot->translations->first()?->moreguidetext,
@@ -513,26 +480,13 @@ class CircuitsController extends Controller
                 'time_on_spot' => $spot->timeonsite,
                 'hiking_time' => $spot->randotime,
                 'parking_paid' => $spot->parkingpayant,
-                'distance' => $closestSpotData->metres,
-                'duration' => $closestSpotData->temps,
+                'distance' => $spotData->distance ?? 0, // Remplacez si nécessaire
+                'duration' => $spotData->duration ?? 0, // Remplacez si nécessaire
             ];
+        });
 
-            // Mettre à jour le total distance et durée
-            $totalDistance += $closestSpotData->metres;
-            $totalDuration += $closestSpotData->temps;
-            $totalRandotime += $spot->randotime;
-            $totalTimeonsite += $spot->timeonsite;
-
-            // Mettre à jour le spot courant et retirer le spot traité
-            $currentSpotId = $closestSpotId;
-            $remainingSpots = $remainingSpots->filter(fn($spot) => $spot->spot_id !== $closestSpotId);
-        }
-
-        // Calculer le nombre total de spots
-        $spotCount = count($orderedSpots);
-
-        // Mise à jour des infos sur la table
-
+        // Calcul du nombre total de spots
+        $spotCount = $orderedSpots->count();
 
         // Réponse JSON
         return response()->json([
@@ -544,6 +498,6 @@ class CircuitsController extends Controller
             'total_timeonsite' => $totalTimeonsite,
             'total_randotime' => $totalRandotime,
             'spot_count' => $spotCount,
-        ], 200, []);
+        ], 200);
     }
 }
