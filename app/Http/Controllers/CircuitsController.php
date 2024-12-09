@@ -440,6 +440,10 @@ class CircuitsController extends Controller
         $circuitId = $validated['circuit_id'];
         $locale = $validated['locale'];
 
+        $circuit = AppCircuit::with(['translations' => function ($query) use ($locale) {
+            $query->where('locale', $locale);
+        }])->find($circuitId);
+
         // Récupérer les spots du circuit avec leurs traductions
         $spotsData = AppCircuitSpot::with(['spot.translations' => function ($query) use ($locale) {
             $query->where('locale', $locale);
@@ -454,7 +458,7 @@ class CircuitsController extends Controller
             ], 404);
         }
 
-  
+
 
         // Variables pour les totaux
         $totalDistance = 0;
@@ -474,7 +478,7 @@ class CircuitsController extends Controller
 
             return [
                 'spot_id' => $spot->id,
-                'rank' => $spot->rank,
+                'rank' => $spotData->rank,
                 'title' => $spot->translations->first()?->title ?? $spot->name,
                 'description' => $spot->translations->first()?->moreguidetext,
                 'lat' => $spot->lat,
@@ -490,11 +494,16 @@ class CircuitsController extends Controller
 
         // Calcul du nombre total de spots
         $spotCount = $orderedSpots->count();
+        $circuitTranslation = $circuit->translations->first();
+        $circuitTitle = $circuitTranslation?->title ?? $circuit->name;
+        $circuitDescription = $circuitTranslation?->description ?? $circuit->description;
 
         // Réponse JSON
         return response()->json([
             'circuit_id' => $circuitId,
             'locale' => $locale,
+            'title' => $circuitTitle,
+            'description' => $circuitDescription,
             'spots' => $orderedSpots,
             'total_distance' => $totalDistance,
             'total_duration' => $totalDuration,
