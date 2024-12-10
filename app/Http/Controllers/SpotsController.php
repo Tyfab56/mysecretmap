@@ -1449,4 +1449,23 @@ class SpotsController extends Controller
 
         return response()->json($results);
     }
+    public function panoshow($id)
+    {
+        // Recherchez le spot correspondant dans la base de données
+        $spot = Spots::find($id);
+
+        if (!$spot || !$spot->img360) {
+            // Retournez une erreur 404 si le spot ou l'URL 360° est introuvable
+            abort(404, 'Spot or panorama URL not found.');
+        }
+
+        // Préparez les données pour la vue
+        $panoramaData = [
+            'spotId' => $id,
+            'image' => $spot->img360, // Utilisez directement l'URL
+
+        ];
+
+        return view('frontend.panorama', compact('panoramaData'));
+    }
 }
