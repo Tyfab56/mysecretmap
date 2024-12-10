@@ -32,6 +32,7 @@
         pannellum.viewer('panorama', {
             type: 'equirectangular',
             panorama: '{{ $panoramaData["image"] }}',
+            hfov: 80,
             autoLoad: true,
             useOrientation: true, // Active le gyroscope si disponible
         });
