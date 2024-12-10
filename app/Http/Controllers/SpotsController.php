@@ -1449,7 +1449,7 @@ class SpotsController extends Controller
 
         return response()->json($results);
     }
-    public function panoshow($id)
+    public function panoShow($id)
     {
         // Recherchez le spot correspondant dans la base de données
         $spot = Spots::find($id);
