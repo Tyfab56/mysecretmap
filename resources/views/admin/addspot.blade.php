@@ -160,10 +160,11 @@
                                         @enderror
                                     </div>
                                 </div>
-                                <input type="submit" name="file" class="btn btn-rounded btn-primary mb-5" value="Mise à jour">
+
                                 <div class=" text-xs-right  pb-2">
                                     <img src="{{$spot->imgsquaremedium}}">
                                 </div>
+                                <input type="submit" name="file" class="btn btn-rounded btn-primary mb-5" value="Mise à jour">
                                 <div class="form-group">
                                     <label class="info-title" for="imgsquare">Image 360<span class="text-danger">*</span></label>
                                     <h6>{{$spot->img360}}</h6>
