@@ -24,9 +24,9 @@
                                     <h3>Modification du spot</h3>
 
                                 </a>
-                                <a href="https://mysecretmap.com/admin.dashboard" class="btn btn-primary">
-                                        Accéder au tableau de bord
-                                    </a>
+                                <a href="https://mysecretmap.com/admin/listspots" class="btn btn-primary">
+                                    Accéder au tableau de bord
+                                </a>
 
 
                                 @else
