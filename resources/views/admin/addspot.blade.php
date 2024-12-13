@@ -161,6 +161,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label class="info-title" for="imgsquare">Image 360<span class="text-danger">*</span></label>
+                                    <h6>{{$spot->img360}}</h6>
                                     <div class="controls">
                                         <input type="file" name="img360" class="form-control" id="img360">
 
