@@ -1,5 +1,5 @@
 @extends('frontend.main_master')
-@section('content') 
+@section('content')
 <div class="container mt-5">
     <div class="row">
         <div class="col-md-6 offset-md-3">
@@ -34,6 +34,10 @@
                         <div class="form-group">
                             <label for="idproduit">Product ID</label>
                             <input type="text" name="idproduit" id="idproduit" class="form-control" placeholder="Product ID" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="activation">ACTIVATION</label>
+                            <input type="text" name="activation" id="activation" class="form-control" placeholder="Activation ID" required>
                         </div>
 
                         <!-- Add other fields if necessary -->

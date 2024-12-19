@@ -28,6 +28,7 @@ class ShopifysalesController extends Controller
             'currency' => 'required|string|max:3',
             'status' => 'required|string|max:20',
             'idproduit' => 'required|string|max:20',
+            'activation' => 'required',
             // ajoutez d'autres validations selon vos besoins
         ]);
 

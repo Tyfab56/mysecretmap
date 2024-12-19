@@ -1429,6 +1429,7 @@ class SpotsController extends Controller
                 $value = ($mode === 'temps') ? $distanceRecord->temps : $distanceRecord->metres;
                 $results[] = [
                     'spot_id' => $spot->id,
+                    'regionid' => $spot->region_id,
                     'name' => $spot->name,
                     'distance' => $distanceRecord->metres,
                     'time' => $distanceRecord->temps,
