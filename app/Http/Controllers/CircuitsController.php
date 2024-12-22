@@ -185,6 +185,7 @@ class CircuitsController extends Controller
             'image_url' => $startSpot->firstPhotoApp?->media_filename ?? null,
             'distance' => 0, // Le point de départ n'a pas de distance
             'duration' => 0, // Le point de départ n'a pas de durée
+            'geometry'  => "",
             'lat' => $startSpot->lat,
             'lng' => $startSpot->lng,
             'time_on_spot' => $startSpot->timeonsite,
@@ -229,6 +230,7 @@ class CircuitsController extends Controller
                 'image_url' => $spot->firstPhotoApp?->media_filename ?? null,
                 'distance' => $closestSpotData->metres,
                 'duration' => $closestSpotData->temps,
+                'geometry' => $closestSpotData->geometry,
                 'lat' => $spot->lat,
                 'lng' => $spot->lng,
                 'time_on_spot' => $spot->timeonsite,
