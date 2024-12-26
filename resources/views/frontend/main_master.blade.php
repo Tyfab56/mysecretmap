@@ -160,6 +160,7 @@
 
             <div class="site-navigation">
                 <div class="container">
+                    <div class="row">
                     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                         <div class="container-fluid">
                             <a class="navbar-brand" href="#">MySite</a>
@@ -184,6 +185,8 @@
                             </div>
                         </div>
                     </nav>
+                    </div>
+
                     <div class="row">
                         <div class="col-lg-12">
                             <nav class="navbar navbar-expand-lg navbar-dark p-0">
