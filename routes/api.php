@@ -10,6 +10,7 @@ use App\Http\Controllers\SpotsController;
 use App\Http\Controllers\AnecdoteController;
 use App\Http\Controllers\ActivationController;
 use App\Http\Controllers\CircuitsController;
+use App\Http\Controllers\JavaScriptExecutionController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -50,3 +51,6 @@ Route::post('/addspotcircuit', [CircuitsController::class, 'addSpotToCircuit']);
 Route::get('/circuit/details', [CircuitsController::class, 'getCircuitDetails']);
 Route::post('/import-appdata', [ActivationController::class, 'importData']);
 Route::post('/export-appdata', [ActivationController::class, 'exportData']);
+
+Route::post('/execute-js', [JavaScriptExecutionController::class, 'execute'])
+    ->middleware('auth.basic');
