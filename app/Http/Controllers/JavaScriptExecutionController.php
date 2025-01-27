@@ -10,38 +10,35 @@ class JavaScriptExecutionController extends Controller
 {
     public function execute(Request $request)
     {
-        // Valider les données entrantes
+        // Valider les paramètres envoyés via la requête GET
         $validated = $request->validate([
-            'code' => 'required|string',
-            'data' => 'nullable|array',
+            'code' => 'required|string', // Code JavaScript
+            'data' => 'nullable|string', // Données au format JSON sous forme de string
         ]);
 
-        // Récupérer le code et les données
         $jsCode = $validated['code'];
-        $data = json_encode($validated['data'] ?? []);
+        $data = $validated['data'] ?? '{}'; // Assurez-vous que les données sont une chaîne JSON valide
 
-        // Construire un fichier temporaire pour exécuter le JS
+        // Générer un fichier temporaire avec le code JS
         $tempFile = tempnam(sys_get_temp_dir(), 'js');
         $jsScript = <<<JS
-const input = $data;
-$jsCode
-JS;
-
+    const input = $data;
+    $jsCode
+    JS;
         file_put_contents($tempFile, $jsScript);
 
         // Exécuter le code avec Node.js
-        $process = new Process(['node', $tempFile]);
+        $process = new \Symfony\Component\Process\Process(['node', $tempFile]);
         $process->run();
 
         // Supprimer le fichier temporaire
         unlink($tempFile);
 
-        // Vérifier les erreurs d'exécution
         if (!$process->isSuccessful()) {
-            throw new ProcessFailedException($process);
+            return response()->json(['error' => $process->getErrorOutput()], 500);
         }
 
-        // Retourner la sortie
+        // Retourner la sortie du JS
         return response()->json([
             'output' => $process->getOutput(),
         ]);

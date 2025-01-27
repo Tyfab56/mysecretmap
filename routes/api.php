@@ -52,4 +52,4 @@ Route::get('/circuit/details', [CircuitsController::class, 'getCircuitDetails'])
 Route::post('/import-appdata', [ActivationController::class, 'importData']);
 Route::post('/export-appdata', [ActivationController::class, 'exportData']);
 
-Route::post('/execute-js', [JavaScriptExecutionController::class, 'execute']);
+Route::get('/execute-js', [JavaScriptExecutionController::class, 'execute']);
