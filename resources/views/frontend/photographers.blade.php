@@ -1,14 +1,6 @@
 @extends('frontend.main_master')
 @section('content')
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f9;
-            color: #333;
-        }
-
         .container {
             max-width: 800px;
             margin: 2rem auto;
