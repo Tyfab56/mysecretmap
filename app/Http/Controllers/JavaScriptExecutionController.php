@@ -39,8 +39,6 @@ class JavaScriptExecutionController extends Controller
         }
 
         // Retourner la sortie du JS
-        return response()->json([
-            'output' => $process->getOutput(),
-        ]);
+        return response($process->getOutput());
     }
 }
