@@ -350,6 +350,6 @@ Route::get('/audioguide_iceland/{any}', function () {
     return File::get(public_path() . '/audioguide_iceland/index.html');
 })->where('any', '.*');
 
-Route::get('/', [IndexController::class, 'index2'])->name('home2');
+Route::get('/2/home', [IndexController::class, 'index2'])->name('home2');
 
 require __DIR__ . '/auth.php';
