@@ -839,10 +839,6 @@ class IndexController extends Controller
 
     public function index2()
     {
-
-
-
-
-        return view('frontend2/index');
+        return view('frontend2.index');
     }
 }
