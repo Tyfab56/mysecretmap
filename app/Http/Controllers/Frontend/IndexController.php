@@ -836,4 +836,13 @@ class IndexController extends Controller
 
         return view('frontend.showbyfolder', compact('folder', 'shareMedias', 'userCredits', 'purchasedMediaIds', 'photosCount', 'videosCount', 'filmsCount'));
     }
+
+    public function index2()
+    {
+
+
+
+
+        return view('frontend2/index');
+    }
 }

@@ -1,0 +1,93 @@
+/* 1. COULEURS PRIMAIRES "LUXE SOBRE" */
+:root {
+    --noir-profond: #0a0a0a; /* Plus élégant que le noir pur (#000) */
+    --blanc-cassé: #f8f9fa; /* Blanc légèrement chaud pour éviter le clinique */
+    --or-matelassé: #c5a047; /* Or discret, proche du "vieux cuir" */
+    --or-clair: #e5d7b6; /* Pour les surlignages subtils */
+}
+
+/* 2. ACCENTS "AVENTURE" (à utiliser avec parcimonie) */
+:root {
+    --emeraude-vif: #2ecc71; /* Pour les CTA & interactions */
+    --corail-energie: #ff6b6b; /* Pour les alertes/éléments urgents */
+    --bleu-electrique: #48dbfb; /* Pour les liens/hover */
+}
+
+/* 3. TYPOGRAPHIE "LUXE MODERNE" */
+body {
+    font-family: "Poppins", sans-serif; /* Propre et lisible pour les textes */
+    color: var(--noir-profond);
+    background-color: var(--blanc-cassé);
+}
+
+h1,
+h2,
+h3 {
+    font-family: "Playfair Display", serif; /* Élégance classique pour les titres */
+    font-weight: 700;
+    color: var(--noir-profond);
+}
+
+/* 4. EFFETS DE MATIÈRE "PREMIUM" */
+.bouton-luxe {
+    background: linear-gradient(45deg, var(--or-matelassé), var(--or-clair));
+    border: 1px solid var(--noir-profond);
+    padding: 1rem 2rem;
+    color: var(--noir-profond) !important;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.bouton-luxe:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(10, 10, 10, 0.1);
+}
+
+/* 5. UTILISATION STRATÉGIQUE DES COULEURS VIVES */
+.spot-urgence {
+    color: var(--corail-energie);
+    border-left: 3px solid var(--corail-energie);
+}
+
+.cta-aventure {
+    background-color: var(--emeraude-vif);
+    border: none;
+    color: white !important;
+}
+
+/* 6. ESPACEMENTS "HAUT DE GAMME" */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 2rem; /* Generous white space */
+}
+
+/* 7. EFFETS DE SURVOL RAFFINÉS */
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(10, 10, 10, 0.1);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(10, 10, 10, 0.08);
+}
+
+/* 8. DETAILS DORÉS DISCRETS */
+.separateur-dore {
+    border-top: 2px solid var(--or-matelassé);
+    width: 50px;
+    margin: 2rem auto;
+}
+
+/* 9. RESPONSIVE "LUXE" */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5rem; /* Reste imposant sur mobile */
+    }
+
+    .container {
+        padding: 2rem 1rem; /* Espacement préservé */
+    }
+}

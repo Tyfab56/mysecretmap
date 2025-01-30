@@ -165,9 +165,9 @@
             <h3 class="into-sub-title">{{ __('index.LastSpots') }}</h3>
             <a class="btn btn-primary indexbtn" href="{{ url('thewall') }}/{{ $idpays}}"">{{ __('destination.VoirAllSpots') }}</a>
              </div>
-             <p>{{ __('index.LastSpotsDesc') }}</p> 
+             <p>{{ __('index.LastSpotsDesc') }}</p>
           </div>
-        </div> 
+        </div>
 
       </div>
 
@@ -302,7 +302,7 @@
       </div>
     </div>
   </div>
-
+ 
 </section>
 <style>
   .panorama-container {
