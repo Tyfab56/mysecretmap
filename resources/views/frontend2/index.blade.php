@@ -2695,16 +2695,9 @@
                                     <h2>Nous ne vendons pas des guides, <strong>nous vendons le frisson de l’exploration
                                             sans se
                                             perdre.</strong></h2>
-                                    <p>SPots, Histoire, légende, trajets optimisés, tout est lié</p>
+
                                 </div>
-                                <div class="half-section--item-description">
-                                    <p class="half-section--item-title">
-                                        Nous ne vendons pas des guides, nous vendons le frisson de l’exploration sans se
-                                        perdre.</p>
-                                    <p class="half-section--item-text">
-                                        Every Overland trip offers thoughtfully planned itineraries full of
-                                        adventure. </p>
-                                </div>
+
                             </div>
                         </section>
                         <section id="section-1" class="big-hero-section  wow fadeIn">
@@ -2712,7 +2705,7 @@
 
                                 <div class="big-hero-section--box-content">
                                     <p class="tagline">
-                                        Carefully crafted trips since 1984 </p>
+                                        Découvrez nos destinations </p>
                                     <h1>THE PREMIER SUMMER ADVENTURE<br />
                                         CAMP FOR KIDS &amp; TEENS</h1>
                                     <h4>Summer Hiking Trips for 4th to 12th Graders</h4>
