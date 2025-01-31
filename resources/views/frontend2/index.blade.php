@@ -2704,8 +2704,8 @@
 
                                 <div class="big-hero-section--box-content">
                                     <p class="tagline">
-                                        Découvrez nos destinations </p>
-                                    <h1>ON VOUS ENMENE ICI ...</h1>
+                                        Explorer nos destinations </p>
+                                    <h1>VOYAGEZ AVEC VOS OREILLES – AUDIOGUIDE ISLANDE</h1>
                                     <h4>Découvrez pourquoi nos guides sont si populaires</h4>
 
                                     <div class="big-hero-section--box-content-links">
