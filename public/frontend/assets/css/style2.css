@@ -1,93 +1,194 @@
-/* 1. COULEURS PRIMAIRES "LUXE SOBRE" */
+/* Palette de couleurs */
 :root {
-    --noir-profond: #0a0a0a; /* Plus élégant que le noir pur (#000) */
-    --blanc-cassé: #f8f9fa; /* Blanc légèrement chaud pour éviter le clinique */
-    --or-matelassé: #c5a047; /* Or discret, proche du "vieux cuir" */
-    --or-clair: #e5d7b6; /* Pour les surlignages subtils */
+    --primary-color: #2e3d49; /* Bleu foncé pour les en-têtes et le pied de page */
+    --secondary-color: #f4f4f4; /* Gris très clair pour les arrière-plans */
+    --accent-color: #a1b5a9; /* Vert doux pour les accents */
+    --text-color: #333333; /* Gris foncé pour le texte principal */
+    --link-color: #1e90ff; /* Bleu pour les liens */
+    --button-bg-color: #a1b5a9; /* Couleur de fond des boutons */
+    --button-text-color: #ffffff; /* Couleur du texte des boutons */
+    --footer-bg-color: #2e3d49; /* Couleur de fond du pied de page */
+    --footer-text-color: #ffffff; /* Couleur du texte du pied de page */
 }
 
-/* 2. ACCENTS "AVENTURE" (à utiliser avec parcimonie) */
-:root {
-    --emeraude-vif: #2ecc71; /* Pour les CTA & interactions */
-    --corail-energie: #ff6b6b; /* Pour les alertes/éléments urgents */
-    --bleu-electrique: #48dbfb; /* Pour les liens/hover */
-}
-
-/* 3. TYPOGRAPHIE "LUXE MODERNE" */
+/* Styles généraux */
 body {
-    font-family: "Poppins", sans-serif; /* Propre et lisible pour les textes */
-    color: var(--noir-profond);
-    background-color: var(--blanc-cassé);
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    color: var(--text-color);
+    background-color: var(--secondary-color);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+/* En-têtes */
+header {
+    background-color: var(--primary-color);
+    color: var(--footer-text-color);
+    padding: 20px;
+    text-align: center;
 }
 
 h1,
 h2,
-h3 {
-    font-family: "Playfair Display", serif; /* Élégance classique pour les titres */
-    font-weight: 700;
-    color: var(--noir-profond);
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Georgia", serif;
+    color: var(--primary-color);
+    margin: 20px 0;
 }
 
-/* 4. EFFETS DE MATIÈRE "PREMIUM" */
-.bouton-luxe {
-    background: linear-gradient(45deg, var(--or-matelassé), var(--or-clair));
-    border: 1px solid var(--noir-profond);
-    padding: 1rem 2rem;
-    color: var(--noir-profond) !important;
-    transition: all 0.3s ease;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+/* Liens */
+a {
+    color: var(--link-color);
+    text-decoration: none;
 }
 
-.bouton-luxe:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(10, 10, 10, 0.1);
+a:hover {
+    text-decoration: underline;
 }
 
-/* 5. UTILISATION STRATÉGIQUE DES COULEURS VIVES */
-.spot-urgence {
-    color: var(--corail-energie);
-    border-left: 3px solid var(--corail-energie);
-}
-
-.cta-aventure {
-    background-color: var(--emeraude-vif);
+/* Boutons */
+button,
+.btn {
+    background-color: var(--button-bg-color);
+    color: var(--button-text-color);
     border: none;
-    color: white !important;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
 }
 
-/* 6. ESPACEMENTS "HAUT DE GAMME" */
-.container {
-    max-width: 1200px;
+button:hover,
+.btn:hover {
+    background-color: var(--primary-color);
+}
+
+/* Sections */
+section {
+    padding: 40px 20px;
+    margin: 20px 0;
+    background-color: #ffffff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Pied de page */
+footer {
+    background-color: var(--footer-bg-color);
+    color: var(--footer-text-color);
+    text-align: center;
+    padding: 20px;
+}
+
+/* Images */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
     margin: 0 auto;
-    padding: 4rem 2rem; /* Generous white space */
 }
 
-/* 7. EFFETS DE SURVOL RAFFINÉS */
-.card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: 1px solid rgba(10, 10, 10, 0.1);
+/* Grille de mise en page */
+.container {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
-.card:hover {
+.container > .card {
+    flex: 1 1 calc(33% - 20px);
+    margin: 10px;
+    background-color: #ffffff;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    transition: transform 0.3s ease;
+}
+
+.container > .card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 30px rgba(10, 10, 10, 0.08);
 }
 
-/* 8. DETAILS DORÉS DISCRETS */
-.separateur-dore {
-    border-top: 2px solid var(--or-matelassé);
-    width: 50px;
-    margin: 2rem auto;
+/* Formulaires */
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
 }
 
-/* 9. RESPONSIVE "LUXE" */
+input[type="submit"] {
+    background-color: var(--button-bg-color);
+    color: var(--button-text-color);
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: var(--primary-color);
+}
+
+/* Listes */
+ul {
+    list-style-type: disc;
+    margin: 20px;
+    padding: 0;
+}
+
+ul li {
+    margin: 10px 0;
+}
+
+/* Citations */
+blockquote {
+    margin: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-left: 5px solid var(--accent-color);
+    font-style: italic;
+}
+
+/* Tableaux */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+table,
+th,
+td {
+    border: 1px solid #cccccc;
+}
+
+th,
+td {
+    padding: 10px;
+    text-align: left;
+}
+
+/* Responsivité */
 @media (max-width: 768px) {
-    h1 {
-        font-size: 2.5rem; /* Reste imposant sur mobile */
+    .container {
+        flex-direction: column;
+        align-items: center;
     }
 
-    .container {
-        padding: 2rem 1rem; /* Espacement préservé */
+    .container > .card {
+        flex: 1 1 100%;
+        margin: 10px 0;
     }
 }
