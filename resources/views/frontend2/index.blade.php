@@ -2688,6 +2688,16 @@
             <div id="content" class="site-content">
                 <div id="primary" class="content-area">
                     <main id="main" class="site-main">
+                      <div class="container">
+                                <div class="half-section--item-description">
+                                    <p class="half-section--item-title">
+                                        Nous ne vendons pas des guides, nous vendons le frisson de l’exploration sans se
+                                        perdre.</p>
+                                    <p class="half-section--item-text">
+                                        Every Overland trip offers thoughtfully planned itineraries full of
+                                        adventure. </p>
+                                </div>
+                            </div>
 
                         <section id="section-1" class="big-hero-section  wow fadeIn">
                             <div class="container big-hero-section--box">
@@ -3105,15 +3115,7 @@
                                     </div>
                                 </div>
                             </div>
-                             <div class="container">
-                            <div class="half-section--item-description">
-                                            <p class="half-section--item-title">
-                                               Nous ne vendons pas des guides, nous vendons le frisson de l’exploration sans se perdre.</p>
-                                            <p class="half-section--item-text">
-                                                Every Overland trip offers thoughtfully planned itineraries full of
-                                                adventure. </p>
-                                        </div>
-                             </div>
+
                             <div class="container">
                                 <div class="half-section--icons">
                                     <div class="half-section--item">
