@@ -2736,7 +2736,7 @@
                             <div class="iframe-wrapper">
                                 <video playsinline autoplay loop muted
                                     poster="https://assets.overlandsummers.com/HomeBanner.jpg">
-                                    <source src="https://assets.overlandsummers.com/HomeBanner.mp4" type="video/mp4" />
+                                    <source src="https://mysecretmap.com/frontend/images/webtrailer.mp4" type="video/mp4" />
                                 </video>
                             </div>
                         </section>
