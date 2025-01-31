@@ -2688,17 +2688,24 @@
             <div id="content" class="site-content">
                 <div id="primary" class="content-area">
                     <main id="main" class="site-main">
-                    <section id="section-1" class="big-hero-section  wow fadeIn">
-                        <div class="container">
-                            <div class="half-section--item-description">
-                                <p class="half-section--item-title">
-                                    Nous ne vendons pas des guides, nous vendons le frisson de l’exploration sans se
-                                    perdre.</p>
-                                <p class="half-section--item-text">
-                                    Every Overland trip offers thoughtfully planned itineraries full of
-                                    adventure. </p>
+                        <section id="section-0" wow fadeIn>
+
+                            <div class="container">
+                            <div class="section-big-slider--title big-title">
+                                    <h2>Choose your next <strong>Adventure</strong></h2>
+                                    <p>Overland&#8217;s trips take our students on a journey of growth and discovery.
+                                        Focused on<br />
+                                        safety, and free of screens, Overland is wholesome, adventurous, and fun.</p>
+                                </div>
+                                <div class="half-section--item-description">
+                                    <p class="half-section--item-title">
+                                        Nous ne vendons pas des guides, nous vendons le frisson de l’exploration sans se
+                                        perdre.</p>
+                                    <p class="half-section--item-text">
+                                        Every Overland trip offers thoughtfully planned itineraries full of
+                                        adventure. </p>
+                                </div>
                             </div>
-                        </div>
                         </section>
                         <section id="section-1" class="big-hero-section  wow fadeIn">
                             <div class="container big-hero-section--box">
