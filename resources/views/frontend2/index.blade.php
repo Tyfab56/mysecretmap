@@ -2705,13 +2705,13 @@
                                 <div class="big-hero-section--box-content">
                                     <p class="tagline">
                                         Explorer nos destinations </p>
-                                    <h1>VOYAGEZ AVEC VOS OREILLES – AUDIOGUIDE ISLANDE</h1>
+                                    <h1>VOYAGEZ AVEC VOS OREILLES <br>AUDIOGUIDE ISLANDE</h1>
                                     <h4>Découvrez pourquoi nos guides sont si populaires</h4>
 
                                     <div class="big-hero-section--box-content-links">
                                         <a href="https://overlandsummers.com/request-a-catalog/"
                                             class="btn button secondary-button" target="_self">
-                                            REQUEST INFORMATION </a>
+                                            VOIR LES GUIDES </a>
                                         <button class="button transparent-button popmake-1554">
                                             <svg width="17" height="17" viewBox="0 0 17 17" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
