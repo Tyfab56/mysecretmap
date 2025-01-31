@@ -2705,8 +2705,8 @@
                                 <div class="big-hero-section--box-content">
                                     <p class="tagline">
                                         Découvrez nos destinations </p>
-                                    <h1>ON VOUS EMMENE ICI ...</h1>
-                                    <h4>Summer Hiking Trips for 4th to 12th Graders</h4>
+                                    <h1>ON VOUS ENMENE ICI ...</h1>
+                                    <h4>Découvrez pourquoi nos guides sont si populaires</h4>
 
                                     <div class="big-hero-section--box-content-links">
                                         <a href="https://overlandsummers.com/request-a-catalog/"
