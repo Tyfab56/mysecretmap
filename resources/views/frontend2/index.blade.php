@@ -2692,7 +2692,7 @@
 
                             <div class="container">
                                 <div class="section-big-slider--title big-title">
-                                    <h2>Nous ne vendons pas des guides, <strong>nous vendons le frisson de l’exploration
+                                    <h2>Nous ne vendons pas des guides<br><strong>nous vendons le frisson de l’exploration
                                             sans se
                                             perdre.</strong></h2>
 
@@ -2706,8 +2706,7 @@
                                 <div class="big-hero-section--box-content">
                                     <p class="tagline">
                                         Découvrez nos destinations </p>
-                                    <h1>THE PREMIER SUMMER ADVENTURE<br />
-                                        CAMP FOR KIDS &amp; TEENS</h1>
+                                    <h1>ON VOUS EMMENE ICI ...</h1>
                                     <h4>Summer Hiking Trips for 4th to 12th Graders</h4>
 
                                     <div class="big-hero-section--box-content-links">
