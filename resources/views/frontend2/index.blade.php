@@ -2691,11 +2691,11 @@
                         <section id="section-0" wow fadeIn>
 
                             <div class="container">
-                            <div class="section-big-slider--title big-title">
-                                    <h2>Choose your next <strong>Adventure</strong></h2>
-                                    <p>Overland&#8217;s trips take our students on a journey of growth and discovery.
-                                        Focused on<br />
-                                        safety, and free of screens, Overland is wholesome, adventurous, and fun.</p>
+                                <div class="section-big-slider--title big-title">
+                                    <h2>Nous ne vendons pas des guides, <strong>nous vendons le frisson de l’exploration
+                                            sans se
+                                            perdre.</strong></h2>
+                                    <p>SPots, Histoire, légende, trajets optimisés, tout est lié</p>
                                 </div>
                                 <div class="half-section--item-description">
                                     <p class="half-section--item-title">
