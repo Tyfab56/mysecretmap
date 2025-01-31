@@ -11,7 +11,7 @@
 
 
         <meta charset="UTF-8">
-        
+
 
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="profile" href="https://gmpg.org/xfn/11">
@@ -38,7 +38,7 @@
         <!-- / Yoast SEO plugin. -->
 
 
-        <script type='application/javascript'  id='pys-version-script'>console.log('PixelYourSite Free version 10.0.4');</script>
+
         <link rel='dns-prefetch' href='//cdn.jsdelivr.net' />
         <link rel='dns-prefetch' href='//www.google.com' />
         <link rel="alternate" type="application/rss+xml" title="Overland Summers &raquo; Feed"
@@ -707,9 +707,7 @@
             };
             /* ]]> */
         </script>
-        <script type="text/javascript"
-            src="https://overlandsummers.com/wp-content/plugins/pixelyoursite/dist/scripts/public.js?ver=10.0.4" id="pys-js">
-        </script>
+
         <script type="text/javascript" defer='defer'
             src="https://overlandsummers.com/wp-content/plugins/gravityforms/js/jquery.json.min.js?ver=2.9.2"
             id="gform_json-js"></script>
@@ -1009,7 +1007,7 @@
                                                     Resources </span>
                                                 <span class="expand-subemu-arrow">
                                                     <svg width="8" height="8" viewBox="0 0 14 8" fill="none"
-                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        xmlns="http://www.  w3.org/2000/svg">
                                                         <path d="M1 1L7 7L13 1" stroke="white" stroke-width="0.5" />
                                                     </svg>
                                                 </span>
@@ -3107,7 +3105,15 @@
                                     </div>
                                 </div>
                             </div>
-
+                             <div class="container">
+                            <div class="half-section--item-description">
+                                            <p class="half-section--item-title">
+                                               Nous ne vendons pas des guides, nous vendons le frisson de l’exploration sans se perdre.</p>
+                                            <p class="half-section--item-text">
+                                                Every Overland trip offers thoughtfully planned itineraries full of
+                                                adventure. </p>
+                                        </div>
+                             </div>
                             <div class="container">
                                 <div class="half-section--icons">
                                     <div class="half-section--item">
@@ -3560,14 +3566,17 @@
                                                 <ul id="menu-footer-menu" class="menu">
                                                     <li id="menu-item-1279"
                                                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1279">
-                                                        <a href="https://overlandsummers.com/trips/">Trips</a></li>
+                                                        <a href="https://overlandsummers.com/trips/">Trips</a>
+                                                    </li>
                                                     <li id="menu-item-1278"
                                                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1278">
                                                         <a href="https://overlandsummers.com/trip-leaders/">Trip
-                                                            Leaders</a></li>
+                                                            Leaders</a>
+                                                    </li>
                                                     <li id="menu-item-1266"
                                                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1266">
-                                                        <a href="https://overlandsummers.com/about/">About</a></li>
+                                                        <a href="https://overlandsummers.com/about/">About</a>
+                                                    </li>
                                                     <li id="menu-item-1269"
                                                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1269">
                                                         <a href="https://overlandsummers.com/contact-us/">Contact Us</a>
@@ -5095,7 +5104,8 @@
                                 jQuery('#gform_wrapper_6').show();
                                 jQuery('#gform_wrapper_6 form').css('opacity', '');
                                 jQuery(document).trigger('gform_post_conditional_logic', [6, null,
-                                    true]);
+                                    true
+                                ]);
                                 gform.utils.trigger({
                                     event: 'gform/conditionalLogic/init/end',
                                     native: false,
