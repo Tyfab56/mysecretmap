@@ -351,5 +351,5 @@ Route::get('/audioguide_iceland/{any}', function () {
 })->where('any', '.*');
 
 Route::get('/2/home', [IndexController::class, 'index2'])->name('home2');
-
+Route::get('/2/home2', [IndexController::class, 'index2b'])->name('home2b');
 require __DIR__ . '/auth.php';
