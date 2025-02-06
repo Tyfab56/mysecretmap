@@ -63,19 +63,7 @@
                                 </li>
 
                                 {{-- Exemple de dropdown --}}
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
-                                        {{ __('menu.Infos') }}
-                                    </a>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item"
-                                                href="{{ route('timeline') }}">{{ __('menu.Filinfo') }}</a></li>
-                                        <li><a class="dropdown-item"
-                                                href="{{ route('aboutus') }}">{{ __('menu.Infos') }}</a></li>
-                                        <li><a class="dropdown-item"
-                                                href="{{ route('contact') }}">{{ __('menu.Contact') }}</a></li>
-                                    </ul>
-                                </li>
+
 
                                 {{-- Ajoute ici tes autres items/menu déroulants si nécessaire --}}
                                 {{-- ... --}}
@@ -102,9 +90,7 @@
                                         <ul class="dropdown-menu">
                                             <li><a class="dropdown-item"
                                                     href="{{ route('myaccount') }}">{{ __('menu.Profil') }}</a></li>
-                                            <li><a class="dropdown-item"
-                                                    href="{{ route('favorites.index') }}">{{ __('menu.Favoris') }}</a>
-                                            </li>
+
                                             <li><a class="dropdown-item text-danger"
                                                     href="{{ route('logout') }}">{{ __('menu.Logout') }}</a></li>
                                         </ul>
@@ -140,8 +126,7 @@
                                                 Admin
                                             </a>
                                             <ul class="dropdown-menu">
-                                                <li><a class="dropdown-item"
-                                                        href="{{ route('admin.dashboard') }}">Tableau
+                                                <li><a class="dropdown-item" href="{{ route('admin.dashboard') }}">Tableau
                                                         de bord</a></li>
                                             </ul>
                                         </li>

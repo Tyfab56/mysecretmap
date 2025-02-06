@@ -75,6 +75,36 @@ section {
     background-color: #ffffff;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
+.big-title {
+    text-align: center;
+    max-width: 640px;
+    width: 100%;
+    margin: 0 auto 38px;
+
+    @include max-mq(map-get($breakpoints, "md")) {
+        margin: 0 auto 18px;
+    }
+
+    h2 {
+        margin: 0 0 14px;
+
+        @include max-mq(map-get($breakpoints, "md")) {
+            margin: 0 0 18px;
+        }
+    }
+
+    p {
+        margin: 0;
+        color: $primary-color;
+        font-size: map-get($font-sizes, "small-s");
+        font-weight: map-get($font-weights, "regular");
+        line-height: $line-height-s-primary;
+        letter-spacing: 0.3px;
+        max-width: 554px;
+        width: 100%;
+        margin: 0 auto;
+    }
+}
 
 /* Pied de page */
 footer {
