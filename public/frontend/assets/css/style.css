@@ -4569,7 +4569,7 @@ font-size : 25px;
     display: -webkit-box;
     display: -moz-box;
     display: -webkit-flex;
-    display: flex
-;
+    display: flex;
+    padding: 13.5px 23px;
     color: #fff !important;
 }
