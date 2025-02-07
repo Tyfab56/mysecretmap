@@ -86,17 +86,17 @@
 
                     <div class="col-lg-4 col-md-4 top-social text-center text-md-right">
                         @Auth
-                                    <div class="messages-notification">
-                                        <a href="{{ route('messages.index') }}">
-                                            <i class="fas fa-envelope"></i>
-                                            @if ($unreadMessagesCount > 0)
+                                        <div class="messages-notification">
+                                            <a href="{{ route('messages.index') }}">
+                                                <i class="fas fa-envelope"></i>
+                                                @if ($unreadMessagesCount > 0)
     <span class="badge badge-danger">{{ $unreadMessagesCount }}</span>
     @endif
-                                        </a>
+                                            </a>
+                                        </div>
+
+
                                     </div>
-
-
-                                </div>
                     @EndAuth
 
                 </div>
@@ -169,8 +169,7 @@
                             <nav class="navbar navbar-expand-lg navbar-dark p-0">
                                 <div class="logo col-lg-3 text-center text-lg-left mb-3 mb-md-5 mb-lg-0">
                                     <a class="d-block" href="{{ URL::route('home') }}">
-                                        <img loading="lazy" src="{{ asset('frontend/assets/images/maplogo.gif') }}"
-                                            alt="My Secret map">
+
                                         <img loading="lazy" src="{{ asset('frontend/assets/images/logoh55.png') }}"
                                             alt="My Secret map">
                                     </a>
