@@ -4325,19 +4325,7 @@ font-size : 25px;
     display: none;
   }
 
-  .video-section:after {
-    content: "";
-    z-index: 2;
-    background-color: #fff;
-    width: 60px;
-    height: 60px;
-    position: absolute;
-    bottom: -47px;
-    left: 50%;
-    -webkit-transform: translate(-50%) rotate(45deg);
-    -ms-transform: translate(-50%) rotate(45deg);
-    transform: translate(-50%) rotate(45deg);
-  }
+
 
   @media (max-width: 768px) {
     .video-section:after {
