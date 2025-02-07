@@ -86,17 +86,17 @@
 
                     <div class="col-lg-4 col-md-4 top-social text-center text-md-right">
                         @Auth
-                                        <div class="messages-notification">
-                                            <a href="{{ route('messages.index') }}">
-                                                <i class="fas fa-envelope"></i>
-                                                @if ($unreadMessagesCount > 0)
+                                            <div class="messages-notification">
+                                                <a href="{{ route('messages.index') }}">
+                                                    <i class="fas fa-envelope"></i>
+                                                    @if ($unreadMessagesCount > 0)
     <span class="badge badge-danger">{{ $unreadMessagesCount }}</span>
     @endif
-                                            </a>
+                                                </a>
+                                            </div>
+
+
                                         </div>
-
-
-                                    </div>
                     @EndAuth
 
                 </div>
@@ -108,6 +108,7 @@
 
         <!-- Header start -->
         <header id="header" class="header-one">
+            <!--
             <div class="bg-white">
                 <div class="container">
                     <div class="logo-area">
@@ -119,7 +120,7 @@
                                     <img loading="lazy" src="{{ asset('frontend/assets/images/logoh55.png') }}"
                                         alt="My Secret map">
                                 </a>
-                            </div><!-- logo end -->
+                            </div>
 
                             <div class="col-lg-9 header-right">
                                 <ul class="top-info-box">
@@ -152,13 +153,13 @@
                                         <a class="btn btn-primary"
                                             href="{{ URL::route('aboutus') }}">{{ __('index.AboutLink') }}</a>
                                     </li>
-                                </ul><!-- Ul end -->
-                            </div><!-- header right end -->
-                        </div><!-- logo area end -->
+                                </ul>
+                            </div><
+                        </div><
 
-                    </div><!-- Row end -->
-                </div><!-- Container end -->
-            </div>
+                    </div>
+                </div>
+            </div>  -->
 
             <div class="site-navigation">
                 <div class="container">
