@@ -4561,3 +4561,74 @@ font-size : 25px;
     padding: 13.5px 23px;
     color: #fff !important;
 }
+
+
+/* Section générale */
+.pricing-section {
+    padding: 60px 0;
+    background: #f5f5f5; /* Fond neutre, à adapter à votre charte */
+    text-align: center;
+  }
+
+  .pricing-section .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .pricing-section h2 {
+    font-family: 'Raleway', sans-serif;
+    font-size: 36px;
+    color: #212121;
+    margin-bottom: 40px;
+  }
+
+  /* Grille tarifaire */
+  .pricing-grid {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+  }
+
+  /* Chaque colonne */
+  .pricing-column {
+    background: #fff;
+    padding: 30px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    flex: 1;
+  }
+
+  .pricing-column h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #212121;
+  }
+
+  .pricing-column h3 span {
+    display: block;
+    font-size: 16px;
+    color: #888;
+  }
+
+  .pricing-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .pricing-column ul li {
+    margin-bottom: 12px;
+    font-size: 16px;
+    color: #555;
+  }
+
+  /* Responsive : en dessous de 768px, la grille se transforme en colonne unique */
+  @media (max-width: 768px) {
+    .pricing-grid {
+      flex-direction: column;
+    }
+    .pricing-column {
+      margin-bottom: 20px;
+    }
+  }
