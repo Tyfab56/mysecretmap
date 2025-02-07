@@ -4342,3 +4342,17 @@ font-size : 25px;
     top: 0;
     left: 0;
 }
+
+.video-section:after {
+    content: "";
+    z-index: 2;
+    background-color: #fff;
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    bottom: -47px;
+    left: 50%;
+    -webkit-transform: translate(-50%) rotate(45deg);
+    -ms-transform: translate(-50%) rotate(45deg);
+    transform: translate(-50%) rotate(45deg);
+}
