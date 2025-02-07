@@ -10,7 +10,7 @@
     <meta name="keywords" content="spot,tourisme,photo, voyage">
     <meta name="robots" content="all">
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
-    <script async defer src="https://widget.getyourguide.com/dist/pa.umd.production.min.js" data-gyg-partner-id="ZBTCHLM"></script>
+   
 
     <title>My Secret Map</title>
 
