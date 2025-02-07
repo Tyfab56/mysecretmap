@@ -4365,3 +4365,30 @@ font-size : 25px;
     margin: 0 auto;
     position: relative;
 }
+
+.video-section--box-content .tagline {
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin: 0 0 8px;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.25rem;
+}
+
+.video-section--box-content h1 {
+    color: #fff;
+    margin: 0 0 20px;
+    font-weight: 450;
+}
+
+.video-section--box-content h4 {
+    color: #fff;
+    letter-spacing: .4px;
+    text-transform: none;
+    margin: 0 0 20px;
+    font-family: source-sans-pro, sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.38rem;
+}
