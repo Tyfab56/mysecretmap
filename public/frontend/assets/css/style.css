@@ -4525,3 +4525,28 @@ font-size : 25px;
     max-width: 100% !important;
   }
 
+  .button.transparent-button {
+    color: #048bff;
+    background-color: transparent;
+    border-color: #048bff;
+}
+
+@media (max-width: 991px) {
+    .video-section--box-content-links .transparent-button {
+        width: 100%;
+        max-width: 215px;
+    }
+}
+.video-section--box-content-links .transparent-button {
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    gap: 10px;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -webkit-flex;
+    display: flex
+;
+    color: #fff !important;
+}

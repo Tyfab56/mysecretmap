@@ -41,21 +41,8 @@
                         target="_self">
                         VOIR LES GUIDES </a>
                     <button class="button transparent-button popmake-1554">
-                        <svg width="17" height="17" viewBox="0 0 17 17" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <g clip-path="url(#clip0_3545_7819)">
-                                <path
-                                    d="M0.0781789 8.46428C0.0636357 3.75032 3.86348 -0.122444 8.4472 0.00296242C12.6822 0.121705 16.3846 3.76365 16.3666 8.52698C16.3587 10.7764 15.4928 12.9304 13.9599 14.5153C12.4271 16.1001 10.3524 16.9859 8.19241 16.9774C6.03245 16.9692 3.96412 16.0674 2.44232 14.4711C0.92052 12.8747 0.0703256 10.7137 0.0781789 8.46428ZM12.1121 8.61331C12.0062 8.46004 11.882 8.3216 11.7424 8.20104C10.1136 7.19446 8.4792 6.19605 6.8396 5.20552C6.43064 4.95622 6.10488 5.131 6.10488 5.61748C6.08859 7.62369 6.08859 9.62989 6.10488 11.6361C6.10488 12.1262 6.43064 12.3146 6.83785 12.0653C8.49054 11.0702 10.1368 10.0637 11.7764 9.04587C11.8968 8.96621 11.9687 8.79324 12.1135 8.61331H12.1121Z"
-                                    fill="white" />
-                            </g>
-                            <defs>
-                                <clipPath id="clip0_3545_7819">
-                                    <rect width="16.2884" height="16.9775" fill="white" transform="translate(0.078125)" />
-                                </clipPath>
-                            </defs>
-                        </svg>
-                        <span>
-                            Watch our video </span>
+
+                        Voir les vidéos
                     </button>
                 </div>
             </div>
@@ -69,50 +56,50 @@
     </section id="features" class="news">
     <div class="container">
         <!--
-                                    <div class="row text-center">
-                                        <div class="col-lg-6 col-md-12 d-flex flex-column justify-content-center">
-                                            <h2 class="section-sub-title">{{ __('index.Top1Line1') }}</h2>
-                                            <h3 class="section-sub-title">{{ __('index.Top1Line2') }}</h3>
-                                            <h6>{{ __('index.Top1Line3') }}</h6>
-                                            <h6 class="orange">{{ __('index.Top1Line4') }}</h6>
-                                        </div>
+                                        <div class="row text-center">
+                                            <div class="col-lg-6 col-md-12 d-flex flex-column justify-content-center">
+                                                <h2 class="section-sub-title">{{ __('index.Top1Line1') }}</h2>
+                                                <h3 class="section-sub-title">{{ __('index.Top1Line2') }}</h3>
+                                                <h6>{{ __('index.Top1Line3') }}</h6>
+                                                <h6 class="orange">{{ __('index.Top1Line4') }}</h6>
+                                            </div>
 
-                                        <div class="col-lg-4 cold-md-12 bgbox p5 br5">
-                                            <div class="row align-items-center">
-                                                <div class="col-md-12">
-                                                    <div class="jc-center ai-center d-flex">
-                                                        <i class="fas fa-headphones purple f1-9em"></i>
-                                                        <h6 class="section-sub-title white ml-2 mr-2">{{ __('index.Charly0') }}</h6>
-                                                        <img src="{{ asset('frontend/assets/images/charly_80.png') }}" style="height:65px;"
-                                                            alt="charly" class="img-fluid ml-2">
+                                            <div class="col-lg-4 cold-md-12 bgbox p5 br5">
+                                                <div class="row align-items-center">
+                                                    <div class="col-md-12">
+                                                        <div class="jc-center ai-center d-flex">
+                                                            <i class="fas fa-headphones purple f1-9em"></i>
+                                                            <h6 class="section-sub-title white ml-2 mr-2">{{ __('index.Charly0') }}</h6>
+                                                            <img src="{{ asset('frontend/assets/images/charly_80.png') }}" style="height:65px;"
+                                                                alt="charly" class="img-fluid ml-2">
+                                                        </div>
                                                     </div>
+
                                                 </div>
 
+                                                <h6 class="white">{!! __('index.Charly1') !!}</h6>
+                                                <p class="white">{!! __('index.Charly2') !!}</p>
+                                                <a href="{{ route('tostore') }}" class="btn btn-primary d-inline-block mr-2">
+                                                    <p class="mb-0 white">{{ __('index.Charly3') }}</p>
+                                                </a>
+                                                <a href="{{ route('charly_posts', ['pays_id' => 'IS']) }}" class="btn btn-primary d-inline-block">
+                                                    <p class="mb-0 white">{{ __('index.Charly5') }}</p>
+                                                </a>
+
+
+                                            </div>
+                                            <div class="col-lg-2 col-md-12" style="position: relative;">
+                                                <img src="{{ asset('frontend/assets/images/blog/charly1.jpg') }}" alt="charly" class="img-fluid br5">
+                                                <div
+                                                    style="position: absolute; bottom: 10px; left: 0; right: 0; display: flex; justify-content: center;">
+                                                    <span
+                                                        style="color: white; font-size: 0.8rem; text-align: center; width: 80%;font-style: italic;">{{ __('index.Charly4') }}</span>
+                                                </div>
                                             </div>
 
-                                            <h6 class="white">{!! __('index.Charly1') !!}</h6>
-                                            <p class="white">{!! __('index.Charly2') !!}</p>
-                                            <a href="{{ route('tostore') }}" class="btn btn-primary d-inline-block mr-2">
-                                                <p class="mb-0 white">{{ __('index.Charly3') }}</p>
-                                            </a>
-                                            <a href="{{ route('charly_posts', ['pays_id' => 'IS']) }}" class="btn btn-primary d-inline-block">
-                                                <p class="mb-0 white">{{ __('index.Charly5') }}</p>
-                                            </a>
-
-
-                                        </div>
-                                        <div class="col-lg-2 col-md-12" style="position: relative;">
-                                            <img src="{{ asset('frontend/assets/images/blog/charly1.jpg') }}" alt="charly" class="img-fluid br5">
-                                            <div
-                                                style="position: absolute; bottom: 10px; left: 0; right: 0; display: flex; justify-content: center;">
-                                                <span
-                                                    style="color: white; font-size: 0.8rem; text-align: center; width: 80%;font-style: italic;">{{ __('index.Charly4') }}</span>
-                                            </div>
                                         </div>
 
-                                    </div>
-
-                                   -->
+                                       -->
         <section id="ts-features" class="ts-features">
             <div class="container">
                 <div class="row">
