@@ -4430,6 +4430,8 @@ font-weight: 700;
 line-height: 56px;
 }
 
+
+
 .video-section--box-content h1 {
     color: #fff;
     margin: 0 0 20px;
@@ -4446,6 +4448,14 @@ line-height: 56px;
     font-weight: 600;
     line-height: 1.38rem;
 }
+
+@media (max-width: 768px) {
+    .video-section h4 {
+      font-size: 16px; /* base */
+      margin: 0 0 19px;
+      line-height: 1.3; /* line-height-base-secondary */
+    }
+  }
 @media (max-width: 991px) {
     .video-section--box-content-links {
         -webkit-box-orient: vertical;
@@ -4457,6 +4467,27 @@ line-height: 56px;
         gap: 10px;
     }
 }
+.video-section-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+  }
+
+  @media (max-width: 768px) {
+    .video-section-links {
+      flex-direction: column;
+      gap: 10px;
+    }
+  }
+
+  .video-section-links a {
+    align-self: stretch;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
 
 .video-section--box-content-links {
     -webkit-box-pack: center;
