@@ -4456,3 +4456,209 @@ line-height: 56px;
 }
 
 
+
+
+
+
+
+.big-hero-section {
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    padding: 50px 0;
+    min-height: calc(100vh - 103px);
+    background: #192851;
+
+    &.playing {
+      .big-hero-section--box {
+        display: none;
+      }
+    }
+
+    &::after {
+      content: "";
+      width: 60px;
+      height: 60px;
+      background-color: $main-white;
+      position: absolute;
+      bottom: -47px;
+      left: 50%;
+      transform: translateX(-50%) rotate(45deg);
+      z-index: 2;
+      @include max-mq(map-get($breakpoints, "md")) {
+        width: 35px;
+        height: 35px;
+        bottom: -19px;
+      }
+    }
+
+    .iframe-wrapper {
+      &:before {
+        content: "";
+        background: -webkit-gradient(
+            linear,
+            0 0,
+            0 100%,
+            from(#192851),
+            to(rgba(25, 40, 81, 0))
+          ),
+          rgba(212, 212, 212, 0.1) no-repeat;
+        background: -webkit-linear-gradient(#192851, rgba(25, 40, 81, 0)),
+          rgba(212, 212, 212, 0.1) no-repeat;
+        background: linear-gradient(#192851, rgba(25, 40, 81, 0)),
+          rgba(212, 212, 212, 0.1) no-repeat;
+        position: absolute;
+        top: -2px;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 1;
+      }
+      iframe, video {
+        object-fit: cover;
+        position: absolute;
+        object-position: center;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: calc((var(--windowWidth)) * .58);
+        pointer-events: none;
+      }
+      video {
+        height: 100%;
+      }
+    }
+
+    &--box {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &-content {
+        position: relative;
+        z-index: 2;
+        max-width: 916px;
+        width: 100%;
+        text-align: center;
+        margin: 0 auto;
+
+        @include max-mq(map-get($breakpoints, "mb")) {
+          max-width: 296px;
+        }
+
+        .tagline {
+          color: $main-white;
+          font-weight: map-get($font-weights, "semi-bold");
+          line-height: $line-height-base-secondary;
+          text-transform: uppercase;
+          letter-spacing: 1.5px;
+          font-size: map-get($font-sizes, "small-s");
+          margin: 0 0 8px;
+
+          @include max-mq(map-get($breakpoints, "md")) {
+            font-size: map-get($font-sizes, "small");
+            padding-bottom: 15px;
+          }
+        }
+
+        h1 {
+          color: $main-white;
+          font-weight: 450;
+          margin: 0 0 20px;
+        }
+
+        h4 {
+          color: $main-white;
+          font-size: map-get($font-sizes, "m-secondary");
+          font-weight: map-get($font-weights, "semi-bold");
+          line-height: $line-height-s-primary;
+          letter-spacing: 0.4px;
+          margin: 0 0 20px;
+          text-transform: none;
+          font-family: $primary-font;
+
+          @include max-mq(map-get($breakpoints, "md")) {
+            font-size: map-get($font-sizes, "base");
+            margin: 0 0 19px;
+            line-height: $line-height-base-secondary;
+          }
+        }
+
+        &-links {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 24px;
+
+          @include max-mq(map-get($breakpoints, "md")) {
+            flex-direction: column;
+            gap: 10px;
+          }
+
+          a {
+            align-self: stretch;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            @include max-mq(map-get($breakpoints, "md")) {
+              align-self: unset;
+              max-width: 215px;
+              width: 100%;
+            }
+          }
+
+          .transparent-button {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: $main-white !important;
+            @include max-mq(map-get($breakpoints, "md")) {
+              max-width: 215px;
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+
+    .video-wrapper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: -2px;
+        bottom: 0;
+        background: linear-gradient(
+            to bottom,
+            $primary-color,
+            rgba(25, 40, 81, 0)
+          ),
+          rgba(212, 212, 212, 0.1) no-repeat;
+      }
+      video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+
+  #document {
+    .vp-center {
+      display: block !important;
+    }
+    .player {
+      max-width: 100% !important;
+    }
+  }
+
+
