@@ -4386,6 +4386,16 @@ font-size : 25px;
     font-weight: 600;
     line-height: 1.25rem;
 }
+.video-section h1
+{
+clear: both;
+margin-top: 1em;
+margin-bottom: 1em;
+font-family: brandon-grotesque, sans-serif;
+font-size: 48px;
+font-weight: 700;
+line-height: 56px;
+}
 
 .video-section--box-content h1 {
     color: #fff;
