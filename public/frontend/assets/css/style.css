@@ -4557,7 +4557,7 @@ font-size : 25px;
 @media (max-width: 991px) {
     .video-section--box-content-links .transparent-button {
         width: 100%;
-        max-width: 215px;
+        max-width: 255px;
     }
 }
 .video-section--box-content-links .transparent-button {
