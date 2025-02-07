@@ -4518,6 +4518,13 @@ line-height: 56px;
 
 
 
-
+#video-section {
+    .vp-center {
+      display: block !important;
+    }
+    .player {
+      max-width: 100% !important;
+    }
+  }
 
 
