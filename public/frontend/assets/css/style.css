@@ -4305,3 +4305,25 @@ font-size : 25px;
     display: flex
 ;
 }
+
+.video-section .container {
+    width: 100%;
+    max-width: 1244px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 32px;
+    padding-right: 32px;
+}
+
+.video-section .iframe-wrapper:before {
+    content: "";
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(#192851), to(rgba(25, 40, 81, 0))), rgba(212, 212, 212, .1) no-repeat;
+    z-index: 1;
+    background: -webkit-linear-gradient(#192851, rgba(25, 40, 81, 0)), rgba(212, 212, 212, .1) no-repeat;
+    background: linear-gradient(#192851, rgba(25, 40, 81, 0)), rgba(212, 212, 212, .1) no-repeat;
+    position: absolute;
+    top: -2px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
