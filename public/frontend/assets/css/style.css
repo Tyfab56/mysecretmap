@@ -4252,7 +4252,7 @@ font-size : 25px;
 
 }
 
-section.section-main-title.main-title h2 {
+.section-main-title.main-title h2 {
     clear: both;
     font-family: rayleway, sans-serif;
     font-size: 40px;
@@ -4268,6 +4268,6 @@ section.section-main-title.main-title h2 {
 
   }
 
-  section.section-main-title.main-title  h2 strong {
+  .section-main-title.main-title h2 strong {
     color: #9dbd59;
   }
