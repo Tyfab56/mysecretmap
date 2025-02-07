@@ -4386,6 +4386,19 @@ font-size : 25px;
     font-weight: 600;
     line-height: 1.25rem;
 }
+.tagline:after {
+    content: "";
+    background-color: #9dbd59;
+    width: 100%;
+    max-width: 30px;
+    height: 3px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    -webkit-transform: translate(-50%);
+    -ms-transform: translate(-50%);
+    transform: translate(-50%);
+}
 .video-section h1
 {
 clear: both;
