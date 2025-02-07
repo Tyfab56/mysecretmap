@@ -4246,10 +4246,11 @@ font-size : 25px;
     text-align: center;
 }
 
-.main-title
-{
-
-
+.main-title {
+    text-align: center;
+    width: 100%;
+    max-width: 640px;
+    margin: 0 auto 38px;
 }
 
 .section-main-title.main-title h2 {
@@ -4267,6 +4268,11 @@ font-size : 25px;
     text-transform: uppercase;
 
   }
+  @media (max-width: 991px) {
+    .section-main-title.main-title h2 {
+        margin: 0 0 18px;
+    }
+}
 
   .section-main-title.main-title h2 strong {
     color: #9dbd59;
