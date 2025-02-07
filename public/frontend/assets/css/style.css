@@ -8,6 +8,8 @@
   font-style: normal;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap');
+
 
   @import url('https://fonts.googleapis.com/css2?family=Oxygen&display=swap');
 
@@ -21,7 +23,7 @@ body {
 
 body,
 p {
-  
+
   font-family: 'Oxygen', sans-serif;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased !important;
@@ -143,7 +145,7 @@ section,
 
 .no-padding {
   padding: 0;
-} 
+}
 
 .gap-60 {
   clear: both;
@@ -513,7 +515,7 @@ a[href^=tel] {
 .btn-dark {
   border: 0;
   border-radius: 3px;
-  padding: 5px; 
+  padding: 5px;
   font-weight: 700;
   text-transform: uppercase;
   color: #fff;
@@ -1724,7 +1726,7 @@ ul.navbar-nav > li.header-get-a-quote:hover > a:after {
   color: #fff;
 }
 
-/* Service box 
+/* Service box
 
 .ts-service-box .ts-service-icon i {
   font-size: 24px;
@@ -3462,9 +3464,9 @@ label {
   padding: 10px;
 ;
 }
-a.red:hover 
+a.red:hover
 {
- color : red; 
+ color : red;
 }
 .f13
 {
@@ -3483,7 +3485,7 @@ a.red:hover
 }
 .w100
 {
-  width : 100%; 
+  width : 100%;
 }
 .max80
 {
@@ -3506,7 +3508,7 @@ a.red:hover
   max-width : 50%;
 }
 
-.pt0 
+.pt0
 {
   padding: 0 ;
 }
@@ -3542,7 +3544,7 @@ a.red:hover
 {
   margin-top: -5px ;
 }
-.center 
+.center
 {
   text-align: center;
 }
@@ -3574,13 +3576,13 @@ input[type=range] {
   margin-bottom: 10px;
 
  }
- .img-overlay 
+ .img-overlay
  {
-  position: absolute; 
-        bottom: 0; 
+  position: absolute;
+        bottom: 0;
         background: rgb(230, 140, 6);
         background: rgba(0, 0, 0, 0.5);
-        color: #f1f1f1; 
+        color: #f1f1f1;
         width: 100%;
         transition: .5s ease;
         opacity:0;
@@ -3596,7 +3598,7 @@ input[type=range] {
 
 
 .cont {
-  position: relative;      
+  position: relative;
 }
 .addit
 {
@@ -3648,7 +3650,7 @@ max-width: 133px;
 
 .swiper-slide {
   width: auto!Important;
-  overflow: hidden; 
+  overflow: hidden;
   margin-top: 5px;
   margin-bottom: 5px;
   }
@@ -3728,7 +3730,7 @@ max-width: 133px;
 .img-relative
 {
   position: relative;
- 
+
 }
 
 .img-wall
@@ -3741,7 +3743,7 @@ max-width: 133px;
 .img-relative:hover .img-walloverlay {
   opacity:1;
 }
-.img-walloverlay 
+.img-walloverlay
  {
   bottom: 0;
     border-radius: 5px;
@@ -3772,14 +3774,14 @@ max-width: 133px;
  .mw350
  {
   max-width: 350px;
-  
+
  }
  .mw400
  {
   max-width: 400px;
-  
+
  }
- .mauto 
+ .mauto
  {
   margin: auto;
  }
@@ -3797,9 +3799,9 @@ max-width: 133px;
 }
 @media (max-width:992px) {
   .vertical-center {
-    
+
     position: relative;
-    
+
   }
 }
 .w400p
@@ -3836,7 +3838,7 @@ max-width: 133px;
   height: 90px;
   margin-left: 20px;
   margin-right: 20px;
-  
+
 }
 
 img.list-photo:hover, img.imgbox:hover{
@@ -3869,7 +3871,7 @@ img.list-photo:hover, img.imgbox:hover{
   color: #1e1e4b;
   font-family: 'Oxygen', sans-serif;
   font-weight: 700;
-  line-height: 1.2; 
+  line-height: 1.2;
 }
 
 
@@ -3900,14 +3902,14 @@ img.list-photo:hover, img.imgbox:hover{
     border-left: 3px solid #ffb600;
     padding-left: 1.3rem;
   }
-  
+
 .pad_section
 {
   padding-top: 2rem;
   padding-bottom: 2rem;
   background-color: #ffffff;
-} 
- 
+}
+
 .pad_container_h16
 {
   padding-left: 16px;
@@ -4000,7 +4002,7 @@ img.list-photo:hover, img.imgbox:hover{
   justify-content: center;
   align-items: center;
   height: 70px; /* Ajustez la hauteur de la div selon vos besoins */
-} 
+}
 
 .avatar-300
 {
@@ -4136,7 +4138,7 @@ border: 3px solid #9b9393
 }
 
 .fab.fa-facebook-square {
-  color: #1877F2; 
+  color: #1877F2;
   font-size : 25px;
   margin-left: 10px;
   margin-right: 10px;
@@ -4237,3 +4239,35 @@ font-size : 25px;
 .hidden {
   display: none;
 }
+
+
+.section-main-title
+{
+    text-align: center;
+}
+
+.main-title
+{
+
+
+}
+
+section.section-main-title.main-title h2 {
+    clear: both;
+    font-family: rayleway, sans-serif;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 44px;
+
+    color: #212121;
+    text-rendering: optimizelegibility;
+    -webkit-font-smoothing: antialiased !important;
+    letter-spacing: -1px;
+    margin: 0 0 14px;
+    text-transform: uppercase;
+
+  }
+
+  section.section-main-title.main-title  h2 strong {
+    color: #9dbd59;
+  }
