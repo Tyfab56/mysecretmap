@@ -31,7 +31,9 @@
             <div class="video-section--box-content">
                 <p class="tagline">
                     Explorez nos destinations </p>
-                <h1>VOYAGEZ AVEC VOS OREILLES <br>AUDIOGUIDE ISLANDE</h1>
+                <h1>VOYAGEZ AVEC VOS OREILLES <br><strong>
+                        <AUDIOGUIDE ISLANDE</strong>
+                </h1>
                 <h4>Découvrez pourquoi nos guides sont si populaires</h4>
 
                 <div class="video-section--box-content-links">
@@ -67,50 +69,50 @@
     </section id="features" class="news">
     <div class="container">
         <!--
-                                <div class="row text-center">
-                                    <div class="col-lg-6 col-md-12 d-flex flex-column justify-content-center">
-                                        <h2 class="section-sub-title">{{ __('index.Top1Line1') }}</h2>
-                                        <h3 class="section-sub-title">{{ __('index.Top1Line2') }}</h3>
-                                        <h6>{{ __('index.Top1Line3') }}</h6>
-                                        <h6 class="orange">{{ __('index.Top1Line4') }}</h6>
-                                    </div>
+                                    <div class="row text-center">
+                                        <div class="col-lg-6 col-md-12 d-flex flex-column justify-content-center">
+                                            <h2 class="section-sub-title">{{ __('index.Top1Line1') }}</h2>
+                                            <h3 class="section-sub-title">{{ __('index.Top1Line2') }}</h3>
+                                            <h6>{{ __('index.Top1Line3') }}</h6>
+                                            <h6 class="orange">{{ __('index.Top1Line4') }}</h6>
+                                        </div>
 
-                                    <div class="col-lg-4 cold-md-12 bgbox p5 br5">
-                                        <div class="row align-items-center">
-                                            <div class="col-md-12">
-                                                <div class="jc-center ai-center d-flex">
-                                                    <i class="fas fa-headphones purple f1-9em"></i>
-                                                    <h6 class="section-sub-title white ml-2 mr-2">{{ __('index.Charly0') }}</h6>
-                                                    <img src="{{ asset('frontend/assets/images/charly_80.png') }}" style="height:65px;"
-                                                        alt="charly" class="img-fluid ml-2">
+                                        <div class="col-lg-4 cold-md-12 bgbox p5 br5">
+                                            <div class="row align-items-center">
+                                                <div class="col-md-12">
+                                                    <div class="jc-center ai-center d-flex">
+                                                        <i class="fas fa-headphones purple f1-9em"></i>
+                                                        <h6 class="section-sub-title white ml-2 mr-2">{{ __('index.Charly0') }}</h6>
+                                                        <img src="{{ asset('frontend/assets/images/charly_80.png') }}" style="height:65px;"
+                                                            alt="charly" class="img-fluid ml-2">
+                                                    </div>
                                                 </div>
+
                                             </div>
 
+                                            <h6 class="white">{!! __('index.Charly1') !!}</h6>
+                                            <p class="white">{!! __('index.Charly2') !!}</p>
+                                            <a href="{{ route('tostore') }}" class="btn btn-primary d-inline-block mr-2">
+                                                <p class="mb-0 white">{{ __('index.Charly3') }}</p>
+                                            </a>
+                                            <a href="{{ route('charly_posts', ['pays_id' => 'IS']) }}" class="btn btn-primary d-inline-block">
+                                                <p class="mb-0 white">{{ __('index.Charly5') }}</p>
+                                            </a>
+
+
+                                        </div>
+                                        <div class="col-lg-2 col-md-12" style="position: relative;">
+                                            <img src="{{ asset('frontend/assets/images/blog/charly1.jpg') }}" alt="charly" class="img-fluid br5">
+                                            <div
+                                                style="position: absolute; bottom: 10px; left: 0; right: 0; display: flex; justify-content: center;">
+                                                <span
+                                                    style="color: white; font-size: 0.8rem; text-align: center; width: 80%;font-style: italic;">{{ __('index.Charly4') }}</span>
+                                            </div>
                                         </div>
 
-                                        <h6 class="white">{!! __('index.Charly1') !!}</h6>
-                                        <p class="white">{!! __('index.Charly2') !!}</p>
-                                        <a href="{{ route('tostore') }}" class="btn btn-primary d-inline-block mr-2">
-                                            <p class="mb-0 white">{{ __('index.Charly3') }}</p>
-                                        </a>
-                                        <a href="{{ route('charly_posts', ['pays_id' => 'IS']) }}" class="btn btn-primary d-inline-block">
-                                            <p class="mb-0 white">{{ __('index.Charly5') }}</p>
-                                        </a>
-
-
-                                    </div>
-                                    <div class="col-lg-2 col-md-12" style="position: relative;">
-                                        <img src="{{ asset('frontend/assets/images/blog/charly1.jpg') }}" alt="charly" class="img-fluid br5">
-                                        <div
-                                            style="position: absolute; bottom: 10px; left: 0; right: 0; display: flex; justify-content: center;">
-                                            <span
-                                                style="color: white; font-size: 0.8rem; text-align: center; width: 80%;font-style: italic;">{{ __('index.Charly4') }}</span>
-                                        </div>
                                     </div>
 
-                                </div>
-
-                               -->
+                                   -->
         <section id="ts-features" class="ts-features">
             <div class="container">
                 <div class="row">
