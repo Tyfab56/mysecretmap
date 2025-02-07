@@ -20,6 +20,9 @@ body {
   color: #555;
 }
 
+:root {
+    --windowWidth: 820px;
+  }
 
 body,
 p {
