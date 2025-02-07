@@ -4270,6 +4270,30 @@ font-size : 25px;
     text-transform: uppercase;
   }
 
+  /* Pour les écrans de moins de 991px */
+@media (max-width: 991px) {
+    .section-main-title.main-title h2 {
+      font-size: 36px;
+      line-height: 40px;
+    }
+  }
+
+  /* Pour les écrans de moins de 768px */
+  @media (max-width: 768px) {
+    .section-main-title.main-title h2 {
+      font-size: 32px;
+      line-height: 36px;
+    }
+  }
+
+  /* Pour les écrans de moins de 480px */
+  @media (max-width: 480px) {
+    .section-main-title.main-title h2 {
+      font-size: 28px;
+      line-height: 32px;
+    }
+  }
+
   @media (max-width: 991px) {
     .section-main-title.main-title h2 {
       margin: 0 0 18px;
