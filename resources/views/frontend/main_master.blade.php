@@ -61,7 +61,7 @@
         $unreadMessagesCount = $messageController->getUnreadMessagesCount();
     @endphp
     <div class="body-inner">
-
+        <!--/ Top info end
         <div id="top-bar" class="top-bar">
             <div class="container">
                 <div class="row">
@@ -72,9 +72,9 @@
                             </li>
                         </ul>
                     </div>
-                    <!--/ Top info end -->
 
-                    <!-- Zone de recherche
+
+
                     <div class="col-lg-4 col-md-4 text-center">
 
 
@@ -82,30 +82,29 @@
                             <input type="text" name="query" placeholder="{{ __('menu.Search') }}" class="search-input">
                             <button type="submit" class="btn-search"><i class="fas fa-search"></i></button>
                         </form>
-                    </div>-->
+                    </div>
 
                     <div class="col-lg-4 col-md-4 top-social text-center text-md-right">
                         @Auth
-                            <div class="messages-notification">
-                                <a href="{{ route('messages.index') }}">
-                                    <i class="fas fa-envelope"></i>
-                                    @if ($unreadMessagesCount > 0)
-                                        <span class="badge badge-danger">{{ $unreadMessagesCount }}</span>
-                                    @endif
-                                </a>
+                                <div class="messages-notification">
+                                    <a href="{{ route('messages.index') }}">
+                                        <i class="fas fa-envelope"></i>
+                                        @if ($unreadMessagesCount > 0)
+    <span class="badge badge-danger">{{ $unreadMessagesCount }}</span>
+    @endif
+                                    </a>
+                                </div>
+
+
                             </div>
-
-
-                        </div>
                     @EndAuth
-                    <!--/ Top social end -->
+
                 </div>
-                <!--/ Content row end -->
+
             </div>
 
-            <!--/ Container end -->
-        </div>
-        <!--/ Topbar end -->
+
+     -->
 
         <!-- Header start -->
         <header id="header" class="header-one">
