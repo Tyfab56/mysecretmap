@@ -4327,3 +4327,18 @@ font-size : 25px;
     left: 0;
     right: 0;
 }
+
+.video-section .iframe-wrapper video {
+    height: 100%;
+}
+
+.video-section .iframe-wrapper iframe, .video-section .iframe-wrapper video {
+    object-fit: cover;
+    object-position: center;
+    height: calc((var(--windowWidth))* .58);
+    pointer-events: none;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
