@@ -2,11 +2,8 @@
     <div class="contest-box">
         <div class="flex flex-col md:flex-row">
             <div class="w-full md:w-1/3 p-4">
-                <div class="bg-gray-300 p-4 rounded shadow text-center text-gray-600 text-sm">
-                    <p class="mb-2">[ Vidéo de présentation ici ]</p>
-                    <div class="w-full h-32 bg-gray-400 rounded mb-2"></div>
-                    <p class="text-xs">Simulation d’aperçu du guide</p>
-                </div>
+                <img src="{{ asset('images/comores4pic.webp') }}" alt="Aperçu guide Comores"
+                    style="width: 100%; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.2);">
             </div>
             <div class="w-full md:w-2/3 p-4">
                 <h1 style="font-size: 1.75rem; font-weight: bold; margin-bottom: 0.5rem; color: orange;">🎉 Jeu concours
