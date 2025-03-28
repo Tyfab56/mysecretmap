@@ -37,7 +37,13 @@
 
                 <p class="italic mb-4">Votre choix nous permettra de prioriser notre développement.</p>
 
-                <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                <div class="mb-4">
+                    <label for="email" class="block mb-1 font-semibold">Votre email</label>
+                    <input type="email" id="email" name="email" required
+                        class="w-full px-4 py-2 rounded text-black" placeholder="exemple@domaine.com">
+                </div>
+
+                <button type="submit" class="bg-slate-600 hover:bg-slate-700 text-white font-bold py-2 px-4 rounded">
                     Voter
                 </button>
 
@@ -57,7 +63,7 @@
 </div>
 <style>
     .contest-box {
-        background-color: #1e3a8a;
+        background-color: #39485c;
         color: white;
         padding: 2rem;
         border-radius: 8px;
