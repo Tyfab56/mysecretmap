@@ -13,7 +13,7 @@
                 <h2 style="font-size: 1.125rem; margin-bottom: 1rem; color: orange;">📚 50 guides dans la collection
                     Charly sur l'Islande à gagner</h2>
 
-                <p class="mb-2">Répondez à ces questions :</p>
+                <p class="mb-2">Aidez nous en répondans à cette question :</p>
                 <form method="POST" action="{{ route('comores-contest.submit') }}">
                     @csrf
                     <div style="display: none;">
@@ -28,12 +28,14 @@
                             Un guide des spots des Comores
                         </label>
                         <label style="display: flex; align-items: center;">
-                            <input type="checkbox" name="histoirecomores_answer" value="1" style="margin-right: 8px;">
+                            <input type="checkbox" name="histoirecomores_answer" value="1"
+                                style="margin-right: 8px;">
                             Un guide sur l'Histoire des Comores
 
                         </label>
                         <label style="display: flex; align-items: center;">
-                            <input type="checkbox" name="culturalcomores_answer" value="1" style="margin-right: 8px;">
+                            <input type="checkbox" name="culturalcomores_answer" value="1"
+                                style="margin-right: 8px;">
                             Un guide culturel sur les Comores
                         </label>
                     </div>
@@ -43,7 +45,8 @@
                     <div class="mb-4" style="margin-bottom: 16px;">
                         <label for="email" class="block mb-1 font-semibold">Votre email</label>
                         <input type="email" id="email" name="email" required
-                            style="width: 100%; padding: 8px 16px; border-radius: 4px; color: black;" placeholder="exemple@domaine.com">
+                            style="width: 100%; padding: 8px 16px; border-radius: 4px; color: black;"
+                            placeholder="exemple@domaine.com">
                     </div>
 
                     <button type="submit"
@@ -60,7 +63,8 @@
                     </label>
 
                     <p style="margin-top: 16px;">
-                        📜 <a href="/reglement-concours" style="color: #3b82f6; text-decoration: underline;">Voir le règlement du
+                        📜 <a href="/reglement-concours" style="color: #3b82f6; text-decoration: underline;">Voir le
+                            règlement du
                             concours</a>
                     </p>
                 </form>
