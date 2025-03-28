@@ -25,7 +25,7 @@ class ComoresContestController extends Controller
 
         $validated = $request->validate([
             'email' => 'required|email|unique:comores_contest_entries,email',
-            'optin' => 'nullable|accepted',
+            'optin' => 'boolean',
         ], [
             'email.unique' => 'Cet email a déjà été utilisé pour participer.',
         ]);

@@ -10,8 +10,9 @@
             <div class="w-full md:w-2/3 p-4">
                 <h1 style="font-size: 1.75rem; font-weight: bold; margin-bottom: 0.5rem; color: orange;">🎉 Jeu concours
                     Comores jusqu'au 30 mai</h1>
-                <h2 style="font-size: 1.125rem; margin-bottom: 1rem; color: orange;">📚 50 guides dans la collection
-                    Charly sur l'Islande à gagner</h2>
+                <h2 style="font-size: 1.125rem; margin-bottom: 1rem; color: orange;">📚 50 guides numériques, dans la
+                    collection
+                    Charly sur l'Islande à gagner (29 euros)</h2>
 
                 <p class="mb-2">Aidez nous en répondans à cette question :</p>
                 <form method="POST" action="{{ route('comores-contest.submit') }}">
