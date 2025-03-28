@@ -28,5 +28,11 @@
                 Explorer le guide
             </a>
         </div>
+<!-- Bandeau pour visiter la boutique Shopify -->
+<div style="margin-top: 2rem; text-align: center;">
+    <a href="https://mysecretmap.myshopify.com/" style="display: inline-block; background-color: #ff6f61; color: white; font-weight: bold; padding: 0.5rem 1rem; border-radius: 4px; text-decoration: none;">
+        Visiter notre boutique
+    </a>
+</div>
     </div>
 @endsection
