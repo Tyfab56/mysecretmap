@@ -1,9 +1,10 @@
 <div class="contest-box">
     <div class="flex flex-wrap md:flex-nowrap">
         <div class="w-full md:w-1/3 p-4">
-            <!-- Vidéo ou visuel ici -->
-            <div class="aspect-video bg-gray-200 rounded shadow">
-                <!-- Exemple : <iframe src="..." class="w-full h-full"></iframe> -->
+            <div class="bg-gray-300 p-4 rounded shadow text-center text-gray-600 text-sm">
+                <p class="mb-2">[ Vidéo de présentation ici ]</p>
+                <div class="w-full h-32 bg-gray-400 rounded mb-2"></div>
+                <p class="text-xs">Simulation d’aperçu du guide</p>
             </div>
         </div>
         <div class="w-full md:w-2/3 p-4">
