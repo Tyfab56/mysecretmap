@@ -352,4 +352,8 @@ Route::get('/audioguide_iceland/{any}', function () {
 
 Route::get('/2/home', [IndexController::class, 'index2'])->name('home2');
 Route::get('/2/home2', [IndexController::class, 'index2b'])->name('home2b');
+use App\Http\Controllers\ComoresContestController;
+
+Route::post('/comores-contest-submit', [ComoresContestController::class, 'submit'])->name('comores-contest.submit');
+Route::view('/frontend/comores/thankyou', 'frontend.comores.thankyou')->name('comores-contest.thankyou');
 require __DIR__ . '/auth.php';

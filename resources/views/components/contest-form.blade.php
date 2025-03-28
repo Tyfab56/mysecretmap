@@ -12,6 +12,11 @@
         <p class="mb-2">Répondez à ces questions :</p>
         <form method="POST" action="{{ route('comores-contest.submit') }}">
             @csrf
+            <div style="display: none;">
+                <label>Leave this empty</label>
+                <input type="text" name="website" value="">
+            </div>
+            <input type="hidden" name="submitted_at" value="{{ now()->timestamp }}">
             <div class="space-y-2 mb-4">
                 <label class="flex items-center">
                     <input type="checkbox" name="guidecomores_answer" value="1" class="mr-2">

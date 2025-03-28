@@ -10,6 +10,18 @@ class ComoresContestController extends Controller
 {
     public function submit(Request $request)
     {
+
+        if ($request->filled('website')) {
+            return redirect()->back()->withErrors(['bot' => 'Tentative de bot détectée.']);
+        }
+
+        $now = now()->timestamp;
+        $submittedAt = intval($request->input('submitted_at', 0));
+
+        if ($now - $submittedAt < 5) {
+            return redirect()->back()->withErrors(['bot' => 'Formulaire soumis trop rapidement.']);
+        }
+
         $validated = $request->validate([
             'email' => 'required|email|unique:comores_contest_entries,email',
             'optin' => 'nullable|accepted',
