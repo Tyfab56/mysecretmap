@@ -1,4 +1,3 @@
-<!-- resources/views/thankyou.blade.php -->
 @extends('frontend.main_master')
 @section('content')
     <div class="max-w-4xl mx-auto px-4 py-12">
@@ -11,7 +10,7 @@
             </div>
         @else
             <!-- Message de remerciement -->
-            <div class="bg-green-100 border-l-4 border-green-500 text-green-700 p-6 mb-8 rounded">
+            <div style="background-color: #d1fae5; border-left: 4px solid #22c55e; color: #047857; padding: 1.5rem; margin-bottom: 2rem; border-radius: 4px; text-align: center;">
                 <h1 class="text-2xl font-bold mb-2">🎉 Merci pour votre participation !</h1>
                 <p class="text-lg">Nous avons bien enregistré votre réponse. Restez à l’écoute pour découvrir si vous faites
                     partie des gagnants !</p>
