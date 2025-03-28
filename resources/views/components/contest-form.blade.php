@@ -2,7 +2,7 @@
     <div class="contest-box">
         <div class="flex flex-col md:flex-row">
             <div class="w-full md:w-1/3 p-4">
-                <img src="{{ asset('frontend/assets/images/comores4pic.webp') }}" alt="Aperçu guide Comores"
+                <img src="{{ asset('frontend/assets/images/comores4pics.webp') }}" alt="Aperçu guide Comores"
                     style="width: 100%; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.2);">
             </div>
             <div class="w-full md:w-2/3 p-4">
