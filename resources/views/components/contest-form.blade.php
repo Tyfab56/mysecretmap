@@ -22,45 +22,45 @@
                     </div>
                     <input type="hidden" name="submitted_at" value="{{ now()->timestamp }}">
                     <p class="italic mb-4">Quels guides des Comores devons nous créer ?.</p>
-                    <div class="flex flex-col gap-2 mb-4">
-                        <label class="flex items-center">
-                            <input type="checkbox" name="guidecomores_answer" value="1" class="mr-2">
+                    <div style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 16px;">
+                        <label style="display: flex; align-items: center;">
+                            <input type="checkbox" name="guidecomores_answer" value="1" style="margin-right: 8px;">
                             Un guide des spots des Comores
                         </label>
-                        <label class="flex items-center">
-                            <input type="checkbox" name="histoirecomores_answer" value="1" class="mr-2">
+                        <label style="display: flex; align-items: center;">
+                            <input type="checkbox" name="histoirecomores_answer" value="1" style="margin-right: 8px;">
                             Un guide sur l'Histoire des Comores
 
                         </label>
-                        <label class="flex items-center">
-                            <input type="checkbox" name="culturalcomores_answer" value="1" class="mr-2">
+                        <label style="display: flex; align-items: center;">
+                            <input type="checkbox" name="culturalcomores_answer" value="1" style="margin-right: 8px;">
                             Un guide culturel sur les Comores
                         </label>
                     </div>
 
                     <p class="italic mb-4">Votre choix nous permettra de prioriser notre développement.</p>
 
-                    <div class="mb-4">
+                    <div class="mb-4" style="margin-bottom: 16px;">
                         <label for="email" class="block mb-1 font-semibold">Votre email</label>
                         <input type="email" id="email" name="email" required
-                            class="w-full px-4 py-2 rounded text-black" placeholder="exemple@domaine.com">
+                            style="width: 100%; padding: 8px 16px; border-radius: 4px; color: black;" placeholder="exemple@domaine.com">
                     </div>
 
                     <button type="submit"
-                        class="bg-slate-600 hover:bg-slate-700 text-white font-bold py-2 px-4 rounded">
+                        style="background-color: #4b5563; color: white; font-weight: bold; padding: 8px 16px; border-radius: 4px; cursor: pointer;">
                         Voter
                     </button>
 
-                    <p class="mt-4">Revenez sur cette page pour connaître le résultat ou restez informé sur
+                    <p style="margin-top: 16px;">Revenez sur cette page pour connaître le résultat ou restez informé sur
                         l’opération :
                     </p>
-                    <label class="flex items-center mt-2">
-                        <input type="checkbox" name="optin" value="1" class="mr-2">
+                    <label style="display: flex; align-items: center; margin-top: 8px;">
+                        <input type="checkbox" name="optin" value="1" style="margin-right: 8px;">
                         Oui, je veux rester informé
                     </label>
 
-                    <p class="mt-4">
-                        📜 <a href="/reglement-concours" class="text-blue-500 underline">Voir le règlement du
+                    <p style="margin-top: 16px;">
+                        📜 <a href="/reglement-concours" style="color: #3b82f6; text-decoration: underline;">Voir le règlement du
                             concours</a>
                     </p>
                 </form>
