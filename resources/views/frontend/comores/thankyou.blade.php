@@ -18,8 +18,7 @@
             </div>
         @endif
 
-        <!-- Réinclusion du formulaire -->
-        @include('components.contest-form')
+
 
         <!-- Bandeau pour découvrir le guide sur l'Islande -->
         <div class="mt-12 bg-blue-50 p-6 rounded shadow text-center">
