@@ -48,6 +48,7 @@
                     </div>
                 </div>
             </div>
+            @include('components.contest-form')
             <div class="container">
                 <div class="row mt-2 mb-3">
                     <div class="col-lg-12">
@@ -74,8 +75,8 @@
                                         <label><input type="checkbox" id="3" name="spotType" value="3">
                                             {{ __('destination.Musee') }}</label>
                                         <!--  <label><input type="checkbox" id="4" name="spotType" value="4"> {{ __('destination.Hotel') }}</label>
-                                        <label><input type="checkbox" id="5" name="spotType" value="5"> {{ __('destination.Camping') }}</label>
-                                        <label><input type="checkbox" id="6" name="spotType" value="6"> {{ __('destination.Rental') }}</label>-->
+                                            <label><input type="checkbox" id="5" name="spotType" value="5"> {{ __('destination.Camping') }}</label>
+                                            <label><input type="checkbox" id="6" name="spotType" value="6"> {{ __('destination.Rental') }}</label>-->
                                         <!-- Add more checkboxes as needed -->
                                     </div>
                                     <div class="leaflet-map">
@@ -186,7 +187,7 @@
             <div class="row bgregbox min100">
                 <div class="col-lg-12 col-md-12"><livewire:slider-pictures /></div>
             </div>
-            @include('components.contest-form')
+
             @auth
                 @if (auth()->user()->isPhotographer())
                     <div class="row bgregbox">
