@@ -1,6 +1,6 @@
 <div class="max-w-5xl mx-auto">
     <div class="contest-box">
-        <div class="flex flex-col md:flex-row">
+        <div style="display: flex; flex-direction: column; gap: 1rem;" class="responsive-columns">
             <div class="w-full md:w-1/3 p-4">
                 <div style="height: 100%; display: flex; align-items: center;">
                     <img src="{{ asset('frontend/assets/images/comores4pics.webp') }}" alt="Aperçu guide Comores"
@@ -88,5 +88,11 @@
         border-radius: 8px;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         animation: fadeInUp 0.6s ease-out both;
+    }
+
+    @media (min-width: 768px) {
+        .responsive-columns {
+            flex-direction: row;
+        }
     }
 </style>
