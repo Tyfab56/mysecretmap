@@ -10,7 +10,7 @@ class ComoresContestController extends Controller
 {
     public function submit(Request $request)
     {
-     
+
 
         if ($request->filled('website')) {
             return redirect()->back()->withErrors(['bot' => 'Tentative de bot détectée.']);
@@ -19,7 +19,7 @@ class ComoresContestController extends Controller
         $now = now()->timestamp;
         $submittedAt = intval($request->input('submitted_at', 0));
 
-        if ($now - $submittedAt < 5) {
+        if ($now - $submittedAt < 4) {
             return redirect()->back()->withErrors(['bot' => 'Formulaire soumis trop rapidement.']);
         }
 

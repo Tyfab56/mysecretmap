@@ -62,6 +62,7 @@
                         l’opération :
                     </p>
                     <label style="display: flex; align-items: center; margin-top: 8px;">
+                        <input type="hidden" name="optin" value="0">
                         <input type="checkbox" name="optin" value="1" style="margin-right: 8px;">
                         Oui, je veux rester informé
                     </label>
