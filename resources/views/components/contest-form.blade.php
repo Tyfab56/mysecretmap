@@ -9,8 +9,10 @@
                 </div>
             </div>
             <div class="w-full md:w-2/3 p-4">
-                <h1 style="font-size: 1.75rem; font-weight: bold; margin-bottom: 0.5rem; color: orange;">🎉 Jeu concours Comores jusqu'au 30 mai</h1>
-                <h2 style="font-size: 1.125rem; margin-bottom: 1rem; color: orange;">📚 50 guides dans la collection Charly sur l'Islande à gagner</h2>
+                <h1 style="font-size: 1.75rem; font-weight: bold; margin-bottom: 0.5rem; color: orange;">🎉 Jeu concours
+                    Comores jusqu'au 30 mai</h1>
+                <h2 style="font-size: 1.125rem; margin-bottom: 1rem; color: orange;">📚 50 guides dans la collection
+                    Charly sur l'Islande à gagner</h2>
 
                 <p class="mb-2">Répondez à ces questions :</p>
                 <form method="POST" action="{{ route('comores-contest.submit') }}">
@@ -20,7 +22,7 @@
                         <input type="text" name="website" value="">
                     </div>
                     <input type="hidden" name="submitted_at" value="{{ now()->timestamp }}">
-                    <p class="italic mb-4">Quels guide des comores devons nous créer ?.</p>
+                    <p class="italic mb-4">Quels guides des Comores devons nous créer ?.</p>
                     <div class="flex flex-col gap-2 mb-4">
                         <label class="flex items-center">
                             <input type="checkbox" name="guidecomores_answer" value="1" class="mr-2">
@@ -45,11 +47,13 @@
                             class="w-full px-4 py-2 rounded text-black" placeholder="exemple@domaine.com">
                     </div>
 
-                    <button type="submit" class="bg-slate-600 hover:bg-slate-700 text-white font-bold py-2 px-4 rounded">
+                    <button type="submit"
+                        class="bg-slate-600 hover:bg-slate-700 text-white font-bold py-2 px-4 rounded">
                         Voter
                     </button>
 
-                    <p class="mt-4">Revenez sur cette page pour connaître le résultat ou restez informé sur l’opération :
+                    <p class="mt-4">Revenez sur cette page pour connaître le résultat ou restez informé sur
+                        l’opération :
                     </p>
                     <label class="flex items-center mt-2">
                         <input type="checkbox" name="optin" value="1" class="mr-2">
@@ -57,7 +61,8 @@
                     </label>
 
                     <p class="mt-4">
-                        📜 <a href="/reglement-concours" class="text-blue-500 underline">Voir le règlement du concours</a>
+                        📜 <a href="/reglement-concours" class="text-blue-500 underline">Voir le règlement du
+                            concours</a>
                     </p>
                 </form>
             </div>
@@ -70,6 +75,7 @@
             opacity: 0;
             transform: translateY(20px);
         }
+
         to {
             opacity: 1;
             transform: translateY(0);
