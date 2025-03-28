@@ -24,16 +24,20 @@
                     <p class="italic mb-4">Quels guides des Comores devons nous créer ?.</p>
                     <div style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 16px;">
                         <label style="display: flex; align-items: center;">
+                            <input type="hidden" name="guidecomores_answer" value="0">
+
                             <input type="checkbox" name="guidecomores_answer" value="1" style="margin-right: 8px;">
                             Un guide des spots des Comores
                         </label>
                         <label style="display: flex; align-items: center;">
+                            <input type="hidden" name="guidhistoirecomores_answer" value="0">
                             <input type="checkbox" name="histoirecomores_answer" value="1"
                                 style="margin-right: 8px;">
                             Un guide sur l'Histoire des Comores
 
                         </label>
                         <label style="display: flex; align-items: center;">
+                            <input type="hidden" name="culturalcomores_answer" value="0">
                             <input type="checkbox" name="culturalcomores_answer" value="1"
                                 style="margin-right: 8px;">
                             Un guide culturel sur les Comores
@@ -68,6 +72,15 @@
                             concours</a>
                     </p>
                 </form>
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
             </div>
         </div>
     </div>

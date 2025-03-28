@@ -10,7 +10,7 @@ class ComoresContestController extends Controller
 {
     public function submit(Request $request)
     {
-        dd($request);
+     
 
         if ($request->filled('website')) {
             return redirect()->back()->withErrors(['bot' => 'Tentative de bot détectée.']);
