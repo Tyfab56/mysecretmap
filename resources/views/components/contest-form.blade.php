@@ -1,3 +1,4 @@
+<p>✅ Partial chargé !</p>
 <div class="flex flex-wrap md:flex-nowrap">
     <div class="w-full md:w-1/3 p-4">
         <!-- Vidéo ou visuel ici -->
