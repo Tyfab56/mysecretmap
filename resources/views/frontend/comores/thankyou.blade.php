@@ -1,7 +1,5 @@
 <!-- resources/views/thankyou.blade.php -->
-
-@extends('layouts.app')
-
+@extends('frontend.main_master')
 @section('content')
     <div class="max-w-4xl mx-auto px-4 py-12">
         <!-- Affichage des erreurs -->
