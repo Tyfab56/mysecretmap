@@ -1,4 +1,4 @@
-<div class="bg-blue-900 text-white p-6 rounded-md shadow-md">
+<div class="contest-box">
     <div class="flex flex-wrap md:flex-nowrap">
         <div class="w-full md:w-1/3 p-4">
             <!-- Vidéo ou visuel ici -->
@@ -27,7 +27,7 @@
                     <label class="flex items-center">
                         <input type="checkbox" name="histoirecomores_answer" value="1" class="mr-2">
                         Un guide sur l'Histoire des Comores
-                        
+
                     </label>
                     <label class="flex items-center">
                         <input type="checkbox" name="culturalcomores_answer" value="1" class="mr-2">
@@ -55,3 +55,12 @@
         </div>
     </div>
 </div>
+<style>
+    .contest-box {
+        background-color: #1e3a8a;
+        color: white;
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+</style>
